@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "markitdown-desktop"
+version = "0.1.0"
+description = "Windows document conversion desktop application core"
+requires-python = ">=3.11"
+dependencies = ["psutil>=5.9,<8"]
+
+[project.scripts]
+markitdown-desktop = "desktop_app.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
