@@ -19,8 +19,8 @@ def worker(request, cancel, permit, messages):
             process.nice(psutil.BELOW_NORMAL_PRIORITY_CLASS)
         else:
             process.nice(5)
-        convert_document(request, checkpoint, lambda stage: messages.put(("progress", stage)))
-        messages.put(("completed", ""))
+        summary = convert_document(request, checkpoint, lambda stage: messages.put(("progress", stage)))
+        messages.put(("completed", summary or ""))
     except Cancelled as exc:
         messages.put(("cancelled", str(exc)))
     except Exception as exc:

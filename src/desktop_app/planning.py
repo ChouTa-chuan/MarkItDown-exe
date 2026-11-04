@@ -1,5 +1,5 @@
 """Native text analysis; PDF/OCR analysis must be added with tested engines."""
-from .core import Plan, Request, UnsupportedFormat
+from .core import Plan, Request, UnsupportedFormat, Quality
 from .resources import MIB
 
 
@@ -19,5 +19,8 @@ def analyze(request: Request) -> Plan:
     # Initial conservative estimate, not a hard allocation guarantee. Office
     # archives can expand far beyond on-disk size; monitor the worker too.
     estimate = max(256*MIB, request.source.stat().st_size*12)
+    if suffix == ".pdf" and request.quality == Quality.PRECISE:
+        return Plan(("analyze_pages", "native_or_ocr", "atomic_export"), estimate,
+                    "PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。")
     return Plan(("markitdown_local", "atomic_export"), estimate,
                 "使用本機 MarkItDown 解析；尚未加入掃描 OCR 與精準版面重試。")

@@ -1,0 +1,4 @@
+# Build tools are resolved into separate platform hash locks.
+hatchling>=1.26
+setuptools>=68
+pyinstaller>=6,<7

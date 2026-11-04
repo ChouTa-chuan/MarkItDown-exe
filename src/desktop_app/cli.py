@@ -6,7 +6,7 @@ from threading import Event
 import signal
 
 from .application import Runner
-from .core import Request, State
+from .core import Request, State, Quality
 from .settings import Settings, load_settings
 
 
@@ -15,6 +15,7 @@ def main():
     parser.add_argument("source", type=Path)
     parser.add_argument("destination", type=Path)
     parser.add_argument("--settings", type=Path, help="載入版本化的 JSON 資源設定")
+    parser.add_argument("--quality", choices=[quality.value for quality in Quality], default="precise")
     parser.add_argument("--ram-budget-mib", type=int)
     parser.add_argument("--reserve-mib", type=int)
     parser.add_argument("--resource-wait-seconds", type=float)
@@ -30,7 +31,7 @@ def main():
                                   else args.resource_wait_seconds,
         )
         runner = Runner(settings.policy(), max_resource_wait=settings.resource_wait_seconds)
-        result = runner.run(Request(args.source, args.destination), cancel,
+        result = runner.run(Request(args.source, args.destination, Quality(args.quality)), cancel,
                             lambda state, message: print(f"{state.value}: {message}"))
         print(f"{result.state.value}: {result.message}")
         return 0 if result.state == State.COMPLETED else 1

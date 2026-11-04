@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-04",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 31,
-  "headline": "原生文件轉換已驗證，桌面 MVP 已可操作",
-  "blocker": "GitHub／PyPI 已可透過核准的執行方式存取。待完成：Windows 實機驗收、自動精準 OCR／版面模型、GPU 與安裝包。",
-  "next": "先完成 Windows 建置與依賴重現驗證，再擴充 PDF 逐頁分析、OCR、表格與品質比較；GPU 隨模型整合驗證。",
+  "tests_passed": 44,
+  "headline": "PDF 自動分析與繁中 OCR 已驗證，進入 Windows 建置準備",
+  "blocker": "目前無 Windows 執行器或實體 NVIDIA 顯卡；Windows 建置／實機與 GPU 尚待驗證。OCR 仍需外部 Tesseract，尚未完成安裝包整合。",
+  "next": "驗證 Windows 手動建置流程；補強真實複雜版面與掃描品質樣本，接續模型管理 UI 及 GPU 後端。",
   "milestones": [
     {
       "id": "m0",
@@ -89,12 +89,12 @@
     {
       "id": "m3",
       "title": "自動精準流程",
-      "state": "pending",
-      "description": "設計已記錄；PDF 逐頁判斷與品質模型尚未實作。",
+      "state": "active",
+      "description": "逐頁路由、CPU OCR、簡單表格／雙欄與品質提醒已測；深度版面及複雜表格待完成。",
       "checks": [
         {
           "label": "逐頁分析與自動路由",
-          "done": false
+          "done": true
         },
         {
           "label": "OCR、版面與表格引擎",
@@ -102,23 +102,23 @@
         },
         {
           "label": "品質提醒與有界重試",
-          "done": false
+          "done": true
         },
         {
-          "label": "與原版樣本比較",
-          "done": false
+          "label": "與原版掃描樣本比較（初步）",
+          "done": true
         }
       ]
     },
     {
       "id": "m4",
       "title": "GPU 與模型",
-      "state": "pending",
-      "description": "優先 NVIDIA；GPU 推論與支援矩陣尚未驗證。",
+      "state": "active",
+      "description": "已提供 CPU OCR 模型固定版本下載與雜湊驗證；CUDA 尚未整合。",
       "checks": [
         {
           "label": "模型下載、版本與完整性",
-          "done": false
+          "done": true
         },
         {
           "label": "CUDA 與顯示記憶體管理",
@@ -134,7 +134,7 @@
       "id": "m5",
       "title": "發佈準備",
       "state": "pending",
-      "description": "尚無 Windows 安裝包；未發布應用程式。",
+      "description": "Windows 雜湊鎖定、建置腳本與手動 CI 已保存；Windows 產物、簽章與安裝包未驗證。",
       "checks": [
         {
           "label": "Windows 建置與安裝包",
@@ -157,7 +157,7 @@
       "title": "桌面介面",
       "layer": "介面",
       "state": "partial",
-      "detail": "Qt 檔案清單、拖放、RAM 設定、取消與預覽已實作；Windows 實測待完成。",
+      "detail": "加入快速／精準選擇及逐頁狀態；Windows 實測待完成。",
       "evidence": "tests/test_desktop.py：Linux 離屏操作流程"
     },
     {
@@ -181,15 +181,15 @@
       "title": "自動分析",
       "layer": "處理",
       "state": "partial",
-      "detail": "僅辨識 txt/md 原生解析；PDF／OCR 自動路由未完成。",
-      "evidence": "src/desktop_app/planning.py"
+      "detail": "PDF 逐頁判斷原生／掃描／空白及異常文字；複雜版面分類待完成。",
+      "evidence": "tests/test_pdf_pipeline.py：混合頁與路由"
     },
     {
       "id": "converters",
       "title": "格式轉換",
       "layer": "處理",
       "state": "partial",
-      "detail": "本機 MarkItDown 原始碼已接入；Office／HTML／文字型 PDF 樣本通過，OCR 未整合。",
+      "detail": "Office／HTML／PDF 已驗證，PDF 精準模式加入本機 OCR、表格及雙欄啟發式。",
       "evidence": "tests/test_formats.py：5 種格式整合測試"
     },
     {
@@ -220,17 +220,17 @@
       "id": "inference",
       "title": "模型與 GPU",
       "layer": "處理",
-      "state": "pending",
-      "detail": "OCR、版面、表格模型及裝置後端待建立。",
-      "evidence": "尚未執行模型測試"
+      "state": "partial",
+      "detail": "本機 Tesseract 繁中／英文 OCR 與固定模型驗證可用；GPU 尚無。",
+      "evidence": "繁中／英文掃描實際辨識測試"
     },
     {
       "id": "quality",
       "title": "品質檢查",
       "layer": "輸出",
-      "state": "pending",
-      "detail": "來源定位、品質提醒與有限重試待建立。",
-      "evidence": "尚無 PDF／OCR 樣本比較"
+      "state": "partial",
+      "detail": "頁碼與提醒、OCR 最多兩輪、逾時及原版樣本比較；真實資料集待擴充。",
+      "evidence": "OCR 無結果、重試上限及基線比較測試"
     },
     {
       "id": "exporters",
@@ -242,7 +242,7 @@
     }
   ],
   "limits": [
-    "已支援原生 Office／HTML／文字型 PDF 與 UTF-8 txt/md；掃描 OCR、自動精準與 GPU 尚未實作。",
+    "CPU OCR、簡單表格／雙欄已驗證；深度版面、任意區域 OCR、GPU 及完整零安裝 OCR 包尚未完成。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"

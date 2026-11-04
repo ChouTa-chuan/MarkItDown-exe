@@ -11,3 +11,10 @@ a complete distribution license inventory. Before shipping an installer,
 generate the complete inventory, preserve notices, and assess Qt/PySide6
 LGPLv3/GPLv3/commercial terms for the chosen packaging approach. No installer
 or distribution compliance claim is made by this development checkpoint.
+
+Optional local OCR models: tesseract-ocr/tessdata_fast
+Commit: 87416418657359cb625c412a48b6e1d6d41c29bd
+License: Apache-2.0. The official license is downloaded and SHA-256 checked
+alongside the models; model files are not included in this source repository.
+Source and hashes: docs/ocr-models.json. Tesseract executable is external and
+is not bundled in the current development build.

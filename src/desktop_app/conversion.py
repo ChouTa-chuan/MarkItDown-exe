@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 import tempfile
 
-from .core import Request
+from .core import Request, Quality
 
 
 def convert_text(request: Request, checkpoint, progress=lambda stage: None):
@@ -20,6 +20,12 @@ def convert_text(request: Request, checkpoint, progress=lambda stage: None):
 def convert_document(request: Request, checkpoint, progress=lambda stage: None):
     if request.source.suffix.lower() in {".txt", ".md"}:
         return convert_text(request, checkpoint, progress)
+    if request.source.suffix.lower() == ".pdf" and request.quality == Quality.PRECISE:
+        from .pdf_pipeline import pdf_chunks
+        reports = []
+        _write_chunks(request, pdf_chunks(request.source, checkpoint, progress, reports), checkpoint, progress)
+        warnings = sum(len(report["warnings"]) for report in reports)
+        return f"逐頁分析 {len(reports)} 頁，OCR {sum(r['route'] == 'ocr' for r in reports)} 頁，品質提醒 {warnings} 項。"
     checkpoint()
     progress("載入本機轉換器")
     from markitdown import MarkItDown
@@ -54,5 +60,7 @@ def _write_chunks(request, chunks, checkpoint, progress):
         # explicitly instead of falling back to overwriting existing output.
         os.link(temporary, destination)
     finally:
+        if hasattr(chunks, "close"):
+            chunks.close()
         if temporary is not None:
             temporary.unlink(missing_ok=True)

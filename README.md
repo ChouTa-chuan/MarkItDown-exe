@@ -2,11 +2,14 @@
 
 目前為開發中的 Windows 桌面應用程式，已整合 Microsoft MarkItDown 官方原始碼。
 原生 Word／Excel／PowerPoint／HTML／文字型 PDF 與 UTF-8 txt/md 已通過 Linux 樣本驗證。
-Qt 桌面原型已可操作；Windows 實測、掃描 OCR、自動精準分析及 GPU 尚未完成。
+Qt 原型已可操作；PDF 精準模式加入逐頁判斷、CPU OCR、基本表格及雙欄處理。
+Windows 實測、完整精準版面模型及 GPU 尚未完成。
 
 - [產品與架構指引](docs/architecture-guide.md)
 - [開發進度](docs/development-status.md)
 - [互動進度頁：里程碑／模組架構](docs/progress.html)（可下載後離線開啟）
+- [精準 PDF 與 OCR](docs/precise-pdf.md)
+- [依賴鎖定與 Windows 建置](docs/packaging.md)
 
 ## 本機開發驗證
 
@@ -28,16 +31,18 @@ PYTHONPATH=src python -m desktop_app.cli input.txt output.md
 完整開發依賴與桌面啟動（專案根目錄）：
 
 ```bash
-python -m pip install './vendor/markitdown[docx,pptx,xlsx,pdf]' '.[desktop,test-formats]'
+python -m pip install './vendor/markitdown[docx,pptx,xlsx,pdf]' '.[desktop,precise,test-formats]'
 python -m desktop_app.desktop
 python -m unittest discover -s tests -v
 ```
 
 Linux 無桌面時以 `QT_QPA_PLATFORM=offscreen` 執行測試。未安裝 GUI／格式依賴時相關測試會明確跳過，不代表整合通過。CLI 可加 `--settings preferences.json` 載入版本化 RAM 設定，命令列參數優先。
 
-目前 CLI 是開發工具。轉換使用獨立 spawn 程序，低優先權與 RAM 回壓；文字可串流，Office/PDF 原生引擎尚不能逐頁協作暫停。等待逾時明確失敗。RAM 為軟性預算，不保證瞬時上限。輸出目的地須支援同磁碟硬連結（例如 NTFS），不支援時明確失敗。Windows 相容性仍須實測。
+CLI 可加 `--quality precise`（預設）或 `--quality fast`。掃描 OCR 另需本機 Tesseract 與模型，詳見 OCR 文件。
 
-目前依賴是範圍宣告，尚未完成可重現的鎖定與正式安裝包。上游 MIT 已保留；全部依賴、Qt 打包與未來模型的授權清單尚需完成。
+轉換使用獨立 spawn 程序、低優先權與 RAM 回壓；PDF 精準模式在頁面之間可暫停，Office／單頁解析及 OCR 原生步驟仍不能即時釋放記憶體。RAM 是軟性預算，不保證瞬時上限。輸出須支援同磁碟硬連結（例如 NTFS），不支援時明確失敗。
+
+已有 Linux／Windows Python 3.12 雜湊鎖定檔，乾淨 Linux 安裝與測試已驗證；Windows 安裝、建置與完整安裝包待驗證。上游 MIT 已保留，全部依賴與 Qt 打包授權清單尚需完成。
 
 ## 更新進度頁
 

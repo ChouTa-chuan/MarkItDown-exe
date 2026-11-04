@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-11-04T15:14:33.635778+08:00",
+  "platform": "Linux x86_64 / Python 3.12",
+  "environment": "clean virtual environment; system-site-packages disabled",
+  "tests": {
+    "run": 44,
+    "passed": 44,
+    "skipped": 0,
+    "failed": 0
+  },
+  "command": "TESSDATA_PREFIX=<verified model directory> QT_QPA_PLATFORM=offscreen python -m unittest discover -s tests -v",
+  "native_prerequisites": [
+    "Tesseract 5.5.0",
+    "verified chi_tra + eng data",
+    "Noto CJK / DejaVu test fonts"
+  ],
+  "windows_executed": false,
+  "gpu_executed": false,
+  "linux_frozen_smoke": {
+    "passed": true,
+    "checks": [
+      "Chinese UTF-8 text byte comparison",
+      "native PDF text conversion with source page routing"
+    ]
+  },
+  "windows_workflow": "saved and statically checked; not executed"
+}

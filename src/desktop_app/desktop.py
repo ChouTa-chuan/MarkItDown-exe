@@ -5,12 +5,12 @@ from threading import Event
 
 from PySide6.QtCore import QThread, Signal, QStandardPaths
 from PySide6.QtGui import QCloseEvent, QDragEnterEvent, QDropEvent
-from PySide6.QtWidgets import (QApplication, QCheckBox, QFileDialog, QFormLayout,
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFileDialog, QFormLayout,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow, QMessageBox, QPushButton,
     QSpinBox, QTextBrowser, QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
 
 from .application import Runner
-from .core import Request, State
+from .core import Request, State, Quality
 from .settings import Settings, load_settings, save_settings
 
 
@@ -18,18 +18,19 @@ class BatchThread(QThread):
     event = Signal(int, str, str)
     converted = Signal(str)
 
-    def __init__(self, sources, directory, settings, parent=None):
+    def __init__(self, sources, directory, settings, quality=Quality.PRECISE, parent=None):
         super().__init__(parent)
         self.sources = sources
         self.directory = directory
         self.settings = settings
+        self.quality = quality
         self.cancel = Event()
 
     def run(self):
         runner = Runner(self.settings.policy(), max_resource_wait=self.settings.resource_wait_seconds)
         try:
             for index, source in enumerate(self.sources):
-                request = Request(source, self.directory / (source.name + ".md"))
+                request = Request(source, self.directory / (source.name + ".md"), self.quality)
                 outcome = runner.run(request, self.cancel,
                     lambda state, message, i=index: self.event.emit(i, state.value, message))
                 self.event.emit(index, outcome.state.value, outcome.message)
@@ -57,7 +58,7 @@ class Window(QMainWindow):
         self.setCentralWidget(container)
         layout = QVBoxLayout(container)
         layout.addWidget(QLabel("本機文件轉 Markdown｜Office / 文字型 PDF / HTML / UTF-8 文字"))
-        layout.addWidget(QLabel("目前使用原生解析；自動精準分析、掃描 OCR 與 GPU 尚未開放。"))
+        layout.addWidget(QLabel("PDF 精準模式自動逐頁分析與 OCR；OCR 需另備 Tesseract。GPU 尚未開放。"))
         toolbar = QHBoxLayout()
         self.add_button = QPushButton("新增檔案／拖放")
         self.add_button.clicked.connect(self.choose_files)
@@ -80,6 +81,10 @@ class Window(QMainWindow):
         self.directory_button = choose_output
         layout.addLayout(output_row)
         form = QFormLayout()
+        self.quality = QComboBox()
+        self.quality.addItem("精準：PDF 自動分析／OCR", Quality.PRECISE.value)
+        self.quality.addItem("快速：原生 MarkItDown", Quality.FAST.value)
+        form.addRow("轉換模式", self.quality)
         self.auto_budget = QCheckBox("自動規劃 RAM（系統優先）")
         self.auto_budget.setChecked(True)
         self.budget = QSpinBox()
@@ -180,7 +185,8 @@ class Window(QMainWindow):
             self.status.setText("請加入文件並選擇輸出資料夾。")
             return
         self.preview.clear()
-        self.job = BatchThread(list(self.sources), Path(self.output.text().strip()), self.preferences(), self)
+        self.job = BatchThread(list(self.sources), Path(self.output.text().strip()), self.preferences(),
+                               Quality(self.quality.currentData()), self)
         self.job.event.connect(self.on_event)
         self.job.converted.connect(self.show_preview)
         self.job.finished.connect(self.on_finished)
@@ -191,7 +197,7 @@ class Window(QMainWindow):
 
     def set_running(self, running):
         for widget in [self.add_button, self.clear_button, self.start_button, self.directory_button,
-                       self.output, self.auto_budget, self.reserve, self.save_button]:
+                       self.output, self.auto_budget, self.reserve, self.save_button, self.quality]:
             widget.setEnabled(not running)
         self.budget.setEnabled(not running and not self.auto_budget.isChecked())
         self.cancel_button.setEnabled(running)
