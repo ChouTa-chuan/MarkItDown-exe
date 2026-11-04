@@ -30,7 +30,8 @@ class BatchThread(QThread):
         runner = Runner(self.settings.policy(), max_resource_wait=self.settings.resource_wait_seconds)
         try:
             for index, source in enumerate(self.sources):
-                request = Request(source, self.directory / (source.name + ".md"), self.quality)
+                request = Request(source, self.directory / (source.name + ".md"), self.quality,
+                                  self.settings.ocr_executable, self.settings.ocr_data_dir)
                 outcome = runner.run(request, self.cancel,
                     lambda state, message, i=index: self.event.emit(i, state.value, message))
                 self.event.emit(index, outcome.state.value, outcome.message)
@@ -97,9 +98,28 @@ class Window(QMainWindow):
         self.reserve.setRange(0, 2147483647)
         self.reserve.setValue(2048)
         self.reserve.setSuffix(" MiB")
+        self.ocr_engine = QLineEdit()
+        self.ocr_engine.setPlaceholderText("留空自動偵測，或選擇 Tesseract 執行檔")
+        engine_row = QHBoxLayout()
+        engine_row.addWidget(self.ocr_engine)
+        self.engine_button = QPushButton("選擇引擎")
+        self.engine_button.clicked.connect(self.choose_engine)
+        engine_row.addWidget(self.engine_button)
+        self.model_path = QLineEdit()
+        self.model_path.setPlaceholderText("留空使用 Tesseract 預設語言目錄")
+        model_row = QHBoxLayout()
+        model_row.addWidget(self.model_path)
+        self.model_directory_button = QPushButton("選擇目錄")
+        self.model_directory_button.clicked.connect(self.choose_model_directory)
+        model_row.addWidget(self.model_directory_button)
+        self.models_button = QPushButton("模型管理")
+        self.models_button.clicked.connect(self.manage_models)
+        model_row.addWidget(self.models_button)
         form.addRow(self.auto_budget)
         form.addRow("手動 RAM 預算", self.budget)
         form.addRow("系統保留 RAM", self.reserve)
+        form.addRow("OCR 引擎", engine_row)
+        form.addRow("OCR 模型目錄", model_row)
         layout.addLayout(form)
         buttons = QHBoxLayout()
         self.save_button = QPushButton("儲存資源設定")
@@ -133,12 +153,33 @@ class Window(QMainWindow):
                 self.budget.setValue(saved.ram_budget_mib)
             self.reserve.setValue(saved.reserve_mib)
             self.wait_seconds = saved.resource_wait_seconds
+            self.ocr_engine.setText(saved.ocr_executable or "")
+            self.model_path.setText(saved.ocr_data_dir or "")
         except (OSError, ValueError) as exc:
             self.status.setText(f"設定未載入：{exc}；原檔未變更。")
 
     def preferences(self):
         return Settings(ram_budget_mib=None if self.auto_budget.isChecked() else self.budget.value(),
-                        reserve_mib=self.reserve.value(), resource_wait_seconds=self.wait_seconds)
+                        reserve_mib=self.reserve.value(), resource_wait_seconds=self.wait_seconds,
+                        ocr_executable=self.ocr_engine.text().strip() or None,
+                        ocr_data_dir=self.model_path.text().strip() or None)
+
+    def choose_engine(self):
+        path, _ = QFileDialog.getOpenFileName(self, "選擇 Tesseract 執行檔")
+        if path:
+            self.ocr_engine.setText(path)
+
+    def manage_models(self):
+        from .model_dialog import ModelDialog
+        directory = Path(self.model_path.text().strip()) if self.model_path.text().strip() else self.settings_path.parent / "models/tesseract"
+        dialog = ModelDialog(directory, self)
+        dialog.installed.connect(self.model_path.setText)
+        dialog.exec()
+
+    def choose_model_directory(self):
+        directory = QFileDialog.getExistingDirectory(self, "選擇 OCR 模型目錄")
+        if directory:
+            self.model_path.setText(directory)
 
     def save_preferences(self):
         try:
@@ -197,7 +238,9 @@ class Window(QMainWindow):
 
     def set_running(self, running):
         for widget in [self.add_button, self.clear_button, self.start_button, self.directory_button,
-                       self.output, self.auto_budget, self.reserve, self.save_button, self.quality]:
+                       self.output, self.auto_budget, self.reserve, self.save_button, self.quality,
+                       self.ocr_engine, self.engine_button, self.model_path, self.models_button,
+                       self.model_directory_button]:
             widget.setEnabled(not running)
         self.budget.setEnabled(not running and not self.auto_budget.isChecked())
         self.cancel_button.setEnabled(running)

@@ -29,9 +29,11 @@ def main():
             reserve_mib=saved.reserve_mib if args.reserve_mib is None else args.reserve_mib,
             resource_wait_seconds=saved.resource_wait_seconds if args.resource_wait_seconds is None
                                   else args.resource_wait_seconds,
+            ocr_executable=saved.ocr_executable, ocr_data_dir=saved.ocr_data_dir,
         )
         runner = Runner(settings.policy(), max_resource_wait=settings.resource_wait_seconds)
-        result = runner.run(Request(args.source, args.destination, Quality(args.quality)), cancel,
+        result = runner.run(Request(args.source, args.destination, Quality(args.quality),
+                                    settings.ocr_executable, settings.ocr_data_dir), cancel,
                             lambda state, message: print(f"{state.value}: {message}"))
         print(f"{result.state.value}: {result.message}")
         return 0 if result.state == State.COMPLETED else 1

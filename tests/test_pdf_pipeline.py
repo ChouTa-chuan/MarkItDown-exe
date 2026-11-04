@@ -94,6 +94,19 @@ class PdfPipelineTests(unittest.TestCase):
         self.assertIn("會議紀錄", compact)
         self.assertIn("OCR 1 頁", summary)
 
+    @unittest.skipUnless(shutil.which("tesseract"), "Tesseract not installed")
+    def test_explicit_paths_work_without_environment_variable(self):
+        data_dir = os.environ.get("TESSDATA_PREFIX")
+        if not data_dir:
+            self.skipTest("Explicit model directory not configured for integration test")
+        self.make_scan()
+        with patch.dict(os.environ):
+            os.environ.pop("TESSDATA_PREFIX", None)
+            request = Request(self.source, self.destination, ocr_executable=shutil.which("tesseract"),
+                              ocr_data_dir=data_dir)
+            convert_document(request, lambda: None)
+        self.assertIn("DOCUMENT SCAN TEST", self.destination.read_text(encoding="utf-8"))
+
     def test_missing_ocr_engine_fails_without_partial_output(self):
         self.make_scan()
         with patch("desktop_app.pdf_pipeline.shutil.which", return_value=None):

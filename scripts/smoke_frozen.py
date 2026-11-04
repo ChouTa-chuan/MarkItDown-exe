@@ -8,6 +8,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("executable", type=Path)
 args = parser.parse_args()
 executable = args.executable.resolve()
+subprocess.run([str(executable), "--verify-model-manifest"], check=True, timeout=30)
 with tempfile.TemporaryDirectory() as directory:
     root = Path(directory)
     source = root / "中文來源.txt"

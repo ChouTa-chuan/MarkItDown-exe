@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-04",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 44,
-  "headline": "PDF 自動分析與繁中 OCR 已驗證，進入 Windows 建置準備",
+  "tests_passed": 57,
+  "headline": "OCR 模型管理已整合桌面，減少手動設定",
   "blocker": "目前無 Windows 執行器或實體 NVIDIA 顯卡；Windows 建置／實機與 GPU 尚待驗證。OCR 仍需外部 Tesseract，尚未完成安裝包整合。",
-  "next": "驗證 Windows 手動建置流程；補強真實複雜版面與掃描品質樣本，接續模型管理 UI 及 GPU 後端。",
+  "next": "整合 Windows OCR 原生元件與驗收環境；接續 GPU 後端及真實複雜文件品質評測。",
   "milestones": [
     {
       "id": "m0",
@@ -114,7 +114,7 @@
       "id": "m4",
       "title": "GPU 與模型",
       "state": "active",
-      "description": "已提供 CPU OCR 模型固定版本下載與雜湊驗證；CUDA 尚未整合。",
+      "description": "桌面可下載、驗證、取消與移除 CPU OCR 模型，設定引擎及目錄；CUDA 尚未整合。",
       "checks": [
         {
           "label": "模型下載、版本與完整性",
@@ -157,7 +157,7 @@
       "title": "桌面介面",
       "layer": "介面",
       "state": "partial",
-      "detail": "加入快速／精準選擇及逐頁狀態；Windows 實測待完成。",
+      "detail": "桌面可設定 OCR 引擎／目錄及模型管理，無須環境變數；Windows 實測待完成。",
       "evidence": "tests/test_desktop.py：Linux 離屏操作流程"
     },
     {
@@ -213,16 +213,16 @@
       "title": "設定儲存",
       "layer": "支援",
       "state": "verified",
-      "detail": "schema v1、原子儲存、錯誤保護及 CLI 載入；驗證限 Linux。",
-      "evidence": "tests/test_settings.py"
+      "detail": "schema v2 保存 OCR 路徑與 RAM，支援 v1 遷移；驗證限 Linux。",
+      "evidence": "tests/test_settings.py：遷移與路徑往返"
     },
     {
       "id": "inference",
       "title": "模型與 GPU",
       "layer": "處理",
       "state": "partial",
-      "detail": "本機 Tesseract 繁中／英文 OCR 與固定模型驗證可用；GPU 尚無。",
-      "evidence": "繁中／英文掃描實際辨識測試"
+      "detail": "CPU OCR 模型已有桌面管理、下載取消、完整性與移除保護；GPU 尚無。",
+      "evidence": "tests/test_models.py、test_desktop.py 及真實 HTTPS 下載驗證"
     },
     {
       "id": "quality",

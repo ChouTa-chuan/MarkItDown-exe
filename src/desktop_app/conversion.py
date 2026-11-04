@@ -23,7 +23,8 @@ def convert_document(request: Request, checkpoint, progress=lambda stage: None):
     if request.source.suffix.lower() == ".pdf" and request.quality == Quality.PRECISE:
         from .pdf_pipeline import pdf_chunks
         reports = []
-        _write_chunks(request, pdf_chunks(request.source, checkpoint, progress, reports), checkpoint, progress)
+        _write_chunks(request, pdf_chunks(request.source, checkpoint, progress, reports,
+                                         request.ocr_executable, request.ocr_data_dir), checkpoint, progress)
         warnings = sum(len(report["warnings"]) for report in reports)
         return f"逐頁分析 {len(reports)} 頁，OCR {sum(r['route'] == 'ocr' for r in reports)} 頁，品質提醒 {warnings} 項。"
     checkpoint()

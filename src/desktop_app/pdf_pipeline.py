@@ -31,11 +31,12 @@ def decide_page(number, text, image_coverage):
     return PageDecision(number, "native", tuple(warnings))
 
 
-def _run_ocr(image, checkpoint, progress, dpi):
-    executable = shutil.which("tesseract")
+def _run_ocr(image, checkpoint, progress, dpi, executable=None, data_dir=None):
+    executable = executable or shutil.which("tesseract")
     if not executable:
         raise RuntimeError("本頁需要 OCR，但找不到 Tesseract；請安裝 OCR 元件後重試。")
-    languages = subprocess.run([executable, "--list-langs"], capture_output=True,
+    data_args = ["--tessdata-dir", data_dir] if data_dir else []
+    languages = subprocess.run([executable, "--list-langs", *data_args], capture_output=True,
                                text=True, timeout=10, check=True).stdout.splitlines()[1:]
     languages = {name.strip() for name in languages}
     selected = "+".join(name for name in ("chi_tra", "eng") if name in languages)
@@ -51,7 +52,7 @@ def _run_ocr(image, checkpoint, progress, dpi):
             prepared.close()
         target = Path(directory) / "recognized"
         command = [executable, str(source), str(target), "-l", selected,
-                   "--dpi", str(dpi), "--psm", "3"]
+                   "--dpi", str(dpi), "--psm", "3", *data_args]
         # Redirect to files so verbose native output cannot fill a PIPE and
         # deadlock cancellation. Do not record the recognized document in logs.
         with (Path(directory) / "stderr.txt").open("w+b") as errors:
@@ -149,7 +150,7 @@ def _native_columns(page, text):
     return text, None
 
 
-def pdf_chunks(source, checkpoint, progress, reports):
+def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=None):
     import pdfplumber
     import pypdfium2
     renderer = None
@@ -175,7 +176,8 @@ def pdf_chunks(source, checkpoint, progress, reports):
                             checkpoint()
                             image, actual_dpi = _render(renderer, index, dpi)
                             try:
-                                recognized, warning = _run_ocr(image, checkpoint, progress, actual_dpi)
+                                recognized, warning = _run_ocr(image, checkpoint, progress, actual_dpi,
+                                                               executable, data_dir)
                             finally:
                                 image.close()
                             if warning and warning not in warnings:

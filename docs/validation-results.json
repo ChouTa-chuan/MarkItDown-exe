@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-04T15:14:33.635778+08:00",
+  "recorded_at": "2026-11-04T15:46:45.169007+08:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 44,
-    "passed": 44,
+    "run": 57,
+    "passed": 57,
     "skipped": 0,
     "failed": 0
   },
@@ -20,8 +20,15 @@
     "passed": true,
     "checks": [
       "Chinese UTF-8 text byte comparison",
-      "native PDF text conversion with source page routing"
+      "native PDF text conversion with source page routing",
+      "embedded OCR manifest loaded without checkout docs"
     ]
   },
-  "windows_workflow": "saved and statically checked; not executed"
+  "windows_workflow": "saved and statically checked; not executed",
+  "model_manager": {
+    "actual_https_download": true,
+    "verified_files": 3,
+    "explicit_ocr_paths_without_environment": true,
+    "schema_v1_migration": true
+  }
 }

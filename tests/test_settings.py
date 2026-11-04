@@ -29,10 +29,10 @@ class SettingsTests(unittest.TestCase):
         self.assertEqual(list(self.path.parent.glob(".settings-*")), [])
 
     def test_future_version_not_overwritten(self):
-        self.path.write_text('{"schema_version": 2}')
+        self.path.write_text('{"schema_version": 99}')
         with self.assertRaises(ValueError):
             load_settings(self.path)
-        self.assertEqual(json.loads(self.path.read_text())["schema_version"], 2)
+        self.assertEqual(json.loads(self.path.read_text())["schema_version"], 99)
 
     def test_bad_values(self):
         for kwargs in [{"ram_budget_mib": True}, {"reserve_mib": -1},
@@ -55,3 +55,17 @@ class SettingsTests(unittest.TestCase):
         self.path.write_text(" "*65537)
         with self.assertRaises(ValueError):
             load_settings(self.path)
+
+    def test_v1_migrates_without_modifying_original(self):
+        raw = '{"schema_version":1,"ram_budget_mib":768}'
+        self.path.write_text(raw)
+        saved = load_settings(self.path)
+        self.assertEqual(saved.schema_version, 2)
+        self.assertEqual(saved.ram_budget_mib, 768)
+        self.assertIsNone(saved.ocr_data_dir)
+        self.assertEqual(self.path.read_text(), raw)
+
+    def test_ocr_paths_round_trip(self):
+        settings = Settings(ocr_executable="C:/OCR/tesseract.exe", ocr_data_dir="C:/中文模型")
+        save_settings(settings, self.path)
+        self.assertEqual(load_settings(self.path), settings)

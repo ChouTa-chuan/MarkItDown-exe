@@ -11,13 +11,15 @@ from .resources import MIB, Policy
 
 @dataclass(frozen=True)
 class Settings:
-    schema_version: int = 1
+    schema_version: int = 2
     ram_budget_mib: int | None = None
     reserve_mib: int = 2048
     resource_wait_seconds: float = 30.0
+    ocr_executable: str | None = None
+    ocr_data_dir: str | None = None
 
     def __post_init__(self):
-        if type(self.schema_version) is not int or self.schema_version != 1:
+        if type(self.schema_version) is not int or self.schema_version != 2:
             raise ValueError("不支援的設定版本，請勿以舊版程式覆寫。")
         if self.ram_budget_mib is not None and (
                 type(self.ram_budget_mib) is not int or self.ram_budget_mib <= 0):
@@ -27,6 +29,9 @@ class Settings:
         wait = self.resource_wait_seconds
         if type(wait) not in (int, float) or not math.isfinite(wait) or wait < 0:
             raise ValueError("等待時間須為有限的非負秒數。")
+        for value in (self.ocr_executable, self.ocr_data_dir):
+            if value is not None and (not isinstance(value, str) or not value.strip() or "\x00" in value):
+                raise ValueError("OCR 路徑須為非空字串或 null。")
 
     def policy(self) -> Policy:
         return Policy(budget=None if self.ram_budget_mib is None else self.ram_budget_mib*MIB,
@@ -47,6 +52,8 @@ def load_settings(path: Path) -> Settings:
         raise ValueError("設定包含不支援的欄位：" + ", ".join(sorted(unknown)))
     if "schema_version" not in content:
         raise ValueError("設定檔缺少 schema_version。")
+    if type(content["schema_version"]) is int and content["schema_version"] == 1:
+        content = {**content, "schema_version": 2}
     return Settings(**content)
 
 

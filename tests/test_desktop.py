@@ -63,3 +63,31 @@ class DesktopTests(unittest.TestCase):
         self.window.start()
         self.assertIsNone(self.window.job)
         self.assertIn("請加入文件", self.window.status.text())
+
+    def test_ocr_configuration_saved(self):
+        from desktop_app.settings import load_settings
+        self.window.ocr_engine.setText("C:/OCR/tesseract.exe")
+        self.window.model_path.setText("C:/模型")
+        self.window.save_preferences()
+        settings = load_settings(self.root/"settings.json")
+        self.assertEqual(settings.ocr_data_dir, "C:/模型")
+
+    def test_model_dialog_cached_install(self):
+        from desktop_app.model_dialog import ModelDialog
+        from unittest.mock import patch
+        import hashlib
+        directory = self.root / "models"
+        directory.mkdir()
+        (directory / "eng.traineddata").write_bytes(b"fixture")
+        spec = {"source":"test", "commit":"test", "license":"test",
+                "files":{"eng.traineddata":hashlib.sha256(b"fixture").hexdigest()}}
+        with patch("desktop_app.models.manifest", return_value=spec):
+            dialog = ModelDialog(directory)
+            installed = []
+            dialog.installed.connect(installed.append)
+            dialog.start()
+            self.assertTrue(dialog.job.wait(5000))
+            self.app.processEvents()
+            self.assertEqual(installed, [str(directory)])
+            self.assertTrue(dialog.download.isEnabled())
+            dialog.close()

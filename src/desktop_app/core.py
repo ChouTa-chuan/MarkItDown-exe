@@ -22,6 +22,8 @@ class Request:
     source: Path
     destination: Path
     quality: Quality = Quality.PRECISE
+    ocr_executable: str | None = None
+    ocr_data_dir: str | None = None
 
 
 @dataclass(frozen=True)

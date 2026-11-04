@@ -3,6 +3,7 @@
 目前為開發中的 Windows 桌面應用程式，已整合 Microsoft MarkItDown 官方原始碼。
 原生 Word／Excel／PowerPoint／HTML／文字型 PDF 與 UTF-8 txt/md 已通過 Linux 樣本驗證。
 Qt 原型已可操作；PDF 精準模式加入逐頁判斷、CPU OCR、基本表格及雙欄處理。
+桌面「模型管理」支援下載／驗證、取消、移除；可儲存 OCR 引擎與模型目錄，不用設定環境變數。
 Windows 實測、完整精準版面模型及 GPU 尚未完成。
 
 - [產品與架構指引](docs/architecture-guide.md)

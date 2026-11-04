@@ -30,3 +30,5 @@ python scripts/smoke_frozen.py dist/MarkItDownDesktop/MarkItDownDesktop
 ```
 
 spec 蒐集 Magika 模型、MarkItDown 子模組及 metadata；Linux 產物不能當成 Windows EXE，也不能證明顯卡相容性。
+
+OCR 模型來源及雜湊清單隨套件保存在 desktop_app/data/ocr-models.json，不再依賴原始碼目錄的 docs。打包驗證會呼叫執行檔的開發檢查模式，確認該資源可讀取；模型本體仍由使用者在模型管理視窗明確啟動下載。

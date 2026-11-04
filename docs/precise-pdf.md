@@ -16,7 +16,11 @@ OCR 使用本機 Tesseract，優先 chi_tra+eng，缺少繁中模型時提醒。
 python scripts/fetch_ocr_models.py /path/to/tessdata
 ```
 
-下載約 6.4 MB 官方固定版本繁中／英文模型與 Apache-2.0 授權，使用 HTTPS 與固定 SHA-256 驗證；既有錯誤檔不靜默覆寫。將 TESSDATA_PREFIX 設為該目錄。尚無應用內下載／移除 UI，Windows 包也尚未包含 OCR 原生元件。
+下載約 6.4 MB 官方固定版本繁中／英文模型與 Apache-2.0 授權，使用 HTTPS 與固定 SHA-256 驗證；既有錯誤檔不靜默覆寫。桌面「模型管理」也可下載、驗證、取消及移除，並顯示來源、版本、授權與目錄。移除只處理未修改的受管理檔，保留其他檔案。
+
+可在桌面指定 Tesseract 引擎與模型目錄後儲存，不需設定環境變數。下載成功會填入模型目錄；設定 schema v2 可讀取 v1 並在下次明確儲存時升級，不修改尚未儲存的舊檔。CLI 載入相同設定檔也可使用。開發用途仍可設定 TESSDATA_PREFIX。
+
+下載使用背景執行緒，支援取消，每次網路等待上限約 10 秒；已完成的有效模型可重用，中斷的暫存會清理。模型清單隨 Python 套件及 PyInstaller 包保存於 desktop_app/data，啟動不自動下載。Windows 包仍尚未包含 OCR 原生元件。
 
 ## 驗證範圍
 

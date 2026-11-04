@@ -8,6 +8,7 @@ hiddenimports += collect_submodules("markitdown")
 for package in ("markitdown", "magika", "mammoth", "pdfplumber", "python-pptx", "openpyxl"):
     datas += copy_metadata(package)
 datas += [(str(root / "THIRD_PARTY_NOTICES"), "."),
+          (str(root / "src/desktop_app/data/ocr-models.json"), "desktop_app/data"),
           (str(root / "vendor/markitdown/LICENSE"), "licenses/markitdown")]
 analysis = Analysis([str(root / "packaging/desktop_entry.py")],
     pathex=[str(root / "src")], binaries=binaries, datas=datas,
