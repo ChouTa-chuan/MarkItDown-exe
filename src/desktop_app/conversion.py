@@ -21,6 +21,8 @@ def convert_document(request: Request, checkpoint, progress=lambda stage: None):
     if request.source.suffix.lower() in {".txt", ".md"}:
         return convert_text(request, checkpoint, progress)
     if request.source.suffix.lower() == ".pdf" and request.quality == Quality.PRECISE:
+        from .devices import ocr_backend
+        progress("運算裝置：" + ocr_backend(request.device))
         from .pdf_pipeline import pdf_chunks
         reports = []
         _write_chunks(request, pdf_chunks(request.source, checkpoint, progress, reports,

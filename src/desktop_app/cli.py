@@ -16,6 +16,8 @@ def main():
     parser.add_argument("destination", type=Path)
     parser.add_argument("--settings", type=Path, help="載入版本化的 JSON 資源設定")
     parser.add_argument("--quality", choices=[quality.value for quality in Quality], default="precise")
+    parser.add_argument("--device", choices=["auto", "cpu", "gpu"])
+    parser.add_argument("--cpu-threads", type=int)
     parser.add_argument("--ram-budget-mib", type=int)
     parser.add_argument("--reserve-mib", type=int)
     parser.add_argument("--resource-wait-seconds", type=float)
@@ -30,10 +32,13 @@ def main():
             resource_wait_seconds=saved.resource_wait_seconds if args.resource_wait_seconds is None
                                   else args.resource_wait_seconds,
             ocr_executable=saved.ocr_executable, ocr_data_dir=saved.ocr_data_dir,
+            device=saved.device if args.device is None else args.device,
+            cpu_threads=saved.cpu_threads if args.cpu_threads is None else args.cpu_threads,
         )
         runner = Runner(settings.policy(), max_resource_wait=settings.resource_wait_seconds)
         result = runner.run(Request(args.source, args.destination, Quality(args.quality),
-                                    settings.ocr_executable, settings.ocr_data_dir), cancel,
+                                    settings.ocr_executable, settings.ocr_data_dir,
+                                    settings.device, settings.cpu_threads), cancel,
                             lambda state, message: print(f"{state.value}: {message}"))
         print(f"{result.state.value}: {result.message}")
         return 0 if result.state == State.COMPLETED else 1

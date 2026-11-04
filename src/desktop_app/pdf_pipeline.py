@@ -57,7 +57,7 @@ def _run_ocr(image, checkpoint, progress, dpi, executable=None, data_dir=None):
         # deadlock cancellation. Do not record the recognized document in logs.
         with (Path(directory) / "stderr.txt").open("w+b") as errors:
             child = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=errors,
-                                     env={**os.environ, "OMP_THREAD_LIMIT": "1"})
+                                     env={**os.environ, "OMP_THREAD_LIMIT": os.environ.get("OMP_THREAD_LIMIT", "1")})
             started = time.monotonic()
             try:
                 while child.poll() is None:

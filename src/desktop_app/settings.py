@@ -11,15 +11,17 @@ from .resources import MIB, Policy
 
 @dataclass(frozen=True)
 class Settings:
-    schema_version: int = 2
+    schema_version: int = 3
     ram_budget_mib: int | None = None
     reserve_mib: int = 2048
     resource_wait_seconds: float = 30.0
     ocr_executable: str | None = None
     ocr_data_dir: str | None = None
+    device: str = "auto"
+    cpu_threads: int = 1
 
     def __post_init__(self):
-        if type(self.schema_version) is not int or self.schema_version != 2:
+        if type(self.schema_version) is not int or self.schema_version != 3:
             raise ValueError("不支援的設定版本，請勿以舊版程式覆寫。")
         if self.ram_budget_mib is not None and (
                 type(self.ram_budget_mib) is not int or self.ram_budget_mib <= 0):
@@ -32,6 +34,10 @@ class Settings:
         for value in (self.ocr_executable, self.ocr_data_dir):
             if value is not None and (not isinstance(value, str) or not value.strip() or "\x00" in value):
                 raise ValueError("OCR 路徑須為非空字串或 null。")
+        if self.device not in ("auto", "cpu", "gpu"):
+            raise ValueError("運算裝置須為 auto、cpu 或 gpu。")
+        if type(self.cpu_threads) is not int or not 1 <= self.cpu_threads <= 256:
+            raise ValueError("CPU 執行緒上限須為 1 至 256 的整數。")
 
     def policy(self) -> Policy:
         return Policy(budget=None if self.ram_budget_mib is None else self.ram_budget_mib*MIB,
@@ -52,8 +58,8 @@ def load_settings(path: Path) -> Settings:
         raise ValueError("設定包含不支援的欄位：" + ", ".join(sorted(unknown)))
     if "schema_version" not in content:
         raise ValueError("設定檔缺少 schema_version。")
-    if type(content["schema_version"]) is int and content["schema_version"] == 1:
-        content = {**content, "schema_version": 2}
+    if type(content["schema_version"]) is int and content["schema_version"] in (1, 2):
+        content = {**content, "schema_version": 3}
     return Settings(**content)
 
 

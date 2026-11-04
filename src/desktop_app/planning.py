@@ -4,6 +4,10 @@ from .resources import MIB
 
 
 def analyze(request: Request) -> Plan:
+    if request.device not in ("auto", "cpu", "gpu"):
+        raise ValueError("不支援的運算裝置設定。")
+    if type(request.cpu_threads) is not int or not 1 <= request.cpu_threads <= 256:
+        raise ValueError("CPU 執行緒上限須介於 1 至 256。")
     if not request.source.is_file():
         raise FileNotFoundError(request.source)
     suffix = request.source.suffix.lower()
@@ -20,6 +24,8 @@ def analyze(request: Request) -> Plan:
     # archives can expand far beyond on-disk size; monitor the worker too.
     estimate = max(256*MIB, request.source.stat().st_size*12)
     if suffix == ".pdf" and request.quality == Quality.PRECISE:
+        from .devices import ocr_backend
+        ocr_backend(request.device)
         return Plan(("analyze_pages", "native_or_ocr", "atomic_export"), estimate,
                     "PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。")
     return Plan(("markitdown_local", "atomic_export"), estimate,

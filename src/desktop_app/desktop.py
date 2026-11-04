@@ -31,7 +31,8 @@ class BatchThread(QThread):
         try:
             for index, source in enumerate(self.sources):
                 request = Request(source, self.directory / (source.name + ".md"), self.quality,
-                                  self.settings.ocr_executable, self.settings.ocr_data_dir)
+                                  self.settings.ocr_executable, self.settings.ocr_data_dir,
+                                  self.settings.device, self.settings.cpu_threads)
                 outcome = runner.run(request, self.cancel,
                     lambda state, message, i=index: self.event.emit(i, state.value, message))
                 self.event.emit(index, outcome.state.value, outcome.message)
@@ -86,6 +87,23 @@ class Window(QMainWindow):
         self.quality.addItem("精準：PDF 自動分析／OCR", Quality.PRECISE.value)
         self.quality.addItem("快速：原生 MarkItDown", Quality.FAST.value)
         form.addRow("轉換模式", self.quality)
+        device_row = QHBoxLayout()
+        self.device = QComboBox()
+        self.device.addItem("自動（目前 OCR 使用 CPU）", "auto")
+        self.device.addItem("僅用 CPU", "cpu")
+        self.device.addItem("GPU（待整合模型後端）", "gpu")
+        self.device.model().item(2).setEnabled(False)
+        self.device.setToolTip("GPU 項目須經模型推論驗證後開放，偵測到顯卡不代表已有加速。")
+        device_row.addWidget(self.device)
+        self.device_button = QPushButton("裝置診斷")
+        self.device_button.clicked.connect(self.diagnose_devices)
+        device_row.addWidget(self.device_button)
+        form.addRow("運算裝置", device_row)
+        self.cpu_threads = QSpinBox()
+        self.cpu_threads.setRange(1, 256)
+        self.cpu_threads.setValue(1)
+        self.cpu_threads.setToolTip("限制支援 OpenMP／BLAS 的工作程序；不是整個系統的 CPU 百分比上限。")
+        form.addRow("CPU 執行緒上限", self.cpu_threads)
         self.auto_budget = QCheckBox("自動規劃 RAM（系統優先）")
         self.auto_budget.setChecked(True)
         self.budget = QSpinBox()
@@ -155,6 +173,8 @@ class Window(QMainWindow):
             self.wait_seconds = saved.resource_wait_seconds
             self.ocr_engine.setText(saved.ocr_executable or "")
             self.model_path.setText(saved.ocr_data_dir or "")
+            self.device.setCurrentIndex(self.device.findData(saved.device))
+            self.cpu_threads.setValue(saved.cpu_threads)
         except (OSError, ValueError) as exc:
             self.status.setText(f"設定未載入：{exc}；原檔未變更。")
 
@@ -162,7 +182,13 @@ class Window(QMainWindow):
         return Settings(ram_budget_mib=None if self.auto_budget.isChecked() else self.budget.value(),
                         reserve_mib=self.reserve.value(), resource_wait_seconds=self.wait_seconds,
                         ocr_executable=self.ocr_engine.text().strip() or None,
-                        ocr_data_dir=self.model_path.text().strip() or None)
+                        ocr_data_dir=self.model_path.text().strip() or None,
+                        device=self.device.currentData(), cpu_threads=self.cpu_threads.value())
+
+    def diagnose_devices(self):
+        from .device_dialog import DeviceDialog
+        dialog = DeviceDialog(self)
+        dialog.exec()
 
     def choose_engine(self):
         path, _ = QFileDialog.getOpenFileName(self, "選擇 Tesseract 執行檔")
@@ -240,7 +266,7 @@ class Window(QMainWindow):
         for widget in [self.add_button, self.clear_button, self.start_button, self.directory_button,
                        self.output, self.auto_budget, self.reserve, self.save_button, self.quality,
                        self.ocr_engine, self.engine_button, self.model_path, self.models_button,
-                       self.model_directory_button]:
+                       self.model_directory_button, self.device, self.device_button, self.cpu_threads]:
             widget.setEnabled(not running)
         self.budget.setEnabled(not running and not self.auto_budget.isChecked())
         self.cancel_button.setEnabled(running)

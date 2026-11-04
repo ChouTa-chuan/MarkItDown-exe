@@ -60,7 +60,7 @@ class SettingsTests(unittest.TestCase):
         raw = '{"schema_version":1,"ram_budget_mib":768}'
         self.path.write_text(raw)
         saved = load_settings(self.path)
-        self.assertEqual(saved.schema_version, 2)
+        self.assertEqual(saved.schema_version, 3)
         self.assertEqual(saved.ram_budget_mib, 768)
         self.assertIsNone(saved.ocr_data_dir)
         self.assertEqual(self.path.read_text(), raw)
@@ -69,3 +69,10 @@ class SettingsTests(unittest.TestCase):
         settings = Settings(ocr_executable="C:/OCR/tesseract.exe", ocr_data_dir="C:/中文模型")
         save_settings(settings, self.path)
         self.assertEqual(load_settings(self.path), settings)
+
+    def test_v2_migration_preserves_paths(self):
+        self.path.write_text('{"schema_version":2,"ocr_data_dir":"C:/models"}')
+        saved = load_settings(self.path)
+        self.assertEqual(saved.schema_version, 3)
+        self.assertEqual(saved.ocr_data_dir, 'C:/models')
+        self.assertEqual(saved.cpu_threads, 1)

@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-04T15:46:45.169007+08:00",
+  "recorded_at": "2026-11-04T16:53:50.945398+08:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 57,
-    "passed": 57,
+    "run": 66,
+    "passed": 66,
     "skipped": 0,
     "failed": 0
   },
@@ -30,5 +30,14 @@
     "verified_files": 3,
     "explicit_ocr_paths_without_environment": true,
     "schema_v1_migration": true
+  },
+  "devices": {
+    "observed_nvidia_cards": 0,
+    "providers": [
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "gpu_inference_verified": false,
+    "cpu_thread_configuration_verified": true
   }
 }

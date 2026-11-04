@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-04",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 57,
-  "headline": "OCR 模型管理已整合桌面，減少手動設定",
+  "tests_passed": 66,
+  "headline": "裝置診斷與 CPU 執行緒設定已加入；GPU 推論尚未開放",
   "blocker": "目前無 Windows 執行器或實體 NVIDIA 顯卡；Windows 建置／實機與 GPU 尚待驗證。OCR 仍需外部 Tesseract，尚未完成安裝包整合。",
-  "next": "整合 Windows OCR 原生元件與驗收環境；接續 GPU 後端及真實複雜文件品質評測。",
+  "next": "整合可驗證的 GPU 模型後端與 VRAM 預算；繼續 Windows 原生 OCR 包及實機驗收。",
   "milestones": [
     {
       "id": "m0",
@@ -114,7 +114,7 @@
       "id": "m4",
       "title": "GPU 與模型",
       "state": "active",
-      "description": "桌面可下載、驗證、取消與移除 CPU OCR 模型，設定引擎及目錄；CUDA 尚未整合。",
+      "description": "已提供裝置診斷、CPU 執行緒與模型管理；目前無 GPU 模型後端，CUDA／回退待驗證。",
       "checks": [
         {
           "label": "模型下載、版本與完整性",
@@ -157,7 +157,7 @@
       "title": "桌面介面",
       "layer": "介面",
       "state": "partial",
-      "detail": "桌面可設定 OCR 引擎／目錄及模型管理，無須環境變數；Windows 實測待完成。",
+      "detail": "可查詢顯卡並設定 CPU 執行緒，GPU 選項明確停用；Windows 實測待完成。",
       "evidence": "tests/test_desktop.py：Linux 離屏操作流程"
     },
     {
@@ -197,7 +197,7 @@
       "title": "資源調度",
       "layer": "支援",
       "state": "partial",
-      "detail": "RAM 預算與遲滯已測；GPU、CPU 執行緒及硬限待完成。",
+      "detail": "RAM 回壓與 CPU 原生執行緒上限已測；VRAM 預算及硬限尚未完成。",
       "evidence": "tests/test_core.py"
     },
     {
@@ -213,7 +213,7 @@
       "title": "設定儲存",
       "layer": "支援",
       "state": "verified",
-      "detail": "schema v2 保存 OCR 路徑與 RAM，支援 v1 遷移；驗證限 Linux。",
+      "detail": "schema v3 保存裝置、CPU 執行緒、OCR 路徑及 RAM，支援 v1／v2 遷移。",
       "evidence": "tests/test_settings.py：遷移與路徑往返"
     },
     {
@@ -221,7 +221,7 @@
       "title": "模型與 GPU",
       "layer": "處理",
       "state": "partial",
-      "detail": "CPU OCR 模型已有桌面管理、下載取消、完整性與移除保護；GPU 尚無。",
+      "detail": "CPU OCR 及裝置診斷可用；GPU provider 清單不代表模型推論已驗證。",
       "evidence": "tests/test_models.py、test_desktop.py 及真實 HTTPS 下載驗證"
     },
     {

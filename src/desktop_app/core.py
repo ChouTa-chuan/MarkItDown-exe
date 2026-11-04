@@ -24,6 +24,8 @@ class Request:
     quality: Quality = Quality.PRECISE
     ocr_executable: str | None = None
     ocr_data_dir: str | None = None
+    device: str = "auto"
+    cpu_threads: int = 1
 
 
 @dataclass(frozen=True)

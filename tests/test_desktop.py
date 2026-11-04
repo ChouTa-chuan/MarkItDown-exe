@@ -72,6 +72,16 @@ class DesktopTests(unittest.TestCase):
         settings = load_settings(self.root/"settings.json")
         self.assertEqual(settings.ocr_data_dir, "C:/模型")
 
+    def test_device_and_cpu_controls_saved(self):
+        from desktop_app.settings import load_settings
+        self.window.device.setCurrentIndex(self.window.device.findData('cpu'))
+        self.window.cpu_threads.setValue(2)
+        self.window.save_preferences()
+        saved = load_settings(self.root/'settings.json')
+        self.assertEqual(saved.device, 'cpu')
+        self.assertEqual(saved.cpu_threads, 2)
+        self.assertFalse(self.window.device.model().item(2).isEnabled())
+
     def test_model_dialog_cached_install(self):
         from desktop_app.model_dialog import ModelDialog
         from unittest.mock import patch
