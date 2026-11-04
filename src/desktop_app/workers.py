@@ -1,7 +1,7 @@
 """Spawn-compatible worker; resource decisions remain in the controller."""
 import os
 import psutil
-from .conversion import convert_text
+from .conversion import convert_document
 from .core import Cancelled
 
 
@@ -19,7 +19,7 @@ def worker(request, cancel, permit, messages):
             process.nice(psutil.BELOW_NORMAL_PRIORITY_CLASS)
         else:
             process.nice(5)
-        convert_text(request, checkpoint, lambda stage: messages.put(("progress", stage)))
+        convert_document(request, checkpoint, lambda stage: messages.put(("progress", stage)))
         messages.put(("completed", ""))
     except Cancelled as exc:
         messages.put(("cancelled", str(exc)))

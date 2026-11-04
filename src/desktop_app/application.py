@@ -2,6 +2,7 @@
 import multiprocessing as mp
 from queue import Empty
 import time
+import math
 from dataclasses import dataclass
 from threading import Event
 
@@ -21,7 +22,7 @@ class Outcome:
 class Runner:
     def __init__(self, policy: Policy, read_snapshot=snapshot, poll_seconds=0.1,
                  max_resource_wait=30.0):
-        if poll_seconds <= 0 or max_resource_wait < 0:
+        if not math.isfinite(poll_seconds) or not math.isfinite(max_resource_wait) or poll_seconds <= 0 or max_resource_wait < 0:
             raise ValueError("輪詢時間必須大於零，等待上限不得為負值。")
         self.policy = policy
         self.read_snapshot = read_snapshot

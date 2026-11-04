@@ -1,0 +1,13 @@
+Microsoft MarkItDown 0.1.9
+Source: https://github.com/microsoft/markitdown
+Commit: 7482c092d9c0074a89803c9fdb63a969e7fe17fc
+License: MIT; full text is preserved in vendor/markitdown/LICENSE.
+The selected upstream runtime source is preserved without modifications.
+Per-file SHA-256 hashes are recorded in vendor/markitdown/UPSTREAM.json.
+
+The application adapter is maintained separately in src/desktop_app.
+Runtime dependencies and PySide6 have separate licenses; this notice is not
+a complete distribution license inventory. Before shipping an installer,
+generate the complete inventory, preserve notices, and assess Qt/PySide6
+LGPLv3/GPLv3/commercial terms for the chosen packaging approach. No installer
+or distribution compliance claim is made by this development checkpoint.

@@ -1,0 +1,250 @@
+{
+  "updated": "2026-11-04",
+  "environment": "Linux · Python 3.12",
+  "tests_passed": 31,
+  "headline": "原生文件轉換已驗證，桌面 MVP 已可操作",
+  "blocker": "GitHub／PyPI 已可透過核准的執行方式存取。待完成：Windows 實機驗收、自動精準 OCR／版面模型、GPU 與安裝包。",
+  "next": "先完成 Windows 建置與依賴重現驗證，再擴充 PDF 逐頁分析、OCR、表格與品質比較；GPU 隨模型整合驗證。",
+  "milestones": [
+    {
+      "id": "m0",
+      "title": "規格與調查",
+      "state": "active",
+      "description": "已取得官方原始碼、MIT 授權與雜湊基線；模型及 Windows 打包仍待驗證。",
+      "checks": [
+        {
+          "label": "產品需求與模組責任文件",
+          "done": true
+        },
+        {
+          "label": "上游提交與 MIT 授權來源",
+          "done": true
+        },
+        {
+          "label": "模型與 Windows 打包可行性",
+          "done": false
+        },
+        {
+          "label": "資源量測原型（Linux）",
+          "done": true
+        }
+      ]
+    },
+    {
+      "id": "m1",
+      "title": "核心轉換",
+      "state": "verified",
+      "description": "文字、Word、Excel、PowerPoint、HTML 與文字型 PDF 已完成 Linux 代表性轉換。",
+      "checks": [
+        {
+          "label": "任務與轉換計畫契約",
+          "done": true
+        },
+        {
+          "label": "獨立程序、取消與批次隔離",
+          "done": true
+        },
+        {
+          "label": "RAM 回壓、暫停與恢復",
+          "done": true
+        },
+        {
+          "label": "UTF-8 文字串流與輸出保護",
+          "done": true
+        },
+        {
+          "label": "Office／PDF 代表性轉換",
+          "done": true
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "title": "桌面 MVP",
+      "state": "active",
+      "description": "桌面新增／拖放、批次、RAM 設定與預覽已實作，文字流程通過 Linux 離屏測試。",
+      "checks": [
+        {
+          "label": "版本化 RAM 設定持久化",
+          "done": true
+        },
+        {
+          "label": "Qt 視窗、拖放與設定介面",
+          "done": true
+        },
+        {
+          "label": "進度、取消與預覽介面",
+          "done": true
+        },
+        {
+          "label": "Linux 桌面文字流程驗收",
+          "done": true
+        },
+        {
+          "label": "Windows 實機桌面驗收",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": "m3",
+      "title": "自動精準流程",
+      "state": "pending",
+      "description": "設計已記錄；PDF 逐頁判斷與品質模型尚未實作。",
+      "checks": [
+        {
+          "label": "逐頁分析與自動路由",
+          "done": false
+        },
+        {
+          "label": "OCR、版面與表格引擎",
+          "done": false
+        },
+        {
+          "label": "品質提醒與有界重試",
+          "done": false
+        },
+        {
+          "label": "與原版樣本比較",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": "m4",
+      "title": "GPU 與模型",
+      "state": "pending",
+      "description": "優先 NVIDIA；GPU 推論與支援矩陣尚未驗證。",
+      "checks": [
+        {
+          "label": "模型下載、版本與完整性",
+          "done": false
+        },
+        {
+          "label": "CUDA 與顯示記憶體管理",
+          "done": false
+        },
+        {
+          "label": "CPU 回退及實機負載驗證",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": "m5",
+      "title": "發佈準備",
+      "state": "pending",
+      "description": "尚無 Windows 安裝包；未發布應用程式。",
+      "checks": [
+        {
+          "label": "Windows 建置與安裝包",
+          "done": false
+        },
+        {
+          "label": "乾淨 Windows 與顯卡驗收",
+          "done": false
+        },
+        {
+          "label": "授權清單與使用說明",
+          "done": false
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "ui",
+      "title": "桌面介面",
+      "layer": "介面",
+      "state": "partial",
+      "detail": "Qt 檔案清單、拖放、RAM 設定、取消與預覽已實作；Windows 實測待完成。",
+      "evidence": "tests/test_desktop.py：Linux 離屏操作流程"
+    },
+    {
+      "id": "application",
+      "title": "應用服務",
+      "layer": "協調",
+      "state": "partial",
+      "detail": "順序批次、失敗隔離與有限等待；未有持久化佇列。",
+      "evidence": "tests/test_core.py"
+    },
+    {
+      "id": "core",
+      "title": "核心契約",
+      "layer": "協調",
+      "state": "partial",
+      "detail": "任務、狀態及計畫已建立；統一文件結構待擴充。",
+      "evidence": "src/desktop_app/core.py"
+    },
+    {
+      "id": "planning",
+      "title": "自動分析",
+      "layer": "處理",
+      "state": "partial",
+      "detail": "僅辨識 txt/md 原生解析；PDF／OCR 自動路由未完成。",
+      "evidence": "src/desktop_app/planning.py"
+    },
+    {
+      "id": "converters",
+      "title": "格式轉換",
+      "layer": "處理",
+      "state": "partial",
+      "detail": "本機 MarkItDown 原始碼已接入；Office／HTML／文字型 PDF 樣本通過，OCR 未整合。",
+      "evidence": "tests/test_formats.py：5 種格式整合測試"
+    },
+    {
+      "id": "resources",
+      "title": "資源調度",
+      "layer": "支援",
+      "state": "partial",
+      "detail": "RAM 預算與遲滯已測；GPU、CPU 執行緒及硬限待完成。",
+      "evidence": "tests/test_core.py"
+    },
+    {
+      "id": "workers",
+      "title": "背景程序",
+      "layer": "支援",
+      "state": "partial",
+      "detail": "spawn、低優先權與協作取消；Windows 實測待完成。",
+      "evidence": "真實 Linux spawn 與暫停／恢復測試"
+    },
+    {
+      "id": "settings",
+      "title": "設定儲存",
+      "layer": "支援",
+      "state": "verified",
+      "detail": "schema v1、原子儲存、錯誤保護及 CLI 載入；驗證限 Linux。",
+      "evidence": "tests/test_settings.py"
+    },
+    {
+      "id": "inference",
+      "title": "模型與 GPU",
+      "layer": "處理",
+      "state": "pending",
+      "detail": "OCR、版面、表格模型及裝置後端待建立。",
+      "evidence": "尚未執行模型測試"
+    },
+    {
+      "id": "quality",
+      "title": "品質檢查",
+      "layer": "輸出",
+      "state": "pending",
+      "detail": "來源定位、品質提醒與有限重試待建立。",
+      "evidence": "尚無 PDF／OCR 樣本比較"
+    },
+    {
+      "id": "exporters",
+      "title": "結果輸出",
+      "layer": "輸出",
+      "state": "partial",
+      "detail": "文字排他提交可用；圖片與 HTML 表格待完成。",
+      "evidence": "覆寫競態及暫存清理測試"
+    }
+  ],
+  "limits": [
+    "已支援原生 Office／HTML／文字型 PDF 與 UTF-8 txt/md；掃描 OCR、自動精準與 GPU 尚未實作。",
+    "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
+    "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
+    "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
+  ]
+}

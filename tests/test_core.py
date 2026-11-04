@@ -119,9 +119,9 @@ class CoreTests(unittest.TestCase):
         outcomes = list(self.runner().batch([missing, self.request]))
         self.assertEqual([x.state for x in outcomes], [State.FAILED, State.COMPLETED])
 
-    def test_pdf_fails_explicitly(self):
-        source = self.root / "sample.pdf"
-        source.write_bytes(b"%PDF")
+    def test_unknown_format_fails_explicitly(self):
+        source = self.root / "sample.unknown"
+        source.write_bytes(b"unknown")
         with self.assertRaises(UnsupportedFormat):
             analyze(Request(source, self.destination))
 
