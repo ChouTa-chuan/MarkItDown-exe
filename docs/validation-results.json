@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-05T08:02:06.382753+00:00",
+  "recorded_at": "2026-11-05T08:36:44.407315+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 148,
-    "passed": 147,
+    "run": 153,
+    "passed": 152,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -35,7 +35,7 @@
       "four public upstream PDFs: all character counts, exact sparse cells, money signs, page/order targets"
     ]
   },
-  "windows_workflow": "saved and statically checked; not executed",
+  "windows_workflow": "Manual-only Windows 2022 folder/installer/lifecycle workflow saved; not executed",
   "model_manager": {
     "actual_https_download": true,
     "verified_files": 3,
@@ -125,5 +125,29 @@
     "frozen_report": "layout-frozen-results.json",
     "automatic_cross_page_merging": false,
     "all_images_and_charts_reconstructed": false
-  }
+  },
+  "windows_preparation": {
+    "installer_source_implemented": true,
+    "per_user_install": true,
+    "installer_lifecycle_script": true,
+    "no_external_python_verifier": true,
+    "linux_powershell_checks_passed": 9,
+    "powershell_version": "7.6.9",
+    "windows_executed": false,
+    "native_installer_built": false,
+    "clean_machine_accepted": false,
+    "gpu_executed": false,
+    "powershell_5_1_executed": false,
+    "tooling_report": "windows-tooling-results.json",
+    "remaining_checks_closed": 0
+  },
+  "installation_self_test": {
+    "linux_frozen_passed": true,
+    "checks_passed": 5,
+    "external_tools_on_path": false,
+    "external_python_required": false,
+    "report": "installation-self-test-linux.json",
+    "windows_executed": false
+  },
+  "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained"
 }

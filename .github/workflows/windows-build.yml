@@ -1,22 +1,49 @@
 name: Windows development build
 on:
   workflow_dispatch:
+    inputs:
+      build_installer:
+        description: Build and test the development installer on Windows
+        type: boolean
+        default: true
 permissions:
   contents: read
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2022
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Check build and manifest tooling
+        shell: pwsh
+        run: ./scripts/check_windows_tooling.ps1 -ReportPath dist/reports/windows-tooling.json
       - name: Test and build folder executable
         shell: pwsh
-        run: ./packaging/build-windows.ps1
+        run: ./packaging/build-windows.ps1 -BuildInstaller:([bool]::Parse('${{ inputs.build_installer }}'))
+      - name: Install, verify and uninstall preview
+        if: inputs.build_installer
+        shell: pwsh
+        run: |
+          $setup = @(Get-ChildItem dist/installer/MarkItDownDesktop-Setup-*-windows-x64.exe)
+          if ($setup.Count -ne 1) { throw 'Expected one development installer.' }
+          ./packaging/test-windows-installer.ps1 -SetupFile $setup[0].FullName -ReportDirectory dist/reports/installer-lifecycle
       - uses: actions/upload-artifact@v4
         with:
           name: MarkItDownDesktop-windows-development
           path: dist/MarkItDownDesktop/
           if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: inputs.build_installer
+        with:
+          name: MarkItDownDesktop-installer-development
+          path: dist/installer/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MarkItDownDesktop-validation-reports
+          path: dist/reports/
+          if-no-files-found: warn

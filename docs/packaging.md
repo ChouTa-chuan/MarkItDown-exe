@@ -16,11 +16,13 @@ QT_QPA_PLATFORM=offscreen TESSDATA_PREFIX=/path/to/tessdata /path/to/clean-venv/
 
 ## Windows
 
-PowerShell 執行 packaging/build-windows.ps1，檢查 Windows／Python 3.12、建立隔離環境、按雜湊安裝、驗證上游、安裝本機來源、執行測試及 PyInstaller，再以打包執行檔完成文字／PDF 轉換。預期輸出 dist/MarkItDownDesktop。
+PowerShell 執行 packaging/build-windows.ps1，檢查 Windows／Python 3.12 x64、重新建立受管理的 .venv-build 隔離環境、按雜湊安裝、驗證上游及授權、安裝本機來源、執行測試及 PyInstaller，再以打包執行檔完成轉換與內建自我檢查。預期輸出 dist/MarkItDownDesktop；勿將個人資料放在受管理的 .venv-build、build、dist 目錄。
 
-GitHub Actions windows-build.yml 僅手動觸發，不建立 Release、不推送或發布環境。尚未執行 Windows 流程；保存腳本不等於 Windows 建置成功，需同步儲存庫及 Windows 執行器。
+GitHub Actions windows-build.yml 僅手動觸發，不建立 Release、不推送或發布環境。預設還會編譯 Inno Setup 預覽安裝包，安裝、驗收並解除安裝，保存報告；尚未實際執行 Windows 流程。詳見 [Windows 驗收流程與待辦](windows-acceptance.md)。
 
-這是開發用資料夾執行檔，尚非安裝精靈，未簽章、未乾淨 Windows 驗收，也未包含 OCR 原生元件及模型。發佈前須完整依賴授權、Qt LGPL、OCR 及模型再散布檢查；目前 notice 不是完整合規清單。
+目前只有已驗證的 Linux 資料夾執行檔，以及未經 Windows 執行的安裝精靈來源。未簽章、未乾淨 Windows 驗收。ONNX 模型隨選配套件打包；Tesseract 原生元件未整合，Tesseract 模型由模型管理下載。58 套件授權清單已驗證，但最終 Windows 原生二進位／Qt 發佈義務仍須在建置後審核。
+
+本機 Windows 需 Inno Setup 6.3+，加 `-BuildInstaller` 產生預覽 Setup.exe；預設每位使用者安裝，不需系統管理員。每次建置的獨立報告位於 dist/reports/build-*；檔案雜湊清單不能取代數位簽章。
 
 ## 當前平台打包
 

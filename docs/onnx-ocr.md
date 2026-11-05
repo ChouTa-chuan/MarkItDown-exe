@@ -8,6 +8,8 @@
 
 ocr-quality-sample.json 保存合成樣本對照及編輯距離／字元錯誤率，僅適用該張樣本，不是整體辨識率。scripts/evaluate_ocr_sample.py 可重現。分數低時提醒，但高分也不保證文字正確。
 
+已知品質預期失敗使用 tests/fixtures/ocr-traditional-meeting.png 固定 NotoSansCJK-Bold 72px 影像，另有正常通過的 SHA-256／參考文字檢查。這避免 Windows 測試字型不同，意外改變同一品質目標；不代表缺口已修復。
+
 ## CPU／CUDA
 
 桌面可選 ONNX 後端與 CPU 執行緒，CLI 支援 --ocr-backend onnx --device cpu。預設套件使用 CPU runtime；本環境只有 CPU，CUDA 選項仍不在桌面開放。程式中的 CUDA 路徑是待實機驗證的候選實作。

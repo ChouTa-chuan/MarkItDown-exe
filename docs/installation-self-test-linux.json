@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-05T08:31:17.726481+00:00",
+  "platform": "Linux",
+  "architecture": "x86_64",
+  "python": "3.12.14",
+  "frozen": true,
+  "external_python_required": false,
+  "checks": [
+    {
+      "name": "offline_help_and_licenses",
+      "outcome": "passed",
+      "detail": "Offline guide; 58 packages; 214 notice files"
+    },
+    {
+      "name": "onnx_model_integrity",
+      "outcome": "passed",
+      "detail": "Three pinned ONNX model hashes verified"
+    },
+    {
+      "name": "unicode_text_spawn",
+      "outcome": "passed",
+      "detail": "Unicode path, exact UTF-8 bytes, spawned worker"
+    },
+    {
+      "name": "native_pdf_spawn",
+      "outcome": "passed",
+      "detail": "PDF native parser and spawned worker"
+    },
+    {
+      "name": "onnx_scanned_pdf_spawn",
+      "outcome": "passed",
+      "detail": "ONNX CPU scan without external Tesseract"
+    }
+  ],
+  "scope": "Generated samples, CPU only; no general quality, GPU or human desktop acceptance",
+  "tesseract_bundled": false,
+  "complete": true
+}

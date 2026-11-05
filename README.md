@@ -12,6 +12,7 @@ Windows 實測、完整精準版面模型及 GPU 尚未完成。
 - [互動進度頁：里程碑／模組架構](docs/progress.html)（可下載後離線開啟）
 - [精準 PDF 與 OCR](docs/precise-pdf.md)
 - [依賴鎖定與 Windows 建置](docs/packaging.md)
+- [Windows 安裝包來源、自動驗收與實機待辦](docs/windows-acceptance.md)
 - [運算裝置診斷與 CPU 執行緒](docs/devices.md)
 - [實驗性 ONNX、CUDA 回退與品質限制](docs/onnx-ocr.md)
 - [雙引擎核對與原始結果保留](docs/crosscheck.md)

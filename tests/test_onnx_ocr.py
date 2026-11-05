@@ -1,4 +1,6 @@
 import importlib.util
+import hashlib
+import json
 from pathlib import Path
 import os
 import shutil
@@ -11,6 +13,14 @@ from desktop_app.devices import DeviceReport, GPU
 from desktop_app.onnx_ocr import OnnxOCR, gpu_admission
 
 READY = DeviceReport((GPU('test', 'test', 4096, 2048, 'test'),), ('CUDAExecutionProvider',), ())
+
+
+class FixedQualityRasterTests(unittest.TestCase):
+    def test_known_gap_uses_the_same_raster_and_reference_on_all_platforms(self):
+        root=Path(__file__).parent/'fixtures'
+        spec=json.loads((root/'ocr-traditional-meeting.json').read_text(encoding='utf-8'))
+        self.assertEqual(hashlib.sha256((root/'ocr-traditional-meeting.png').read_bytes()).hexdigest(),spec['sha256'])
+        self.assertEqual(spec['reference'],'繁體中文文件測試\n會議紀錄與資料轉換')
 
 
 class BackendPolicyTests(unittest.TestCase):
@@ -95,7 +105,10 @@ class OnnxIntegrationTests(unittest.TestCase):
         # assertion so a future improvement requires removing this marker.
         engine=OnnxOCR('cpu',1)
         try:
-            with self.make_image(True) as image:
+            # This known gap is specific to a fixed raster, not the host's
+            # selected CJK font. Keep the same target on Windows and Linux.
+            from PIL import Image
+            with Image.open(Path(__file__).parent/'fixtures/ocr-traditional-meeting.png') as image:
                 text,_=engine.recognize(image)
             compact=''.join(text.split())
             self.assertIn('繁體中文',compact)

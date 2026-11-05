@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-11-05T07:59:30.699863+00:00",
+  "recorded_at": "2026-11-05T08:34:37.841340+00:00",
   "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
   "python": "3.12.14",
   "mode": "frozen-public-fixtures",
@@ -58,5 +58,5 @@
       "outcome": "passed"
     }
   ],
-  "executable_sha256": "d6b6d941e4281b97e0558ebd598565b3020046c7f7806c9b9ec2e320e49a0031"
+  "executable_sha256": "b36f7919a4c4ed8f5d7b33331c3653d096c753237f30e00a3d70e4ae6df8dedf"
 }

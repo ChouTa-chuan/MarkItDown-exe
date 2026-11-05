@@ -1,0 +1,47 @@
+{
+  "windows_installer_executed": false,
+  "scope": "Synthetic file manifests and PowerShell parser/processes; no Windows build or installer executed",
+  "powershell": "7.6.9",
+  "os": "Unix",
+  "checks": [
+    {
+      "name": "powershell_ast",
+      "passed": true,
+      "scripts": 5
+    },
+    {
+      "name": "manifest_roundtrip_and_no_overwrite",
+      "passed": true
+    },
+    {
+      "name": "tampered_missing_extra_files_rejected",
+      "passed": true
+    },
+    {
+      "name": "inno_metadata_allowed",
+      "passed": true
+    },
+    {
+      "name": "unsafe_and_case_duplicate_paths_rejected",
+      "passed": true
+    },
+    {
+      "name": "symbolic_links_rejected",
+      "passed": true
+    },
+    {
+      "name": "wrong_platform_guards",
+      "passed": true
+    },
+    {
+      "name": "native_argument_quoting",
+      "passed": true
+    },
+    {
+      "name": "process_exit_codes_and_timeout",
+      "passed": true
+    }
+  ],
+  "windows_executed": false,
+  "complete": true
+}

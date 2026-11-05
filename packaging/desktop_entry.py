@@ -4,6 +4,10 @@ import sys
 
 if __name__ == "__main__":
     multiprocessing.freeze_support()
+    if '--self-test' in sys.argv:
+        sys.argv.remove('--self-test')
+        from desktop_app.diagnostics import main
+        raise SystemExit(main(sys.argv[1:]))
     if '--verify-help-assets' in sys.argv:
         from importlib.resources import files
         from pathlib import Path

@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-05",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 147,
-  "headline": "里程碑 3：自動精準流程完成 Linux 代表性驗收",
-  "blocker": "ONNX 繁體品質仍未達標；Windows／GPU 未實機驗收，正式安裝包待完成。",
-  "next": "Windows 原生檔建置／乾淨機及 GPU 實機驗收；擴充真實文件與繁中品質資料集。",
+  "tests_passed": 152,
+  "headline": "Windows 安裝包來源與自動驗收流程已實作，待 Windows 執行",
+  "blocker": "缺少 Windows／GPU 執行器；ONNX 繁體品質仍未達標，正式安裝包未經驗收。",
+  "next": "在 Windows 執行建置／安裝自動流程，另做無 Python 乾淨機及 GPU 實機驗收。",
   "milestones": [
     {
       "id": "m0",
@@ -138,7 +138,7 @@
       "id": "m5",
       "title": "發佈準備",
       "state": "active",
-      "description": "58 個 Windows 鎖定套件授權與離線手冊已隨包驗證；Windows 產物及最終二進位審核未完成。",
+      "description": "已補齊 Inno Setup、安裝／解除安裝與自我檢查流程；58 套件授權與手冊完成，Windows 原生產物尚未建置驗收。",
       "checks": [
         {
           "label": "Windows 建置與安裝包",
@@ -209,8 +209,8 @@
       "title": "背景程序",
       "layer": "支援",
       "state": "partial",
-      "detail": "spawn、低優先權與協作取消；Windows 實測待完成。",
-      "evidence": "真實 Linux spawn 與暫停／恢復測試"
+      "detail": "新增打包程式內建自我檢查，三種生成樣本走 spawn 與 RAM 調度；Windows 實測仍待完成。",
+      "evidence": "Linux frozen：無外部工具 PATH，自我檢查 5/5 通過"
     },
     {
       "id": "settings",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "63 項版面／表格驗收全過；全專案 147 通過、1 品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 152 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -252,6 +252,6 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 148,
+  "tests_run": 153,
   "tests_expected_failures": 1
 }
