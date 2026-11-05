@@ -95,6 +95,20 @@ class PdfPipelineTests(unittest.TestCase):
         self.assertIn("OCR 1 頁", summary)
 
     @unittest.skipUnless(shutil.which("tesseract"), "Tesseract not installed")
+    def test_sparse_chinese_image_keeps_both_lines(self):
+        import subprocess
+        from PIL import Image
+        from desktop_app.pdf_pipeline import _run_ocr
+        if "chi_tra" not in subprocess.run(["tesseract","--list-langs"],capture_output=True,text=True).stdout:
+            self.skipTest("Traditional Chinese model unavailable")
+        self.make_scan(chinese=True)
+        with Image.open(self.root/'scan.png') as image:
+            text,_ = _run_ocr(image,lambda:None,lambda text:None,200)
+        compact=''.join(text.split())
+        self.assertIn('繁體中文文件測試',compact)
+        self.assertIn('會議紀錄與資料轉換',compact)
+
+    @unittest.skipUnless(shutil.which("tesseract"), "Tesseract not installed")
     def test_explicit_paths_work_without_environment_variable(self):
         data_dir = os.environ.get("TESSDATA_PREFIX")
         if not data_dir:

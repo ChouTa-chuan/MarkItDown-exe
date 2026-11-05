@@ -82,6 +82,14 @@ class DesktopTests(unittest.TestCase):
         self.assertEqual(saved.cpu_threads, 2)
         self.assertFalse(self.window.device.model().item(2).isEnabled())
 
+    def test_experimental_backend_does_not_change_default(self):
+        self.assertEqual(self.window.backend.currentData(),'tesseract')
+        self.window.backend.setCurrentIndex(self.window.backend.findData('onnx'))
+        self.window.vram_budget.setValue(512)
+        saved=self.window.preferences()
+        self.assertEqual(saved.ocr_backend,'onnx')
+        self.assertEqual(saved.vram_budget_mib,512)
+
     def test_model_dialog_cached_install(self):
         from desktop_app.model_dialog import ModelDialog
         from unittest.mock import patch

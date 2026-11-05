@@ -25,7 +25,9 @@ def analyze(request: Request) -> Plan:
     estimate = max(256*MIB, request.source.stat().st_size*12)
     if suffix == ".pdf" and request.quality == Quality.PRECISE:
         from .devices import ocr_backend
-        ocr_backend(request.device)
+        ocr_backend(request.device, request.ocr_backend)
+        if request.ocr_backend == "onnx":
+            estimate = max(estimate, 768*MIB)
         return Plan(("analyze_pages", "native_or_ocr", "atomic_export"), estimate,
                     "PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。")
     return Plan(("markitdown_local", "atomic_export"), estimate,

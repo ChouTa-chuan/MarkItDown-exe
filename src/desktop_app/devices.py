@@ -61,9 +61,13 @@ def probe_devices():
     return DeviceReport(gpus, providers, tuple(notes))
 
 
-def ocr_backend(device):
+def ocr_backend(device, backend="tesseract"):
     if device not in {"auto", "cpu", "gpu"}:
         raise ValueError("不支援的運算裝置設定。")
+    if backend == "onnx":
+        return "ONNX OCR：裝置將於模型載入及 session 驗證後回報。"
+    if backend != "tesseract":
+        raise ValueError("不支援的 OCR 後端。")
     if device == "gpu":
         raise ValueError("目前 Tesseract OCR 不支援 GPU，請選擇自動或 CPU；GPU 模型後端尚未整合。")
     return "CPU／Tesseract（自動模式目前僅有 CPU 後端）" if device == "auto" else "CPU／Tesseract"

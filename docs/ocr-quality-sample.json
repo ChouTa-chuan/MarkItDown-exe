@@ -1,0 +1,21 @@
+{
+  "sample": "synthetic clean two-line Traditional Chinese, NotoSansCJK-Bold 72px",
+  "reference": "繁體中文文件測試\n會議紀錄與資料轉換",
+  "scope": "one sample only; not a general accuracy claim",
+  "results": {
+    "onnx_cpu": {
+      "text": "繁體中文文件測試\n會紀錄與資料轉换",
+      "character_edits": 2,
+      "reference_characters": 17,
+      "character_error_rate": 0.11764705882352941,
+      "warning": "ONNX OCR 結果請核對，模型可能不涵蓋所有繁體字形。 部分文字的模型分數偏低。"
+    },
+    "tesseract_cpu": {
+      "text": "繁體中文文件測試\n\n會議紀錄與資料轉換\n",
+      "character_edits": 0,
+      "reference_characters": 17,
+      "character_error_rate": 0.0,
+      "warning": null
+    }
+  }
+}

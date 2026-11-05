@@ -47,12 +47,13 @@ def _run_ocr(image, checkpoint, progress, dpi, executable=None, data_dir=None):
         source = Path(directory) / "page.png"
         prepared, dpi = _normalize_ocr_image(image, dpi)
         try:
+            mode = _segmentation_mode(prepared)
             prepared.save(source)
         finally:
             prepared.close()
         target = Path(directory) / "recognized"
         command = [executable, str(source), str(target), "-l", selected,
-                   "--dpi", str(dpi), "--psm", "3", *data_args]
+                   "--dpi", str(dpi), "--psm", str(mode), *data_args]
         # Redirect to files so verbose native output cannot fill a PIPE and
         # deadlock cancellation. Do not record the recognized document in logs.
         with (Path(directory) / "stderr.txt").open("w+b") as errors:
@@ -108,6 +109,24 @@ def _normalize_ocr_image(image, dpi):
     return gray, dpi
 
 
+def _segmentation_mode(image):
+    """Sparse short blocks need a different layout mode than dense pages."""
+    from PIL import ImageOps
+    with ImageOps.grayscale(image) as gray, ImageOps.invert(gray) as inverted:
+        with inverted.point(lambda value: 255 if value > 100 else 0) as mask:
+            density = mask.histogram()[255] / max(1, image.width*image.height)
+            _, rows = mask.getprojection()
+    runs, length = 0, 0
+    for ink in [*rows, 0]:
+        if ink:
+            length += 1
+        else:
+            if length >= 4:
+                runs += 1
+            length = 0
+    return 11 if 1 <= runs <= 6 and density < 0.08 else 3
+
+
 def _render(pdfium, index, dpi):
     page = pdfium[index]
     try:
@@ -150,10 +169,12 @@ def _native_columns(page, text):
     return text, None
 
 
-def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=None):
+def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=None,
+               backend="tesseract", device="auto", threads=1, vram_budget_mib=768):
     import pdfplumber
     import pypdfium2
     renderer = None
+    onnx = None
     try:
         with pdfplumber.open(source) as document:
             for index, page in enumerate(document.pages):
@@ -168,6 +189,9 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                     route = decision.route
                     progress(f"第 {index+1}/{len(document.pages)} 頁：{'OCR' if route == 'ocr' else '原生分析'}")
                     if route == "ocr":
+                        if backend == "onnx" and onnx is None:
+                            from .onnx_ocr import OnnxOCR
+                            onnx = OnnxOCR(device, threads, vram_budget_mib, checkpoint, progress)
                         warnings.append("OCR 結果需核對；圖表、公式與原始版面尚未完整還原。")
                         if renderer is None:
                             renderer = pypdfium2.PdfDocument(str(source))
@@ -176,8 +200,11 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                             checkpoint()
                             image, actual_dpi = _render(renderer, index, dpi)
                             try:
-                                recognized, warning = _run_ocr(image, checkpoint, progress, actual_dpi,
-                                                               executable, data_dir)
+                                if onnx is not None:
+                                    recognized, warning = onnx.recognize(image)
+                                else:
+                                    recognized, warning = _run_ocr(image, checkpoint, progress, actual_dpi,
+                                                                   executable, data_dir)
                             finally:
                                 image.close()
                             if warning and warning not in warnings:
@@ -220,5 +247,7 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                 finally:
                     page.close()
     finally:
+        if onnx is not None:
+            onnx.close()
         if renderer is not None:
             renderer.close()

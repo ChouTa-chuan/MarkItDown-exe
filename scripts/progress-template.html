@@ -24,6 +24,7 @@ const labels={active:'進行中',blocked:'受阻',pending:'待開發',partial:'�
 const el=(tag,text,cls)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(cls)node.className=cls;return node;};
 const put=(id,text)=>document.getElementById(id).textContent=text;
 put('headline',data.headline);put('updated','更新：'+data.updated+'（台北）');put('environment',data.environment);put('blocker',data.blocker);put('next',data.next);put('tests',data.tests_passed);
+if(data.tests_expected_failures){document.getElementById('tests').nextElementSibling.textContent='功能測試通過；另 '+data.tests_expected_failures+' 項品質檢查未達標（預期失敗）';}
 const checks=data.milestones.flatMap(m=>m.checks);
 put('stage-count',data.milestones.filter(m=>m.checks.every(c=>c.done)).length+' / '+data.milestones.length);
 put('check-count',checks.filter(c=>c.done).length+' / '+checks.length);

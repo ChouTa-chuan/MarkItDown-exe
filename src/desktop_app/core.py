@@ -26,6 +26,8 @@ class Request:
     ocr_data_dir: str | None = None
     device: str = "auto"
     cpu_threads: int = 1
+    ocr_backend: str = "tesseract"
+    vram_budget_mib: int = 768
 
 
 @dataclass(frozen=True)

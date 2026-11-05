@@ -32,7 +32,8 @@ class BatchThread(QThread):
             for index, source in enumerate(self.sources):
                 request = Request(source, self.directory / (source.name + ".md"), self.quality,
                                   self.settings.ocr_executable, self.settings.ocr_data_dir,
-                                  self.settings.device, self.settings.cpu_threads)
+                                  self.settings.device, self.settings.cpu_threads,
+                                  self.settings.ocr_backend, self.settings.vram_budget_mib)
                 outcome = runner.run(request, self.cancel,
                     lambda state, message, i=index: self.event.emit(i, state.value, message))
                 self.event.emit(index, outcome.state.value, outcome.message)
@@ -104,6 +105,16 @@ class Window(QMainWindow):
         self.cpu_threads.setValue(1)
         self.cpu_threads.setToolTip("限制支援 OpenMP／BLAS 的工作程序；不是整個系統的 CPU 百分比上限。")
         form.addRow("CPU 執行緒上限", self.cpu_threads)
+        self.backend = QComboBox()
+        self.backend.addItem("Tesseract（外部引擎）", "tesseract")
+        self.backend.addItem("ONNX OCR（實驗性，繁體品質未達標）", "onnx")
+        form.addRow("OCR 後端", self.backend)
+        self.vram_budget = QSpinBox()
+        self.vram_budget.setRange(192, 1048576)
+        self.vram_budget.setValue(768)
+        self.vram_budget.setSuffix(" MiB")
+        self.vram_budget.setToolTip("三個 CUDA session 的 arena 預算總量，不是整張卡的硬上限；GPU 仍待實機驗證。")
+        form.addRow("GPU 配置預算", self.vram_budget)
         self.auto_budget = QCheckBox("自動規劃 RAM（系統優先）")
         self.auto_budget.setChecked(True)
         self.budget = QSpinBox()
@@ -175,6 +186,8 @@ class Window(QMainWindow):
             self.model_path.setText(saved.ocr_data_dir or "")
             self.device.setCurrentIndex(self.device.findData(saved.device))
             self.cpu_threads.setValue(saved.cpu_threads)
+            self.backend.setCurrentIndex(self.backend.findData(saved.ocr_backend))
+            self.vram_budget.setValue(saved.vram_budget_mib)
         except (OSError, ValueError) as exc:
             self.status.setText(f"設定未載入：{exc}；原檔未變更。")
 
@@ -183,7 +196,8 @@ class Window(QMainWindow):
                         reserve_mib=self.reserve.value(), resource_wait_seconds=self.wait_seconds,
                         ocr_executable=self.ocr_engine.text().strip() or None,
                         ocr_data_dir=self.model_path.text().strip() or None,
-                        device=self.device.currentData(), cpu_threads=self.cpu_threads.value())
+                        device=self.device.currentData(), cpu_threads=self.cpu_threads.value(),
+                        ocr_backend=self.backend.currentData(), vram_budget_mib=self.vram_budget.value())
 
     def diagnose_devices(self):
         from .device_dialog import DeviceDialog
@@ -266,7 +280,8 @@ class Window(QMainWindow):
         for widget in [self.add_button, self.clear_button, self.start_button, self.directory_button,
                        self.output, self.auto_budget, self.reserve, self.save_button, self.quality,
                        self.ocr_engine, self.engine_button, self.model_path, self.models_button,
-                       self.model_directory_button, self.device, self.device_button, self.cpu_threads]:
+                       self.model_directory_button, self.device, self.device_button, self.cpu_threads,
+                       self.backend, self.vram_budget]:
             widget.setEnabled(not running)
         self.budget.setEnabled(not running and not self.auto_budget.isChecked())
         self.cancel_button.setEnabled(running)

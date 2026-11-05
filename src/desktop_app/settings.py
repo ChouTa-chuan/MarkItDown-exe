@@ -11,7 +11,7 @@ from .resources import MIB, Policy
 
 @dataclass(frozen=True)
 class Settings:
-    schema_version: int = 3
+    schema_version: int = 4
     ram_budget_mib: int | None = None
     reserve_mib: int = 2048
     resource_wait_seconds: float = 30.0
@@ -19,9 +19,11 @@ class Settings:
     ocr_data_dir: str | None = None
     device: str = "auto"
     cpu_threads: int = 1
+    ocr_backend: str = "tesseract"
+    vram_budget_mib: int = 768
 
     def __post_init__(self):
-        if type(self.schema_version) is not int or self.schema_version != 3:
+        if type(self.schema_version) is not int or self.schema_version != 4:
             raise ValueError("不支援的設定版本，請勿以舊版程式覆寫。")
         if self.ram_budget_mib is not None and (
                 type(self.ram_budget_mib) is not int or self.ram_budget_mib <= 0):
@@ -38,6 +40,10 @@ class Settings:
             raise ValueError("運算裝置須為 auto、cpu 或 gpu。")
         if type(self.cpu_threads) is not int or not 1 <= self.cpu_threads <= 256:
             raise ValueError("CPU 執行緒上限須為 1 至 256 的整數。")
+        if self.ocr_backend not in ("tesseract", "onnx"):
+            raise ValueError("不支援的 OCR 後端。")
+        if type(self.vram_budget_mib) is not int or self.vram_budget_mib < 192:
+            raise ValueError("GPU 記憶體預算須為至少 192 MiB 的整數。")
 
     def policy(self) -> Policy:
         return Policy(budget=None if self.ram_budget_mib is None else self.ram_budget_mib*MIB,
@@ -58,8 +64,8 @@ def load_settings(path: Path) -> Settings:
         raise ValueError("設定包含不支援的欄位：" + ", ".join(sorted(unknown)))
     if "schema_version" not in content:
         raise ValueError("設定檔缺少 schema_version。")
-    if type(content["schema_version"]) is int and content["schema_version"] in (1, 2):
-        content = {**content, "schema_version": 3}
+    if type(content["schema_version"]) is int and content["schema_version"] in (1, 2, 3):
+        content = {**content, "schema_version": 4}
     return Settings(**content)
 
 

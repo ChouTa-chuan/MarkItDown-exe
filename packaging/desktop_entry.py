@@ -9,6 +9,10 @@ if __name__ == "__main__":
         spec = manifest()
         assert set(spec["files"]) == {"chi_tra.traineddata", "eng.traineddata", "LICENSE"}
         raise SystemExit(0)
+    if "--verify-onnx-models" in sys.argv:
+        from desktop_app.onnx_ocr import verify_models
+        verify_models()
+        raise SystemExit(0)
     if "--cli" in sys.argv:
         sys.argv.remove("--cli")
         from desktop_app.cli import main

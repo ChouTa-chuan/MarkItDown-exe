@@ -27,7 +27,7 @@ class DeviceDialog(QDialog):
         self.job.start()
 
     def show_report(self, report):
-        lines = ["目前實際 OCR 引擎：Tesseract／CPU", ""]
+        lines = ["支援 Tesseract／CPU；選配 ONNX OCR 可使用 CPU。CUDA 路徑尚待硬體驗證。", ""]
         for gpu in report.gpus:
             lines.extend([f"顯卡：{gpu.name}", f"UUID：{gpu.uuid}",
                           f"顯示記憶體：可用 {gpu.free_mib} / 總計 {gpu.total_mib} MiB",

@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 66,
-  "headline": "裝置診斷與 CPU 執行緒設定已加入；GPU 推論尚未開放",
-  "blocker": "目前無 Windows 執行器或實體 NVIDIA 顯卡；Windows 建置／實機與 GPU 尚待驗證。OCR 仍需外部 Tesseract，尚未完成安裝包整合。",
-  "next": "整合可驗證的 GPU 模型後端與 VRAM 預算；繼續 Windows 原生 OCR 包及實機驗收。",
+  "tests_passed": 79,
+  "headline": "ONNX CPU 掃描推論可用；繁體品質缺口明確追蹤",
+  "blocker": "尚無 Windows／NVIDIA 實機驗收。ONNX 繁體品質檢查仍未達標（1 項預期失敗）；Tesseract 保持預設。",
+  "next": "補充真實文件品質樣本、驗證 CUDA 硬體與 Windows 打包；改善 ONNX 繁體字形，未通過前不取代預設。",
   "milestones": [
     {
       "id": "m0",
@@ -114,7 +114,7 @@
       "id": "m4",
       "title": "GPU 與模型",
       "state": "active",
-      "description": "已提供裝置診斷、CPU 執行緒與模型管理；目前無 GPU 模型後端，CUDA／回退待驗證。",
+      "description": "已整合 ONNX CPU、候選 CUDA 與 VRAM／回退策略；GPU 實機及繁體品質尚未完成。",
       "checks": [
         {
           "label": "模型下載、版本與完整性",
@@ -213,7 +213,7 @@
       "title": "設定儲存",
       "layer": "支援",
       "state": "verified",
-      "detail": "schema v3 保存裝置、CPU 執行緒、OCR 路徑及 RAM，支援 v1／v2 遷移。",
+      "detail": "schema v4 保存 OCR 後端／VRAM、CPU 與路徑，支援 v1–v3 遷移。",
       "evidence": "tests/test_settings.py：遷移與路徑往返"
     },
     {
@@ -221,15 +221,15 @@
       "title": "模型與 GPU",
       "layer": "處理",
       "state": "partial",
-      "detail": "CPU OCR 及裝置診斷可用；GPU provider 清單不代表模型推論已驗證。",
-      "evidence": "tests/test_models.py、test_desktop.py 及真實 HTTPS 下載驗證"
+      "detail": "ONNX CPU 掃描已驗證；繁體有 1 項品質缺口，CUDA 僅候選路徑。",
+      "evidence": "80 項檢查：79 通過、1 繁體品質預期失敗；GPU 分支為模擬測試"
     },
     {
       "id": "quality",
       "title": "品質檢查",
       "layer": "輸出",
       "state": "partial",
-      "detail": "頁碼與提醒、OCR 最多兩輪、逾時及原版樣本比較；真實資料集待擴充。",
+      "detail": "保留繁體未達標測試與樣本 CER，比較分開揭露；不將推論成功當作辨識正確。",
       "evidence": "OCR 無結果、重試上限及基線比較測試"
     },
     {
@@ -242,9 +242,11 @@
     }
   ],
   "limits": [
-    "CPU OCR、簡單表格／雙欄已驗證；深度版面、任意區域 OCR、GPU 及完整零安裝 OCR 包尚未完成。",
+    "ONNX 為實驗性選配，繁體合成樣本有漏字／字形錯誤；Tesseract 預設保留，GPU 尚未實機驗證。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
-  ]
+  ],
+  "tests_run": 80,
+  "tests_expected_failures": 1
 }

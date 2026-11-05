@@ -5,6 +5,7 @@
 Qt 原型已可操作；PDF 精準模式加入逐頁判斷、CPU OCR、基本表格及雙欄處理。
 桌面「模型管理」支援下載／驗證、取消、移除；可儲存 OCR 引擎與模型目錄，不用設定環境變數。
 Windows 實測、完整精準版面模型及 GPU 尚未完成。
+實驗性 ONNX OCR 可不用外部 Tesseract 執行 CPU 推論，但繁體中文樣本有漏字／字形錯誤，預設仍保留 Tesseract。
 
 - [產品與架構指引](docs/architecture-guide.md)
 - [開發進度](docs/development-status.md)
@@ -12,6 +13,7 @@ Windows 實測、完整精準版面模型及 GPU 尚未完成。
 - [精準 PDF 與 OCR](docs/precise-pdf.md)
 - [依賴鎖定與 Windows 建置](docs/packaging.md)
 - [運算裝置診斷與 CPU 執行緒](docs/devices.md)
+- [實驗性 ONNX、CUDA 回退與品質限制](docs/onnx-ocr.md)
 
 ## 本機開發驗證
 
@@ -33,7 +35,7 @@ PYTHONPATH=src python -m desktop_app.cli input.txt output.md
 完整開發依賴與桌面啟動（專案根目錄）：
 
 ```bash
-python -m pip install './vendor/markitdown[docx,pptx,xlsx,pdf]' '.[desktop,precise,test-formats]'
+python -m pip install './vendor/markitdown[docx,pptx,xlsx,pdf]' '.[desktop,precise,onnx,test-formats]'
 python -m desktop_app.desktop
 python -m unittest discover -s tests -v
 ```

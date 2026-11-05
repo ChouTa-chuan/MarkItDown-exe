@@ -18,6 +18,8 @@ def main():
     parser.add_argument("--quality", choices=[quality.value for quality in Quality], default="precise")
     parser.add_argument("--device", choices=["auto", "cpu", "gpu"])
     parser.add_argument("--cpu-threads", type=int)
+    parser.add_argument("--ocr-backend", choices=["tesseract", "onnx"])
+    parser.add_argument("--vram-budget-mib", type=int)
     parser.add_argument("--ram-budget-mib", type=int)
     parser.add_argument("--reserve-mib", type=int)
     parser.add_argument("--resource-wait-seconds", type=float)
@@ -34,11 +36,14 @@ def main():
             ocr_executable=saved.ocr_executable, ocr_data_dir=saved.ocr_data_dir,
             device=saved.device if args.device is None else args.device,
             cpu_threads=saved.cpu_threads if args.cpu_threads is None else args.cpu_threads,
+            ocr_backend=saved.ocr_backend if args.ocr_backend is None else args.ocr_backend,
+            vram_budget_mib=saved.vram_budget_mib if args.vram_budget_mib is None else args.vram_budget_mib,
         )
         runner = Runner(settings.policy(), max_resource_wait=settings.resource_wait_seconds)
         result = runner.run(Request(args.source, args.destination, Quality(args.quality),
                                     settings.ocr_executable, settings.ocr_data_dir,
-                                    settings.device, settings.cpu_threads), cancel,
+                                    settings.device, settings.cpu_threads, settings.ocr_backend,
+                                    settings.vram_budget_mib), cancel,
                             lambda state, message: print(f"{state.value}: {message}"))
         print(f"{result.state.value}: {result.message}")
         return 0 if result.state == State.COMPLETED else 1

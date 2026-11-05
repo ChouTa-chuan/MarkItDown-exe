@@ -3,12 +3,14 @@ import argparse
 from pathlib import Path
 import subprocess
 import tempfile
+import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument("executable", type=Path)
 args = parser.parse_args()
 executable = args.executable.resolve()
 subprocess.run([str(executable), "--verify-model-manifest"], check=True, timeout=30)
+subprocess.run([str(executable), "--verify-onnx-models"], check=True, timeout=60)
 with tempfile.TemporaryDirectory() as directory:
     root = Path(directory)
     source = root / "中文來源.txt"
@@ -26,4 +28,16 @@ with tempfile.TemporaryDirectory() as directory:
     subprocess.run([str(executable), "--cli", str(pdf), str(markdown), "--reserve-mib", "0",
                     "--ram-budget-mib", "2048"], check=True, timeout=90)
     assert "Frozen PDF conversion verification 12345" in markdown.read_text(encoding="utf-8")
+    from PIL import Image, ImageDraw, ImageFont
+    image = Image.new('RGB',(1600,600),'white')
+    font_path=Path(os.environ.get('TEST_LATIN_FONT','/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'))
+    font=ImageFont.truetype(str(font_path),72) if font_path.exists() else ImageFont.load_default(size=64)
+    ImageDraw.Draw(image).text((80,100),'ONNX SCAN TEST 12345',font=font,fill='black')
+    image.save(root/'scan.png');image.close()
+    scanned=root/'scan.pdf';scan_output=root/'scan.md'
+    document=canvas.Canvas(str(scanned),pagesize=(800,600))
+    document.drawImage(str(root/'scan.png'),0,150,800,300);document.save()
+    subprocess.run([str(executable),'--cli',str(scanned),str(scan_output),'--ocr-backend','onnx',
+                    '--device','cpu','--reserve-mib','0','--ram-budget-mib','2048'],check=True,timeout=120)
+    assert 'ONNX SCAN TEST 12345' in scan_output.read_text(encoding='utf-8')
 print("Frozen executable text and PDF conversion verified")

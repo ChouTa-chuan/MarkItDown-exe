@@ -18,3 +18,10 @@ License: Apache-2.0. The official license is downloaded and SHA-256 checked
 alongside the models; model files are not included in this source repository.
 Source and hashes: src/desktop_app/data/ocr-models.json. Tesseract executable is external and
 is not bundled in the current development build.
+
+Experimental optional OCR: rapidocr-onnxruntime 1.4.4
+Package metadata declares Apache-2.0. Its bundled PP-OCR models are checked
+against SHA-256 values in src/desktop_app/onnx_ocr.py. Source of installed
+artifacts is PyPI with TLS and hashed dependency lock files. The complete
+runtime/model redistribution license inventory remains pending; this is not
+a final distribution compliance declaration.

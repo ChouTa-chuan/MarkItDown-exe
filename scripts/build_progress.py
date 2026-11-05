@@ -19,6 +19,13 @@ def validate(data):
             raise ValueError("Checks must use explicit boolean outcomes")
     if type(data["tests_passed"]) is not int or data["tests_passed"] < 0:
         raise ValueError("Invalid test count")
+    if "tests_run" in data:
+        counts = [data["tests_passed"], data.get("tests_expected_failures", 0),
+                  data.get("tests_failed", 0), data.get("tests_skipped", 0)]
+        if any(type(value) is not int or value < 0 for value in counts):
+            raise ValueError("Invalid test outcome count")
+        if sum(counts) != data["tests_run"]:
+            raise ValueError("Test outcomes must sum to the executed count")
 
 
 def build():
