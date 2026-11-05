@@ -1,4 +1,4 @@
-"""Optional local-browser validation for the shipped searchable catalog."""
+"""以本機瀏覽器檢查隨包授權目錄的搜尋、篩選及文件連結。"""
 import argparse
 import json
 from pathlib import Path

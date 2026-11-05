@@ -1,4 +1,4 @@
-# Use a disposable Windows account/VM. Never replace an existing installation.
+﻿# 限可拋棄的 Windows 帳戶／VM；已有安裝時拒絕生命週期測試，避免移除既有程式。
 param([Parameter(Mandatory=$true)][string]$SetupFile,
       [Parameter(Mandatory=$true)][string]$ReportDirectory)
 $ErrorActionPreference = 'Stop'
@@ -11,8 +11,7 @@ $ReportDirectory = [IO.Path]::GetFullPath($ReportDirectory)
 [IO.Directory]::CreateDirectory($ReportDirectory) | Out-Null
 $results = @{ schema_version = 1; scope = 'Automated installer lifecycle on disposable Windows';
     install_verified = $false; uninstall_verified = $false; user_data_preserved = $false; complete = $false }
-# Qt AppLocalDataLocation uses organization/application names. Use a unique
-# sentinel, not settings.json or any user/model file.
+# Qt 使用組織／程式名稱建立資料路徑；只寫入唯一哨兵，不修改設定或模型檔。
 $dataDir = Join-Path $env:LOCALAPPDATA 'MarkItDownDesktop\MarkItDownDesktop'
 [IO.Directory]::CreateDirectory($dataDir) | Out-Null
 $sentinel = Join-Path $dataDir ('installer-test-' + [Guid]::NewGuid().ToString('N') + '.txt')
@@ -31,8 +30,7 @@ finally {
         if (Test-Path -LiteralPath $uninstaller) {
             Invoke-CheckedProcess -FilePath $uninstaller -Arguments @('/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART',
                 ('/LOG=' + (Join-Path $ReportDirectory 'uninstall.log'))) -LogPrefix (Join-Path $ReportDirectory 'uninstall-process')
-            # Inno's original uninstaller can spawn a temporary copy. Wait for
-            # its installed payload to disappear, rather than trust parent exit.
+            # Inno 可能另開暫存副本解除安裝；須等受管目錄移除，不能只看父程序退出。
             $deadline = [DateTime]::UtcNow.AddSeconds(30)
             while ((Test-Path -LiteralPath $install) -and [DateTime]::UtcNow -lt $deadline) {
                 Start-Sleep -Milliseconds 200
@@ -42,7 +40,7 @@ finally {
         $results.user_data_preserved = (Test-Path -LiteralPath $sentinel) -and ([IO.File]::ReadAllText($sentinel) -eq 'KEEP INSTALLER TEST DATA')
         $results.complete = $results.install_verified -and $results.uninstall_verified -and $results.user_data_preserved
     } catch { $results.cleanup_error = $_.Exception.Message }
-    # Remove only the sentinel created here. User settings/model directories stay.
+    # 僅清除本次建立的哨兵，保留使用者設定與模型目錄。
     Remove-Item -LiteralPath $sentinel -ErrorAction SilentlyContinue
     $results | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath (Join-Path $ReportDirectory 'installer-lifecycle.json') -Encoding UTF8
 }

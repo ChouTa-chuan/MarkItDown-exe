@@ -1,3 +1,4 @@
+﻿# Windows 建置入口：重建隔離環境、執行驗證、打包並選擇產生安裝精靈。
 param([switch]$BuildInstaller,[string]$IsccPath)
 $ErrorActionPreference = 'Stop'
 if ($env:OS -ne 'Windows_NT') { throw 'Windows build requires Windows.' }
@@ -30,7 +31,7 @@ try {
     $env:QT_QPA_PLATFORM = 'offscreen'
     $env:TEST_LATIN_FONT = 'C:\Windows\Fonts\arial.ttf'
     $env:TEST_CJK_FONT = 'C:\Windows\Fonts\msjh.ttc'
-    # Capture native stderr as a file, not PowerShell error records (5.1).
+    # 將原生 stderr 直接存檔，避免 PowerShell 5.1 把正常測試日誌當成終止錯誤。
     Invoke-CheckedProcess -FilePath $BuildPython -Arguments @('-m','unittest','discover','-s','tests','-v') `
         -LogPrefix (Join-Path $Reports 'unit-tests') -TimeoutSeconds 900
     & $BuildPython -m PyInstaller --noconfirm --clean packaging/desktop.spec

@@ -1,4 +1,4 @@
-"""Initial Qt desktop workflow; precise analysis and GPU are not implemented."""
+"""Qt 桌面流程：批次轉換、PDF 精準模式、資源設定與離線說明；GPU 尚待實機驗收。"""
 import multiprocessing
 from pathlib import Path
 from threading import Event

@@ -1,4 +1,4 @@
-"""Memory admission and hysteresis. Limits are soft, not allocation guarantees."""
+"""RAM 准入與遲滯恢復：使用軟性預算，不代表配置記憶體或提供硬上限。"""
 from dataclasses import dataclass
 import os
 import psutil
@@ -31,6 +31,7 @@ class Policy:
     def admit(self, snapshot: Snapshot, extra: int, resuming: bool = False):
         if extra < 0:
             raise ValueError("預估記憶體不得為負值。")
+        # 預算包含目前程序樹用量與下一步估算；恢復時加上緩衝，避免反覆暫停。
         budget = self.budget if self.budget is not None else int(snapshot.total * self.auto_fraction)
         margin = self.resume_margin if resuming else 0
         if snapshot.available - extra < self.reserve + margin:
@@ -46,6 +47,7 @@ def snapshot() -> Snapshot:
     for process in [root, *root.children(recursive=True)]:
         try:
             info = process.memory_info()
+            # 優先採私有記憶體／USS，減少共享頁面重複加總；無法量測時停止新派送。
             private = getattr(info, "private", None)
             if private is None:
                 private = getattr(process.memory_full_info(), "uss", info.rss)

@@ -1,4 +1,4 @@
-"""Pinned, cancellable OCR model installation; no network access on import."""
+"""固定版本的 OCR 模型管理：可取消、驗證完整性，匯入模組不會連網。"""
 import hashlib
 from importlib.resources import files
 import json
@@ -15,6 +15,7 @@ def manifest():
 
 
 def digest(path):
+    # 舊模型單檔上限為 16 MiB；較大的通用元件應使用獨立下載與驗證策略。
     if path.is_symlink() or not path.is_file():
         raise ValueError("模型須為一般檔案，不接受符號連結。")
     if path.stat().st_size > 16*1024**2:
@@ -39,6 +40,7 @@ def inspect(directory):
 
 
 def install(directory, cancel=None, progress=lambda text: None, opener=urllib.request.urlopen):
+    """只下載固定清單中的模型與授權；既有內容不符時拒絕覆寫。"""
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
     spec = manifest()
@@ -73,6 +75,7 @@ def install(directory, cancel=None, progress=lambda text: None, opener=urllib.re
                     output.flush()
                     os.fsync(output.fileno())
             checkpoint()
+            # 下載至暫存並完整驗證後才啟用；取消或雜湊不符不會留下半成品。
             if digest(temporary) != expected:
                 raise ValueError(f"下載完整性驗證失敗：{name}")
             os.link(temporary, target)
@@ -83,7 +86,7 @@ def install(directory, cancel=None, progress=lambda text: None, opener=urllib.re
 
 
 def remove(directory):
-    """Remove only recognized, unmodified managed files; preserve unknown data."""
+    """只移除已辨識且未修改的受管檔案，保留未知資料。"""
     for name, expected in manifest()["files"].items():
         target = directory/name
         if target.is_symlink():

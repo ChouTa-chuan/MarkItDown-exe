@@ -1,4 +1,4 @@
-"""Offline, hash-verified inventory of the exact Windows dependency lock."""
+"""依 Windows 雜湊鎖定建立及離線驗證第三方授權清單。"""
 import argparse
 import email
 from html import escape

@@ -1,4 +1,4 @@
-"""Exercise the actual bundled binary, not only its launch or open process."""
+"""實際執行打包程式並核對轉換結果，避免僅以程序啟動當成驗收。"""
 import argparse
 from pathlib import Path
 import subprocess
@@ -99,9 +99,7 @@ with tempfile.TemporaryDirectory() as directory:
     positions=[columns_text.index(label) for label in ('FULL WIDTH TITLE','Left column line 0',
                'Left column line 5','Right column line 0','Right column line 5','FULL WIDTH FOOTER')]
     assert positions==sorted(positions)
-    # Reuse the independent fixture oracle for all four upstream public PDFs.
-    # This invokes the actual binary, including exact sparse cells and full
-    # alphanumeric conservation; it is more than a process-launch smoke check.
+    # 四份公開 PDF 共用獨立的內容／結構判準，實際呼叫執行檔核對稀疏欄列與字元守恆。
     import sys
     subprocess.run([sys.executable,str(Path(__file__).with_name('check_layout_acceptance.py')),
                     '--executable',str(executable),'--report',str(args.acceptance_report or root/'public-pdf-acceptance.json')],

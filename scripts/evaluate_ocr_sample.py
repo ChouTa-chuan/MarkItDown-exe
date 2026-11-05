@@ -1,4 +1,4 @@
-"""Synthetic comparisons; no claim of accuracy on real documents."""
+"""以固定合成樣本比較 OCR 差異；結果不代表真實文件的一般準確率。"""
 import argparse
 import json
 from pathlib import Path

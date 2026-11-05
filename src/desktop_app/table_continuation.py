@@ -1,4 +1,4 @@
-"""Conservative continuation hints; never merge or remove source rows."""
+"""保守判斷跨頁續表候選；只標記關聯，不合併或刪除原始表頭與資料。"""
 from dataclasses import dataclass
 import re
 
@@ -22,6 +22,7 @@ def boundary_has_content(text):
 
 
 def possible_continuation(previous,current):
+    """同時核對相鄰頁、表頭、欄位位置及中間正文，僅提出可能的續表關聯。"""
     if previous is None or current.page!=previous.page+1:
         return False
     if min(previous.width,current.width,previous.height,current.height)<=0:

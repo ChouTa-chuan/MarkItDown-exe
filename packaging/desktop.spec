@@ -1,4 +1,4 @@
-# Platform-native PyInstaller build. Windows EXE must be built on Windows.
+# 依目前平台原生打包；Windows EXE 必須在 Windows 建置並驗收。
 from pathlib import Path
 from importlib.util import find_spec
 import sys

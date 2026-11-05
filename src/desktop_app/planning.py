@@ -1,4 +1,4 @@
-"""Native text analysis; PDF/OCR analysis must be added with tested engines."""
+"""轉換前驗證：檢查格式與裝置需求，建立保守 RAM 估算及處理計畫。"""
 from .core import Plan, Request, UnsupportedFormat, Quality
 from .resources import MIB
 
@@ -20,8 +20,7 @@ def analyze(request: Request) -> Plan:
     if suffix in {".txt", ".md"}:
         return Plan(("stream_utf8", "atomic_export"), 8*MIB,
                     "純文字使用原生解析，不需 OCR 或 GPU；以固定區塊處理。")
-    # Initial conservative estimate, not a hard allocation guarantee. Office
-    # archives can expand far beyond on-disk size; monitor the worker too.
+    # 這是保守預估，不是硬性配置保證；Office 解壓後可能遠大於檔案大小，仍需持續監控。
     estimate = max(256*MIB, request.source.stat().st_size*12)
     if suffix == ".pdf" and request.quality == Quality.PRECISE:
         from .devices import ocr_backend

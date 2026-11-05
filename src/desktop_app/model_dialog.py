@@ -1,4 +1,4 @@
-"""Model management UI with cancellable background download and no auto-fetch."""
+"""模型管理介面：在背景下載、驗證與取消，開啟視窗不自動連網。"""
 from pathlib import Path
 from threading import Event
 from PySide6.QtCore import QThread, Signal

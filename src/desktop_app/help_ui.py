@@ -1,4 +1,4 @@
-"""Offline help and attribution views available in source and frozen builds."""
+"""提供原始碼與打包程式共用的離線操作手冊及第三方授權視窗。"""
 from importlib.resources import files
 from pathlib import Path
 import sys

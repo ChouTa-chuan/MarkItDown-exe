@@ -1,4 +1,4 @@
-"""Sequential batch service with spawned worker and cooperative RAM backpressure."""
+"""批次應用服務：以 spawn 隔離工作，依 RAM 狀況協作暫停與恢復。"""
 import multiprocessing as mp
 from queue import Empty
 import time
@@ -31,6 +31,7 @@ class Runner:
 
     def run(self, request: Request, cancel: Event | None = None,
             notify=lambda state, message: None) -> Outcome:
+        """先做資源准入，執行時持續回壓，結束後回收工作程序與通訊佇列。"""
         cancel = cancel if cancel is not None else Event()
         process = messages = None
         stop = permit = None
@@ -41,7 +42,7 @@ class Runner:
             while True:
                 if cancel.is_set():
                     return Outcome(request, State.CANCELLED, "已取消")
-                # Allow for interpreter/psutil startup before spawning.
+                # 預留子程序直譯器與 psutil 啟動開銷，再決定是否派送。
                 allowed, reason = self.policy.admit(self.read_snapshot(),
                     plan.additional_bytes + 64*1024**2)
                 if allowed:
@@ -51,6 +52,7 @@ class Runner:
                 if time.monotonic() - waiting_since >= self.max_resource_wait:
                     return Outcome(request, State.FAILED, reason + " 等待逾時，請調整設定或稍後重試。")
                 cancel.wait(self.poll_seconds)
+            # 固定採 spawn，使 Linux 測試也涵蓋 Windows 的獨立啟動方式。
             context = mp.get_context("spawn")
             stop, permit, messages = context.Event(), context.Event(), context.Queue()
             permit.set()
@@ -87,8 +89,7 @@ class Runner:
                         break
                 except Empty:
                     if not process.is_alive():
-                        # Child exits only after its queue feeder flushes; allow
-                        # a final bounded read after observing process exit.
+                        # 子程序退出前會沖出佇列資料；退出後再限時讀一次，避免遺漏最後狀態。
                         try:
                             kind, message = messages.get(timeout=0.5)
                         except Empty:
@@ -117,6 +118,6 @@ class Runner:
                 messages.join_thread()
 
     def batch(self, requests, cancel=None, notify=lambda state, message: None):
-        """One worker at a time; failure of one file does not stop the batch."""
+        """一次只跑一個工作程序；單一文件失敗不停止其餘批次。"""
         for request in requests:
             yield self.run(request, cancel, notify)

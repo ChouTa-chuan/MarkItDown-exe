@@ -1,4 +1,4 @@
-"""Optional RapidOCR adapter. CUDA is checked on every session, never assumed."""
+"""選配 RapidOCR 轉接器：逐一檢查 CUDA session，避免把偵測結果當成推論成功。"""
 import gc
 from importlib import metadata
 from pathlib import Path
@@ -74,10 +74,9 @@ class OnnxOCR:
                     raise RuntimeError("CUDA 初始化失敗；未自動改用 CPU。") from None
                 failed = True
             if failed:
-                # Leave the exception scope before releasing the engine so a
-                # traceback cannot retain a CUDA session during CPU fallback.
+                # 先離開例外範圍，避免 traceback 保留 CUDA session，影響回退時的資源釋放。
                 self.close()
-                self.checkpoint()  # Parent RAM admission/backpressure before allocation.
+                self.checkpoint()  # 建立 CPU 後端前，重新經過父程序 RAM 准入與回壓。
                 progress("CUDA 初始化失敗；通過 RAM checkpoint 後建立 CPU 後端。")
                 self._create(threads)
         progress("ONNX session：" + ("CUDA 優先，尚待本頁推論" if self.actual_device == "cuda" else "CPU"))
@@ -103,7 +102,7 @@ class OnnxOCR:
         import numpy as np
         self.checkpoint()
         failed = False
-        # Keep RGB: RapidOCR accepts ndarray and performs its own preprocessing.
+        # 先取得 RGB，再依 ndarray 介面轉 BGR；後續前處理由 RapidOCR 負責。
         try:
             with image.convert("RGB") as rgb:
                 result, _ = self.engine(np.asarray(rgb)[:, :, ::-1].copy())

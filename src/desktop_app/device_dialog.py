@@ -1,4 +1,4 @@
-"""Background, read-only device diagnostics. Detection never enables inference."""
+"""在背景唯讀查詢裝置資訊；查到顯卡不等於已啟用推論。"""
 from PySide6.QtCore import QThread, Signal
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QPlainTextEdit
 from .devices import probe_devices, DeviceReport

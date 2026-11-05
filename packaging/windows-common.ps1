@@ -1,4 +1,4 @@
-# Shared build/verification helpers, compatible with Windows PowerShell 5.1.
+﻿# 共用建置／驗收工具；以 Windows PowerShell 5.1 相容語法實作。
 Set-StrictMode -Version Latest
 
 function Assert-NoReparsePoints {
@@ -46,7 +46,7 @@ function Test-BundleIntegrity {
     }
     foreach ($file in Get-ChildItem -LiteralPath $root -File -Recurse -Force) {
         $name = $file.FullName.Substring($root.Length).Replace('\','/')
-        # Inno Setup adds its uninstaller at the installation root.
+        # Inno 會在安裝根目錄加入自己的解除安裝檔，只允許這些明確例外。
         if ($name -eq 'bundle-manifest.json' -or $name -match '^unins\d{3}\.(exe|dat|msg)$') { continue }
         if (-not $seen.Contains($name)) { throw "Untracked bundle file: $name" }
     }
@@ -55,8 +55,7 @@ function Test-BundleIntegrity {
 
 function ConvertTo-NativeArgument {
     param([AllowEmptyString()][string]$Argument)
-    # Our arguments are switches and Windows file paths. Embedded quotes are
-    # deliberately rejected; trailing backslashes must be doubled before '"'.
+    # 參數僅接受開關與 Windows 路徑；拒絕內嵌引號，結尾反斜線需加倍再包引號。
     if ($Argument.Contains('"') -or $Argument.Contains([char]0)) { throw 'Unsupported native argument.' }
     return '"' + [regex]::Replace($Argument,'(\\+)$','$1$1') + '"'
 }

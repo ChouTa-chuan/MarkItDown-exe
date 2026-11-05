@@ -1,3 +1,4 @@
+"""格式轉換與輸出保護：串流寫入暫存，完成後以排他方式提交結果。"""
 import os
 from pathlib import Path
 import tempfile
@@ -6,7 +7,7 @@ from .core import Request, Quality
 
 
 def convert_text(request: Request, checkpoint, progress=lambda stage: None):
-    """Checkpoint may pause or cancel at bounded text-processing boundaries."""
+    """在固定大小的文字處理邊界接受暫停或取消。"""
     with request.source.open(encoding="utf-8-sig", newline="") as source:
         def chunks():
             while True:
@@ -61,8 +62,7 @@ def _write_chunks(request, chunks, checkpoint, progress):
             os.fsync(output.fileno())
         checkpoint()
         progress("提交輸出")
-        # Same-volume exclusive publication. Unsupported filesystems fail
-        # explicitly instead of falling back to overwriting existing output.
+        # 同磁碟硬連結以排他方式提交；目的地已存在或不支援時直接失敗，避免覆寫既有輸出。
         os.link(temporary, destination)
     finally:
         if hasattr(chunks, "close"):

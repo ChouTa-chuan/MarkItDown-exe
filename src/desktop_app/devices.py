@@ -1,4 +1,4 @@
-"""Hardware observations and backend routing, distinct from GPU readiness."""
+"""蒐集硬體與後端觀察，明確區分裝置偵測、provider 與真正可用的 GPU。"""
 import csv
 from dataclasses import dataclass
 import io
@@ -38,6 +38,7 @@ def parse_nvidia_csv(output):
 
 
 def probe_devices():
+    """限時唯讀查詢顯卡與 provider；此函式不載入模型、不自動開啟 GPU。"""
     notes, gpus, providers = [], (), ()
     executable = shutil.which("nvidia-smi")
     if executable:

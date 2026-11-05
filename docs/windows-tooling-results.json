@@ -1,13 +1,13 @@
 {
-  "windows_installer_executed": false,
-  "scope": "Synthetic file manifests and PowerShell parser/processes; no Windows build or installer executed",
+  "windows_executed": false,
   "powershell": "7.6.9",
   "os": "Unix",
+  "complete": true,
   "checks": [
     {
-      "name": "powershell_ast",
+      "scripts": 5,
       "passed": true,
-      "scripts": 5
+      "name": "powershell_ast"
     },
     {
       "name": "manifest_roundtrip_and_no_overwrite",
@@ -42,6 +42,6 @@
       "passed": true
     }
   ],
-  "windows_executed": false,
-  "complete": true
+  "windows_installer_executed": false,
+  "scope": "Synthetic file manifests and PowerShell parser/processes; no Windows build or installer executed"
 }

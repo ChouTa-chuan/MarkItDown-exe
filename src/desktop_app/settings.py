@@ -1,4 +1,4 @@
-"""Versioned resource preferences shared by the CLI and future desktop UI."""
+"""桌面與 CLI 共用的版本化設定，保留舊 schema 遷移及安全儲存。"""
 from dataclasses import asdict, dataclass
 import json
 import math
@@ -51,7 +51,7 @@ class Settings:
 
 
 def load_settings(path: Path) -> Settings:
-    # An explicitly selected missing file is an error, never a silent reset.
+    # 使用者明確選取的檔案不存在時應報錯，不能靜默還原預設值。
     with path.open("rb") as source:
         raw = source.read(65537)
     if len(raw) > 65536:
@@ -64,13 +64,14 @@ def load_settings(path: Path) -> Settings:
         raise ValueError("設定包含不支援的欄位：" + ", ".join(sorted(unknown)))
     if "schema_version" not in content:
         raise ValueError("設定檔缺少 schema_version。")
+    # 只升級已知舊版本，未知欄位與未支援新 schema 仍拒絕讀寫。
     if type(content["schema_version"]) is int and content["schema_version"] in (1, 2, 3, 4):
         content = {**content, "schema_version": 5}
     return Settings(**content)
 
 
 def save_settings(settings: Settings, path: Path):
-    """Explicit save; same-directory atomic replacement preserves prior on error."""
+    """僅在明確儲存時，以同目錄原子替換更新；失敗保留原設定。"""
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = None
     try:

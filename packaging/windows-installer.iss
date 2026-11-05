@@ -1,4 +1,4 @@
-; Per-user development preview. Compile on Windows with Inno Setup 6.3+.
+﻿; 每位使用者的開發預覽安裝包；需在 Windows 使用 Inno Setup 6.3+ 編譯。
 #ifndef BundleDir
   #error BundleDir is required
 #endif
@@ -46,7 +46,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "Create a desktop shortcut"; Flags: unchecked
 
 [InstallDelete]
-; Replace native dependencies on upgrade, without touching user settings/models.
+; 升級時替換受管理的原生依賴，使用者設定與模型放在此目錄之外。
 Type: filesandordirs; Name: "{app}\_internal"
 
 [Files]
@@ -59,5 +59,4 @@ Name: "{userdesktop}\MarkItDown Desktop"; Filename: "{app}\MarkItDownDesktop.exe
 [Run]
 Filename: "{app}\MarkItDownDesktop.exe"; Description: "Launch MarkItDown Desktop"; Flags: nowait postinstall skipifsilent
 
-; No UninstallDelete rule: user settings, downloaded models and converted files
-; are outside the installation directory and must survive uninstallation.
+; 不設定 UninstallDelete：安裝目錄外的使用者設定、下載模型與輸出文件須保留。

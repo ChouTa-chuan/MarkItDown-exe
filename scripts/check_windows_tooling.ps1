@@ -1,4 +1,4 @@
-# Platform-independent checks. This does NOT compile/install a Windows binary.
+﻿# 跨平台工具檢查；語法與合成檔案測試不代表 Windows 安裝包已建置或安裝。
 param([Parameter(Mandatory=$true)][string]$ReportPath)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot

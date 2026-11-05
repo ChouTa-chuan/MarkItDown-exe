@@ -1,4 +1,4 @@
-"""Conservative native-text table inference, with explicit uncertainty labels."""
+"""依原生文字座標保守推測無框線表格；不確定處保留提醒與空格。"""
 from bisect import bisect_right
 from dataclasses import dataclass
 from html import escape
@@ -31,7 +31,7 @@ def numeric(text):
 
 
 def _sparse_regions(rows,checkpoint):
-    """Use an explicit header's x anchors; missing cells stay empty."""
+    """以明確表頭的水平位置分欄，缺格保持空白，不自行向下填值。"""
     valid=[];used=set();budget=100_000;limited=False
     for start,header_cells in enumerate(rows):
         checkpoint()
@@ -91,8 +91,7 @@ def infer_tables(page,checkpoint=lambda:None):
         if not lines or abs(word['top']-lines[-1][0]['top'])>2:
             lines.append([word])
         else:lines[-1].append(word)
-    # Header word gaps can be narrower than body column gaps. Scale by the
-    # observed text height instead of imposing an 18pt minimum everywhere.
+    # 表頭欄距可能較窄；依字高調整間距門檻，再以對齊與數值證據確認。
     gap=max(8,min(18,median(word['bottom']-word['top'] for word in words)*1.2)) if words else 18
     rows=[]
     for line in lines:
@@ -143,7 +142,7 @@ def infer_tables(page,checkpoint=lambda:None):
         markdown+=['| '+' | '.join(row)+' |' for row in escaped[1:]]
         valid.append((intervals,'\n'.join(markdown),
                       tuple([cell[0]['x0'] for cell in run[0]]+[run[0][-1][-1]['x1']]),tuple(header),len(run)))
-    # Associate only characters on accepted rows; prose outside them survives.
+    # 僅認領已接受列內的字元，其餘正文繼續保留，避免整塊外框吞掉文字。
     spans=sorted((top,bottom,left,right,owner) for owner,(intervals,*_) in enumerate(valid)
                  for top,bottom,left,right in intervals)
     starts=[span[0] for span in spans];claimed=[set() for _ in valid]

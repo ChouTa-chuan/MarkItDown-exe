@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-11-05T08:36:44.407315+00:00",
+  "recorded_at": "2026-11-05T09:53:00.521034+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
@@ -149,5 +149,16 @@
     "report": "installation-self-test-linux.json",
     "windows_executed": false
   },
-  "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained"
+  "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
+  "source_version": "0.1.1",
+  "architecture_version": "0.4",
+  "chinese_comment_maintenance": {
+    "python_executable_ast_unchanged_files": 33,
+    "vendor_source_unchanged": true,
+    "powershell_utf8_bom": true,
+    "powershell_linux_checks_passed": 9,
+    "readme_relative_links_verified": true,
+    "progress_browser_verified": true,
+    "windows_executed": false
+  }
 }

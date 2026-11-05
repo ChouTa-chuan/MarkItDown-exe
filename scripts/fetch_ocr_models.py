@@ -1,4 +1,4 @@
-"""Developer entry to the same verified model manager used by the desktop UI."""
+"""開發者模型下載入口，與桌面使用相同的版本與完整性驗證流程。"""
 import argparse
 from pathlib import Path
 import sys

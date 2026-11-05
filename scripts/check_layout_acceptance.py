@@ -1,4 +1,4 @@
-"""Reproduce the phase-3 PDF acceptance matrix; fail on skips or known gaps."""
+"""重跑 PDF 版面驗收矩陣；跳過或品質預期失敗不能列為矩陣通過。"""
 import argparse
 from datetime import datetime,timezone
 import hashlib

@@ -1,8 +1,6 @@
-"""Offline installation checks using the installed runtime, without external Python.
+"""使用目前執行環境離線檢查安裝完整性；打包版不需要外部 Python。
 
-All input documents are generated samples. Reports contain check outcomes and
-runtime versions, never the user's documents, credentials or environment dump.
-"""
+全部輸入皆為生成樣本，報告只記錄結果與版本，不蒐集使用者文件或環境秘密。"""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -17,7 +15,7 @@ import tempfile
 
 
 def sample_pdf(path):
-    """A small native PDF; no test-only PDF writer needs to be bundled."""
+    """直接建立最小原生 PDF，避免自我檢查依賴測試專用 PDF 寫入套件。"""
     content=b'BT /F1 16 Tf 40 100 Td (INSTALLATION PDF CHECK 12345) Tj ET'
     objects=[b'<< /Type /Catalog /Pages 2 0 R >>',
              b'<< /Type /Pages /Kids [3 0 R] /Count 1 >>',
@@ -111,7 +109,7 @@ def collect_report():
 
 
 def write_report(report,path):
-    # Same output protection as conversion: never replace a prior report.
+    # 與轉換採相同輸出保護，不覆寫先前的驗收證據。
     path.parent.mkdir(parents=True,exist_ok=True)
     temporary=None
     try:

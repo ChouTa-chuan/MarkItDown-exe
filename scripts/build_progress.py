@@ -1,4 +1,4 @@
-"""Generate a self-contained, offline progress dashboard from one JSON source."""
+"""由單一 JSON 資料產生可離線開啟的進度頁，區分既有基線與新增導入驗收。"""
 import json
 from pathlib import Path
 
@@ -43,7 +43,7 @@ def build():
     data = json.loads((ROOT / "docs/progress.json").read_text(encoding="utf-8"))
     validate(data)
     template = (ROOT / "scripts/progress-template.html").read_text(encoding="utf-8")
-    # Prevent a future label from terminating the embedded JSON script element.
+    # 跳脫小於號，避免未來標籤文字提前結束內嵌 JSON 的 script 元素。
     encoded = json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")
     return template.replace("__PROGRESS_DATA__", encoded)
 

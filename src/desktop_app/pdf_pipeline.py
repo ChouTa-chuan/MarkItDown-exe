@@ -1,4 +1,4 @@
-"""Page-wise PDF analysis with bounded local OCR and explicit quality warnings."""
+"""逐頁 PDF 分析：原生文字／OCR 路由、有界重試、表格與品質提醒。"""
 from dataclasses import dataclass
 import math
 import os
@@ -54,8 +54,7 @@ def _run_ocr(image, checkpoint, progress, dpi, executable=None, data_dir=None):
         target = Path(directory) / "recognized"
         command = [executable, str(source), str(target), "-l", selected,
                    "--dpi", str(dpi), "--psm", str(mode), *data_args]
-        # Redirect to files so verbose native output cannot fill a PIPE and
-        # deadlock cancellation. Do not record the recognized document in logs.
+        # 原生錯誤輸出導向暫存檔，避免 PIPE 滿載卡住取消；日誌不記錄辨識全文。
         with (Path(directory) / "stderr.txt").open("w+b") as errors:
             child = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=errors,
                                      env={**os.environ, "OMP_THREAD_LIMIT": os.environ.get("OMP_THREAD_LIMIT", "1")})
@@ -80,10 +79,9 @@ def _run_ocr(image, checkpoint, progress, dpi, executable=None, data_dir=None):
 
 
 def _normalize_ocr_image(image, dpi):
-    """Normalize oversized glyphs, which can hurt Tesseract recognition.
+    """以投影估算行高並縮放過大字形，避免額外建立逐像素 Python 串列。
 
-    Projection estimates line heights without allocating a Python pixel list.
-    This is a heuristic; heterogeneous layouts still require quality review.
+    此為啟發式前處理，混合版面仍須依原頁核對品質。
     """
     from PIL import ImageOps, Image
     gray = ImageOps.grayscale(image)
@@ -110,7 +108,7 @@ def _normalize_ocr_image(image, dpi):
 
 
 def _segmentation_mode(image):
-    """Sparse short blocks need a different layout mode than dense pages."""
+    """稀疏短文字與密集文件採不同分頁模式，降低短行漏字風險。"""
     from PIL import ImageOps
     with ImageOps.grayscale(image) as gray, ImageOps.invert(gray) as inverted:
         with inverted.point(lambda value: 255 if value > 100 else 0) as mask:
@@ -145,8 +143,7 @@ def _native_columns(page, text, words=None, checkpoint=lambda:None):
     words = page.extract_words() if words is None else words
     middle = page.width/2
     gutter = page.width*0.025
-    # Full-width headings divide the page into horizontal bands. Never crop
-    # a heading into two halves, or mix the columns on either side of it.
+    # 以跨欄標題切分水平區域，再各區先左後右，避免標題被切半或上下兩區混讀。
     crossing=sorted((w['top'],w['bottom']) for w in words
                     if not (w['x1']<middle-gutter or w['x0']>middle+gutter))
     separators=[]
@@ -167,8 +164,7 @@ def _native_columns(page, text, words=None, checkpoint=lambda:None):
         band=[w for w in words if start<=(w['top']+w['bottom'])/2<top]
         left=[w for w in band if w['x1']<middle-gutter]
         right=[w for w in band if w['x0']>middle+gutter]
-        # Each column needs evidence of a sustained text block, not just two
-        # labels that happen to be on opposite sides of the page.
+        # 兩側都需有足夠文字且垂直範圍重疊；零星左右標籤不足以證明雙欄。
         overlap=(min(max(w['bottom'] for w in left),max(w['bottom'] for w in right))-
                  max(min(w['top'] for w in left),min(w['top'] for w in right))) if left and right else 0
         span=max((w['bottom'] for w in band),default=0)-min((w['top'] for w in band),default=0)
@@ -188,6 +184,7 @@ def _native_columns(page, text, words=None, checkpoint=lambda:None):
 
 def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=None,
                backend="tesseract", device="auto", threads=1, vram_budget_mib=768):
+    """逐頁產出內容與核對提醒；頁面、渲染器及引擎在取消或例外時仍需釋放。"""
     import pdfplumber
     import pypdfium2
     renderer = None
@@ -270,8 +267,7 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                         for number,table in enumerate(analysis.tables,1):
                             entries.append((f'p{index+1}-b{number}','inferred-borderless-table',table.bbox,table))
                             filtered=filtered.filter(lambda obj,claimed=table.claimed_char_ids:id(obj) not in claimed)
-                        # Both kinds share the same conservative page-boundary
-                        # rules. Ambiguous/multiple candidates never auto-link.
+                        # 有框線與無框線共用保守頁界規則；多個候選或幾何不明時不自動關聯。
                         top_candidates=sum(bbox[1]<=page.height*0.12 for _,_,bbox,_ in entries)
                         tail_candidates=sum(bbox[3]>=page.height*0.9 for _,_,bbox,_ in entries)
                         blocks=[]

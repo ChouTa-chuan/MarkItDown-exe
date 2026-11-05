@@ -1,4 +1,4 @@
-"""OCR disagreement reporting. Never invent or silently repair characters."""
+"""回報 OCR 差異並保留兩引擎原文；不自行補字、修字或繁簡轉換。"""
 from dataclasses import dataclass
 from difflib import SequenceMatcher
 from html import escape
@@ -33,8 +33,7 @@ def compare_ocr(primary, candidate):
     left, right = ("".join(text.split()) for text in (primary, candidate))
     if left == right:
         return OCRComparison(primary, candidate, True, 0)
-    # Bound alignment work on long/repetitive documents. Full strings remain
-    # preserved even when the diagnostic does not enumerate every region.
+    # 長篇或重複文字只限制差異對齊成本；即使不列出逐區差異，仍保留完整兩份原文。
     regions = None if max(len(left),len(right)) > 10000 else sum(
         tag != "equal" for tag, *_ in SequenceMatcher(None,left,right,autojunk=True).get_opcodes())
     return OCRComparison(primary, candidate, left == right, regions)

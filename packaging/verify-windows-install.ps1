@@ -1,3 +1,4 @@
+﻿# 安裝後驗收：核對檔案、執行內建檢查並開關桌面，不需外部 Python。
 param(
     [string]$InstallDirectory,
     [Parameter(Mandatory=$true)][string]$ReportDirectory,

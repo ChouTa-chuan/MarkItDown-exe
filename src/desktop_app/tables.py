@@ -1,4 +1,4 @@
-"""Geometry-based PDF tables. Spans require physical cell evidence."""
+"""以實體儲存格幾何重建 PDF 表格；合併欄列必須有實際範圍證據。"""
 from bisect import bisect_left, bisect_right
 from dataclasses import dataclass
 from html import escape
@@ -52,8 +52,7 @@ def render_table(page, table, checkpoint=lambda:None):
     if len(xs)<2 or len(ys)<2 or (len(xs)-1)*(len(ys)-1)>100000:
         return fallback
     if len(xs)==2:
-        # Some PDF forms have horizontal rules enclosing an entire sparse
-        # multi-column row. Do not misrepresent such rows as one-column cells.
+        # 某些表單的單欄外框其實包住多欄文字；交還對齊分析，避免錯壓成一格。
         first=min(boxes,key=lambda box:(box[1],box[0]))
         header_words=page.crop(first).extract_words()
         header_words=sorted(header_words,key=lambda word:(word['top'],word['x0']))
@@ -83,7 +82,7 @@ def render_table(page, table, checkpoint=lambda:None):
             contents[owner].append(char)
     values={index:extract_text(chars) if chars else '' for index,chars in contents.items()}
     claimed=frozenset(id(char) for chars in contents.values() for char in chars)
-    # Missing physical cells are not evidence of a merge. Leave such gaps empty.
+    # 缺少實體儲存格不能當成合併證據；只有 cell 跨越網格才輸出 span。
     merged=any(rowspan>1 or colspan>1 for _,_,rowspan,colspan in spans.values())
     if merged:
         rows=['<table>']

@@ -1,4 +1,4 @@
-"""Frozen multiprocessing entry: handle child bootstrap before importing Qt."""
+"""打包程式入口：先處理子程序啟動，再載入自我檢查、CLI 或 Qt。"""
 import multiprocessing
 import sys
 

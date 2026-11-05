@@ -1,4 +1,4 @@
-"""Check the original upstream runtime source has not drifted silently."""
+"""核對上游原始碼與公開樣本的固定提交及 SHA-256，避免來源默默漂移。"""
 import hashlib
 import json
 from pathlib import Path

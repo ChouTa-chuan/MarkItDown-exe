@@ -1,4 +1,4 @@
-"""Optional local Chromium check; requires Playwright and a Chromium executable."""
+"""用 Playwright 與本機 Chromium 驗證分頁、鍵盤操作、計數及手機版。"""
 import argparse
 import json
 from pathlib import Path
@@ -21,8 +21,7 @@ def main():
             page = browser.new_page(viewport={"width": 1280, "height": 1000})
             errors = []
             page.on("pageerror", lambda error: errors.append(str(error)))
-            # Render the authorized local document in memory; no server or
-            # file-URL navigation is needed by this self-contained page.
+            # 直接載入本機 HTML 內容；此離線頁不需要 HTTP 伺服器或 file URL 導覽。
             page.set_content((root / "docs/progress.html").read_text(encoding="utf-8"))
             assert page.locator("#milestones article").count() == 6
             assert page.locator("#check-count").inner_text() == check_count

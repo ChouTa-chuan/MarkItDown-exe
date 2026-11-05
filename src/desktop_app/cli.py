@@ -1,4 +1,4 @@
-"""Development entry point; end-user Qt desktop UI is pending."""
+"""開發用命令列入口：與桌面共用設定、轉換任務及 RAM 調度。"""
 import argparse
 import multiprocessing
 from pathlib import Path
