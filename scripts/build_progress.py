@@ -26,6 +26,17 @@ def validate(data):
             raise ValueError("Invalid test outcome count")
         if sum(counts) != data["tests_run"]:
             raise ValueError("Test outcomes must sum to the executed count")
+    rollout=data.get('component_rollout')
+    if rollout is not None:
+        seen=set()
+        for phase in rollout['phases']:
+            if not phase['checks']:raise ValueError('Empty component rollout phase')
+            for check in phase['checks']:
+                if check['id'] in seen or type(check['done']) is not bool or not check['acceptance']:
+                    raise ValueError('Invalid component rollout check')
+                seen.add(check['id'])
+        if seen!={f'C{index:02}' for index in range(1,13)}:
+            raise ValueError('Expected component rollout checks C01 through C12')
 
 
 def build():

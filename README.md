@@ -7,7 +7,10 @@ Qt 原型已可操作；PDF 精準模式加入逐頁判斷、CPU OCR、基本表
 Windows 實測、完整精準版面模型及 GPU 尚未完成。
 實驗性 ONNX OCR 可不用外部 Tesseract 執行 CPU 推論，但繁體中文樣本有漏字／字形錯誤，預設仍保留 Tesseract。
 
+已採用架構指引 v0.4「基本安裝包＋選配元件管理」：目標基本包內含執行環境、原生格式解析與繁中／英文 CPU OCR；額外語言、ONNX／GPU 與進階模型按需安裝。現有開發包仍含 ONNX，基本 Tesseract native 與選配拆包尚未完成。既有基線 19/25 與新增 C01–C12 導入 0/12 分開追蹤，規劃不算新功能完成。
+
 - [產品與架構指引](docs/architecture-guide.md)
+- [基本包與選配元件決策](docs/decisions/0002-base-and-optional-components.md)
 - [開發進度](docs/development-status.md)
 - [互動進度頁：里程碑／模組架構](docs/progress.html)（可下載後離線開啟）
 - [精準 PDF 與 OCR](docs/precise-pdf.md)

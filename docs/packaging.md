@@ -1,5 +1,7 @@
 # 建置與可重現環境
 
+以下為現有開發 profile。新版 [架構指引 v0.4](architecture-guide.md) 已採「基本安裝包＋選配元件管理」；基本 Tesseract native、分離選配 worker、profile 鎖定與相依授權仍待實作，不能把現有 ONNX 開發包當成已完成的新基本版。
+
 Python 3.12 為基線。packaging/requirements-linux.txt 與 requirements-windows.txt 保存套件版本與雜湊，來源為兩個 pyproject 與 packaging/build.in，編譯指令在鎖定檔頭。Linux Qt 要求 glibc 2.34+，不代表所有 Linux 相容。
 
 ## 乾淨 Linux 驗證

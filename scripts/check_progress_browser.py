@@ -42,6 +42,30 @@ def main():
             page.get_by_role("tab", name="模組化架構").focus()
             page.keyboard.press("ArrowLeft")
             assert page.locator("#milestone-panel").is_visible()
+            if data.get('component_rollout'):
+                rollout=data['component_rollout']
+                component_checks=[check for phase in rollout['phases'] for check in phase['checks']]
+                page.get_by_role('tab',name='元件導入規劃').click()
+                assert page.locator('#component-panel').is_visible()
+                assert page.locator('#component-count').inner_text()==f"{sum(check['done'] for check in component_checks)} / {len(component_checks)}"
+                assert page.locator('#component-phases article').count()==len(rollout['phases'])
+                assert page.locator('#component-phases details').count()==len(component_checks)
+                assert page.locator('#component-modules article').count()==len(rollout['modules'])
+                first=page.locator('#component-phases details').first
+                first.locator('summary').click()
+                assert first.locator('p').is_visible()
+                if args.screenshots:
+                    page.screenshot(path=str(args.screenshots/'components.png'),full_page=True)
+                page.get_by_role('tab',name='元件導入規劃').focus()
+                page.keyboard.press('ArrowRight')
+                assert page.locator('#milestone-panel').is_visible()
+                page.keyboard.press('End')
+                assert page.locator('#component-panel').is_visible()
+                page.set_viewport_size({'width':390,'height':844})
+                assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
+                if args.screenshots:
+                    page.screenshot(path=str(args.screenshots/'components-mobile.png'),full_page=True)
+                page.get_by_role('tab',name='里程碑進度').click()
             page.set_viewport_size({"width": 390, "height": 844})
             assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
             if args.screenshots:
@@ -49,7 +73,7 @@ def main():
             assert not errors, errors
         finally:
             browser.close()
-    print("Browser checks passed: milestones, modules, filters, keyboard, mobile, JavaScript errors")
+    print("Browser checks passed: baseline milestones, modules, component rollout, filters, keyboard, mobile, JavaScript errors")
 
 
 if __name__ == "__main__":
