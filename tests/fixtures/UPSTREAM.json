@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/microsoft/markitdown",
+  "commit": "7482c092d9c0074a89803c9fdb63a969e7fe17fc",
+  "source_path": "packages/markitdown/tests/test_files/SPARSE-2024-INV-1234_borderless_table.pdf",
+  "license": "MIT; retained in vendor/markitdown/LICENSE",
+  "sha256": "784fef202eb748d5d274eaaf2ded51dfd0d0d1e92225e84fd33dafc2333d15d3"
+}

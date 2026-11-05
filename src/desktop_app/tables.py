@@ -38,6 +38,7 @@ def _edge_index(edges,value):
 
 
 def render_table(page, table, checkpoint=lambda:None):
+    checkpoint()
     from pdfplumber.utils import extract_text
     boxes=tuple(dict.fromkeys(tuple(cell) for cell in table.cells))
     fallback=RenderedTable('',(), '表格幾何不明確或超出處理上限；保留原生文字，未宣稱表格結構已還原。')
@@ -50,6 +51,16 @@ def render_table(page, table, checkpoint=lambda:None):
     ys=_edges([box[index] for box in boxes for index in (1,3)])
     if len(xs)<2 or len(ys)<2 or (len(xs)-1)*(len(ys)-1)>100000:
         return fallback
+    if len(xs)==2:
+        # Some PDF forms have horizontal rules enclosing an entire sparse
+        # multi-column row. Do not misrepresent such rows as one-column cells.
+        first=min(boxes,key=lambda box:(box[1],box[0]))
+        header_words=page.crop(first).extract_words()
+        header_words=sorted(header_words,key=lambda word:(word['top'],word['x0']))
+        wide_gaps=sum(b['x0']-a['x1']>max(18,page.width*0.025) and abs(a['top']-b['top'])<=2
+                      for a,b in zip(header_words,header_words[1:]))
+        if wide_gaps>=2:
+            return RenderedTable('',(),'單欄外框內可能含多欄文字，未壓成單欄表格；保留文字供對齊分析與核對。')
     owners={}; spans={}; contents={i:[] for i in range(len(boxes))}
     for index,box in enumerate(boxes):
         checkpoint()

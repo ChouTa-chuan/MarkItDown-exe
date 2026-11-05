@@ -141,8 +141,8 @@ def _render(pdfium, index, dpi):
         page.close()
 
 
-def _native_columns(page, text):
-    words = page.extract_words()
+def _native_columns(page, text, words=None):
+    words = page.extract_words() if words is None else words
     middle = page.width/2
     gutter = page.width*0.025
     left = [word for word in words if word["x1"] < middle-gutter]
@@ -257,13 +257,30 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                                     blocks.append((top,source_comment+rendered.text))
                                 warnings.append(rendered.warning)
                             # Remaining lines retain their vertical position.
+                            from .borderless import infer_tables
+                            analysis=infer_tables(filtered,checkpoint)
+                            warnings.extend(analysis.warnings)
+                            for number,table in enumerate(analysis.tables,1):
+                                blocks.append((table.top,f'<!-- inferred-borderless-table: p{index+1}-b{number} -->\n\n'+table.text))
+                                filtered=filtered.filter(lambda obj,claimed=table.claimed_char_ids:id(obj) not in claimed)
                             for line in filtered.extract_text_lines():
                                 blocks.append((line["top"], line["text"]))
                             text = "\n\n".join(value for _, value in sorted(blocks, key=lambda item:item[0]))
                         else:
-                            text, column_warning = _native_columns(page, text)
-                            if column_warning:
-                                warnings.append(column_warning)
+                            from .borderless import infer_tables
+                            analysis=infer_tables(page,checkpoint)
+                            warnings.extend(analysis.warnings)
+                            if analysis.tables:
+                                filtered=page;blocks=[]
+                                for number,table in enumerate(analysis.tables,1):
+                                    blocks.append((table.top,f'<!-- inferred-borderless-table: p{index+1}-b{number} -->\n\n'+table.text))
+                                    filtered=filtered.filter(lambda obj,claimed=table.claimed_char_ids:id(obj) not in claimed)
+                                blocks.extend((line['top'],line['text']) for line in filtered.extract_text_lines())
+                                text='\n\n'.join(value for _,value in sorted(blocks,key=lambda item:item[0]))
+                            elif analysis.words is not None:
+                                text, column_warning = _native_columns(page, text,analysis.words)
+                                if column_warning:
+                                    warnings.append(column_warning)
                     reports.append({"page": index+1, "route": route, "warnings": warnings})
                     checkpoint()
                     yield f"<!-- source-page: {index+1}; route: {route} -->\n\n"

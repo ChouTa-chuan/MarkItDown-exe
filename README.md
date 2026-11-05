@@ -17,6 +17,7 @@ Windows 實測、完整精準版面模型及 GPU 尚未完成。
 - [雙引擎核對與原始結果保留](docs/crosscheck.md)
 - [PDF 合併儲存格與內容保留](docs/merged-tables.md)
 - [跨頁表格候選關聯與來源標記](docs/table-continuation.md)
+- [無框線表格基線與稀疏結構缺口](docs/borderless-tables.md)
 
 ## 本機開發驗證
 

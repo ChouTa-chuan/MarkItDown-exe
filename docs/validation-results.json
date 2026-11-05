@@ -1,11 +1,11 @@
 {
-  "recorded_at": "2026-11-05T14:17:08.476490+08:00",
+  "recorded_at": "2026-11-05T14:31:34.734143+08:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 110,
-    "passed": 109,
-    "expected_failures": 1,
+    "run": 122,
+    "passed": 120,
+    "expected_failures": 2,
     "skipped": 0,
     "failed": 0
   },
@@ -27,7 +27,8 @@
       "ONNX CPU scanned PDF without external Tesseract",
       "dual-engine scanned PDF cross-check with preserved warnings",
       "merged PDF table rowspan/colspan and cell content verified",
-      "cross-page continuation hint with repeated headers and rows preserved"
+      "cross-page continuation hint with repeated headers and rows preserved",
+      "inferred borderless numeric table, exact cells and no duplicate data"
     ]
   },
   "windows_workflow": "saved and statically checked; not executed",
@@ -46,7 +47,6 @@
     "gpu_inference_verified": false,
     "cpu_thread_configuration_verified": true
   },
-  "known_quality_gap": "Optional ONNX model omits/misrecognizes characters in strict Traditional Chinese sample; default remains Tesseract.",
   "quality_sample": "ocr-quality-sample.json; synthetic sample only",
   "crosscheck": {
     "preserves_primary_and_candidate": true,
@@ -69,6 +69,20 @@
     "positive_and_negative_pdf_fixtures": true,
     "automatic_merging": false,
     "real_documents_validated": false,
+    "frozen_executable_verified": true
+  },
+  "known_quality_gaps": [
+    "Optional ONNX Traditional Chinese sample",
+    "Upstream sparse borderless table six-column structure"
+  ],
+  "borderless": {
+    "aligned_numeric_baseline": true,
+    "right_aligned_numbers": true,
+    "ruled_and_unruled_same_page": true,
+    "two_column_prose_rejected": true,
+    "word_limit_and_cancel": true,
+    "upstream_text_preserved": true,
+    "upstream_sparse_structure_verified": false,
     "frozen_executable_verified": true
   }
 }

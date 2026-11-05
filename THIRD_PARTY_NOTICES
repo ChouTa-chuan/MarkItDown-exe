@@ -25,3 +25,8 @@ against SHA-256 values in src/desktop_app/onnx_ocr.py. Source of installed
 artifacts is PyPI with TLS and hashed dependency lock files. The complete
 runtime/model redistribution license inventory remains pending; this is not
 a final distribution compliance declaration.
+
+Upstream PDF regression fixture: tests/fixtures/upstream-sparse.pdf
+From the same Microsoft MarkItDown commit recorded above. Source path,
+SHA-256 and license reference are recorded in tests/fixtures/UPSTREAM.json.
+Original MIT license remains in vendor/markitdown/LICENSE.

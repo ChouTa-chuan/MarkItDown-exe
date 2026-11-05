@@ -60,6 +60,16 @@ with tempfile.TemporaryDirectory() as directory:
     assert 'possible-table-continuation: p1-t1 -> p2-t1' in continued_text
     assert continued_text.count('| Item | Amount |')==2
     assert continued_text.count('CONTINUED_ONE')==1 and continued_text.count('CONTINUED_TWO')==1
+    borderless=root/'borderless.pdf';borderless_output=root/'borderless.md'
+    document=canvas.Canvas(str(borderless),pagesize=(600,800))
+    for index,row in enumerate([('Item','Qty','Amount'),('Alpha','2','123.45'),('Beta','5','9000')]):
+        for x,value in zip((50,300,450),row):document.drawString(x,700-index*30,value)
+    document.save()
+    subprocess.run([str(executable),'--cli',str(borderless),str(borderless_output),'--reserve-mib','0',
+                    '--ram-budget-mib','2048'],check=True,timeout=90)
+    borderless_text=borderless_output.read_text(encoding='utf-8')
+    assert 'inferred-borderless-table: p1-b1' in borderless_text
+    assert '| Alpha | 2 | 123.45 |' in borderless_text and borderless_text.count('Alpha')==1
     from PIL import Image, ImageDraw, ImageFont
     image = Image.new('RGB',(1600,600),'white')
     font_path=Path(os.environ.get('TEST_LATIN_FONT','/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'))
