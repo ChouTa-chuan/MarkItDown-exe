@@ -1,0 +1,2 @@
+# Preserve PDF fixtures byte-for-byte; their hashes and xref offsets matter.
+*.pdf binary
