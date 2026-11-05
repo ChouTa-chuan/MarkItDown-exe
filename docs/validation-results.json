@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-05T11:17:26.844831+08:00",
+  "recorded_at": "2026-11-05T14:05:38.889661+08:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 88,
-    "passed": 87,
+    "run": 95,
+    "passed": 94,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -25,7 +25,8 @@
       "embedded OCR manifest loaded without checkout docs",
       "bundled ONNX OCR model hashes verified",
       "ONNX CPU scanned PDF without external Tesseract",
-      "dual-engine scanned PDF cross-check with preserved warnings"
+      "dual-engine scanned PDF cross-check with preserved warnings",
+      "merged PDF table rowspan/colspan and cell content verified"
     ]
   },
   "windows_workflow": "saved and statically checked; not executed",
@@ -52,6 +53,13 @@
     "missing_engine_rejected": true,
     "synthetic_samples": 4,
     "general_accuracy_validated": false,
+    "frozen_executable_verified": true
+  },
+  "merged_tables": {
+    "actual_pdf_rowspan_colspan": true,
+    "prose_order_and_noncell_gap_preserved": true,
+    "ambiguous_geometry_preserves_plain_text": true,
+    "cross_page_borderless_validated": false,
     "frozen_executable_verified": true
   }
 }

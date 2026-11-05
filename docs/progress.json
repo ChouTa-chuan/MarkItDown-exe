@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-05",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 87,
-  "headline": "雙引擎核對可保留辨識差異；不自動修字",
+  "tests_passed": 94,
+  "headline": "合併表格依幾何輸出，保留表格外框內的註記",
   "blocker": "尚無 Windows／NVIDIA 實機驗收。ONNX 繁體品質檢查仍未達標（1 項預期失敗）；Tesseract 保持預設。",
-  "next": "擴充真實掃描與複雜表格的品質驗收；Windows 原生 OCR 及 GPU 仍需實機整合。",
+  "next": "跨頁／無框線表格與複雜版面驗收；Windows、GPU 與正式安裝包仍待完成。",
   "milestones": [
     {
       "id": "m0",
@@ -90,14 +90,18 @@
       "id": "m3",
       "title": "自動精準流程",
       "state": "active",
-      "description": "逐頁路由、CPU OCR、簡單表格／雙欄與品質提醒已測；深度版面及複雜表格待完成。",
+      "description": "已驗證自動 OCR、核對及合併表格；跨頁／無框線與複雜版面保留未完成。",
       "checks": [
         {
           "label": "逐頁分析與自動路由",
           "done": true
         },
         {
-          "label": "OCR、版面與表格引擎",
+          "label": "OCR 與原生合併表格基線",
+          "done": true
+        },
+        {
+          "label": "複雜版面、跨頁／無框線表格驗收",
           "done": false
         },
         {
@@ -189,7 +193,7 @@
       "title": "格式轉換",
       "layer": "處理",
       "state": "partial",
-      "detail": "Office／HTML／PDF 已驗證，PDF 精準模式加入本機 OCR、表格及雙欄啟發式。",
+      "detail": "Office／HTML／PDF；原生 PDF 依 cell 幾何判斷合併，失敗保留原生文字。",
       "evidence": "tests/test_formats.py：5 種格式整合測試"
     },
     {
@@ -237,8 +241,8 @@
       "title": "結果輸出",
       "layer": "輸出",
       "state": "partial",
-      "detail": "文字排他提交可用；圖片與 HTML 表格待完成。",
-      "evidence": "覆寫競態及暫存清理測試"
+      "detail": "一般表格 Markdown、合併表格 HTML span，僅排除已輸出的字元；跨頁與圖片輸出待完成。",
+      "evidence": "tests/test_tables.py：實際 PDF 幾何、內容及順序"
     }
   ],
   "limits": [
@@ -247,6 +251,6 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 88,
+  "tests_run": 95,
   "tests_expected_failures": 1
 }

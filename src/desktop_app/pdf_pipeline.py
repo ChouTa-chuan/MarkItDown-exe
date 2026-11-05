@@ -141,17 +141,6 @@ def _render(pdfium, index, dpi):
         page.close()
 
 
-def _table_markdown(table):
-    rows = [[str(cell or "").replace("|", "\\|").replace("\n", "<br>") for cell in row] for row in table]
-    if not rows:
-        return ""
-    width = max(map(len, rows))
-    normalized = [row + [""]*(width-len(row)) for row in rows]
-    output = ["| " + " | ".join(normalized[0]) + " |", "| " + " | ".join(["---"]*width) + " |"]
-    output.extend("| " + " | ".join(row) + " |" for row in normalized[1:])
-    return "\n".join(output)
-
-
 def _native_columns(page, text):
     words = page.extract_words()
     middle = page.width/2
@@ -237,21 +226,22 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                     elif route == "native":
                         tables = page.find_tables()
                         if tables:
+                            from .tables import render_table
                             # Keep text around tables; exclude their cells from
                             # prose to avoid duplicate content, then order blocks.
                             blocks = []
                             filtered = page
                             for table in tables:
+                                rendered=render_table(page,table,checkpoint)
                                 x0, top, x1, bottom = table.bbox
-                                filtered = filtered.filter(lambda obj, box=(x0, top, x1, bottom): not (
-                                    obj.get("object_type") == "char" and box[0] <= obj.get("x0", -1) <= box[2]
-                                    and box[1] <= obj.get("top", -1) <= box[3]))
-                                blocks.append((top, _table_markdown(table.extract())))
+                                filtered = filtered.filter(lambda obj, claimed=rendered.claimed_char_ids: id(obj) not in claimed)
+                                if rendered.text:
+                                    blocks.append((top,rendered.text))
+                                warnings.append(rendered.warning)
                             # Remaining lines retain their vertical position.
                             for line in filtered.extract_text_lines():
                                 blocks.append((line["top"], line["text"]))
                             text = "\n\n".join(value for _, value in sorted(blocks, key=lambda item:item[0]))
-                            warnings.append("表格已自動擷取；合併儲存格與複雜版面請核對。")
                         else:
                             text, column_warning = _native_columns(page, text)
                             if column_warning:

@@ -29,6 +29,22 @@ with tempfile.TemporaryDirectory() as directory:
     subprocess.run([str(executable), "--cli", str(pdf), str(markdown), "--reserve-mib", "0",
                     "--ram-budget-mib", "2048"], check=True, timeout=90)
     assert "Frozen PDF conversion verification 12345" in markdown.read_text(encoding="utf-8")
+    merged=root/'merged.pdf';merged_output=root/'merged.md'
+    document=canvas.Canvas(str(merged))
+    for x in (50,350):document.line(x,660,x,780)
+    document.line(200,660,200,740)
+    for y in (660,740,780):document.line(50,y,350,y)
+    document.line(200,700,350,700)
+    document.drawString(60,755,'MergedHeader')
+    document.drawString(60,715,'LeftSpan')
+    document.drawString(210,715,'RightOne')
+    document.drawString(210,675,'RightTwo')
+    document.save()
+    subprocess.run([str(executable),'--cli',str(merged),str(merged_output),'--reserve-mib','0',
+                    '--ram-budget-mib','2048'],check=True,timeout=90)
+    table_text=merged_output.read_text(encoding='utf-8')
+    assert 'colspan="2"' in table_text and 'rowspan="2"' in table_text
+    assert table_text.count('LeftSpan')==1 and table_text.count('RightTwo')==1
     from PIL import Image, ImageDraw, ImageFont
     image = Image.new('RGB',(1600,600),'white')
     font_path=Path(os.environ.get('TEST_LATIN_FONT','/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'))
