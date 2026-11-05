@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-05",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 120,
-  "headline": "無框線數值表格有基線支援；複雜稀疏結構明確列為缺口",
+  "tests_passed": 132,
+  "headline": "已完成「授權清單與使用說明」檢核",
   "blocker": "兩項品質未達標：ONNX 繁體與上游稀疏表格結構。Windows／GPU 未實機驗收，正式安裝包待完成。",
-  "next": "改善缺格／錯落列的稀疏表格，補充真實版面樣本；Windows／GPU 與安裝包持續待驗收。",
+  "next": "Windows 原生檔建置／乾淨機及 GPU 實機驗收；兩項品質缺口持續追蹤。",
   "milestones": [
     {
       "id": "m0",
@@ -137,8 +137,8 @@
     {
       "id": "m5",
       "title": "發佈準備",
-      "state": "pending",
-      "description": "Windows 雜湊鎖定、建置腳本與手動 CI 已保存；Windows 產物、簽章與安裝包未驗證。",
+      "state": "active",
+      "description": "58 個 Windows 鎖定套件授權與離線手冊已隨包驗證；Windows 產物及最終二進位審核未完成。",
       "checks": [
         {
           "label": "Windows 建置與安裝包",
@@ -150,7 +150,7 @@
         },
         {
           "label": "授權清單與使用說明",
-          "done": false
+          "done": true
         }
       ]
     }
@@ -161,7 +161,7 @@
       "title": "桌面介面",
       "layer": "介面",
       "state": "partial",
-      "detail": "可選雙引擎交叉核對，預覽差異與原文；Windows 實測待完成。",
+      "detail": "說明選單可離線開啟操作手冊與授權清單，完整原文隨套件及打包資源保存。",
       "evidence": "tests/test_desktop.py：Linux 離屏操作流程"
     },
     {
@@ -251,6 +251,6 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 122,
+  "tests_run": 134,
   "tests_expected_failures": 2
 }

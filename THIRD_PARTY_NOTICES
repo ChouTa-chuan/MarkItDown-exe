@@ -6,11 +6,12 @@ The selected upstream runtime source is preserved without modifications.
 Per-file SHA-256 hashes are recorded in vendor/markitdown/UPSTREAM.json.
 
 The application adapter is maintained separately in src/desktop_app.
-Runtime dependencies and PySide6 have separate licenses; this notice is not
-a complete distribution license inventory. Before shipping an installer,
-generate the complete inventory, preserve notices, and assess Qt/PySide6
-LGPLv3/GPLv3/commercial terms for the chosen packaging approach. No installer
-or distribution compliance claim is made by this development checkpoint.
+Runtime dependencies and PySide6 have separate licenses. The 58-package
+Windows lock inventory, original notices and pinned supplemental sources are
+included in desktop_app/data/licenses and accessible through Help / Third-party
+licenses. This development inventory includes build/test dependencies as a
+superset. Windows final native-binary audit and Qt redistribution obligations
+remain release gates; no final distribution compliance claim is made.
 
 Optional local OCR models: tesseract-ocr/tessdata_fast
 Commit: 87416418657359cb625c412a48b6e1d6d41c29bd
@@ -23,7 +24,7 @@ Experimental optional OCR: rapidocr-onnxruntime 1.4.4
 Package metadata declares Apache-2.0. Its bundled PP-OCR models are checked
 against SHA-256 values in src/desktop_app/onnx_ocr.py. Source of installed
 artifacts is PyPI with TLS and hashed dependency lock files. The complete
-runtime/model redistribution license inventory remains pending; this is not
+runtime/model final redistribution review remains pending; this is not
 a final distribution compliance declaration.
 
 Upstream PDF regression fixture: tests/fixtures/upstream-sparse.pdf

@@ -23,4 +23,4 @@ markitdown-gui = "desktop_app.desktop:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-desktop_app = ["data/*.json"]
+desktop_app = ["data/*.json", "data/*.md", "data/licenses/**/*"]

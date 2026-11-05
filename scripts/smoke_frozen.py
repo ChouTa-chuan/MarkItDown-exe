@@ -11,6 +11,7 @@ parser.add_argument("--crosscheck", action="store_true", help="Also validate dua
 args = parser.parse_args()
 executable = args.executable.resolve()
 subprocess.run([str(executable), "--verify-model-manifest"], check=True, timeout=30)
+subprocess.run([str(executable), "--verify-help-assets"], check=True, timeout=30)
 subprocess.run([str(executable), "--verify-onnx-models"], check=True, timeout=60)
 with tempfile.TemporaryDirectory() as directory:
     root = Path(directory)

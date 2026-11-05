@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-05T14:31:34.734143+08:00",
+  "recorded_at": "2026-11-05T15:16:32.080773+08:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 122,
-    "passed": 120,
+    "run": 134,
+    "passed": 132,
     "expected_failures": 2,
     "skipped": 0,
     "failed": 0
@@ -28,7 +28,8 @@
       "dual-engine scanned PDF cross-check with preserved warnings",
       "merged PDF table rowspan/colspan and cell content verified",
       "cross-page continuation hint with repeated headers and rows preserved",
-      "inferred borderless numeric table, exact cells and no duplicate data"
+      "inferred borderless numeric table, exact cells and no duplicate data",
+      "offline guide, 58-package inventory, all 214 notice hashes, actual Python runtime license"
     ]
   },
   "windows_workflow": "saved and statically checked; not executed",
@@ -84,5 +85,18 @@
     "upstream_text_preserved": true,
     "upstream_sparse_structure_verified": false,
     "frozen_executable_verified": true
+  },
+  "license_and_manual_check": {
+    "complete": true,
+    "scope": "Development preview locked-dependency inventory and offline user guide; final native binary release audit remains pending",
+    "locked_windows_packages": 58,
+    "verified_files": 214,
+    "wheel_original_notices": 149,
+    "installed_package_help_verified": true,
+    "frozen_help_and_all_notice_hashes_verified": true,
+    "actual_python_runtime_license_bundled": true,
+    "windows_executed": false,
+    "catalog_browser_verified": true,
+    "all_catalog_links_verified": true
   }
 }

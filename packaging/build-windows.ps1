@@ -15,6 +15,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Hashed dependency installation failed.' }
     & $BuildPython scripts/verify_upstream.py
     if ($LASTEXITCODE -ne 0) { throw 'Source verification failed.' }
+    & $BuildPython scripts/license_inventory.py --verify
+    if ($LASTEXITCODE -ne 0) { throw 'License inventory verification failed.' }
     & $BuildPython -m pip install --no-deps --no-build-isolation ./vendor/markitdown .
     if ($LASTEXITCODE -ne 0) { throw 'Local project installation failed.' }
     $env:QT_QPA_PLATFORM = 'offscreen'

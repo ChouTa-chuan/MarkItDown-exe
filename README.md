@@ -18,6 +18,8 @@ Windows 實測、完整精準版面模型及 GPU 尚未完成。
 - [PDF 合併儲存格與內容保留](docs/merged-tables.md)
 - [跨頁表格候選關聯與來源標記](docs/table-continuation.md)
 - [無框線表格基線與稀疏結構缺口](docs/borderless-tables.md)
+- [使用說明](src/desktop_app/data/user-guide.md)
+- [第三方授權清單](src/desktop_app/data/third-party.md)與[完成檢核證據](docs/license-inventory.md)
 
 ## 本機開發驗證
 
@@ -50,7 +52,7 @@ CLI 可加 `--quality precise`（預設）或 `--quality fast`。掃描 OCR 另�
 
 轉換使用獨立 spawn 程序、低優先權與 RAM 回壓；PDF 精準模式在頁面之間可暫停，Office／單頁解析及 OCR 原生步驟仍不能即時釋放記憶體。RAM 是軟性預算，不保證瞬時上限。輸出須支援同磁碟硬連結（例如 NTFS），不支援時明確失敗。
 
-已有 Linux／Windows Python 3.12 雜湊鎖定檔，乾淨 Linux 安裝與測試已驗證；Windows 安裝、建置與完整安裝包待驗證。上游 MIT 已保留，全部依賴與 Qt 打包授權清單尚需完成。
+已有 Linux／Windows Python 3.12 雜湊鎖定檔，乾淨 Linux 安裝與測試已驗證；Windows 安裝、建置與完整安裝包待驗證。58 個 Windows 鎖定套件的授權清單及離線手冊已隨包驗證；最終 Windows 原生二進位／Qt 發佈義務仍需在建置後審核。
 
 ## 更新進度頁
 

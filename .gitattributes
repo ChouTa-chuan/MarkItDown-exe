@@ -1,2 +1,4 @@
 # Preserve PDF fixtures byte-for-byte; their hashes and xref offsets matter.
 *.pdf binary
+# Preserve upstream legal texts exactly, including original line endings.
+src/desktop_app/data/licenses/** -text

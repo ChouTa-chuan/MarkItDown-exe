@@ -4,7 +4,7 @@ from pathlib import Path
 from threading import Event
 
 from PySide6.QtCore import QThread, Signal, QStandardPaths
-from PySide6.QtGui import QCloseEvent, QDragEnterEvent, QDropEvent
+from PySide6.QtGui import QAction, QCloseEvent, QDragEnterEvent, QDropEvent
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFileDialog, QFormLayout,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow, QMessageBox, QPushButton,
     QSpinBox, QTextBrowser, QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
@@ -51,6 +51,11 @@ class Window(QMainWindow):
     def __init__(self, settings_path=None):
         super().__init__()
         self.setWindowTitle("MarkItDown 桌面版 · 開發預覽")
+        help_menu=self.menuBar().addMenu('說明')
+        for title,document in [('使用說明','user-guide.md'),('第三方授權','third-party.md')]:
+            action=QAction(title,self)
+            action.triggered.connect(lambda checked=False,path=document,label=title:self.show_help(path,label))
+            help_menu.addAction(action)
         self.resize(1080, 760)
         self.setAcceptDrops(True)
         self.sources = []
@@ -199,6 +204,11 @@ class Window(QMainWindow):
                         ocr_data_dir=self.model_path.text().strip() or None,
                         device=self.device.currentData(), cpu_threads=self.cpu_threads.value(),
                         ocr_backend=self.backend.currentData(), vram_budget_mib=self.vram_budget.value())
+
+    def show_help(self,document,title):
+        from .help_ui import HelpDialog
+        dialog=HelpDialog(document,title,self)
+        dialog.exec()
 
     def diagnose_devices(self):
         from .device_dialog import DeviceDialog
