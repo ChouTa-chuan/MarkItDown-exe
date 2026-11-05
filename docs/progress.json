@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-05",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 94,
-  "headline": "合併表格依幾何輸出，保留表格外框內的註記",
+  "tests_passed": 109,
+  "headline": "跨頁表格新增保守關聯，保留來源與重複表頭",
   "blocker": "尚無 Windows／NVIDIA 實機驗收。ONNX 繁體品質檢查仍未達標（1 項預期失敗）；Tesseract 保持預設。",
-  "next": "跨頁／無框線表格與複雜版面驗收；Windows、GPU 與正式安裝包仍待完成。",
+  "next": "驗收真實跨頁與無框線表格；Windows 原生 OCR、GPU 及正式安裝包仍待完成。",
   "milestones": [
     {
       "id": "m0",
@@ -233,7 +233,7 @@
       "title": "品質檢查",
       "layer": "輸出",
       "state": "partial",
-      "detail": "雙引擎核對保留兩份原文、標記差異與空結果，長頁限制對齊；原 ONNX 品質缺口仍追蹤。",
+      "detail": "跨頁以欄位／表頭／邊界內容判斷可能關聯，歧義保留原文；ONNX 品質缺口仍追蹤。",
       "evidence": "tests/test_quality.py、交叉核對實際 PDF 測試及四份合成樣本"
     },
     {
@@ -241,7 +241,7 @@
       "title": "結果輸出",
       "layer": "輸出",
       "state": "partial",
-      "detail": "一般表格 Markdown、合併表格 HTML span，僅排除已輸出的字元；跨頁與圖片輸出待完成。",
+      "detail": "合併表格 HTML、來源表格 ID、跨頁候選標記；不自動刪表頭或合併資料。",
       "evidence": "tests/test_tables.py：實際 PDF 幾何、內容及順序"
     }
   ],
@@ -251,6 +251,6 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 95,
+  "tests_run": 110,
   "tests_expected_failures": 1
 }

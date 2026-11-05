@@ -45,6 +45,21 @@ with tempfile.TemporaryDirectory() as directory:
     table_text=merged_output.read_text(encoding='utf-8')
     assert 'colspan="2"' in table_text and 'rowspan="2"' in table_text
     assert table_text.count('LeftSpan')==1 and table_text.count('RightTwo')==1
+    continued=root/'continued.pdf';continued_output=root/'continued.md'
+    document=canvas.Canvas(str(continued),pagesize=(600,800))
+    for bottom,label in [(20,'CONTINUED_ONE'),(660,'CONTINUED_TWO')]:
+        for x in (50,300,550):document.line(x,bottom,x,bottom+100)
+        for y in (bottom,bottom+50,bottom+100):document.line(50,y,550,y)
+        document.drawString(60,bottom+70,'Item');document.drawString(310,bottom+70,'Amount')
+        document.drawString(60,bottom+20,label);document.drawString(310,bottom+20,'12345')
+        document.showPage()
+    document.save()
+    subprocess.run([str(executable),'--cli',str(continued),str(continued_output),'--reserve-mib','0',
+                    '--ram-budget-mib','2048'],check=True,timeout=90)
+    continued_text=continued_output.read_text(encoding='utf-8')
+    assert 'possible-table-continuation: p1-t1 -> p2-t1' in continued_text
+    assert continued_text.count('| Item | Amount |')==2
+    assert continued_text.count('CONTINUED_ONE')==1 and continued_text.count('CONTINUED_TWO')==1
     from PIL import Image, ImageDraw, ImageFont
     image = Image.new('RGB',(1600,600),'white')
     font_path=Path(os.environ.get('TEST_LATIN_FONT','/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'))

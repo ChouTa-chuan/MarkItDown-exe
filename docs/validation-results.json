@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-05T14:05:38.889661+08:00",
+  "recorded_at": "2026-11-05T14:17:08.476490+08:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 95,
-    "passed": 94,
+    "run": 110,
+    "passed": 109,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -26,7 +26,8 @@
       "bundled ONNX OCR model hashes verified",
       "ONNX CPU scanned PDF without external Tesseract",
       "dual-engine scanned PDF cross-check with preserved warnings",
-      "merged PDF table rowspan/colspan and cell content verified"
+      "merged PDF table rowspan/colspan and cell content verified",
+      "cross-page continuation hint with repeated headers and rows preserved"
     ]
   },
   "windows_workflow": "saved and statically checked; not executed",
@@ -60,6 +61,14 @@
     "prose_order_and_noncell_gap_preserved": true,
     "ambiguous_geometry_preserves_plain_text": true,
     "cross_page_borderless_validated": false,
+    "frozen_executable_verified": true
+  },
+  "table_continuation": {
+    "possible_link_only": true,
+    "original_headers_and_rows_preserved": true,
+    "positive_and_negative_pdf_fixtures": true,
+    "automatic_merging": false,
+    "real_documents_validated": false,
     "frozen_executable_verified": true
   }
 }

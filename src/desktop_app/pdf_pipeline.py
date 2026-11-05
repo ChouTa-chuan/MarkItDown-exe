@@ -164,10 +164,12 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
     import pypdfium2
     renderer = None
     onnx = None
+    previous_tail = None
     try:
         with pdfplumber.open(source) as document:
             for index, page in enumerate(document.pages):
                 checkpoint()
+                next_tail = None
                 try:
                     text = page.extract_text() or ""
                     area = max(page.width*page.height, 1)
@@ -227,16 +229,32 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                         tables = page.find_tables()
                         if tables:
                             from .tables import render_table
+                            from .table_continuation import TableFragment, boundary_text, possible_continuation
                             # Keep text around tables; exclude their cells from
                             # prose to avoid duplicate content, then order blocks.
                             blocks = []
                             filtered = page
-                            for table in tables:
+                            top_candidates=sum(table.bbox[1]<=page.height*0.12 for table in tables)
+                            tail_candidates=sum(table.bbox[3]>=page.height*0.9 for table in tables)
+                            for table_number,table in enumerate(sorted(tables,key=lambda table:(table.bbox[1],table.bbox[0])),1):
                                 rendered=render_table(page,table,checkpoint)
                                 x0, top, x1, bottom = table.bbox
                                 filtered = filtered.filter(lambda obj, claimed=rendered.claimed_char_ids: id(obj) not in claimed)
                                 if rendered.text:
-                                    blocks.append((top,rendered.text))
+                                    identifier=f'p{index+1}-t{table_number}'
+                                    source_comment=f'<!-- source-table: {identifier} -->\n\n'
+                                    if rendered.column_edges:
+                                        fragment=TableFragment(index+1,identifier,page.width,page.height,table.bbox,
+                                                               rendered.column_edges,rendered.first_row,rendered.row_count,
+                                                               boundary_text(page,table.bbox,False))
+                                        if top_candidates==1 and possible_continuation(previous_tail,fragment):
+                                            source_comment+=f'<!-- possible-table-continuation: {previous_tail.identifier} -> {identifier} -->\n\n'
+                                            warnings.append(f'本表可能接續第 {previous_tail.page} 頁表格：欄位與表頭吻合。各頁原文與重複表頭保留，未自動合併。')
+                                        if tail_candidates==1 and bottom>=page.height*0.9:
+                                            next_tail=TableFragment(index+1,identifier,page.width,page.height,table.bbox,
+                                                                   rendered.column_edges,rendered.first_row,rendered.row_count,
+                                                                   boundary_text(page,table.bbox,True))
+                                    blocks.append((top,source_comment+rendered.text))
                                 warnings.append(rendered.warning)
                             # Remaining lines retain their vertical position.
                             for line in filtered.extract_text_lines():
@@ -253,6 +271,7 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                         yield f"> ⚠ 第 {index+1} 頁：{warning}\n\n"
                     yield text.strip() + "\n\n"
                 finally:
+                    previous_tail=next_tail
                     page.close()
     finally:
         if onnx is not None:

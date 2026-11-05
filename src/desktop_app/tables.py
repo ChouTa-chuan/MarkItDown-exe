@@ -11,6 +11,9 @@ class RenderedTable:
     boxes: tuple
     warning: str
     claimed_char_ids: frozenset = frozenset()
+    column_edges: tuple = ()
+    first_row: tuple = ()
+    row_count: int = 0
 
 
 def _edges(values):
@@ -93,4 +96,6 @@ def render_table(page, table, checkpoint=lambda:None):
                      if (row,column) in owners else '' for column in range(len(xs)-1)])
     rows=['| '+' | '.join(grid[0])+' |','| '+' | '.join(['---']*(len(xs)-1))+' |']
     rows += ['| '+' | '.join(row)+' |' for row in grid[1:]]
-    return RenderedTable('\n'.join(rows),boxes,'表格已擷取，首列按欄名輸出；請核對內容與欄列。',claimed)
+    header=tuple(values[owners[0,column]] if (0,column) in owners else '' for column in range(len(xs)-1))
+    return RenderedTable('\n'.join(rows),boxes,'表格已擷取，首列按欄名輸出；請核對內容與欄列。',
+                         claimed,tuple(xs),header,len(ys)-1)
