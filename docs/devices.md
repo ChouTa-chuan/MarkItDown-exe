@@ -12,4 +12,4 @@ CPU 執行緒上限 1–256，預設一個，僅套用背景程序的 OpenMP／B
 
 ONNX 的 VRAM arena 預算由三個 CUDA session 分攤，不是整張卡硬限；准入另保留 128 MiB。自動模式 GPU 失敗會先釋放 session，再等待父程序 RAM checkpoint 後建立 CPU；明確 GPU 模式不靜默回退。推論回退最多一次，取消不回退。分支測試是模擬，不是 GPU 實機驗證。
 
-設定 schema v4 保存裝置、CPU、OCR 後端及 VRAM 配置預算，讀取 v1–v3 並保留既有值，明確儲存前不改舊檔。Windows、GPU 真實峰值、OOM 與加速成效仍待實測。
+設定 schema v5 保存裝置、CPU、OCR 後端及 VRAM 配置預算，讀取 v1–v4 並保留既有值，明確儲存前不改舊檔。Windows、GPU 真實峰值、OOM 與加速成效仍待實測。

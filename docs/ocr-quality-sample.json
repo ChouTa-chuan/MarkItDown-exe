@@ -1,7 +1,6 @@
 {
-  "sample": "synthetic clean two-line Traditional Chinese, NotoSansCJK-Bold 72px",
+  "sample": "synthetic clean two-line text, NotoSansCJK-Bold 72px",
   "reference": "繁體中文文件測試\n會議紀錄與資料轉換",
-  "scope": "one sample only; not a general accuracy claim",
   "results": {
     "onnx_cpu": {
       "text": "繁體中文文件測試\n會紀錄與資料轉换",
@@ -17,5 +16,108 @@
       "character_error_rate": 0.0,
       "warning": null
     }
-  }
+  },
+  "scope": "four synthetic samples only; not a general accuracy claim",
+  "samples": [
+    {
+      "name": "meeting",
+      "reference": "繁體中文文件測試\n會議紀錄與資料轉換",
+      "results": {
+        "onnx_cpu": {
+          "text": "繁體中文文件測試\n會紀錄與資料轉换",
+          "character_edits": 2,
+          "reference_characters": 17,
+          "character_error_rate": 0.11764705882352941,
+          "warning": "ONNX OCR 結果請核對，模型可能不涵蓋所有繁體字形。 部分文字的模型分數偏低。"
+        },
+        "tesseract_cpu": {
+          "text": "繁體中文文件測試\n\n會議紀錄與資料轉換\n",
+          "character_edits": 0,
+          "reference_characters": 17,
+          "character_error_rate": 0.0,
+          "warning": null
+        }
+      },
+      "crosscheck": {
+        "agrees": false,
+        "warning": "兩引擎有2 處文字差異；採 Tesseract 原始結果，保留 ONNX 候選供核對，未自動修字。",
+        "primary_text_unchanged": true
+      }
+    },
+    {
+      "name": "amount_date",
+      "reference": "發票總額10250元\n日期20261105",
+      "results": {
+        "onnx_cpu": {
+          "text": "發票總额10250元\n日期20261105",
+          "character_edits": 1,
+          "reference_characters": 20,
+          "character_error_rate": 0.05,
+          "warning": "ONNX OCR 結果請核對，模型可能不涵蓋所有繁體字形。"
+        },
+        "tesseract_cpu": {
+          "text": "票總額10250元\n\n日期20261105\n",
+          "character_edits": 1,
+          "reference_characters": 20,
+          "character_error_rate": 0.05,
+          "warning": null
+        }
+      },
+      "crosscheck": {
+        "agrees": false,
+        "warning": "兩引擎有2 處文字差異；採 Tesseract 原始結果，保留 ONNX 候選供核對，未自動修字。",
+        "primary_text_unchanged": true
+      }
+    },
+    {
+      "name": "negation",
+      "reference": "本案不可批准\n請勿刪除原始資料",
+      "results": {
+        "onnx_cpu": {
+          "text": "本案不可批准\n請勿刪除原始資料",
+          "character_edits": 0,
+          "reference_characters": 14,
+          "character_error_rate": 0.0,
+          "warning": "ONNX OCR 結果請核對，模型可能不涵蓋所有繁體字形。"
+        },
+        "tesseract_cpu": {
+          "text": "本案不可批准\n\n請勿刪除原始資料\n",
+          "character_edits": 0,
+          "reference_characters": 14,
+          "character_error_rate": 0.0,
+          "warning": null
+        }
+      },
+      "crosscheck": {
+        "agrees": true,
+        "warning": "兩引擎文字一致（忽略空白）；一致不代表正確，仍需核對原頁。",
+        "primary_text_unchanged": true
+      }
+    },
+    {
+      "name": "english",
+      "reference": "DOCUMENT SCAN TEST\nInvoice total 12345",
+      "results": {
+        "onnx_cpu": {
+          "text": "DOCUMENT SCAN TEST\nlnvoice total 12345",
+          "character_edits": 1,
+          "reference_characters": 33,
+          "character_error_rate": 0.030303030303030304,
+          "warning": "ONNX OCR 結果請核對，模型可能不涵蓋所有繁體字形。"
+        },
+        "tesseract_cpu": {
+          "text": "DOCUMENTSCAN TEST\n\nInvoice total 12345\n",
+          "character_edits": 0,
+          "reference_characters": 33,
+          "character_error_rate": 0.0,
+          "warning": null
+        }
+      },
+      "crosscheck": {
+        "agrees": false,
+        "warning": "兩引擎有1 處文字差異；採 Tesseract 原始結果，保留 ONNX 候選供核對，未自動修字。",
+        "primary_text_unchanged": true
+      }
+    }
+  ]
 }

@@ -7,6 +7,7 @@ import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument("executable", type=Path)
+parser.add_argument("--crosscheck", action="store_true", help="Also validate dual-engine OCR; requires local Tesseract")
 args = parser.parse_args()
 executable = args.executable.resolve()
 subprocess.run([str(executable), "--verify-model-manifest"], check=True, timeout=30)
@@ -40,4 +41,10 @@ with tempfile.TemporaryDirectory() as directory:
     subprocess.run([str(executable),'--cli',str(scanned),str(scan_output),'--ocr-backend','onnx',
                     '--device','cpu','--reserve-mib','0','--ram-budget-mib','2048'],check=True,timeout=120)
     assert 'ONNX SCAN TEST 12345' in scan_output.read_text(encoding='utf-8')
+    if args.crosscheck:
+        verified=root/'verified.md'
+        subprocess.run([str(executable),'--cli',str(scanned),str(verified),'--ocr-backend','onnx_verify',
+                        '--device','cpu','--reserve-mib','0','--ram-budget-mib','2048'],check=True,timeout=120)
+        text=verified.read_text(encoding='utf-8')
+        assert 'ONNX SCAN TEST 12345' in text and '兩引擎' in text
 print("Frozen executable text and PDF conversion verified")

@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-05T09:51:10.860370+08:00",
+  "recorded_at": "2026-11-05T11:17:26.844831+08:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 80,
-    "passed": 79,
+    "run": 88,
+    "passed": 87,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -24,7 +24,8 @@
       "native PDF text conversion with source page routing",
       "embedded OCR manifest loaded without checkout docs",
       "bundled ONNX OCR model hashes verified",
-      "ONNX CPU scanned PDF without external Tesseract"
+      "ONNX CPU scanned PDF without external Tesseract",
+      "dual-engine scanned PDF cross-check with preserved warnings"
     ]
   },
   "windows_workflow": "saved and statically checked; not executed",
@@ -44,5 +45,13 @@
     "cpu_thread_configuration_verified": true
   },
   "known_quality_gap": "Optional ONNX model omits/misrecognizes characters in strict Traditional Chinese sample; default remains Tesseract.",
-  "quality_sample": "ocr-quality-sample.json; synthetic sample only"
+  "quality_sample": "ocr-quality-sample.json; synthetic sample only",
+  "crosscheck": {
+    "preserves_primary_and_candidate": true,
+    "does_not_auto_correct": true,
+    "missing_engine_rejected": true,
+    "synthetic_samples": 4,
+    "general_accuracy_validated": false,
+    "frozen_executable_verified": true
+  }
 }

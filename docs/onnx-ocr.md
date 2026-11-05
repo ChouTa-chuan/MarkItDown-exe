@@ -20,4 +20,4 @@ CUDA arena 預算不是整張卡硬上限，不涵蓋所有函式庫配置。GPU
 
 ## 設定與限制
 
-schema v4 支援 OCR 後端及 VRAM arena 預算，讀取 v1–v3；CLI --vram-budget-mib 可覆寫。ONNX 任務預留較高的 RAM 估算，逐頁／推論前後仍透過父程序回壓。原生模型推論期間不能立即暫停；GPU 模型載入也不是硬性記憶體保證。
+schema v5 支援 OCR 後端及 VRAM arena 預算，讀取 v1–v4；CLI --vram-budget-mib 可覆寫。ONNX 任務預留較高的 RAM 估算，逐頁／推論前後仍透過父程序回壓。原生模型推論期間不能立即暫停；GPU 模型載入也不是硬性記憶體保證。

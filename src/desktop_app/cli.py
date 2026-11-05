@@ -18,7 +18,7 @@ def main():
     parser.add_argument("--quality", choices=[quality.value for quality in Quality], default="precise")
     parser.add_argument("--device", choices=["auto", "cpu", "gpu"])
     parser.add_argument("--cpu-threads", type=int)
-    parser.add_argument("--ocr-backend", choices=["tesseract", "onnx"])
+    parser.add_argument("--ocr-backend", choices=["tesseract", "onnx", "onnx_verify"])
     parser.add_argument("--vram-budget-mib", type=int)
     parser.add_argument("--ram-budget-mib", type=int)
     parser.add_argument("--reserve-mib", type=int)

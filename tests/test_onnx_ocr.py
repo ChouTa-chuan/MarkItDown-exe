@@ -1,6 +1,7 @@
 import importlib.util
 from pathlib import Path
 import os
+import shutil
 import tempfile
 import unittest
 from unittest.mock import MagicMock, patch
@@ -113,3 +114,28 @@ class OnnxIntegrationTests(unittest.TestCase):
             with patch('desktop_app.pdf_pipeline.shutil.which',return_value=None):
                 convert_document(Request(source,target,device='cpu',ocr_backend='onnx'),lambda:None)
             self.assertIn('DOCUMENT SCAN TEST',target.read_text(encoding='utf-8'))
+
+    @unittest.skipUnless(shutil.which('tesseract'), 'Cross-check requires Tesseract')
+    def test_crosscheck_keeps_primary_and_candidate(self):
+        import subprocess
+        from reportlab.pdfgen import canvas
+        from desktop_app.conversion import convert_document
+        if 'chi_tra' not in subprocess.run(['tesseract','--list-langs'],capture_output=True,text=True).stdout:
+            self.skipTest('Traditional Chinese model unavailable')
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);source=root/'scan.pdf';target=root/'result.md'
+            with self.make_image(True) as image:image.save(root/'scan.png')
+            document=canvas.Canvas(str(source),pagesize=(800,600))
+            document.drawImage(str(root/'scan.png'),0,150,800,300);document.save()
+            request=Request(source,target,device='cpu',ocr_backend='onnx_verify')
+            convert_document(request,lambda:None)
+            text=target.read_text(encoding='utf-8')
+            self.assertIn('會議紀錄與資料轉換',''.join(text.split()))
+            self.assertIn('未自動修字',text)
+            self.assertIn('ONNX（候選結果）',text)
+            self.assertIn('<details>',text)
+            target.unlink()
+            with patch('desktop_app.pdf_pipeline.shutil.which',return_value=None):
+                with self.assertRaisesRegex(RuntimeError,'找不到 Tesseract'):
+                    convert_document(request,lambda:None)
+            self.assertFalse(target.exists())

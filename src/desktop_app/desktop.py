@@ -108,6 +108,7 @@ class Window(QMainWindow):
         self.backend = QComboBox()
         self.backend.addItem("Tesseract（外部引擎）", "tesseract")
         self.backend.addItem("ONNX OCR（實驗性，繁體品質未達標）", "onnx")
+        self.backend.addItem("雙引擎交叉核對（較慢，保留差異）", "onnx_verify")
         form.addRow("OCR 後端", self.backend)
         self.vram_budget = QSpinBox()
         self.vram_budget.setRange(192, 1048576)

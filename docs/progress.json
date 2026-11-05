@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-05",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 79,
-  "headline": "ONNX CPU 掃描推論可用；繁體品質缺口明確追蹤",
+  "tests_passed": 87,
+  "headline": "雙引擎核對可保留辨識差異；不自動修字",
   "blocker": "尚無 Windows／NVIDIA 實機驗收。ONNX 繁體品質檢查仍未達標（1 項預期失敗）；Tesseract 保持預設。",
-  "next": "補充真實文件品質樣本、驗證 CUDA 硬體與 Windows 打包；改善 ONNX 繁體字形，未通過前不取代預設。",
+  "next": "擴充真實掃描與複雜表格的品質驗收；Windows 原生 OCR 及 GPU 仍需實機整合。",
   "milestones": [
     {
       "id": "m0",
@@ -157,7 +157,7 @@
       "title": "桌面介面",
       "layer": "介面",
       "state": "partial",
-      "detail": "可查詢顯卡並設定 CPU 執行緒，GPU 選項明確停用；Windows 實測待完成。",
+      "detail": "可選雙引擎交叉核對，預覽差異與原文；Windows 實測待完成。",
       "evidence": "tests/test_desktop.py：Linux 離屏操作流程"
     },
     {
@@ -213,7 +213,7 @@
       "title": "設定儲存",
       "layer": "支援",
       "state": "verified",
-      "detail": "schema v4 保存 OCR 後端／VRAM、CPU 與路徑，支援 v1–v3 遷移。",
+      "detail": "schema v5 支援核對後端，讀取 v1–v4，不自動替換原設定。",
       "evidence": "tests/test_settings.py：遷移與路徑往返"
     },
     {
@@ -229,8 +229,8 @@
       "title": "品質檢查",
       "layer": "輸出",
       "state": "partial",
-      "detail": "保留繁體未達標測試與樣本 CER，比較分開揭露；不將推論成功當作辨識正確。",
-      "evidence": "OCR 無結果、重試上限及基線比較測試"
+      "detail": "雙引擎核對保留兩份原文、標記差異與空結果，長頁限制對齊；原 ONNX 品質缺口仍追蹤。",
+      "evidence": "tests/test_quality.py、交叉核對實際 PDF 測試及四份合成樣本"
     },
     {
       "id": "exporters",
@@ -247,6 +247,6 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 80,
+  "tests_run": 88,
   "tests_expected_failures": 1
 }

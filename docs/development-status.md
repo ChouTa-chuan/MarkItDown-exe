@@ -4,18 +4,22 @@
 
 ## 核對結果與本輪交付
 
+- 新增雙引擎核對後端 onnx_verify：Tesseract 為主、ONNX 為候選，保留差異與原文，不自動修字。
+- 四份合成樣本涵蓋會議、金額／日期、否定句與英文；金額樣本兩引擎都出錯，結果公開保存，不宣稱交叉核對可取代人工。
+- schema v5 讀取 v1–v4，原先後端與預設不變。
+
 - 上輪未提交的 ONNX 整合已核對：固定 RapidOCR 1.4.4、三個模型雜湊、實際 CPU 推論及不依賴 Tesseract 的英文掃描 PDF。
 - 候選 CUDA 路徑包含單卡／provider／VRAM 准入、三個 session 驗證、arena 配置、自動模式回退與 RAM checkpoint；取消不回退，明確 GPU 模式不靜默改用 CPU。
 - 檢查並改善回退的資源釋放，避免例外 traceback 保留失敗 session。
 - 保留 Tesseract 預設，ONNX 手動選配並標示實驗性。ONNX 繁體樣本有漏字／字形錯誤，尚未達品質要求。
 - 重新比較時發現 Tesseract 對稀疏文字圖片漏行，加入文字分布判斷，選用稀疏版面模式，並補充嚴格的雙行繁體回歸測試。
-- schema v4 保存後端及 VRAM 配置預算，讀取 v1–v3；Linux／Windows 雜湊鎖定已更新。
+- schema v5 保存後端及 VRAM 配置預算，讀取 v1–v4；Linux／Windows 雜湊鎖定已更新。
 
 ## 驗證
 
-- 乾淨 Linux venv：80 項檢查，79 通過、1 繁體品質預期失敗、0 跳過。預期失敗不列為品質通過。
+- 乾淨 Linux venv：88 項檢查，87 通過、1 繁體品質預期失敗、0 跳過。預期失敗不列為品質通過。
 - 品質缺口追蹤：test_traditional_chinese_quality_known_gap 保留嚴格斷言，模型改善後須移除 expectedFailure。
-- 同一張 17 字合成樣本：Tesseract 修正後 0 個字元差異；ONNX 2 個差異。僅此樣本，不是整體準確率。原文與輸出見 ocr-quality-sample.json。
+- 品質比較已擴充四份合成樣本。原 17 字會議樣本：Tesseract 0 差異、ONNX 2；另有金額樣本兩者各 1 差異。原文、輸出及核對結果見 ocr-quality-sample.json，不代表真實文件準確率。
 - ONNX 英文掃描 CPU 推論可用；CUDA 記憶體／provider／回退分支為模擬測試，沒有真實 GPU 推論。
 - PyInstaller Linux 已打包並以真正程式驗證文字、原生 PDF、ONNX 模型資源及英文掃描；最新結果記錄於 validation-results.json。
 - 進度頁將測試通過與品質未達標分開揭露。Windows workflow 僅保存，未執行。

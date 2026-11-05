@@ -64,7 +64,7 @@ def probe_devices():
 def ocr_backend(device, backend="tesseract"):
     if device not in {"auto", "cpu", "gpu"}:
         raise ValueError("不支援的運算裝置設定。")
-    if backend == "onnx":
+    if backend in ("onnx", "onnx_verify"):
         return "ONNX OCR：裝置將於模型載入及 session 驗證後回報。"
     if backend != "tesseract":
         raise ValueError("不支援的 OCR 後端。")

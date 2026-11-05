@@ -189,19 +189,31 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                     route = decision.route
                     progress(f"第 {index+1}/{len(document.pages)} 頁：{'OCR' if route == 'ocr' else '原生分析'}")
                     if route == "ocr":
-                        if backend == "onnx" and onnx is None:
+                        if backend in ("onnx", "onnx_verify") and onnx is None:
                             from .onnx_ocr import OnnxOCR
                             onnx = OnnxOCR(device, threads, vram_budget_mib, checkpoint, progress)
                         warnings.append("OCR 結果需核對；圖表、公式與原始版面尚未完整還原。")
                         if renderer is None:
                             renderer = pypdfium2.PdfDocument(str(source))
                         text = ""
+                        comparison = None
                         for dpi in (200, 300):
                             checkpoint()
                             image, actual_dpi = _render(renderer, index, dpi)
                             try:
                                 if onnx is not None:
                                     recognized, warning = onnx.recognize(image)
+                                    current_comparison = None
+                                    if backend == "onnx_verify":
+                                        from .quality import compare_ocr
+                                        checkpoint()
+                                        primary, primary_warning = _run_ocr(image, checkpoint, progress,
+                                                                           actual_dpi, executable, data_dir)
+                                        current_comparison = compare_ocr(primary, recognized)
+                                        recognized = primary
+                                        warning = current_comparison.warning
+                                        if primary_warning:
+                                            warning += " " + primary_warning
                                 else:
                                     recognized, warning = _run_ocr(image, checkpoint, progress, actual_dpi,
                                                                    executable, data_dir)
@@ -211,11 +223,17 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                                 warnings.append(warning)
                             if len(recognized.strip()) > len(text.strip()):
                                 text = recognized
+                                if backend == "onnx_verify":
+                                    comparison = current_comparison
+                            elif backend == "onnx_verify" and comparison is None:
+                                comparison = current_comparison
                             if len(text.strip()) >= 24:
                                 break
                             progress(f"第 {index+1} 頁 OCR 文字不足，嘗試較高解析度（最多兩次）。")
                         if not text.strip():
                             warnings.append("OCR 未辨識出文字；可能為純圖片或辨識失敗，請核對原頁。")
+                        if comparison is not None:
+                            text += comparison.evidence_markdown()
                     elif route == "native":
                         tables = page.find_tables()
                         if tables:
