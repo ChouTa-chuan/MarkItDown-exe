@@ -103,3 +103,41 @@ class CrossPagePDFTests(unittest.TestCase):
         self.make_document(multiple=True);text=self.convert()
         self.assertNotIn('possible-table-continuation:',text)
         self.assertIn('DATA_PAGE_TWO',text);self.assertIn('SEPARATE',text)
+
+    def make_borderless_document(self,sparse=False,prose=False,shift=0,header='Item'):
+        from reportlab.pdfgen import canvas
+        pdf=canvas.Canvas(str(self.source),pagesize=(600,800))
+        for page,base in [(1,100),(2,760)]:
+            if page==2 and prose:pdf.drawString(50,790,'NEW SECTION')
+            xs=(50,300+(shift if page==2 else 0),450)
+            rows=[(header if page==2 else 'Item','Qty','Amount'),
+                  (f'DATA_PAGE_{page}','2','123.45'),('' if sparse else f'LAST_PAGE_{page}','5','9000')]
+            for index,row in enumerate(rows):
+                for x,value in zip(xs,row):
+                    if value:pdf.drawString(x,base-index*30,value)
+            pdf.showPage()
+        pdf.save()
+
+    def test_borderless_continuation_preserves_headers_and_rows(self):
+        self.make_borderless_document();text=self.convert()
+        self.assertIn('possible-table-continuation: p1-b1 -> p2-b1',text)
+        self.assertEqual(text.count('| Item | Qty | Amount |'),2)
+        for value in ('DATA_PAGE_1','DATA_PAGE_2','LAST_PAGE_1','LAST_PAGE_2'):
+            self.assertEqual(text.count(value),1)
+
+    def test_sparse_borderless_continuation_preserves_empty_cells(self):
+        self.make_borderless_document(sparse=True);text=self.convert()
+        self.assertIn('possible-table-continuation: p1-b1 -> p2-b1',text)
+        self.assertEqual(text.count('|  | 5 | 9000 |'),2)
+
+    def test_borderless_new_section_blocks_continuation(self):
+        self.make_borderless_document(prose=True);text=self.convert()
+        self.assertNotIn('possible-table-continuation:',text)
+        self.assertEqual(text.count('NEW SECTION'),1)
+
+    def test_borderless_changed_geometry_or_header_not_linked(self):
+        for kwargs in ({'shift':20},{'header':'Different'}):
+            with self.subTest(**kwargs):
+                self.output.unlink(missing_ok=True)
+                self.make_borderless_document(**kwargs)
+                self.assertNotIn('possible-table-continuation:',self.convert())

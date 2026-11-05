@@ -1,11 +1,11 @@
 {
-  "recorded_at": "2026-11-05T15:16:32.080773+08:00",
+  "recorded_at": "2026-11-05T08:02:06.382753+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 134,
-    "passed": 132,
-    "expected_failures": 2,
+    "run": 148,
+    "passed": 147,
+    "expected_failures": 1,
     "skipped": 0,
     "failed": 0
   },
@@ -29,7 +29,10 @@
       "merged PDF table rowspan/colspan and cell content verified",
       "cross-page continuation hint with repeated headers and rows preserved",
       "inferred borderless numeric table, exact cells and no duplicate data",
-      "offline guide, 58-package inventory, all 214 notice hashes, actual Python runtime license"
+      "offline guide, 58-package inventory, all 214 notice hashes, actual Python runtime license",
+      "sparse unruled table continuation, repeated headers and empty cells preserved",
+      "full-width heading, left/right column order and footer preserved",
+      "four public upstream PDFs: all character counts, exact sparse cells, money signs, page/order targets"
     ]
   },
   "windows_workflow": "saved and statically checked; not executed",
@@ -61,8 +64,8 @@
     "actual_pdf_rowspan_colspan": true,
     "prose_order_and_noncell_gap_preserved": true,
     "ambiguous_geometry_preserves_plain_text": true,
-    "cross_page_borderless_validated": false,
-    "frozen_executable_verified": true
+    "frozen_executable_verified": true,
+    "cross_page_merged_validated": false
   },
   "table_continuation": {
     "possible_link_only": true,
@@ -70,11 +73,13 @@
     "positive_and_negative_pdf_fixtures": true,
     "automatic_merging": false,
     "real_documents_validated": false,
-    "frozen_executable_verified": true
+    "frozen_executable_verified": true,
+    "borderless_validated": true,
+    "sparse_borderless_validated": true,
+    "public_multipage_noncontinuation_verified": true
   },
   "known_quality_gaps": [
-    "Optional ONNX Traditional Chinese sample",
-    "Upstream sparse borderless table six-column structure"
+    "Optional ONNX Traditional Chinese sample"
   ],
   "borderless": {
     "aligned_numeric_baseline": true,
@@ -83,8 +88,14 @@
     "two_column_prose_rejected": true,
     "word_limit_and_cancel": true,
     "upstream_text_preserved": true,
-    "upstream_sparse_structure_verified": false,
-    "frozen_executable_verified": true
+    "upstream_sparse_structure_verified": true,
+    "frozen_executable_verified": true,
+    "exact_sparse_data_rows": [
+      8,
+      10
+    ],
+    "missing_cells_preserved": true,
+    "global_candidate_work_limit": true
   },
   "license_and_manual_check": {
     "complete": true,
@@ -98,5 +109,21 @@
     "windows_executed": false,
     "catalog_browser_verified": true,
     "all_catalog_links_verified": true
+  },
+  "layout_acceptance": {
+    "complete": true,
+    "scope": "Linux fixed public/generated PDF acceptance; no universal accuracy or Windows/GPU claim",
+    "checks_passed": 63,
+    "public_pdfs": 4,
+    "public_pdf_pages": 7,
+    "alphanumeric_characters": 8744,
+    "all_public_fixture_character_counts_equal": true,
+    "full_width_headings_and_two_column_bands": true,
+    "sparse_exact_cells_and_empty_positions": true,
+    "frozen_public_checks_passed": 5,
+    "source_report": "layout-acceptance-results.json",
+    "frozen_report": "layout-frozen-results.json",
+    "automatic_cross_page_merging": false,
+    "all_images_and_charts_reconstructed": false
   }
 }

@@ -27,6 +27,13 @@ class NumericEvidenceTests(unittest.TestCase):
         with self.assertRaises(Cancelled):
             infer_tables(page,lambda:(_ for _ in ()).throw(Cancelled()))
 
+    def test_sparse_candidate_search_has_global_work_limit(self):
+        words=[{'x0':x,'x1':x+20,'top':row*10,'bottom':row*10+8,'text':'Text'}
+               for row in range(1100) for x in (20,200,400)]
+        result=infer_tables(SimpleNamespace(width=600,chars=[],extract_words=lambda:words))
+        self.assertFalse(result.tables)
+        self.assertIn('詞比對上限',''.join(result.warnings))
+
 
 @unittest.skipUnless(importlib.util.find_spec('pdfplumber'),'Install PDF dependencies')
 class BorderlessPDFTests(unittest.TestCase):
@@ -123,12 +130,33 @@ class BorderlessPDFTests(unittest.TestCase):
         self.assertNotIn('| Product Code Location Expected Actual Variance Status |',text)
         self.assertEqual(text.count('Variance Analysis:'),1)
 
-    @unittest.expectedFailure
-    def test_upstream_sparse_table_structure_known_gap(self):
-        # Missing cells and staggered rows exceed the conservative aligned-row
-        # baseline. Keep this structural target visible until implemented.
+    def test_upstream_sparse_table_exact_cells_and_empty_positions(self):
         self.source=Path(__file__).parent/'fixtures/upstream-sparse.pdf'
         text=self.convert()
         rows=[[cell.strip() for cell in line.strip().strip('|').split('|')]
               for line in text.splitlines() if line.strip().startswith('|')]
-        self.assertIn(['Product Code','Location','Expected','Actual','Variance','Status'],rows)
+        expected=[
+            ['Product Code','Location','Expected','Actual','Variance','Status'],
+            ['SKU-8847','A-12','450','','',''],
+            ['','B-07','','289','-23',''],
+            ['SKU-9201','','780','778','','OK'],
+            ['','C-15','','','+15',''],
+            ['SKU-4563','D-22','','156','','CRITICAL'],
+            ['','','180','','-24',''],
+            ['SKU-7728','A-08','920','','',''],
+            ['','','','935','+15','OK'],
+        ]
+        start=rows.index(expected[0])
+        self.assertEqual(rows[start+2:start+10],expected[1:])
+        self.assertEqual(sum(row[0]=='SKU-8847' for row in rows),2) # one per source table
+        self.assertLess(text.index('935'),text.index('Variance Analysis:'))
+
+    def test_sparse_text_columns_without_numeric_evidence_remain_prose(self):
+        from reportlab.pdfgen import canvas
+        pdf=canvas.Canvas(str(self.source),pagesize=(600,800))
+        for index,row in enumerate([('Name','Region','Status'),('Alice','','Ready'),('','West','Pending')]):
+            for x,value in zip((50,250,450),row):
+                if value:pdf.drawString(x,700-index*30,value)
+        pdf.save();text=self.convert()
+        self.assertNotIn('inferred-borderless-table:',text)
+        for value in ('Alice','West','Pending'):self.assertIn(value,text)

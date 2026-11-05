@@ -1,0 +1,293 @@
+{
+  "recorded_at": "2026-11-05T08:00:46.580777+00:00",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "mode": "installed-package-acceptance",
+  "complete": true,
+  "run": 63,
+  "passed": 63,
+  "skipped": 0,
+  "expected_failures": 0,
+  "fixtures": {
+    "upstream-sparse.pdf": {
+      "pages": 2,
+      "alphanumeric_characters": 1397,
+      "exact_table_data_rows": [
+        8,
+        10
+      ]
+    },
+    "upstream-repair.pdf": {
+      "pages": 3,
+      "alphanumeric_characters": 2188
+    },
+    "upstream-receipt.pdf": {
+      "pages": 1,
+      "alphanumeric_characters": 905
+    },
+    "upstream-article.pdf": {
+      "pages": 1,
+      "alphanumeric_characters": 4254
+    }
+  },
+  "limits": [
+    "Public upstream test fixtures and generated PDFs, not a real-user corpus or general accuracy estimate.",
+    "Alphanumeric character counts exclude whitespace and punctuation; separate exact-cell/order/money assertions apply.",
+    "Cross-page tables retain repeated headers and data; only possible-continuation hints, no automatic merging.",
+    "No Windows or GPU execution in this Linux result."
+  ],
+  "checks": [
+    {
+      "test": "test_borderless.BorderlessPDFTests.test_framed_and_borderless_on_same_page",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.BorderlessPDFTests.test_numeric_first_row_is_not_assumed_header",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.BorderlessPDFTests.test_right_aligned_numeric_column",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.BorderlessPDFTests.test_short_or_misaligned_data_keeps_text",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.BorderlessPDFTests.test_sparse_text_columns_without_numeric_evidence_remain_prose",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.BorderlessPDFTests.test_three_columns_numeric_data_and_prose",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.BorderlessPDFTests.test_two_column_article_is_not_a_table",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.BorderlessPDFTests.test_two_column_numeric_table",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.BorderlessPDFTests.test_upstream_sparse_fixture_preserves_data_without_fake_single_column",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.BorderlessPDFTests.test_upstream_sparse_table_exact_cells_and_empty_positions",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.NumericEvidenceTests.test_analysis_cancelled_at_checkpoint",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.NumericEvidenceTests.test_numeric_cell_does_not_accept_prose_or_unbalanced_parentheses",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.NumericEvidenceTests.test_sparse_candidate_search_has_global_work_limit",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_borderless.NumericEvidenceTests.test_word_limit_skips_further_layout_analysis",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_tables.TableGeometryTests.test_cancel_during_geometry_processing",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_tables.TableGeometryTests.test_invalid_coordinates_keep_source_text",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_tables.TableGeometryTests.test_large_sparse_grid_is_bounded",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_tables.TableGeometryTests.test_overlap_does_not_discard_source",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_tables.TablePDFTests.test_html_content_is_escaped",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_tables.TablePDFTests.test_row_and_column_spans_and_order",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_tables.TablePDFTests.test_text_in_non_cell_gap_is_preserved",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.ContinuationRulesTests.test_changed_columns_are_not_linked",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.ContinuationRulesTests.test_changed_header_is_not_linked",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.ContinuationRulesTests.test_header_without_body_is_not_linked",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.ContinuationRulesTests.test_intervening_prose_is_not_linked",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.ContinuationRulesTests.test_matching_header_and_geometry",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.ContinuationRulesTests.test_numeric_first_row_is_not_assumed_to_be_header",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.ContinuationRulesTests.test_only_page_number_lines_are_ignored",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.ContinuationRulesTests.test_skipped_page_is_not_linked",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.ContinuationRulesTests.test_table_away_from_boundary_is_not_linked",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.CrossPagePDFTests.test_blank_page_resets_candidate",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.CrossPagePDFTests.test_borderless_changed_geometry_or_header_not_linked",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.CrossPagePDFTests.test_borderless_continuation_preserves_headers_and_rows",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.CrossPagePDFTests.test_borderless_new_section_blocks_continuation",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.CrossPagePDFTests.test_different_column_geometry_not_linked",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.CrossPagePDFTests.test_different_header_not_linked",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.CrossPagePDFTests.test_multiple_top_tables_not_linked",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.CrossPagePDFTests.test_new_section_blocks_link",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.CrossPagePDFTests.test_possible_continuation_preserves_both_headers_and_rows",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_table_continuation.CrossPagePDFTests.test_sparse_borderless_continuation_preserves_empty_cells",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PageDecisionTests.test_bad_encoding_requests_ocr",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PageDecisionTests.test_blank_page",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PageDecisionTests.test_column_analysis_honors_cancellation",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PageDecisionTests.test_column_band_limit_preserves_original_order",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PageDecisionTests.test_mixed_content_has_warning",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PageDecisionTests.test_scan_routes_to_ocr",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PageDecisionTests.test_short_native_title_does_not_require_ocr",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PdfPipelineTests.test_cancel_during_pdf_export_cleans_output",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PdfPipelineTests.test_english_scan_and_native_page_are_routed_separately",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PdfPipelineTests.test_explicit_paths_work_without_environment_variable",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PdfPipelineTests.test_full_width_headings_separate_two_column_bands",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PdfPipelineTests.test_missing_ocr_engine_fails_without_partial_output",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PdfPipelineTests.test_native_table_extracted_without_duplicate_cells",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PdfPipelineTests.test_ocr_retry_is_bounded_and_warns",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PdfPipelineTests.test_scan_improves_over_native_baseline",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PdfPipelineTests.test_sparse_chinese_image_keeps_both_lines",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PdfPipelineTests.test_traditional_chinese_scan",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_pipeline.PdfPipelineTests.test_two_columns_read_left_then_right",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_acceptance.PublicPDFAcceptanceTests.test_added_fixture_provenance_matches_vendored_commit",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_acceptance.PublicPDFAcceptanceTests.test_article_preserves_paragraph_and_list_order",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_acceptance.PublicPDFAcceptanceTests.test_multipage_repair_preserves_people_totals_and_disclaimer",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_acceptance.PublicPDFAcceptanceTests.test_receipt_preserves_money_signs_discount_order_and_payment",
+      "outcome": "passed"
+    },
+    {
+      "test": "test_pdf_acceptance.PublicPDFAcceptanceTests.test_sparse_inventory_exact_structure_and_content",
+      "outcome": "passed"
+    }
+  ]
+}

@@ -5,11 +5,12 @@ import shutil
 import tempfile
 import unittest
 from unittest.mock import patch
+from types import SimpleNamespace
 
 from desktop_app.conversion import convert_document
 from desktop_app.core import Request
 from desktop_app.core import Cancelled
-from desktop_app.pdf_pipeline import decide_page
+from desktop_app.pdf_pipeline import decide_page,_native_columns
 
 
 class PageDecisionTests(unittest.TestCase):
@@ -27,6 +28,16 @@ class PageDecisionTests(unittest.TestCase):
 
     def test_mixed_content_has_warning(self):
         self.assertTrue(decide_page(1, "good text "*20, 0.5).warnings)
+
+    def test_column_band_limit_preserves_original_order(self):
+        words=[{'x0':280,'x1':320,'top':i*10,'bottom':i*10+6} for i in range(65)]
+        text,warning=_native_columns(SimpleNamespace(width=600,height=800),'ORIGINAL',words)
+        self.assertEqual(text,'ORIGINAL');self.assertIn('64',warning)
+
+    def test_column_analysis_honors_cancellation(self):
+        with self.assertRaises(Cancelled):
+            _native_columns(SimpleNamespace(width=600,height=800),'',[],
+                            lambda:(_ for _ in ()).throw(Cancelled()))
 
 
 @unittest.skipUnless(importlib.util.find_spec("pdfplumber"), "Install precise PDF dependencies")
@@ -162,6 +173,27 @@ class PdfPipelineTests(unittest.TestCase):
         _, markdown = self.convert()
         self.assertLess(markdown.index("Left column line 5"), markdown.index("Right column line 0"))
         self.assertIn("左欄再右欄", markdown)
+
+    def test_full_width_headings_separate_two_column_bands(self):
+        from reportlab.pdfgen import canvas
+        document=canvas.Canvas(str(self.source),pagesize=(600,800))
+        document.drawCentredString(300,770,'DOCUMENT FULL WIDTH TITLE')
+        for band,base in [('A',710),('B',400)]:
+            for index in range(6):
+                document.drawString(40,base-index*25,f'{band} Left column line {index}')
+                document.drawString(360,base-index*25,f'{band} Right column line {index}')
+        document.drawCentredString(300,470,'SECOND FULL WIDTH HEADING')
+        document.drawCentredString(300,100,'DOCUMENT FULL WIDTH FOOTER')
+        document.save();_,markdown=self.convert()
+        anchors=['DOCUMENT FULL WIDTH TITLE']
+        for band in ('A','B'):
+            if band=='B':anchors.append('SECOND FULL WIDTH HEADING')
+            anchors.extend(f'{band} {side} column line {index}' for side in ('Left','Right') for index in range(6))
+        anchors.append('DOCUMENT FULL WIDTH FOOTER')
+        positions=[markdown.index(value) for value in anchors]
+        self.assertEqual(positions,sorted(positions))
+        for value in anchors:self.assertEqual(markdown.count(value),1)
+        self.assertNotIn('inferred-borderless-table:',markdown)
 
     def test_cancel_during_pdf_export_cleans_output(self):
         from reportlab.pdfgen import canvas

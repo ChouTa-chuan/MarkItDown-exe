@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/microsoft/markitdown",
+  "commit": "7482c092d9c0074a89803c9fdb63a969e7fe17fc",
+  "license": "MIT; retained in vendor/markitdown/LICENSE",
+  "files": {
+    "upstream-repair.pdf": {
+      "source_path": "packages/markitdown/tests/test_files/REPAIR-2022-INV-001_multipage.pdf",
+      "sha256": "83614c95e5cfe2207eeeba9973977b3bf054eb41bdd14eb753f5b53c1588c2fe",
+      "pages": 3,
+      "alphanumeric_characters": 2188
+    },
+    "upstream-receipt.pdf": {
+      "source_path": "packages/markitdown/tests/test_files/RECEIPT-2024-TXN-98765_retail_purchase.pdf",
+      "sha256": "23b00e2e069e038d54e4c23b3868569393d2874823201e3c0b7a363ffd233fc6",
+      "pages": 1,
+      "alphanumeric_characters": 905
+    },
+    "upstream-article.pdf": {
+      "source_path": "packages/markitdown/tests/test_files/test.pdf",
+      "sha256": "77c4014cf15ea5e56663e9b8093ddc2a89a9224c15d6a9eb2aa8af2b48e1b237",
+      "pages": 1,
+      "alphanumeric_characters": 4254
+    }
+  }
+}

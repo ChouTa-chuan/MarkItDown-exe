@@ -16,3 +16,12 @@ if fixture_manifest.exists():
     if metadata['commit']!=manifest['commit'] or hashlib.sha256((fixtures/'upstream-sparse.pdf').read_bytes()).hexdigest()!=metadata['sha256']:
         raise SystemExit('Upstream PDF fixture provenance/hash mismatch')
     print('Verified upstream PDF fixture and matching commit')
+public_manifest=fixtures/'PUBLIC-PDFS.json'
+if public_manifest.exists():
+    metadata=json.loads(public_manifest.read_text())
+    if metadata['commit']!=manifest['commit']:
+        raise SystemExit('Public PDF fixture commit mismatch')
+    for name,item in metadata['files'].items():
+        if hashlib.sha256((fixtures/name).read_bytes()).hexdigest()!=item['sha256']:
+            raise SystemExit(f'Public PDF fixture hash mismatch: {name}')
+    print(f"Verified {len(metadata['files'])} additional public PDFs and matching commit")

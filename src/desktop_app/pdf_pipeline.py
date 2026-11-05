@@ -141,20 +141,48 @@ def _render(pdfium, index, dpi):
         page.close()
 
 
-def _native_columns(page, text, words=None):
+def _native_columns(page, text, words=None, checkpoint=lambda:None):
     words = page.extract_words() if words is None else words
     middle = page.width/2
     gutter = page.width*0.025
-    left = [word for word in words if word["x1"] < middle-gutter]
-    right = [word for word in words if word["x0"] > middle+gutter]
-    # Conservative two-column heuristic; full-width titles/footers or objects
-    # crossing the gutter defer to the original order and quality review.
-    if len(left) >= 12 and len(right) >= 12 and len(left)+len(right) == len(words):
-        top = min(word["top"] for word in words)
-        bottom = max(word["bottom"] for word in words)
-        left_text = page.crop((0, top, middle, bottom)).extract_text() or ""
-        right_text = page.crop((middle, top, page.width, bottom)).extract_text() or ""
-        return left_text + "\n\n" + right_text, "偵測到中央留白，按左欄再右欄排列；請核對閱讀順序。"
+    # Full-width headings divide the page into horizontal bands. Never crop
+    # a heading into two halves, or mix the columns on either side of it.
+    crossing=sorted((w['top'],w['bottom']) for w in words
+                    if not (w['x1']<middle-gutter or w['x0']>middle+gutter))
+    separators=[]
+    for top,bottom in crossing:
+        if separators and top<=separators[-1][1]+2:
+            separators[-1]=(separators[-1][0],max(bottom,separators[-1][1]))
+        else:separators.append((top,bottom))
+    if len(separators)>64:
+        return text, '跨欄分區超過 64 區，保留原生閱讀順序，請核對版面。'
+    def extract(top,bottom,left=0,right=None):
+        right=page.width if right is None else right
+        return page.filter(lambda obj: obj.get('object_type')!='char' or
+                           (top<=(obj['top']+obj['bottom'])/2<bottom and
+                            left<=(obj['x0']+obj['x1'])/2<right)).extract_text() or ''
+    parts=[];reordered=False;start=0
+    for top,bottom in [*separators,(page.height,page.height)]:
+        checkpoint()
+        band=[w for w in words if start<=(w['top']+w['bottom'])/2<top]
+        left=[w for w in band if w['x1']<middle-gutter]
+        right=[w for w in band if w['x0']>middle+gutter]
+        # Each column needs evidence of a sustained text block, not just two
+        # labels that happen to be on opposite sides of the page.
+        overlap=(min(max(w['bottom'] for w in left),max(w['bottom'] for w in right))-
+                 max(min(w['top'] for w in left),min(w['top'] for w in right))) if left and right else 0
+        span=max((w['bottom'] for w in band),default=0)-min((w['top'] for w in band),default=0)
+        if len(left)>=12 and len(right)>=12 and len(left)+len(right)==len(band) and overlap>=span*0.5:
+            parts.extend([(start,top,0,middle),(start,top,middle,page.width)])
+            reordered=True
+        else:parts.append((start,top,0,page.width))
+        if bottom>top:parts.append((top,bottom,0,page.width))
+        start=bottom
+    if reordered:
+        output=[]
+        for part in parts:
+            checkpoint();output.append(extract(*part))
+        return '\n\n'.join(part for part in output if part), "偵測到中央留白，分區按左欄再右欄排列；跨欄標題與頁尾保留，請核對閱讀順序。"
     return text, None
 
 
@@ -226,61 +254,47 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                         if comparison is not None:
                             text += comparison.evidence_markdown()
                     elif route == "native":
+                        from .tables import render_table
+                        from .borderless import infer_tables
+                        from .table_continuation import TableFragment, boundary_text, possible_continuation
                         tables = page.find_tables()
-                        if tables:
-                            from .tables import render_table
-                            from .table_continuation import TableFragment, boundary_text, possible_continuation
-                            # Keep text around tables; exclude their cells from
-                            # prose to avoid duplicate content, then order blocks.
-                            blocks = []
-                            filtered = page
-                            top_candidates=sum(table.bbox[1]<=page.height*0.12 for table in tables)
-                            tail_candidates=sum(table.bbox[3]>=page.height*0.9 for table in tables)
-                            for table_number,table in enumerate(sorted(tables,key=lambda table:(table.bbox[1],table.bbox[0])),1):
-                                rendered=render_table(page,table,checkpoint)
-                                x0, top, x1, bottom = table.bbox
-                                filtered = filtered.filter(lambda obj, claimed=rendered.claimed_char_ids: id(obj) not in claimed)
-                                if rendered.text:
-                                    identifier=f'p{index+1}-t{table_number}'
-                                    source_comment=f'<!-- source-table: {identifier} -->\n\n'
-                                    if rendered.column_edges:
-                                        fragment=TableFragment(index+1,identifier,page.width,page.height,table.bbox,
-                                                               rendered.column_edges,rendered.first_row,rendered.row_count,
-                                                               boundary_text(page,table.bbox,False))
-                                        if top_candidates==1 and possible_continuation(previous_tail,fragment):
-                                            source_comment+=f'<!-- possible-table-continuation: {previous_tail.identifier} -> {identifier} -->\n\n'
-                                            warnings.append(f'本表可能接續第 {previous_tail.page} 頁表格：欄位與表頭吻合。各頁原文與重複表頭保留，未自動合併。')
-                                        if tail_candidates==1 and bottom>=page.height*0.9:
-                                            next_tail=TableFragment(index+1,identifier,page.width,page.height,table.bbox,
-                                                                   rendered.column_edges,rendered.first_row,rendered.row_count,
-                                                                   boundary_text(page,table.bbox,True))
-                                    blocks.append((top,source_comment+rendered.text))
-                                warnings.append(rendered.warning)
-                            # Remaining lines retain their vertical position.
-                            from .borderless import infer_tables
-                            analysis=infer_tables(filtered,checkpoint)
-                            warnings.extend(analysis.warnings)
-                            for number,table in enumerate(analysis.tables,1):
-                                blocks.append((table.top,f'<!-- inferred-borderless-table: p{index+1}-b{number} -->\n\n'+table.text))
-                                filtered=filtered.filter(lambda obj,claimed=table.claimed_char_ids:id(obj) not in claimed)
-                            for line in filtered.extract_text_lines():
-                                blocks.append((line["top"], line["text"]))
-                            text = "\n\n".join(value for _, value in sorted(blocks, key=lambda item:item[0]))
-                        else:
-                            from .borderless import infer_tables
-                            analysis=infer_tables(page,checkpoint)
-                            warnings.extend(analysis.warnings)
-                            if analysis.tables:
-                                filtered=page;blocks=[]
-                                for number,table in enumerate(analysis.tables,1):
-                                    blocks.append((table.top,f'<!-- inferred-borderless-table: p{index+1}-b{number} -->\n\n'+table.text))
-                                    filtered=filtered.filter(lambda obj,claimed=table.claimed_char_ids:id(obj) not in claimed)
-                                blocks.extend((line['top'],line['text']) for line in filtered.extract_text_lines())
-                                text='\n\n'.join(value for _,value in sorted(blocks,key=lambda item:item[0]))
-                            elif analysis.words is not None:
-                                text, column_warning = _native_columns(page, text,analysis.words)
-                                if column_warning:
-                                    warnings.append(column_warning)
+                        entries=[];filtered=page
+                        for number,table in enumerate(sorted(tables,key=lambda table:(table.bbox[1],table.bbox[0])),1):
+                            rendered=render_table(page,table,checkpoint)
+                            filtered=filtered.filter(lambda obj,claimed=rendered.claimed_char_ids:id(obj) not in claimed)
+                            warnings.append(rendered.warning)
+                            if rendered.text:
+                                entries.append((f'p{index+1}-t{number}','source-table',table.bbox,rendered))
+                        analysis=infer_tables(filtered,checkpoint)
+                        warnings.extend(analysis.warnings)
+                        for number,table in enumerate(analysis.tables,1):
+                            entries.append((f'p{index+1}-b{number}','inferred-borderless-table',table.bbox,table))
+                            filtered=filtered.filter(lambda obj,claimed=table.claimed_char_ids:id(obj) not in claimed)
+                        # Both kinds share the same conservative page-boundary
+                        # rules. Ambiguous/multiple candidates never auto-link.
+                        top_candidates=sum(bbox[1]<=page.height*0.12 for _,_,bbox,_ in entries)
+                        tail_candidates=sum(bbox[3]>=page.height*0.9 for _,_,bbox,_ in entries)
+                        blocks=[]
+                        for identifier,kind,bbox,rendered in entries:
+                            comment=f'<!-- {kind}: {identifier} -->\n\n'
+                            if rendered.column_edges:
+                                fragment=TableFragment(index+1,identifier,page.width,page.height,bbox,
+                                                       rendered.column_edges,rendered.first_row,rendered.row_count,
+                                                       boundary_text(page,bbox,False))
+                                if top_candidates==1 and possible_continuation(previous_tail,fragment):
+                                    comment+=f'<!-- possible-table-continuation: {previous_tail.identifier} -> {identifier} -->\n\n'
+                                    warnings.append(f'本表可能接續第 {previous_tail.page} 頁表格：欄位與表頭吻合。各頁原文與重複表頭保留，未自動合併。')
+                                if tail_candidates==1 and bbox[3]>=page.height*0.9:
+                                    next_tail=TableFragment(index+1,identifier,page.width,page.height,bbox,
+                                                           rendered.column_edges,rendered.first_row,rendered.row_count,
+                                                           boundary_text(page,bbox,True))
+                            blocks.append((bbox[1],comment+rendered.text))
+                        if entries or tables:
+                            blocks.extend((line['top'],line['text']) for line in filtered.extract_text_lines())
+                            text='\n\n'.join(value for _,value in sorted(blocks,key=lambda item:item[0]))
+                        elif analysis.words is not None:
+                            text,column_warning=_native_columns(page,text,analysis.words,checkpoint)
+                            if column_warning:warnings.append(column_warning)
                     reports.append({"page": index+1, "route": route, "warnings": warnings})
                     checkpoint()
                     yield f"<!-- source-page: {index+1}; route: {route} -->\n\n"

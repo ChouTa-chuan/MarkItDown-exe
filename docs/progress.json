@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-05",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 132,
-  "headline": "已完成「授權清單與使用說明」檢核",
-  "blocker": "兩項品質未達標：ONNX 繁體與上游稀疏表格結構。Windows／GPU 未實機驗收，正式安裝包待完成。",
-  "next": "Windows 原生檔建置／乾淨機及 GPU 實機驗收；兩項品質缺口持續追蹤。",
+  "tests_passed": 147,
+  "headline": "里程碑 3：自動精準流程完成 Linux 代表性驗收",
+  "blocker": "ONNX 繁體品質仍未達標；Windows／GPU 未實機驗收，正式安裝包待完成。",
+  "next": "Windows 原生檔建置／乾淨機及 GPU 實機驗收；擴充真實文件與繁中品質資料集。",
   "milestones": [
     {
       "id": "m0",
@@ -89,8 +89,8 @@
     {
       "id": "m3",
       "title": "自動精準流程",
-      "state": "active",
-      "description": "已驗證合併、續表提示與對齊數值型無框線基線；稀疏／複雜版面未完整支援。",
+      "state": "verified",
+      "description": "63 項驗收全過：跨欄標題、合併／稀疏表格與續表提示；四份上游 PDF 及打包程式通過。限 Linux 代表性案例。",
       "checks": [
         {
           "label": "逐頁分析與自動路由",
@@ -102,7 +102,7 @@
         },
         {
           "label": "複雜版面、跨頁／無框線表格驗收",
-          "done": false
+          "done": true
         },
         {
           "label": "品質提醒與有界重試",
@@ -185,8 +185,8 @@
       "title": "自動分析",
       "layer": "處理",
       "state": "partial",
-      "detail": "PDF 逐頁判斷原生／掃描／空白及異常文字；複雜版面分類待完成。",
-      "evidence": "tests/test_pdf_pipeline.py：混合頁與路由"
+      "detail": "逐頁判斷原生／掃描／空白；中央留白分區處理跨欄標題與雙欄正文，任意混排仍有限制。",
+      "evidence": "tests/test_pdf_pipeline.py：雙欄／跨欄標題、路由、OCR 與分區上限"
     },
     {
       "id": "converters",
@@ -226,31 +226,32 @@
       "layer": "處理",
       "state": "partial",
       "detail": "ONNX CPU 掃描已驗證；繁體有 1 項品質缺口，CUDA 僅候選路徑。",
-      "evidence": "80 項檢查：79 通過、1 繁體品質預期失敗；GPU 分支為模擬測試"
+      "evidence": "ONNX CPU 英文掃描及打包模型驗證；繁體品質預期失敗保留，GPU 分支僅模擬"
     },
     {
       "id": "quality",
       "title": "品質檢查",
       "layer": "輸出",
       "state": "partial",
-      "detail": "雙引擎與表格歧義提醒；兩項未達標分別追蹤，不將文字保留視為結構正確。",
-      "evidence": "tests/test_quality.py、交叉核對實際 PDF 測試及四份合成樣本"
+      "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
+      "evidence": "63 項版面／表格驗收全過；全專案 147 通過、1 品質預期失敗"
     },
     {
       "id": "exporters",
       "title": "結果輸出",
       "layer": "輸出",
       "state": "partial",
-      "detail": "有框線、合併與對齊數值型無框線輸出；上游稀疏案例首表尚未正確還原。",
-      "evidence": "tests/test_tables.py：實際 PDF 幾何、內容及順序"
+      "detail": "有框線、合併與稀疏數值表；上游兩表 18 列逐格核對。續表保留各頁與空格，不自動合併。",
+      "evidence": "docs/layout-acceptance.md；四份上游 PDF 已經實際打包程式驗證"
     }
   ],
   "limits": [
     "ONNX 為實驗性選配，繁體合成樣本有漏字／字形錯誤；Tesseract 預設保留，GPU 尚未實機驗證。",
+    "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 134,
-  "tests_expected_failures": 2
+  "tests_run": 148,
+  "tests_expected_failures": 1
 }
