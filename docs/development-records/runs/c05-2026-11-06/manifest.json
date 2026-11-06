@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "collected_at": "2026-11-06T06:23:15.536445+00:00",
+  "source_version": "0.3.0",
+  "architecture_version": "0.4",
+  "check": "C05",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 3137,
+      "sha256": "46fea066f0c1577badc81d6455696b03cf809ec6cb39c682181ca6a7cc0637d4",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 4726,
+      "sha256": "6ece5881ad58c719a2d19e73ec501f3d9c8cc96949936f5e8df0644a371d8c1f",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "component-tests.log",
+      "bytes": 6645,
+      "sha256": "648a53fe61988b0a4a94b392dd2c79b1f09fcea628154c559ad4d8f398939cc2",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "full-tests.log",
+      "bytes": 38346,
+      "sha256": "2616e8fe5ce9a73fa76b04a728d54f5e91a41037beda86b084100a26d2eb2f0e",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "https-acceptance.json",
+      "bytes": 1200,
+      "sha256": "39b3870d1667cbec0aed741dd69c39548ff4080ab826ec679fb7e1d18a07577f",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "https.log",
+      "bytes": 92,
+      "sha256": "f95e92b099523b160de4fb114b6b895a70cc344d664efb24864b8de1c4de7102",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "initial-regression.log",
+      "bytes": 7041,
+      "sha256": "34cc898e80fcd36483ea680675a88aab28032c0b67d0b239b6c4e61a6d4ac699",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 455,
+      "sha256": "b14f54502bc5846b01d62e9bd1d68e9c8fee596816c67d40ebb5034ef260dcf9",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "licenses.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "pre-final-acceptance.json",
+      "bytes": 4512,
+      "sha256": "42179d419af1cb8a310bd95525d59f9341d13642a4aa8e9d74197d2805374db7",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "pre-final-component-tests.log",
+      "bytes": 6304,
+      "sha256": "c413f7c8c7c90fba0c4f4cfc62251fa0688ddbb81e3d44a712b0a997ecd3f6da",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "pre-final-full-tests.log",
+      "bytes": 38005,
+      "sha256": "eaec76e5ca4cb9e6f2899c65e56e9be33667eb18b09abfc6e9f274689518a614",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "pre-final-https-acceptance.json",
+      "bytes": 1200,
+      "sha256": "9d61ef96b47c759c2753423732bd44105044f9f8bbb036c46b0c9bda9021b279",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "pre-final-https.log",
+      "bytes": 92,
+      "sha256": "f95e92b099523b160de4fb114b6b895a70cc344d664efb24864b8de1c4de7102",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 415636,
+      "sha256": "330ae73c6754b608c07f6f2d47442cb017efcc51e97e6239cdc7a5d04122cdcd",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 413982,
+      "sha256": "5a5dfb39f3b7bcae7e9183c4f748905372bb180c92ef3bd9c6a6b11eda45418a",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 280484,
+      "sha256": "105713efd816937ad1758d87ebcd6b88c634745420be23a4bb2fd64367614844",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 297980,
+      "sha256": "1cbe864ab8f51569d3bd32e3c7b77a3950702217b94d3421665dc44ba52d7de7",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 419565,
+      "sha256": "331bfba59ac80f7dac831bd2bdf26f096ee16baf496b56e0fabd19957db4340b",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    },
+    {
+      "file": "upstream.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C05 0.3.0 Linux 本輪生成／執行；最終與中間日誌分別標示，非 Windows／GPU 實測"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "historical_artifacts_verified": 75,
+  "prior_run_artifacts_verified": 32,
+  "architecture_snapshots_verified": 7,
+  "previous_committed_record_files_unchanged": 121,
+  "locked_package_versions_and_hashes_unchanged": true,
+  "license_original_files_unchanged": true,
+  "license_inventory_only_lock_digest_changed": true,
+  "vendor_and_public_fixtures_verified": true,
+  "browser_verified": true,
+  "windows_executed": false,
+  "gpu_executed": false
+}

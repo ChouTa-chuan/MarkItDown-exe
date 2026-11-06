@@ -6,15 +6,15 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.2.1**，C02 舊模型轉接與設定遷移；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.3.0**，C05 可信目錄與可恢復下載；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
-| 新架構導入 | **C01–C12：2/12**，C01／C02 驗收完成 |
-| 功能測試基線 | **228 通過、1 項 ONNX 繁體品質預期失敗** |
+| 新架構導入 | **C01–C12：3/12**，C01／C02／C05 驗收完成 |
+| 功能測試基線 | **269 通過、1 項 ONNX 繁體品質預期失敗** |
 
 ## 模組架構封面
 
-綠色為可沿用核心與桌面原型，藍色為 C01／C02 已驗收的元件基礎與轉接，黃色為待實作項目。舊模型管理已接入桌面；能力解析與分析流程的虛線表示後續接線；Windows／GPU 仍須各自驗證。
+綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；新下載服務與自動分析的虛線表示後續介面接線；Windows／GPU 仍須各自驗證。
 
 [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
@@ -38,7 +38,10 @@ flowchart TD
         LEGACY["舊模型轉接：只讀引用／專用目錄下載"]
         PREFS["設定 v6：保留偏好／備份遷移"]
         LEGACY --> COMPONENTS
+        CATALOG["可信目錄：Ed25519／來源／到期與撤銷"] --> DOWNLOAD["下載服務：取消／續傳／離線匯入"]
+        DOWNLOAD --> COMPONENTS
     end
+    UI -.->|待 C08| DOWNLOAD
     UI --> LEGACY
     PREFS --> UI
     FIRST -.-> UI
@@ -47,7 +50,7 @@ flowchart TD
     OPTIONAL -.-> QUALITY
     classDef existing fill:#e8f7f3,stroke:#21856d,color:#153c31;
     classDef foundation fill:#e8efff,stroke:#4c6fb8,color:#203c77;
-    class COMPONENTS,CAPABILITY,LEGACY,PREFS foundation;
+    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD foundation;
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
     class FIRST,OPTIONAL planned;
@@ -63,7 +66,7 @@ flowchart TD
 | 能力解析 | 重新核對元件相容性、依賴、實檔及可信健康探針 | C01 已驗收；實際引擎與分析流程待接入 |
 | 設定與遷移 | v1–v5 讀取、v6 偏好、遷移備份及防止未來設定覆寫 | C02 已驗收；外部路徑保留 |
 | 首次精靈 | 基本引擎檢查、RAM 建議與完成紀錄 | C09 待新增 |
-| 元件與更新服務 | 描述、登錄、下載、驗證、修復、移除及回復 | C01 契約／登錄完成，C02 舊模型已轉接；通用下載安裝仍待開發 |
+| 元件與更新服務 | 描述、登錄、下載、驗證、修復、移除及回復 | C01／C02 沿用，C05 可信下載完成；交易安裝／管理頁仍待開發 |
 | 選配工作程序 | CPU／GPU 元件各自打包相依環境，避免改動核心 runtime | 待新增；GPU 候選路由尚未實機通過 |
 
 ## 使用者能得到什麼
@@ -85,6 +88,7 @@ flowchart TD
 - [開發進度與驗證範圍](docs/development-status.md)
 - [互動進度頁：里程碑／模組／元件導入](docs/progress.html)（下載後可離線開啟）
 - [基本包與選配元件決策](docs/decisions/0002-base-and-optional-components.md)
+- [C05 可信目錄與可恢復下載](docs/component-downloads.md)
 - [Windows 安裝包來源、自動驗收與實機待辦](docs/windows-acceptance.md)
 
 ## 功能與驗收文件

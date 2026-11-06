@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-06T05:52:35.110078+00:00",
+  "recorded_at": "2026-11-06T06:21:26.815698+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 229,
-    "passed": 228,
+    "run": 270,
+    "passed": 269,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -151,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.2.1",
+  "source_version": "0.3.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -179,7 +179,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C01 generic capability resolver remains outside automatic conversion routing; C02 legacy model adapter is integrated with its existing dialog"
   },
-  "current_run_scope": "0.2.1 installed package: complete unittest regression, C02 settings/legacy-model/desktop/native-path acceptance; historical frozen/PowerShell evidence not regenerated",
+  "current_run_scope": "0.3.0 installed package: full unittest regression, C05 real Ed25519/filesystem/SQLite and injected HTTP cases, separate actual HTTPS pinned public LICENSE download; historical frozen/PowerShell evidence not regenerated",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -205,5 +205,24 @@
     "windows_executed": false,
     "gpu_executed": false,
     "report": "development-records/runs/c02-2026-11-06/acceptance.json"
+  },
+  "component_downloads": {
+    "check": "C05",
+    "accepted": true,
+    "unit_checks_passed": 41,
+    "actual_https_checks_passed": 6,
+    "ed25519_verified": true,
+    "pinned_policy_and_origin_redirect_checks": true,
+    "cancel_retry_range_etag_offline_and_integrity": true,
+    "registry_result": "verified, never installed or ready",
+    "real_https_resume_claimed": false,
+    "production_catalog_published": false,
+    "production_private_key_in_repository": false,
+    "gui_integrated": false,
+    "installs_or_executes_component": false,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "report": "development-records/runs/c05-2026-11-06/acceptance.json",
+    "actual_https_report": "development-records/runs/c05-2026-11-06/https-acceptance.json"
   }
 }

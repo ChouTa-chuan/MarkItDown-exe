@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "markitdown-desktop"
-version = "0.2.1"
+version = "0.3.0"
 description = "Windows document conversion desktop application core"
 requires-python = ">=3.11"
-dependencies = ["psutil>=5.9,<8"]
+dependencies = ["psutil>=5.9,<8", "cryptography>=50.0.2,<51"]
 
 [project.optional-dependencies]
 desktop = ["PySide6-Essentials==6.12.0"]

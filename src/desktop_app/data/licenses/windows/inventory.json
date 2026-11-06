@@ -1,6 +1,6 @@
 {
   "scope": "Windows CPython 3.12 locked development/runtime dependency superset; not a native-binary legal clearance",
-  "lock_sha256": "f87df55a4f8e7f4d71150f674e8dcf626b1b642f59a9a7ede53d06057985932f",
+  "lock_sha256": "678ce2b9aaa548655b4715e0e457dcf5048727653203b435103361ab50a1f39f",
   "package_count": 58,
   "packages": [
     {

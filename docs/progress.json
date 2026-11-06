@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-06",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 228,
-  "headline": "C02 完成：舊模型只讀轉接與設定 v6；新架構導入 2/12",
+  "tests_passed": 269,
+  "headline": "C05 完成：可信目錄與可恢復下載；新架構導入 3/12",
   "blocker": "缺少 Windows／GPU 執行器；ONNX 繁體品質仍未達標，正式安裝包未經驗收。",
-  "next": "接續 C03 Windows 基本 Tesseract／DLL／授權與雙語離線 OCR，並準備 C04 profile；關閉實機檢核仍需 Windows 執行器。",
+  "next": "接續 C06 交易安裝、修復與生命週期；C03／C04 的 Windows 原生 OCR 與完整 profile 驗收仍待 Windows 執行器。",
   "milestones": [
     {
       "id": "m0",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 228 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 269 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -246,19 +246,19 @@
     }
   ],
   "limits": [
-    "C01／C02 已完成 Linux 驗收，新 C01–C12 導入 2/12；Windows 基本 OCR、通用選配下載安裝與完整管理頁仍待完成，既有 19/25 另計。",
+    "C01／C02／C05 已完成 Linux 驗收，新導入 3/12；C03／C04 Windows OCR／profile、通用交易安裝與完整管理頁仍待完成，既有 19/25 另計。",
     "ONNX 為實驗性選配，繁體合成樣本有漏字／字形錯誤；Tesseract 預設保留，GPU 尚未實機驗證。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 229,
+  "tests_run": 270,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "新架構導入已驗收 2/12：C01 元件契約／登錄／能力解析、C02 舊模型轉接／設定遷移。既有 19/25 另計；Windows／GPU 及其餘檢核仍待各自驗證。",
+    "description": "新架構已驗收 3/12：C01 元件基礎、C02 舊模型／設定遷移、C05 可信目錄與下載服務。C03／C04 實機門檻保留；既有 19/25 另計。",
     "phases": [
       {
         "id": "a",
@@ -303,8 +303,8 @@
           {
             "id": "C05",
             "label": "可信目錄與可恢復下載",
-            "done": false,
-            "acceptance": "來源驗證、取消、限次重試、Range／ETag、離線匯入及損毀拒絕。"
+            "done": true,
+            "acceptance": "Linux 41/41＋實際 HTTPS 6/6：Ed25519、來源／到期／撤銷、限次重試、取消、Range／ETag、離線匯入與損毀拒絕；只登錄 verified，不安裝或執行，完整桌面管理留 C08。"
           },
           {
             "id": "C06",
@@ -373,9 +373,9 @@
       {
         "id": "components",
         "title": "元件生命週期",
-        "detail": "C01 契約／登錄／驗證，C02 舊模型引用與新受管模型維護已接線；通用可信下載與交易安裝待 C05／C06。",
+        "detail": "C01／C02 契約、登錄與舊模型已接線；C05 簽章目錄、取消／續傳與離線匯入完成。通用交易安裝與修復待 C06。",
         "state": "partial",
-        "evidence": "C01 43 項；C02 61 項（含舊模型／桌面回歸）；SQLite schema 2"
+        "evidence": "C05 41 項＋固定官方 LICENSE 實際 HTTPS 6 項；元件不直接變成 ready"
       },
       {
         "id": "capabilities",
@@ -393,8 +393,9 @@
       {
         "id": "updates",
         "title": "更新協調",
-        "detail": "主程式安裝包與元件更新分工，轉換中不切換版本，失敗可回復。",
-        "state": "pending"
+        "detail": "C05 已提供簽章政策、最低目錄版本、金鑰輪替／撤銷及傳輸 API；正式目錄、跨重啟高水位、通知與安裝回復仍待後續。",
+        "state": "partial",
+        "evidence": "docs/component-downloads.md；測試私鑰只在記憶體，不作為發行金鑰"
       },
       {
         "id": "component_ui",

@@ -1,0 +1,43 @@
+{
+  "recorded_at": "2026-11-06T06:15:37.409912+00:00",
+  "source_version": "0.3.0",
+  "check": "C05",
+  "accepted": true,
+  "checks": [
+    {
+      "name": "real_ed25519_signature",
+      "passed": true
+    },
+    {
+      "name": "actual_https_pinned_source",
+      "passed": true
+    },
+    {
+      "name": "exact_size_and_sha256",
+      "passed": true
+    },
+    {
+      "name": "registry_verified_not_ready",
+      "passed": true
+    },
+    {
+      "name": "cache_reuse_without_network",
+      "passed": true
+    },
+    {
+      "name": "offline_import_source_preserved",
+      "passed": true
+    }
+  ],
+  "actual_https": true,
+  "public_source": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/87416418657359cb625c412a48b6e1d6d41c29bd/LICENSE",
+  "bytes": 11358,
+  "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "signature": "Ed25519; ephemeral in-memory test key, not a production trust root",
+  "resume_over_actual_https_verified": false,
+  "resume_protocol_scope": "Injected response matrix in unit tests",
+  "installs_or_executes_component": false,
+  "production_catalog_published": false,
+  "windows_executed": false,
+  "gpu_executed": false
+}

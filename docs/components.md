@@ -2,7 +2,7 @@
 
 C01 交付程式版本 **0.2.0**，架構版本 **0.4**，2026-11-06（台北）。本項完成 Linux 的底層驗收；[逐項結果與原始日誌](development-records/runs/c01-2026-11-06/README.md)保存於專案。
 
-目前程式 **0.2.1** 已完成 [C02 舊模型轉接及設定 v6](component-migration.md)，登錄已升至 schema 2；下文保留 C01 的責任邊界及交付範圍。
+目前程式 **0.3.0** 已完成 [C02 舊模型轉接及設定 v6](component-migration.md)與 [C05 可信目錄／下載](component-downloads.md)，登錄為 schema 2；下文保留 C01 的責任邊界及交付範圍。
 
 ## 模組與呼叫邊界
 
