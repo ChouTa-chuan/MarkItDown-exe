@@ -1,0 +1,238 @@
+{
+  "scope": "核對截至指定基準提交的全部可達 Git 歷史；本次補存提交由 Git 自身另記",
+  "through_commit": "3d0e0056d46229a4478225b2904837b71deeef76",
+  "commits": [
+    {
+      "commit": "20105615130f1af1a1226f2b75bf94efb59fa940",
+      "short_commit": "2010561",
+      "committed_at": "2026-11-04T06:37:58Z",
+      "committed_at_taipei": "2026-11-04T14:37:58+08:00",
+      "subject": "Build initial conversion core with memory-aware spawned workers",
+      "parents": [],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/20105615130f1af1a1226f2b75bf94efb59fa940"
+    },
+    {
+      "commit": "1255c584993ff6e7b98b8a767402d19e0649fa79",
+      "short_commit": "1255c58",
+      "committed_at": "2026-11-04T06:55:28Z",
+      "committed_at_taipei": "2026-11-04T14:55:28+08:00",
+      "subject": "Add offline progress dashboard, upstream converters and Qt desktop prototype",
+      "parents": [
+        "20105615130f1af1a1226f2b75bf94efb59fa940"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/1255c584993ff6e7b98b8a767402d19e0649fa79"
+    },
+    {
+      "commit": "60444c0f14f80214dd97a3c38042c951f845d0d5",
+      "short_commit": "60444c0",
+      "committed_at": "2026-11-04T07:15:24Z",
+      "committed_at_taipei": "2026-11-04T15:15:24+08:00",
+      "subject": "Add page-wise precise PDF OCR and reproducible packaging workflows",
+      "parents": [
+        "1255c584993ff6e7b98b8a767402d19e0649fa79"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/60444c0f14f80214dd97a3c38042c951f845d0d5"
+    },
+    {
+      "commit": "06f2a4b56cbef2a71eba5c92739db25226c74cf8",
+      "short_commit": "06f2a4b",
+      "committed_at": "2026-11-04T07:47:47Z",
+      "committed_at_taipei": "2026-11-04T15:47:47+08:00",
+      "subject": "Integrate verified OCR model management and persistent engine settings",
+      "parents": [
+        "60444c0f14f80214dd97a3c38042c951f845d0d5"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/06f2a4b56cbef2a71eba5c92739db25226c74cf8"
+    },
+    {
+      "commit": "3280e00a004ae19c580928cbf25023d304b6977f",
+      "short_commit": "3280e00",
+      "committed_at": "2026-11-04T08:54:07Z",
+      "committed_at_taipei": "2026-11-04T16:54:07+08:00",
+      "subject": "Add honest device diagnostics and configurable CPU thread limits",
+      "parents": [
+        "06f2a4b56cbef2a71eba5c92739db25226c74cf8"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/3280e00a004ae19c580928cbf25023d304b6977f"
+    },
+    {
+      "commit": "3de90293a7192aa36ce33b68717d76c56e1d8e46",
+      "short_commit": "3de9029",
+      "committed_at": "2026-11-05T01:53:08Z",
+      "committed_at_taipei": "2026-11-05T09:53:08+08:00",
+      "subject": "Integrate experimental ONNX OCR and track quality gaps with sparse-text fix",
+      "parents": [
+        "3280e00a004ae19c580928cbf25023d304b6977f"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/3de90293a7192aa36ce33b68717d76c56e1d8e46"
+    },
+    {
+      "commit": "3033e10fd11c388a8912a7cb6f1433262861abf0",
+      "short_commit": "3033e10",
+      "committed_at": "2026-11-05T03:18:45Z",
+      "committed_at_taipei": "2026-11-05T11:18:45+08:00",
+      "subject": "Add dual-engine OCR disagreement review and multi-sample quality evidence",
+      "parents": [
+        "3de90293a7192aa36ce33b68717d76c56e1d8e46"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/3033e10fd11c388a8912a7cb6f1433262861abf0"
+    },
+    {
+      "commit": "d506f99e5332d47bb69e6fe102a8fa39cfe7d8a1",
+      "short_commit": "d506f99",
+      "committed_at": "2026-11-05T06:06:50Z",
+      "committed_at_taipei": "2026-11-05T14:06:50+08:00",
+      "subject": "Preserve merged PDF table geometry and text outside physical cells",
+      "parents": [
+        "3033e10fd11c388a8912a7cb6f1433262861abf0"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/d506f99e5332d47bb69e6fe102a8fa39cfe7d8a1"
+    },
+    {
+      "commit": "c70419b8ef19a24ec8c534ed6b68c3b1e90a079f",
+      "short_commit": "c70419b",
+      "committed_at": "2026-11-05T06:17:35Z",
+      "committed_at_taipei": "2026-11-05T14:17:35+08:00",
+      "subject": "Add conservative cross-page table hints with preserved source fragments",
+      "parents": [
+        "d506f99e5332d47bb69e6fe102a8fa39cfe7d8a1"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/c70419b8ef19a24ec8c534ed6b68c3b1e90a079f"
+    },
+    {
+      "commit": "98f28d54cb9aeb64c56f8f9153db41e08daecf29",
+      "short_commit": "98f28d5",
+      "committed_at": "2026-11-05T06:32:33Z",
+      "committed_at_taipei": "2026-11-05T14:32:33+08:00",
+      "subject": "Infer aligned borderless numeric tables and track sparse upstream structure gap",
+      "parents": [
+        "c70419b8ef19a24ec8c534ed6b68c3b1e90a079f"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/98f28d54cb9aeb64c56f8f9153db41e08daecf29"
+    },
+    {
+      "commit": "6dc83550faac4eed521269c452436c6b973c442d",
+      "short_commit": "6dc8355",
+      "committed_at": "2026-11-05T06:32:50Z",
+      "committed_at_taipei": "2026-11-05T14:32:50+08:00",
+      "subject": "Preserve PDF fixtures as binary assets",
+      "parents": [
+        "98f28d54cb9aeb64c56f8f9153db41e08daecf29"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/6dc83550faac4eed521269c452436c6b973c442d"
+    },
+    {
+      "commit": "f26a8ea27cb9b9b75425458994c1167b3bcd974a",
+      "short_commit": "f26a8ea",
+      "committed_at": "2026-11-05T07:18:45Z",
+      "committed_at_taipei": "2026-11-05T15:18:45+08:00",
+      "subject": "Complete license inventory and offline user guide checklist",
+      "parents": [
+        "6dc83550faac4eed521269c452436c6b973c442d"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/f26a8ea27cb9b9b75425458994c1167b3bcd974a"
+    },
+    {
+      "commit": "8ec991bae31db0135fbb20cbdd966c1b9abb129e",
+      "short_commit": "8ec991b",
+      "committed_at": "2026-11-05T08:04:06Z",
+      "committed_at_taipei": "2026-11-05T16:04:06+08:00",
+      "subject": "Complete phase 3 PDF layout and table acceptance",
+      "parents": [
+        "f26a8ea27cb9b9b75425458994c1167b3bcd974a"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/8ec991bae31db0135fbb20cbdd966c1b9abb129e"
+    },
+    {
+      "commit": "b5b706e1063cfaf2705b1bcd88b95426469b5206",
+      "short_commit": "b5b706e",
+      "committed_at": "2026-11-05T08:39:37Z",
+      "committed_at_taipei": "2026-11-05T16:39:37+08:00",
+      "subject": "Add Windows preview installer and offline installation verification",
+      "parents": [
+        "8ec991bae31db0135fbb20cbdd966c1b9abb129e"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.3",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/b5b706e1063cfaf2705b1bcd88b95426469b5206"
+    },
+    {
+      "commit": "dfdb8e89768dea6b7c95ada7fd97edafbb4e5b39",
+      "short_commit": "dfdb8e8",
+      "committed_at": "2026-11-05T09:31:14Z",
+      "committed_at_taipei": "2026-11-05T17:31:14+08:00",
+      "subject": "Adopt base installer and optional component architecture plan",
+      "parents": [
+        "b5b706e1063cfaf2705b1bcd88b95426469b5206"
+      ],
+      "source_version": "0.1.0",
+      "architecture_version": "0.4",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/dfdb8e89768dea6b7c95ada7fd97edafbb4e5b39"
+    },
+    {
+      "commit": "eaff81750d0c60f0798e2ce34c7b8c22b5dd913c",
+      "short_commit": "eaff817",
+      "committed_at": "2026-11-05T09:53:54Z",
+      "committed_at_taipei": "2026-11-05T17:53:54+08:00",
+      "subject": "Document v0.1.1 with Chinese architecture overview and source comments",
+      "parents": [
+        "dfdb8e89768dea6b7c95ada7fd97edafbb4e5b39"
+      ],
+      "source_version": "0.1.1",
+      "architecture_version": "0.4",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/eaff81750d0c60f0798e2ce34c7b8c22b5dd913c"
+    },
+    {
+      "commit": "828b87355a3a22bd4071a7831ed139256d3144c6",
+      "short_commit": "828b873",
+      "committed_at": "2026-11-06T01:31:39Z",
+      "committed_at_taipei": "2026-11-06T09:31:39+08:00",
+      "subject": "Archive existing and v0.4 architecture diagrams with provenance",
+      "parents": [
+        "eaff81750d0c60f0798e2ce34c7b8c22b5dd913c"
+      ],
+      "source_version": "0.1.1",
+      "architecture_version": "0.4",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/828b87355a3a22bd4071a7831ed139256d3144c6"
+    },
+    {
+      "commit": "3d0e0056d46229a4478225b2904837b71deeef76",
+      "short_commit": "3d0e005",
+      "committed_at": "2026-11-06T01:42:29Z",
+      "committed_at_taipei": "2026-11-06T09:42:29+08:00",
+      "subject": "Archive the full section-four modular architecture diagram and responsibilities",
+      "parents": [
+        "828b87355a3a22bd4071a7831ed139256d3144c6"
+      ],
+      "source_version": "0.1.1",
+      "architecture_version": "0.4",
+      "github_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/commit/3d0e0056d46229a4478225b2904837b71deeef76"
+    }
+  ]
+}

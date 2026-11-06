@@ -2,3 +2,11 @@
 *.pdf binary
 # Preserve upstream legal texts exactly, including original line endings.
 src/desktop_app/data/licenses/** -text
+# 工程產物為歷史證據，保留原位元組；日誌與原始生成 Markdown 不修剪當時空白。
+docs/development-records/screenshots/** -text
+docs/development-records/examples/** -text
+docs/development-records/examples/*-example.md -whitespace
+docs/development-records/examples/sparse-fixed.md -whitespace
+docs/development-records/examples/upstream-borderless-result.md -whitespace
+docs/development-records/logs/*.log -text -whitespace
+docs/development-records/observations/*.json -text

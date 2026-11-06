@@ -1,0 +1,12 @@
+{
+  "gpus": [],
+  "providers": [
+    "AzureExecutionProvider",
+    "CPUExecutionProvider"
+  ],
+  "notes": [
+    "找不到 nvidia-smi；尚未驗證 NVIDIA 裝置，不代表不存在其他廠牌顯卡。",
+    "provider 清單只代表套件能力，不代表模型推論已驗證。",
+    "目前 OCR 後端 Tesseract 僅支援 CPU，偵測到顯卡也不會自動啟用 GPU。"
+  ]
+}

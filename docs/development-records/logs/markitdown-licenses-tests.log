@@ -1,0 +1,152 @@
+test_framed_and_borderless_on_same_page (test_borderless.BorderlessPDFTests.test_framed_and_borderless_on_same_page) ... ok
+test_numeric_first_row_is_not_assumed_header (test_borderless.BorderlessPDFTests.test_numeric_first_row_is_not_assumed_header) ... ok
+test_right_aligned_numeric_column (test_borderless.BorderlessPDFTests.test_right_aligned_numeric_column) ... ok
+test_short_or_misaligned_data_keeps_text (test_borderless.BorderlessPDFTests.test_short_or_misaligned_data_keeps_text) ... ok
+test_three_columns_numeric_data_and_prose (test_borderless.BorderlessPDFTests.test_three_columns_numeric_data_and_prose) ... ok
+test_two_column_article_is_not_a_table (test_borderless.BorderlessPDFTests.test_two_column_article_is_not_a_table) ... ok
+test_two_column_numeric_table (test_borderless.BorderlessPDFTests.test_two_column_numeric_table) ... ok
+test_upstream_sparse_fixture_preserves_data_without_fake_single_column (test_borderless.BorderlessPDFTests.test_upstream_sparse_fixture_preserves_data_without_fake_single_column) ... ok
+test_upstream_sparse_table_structure_known_gap (test_borderless.BorderlessPDFTests.test_upstream_sparse_table_structure_known_gap) ... expected failure
+test_analysis_cancelled_at_checkpoint (test_borderless.NumericEvidenceTests.test_analysis_cancelled_at_checkpoint) ... ok
+test_numeric_cell_does_not_accept_prose_or_unbalanced_parentheses (test_borderless.NumericEvidenceTests.test_numeric_cell_does_not_accept_prose_or_unbalanced_parentheses) ... ok
+test_word_limit_skips_further_layout_analysis (test_borderless.NumericEvidenceTests.test_word_limit_skips_further_layout_analysis) ... ok
+test_batch_continues_after_failure (test_core.CoreTests.test_batch_continues_after_failure) ... ok
+test_cancel_at_checkpoint_cleans_file (test_core.CoreTests.test_cancel_at_checkpoint_cleans_file) ... ok
+test_cancel_before_start (test_core.CoreTests.test_cancel_before_start) ... ok
+test_destination_not_overwritten (test_core.CoreTests.test_destination_not_overwritten) ... ok
+test_invalid_encoding_cleans_partial_file (test_core.CoreTests.test_invalid_encoding_cleans_partial_file) ... ok
+test_low_memory_times_out_without_output (test_core.CoreTests.test_low_memory_times_out_without_output) ... ok
+test_memory_pressure_recovers_before_spawn (test_core.CoreTests.test_memory_pressure_recovers_before_spawn) ... ok
+test_publication_race_does_not_overwrite (test_core.CoreTests.test_publication_race_does_not_overwrite) ... ok
+test_running_worker_pauses_and_resumes (test_core.CoreTests.test_running_worker_pauses_and_resumes) ... ok
+test_source_cannot_be_destination (test_core.CoreTests.test_source_cannot_be_destination) ... ok
+test_streaming_and_spawn_preserve_text (test_core.CoreTests.test_streaming_and_spawn_preserve_text) ... ok
+test_unknown_format_fails_explicitly (test_core.CoreTests.test_unknown_format_fails_explicitly) ... ok
+test_budget_includes_existing_process_usage (test_core.ResourceTests.test_budget_includes_existing_process_usage) ... ok
+test_hysteresis_prevents_early_resume (test_core.ResourceTests.test_hysteresis_prevents_early_resume) ... ok
+test_invalid_budget (test_core.ResourceTests.test_invalid_budget) ... ok
+test_real_process_memory_monitor (test_core.ResourceTests.test_real_process_memory_monitor) ... ok
+test_device_and_cpu_controls_saved (test_desktop.DesktopTests.test_device_and_cpu_controls_saved) ... ok
+test_experimental_backend_does_not_change_default (test_desktop.DesktopTests.test_experimental_backend_does_not_change_default) ... ok
+test_full_desktop_text_flow (test_desktop.DesktopTests.test_full_desktop_text_flow) ... ok
+test_missing_input_does_not_start_worker (test_desktop.DesktopTests.test_missing_input_does_not_start_worker) ... ok
+test_model_dialog_cached_install (test_desktop.DesktopTests.test_model_dialog_cached_install) ... ok
+test_ocr_configuration_saved (test_desktop.DesktopTests.test_ocr_configuration_saved) ... ok
+test_preferences_round_trip (test_desktop.DesktopTests.test_preferences_round_trip) ... ok
+test_device_and_threads_validation (test_devices.DeviceTests.test_device_and_threads_validation) ... ok
+test_gpu_request_does_not_silently_use_cpu (test_devices.DeviceTests.test_gpu_request_does_not_silently_use_cpu) ... ok
+test_invalid_memory_rejected (test_devices.DeviceTests.test_invalid_memory_rejected) ... ok
+test_missing_query_does_not_claim_no_hardware (test_devices.DeviceTests.test_missing_query_does_not_claim_no_hardware) ... [0;93m2026-11-05 07:08:28.428648595 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+ok
+test_multiple_gpu_csv (test_devices.DeviceTests.test_multiple_gpu_csv) ... ok
+test_query_timeout_does_not_claim_ready (test_devices.DeviceTests.test_query_timeout_does_not_claim_ready) ... ok
+test_worker_limits_native_threads (test_devices.DeviceTests.test_worker_limits_native_threads) ... ok
+test_docx_heading_and_table (test_formats.FormatTests.test_docx_heading_and_table) ... [0;93m2026-11-05 07:08:29.076999568 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+ok
+test_html_structure (test_formats.FormatTests.test_html_structure) ... [0;93m2026-11-05 07:08:30.986239943 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+ok
+test_pptx_title_and_content (test_formats.FormatTests.test_pptx_title_and_content) ... [0;93m2026-11-05 07:08:33.155027999 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+ok
+test_text_pdf (test_formats.FormatTests.test_text_pdf) ... ok
+test_xlsx_sheet_and_values (test_formats.FormatTests.test_xlsx_sheet_and_values) ... [0;93m2026-11-05 07:08:36.908852739 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+ok
+test_menu_has_both_documents (test_help_ui.HelpTests.test_menu_has_both_documents) ... ok
+test_packaged_attribution_and_folder (test_help_ui.HelpTests.test_packaged_attribution_and_folder) ... FAIL
+test_packaged_manual_and_ui (test_help_ui.HelpTests.test_packaged_manual_and_ui) ... ok
+test_archive_traversal_rejected (test_license_inventory.InventoryTests.test_archive_traversal_rejected) ... ok
+test_complete_inventory_and_nested_metadata (test_license_inventory.InventoryTests.test_complete_inventory_and_nested_metadata) ... ok
+test_existing_user_directory_preserved (test_license_inventory.InventoryTests.test_existing_user_directory_preserved) ... ok
+test_locked_hash_mismatch_cleans_staging (test_license_inventory.InventoryTests.test_locked_hash_mismatch_cleans_staging) ... ok
+test_missing_notice_rejected (test_license_inventory.InventoryTests.test_missing_notice_rejected) ... ok
+test_missing_package_is_not_silently_omitted (test_license_inventory.InventoryTests.test_missing_package_is_not_silently_omitted) ... ok
+test_notice_tampering_rejected (test_license_inventory.InventoryTests.test_notice_tampering_rejected) ... ok
+test_real_windows_catalog_covers_lock (test_license_inventory.InventoryTests.test_real_windows_catalog_covers_lock) ... ok
+test_stale_lock_rejected (test_license_inventory.InventoryTests.test_stale_lock_rejected) ... ok
+test_bad_download_never_published (test_models.ModelsTests.test_bad_download_never_published) ... ok
+test_cancel_during_read_cleans_partial_file (test_models.ModelsTests.test_cancel_during_read_cleans_partial_file) ... ok
+test_corrupt_existing_preserved (test_models.ModelsTests.test_corrupt_existing_preserved) ... ok
+test_download_and_reuse_without_network (test_models.ModelsTests.test_download_and_reuse_without_network) ... ok
+test_network_error_cleans_file (test_models.ModelsTests.test_network_error_cleans_file) ... ok
+test_remove_corrupt_file_refuses (test_models.ModelsTests.test_remove_corrupt_file_refuses) ... ok
+test_remove_preserves_unknown_files (test_models.ModelsTests.test_remove_preserves_unknown_files) ... ok
+test_manifest_available_and_pinned (test_models.PackagedManifestTests.test_manifest_available_and_pinned) ... ok
+test_auto_inference_retries_once_on_cpu (test_onnx_ocr.BackendPolicyTests.test_auto_inference_retries_once_on_cpu) ... ok
+test_auto_init_fallback_requires_checkpoint (test_onnx_ocr.BackendPolicyTests.test_auto_init_fallback_requires_checkpoint) ... ok
+test_cancel_never_falls_back (test_onnx_ocr.BackendPolicyTests.test_cancel_never_falls_back) ... ok
+test_explicit_gpu_not_silently_downgraded (test_onnx_ocr.BackendPolicyTests.test_explicit_gpu_not_silently_downgraded) ... ok
+test_gpu_memory_reserve (test_onnx_ocr.BackendPolicyTests.test_gpu_memory_reserve) ... ok
+test_no_provider_is_not_gpu_ready (test_onnx_ocr.BackendPolicyTests.test_no_provider_is_not_gpu_ready) ... ok
+test_provider_alone_is_insufficient (test_onnx_ocr.BackendPolicyTests.test_provider_alone_is_insufficient) ... ok
+test_registered_cuda_sessions_checked (test_onnx_ocr.BackendPolicyTests.test_registered_cuda_sessions_checked) ... ok
+test_crosscheck_keeps_primary_and_candidate (test_onnx_ocr.OnnxIntegrationTests.test_crosscheck_keeps_primary_and_candidate) ... ok
+test_pdf_onnx_needs_no_tesseract (test_onnx_ocr.OnnxIntegrationTests.test_pdf_onnx_needs_no_tesseract) ... ok
+test_traditional_chinese_quality_known_gap (test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap) ... expected failure
+test_bad_encoding_requests_ocr (test_pdf_pipeline.PageDecisionTests.test_bad_encoding_requests_ocr) ... ok
+test_blank_page (test_pdf_pipeline.PageDecisionTests.test_blank_page) ... ok
+test_mixed_content_has_warning (test_pdf_pipeline.PageDecisionTests.test_mixed_content_has_warning) ... ok
+test_scan_routes_to_ocr (test_pdf_pipeline.PageDecisionTests.test_scan_routes_to_ocr) ... ok
+test_short_native_title_does_not_require_ocr (test_pdf_pipeline.PageDecisionTests.test_short_native_title_does_not_require_ocr) ... ok
+test_cancel_during_pdf_export_cleans_output (test_pdf_pipeline.PdfPipelineTests.test_cancel_during_pdf_export_cleans_output) ... ok
+test_english_scan_and_native_page_are_routed_separately (test_pdf_pipeline.PdfPipelineTests.test_english_scan_and_native_page_are_routed_separately) ... ok
+test_explicit_paths_work_without_environment_variable (test_pdf_pipeline.PdfPipelineTests.test_explicit_paths_work_without_environment_variable) ... ok
+test_missing_ocr_engine_fails_without_partial_output (test_pdf_pipeline.PdfPipelineTests.test_missing_ocr_engine_fails_without_partial_output) ... ok
+test_native_table_extracted_without_duplicate_cells (test_pdf_pipeline.PdfPipelineTests.test_native_table_extracted_without_duplicate_cells) ... ok
+test_ocr_retry_is_bounded_and_warns (test_pdf_pipeline.PdfPipelineTests.test_ocr_retry_is_bounded_and_warns) ... ok
+test_scan_improves_over_native_baseline (test_pdf_pipeline.PdfPipelineTests.test_scan_improves_over_native_baseline) ... ok
+test_sparse_chinese_image_keeps_both_lines (test_pdf_pipeline.PdfPipelineTests.test_sparse_chinese_image_keeps_both_lines) ... ok
+test_traditional_chinese_scan (test_pdf_pipeline.PdfPipelineTests.test_traditional_chinese_scan) ... ok
+test_two_columns_read_left_then_right (test_pdf_pipeline.PdfPipelineTests.test_two_columns_read_left_then_right) ... ok
+test_does_not_repair_or_convert_characters (test_quality.CrossCheckTests.test_does_not_repair_or_convert_characters) ... ok
+test_empty_output_not_called_verified (test_quality.CrossCheckTests.test_empty_output_not_called_verified) ... ok
+test_html_escaped_in_evidence (test_quality.CrossCheckTests.test_html_escaped_in_evidence) ... ok
+test_ignores_whitespace_only (test_quality.CrossCheckTests.test_ignores_whitespace_only) ... ok
+test_long_page_alignment_bounded (test_quality.CrossCheckTests.test_long_page_alignment_bounded) ... ok
+test_preserves_traditional_variant_difference (test_quality.CrossCheckTests.test_preserves_traditional_variant_difference) ... ok
+test_bad_values (test_settings.SettingsTests.test_bad_values) ... ok
+test_failed_save_preserves_existing (test_settings.SettingsTests.test_failed_save_preserves_existing) ... ok
+test_future_version_not_overwritten (test_settings.SettingsTests.test_future_version_not_overwritten) ... ok
+test_invalid_file_not_silently_reset (test_settings.SettingsTests.test_invalid_file_not_silently_reset) ... ok
+test_missing_explicit_file_is_error (test_settings.SettingsTests.test_missing_explicit_file_is_error) ... ok
+test_ocr_paths_round_trip (test_settings.SettingsTests.test_ocr_paths_round_trip) ... ok
+test_onnx_settings_round_trip (test_settings.SettingsTests.test_onnx_settings_round_trip) ... ok
+test_oversized_file (test_settings.SettingsTests.test_oversized_file) ... ok
+test_round_trip (test_settings.SettingsTests.test_round_trip) ... ok
+test_v1_migrates_without_modifying_original (test_settings.SettingsTests.test_v1_migrates_without_modifying_original) ... ok
+test_v2_migration_preserves_paths (test_settings.SettingsTests.test_v2_migration_preserves_paths) ... ok
+test_v3_migration_preserves_cpu_settings (test_settings.SettingsTests.test_v3_migration_preserves_cpu_settings) ... ok
+test_v4_migrates_without_changing_backend (test_settings.SettingsTests.test_v4_migrates_without_changing_backend) ... ok
+test_changed_columns_are_not_linked (test_table_continuation.ContinuationRulesTests.test_changed_columns_are_not_linked) ... ok
+test_changed_header_is_not_linked (test_table_continuation.ContinuationRulesTests.test_changed_header_is_not_linked) ... ok
+test_header_without_body_is_not_linked (test_table_continuation.ContinuationRulesTests.test_header_without_body_is_not_linked) ... ok
+test_intervening_prose_is_not_linked (test_table_continuation.ContinuationRulesTests.test_intervening_prose_is_not_linked) ... ok
+test_matching_header_and_geometry (test_table_continuation.ContinuationRulesTests.test_matching_header_and_geometry) ... ok
+test_numeric_first_row_is_not_assumed_to_be_header (test_table_continuation.ContinuationRulesTests.test_numeric_first_row_is_not_assumed_to_be_header) ... ok
+test_only_page_number_lines_are_ignored (test_table_continuation.ContinuationRulesTests.test_only_page_number_lines_are_ignored) ... ok
+test_skipped_page_is_not_linked (test_table_continuation.ContinuationRulesTests.test_skipped_page_is_not_linked) ... ok
+test_table_away_from_boundary_is_not_linked (test_table_continuation.ContinuationRulesTests.test_table_away_from_boundary_is_not_linked) ... ok
+test_blank_page_resets_candidate (test_table_continuation.CrossPagePDFTests.test_blank_page_resets_candidate) ... ok
+test_different_column_geometry_not_linked (test_table_continuation.CrossPagePDFTests.test_different_column_geometry_not_linked) ... ok
+test_different_header_not_linked (test_table_continuation.CrossPagePDFTests.test_different_header_not_linked) ... ok
+test_multiple_top_tables_not_linked (test_table_continuation.CrossPagePDFTests.test_multiple_top_tables_not_linked) ... ok
+test_new_section_blocks_link (test_table_continuation.CrossPagePDFTests.test_new_section_blocks_link) ... ok
+test_possible_continuation_preserves_both_headers_and_rows (test_table_continuation.CrossPagePDFTests.test_possible_continuation_preserves_both_headers_and_rows) ... ok
+test_cancel_during_geometry_processing (test_tables.TableGeometryTests.test_cancel_during_geometry_processing) ... ok
+test_invalid_coordinates_keep_source_text (test_tables.TableGeometryTests.test_invalid_coordinates_keep_source_text) ... ok
+test_large_sparse_grid_is_bounded (test_tables.TableGeometryTests.test_large_sparse_grid_is_bounded) ... ok
+test_overlap_does_not_discard_source (test_tables.TableGeometryTests.test_overlap_does_not_discard_source) ... ok
+test_html_content_is_escaped (test_tables.TablePDFTests.test_html_content_is_escaped) ... ok
+test_row_and_column_spans_and_order (test_tables.TablePDFTests.test_row_and_column_spans_and_order) ... ok
+test_text_in_non_cell_gap_is_preserved (test_tables.TablePDFTests.test_text_in_non_cell_gap_is_preserved) ... ok
+
+======================================================================
+FAIL: test_packaged_attribution_and_folder (test_help_ui.HelpTests.test_packaged_attribution_and_folder)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/MarkItDown-exe/tests/test_help_ui.py", line 28, in test_packaged_attribution_and_folder
+    self.assertTrue((license_root()/'windows/inventory.json').is_file())
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 134 tests in 45.134s
+
+FAILED (failures=1, expected failures=2)

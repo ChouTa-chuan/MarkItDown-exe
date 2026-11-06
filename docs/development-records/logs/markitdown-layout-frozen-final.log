@@ -1,0 +1,97 @@
+[0;93m2026-11-05 07:58:34.795213300 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+queued: 純文字使用原生解析，不需 OCR 或 GPU；以固定區塊處理。
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 寫入 Markdown
+running: 提交輸出
+completed: 
+queued: PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 運算裝置：CPU／Tesseract（自動模式目前僅有 CPU 後端）
+running: 寫入 Markdown
+running: 第 1/1 頁：原生分析
+running: 提交輸出
+completed: 逐頁分析 1 頁，OCR 0 頁，品質提醒 0 項。
+queued: PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 運算裝置：CPU／Tesseract（自動模式目前僅有 CPU 後端）
+running: 寫入 Markdown
+running: 第 1/1 頁：原生分析
+running: 提交輸出
+completed: 逐頁分析 1 頁，OCR 0 頁，品質提醒 1 項。
+queued: PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 運算裝置：CPU／Tesseract（自動模式目前僅有 CPU 後端）
+running: 寫入 Markdown
+running: 第 1/2 頁：原生分析
+running: 第 2/2 頁：原生分析
+running: 提交輸出
+completed: 逐頁分析 2 頁，OCR 0 頁，品質提醒 3 項。
+queued: PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 運算裝置：CPU／Tesseract（自動模式目前僅有 CPU 後端）
+running: 寫入 Markdown
+running: 第 1/1 頁：原生分析
+running: 提交輸出
+completed: 逐頁分析 1 頁，OCR 0 頁，品質提醒 1 項。
+queued: PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 運算裝置：CPU／Tesseract（自動模式目前僅有 CPU 後端）
+running: 寫入 Markdown
+running: 第 1/2 頁：原生分析
+running: 第 2/2 頁：原生分析
+running: 提交輸出
+completed: 逐頁分析 2 頁，OCR 0 頁，品質提醒 3 項。
+queued: PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 運算裝置：CPU／Tesseract（自動模式目前僅有 CPU 後端）
+running: 寫入 Markdown
+running: 第 1/1 頁：原生分析
+running: 提交輸出
+completed: 逐頁分析 1 頁，OCR 0 頁，品質提醒 2 項。
+test_added_fixture_provenance_matches_vendored_commit (test_pdf_acceptance.PublicPDFAcceptanceTests.test_added_fixture_provenance_matches_vendored_commit) ... ok
+test_article_preserves_paragraph_and_list_order (test_pdf_acceptance.PublicPDFAcceptanceTests.test_article_preserves_paragraph_and_list_order) ... ok
+test_multipage_repair_preserves_people_totals_and_disclaimer (test_pdf_acceptance.PublicPDFAcceptanceTests.test_multipage_repair_preserves_people_totals_and_disclaimer) ... ok
+test_receipt_preserves_money_signs_discount_order_and_payment (test_pdf_acceptance.PublicPDFAcceptanceTests.test_receipt_preserves_money_signs_discount_order_and_payment) ... ok
+test_sparse_inventory_exact_structure_and_content (test_pdf_acceptance.PublicPDFAcceptanceTests.test_sparse_inventory_exact_structure_and_content) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 42.181s
+
+OK
+Acceptance: 5/5; report: docs/layout-frozen-results.json
+queued: PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。
+[0;93m2026-11-05 07:59:33.245513827 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 運算裝置：ONNX OCR：裝置將於模型載入及 session 驗證後回報。
+running: 寫入 Markdown
+running: 第 1/1 頁：OCR
+running: ONNX session：CPU
+running: 本頁 ONNX 推論完成：CPU。
+running: 第 1 頁 OCR 文字不足，嘗試較高解析度（最多兩次）。
+running: 本頁 ONNX 推論完成：CPU。
+running: 第 1 頁 OCR 文字不足，嘗試較高解析度（最多兩次）。
+running: 提交輸出
+completed: 逐頁分析 1 頁，OCR 1 頁，品質提醒 2 項。
+queued: PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。
+[0;93m2026-11-05 08:00:47.062970327 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 運算裝置：ONNX OCR：裝置將於模型載入及 session 驗證後回報。
+running: 寫入 Markdown
+running: 第 1/1 頁：OCR
+running: ONNX session：CPU
+running: 本頁 ONNX 推論完成：CPU。
+running: 第 1 頁 OCR 文字不足，嘗試較高解析度（最多兩次）。
+running: 本頁 ONNX 推論完成：CPU。
+running: 第 1 頁 OCR 文字不足，嘗試較高解析度（最多兩次）。
+running: 提交輸出
+completed: 逐頁分析 1 頁，OCR 1 頁，品質提醒 2 項。
+Frozen executable text and PDF conversion verified

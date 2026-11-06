@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "audited_at": "2026-11-06T09:49:38.607592+08:00",
+  "through_commit": "3d0e0056d46229a4478225b2904837b71deeef76",
+  "source_version": "0.1.1",
+  "architecture_version": "0.4",
+  "git_commit_count": 18,
+  "local_remote_divergence": {
+    "local_only": 0,
+    "remote_only": 0
+  },
+  "git_fsck_passed": true,
+  "remote_full_tree_verification": {
+    "verified_commit": "3d0e0056d46229a4478225b2904837b71deeef76",
+    "remote_archive_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/archive/3d0e0056d46229a4478225b2904837b71deeef76.zip",
+    "verified_files": 374,
+    "archive_sha256": "07be385137a5d0bd0712a2508fc715acc689365c046a7cec94678f6b044d5bdd",
+    "all_git_blobs_match": true
+  },
+  "architecture_snapshots_verified": 4,
+  "newly_preserved_artifacts": 75,
+  "new_artifact_counts": {
+    "screenshot": 12,
+    "example": 8,
+    "observation": 2,
+    "log": 53
+  },
+  "runtime_retested": false,
+  "baseline_checks": {
+    "done": 19,
+    "total": 25
+  },
+  "component_rollout": {
+    "done": 0,
+    "total": 12
+  },
+  "limits": [
+    "核對範圍為 Git 歷史、專案文件與本次仍可取得的工程產物；不聲稱包含所有對話逐字內容。",
+    "未能取得的更早原始紀錄／暫存檔不能補造，也不推估其來源版本。",
+    "Windows／GPU 尚未實機驗收；歷史失敗與預期失敗不改列為通過。",
+    "venv、下載模型、wheel、編譯產物與重複原始碼 ZIP 不提交 Git；來源／鎖定／授權與重建腳本保留。"
+  ],
+  "comment_ast_reverified_files": 33
+}

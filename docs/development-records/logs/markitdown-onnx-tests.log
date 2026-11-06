@@ -1,0 +1,24 @@
+test_auto_inference_retries_once_on_cpu (test_onnx_ocr.BackendPolicyTests.test_auto_inference_retries_once_on_cpu) ... ok
+test_auto_init_fallback_requires_checkpoint (test_onnx_ocr.BackendPolicyTests.test_auto_init_fallback_requires_checkpoint) ... ok
+test_cancel_never_falls_back (test_onnx_ocr.BackendPolicyTests.test_cancel_never_falls_back) ... ok
+test_explicit_gpu_not_silently_downgraded (test_onnx_ocr.BackendPolicyTests.test_explicit_gpu_not_silently_downgraded) ... ok
+test_gpu_memory_reserve (test_onnx_ocr.BackendPolicyTests.test_gpu_memory_reserve) ... ok
+test_no_provider_is_not_gpu_ready (test_onnx_ocr.BackendPolicyTests.test_no_provider_is_not_gpu_ready) ... ok
+test_provider_alone_is_insufficient (test_onnx_ocr.BackendPolicyTests.test_provider_alone_is_insufficient) ... ok
+test_registered_cuda_sessions_checked (test_onnx_ocr.BackendPolicyTests.test_registered_cuda_sessions_checked) ... ok
+test_actual_chinese_cpu_inference (test_onnx_ocr.OnnxIntegrationTests.test_actual_chinese_cpu_inference) ... [0;93m2026-11-04 09:01:20.532871376 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+FAIL
+test_pdf_onnx_needs_no_tesseract (test_onnx_ocr.OnnxIntegrationTests.test_pdf_onnx_needs_no_tesseract) ... ok
+
+======================================================================
+FAIL: test_actual_chinese_cpu_inference (test_onnx_ocr.OnnxIntegrationTests.test_actual_chinese_cpu_inference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/MarkItDown-exe/tests/test_onnx_ocr.py", line 98, in test_actual_chinese_cpu_inference
+    self.assertIn('會議紀錄',compact)
+AssertionError: '會議紀錄' not found in '繁體中文文件測試會紀錄與資料轉换'
+
+----------------------------------------------------------------------
+Ran 10 tests in 9.529s
+
+FAILED (failures=1)

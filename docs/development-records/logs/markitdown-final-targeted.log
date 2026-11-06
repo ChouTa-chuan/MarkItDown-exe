@@ -1,0 +1,13 @@
+test_embedded_pdf_fixture_parses_with_correct_content (test_diagnostics.DiagnosticsTests.test_embedded_pdf_fixture_parses_with_correct_content) ... ok
+test_existing_report_prevents_starting_any_checks (test_diagnostics.DiagnosticsTests.test_existing_report_prevents_starting_any_checks) ... usage: python -m unittest [-h] --report REPORT
+python -m unittest: error: Report already exists; select a new report path
+ok
+test_failure_report_does_not_claim_complete_or_stop_remaining_checks (test_diagnostics.DiagnosticsTests.test_failure_report_does_not_claim_complete_or_stop_remaining_checks) ... [0;93m2026-11-05 08:29:54.711099253 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+ok
+test_report_is_utf8_and_does_not_replace_existing_evidence (test_diagnostics.DiagnosticsTests.test_report_is_utf8_and_does_not_replace_existing_evidence) ... ok
+test_traditional_chinese_quality_known_gap (test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap) ... expected failure
+
+----------------------------------------------------------------------
+Ran 5 tests in 3.149s
+
+OK (expected failures=1)
