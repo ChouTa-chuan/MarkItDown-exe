@@ -1,5 +1,6 @@
 """開發用命令列入口：與桌面共用設定、轉換任務及 RAM 調度。"""
 import argparse
+from dataclasses import replace
 import multiprocessing
 from pathlib import Path
 from threading import Event
@@ -15,7 +16,7 @@ def main():
     parser.add_argument("source", type=Path)
     parser.add_argument("destination", type=Path)
     parser.add_argument("--settings", type=Path, help="載入版本化的 JSON 資源設定")
-    parser.add_argument("--quality", choices=[quality.value for quality in Quality], default="precise")
+    parser.add_argument("--quality", choices=[quality.value for quality in Quality])
     parser.add_argument("--device", choices=["auto", "cpu", "gpu"])
     parser.add_argument("--cpu-threads", type=int)
     parser.add_argument("--ocr-backend", choices=["tesseract", "onnx", "onnx_verify"])
@@ -28,19 +29,19 @@ def main():
     previous = signal.signal(signal.SIGINT, lambda *_: cancel.set())
     try:
         saved = load_settings(args.settings) if args.settings else Settings()
-        settings = Settings(
+        settings = replace(saved,
             ram_budget_mib=saved.ram_budget_mib if args.ram_budget_mib is None else args.ram_budget_mib,
             reserve_mib=saved.reserve_mib if args.reserve_mib is None else args.reserve_mib,
             resource_wait_seconds=saved.resource_wait_seconds if args.resource_wait_seconds is None
                                   else args.resource_wait_seconds,
-            ocr_executable=saved.ocr_executable, ocr_data_dir=saved.ocr_data_dir,
             device=saved.device if args.device is None else args.device,
             cpu_threads=saved.cpu_threads if args.cpu_threads is None else args.cpu_threads,
             ocr_backend=saved.ocr_backend if args.ocr_backend is None else args.ocr_backend,
             vram_budget_mib=saved.vram_budget_mib if args.vram_budget_mib is None else args.vram_budget_mib,
+            quality=saved.quality if args.quality is None else args.quality,
         )
         runner = Runner(settings.policy(), max_resource_wait=settings.resource_wait_seconds)
-        result = runner.run(Request(args.source, args.destination, Quality(args.quality),
+        result = runner.run(Request(args.source, args.destination, Quality(settings.quality),
                                     settings.ocr_executable, settings.ocr_data_dir,
                                     settings.device, settings.cpu_threads, settings.ocr_backend,
                                     settings.vram_budget_mib), cancel,

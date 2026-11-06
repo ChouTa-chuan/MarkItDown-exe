@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-06T02:30:33.993218+00:00",
+  "recorded_at": "2026-11-06T05:52:35.110078+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 196,
-    "passed": 195,
+    "run": 229,
+    "passed": 228,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -151,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.2.0",
+  "source_version": "0.2.1",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -166,7 +166,7 @@
     "check": "C01",
     "accepted": true,
     "checks_passed": 43,
-    "registry_schema": 1,
+    "registry_schema": 2,
     "descriptor_schema": 1,
     "actual_sqlite_and_files": true,
     "fresh_health_and_dependencies": true,
@@ -176,7 +176,34 @@
     "signature_trust_verified": false,
     "windows_executed": false,
     "gpu_executed": false,
-    "report": "development-records/runs/c01-2026-11-06/acceptance.json"
+    "report": "development-records/runs/c01-2026-11-06/acceptance.json",
+    "scope_note": "C01 generic capability resolver remains outside automatic conversion routing; C02 legacy model adapter is integrated with its existing dialog"
   },
-  "current_run_scope": "0.2.0 installed package: complete unittest regression and C01 acceptance; historical frozen/PowerShell evidence below was not regenerated"
+  "current_run_scope": "0.2.1 installed package: complete unittest regression, C02 settings/legacy-model/desktop/native-path acceptance; historical frozen/PowerShell evidence not regenerated",
+  "component_migration": {
+    "check": "C02",
+    "accepted": true,
+    "checks_passed": 61,
+    "settings_schema": 6,
+    "reads_settings_versions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "raw_settings_backup_verified": true,
+    "registry_schema": 2,
+    "sqlite_v1_backup_and_transaction_rollback_verified": true,
+    "legacy_reference_gui_integrated": true,
+    "external_files_not_adopted_or_removed": true,
+    "managed_empty_directory_receipt_verified": true,
+    "explicit_ocr_path_no_silent_fallback": true,
+    "real_pinned_model_reference_verified": true,
+    "full_component_manager_implemented": false,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "report": "development-records/runs/c02-2026-11-06/acceptance.json"
+  }
 }

@@ -6,15 +6,15 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.2.0**，C01 元件基礎；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.2.1**，C02 舊模型轉接與設定遷移；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
-| 新架構導入 | **C01–C12：1/12**，C01 底層驗收完成 |
-| 功能測試基線 | **195 通過、1 項 ONNX 繁體品質預期失敗** |
+| 新架構導入 | **C01–C12：2/12**，C01／C02 驗收完成 |
+| 功能測試基線 | **228 通過、1 項 ONNX 繁體品質預期失敗** |
 
 ## 模組架構封面
 
-綠色為可沿用核心與桌面原型，藍色為 C01 已驗收的元件基礎，黃色為待實作項目。藍色尚未接入桌面與轉換流程，虛線表示後續接線；Windows／GPU 仍須各自驗證。
+綠色為可沿用核心與桌面原型，藍色為 C01／C02 已驗收的元件基礎與轉接，黃色為待實作項目。舊模型管理已接入桌面；能力解析與分析流程的虛線表示後續接線；Windows／GPU 仍須各自驗證。
 
 [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
@@ -35,14 +35,19 @@ flowchart TD
         CAPABILITY["能力解析：相容／依賴／健康檢查"]
         OPTIONAL["獨立選配引擎：額外 OCR／GPU／進階模型"]
         COMPONENTS --> CAPABILITY
+        LEGACY["舊模型轉接：只讀引用／專用目錄下載"]
+        PREFS["設定 v6：保留偏好／備份遷移"]
+        LEGACY --> COMPONENTS
     end
+    UI --> LEGACY
+    PREFS --> UI
     FIRST -.-> UI
     CAPABILITY -.-> PLAN
     RES -.-> OPTIONAL
     OPTIONAL -.-> QUALITY
     classDef existing fill:#e8f7f3,stroke:#21856d,color:#153c31;
     classDef foundation fill:#e8efff,stroke:#4c6fb8,color:#203c77;
-    class COMPONENTS,CAPABILITY foundation;
+    class COMPONENTS,CAPABILITY,LEGACY,PREFS foundation;
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
     class FIRST,OPTIONAL planned;
@@ -56,8 +61,9 @@ flowchart TD
 | 格式、OCR 與表格 | MarkItDown、Tesseract、合併格、稀疏表格與續表提示 | 有代表性驗收，非任意版面保證 |
 | 品質與輸出 | 原文差異、頁面來源、輸出保護、Markdown／HTML 表格 | 可沿用 |
 | 能力解析 | 重新核對元件相容性、依賴、實檔及可信健康探針 | C01 已驗收；實際引擎與分析流程待接入 |
+| 設定與遷移 | v1–v5 讀取、v6 偏好、遷移備份及防止未來設定覆寫 | C02 已驗收；外部路徑保留 |
 | 首次精靈 | 基本引擎檢查、RAM 建議與完成紀錄 | C09 待新增 |
-| 元件與更新服務 | 描述、登錄、下載、驗證、修復、移除及回復 | C01 契約／登錄／驗證完成；下載安裝與舊模型轉接仍待開發 |
+| 元件與更新服務 | 描述、登錄、下載、驗證、修復、移除及回復 | C01 契約／登錄完成，C02 舊模型已轉接；通用下載安裝仍待開發 |
 | 選配工作程序 | CPU／GPU 元件各自打包相依環境，避免改動核心 runtime | 待新增；GPU 候選路由尚未實機通過 |
 
 ## 使用者能得到什麼
@@ -84,7 +90,7 @@ flowchart TD
 ## 功能與驗收文件
 
 - [使用說明](src/desktop_app/data/user-guide.md)
-- [C01 元件契約、登錄與能力解析](docs/components.md)
+- [C01 元件契約、登錄與能力解析](docs/components.md)／[C02 舊模型轉接與設定遷移](docs/component-migration.md)
 - [精準 PDF 與 OCR](docs/precise-pdf.md)
 - [PDF 合併儲存格](docs/merged-tables.md)／[跨頁候選關聯](docs/table-continuation.md)／[無框線與稀疏表格](docs/borderless-tables.md)
 - [版面與表格驗收矩陣](docs/layout-acceptance.md)

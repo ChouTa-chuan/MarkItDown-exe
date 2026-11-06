@@ -1,5 +1,6 @@
 """Qt 桌面流程：批次轉換、PDF 精準模式、資源設定與離線說明；GPU 尚待實機驗收。"""
 import multiprocessing
+from dataclasses import replace
 from pathlib import Path
 from threading import Event
 
@@ -176,6 +177,7 @@ class Window(QMainWindow):
         self.status.setWordWrap(True)
         layout.addWidget(self.status)
         self.wait_seconds = 30.0
+        self.loaded_settings = Settings()
         self.load_preferences()
 
     def load_preferences(self):
@@ -183,6 +185,7 @@ class Window(QMainWindow):
             return
         try:
             saved = load_settings(self.settings_path)
+            self.loaded_settings = saved
             self.auto_budget.setChecked(saved.ram_budget_mib is None)
             if saved.ram_budget_mib is not None:
                 self.budget.setValue(saved.ram_budget_mib)
@@ -194,16 +197,19 @@ class Window(QMainWindow):
             self.cpu_threads.setValue(saved.cpu_threads)
             self.backend.setCurrentIndex(self.backend.findData(saved.ocr_backend))
             self.vram_budget.setValue(saved.vram_budget_mib)
+            self.quality.setCurrentIndex(self.quality.findData(saved.quality))
         except (OSError, ValueError) as exc:
             self.status.setText(f"設定未載入：{exc}；原檔未變更。")
 
     def preferences(self):
-        return Settings(ram_budget_mib=None if self.auto_budget.isChecked() else self.budget.value(),
+        # 元件偏好等尚無控制項的 v6 欄位也須保留，不能每次儲存重設。
+        return replace(self.loaded_settings, ram_budget_mib=None if self.auto_budget.isChecked() else self.budget.value(),
                         reserve_mib=self.reserve.value(), resource_wait_seconds=self.wait_seconds,
-                        ocr_executable=self.ocr_engine.text().strip() or None,
-                        ocr_data_dir=self.model_path.text().strip() or None,
+                        ocr_executable=self.ocr_engine.text() if self.ocr_engine.text().strip() else None,
+                        ocr_data_dir=self.model_path.text() if self.model_path.text().strip() else None,
                         device=self.device.currentData(), cpu_threads=self.cpu_threads.value(),
-                        ocr_backend=self.backend.currentData(), vram_budget_mib=self.vram_budget.value())
+                        ocr_backend=self.backend.currentData(), vram_budget_mib=self.vram_budget.value(),
+                        quality=self.quality.currentData())
 
     def show_help(self,document,title):
         from .help_ui import HelpDialog
@@ -222,8 +228,17 @@ class Window(QMainWindow):
 
     def manage_models(self):
         from .model_dialog import ModelDialog
-        directory = Path(self.model_path.text().strip()) if self.model_path.text().strip() else self.settings_path.parent / "models/tesseract"
-        dialog = ModelDialog(directory, self)
+        from .components.registry import ComponentRegistry
+        managed_directory = self.settings_path.parent / 'models/tesseract-managed'
+        legacy_directory = self.settings_path.parent / 'models/tesseract'
+        directory = (Path(self.model_path.text()) if self.model_path.text().strip() else
+                     legacy_directory if legacy_directory.exists() else managed_directory)
+        try:
+            registry = ComponentRegistry(self.settings_path.parent / 'component-state')
+            dialog = ModelDialog(directory, self, registry=registry, managed_directory=managed_directory)
+        except (OSError, RuntimeError, ValueError) as exc:
+            self.status.setText(f'模型登錄未開啟：{exc}；原模型未變更。')
+            return
         dialog.installed.connect(self.model_path.setText)
         dialog.exec()
 

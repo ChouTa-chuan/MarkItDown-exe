@@ -6,10 +6,12 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import sqlite3
 import stat
+import tempfile
 
-from .contracts import ComponentSpec, ComponentState
+from .contracts import ComponentSpec, ComponentState, relative_path
 
 MAX_COMPONENTS = 256
 MAX_SPEC_BYTES = 256 * 1024
@@ -86,6 +88,17 @@ class ComponentRecord:
     checked_at: str
 
 
+@dataclass(frozen=True)
+class ModelReference:
+    """舊模型的觀察紀錄，不是元件安裝證據，也不授予路徑所有權。"""
+    reference_id: str
+    directory: str
+    origin: str
+    manifest_hash: str
+    states: tuple[tuple[str, str], ...]
+    checked_at: str
+
+
 class ComponentRegistry:
     """登錄只保存上次觀察；可用性必須透過 CapabilityResolver 重新取得證據。"""
 
@@ -100,6 +113,8 @@ class ComponentRegistry:
             if self.database.stat().st_size > 128 * 1024**2:
                 raise RegistryError('登錄檔超過讀取上限。')
         with self._connection() as db:
+            if db.execute('PRAGMA user_version').fetchone()[0] == 1:
+                self._backup_schema_one(db)
             db.execute('BEGIN IMMEDIATE')
             version = db.execute('PRAGMA user_version').fetchone()[0]
             tables = {row[0] for row in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
@@ -112,7 +127,8 @@ class ComponentRegistry:
                     generation INTEGER NOT NULL, checked_at TEXT NOT NULL,
                     PRIMARY KEY (component_id, version))''')
                 db.execute('PRAGMA user_version=1')
-            elif version != 1 or tables != {'components'}:
+            elif not ((version == 1 and tables == {'components'}) or
+                      (version == 2 and tables == {'components', 'model_references'})):
                 raise RegistryError('不支援的登錄版本或資料表，原檔未重設。')
             columns = {row['name'] for row in db.execute('PRAGMA table_info(components)')}
             if columns != {'component_id', 'version', 'spec_json', 'spec_hash', 'state', 'archive_path',
@@ -121,6 +137,45 @@ class ComponentRegistry:
             count, length = db.execute('SELECT COUNT(*), COALESCE(MAX(length(spec_json)), 0) FROM components').fetchone()
             if count > MAX_COMPONENTS or length > MAX_SPEC_BYTES:
                 raise RegistryError('登錄內容超過限制。')
+            if version in (0, 1):
+                # schema 1 僅新增引用表，保留元件描述、世代與狀態；交易失敗整批回復。
+                db.execute('''CREATE TABLE model_references (
+                    reference_id TEXT PRIMARY KEY, directory TEXT NOT NULL,
+                    origin TEXT NOT NULL, manifest_hash TEXT NOT NULL,
+                    states_json TEXT NOT NULL, checked_at TEXT NOT NULL)''')
+                db.execute('PRAGMA user_version=2')
+            reference_columns = {row['name'] for row in db.execute('PRAGMA table_info(model_references)')}
+            if reference_columns != {'reference_id', 'directory', 'origin', 'manifest_hash', 'states_json', 'checked_at'}:
+                raise RegistryError('模型引用欄位不符合目前契約。')
+            if db.execute('SELECT COUNT(*) FROM model_references').fetchone()[0] > MAX_COMPONENTS:
+                raise RegistryError('模型引用數量超過限制。')
+
+    def _backup_schema_one(self, db):
+        """用 SQLite 一致性快照保存 v1，避免直接複製資料庫漏掉進行中的交易。"""
+        temporary = None
+        try:
+            with tempfile.NamedTemporaryFile(dir=self.directory, prefix='.registry-backup-', delete=False) as output:
+                temporary = Path(output.name)
+            target = sqlite3.connect(temporary)
+            try:
+                db.backup(target)
+                if target.execute('PRAGMA user_version').fetchone()[0] != 1:
+                    raise RegistryError('備份期間登錄版本已變更，請重新開啟。')
+            finally:
+                target.close()
+            digest = hashlib.sha256()
+            with temporary.open('rb') as source:
+                while block := source.read(65536):
+                    digest.update(block)
+            checksum = digest.hexdigest()
+            backup = self.directory / f'component-registry.pre-v1-{checksum[:16]}.sqlite3'
+            try:
+                os.link(temporary, backup)
+            except FileExistsError:
+                verify_file(backup, temporary.stat().st_size, checksum)
+        finally:
+            if temporary is not None:
+                temporary.unlink(missing_ok=True)
 
     @contextmanager
     def _connection(self):
@@ -180,6 +235,59 @@ class ComponentRegistry:
 
     def installation_path(self, spec):
         return self.payloads / spec.component_id / str(spec.version)
+
+    @staticmethod
+    def reference_id(directory):
+        name = os.path.normcase(str(Path(directory).absolute()))
+        return hashlib.sha256(name.encode('utf-8')).hexdigest()
+
+    @staticmethod
+    def _reference_values(directory, origin, manifest_hash, states):
+        if (not isinstance(directory, str) or len(directory) > 4096 or not Path(directory).is_absolute()
+                or '\x00' in directory or origin not in ('legacy', 'external', 'managed')
+                or not isinstance(manifest_hash, str) or not re.fullmatch('[0-9a-f]{64}', manifest_hash)
+                or not isinstance(states, dict) or not 0 < len(states) <= 64):
+            raise RegistryError('模型引用內容無效。')
+        for name, state in states.items():
+            relative_path(name)
+            if state not in ('valid', 'missing', 'corrupt'):
+                raise RegistryError('模型引用狀態無效。')
+
+    def record_model_reference(self, directory, origin, manifest_hash, states):
+        """只記錄目前觀察，無法由此函式把外部路徑變成可移除的受管資料。"""
+        directory = str(Path(directory).absolute())
+        self._reference_values(directory, origin, manifest_hash, states)
+        key = self.reference_id(directory)
+        with self._connection() as db:
+            db.execute('BEGIN IMMEDIATE')
+            exists = db.execute('SELECT 1 FROM model_references WHERE reference_id=?', (key,)).fetchone()
+            if not exists and db.execute('SELECT COUNT(*) FROM model_references').fetchone()[0] >= MAX_COMPONENTS:
+                raise RegistryError('模型引用數量已達上限。')
+            db.execute('''INSERT INTO model_references VALUES (?,?,?,?,?,?)
+                ON CONFLICT(reference_id) DO UPDATE SET origin=excluded.origin,
+                manifest_hash=excluded.manifest_hash, states_json=excluded.states_json,
+                checked_at=excluded.checked_at''',
+                (key, directory, origin, manifest_hash, json.dumps(states, sort_keys=True),
+                 datetime.now(timezone.utc).isoformat()))
+        return self.get_model_reference(key)
+
+    def get_model_reference(self, reference_id):
+        with self._connection() as db:
+            row = db.execute('SELECT * FROM model_references WHERE reference_id=?', (reference_id,)).fetchone()
+        if row is None:
+            return None
+        try:
+            raw = row['states_json']
+            if not isinstance(raw, str) or len(raw) > 16384:
+                raise RegistryError('模型引用狀態超過限制。')
+            states = json.loads(raw)
+            self._reference_values(row['directory'], row['origin'], row['manifest_hash'], states)
+            if self.reference_id(row['directory']) != reference_id or not isinstance(row['checked_at'], str) or len(row['checked_at']) > 64:
+                raise RegistryError('模型引用識別或時間無效。')
+            return ModelReference(reference_id, row['directory'], row['origin'], row['manifest_hash'],
+                                  tuple(sorted(states.items())), row['checked_at'])
+        except (ValueError, TypeError, RecursionError) as exc:
+            raise RegistryError('模型引用損毀，沒有重設資料。') from exc
 
     def _update(self, record, state, reason='', *, archive_path=None, installed=None):
         """以世代號比對寫入，禁止先前慢速檢查覆蓋並行更新；不暴露任意 SQL。"""

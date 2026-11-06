@@ -92,15 +92,16 @@ class DesktopTests(unittest.TestCase):
 
     def test_model_dialog_cached_install(self):
         from desktop_app.model_dialog import ModelDialog
+        from desktop_app.components.legacy_models import LegacyModelsAdapter
         from unittest.mock import patch
         import hashlib
         directory = self.root / "models"
-        directory.mkdir()
-        (directory / "eng.traineddata").write_bytes(b"fixture")
         spec = {"source":"test", "commit":"test", "license":"test",
                 "files":{"eng.traineddata":hashlib.sha256(b"fixture").hexdigest()}}
         with patch("desktop_app.models.manifest", return_value=spec):
-            dialog = ModelDialog(directory)
+            import io
+            LegacyModelsAdapter(directory, managed=True).install(opener=lambda *a, **k:io.BytesIO(b'fixture'))
+            dialog = ModelDialog(directory, managed_directory=directory)
             installed = []
             dialog.installed.connect(installed.append)
             dialog.start()
@@ -109,3 +110,53 @@ class DesktopTests(unittest.TestCase):
             self.assertEqual(installed, [str(directory)])
             self.assertTrue(dialog.download.isEnabled())
             dialog.close()
+
+    def test_v6_hidden_preferences_and_quality_survive_desktop_save(self):
+        from desktop_app.settings import ComponentPreference, Settings, load_settings, save_settings
+        saved = Settings(quality='fast', onboarding_version=2, update_channel='preview',
+                         allow_optional_downloads=True,
+                         component_preferences=(ComponentPreference('ocr.text', 'test-engine', '1.0.0'),))
+        save_settings(saved, self.window.settings_path)
+        self.window.load_preferences()
+        self.window.reserve.setValue(512)
+        self.window.save_preferences()
+        actual = load_settings(self.window.settings_path)
+        self.assertEqual(actual.component_preferences, saved.component_preferences)
+        self.assertEqual(actual.quality, 'fast')
+        self.assertEqual(actual.onboarding_version, 2)
+        self.assertEqual(actual.update_channel, 'preview')
+        self.assertTrue(actual.allow_optional_downloads)
+
+    def test_external_model_dialog_is_read_only_and_does_not_start_download(self):
+        from desktop_app.model_dialog import ModelDialog
+        directory = self.root / '自備模型';directory.mkdir()
+        target = directory / 'eng.traineddata';target.write_bytes(b'user data')
+        dialog = ModelDialog(directory, managed_directory=self.root / 'managed')
+        self.assertFalse(dialog.download.isEnabled())
+        self.assertFalse(dialog.remove_button.isEnabled())
+        dialog.start();dialog.remove()
+        self.assertIsNone(dialog.job)
+        self.assertEqual(target.read_bytes(), b'user data')
+        self.assertIn('只讀', dialog.status.text())
+        dialog.close()
+
+    def test_unreadable_future_settings_are_not_overwritten_by_save_button(self):
+        raw = b'{"schema_version":99}'
+        self.window.settings_path.write_bytes(raw)
+        self.window.load_preferences();self.window.save_preferences()
+        self.assertEqual(self.window.settings_path.read_bytes(), raw)
+        self.assertIn('儲存失敗', self.window.status.text())
+
+    def test_migrated_external_path_and_backend_survive_unrelated_ui_save(self):
+        import json
+        from desktop_app.settings import load_settings
+        raw = dict(schema_version=5, ocr_executable=' C:/自備引擎/tesseract.exe ',
+                   ocr_data_dir='relative/中文模型', ocr_backend='onnx_verify', cpu_threads=3)
+        self.window.settings_path.write_text(json.dumps(raw), encoding='utf-8')
+        self.window.load_preferences();self.window.reserve.setValue(768);self.window.save_preferences()
+        actual = load_settings(self.window.settings_path)
+        self.assertEqual(actual.ocr_executable, raw['ocr_executable'])
+        self.assertEqual(actual.ocr_data_dir, raw['ocr_data_dir'])
+        self.assertEqual(actual.ocr_backend, raw['ocr_backend'])
+        self.assertEqual(actual.cpu_threads, 3)
+        self.assertEqual(len(list(self.root.glob('settings.json*.bak'))), 1)

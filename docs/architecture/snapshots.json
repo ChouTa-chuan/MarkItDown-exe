@@ -61,6 +61,18 @@
       "source_version": "0.2.0",
       "architecture_scope": "0.4 C01 foundation accepted on Linux",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-c02-migration.md",
+      "title": "架構 v0.4：C02 舊模型與設定遷移",
+      "diagram_sha256": "314a9e512e215c861c9f443b58c8b8189e6517b1b7a4d193278afbf078ba33e3",
+      "file_sha256": "b174d95d4e8e60380c95dbb8b5e627fb129a779302ad249e08e745df4cc90588",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_description": "程式 0.2.1 與首頁圖一併提交",
+      "source_version": "0.2.1",
+      "architecture_scope": "0.4 C02 legacy model and settings migration accepted on Linux",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-06"

@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "collected_at": "2026-11-06T05:53:51.314715+00:00",
+  "source_version": "0.2.1",
+  "architecture_version": "0.4",
+  "check": "C02",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2828,
+      "sha256": "a09f2396713f4c96dc8c29ef8819ef7f589896d9701107f11662b1b2bcb279be",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 6085,
+      "sha256": "675127735332131cbc67db98ee7effd22d2b4c0ce6b476a98fda4f4965e553c9",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "capture_ui.py",
+      "bytes": 2724,
+      "sha256": "48c14d6085d693ace089ec9e2309391bfdba3a2b710b030326f78f8011630ec5",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "component-tests.log",
+      "bytes": 8642,
+      "sha256": "9ba8247a31701455ad2c9c6be5816fb3411aa54b552c1e8a3e0c727cf47c70b9",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "full-tests.log",
+      "bytes": 31800,
+      "sha256": "0f6ee596be87c881b48d91c710e06b8959fa2ccdfa2803309f37f25f1259c9c8",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "initial-regression.log",
+      "bytes": 11037,
+      "sha256": "3713e33710f16e7a4f6bcc48afb8e3d8e05f534c60eb64c6838dd533c943538a",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 373,
+      "sha256": "0878860cf8c60e72beb8d4322a32123ec3602ee410a55f439d6f34264d7b25aa",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "licenses.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 404155,
+      "sha256": "cdc89244bec62b7319134f8e83bd112720d96d15d09545c23b077d7508027af2",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 399790,
+      "sha256": "0d18a49c316ec8738d8f7b3c3c45e5955f390c5cfd5606f5e85939de57e10be3",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/desktop-v6.png",
+      "bytes": 91393,
+      "sha256": "46d491d0e18927f7e6779b331a54bea67c173d7fe81512c646fdf7125e1e17e7",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/legacy-readonly.png",
+      "bytes": 50702,
+      "sha256": "4b1b05a71e66d1d2516a6a501606a8434b853855a34255a9475e7d683697feb6",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/managed-empty.png",
+      "bytes": 49065,
+      "sha256": "c781c3bb8ddc60e1db35d1751190b9adfcf55aaebd15cc5e55a25750ea55a148",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 282177,
+      "sha256": "366162fee09b15bba65d3c6bf77b80c60edb4eecd1ad1cb48575a9d8499931e6",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 300075,
+      "sha256": "b9670674246a449093a26233639b834a4590dc7d16987a276991e8003a5ffb04",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 421274,
+      "sha256": "081bdf4294f48d88d77e13ab4cebe2c533fadc828fb3a1c453bed5a97f2421ec",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "ui.log",
+      "bytes": 260,
+      "sha256": "dc0ffb6474b75148fe3c4bf6c7af6a6a057da108b52f8a0b2da2c5f37af72d48",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    },
+    {
+      "file": "upstream.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C02 0.2.1 Linux 本輪生成／執行；非 Windows／GPU 實測"
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-06",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 195,
-  "headline": "C01 完成：元件契約、登錄與能力解析；新架構導入 1/12",
+  "tests_passed": 228,
+  "headline": "C02 完成：舊模型只讀轉接與設定 v6；新架構導入 2/12",
   "blocker": "缺少 Windows／GPU 執行器；ONNX 繁體品質仍未達標，正式安裝包未經驗收。",
-  "next": "接續 C02：舊模型 adapter 與設定遷移，保留外部路徑及既有偏好；Windows／GPU 實機仍待執行器。",
+  "next": "接續 C03 Windows 基本 Tesseract／DLL／授權與雙語離線 OCR，並準備 C04 profile；關閉實機檢核仍需 Windows 執行器。",
   "milestones": [
     {
       "id": "m0",
@@ -161,8 +161,8 @@
       "title": "桌面介面",
       "layer": "介面",
       "state": "partial",
-      "detail": "說明選單可離線開啟操作手冊與授權清單，完整原文隨套件及打包資源保存。",
-      "evidence": "tests/test_desktop.py：Linux 離屏操作流程"
+      "detail": "舊／外部模型只讀，專用目錄明確下載；v6 偏好保存與離線說明，完整元件管理頁仍待 C08。",
+      "evidence": "C02 Linux Qt 離屏操作與合成畫面；原桌面文字轉換回歸"
     },
     {
       "id": "application",
@@ -217,15 +217,15 @@
       "title": "設定儲存",
       "layer": "支援",
       "state": "verified",
-      "detail": "schema v5 支援核對後端，讀取 v1–v4，不自動替換原設定。",
-      "evidence": "tests/test_settings.py：遷移與路徑往返"
+      "detail": "schema v6 讀取 v1–v5，保存品質及元件偏好；儲存前備份，拒絕覆蓋損毀或未來設定。",
+      "evidence": "tests/test_settings.py／test_component_migration.py／test_desktop.py"
     },
     {
       "id": "inference",
       "title": "模型與 GPU",
       "layer": "處理",
       "state": "partial",
-      "detail": "ONNX CPU 掃描已驗證；繁體有 1 項品質缺口，CUDA 僅候選路徑。",
+      "detail": "Tesseract 模型已轉接登錄並區分所有權；ONNX CPU 沿用，繁體有已知缺口，GPU 尚未實機驗證。",
       "evidence": "ONNX CPU 英文掃描及打包模型驗證；繁體品質預期失敗保留，GPU 分支僅模擬"
     },
     {
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 195 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 228 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -246,19 +246,19 @@
     }
   ],
   "limits": [
-    "C01 完成 Linux 底層驗收，新 C01–C12 導入 1/12；基本／選配拆包、下載安裝與桌面接線仍待完成，既有 19/25 另計。",
+    "C01／C02 已完成 Linux 驗收，新 C01–C12 導入 2/12；Windows 基本 OCR、通用選配下載安裝與完整管理頁仍待完成，既有 19/25 另計。",
     "ONNX 為實驗性選配，繁體合成樣本有漏字／字形錯誤；Tesseract 預設保留，GPU 尚未實機驗證。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 196,
+  "tests_run": 229,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "新架構導入已驗收 1/12：C01 契約、SQLite 登錄與能力解析。既有 19/25 是歷史基線，不是新版產品完成率；其餘 11 項繼續開發。",
+    "description": "新架構導入已驗收 2/12：C01 元件契約／登錄／能力解析、C02 舊模型轉接／設定遷移。既有 19/25 另計；Windows／GPU 及其餘檢核仍待各自驗證。",
     "phases": [
       {
         "id": "a",
@@ -273,8 +273,8 @@
           {
             "id": "C02",
             "label": "舊模型 adapter 與設定遷移",
-            "done": false,
-            "acceptance": "v1–v5 相容、保留外部路徑、原流程回歸；不接管未知資料。"
+            "done": true,
+            "acceptance": "Linux 61/61：v1–v5 轉 v6 保留值、備份與故障保護，SQLite 1→2 保留資料；外部／舊模型只讀引用，新受管目錄明確下載，原轉換與 OCR 路徑規則回歸。"
           }
         ]
       },
@@ -373,14 +373,14 @@
       {
         "id": "components",
         "title": "元件生命週期",
-        "detail": "C01 已建立描述契約、SQLite 登錄、包檔／安裝清單驗證；可信下載、交易安裝、修復與移除待 C05／C06。",
+        "detail": "C01 契約／登錄／驗證，C02 舊模型引用與新受管模型維護已接線；通用可信下載與交易安裝待 C05／C06。",
         "state": "partial",
-        "evidence": "43 項 C01 測試；docs/components.md"
+        "evidence": "C01 43 項；C02 61 項（含舊模型／桌面回歸）；SQLite schema 2"
       },
       {
         "id": "capabilities",
         "title": "能力解析",
-        "detail": "C01 已依相容性、依賴、實檔與可信探針重新判斷可用性；實際引擎轉接與文件分析接線待 C02／C10。",
+        "detail": "C01 依相容性、依賴、實檔與可信探針判斷可用；C02 模型引用不冒充引擎 ready；自動文件分析接線待 C10。",
         "state": "partial",
         "evidence": "tests/test_components.py；不將舊 ready 視為永久可用"
       },
