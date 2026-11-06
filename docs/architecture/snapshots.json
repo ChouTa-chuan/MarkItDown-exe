@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-11-06",
+  "timezone": "Asia/Taipei",
+  "source_version": "0.1.1",
+  "records": [
+    {
+      "file": "versions/v0.3-existing-core.md",
+      "title": "舊架構：既有轉換核心（回溯整理）",
+      "diagram_sha256": "251b4c153b8c5b70e81e26c68f5d9f3507845d0a4a0cb514258b907573d9c398",
+      "file_sha256": "1cf4d68eda11a1ee2da92bb30484300153acf0cf91d90f178b56f9abdb870b00",
+      "source_kind": "derived_from_git",
+      "source_commit": "eaff81750d0c60f0798e2ce34c7b8c22b5dd913c",
+      "source_path": "README.md",
+      "source_section": "Existing",
+      "architecture_scope": "0.3 existing core",
+      "derived": true
+    },
+    {
+      "file": "versions/v0.4-conversation.md",
+      "title": "新版架構 v0.4：基本安裝包＋選配元件管理（指定對話原圖）",
+      "diagram_sha256": "a75b06abfa1f4a97477acb0e4314d97de4862ff9805b0cca0b607a729a952c6a",
+      "file_sha256": "e40e5a2871b116495d4cfe96da7d001eb848972885e5279a43a388c0de352014",
+      "source_kind": "conversation",
+      "source_description": "「模組架構會保留既有核心，增加元件管理層。」下方指定原圖",
+      "architecture_scope": "0.4 target",
+      "derived": false
+    },
+    {
+      "file": "versions/v0.4-homepage-comparison.md",
+      "title": "首頁比較圖 v0.4：既有核心與新增元件層",
+      "diagram_sha256": "f59137040ca17c961583536dd600b5c965138a5bedf0fc6a50b3e91d38c3869f",
+      "file_sha256": "d8db8bcf20db8c8f7257881b0991c0597bfe4bd5e88f4eb54a50c8c118598a6f",
+      "source_kind": "git",
+      "source_commit": "eaff81750d0c60f0798e2ce34c7b8c22b5dd913c",
+      "source_path": "README.md",
+      "architecture_scope": "0.4 transition comparison",
+      "derived": false
+    }
+  ]
+}

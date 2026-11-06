@@ -2,6 +2,8 @@
 
 版本 **0.4**，2026-11-05。採用已確認的「**基本安裝包＋選配元件管理**」，取代 0.3 版發行與元件管理規劃。這是後續編寫、改寫與更新的架構依據；規劃不代表已實作。實際證據見 [開發狀態](development-status.md)、[驗證記錄](validation-results.json) 與 [視覺化進度](progress.html)。
 
+舊版核心、新版指定對話原圖及首頁比較圖，另存於 [架構圖版本紀錄](architecture/README.md)，後續更新保留既有快照。
+
 ## 一、產品方向與版本邊界
 
 以 Microsoft MarkItDown 原始碼為基礎，提供 Windows 桌面應用程式。主程式內含 Python 與必要依賴，使用者以安裝精靈完成安裝，無須自行安裝 Python、執行 pip、掛載 MCP 或管理命令列環境。第一目標為 Windows 11 x64；Windows 10 相容性必須另以實機證據確認。
