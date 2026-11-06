@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "collected_at": "2026-11-06T02:31:33.790924+00:00",
+  "source_version": "0.2.0",
+  "architecture_version": "0.4",
+  "check": "C01",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2172,
+      "sha256": "9a18db08f6a7c94345c8a0a4b294ad8b02c72f7886e7d5070a2be0b9427439e6",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 4888,
+      "sha256": "ae72935b4550a1169d8082891f2519dcd0deaadfbce5adba76601b5381688175",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    },
+    {
+      "file": "component-tests.log",
+      "bytes": 6943,
+      "sha256": "794533a0976d0c4ef30be30401ccdb30d3a705b6aa43ee2589ef1e3de558d5c2",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    },
+    {
+      "file": "full-tests.log",
+      "bytes": 26143,
+      "sha256": "3a6dadaaaf2d73ec8ebaf2a99a9766dbeb13acb6ab6a36af758f9623e98935c7",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 274,
+      "sha256": "9b4a51924531a3efe153138f57e94741956ccdf9a6eb150a112a1c34af837fb9",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    },
+    {
+      "file": "licenses.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 395094,
+      "sha256": "e56e1914b8832d6ca44308e8b8457911b6e5610e26ec6e7a0170691ea63b4ab6",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 391847,
+      "sha256": "a7678beec6c7f50dc3810e8689a1410b416b21f15f23e6476b6546acc8a1249c",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 278648,
+      "sha256": "a4924dc5b6142282fdb000ad0daf9a2bb5377133865b1870a9e7cd44395964c9",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 295676,
+      "sha256": "41502f3ef734a13099014f21c92d1176f873326786654d15dfcf207fd360725b",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 407466,
+      "sha256": "93817f78e7d9f6fb700a4b92149e5ac4304190d26f2a670fd2ff2e21d8560729",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    },
+    {
+      "file": "upstream.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C01 0.2.0 Linux 本輪生成；非 Windows／GPU 驗收"
+    }
+  ]
+}

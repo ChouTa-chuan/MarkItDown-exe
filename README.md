@@ -6,15 +6,15 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.1.1**，維護更新；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.2.0**，C01 元件基礎；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
-| 新架構導入 | **C01–C12：0/12**，待實作與驗收 |
-| 功能測試基線 | **152 通過、1 項 ONNX 繁體品質預期失敗** |
+| 新架構導入 | **C01–C12：1/12**，C01 底層驗收完成 |
+| 功能測試基線 | **195 通過、1 項 ONNX 繁體品質預期失敗** |
 
 ## 模組架構封面
 
-實線區塊為可沿用的核心與桌面原型；虛線連接的黃色區塊為新增導入規劃。Windows／GPU 的可用性仍須各自驗證。
+綠色為可沿用核心與桌面原型，藍色為 C01 已驗收的元件基礎，黃色為待實作項目。藍色尚未接入桌面與轉換流程，虛線表示後續接線；Windows／GPU 仍須各自驗證。
 
 [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
@@ -31,8 +31,8 @@ flowchart TD
     end
     subgraph Planned["新架構：基本包＋選配元件管理"]
         FIRST["首次啟動：基本引擎檢查／RAM 建議"]
-        COMPONENTS["元件管理：下載／驗證／修復／版本回復"]
-        CAPABILITY["能力解析：元件健康／版本相容"]
+        COMPONENTS["元件基礎：契約／登錄／完整性驗證"]
+        CAPABILITY["能力解析：相容／依賴／健康檢查"]
         OPTIONAL["獨立選配引擎：額外 OCR／GPU／進階模型"]
         COMPONENTS --> CAPABILITY
     end
@@ -41,9 +41,11 @@ flowchart TD
     RES -.-> OPTIONAL
     OPTIONAL -.-> QUALITY
     classDef existing fill:#e8f7f3,stroke:#21856d,color:#153c31;
+    classDef foundation fill:#e8efff,stroke:#4c6fb8,color:#203c77;
+    class COMPONENTS,CAPABILITY foundation;
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
-    class FIRST,COMPONENTS,CAPABILITY,OPTIONAL planned;
+    class FIRST,OPTIONAL planned;
 ```
 
 | 模組 | 中文責任說明 | 實作範圍 |
@@ -53,8 +55,9 @@ flowchart TD
 | 資源與背景工作 | RAM 軟預算、系統保留量、低優先權、spawn 程序 | Linux 已測，實機負載待擴充 |
 | 格式、OCR 與表格 | MarkItDown、Tesseract、合併格、稀疏表格與續表提示 | 有代表性驗收，非任意版面保證 |
 | 品質與輸出 | 原文差異、頁面來源、輸出保護、Markdown／HTML 表格 | 可沿用 |
-| 首次精靈與能力解析 | 檢查基本元件、自動資源建議、判斷目前能使用哪些功能 | 待新增 |
-| 元件與更新服務 | 可恢復下載、交易安裝、健康檢查、修復、移除及回復 | 待新增；現有模型管理可轉接 |
+| 能力解析 | 重新核對元件相容性、依賴、實檔及可信健康探針 | C01 已驗收；實際引擎與分析流程待接入 |
+| 首次精靈 | 基本引擎檢查、RAM 建議與完成紀錄 | C09 待新增 |
+| 元件與更新服務 | 描述、登錄、下載、驗證、修復、移除及回復 | C01 契約／登錄／驗證完成；下載安裝與舊模型轉接仍待開發 |
 | 選配工作程序 | CPU／GPU 元件各自打包相依環境，避免改動核心 runtime | 待新增；GPU 候選路由尚未實機通過 |
 
 ## 使用者能得到什麼
@@ -81,6 +84,7 @@ flowchart TD
 ## 功能與驗收文件
 
 - [使用說明](src/desktop_app/data/user-guide.md)
+- [C01 元件契約、登錄與能力解析](docs/components.md)
 - [精準 PDF 與 OCR](docs/precise-pdf.md)
 - [PDF 合併儲存格](docs/merged-tables.md)／[跨頁候選關聯](docs/table-continuation.md)／[無框線與稀疏表格](docs/borderless-tables.md)
 - [版面與表格驗收矩陣](docs/layout-acceptance.md)

@@ -50,6 +50,13 @@ def main():
                 assert page.locator('#component-phases article').count()==len(rollout['phases'])
                 assert page.locator('#component-phases details').count()==len(component_checks)
                 assert page.locator('#component-modules article').count()==len(rollout['modules'])
+                # 狀態卡不能全部固定顯示待開發，需跟隨 C01 等實際交付證據。
+                for index, module in enumerate(rollout['modules']):
+                    card = page.locator('#component-modules article').nth(index)
+                    assert module.get('state', 'pending') in card.get_attribute('class').split()
+                    if module.get('evidence'):
+                        assert module['evidence'] in card.inner_text()
+                assert page.locator('#tests').inner_text() == str(data['tests_passed'])
                 first=page.locator('#component-phases details').first
                 first.locator('summary').click()
                 assert first.locator('p').is_visible()

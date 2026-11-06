@@ -37,6 +37,11 @@ def validate(data):
                 seen.add(check['id'])
         if seen!={f'C{index:02}' for index in range(1,13)}:
             raise ValueError('Expected component rollout checks C01 through C12')
+        module_ids = set()
+        for module in rollout['modules']:
+            if module['id'] in module_ids or module.get('state', 'pending') not in states:
+                raise ValueError('Invalid component module state')
+            module_ids.add(module['id'])
 
 
 def build():

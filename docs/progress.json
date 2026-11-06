@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 152,
-  "headline": "規劃 v0.4：基本安裝包＋選配元件管理；新增導入檢核尚待實作",
+  "tests_passed": 195,
+  "headline": "C01 完成：元件契約、登錄與能力解析；新架構導入 1/12",
   "blocker": "缺少 Windows／GPU 執行器；ONNX 繁體品質仍未達標，正式安裝包未經驗收。",
-  "next": "先實作 C01 元件／能力契約與登錄、C02 舊模型 adapter 與設定遷移；Windows 基本 OCR 與 GPU 實機仍需執行器。",
+  "next": "接續 C02：舊模型 adapter 與設定遷移，保留外部路徑及既有偏好；Windows／GPU 實機仍待執行器。",
   "milestones": [
     {
       "id": "m0",
@@ -177,8 +177,8 @@
       "title": "核心契約",
       "layer": "協調",
       "state": "partial",
-      "detail": "任務、狀態及計畫已建立；統一文件結構待擴充。",
-      "evidence": "src/desktop_app/core.py"
+      "detail": "任務與計畫沿用；C01 新增不可變元件描述、穩定版號與能力契約，尚待流程接入。",
+      "evidence": "src/desktop_app/core.py；tests/test_components.py"
     },
     {
       "id": "planning",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 152 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 195 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -246,19 +246,19 @@
     }
   ],
   "limits": [
-    "規劃 v0.4 尚未實作基本／選配拆包；新 C01–C12 導入 0/12，與既有 19/25 分開，不代表重新測試或新功能已完成。",
+    "C01 完成 Linux 底層驗收，新 C01–C12 導入 1/12；基本／選配拆包、下載安裝與桌面接線仍待完成，既有 19/25 另計。",
     "ONNX 為實驗性選配，繁體合成樣本有漏字／字形錯誤；Tesseract 預設保留，GPU 尚未實機驗證。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 153,
+  "tests_run": 196,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "新架構導入驗收獨立計算；既有 19/25 是歷史基線，不是新版產品完成率。規劃文件已更新，以下 12 項功能均未完成驗收。",
+    "description": "新架構導入已驗收 1/12：C01 契約、SQLite 登錄與能力解析。既有 19/25 是歷史基線，不是新版產品完成率；其餘 11 項繼續開發。",
     "phases": [
       {
         "id": "a",
@@ -267,8 +267,8 @@
           {
             "id": "C01",
             "label": "元件／能力／版本契約與登錄",
-            "done": false,
-            "acceptance": "狀態、相容性、能力解析與健康檢查；下載不等於 ready。"
+            "done": true,
+            "acceptance": "Linux 43/43：版本／依賴／相容性、持久化、檔案完整性、健康與並行失效。下載或安裝存在不等於 ready；尚未接入 GUI／實際元件安裝。"
           },
           {
             "id": "C02",
@@ -367,32 +367,40 @@
       {
         "id": "onboarding",
         "title": "首次啟動精靈",
-        "detail": "基本引擎檢查、RAM 建議與完成紀錄，既有使用者保留偏好。"
+        "detail": "基本引擎檢查、RAM 建議與完成紀錄，既有使用者保留偏好。",
+        "state": "pending"
       },
       {
         "id": "components",
         "title": "元件生命週期",
-        "detail": "catalog、registry、下載、交易安裝、修復、移除與版本鎖。"
+        "detail": "C01 已建立描述契約、SQLite 登錄、包檔／安裝清單驗證；可信下載、交易安裝、修復與移除待 C05／C06。",
+        "state": "partial",
+        "evidence": "43 項 C01 測試；docs/components.md"
       },
       {
         "id": "capabilities",
         "title": "能力解析",
-        "detail": "根據實際健康與相容性，解析文件需要和目前可用的處理能力。"
+        "detail": "C01 已依相容性、依賴、實檔與可信探針重新判斷可用性；實際引擎轉接與文件分析接線待 C02／C10。",
+        "state": "partial",
+        "evidence": "tests/test_components.py；不將舊 ready 視為永久可用"
       },
       {
         "id": "component_workers",
         "title": "獨立選配工作程序",
-        "detail": "CPU／GPU 引擎各自打包，透過版本化協定接入，不替換核心 runtime。"
+        "detail": "CPU／GPU 引擎各自打包，透過版本化協定接入，不替換核心 runtime。",
+        "state": "pending"
       },
       {
         "id": "updates",
         "title": "更新協調",
-        "detail": "主程式安裝包與元件更新分工，轉換中不切換版本，失敗可回復。"
+        "detail": "主程式安裝包與元件更新分工，轉換中不切換版本，失敗可回復。",
+        "state": "pending"
       },
       {
         "id": "component_ui",
         "title": "元件管理介面",
-        "detail": "顯示版本、容量、授權與健康狀態；基本／選配清楚區分。"
+        "detail": "顯示版本、容量、授權與健康狀態；基本／選配清楚區分。",
+        "state": "pending"
       }
     ]
   }

@@ -49,6 +49,19 @@
       "source_section": "四、模組化架構與責任",
       "architecture_scope": "0.4 detailed modular architecture",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-c01-foundation.md",
+      "title": "架構 v0.4：C01 元件基礎實作進度",
+      "diagram_sha256": "a750af983de3ebf7d2692d46b06d827cf82625f9d860e5d5377ae923c8c8ed01",
+      "file_sha256": "e1ad2cd355a95e72acd5c583fc6c79daddf32d8d625e9bf9b2656cbe07607fde",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_description": "程式 0.2.0 提交與首頁圖一併保存",
+      "source_version": "0.2.0",
+      "architecture_scope": "0.4 C01 foundation accepted on Linux",
+      "derived": false
     }
-  ]
+  ],
+  "updated_at": "2026-11-06"
 }

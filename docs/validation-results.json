@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-05T09:53:00.521034+00:00",
+  "recorded_at": "2026-11-06T02:30:33.993218+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 153,
-    "passed": 152,
+    "run": 196,
+    "passed": 195,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -33,7 +33,8 @@
       "sparse unruled table continuation, repeated headers and empty cells preserved",
       "full-width heading, left/right column order and footer preserved",
       "four public upstream PDFs: all character counts, exact sparse cells, money signs, page/order targets"
-    ]
+    ],
+    "historical_source_version": "0.1.1"
   },
   "windows_workflow": "Manual-only Windows 2022 folder/installer/lifecycle workflow saved; not executed",
   "model_manager": {
@@ -150,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.1.1",
+  "source_version": "0.2.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -160,5 +161,22 @@
     "readme_relative_links_verified": true,
     "progress_browser_verified": true,
     "windows_executed": false
-  }
+  },
+  "component_foundation": {
+    "check": "C01",
+    "accepted": true,
+    "checks_passed": 43,
+    "registry_schema": 1,
+    "descriptor_schema": 1,
+    "actual_sqlite_and_files": true,
+    "fresh_health_and_dependencies": true,
+    "stale_result_rejected": true,
+    "gui_integrated": false,
+    "download_or_installer_implemented": false,
+    "signature_trust_verified": false,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "report": "development-records/runs/c01-2026-11-06/acceptance.json"
+  },
+  "current_run_scope": "0.2.0 installed package: complete unittest regression and C01 acceptance; historical frozen/PowerShell evidence below was not regenerated"
 }
