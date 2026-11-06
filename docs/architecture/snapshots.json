@@ -85,6 +85,18 @@
       "source_version": "0.3.0",
       "architecture_scope": "0.4 C05 trusted catalog and downloads accepted on Linux",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-c06-lifecycle.md",
+      "title": "架構 v0.4：C06 交易安裝與元件維護",
+      "diagram_sha256": "81261a2b5de9925bd0da556cd2ac0ece8dcabf18eeab365515b40ed5a367e400",
+      "file_sha256": "88e84bc7bb8af1c1b7822d82fa93ebbc4b3cab655955785d47f847bc71b31f90",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_description": "程式 0.4.0 與首頁圖一併提交",
+      "source_version": "0.4.0",
+      "architecture_scope": "0.4 C06 transactional lifecycle and leases accepted on Linux",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-06"

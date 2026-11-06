@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-06T06:21:26.815698+00:00",
+  "recorded_at": "2026-11-06T07:10:57.252231+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 270,
-    "passed": 269,
+    "run": 321,
+    "passed": 320,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -151,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.3.0",
+  "source_version": "0.4.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -179,7 +179,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C01 generic capability resolver remains outside automatic conversion routing; C02 legacy model adapter is integrated with its existing dialog"
   },
-  "current_run_scope": "0.3.0 installed package: full unittest regression, C05 real Ed25519/filesystem/SQLite and injected HTTP cases, separate actual HTTPS pinned public LICENSE download; historical frozen/PowerShell evidence not regenerated",
+  "current_run_scope": "0.4.0 installed package: full unittest regression, C06 lifecycle/ZIP/kernel locks/cache with actual spawned exits, C05 regression plus separate real HTTPS check; historical frozen/PowerShell evidence not regenerated",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -224,5 +224,26 @@
     "gpu_executed": false,
     "report": "development-records/runs/c05-2026-11-06/acceptance.json",
     "actual_https_report": "development-records/runs/c05-2026-11-06/https-acceptance.json"
+  },
+  "component_lifecycle": {
+    "check": "C06",
+    "accepted": true,
+    "checks_passed": 92,
+    "new_lifecycle_checks": 51,
+    "c05_regression_checks": 41,
+    "actual_process_exit_observations": 11,
+    "registry_schema_unchanged": 2,
+    "lifecycle_schema": 1,
+    "staging_health_atomic_active_and_recovery": true,
+    "shared_kernel_leases_and_exclusive_maintenance": true,
+    "repair_removal_and_reverse_dependency_protection": true,
+    "cache_quota_and_receipts": true,
+    "cache_default_quota_bytes": 8589934592,
+    "physical_power_loss_tested": false,
+    "actual_worker_or_gui_integrated": false,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "report": "development-records/runs/c06-2026-11-06/acceptance.json",
+    "https_regression": "development-records/runs/c06-2026-11-06/https-regression.json"
   }
 }

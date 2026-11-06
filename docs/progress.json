@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-06",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 269,
-  "headline": "C05 完成：可信目錄與可恢復下載；新架構導入 3/12",
+  "tests_passed": 320,
+  "headline": "C06 完成：交易安裝、鎖、恢復與維護；新架構導入 4/12",
   "blocker": "缺少 Windows／GPU 執行器；ONNX 繁體品質仍未達標，正式安裝包未經驗收。",
-  "next": "接續 C06 交易安裝、修復與生命週期；C03／C04 的 Windows 原生 OCR 與完整 profile 驗收仍待 Windows 執行器。",
+  "next": "接續 C07 實際 CPU 選配 worker 與版本化協定；C03／C04 Windows OCR／profile 及 Windows／GPU 實機門檻仍保留。",
   "milestones": [
     {
       "id": "m0",
@@ -201,8 +201,8 @@
       "title": "資源調度",
       "layer": "支援",
       "state": "partial",
-      "detail": "RAM 回壓與 CPU 原生執行緒上限已測；VRAM 預算及硬限尚未完成。",
-      "evidence": "tests/test_core.py"
+      "detail": "RAM 回壓沿用；C06 安裝／解壓 checkpoint、磁碟准入與快取配額 API 已測，統一轉換准入待 C10，RAM 仍軟預算。",
+      "evidence": "tests/test_core.py／test_component_lifecycle.py"
     },
     {
       "id": "workers",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 269 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 320 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -246,19 +246,19 @@
     }
   ],
   "limits": [
-    "C01／C02／C05 已完成 Linux 驗收，新導入 3/12；C03／C04 Windows OCR／profile、通用交易安裝與完整管理頁仍待完成，既有 19/25 另計。",
+    "C01／C02／C05／C06 已完成 Linux 服務驗收，新導入 4/12；桌面／實際 worker 接線與 Windows OCR／profile 尚待各自檢核，既有 19/25 另計。",
     "ONNX 為實驗性選配，繁體合成樣本有漏字／字形錯誤；Tesseract 預設保留，GPU 尚未實機驗證。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 270,
+  "tests_run": 321,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "新架構已驗收 3/12：C01 元件基礎、C02 舊模型／設定遷移、C05 可信目錄與下載服務。C03／C04 實機門檻保留；既有 19/25 另計。",
+    "description": "已驗收 4/12：C01 元件基礎、C02 模型／設定、C05 可信下載、C06 交易安裝與維護 API。C03／C04 Windows 門檻保留；既有 19/25 另計。",
     "phases": [
       {
         "id": "a",
@@ -309,8 +309,8 @@
           {
             "id": "C06",
             "label": "交易安裝、鎖、修復與移除",
-            "done": false,
-            "acceptance": "staging、原子啟用、崩潰恢復、版本回復、使用中保護與快取配額。"
+            "done": true,
+            "acceptance": "Linux 92/92（含 C05 41 項回歸）：ZIP staging、健康後原子切 active、11 次真實子程序退出與恢復、租約／反向依賴、修復移除及快取配額；GUI／實際 worker 留 C07／C08／C10。"
           },
           {
             "id": "C07",
@@ -373,9 +373,9 @@
       {
         "id": "components",
         "title": "元件生命週期",
-        "detail": "C01／C02 契約、登錄與舊模型已接線；C05 簽章目錄、取消／續傳與離線匯入完成。通用交易安裝與修復待 C06。",
+        "detail": "C01／C02／C05 沿用；C06 新增 ZIP 交易安裝、所有權、日誌恢復、使用租約、修復移除與快取配額。完整管理頁仍待 C08。",
         "state": "partial",
-        "evidence": "C05 41 項＋固定官方 LICENSE 實際 HTTPS 6 項；元件不直接變成 ready"
+        "evidence": "C06 92 項含 C05 回歸；11 次實際子程序退出，非 Windows／GPU 實測"
       },
       {
         "id": "capabilities",
@@ -393,9 +393,9 @@
       {
         "id": "updates",
         "title": "更新協調",
-        "detail": "C05 已提供簽章政策、最低目錄版本、金鑰輪替／撤銷及傳輸 API；正式目錄、跨重啟高水位、通知與安裝回復仍待後續。",
+        "detail": "C05 可信目錄與下載、C06 active／前版原子切換與相容性回復完成；通知、正式目錄與主程式更新整合仍待後續。",
         "state": "partial",
-        "evidence": "docs/component-downloads.md；測試私鑰只在記憶體，不作為發行金鑰"
+        "evidence": "docs/component-lifecycle.md；鎖與租約需 C07／C10 在實際任務接入"
       },
       {
         "id": "component_ui",

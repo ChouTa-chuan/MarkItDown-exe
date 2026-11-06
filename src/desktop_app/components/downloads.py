@@ -17,6 +17,9 @@ from ..core import Cancelled
 from .contracts import ComponentState
 from .registry import IntegrityError, _chain, _plain, verify_file
 from .network import opener_for
+from .cache import CacheStore
+from .locks import ComponentBusy
+from .archives import sync_directory
 
 
 class DownloadError(RuntimeError):
@@ -53,7 +56,8 @@ def _etag(value):
 
 
 class DownloadService:
-    def __init__(self, directory, verifier, registry=None, *, opener=None, attempts=3, reserve_bytes=64*1024**2):
+    def __init__(self, directory, verifier, registry=None, *, opener=None, attempts=3, reserve_bytes=64*1024**2,
+                 quota_bytes=8*1024**3):
         if type(attempts) is not int or not 1 <= attempts <= 5:
             raise ValueError('下載重試次數須為 1 至 5。')
         if type(reserve_bytes) is not int or reserve_bytes < 0:
@@ -66,10 +70,11 @@ class DownloadService:
         self.opener = opener or opener_for(verifier.policy)
         self.attempts = attempts
         self.reserve_bytes = reserve_bytes
+        self.cache = CacheStore(self.directory, quota_bytes)
 
     def _paths(self, spec):
-        return tuple(self.directory / (spec.package_sha256 + suffix)
-                     for suffix in ('.archive', '.part', '.resume.json', '.lock'))
+        return (*(self.directory / (spec.package_sha256 + suffix)
+                  for suffix in ('.archive', '.part', '.resume.json')), self.cache.lock_path(spec.package_sha256))
 
     @contextmanager
     def _lock(self, spec):
@@ -77,15 +82,15 @@ class DownloadService:
         final, part, meta, lock = self._paths(spec)
         for path in (final, part, meta):
             _regular(path)
+        # 舊版空白 O_EXCL 鎖沒有程序所有權證據，不能猜測它已失效而刪除。
+        legacy = self.directory/(spec.package_sha256+'.lock')
+        if legacy.exists() or legacy.is_symlink():
+            raise DownloadBusy('發現舊版下載鎖，未接管或刪除，請先確認舊工作已停止。')
         try:
-            descriptor = os.open(lock, os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, 'O_NOFOLLOW', 0), 0o600)
-        except FileExistsError as exc:
-            raise DownloadBusy('此包檔已有下載鎖；請待原工作結束，崩潰後由維護流程處理。') from exc
-        try:
-            os.close(descriptor)
-            yield final, part, meta
-        finally:
-            lock.unlink(missing_ok=True)
+            with self.cache.lock(spec.package_sha256, exclusive=True):
+                yield final, part, meta
+        except ComponentBusy as exc:
+            raise DownloadBusy('快取仍在使用或維護中，請稍後重試。') from exc
 
     @staticmethod
     def _checkpoint(cancel, checkpoint):
@@ -130,11 +135,12 @@ class DownloadService:
             if value != expected or _etag(value['etag']) is None:
                 raise ValueError('invalid validator')
             return size, value['etag']
-        except (OSError, ValueError, AttributeError, TypeError):
+        except (OSError, ValueError, AttributeError, TypeError, RecursionError):
             self._discard(part, meta)
             return 0, None
 
-    def _space(self, required):
+    def _space(self, required, spec, checkpoint=lambda:None):
+        self.cache.make_room(required, protected=(spec.package_sha256,),checkpoint=checkpoint)
         if shutil.disk_usage(self.directory).free < required + self.reserve_bytes:
             raise DownloadError('磁碟可用空間不足，尚未啟動或繼續下載。')
 
@@ -155,7 +161,9 @@ class DownloadService:
         checkpoint()
         authorize()
         # 排他發布，不以 replace 覆寫已有包檔；完整性通過仍僅是 verified。
+        self.cache.reserve(spec.package_sha256,spec.download_bytes)
         os.link(part, final)
+        sync_directory(self.directory)
         self._discard(part, meta)
         self._record(spec, final, checkpoint)
         return DownloadResult(final, source, attempts, resumed, spec.download_bytes)
@@ -188,7 +196,7 @@ class DownloadService:
                 offset, validator = self._resume(spec, part, meta)
                 if offset == spec.download_bytes:
                     return self._finish(spec, final, part, meta, check, authorize, 'partial-cache', attempt-1, offset)
-                self._space(spec.download_bytes - offset)
+                self._space(spec.download_bytes - offset, spec, check)
                 headers = {'Accept-Encoding': 'identity'}
                 if offset:
                     headers.update({'Range': f'bytes={offset}-', 'If-Range': validator})
@@ -206,9 +214,10 @@ class DownloadService:
                                 raise RestartDownload('續傳範圍或 ETag 已失效。')
                             resumed = max(resumed, offset)
                         elif status == 200:
+                            if offset:self._discard(part,meta)
                             offset = 0
                             resumed = 0
-                            self._space(spec.download_bytes)
+                            self._space(spec.download_bytes, spec, check)
                         else:
                             raise DownloadError('包檔 HTTP 狀態不符合完整或續傳回應。')
                         length = response.headers.get('Content-Length')
@@ -263,8 +272,8 @@ class DownloadService:
                 return cached
             if source in (part, meta):
                 raise DownloadError('離線來源不可是同一下載工作的片段。')
-            self._space(spec.download_bytes)
             self._discard(part, meta)
+            self._space(spec.download_bytes, spec, check)
             with source.open('rb') as input_file, part.open('xb') as output:
                 total = 0
                 while True:

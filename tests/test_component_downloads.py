@@ -291,7 +291,8 @@ class DownloadTests(unittest.TestCase):
         service=self.service(fail)
         with self.assertRaises(Cancelled):service.download(self.catalog,*self.spec.key,wait=lambda seconds:True)
         self.assertEqual(len(calls),1)
-        self.assertFalse(service._paths(self.spec)[-1].exists())
+        # C06 改為持久空鎖檔；驗證 kernel 鎖可重取，比只看檔案消失更準確。
+        with service.cache.lock(self.spec.package_sha256,exclusive=True):pass
 
     def test_disk_write_error_is_not_retried_and_lock_is_released(self):
         service=self.service()
@@ -299,7 +300,7 @@ class DownloadTests(unittest.TestCase):
             with self.assertRaises(OSError):self.download(service)
         self.assertEqual(len(self.requests),1)
         self.assertFalse(service._paths(self.spec)[0].exists())
-        self.assertFalse(service._paths(self.spec)[-1].exists())
+        with service.cache.lock(self.spec.package_sha256,exclusive=True):pass
         self.assertEqual(list(service.directory.glob('.resume-*')),[])
 
     def test_hash_mismatch_is_not_published_or_registered(self):
@@ -346,10 +347,13 @@ class DownloadTests(unittest.TestCase):
         with self.assertRaises(IntegrityError):DownloadService(link,self.verifier)
 
     def test_tampered_resume_metadata_restarts_without_trusting_url_or_offsets(self):
-        service=self.service();_,_,meta=self.partial(service)
-        meta.write_text('{"url":"https://other.invalid/private","offset":999999}')
-        self.assertEqual(self.download(service).path.read_bytes(),DATA)
-        self.assertNotIn('Range',self.requests[0])
+        for raw in ('{"url":"https://other.invalid/private","offset":999999}','['*2000):
+            service=self.service();_,_,meta=self.partial(service)
+            meta.write_text(raw)
+            result=self.download(service)
+            self.assertEqual(result.path.read_bytes(),DATA)
+            self.assertNotIn('Range',self.requests[-1])
+            result.path.unlink()
 
     def test_offline_import_validates_and_preserves_external_source(self):
         source=self.root/'外部套件.zip';source.write_bytes(DATA)

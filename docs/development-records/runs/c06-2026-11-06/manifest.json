@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "collected_at": "2026-11-06T07:10:57.806884+00:00",
+  "source_version": "0.4.0",
+  "architecture_version": "0.4",
+  "check": "C06",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 3637,
+      "sha256": "3af8dff7c1833774055f984cf732c88ce04861ee0cb91f7ddf2e773e0381a716",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 11662,
+      "sha256": "60e1c9c592646034786de325a109ebfd90758e17ec7bfe4ef3e18fd055d0457c",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "component-tests.log",
+      "bytes": 15111,
+      "sha256": "7845d24148162ee2cccaccc176712d7b9da88a95ea872668b2a498d65c385476",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "full-tests.log",
+      "bytes": 46811,
+      "sha256": "d4f3c5750c37b148b00c83c65264d9034f8c32aa03a98df0d89637719e8d0a8d",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "https-regression.json",
+      "bytes": 1200,
+      "sha256": "d1de831988355f3839aefa4579033e41c51e76e07101e1e77bcea5db85551b2b",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "https.log",
+      "bytes": 92,
+      "sha256": "f95e92b099523b160de4fb114b6b895a70cc344d664efb24864b8de1c4de7102",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "initial-c05-lock-regression.log",
+      "bytes": 7820,
+      "sha256": "a631d6a0bbf490510265995edb47e2539eb46a7d6dc20dd3a2028fe4d61aa7c5",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "initial-interrupted.log",
+      "bytes": 5425,
+      "sha256": "4f95952ba50cafad4a573f77d6d025e31cb5362cd7d9f19eb1c4c50016e4bbc4",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 391,
+      "sha256": "6abb5554e62b5f9a6e2d46d3a5f1e1756727196d728250419c088633e39318b4",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "intermediate-component-tests.log",
+      "bytes": 13807,
+      "sha256": "544b5b61524aa570ef0d47f15110517dc23d3c583acfa91ab6f1e31d15365fa7",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "licenses.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "pre-final-acceptance.json",
+      "bytes": 11557,
+      "sha256": "19f57ce3a241ea31b1d461c5c7dcfcf7eeeee3accf589d11c316270c84785020",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "pre-final-component-tests.log",
+      "bytes": 14945,
+      "sha256": "d8b39aad0646d78bb4db069aa8213ee49ebd573f7cbf7841858bb6222051ae96",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "pre-final-full-tests.log",
+      "bytes": 46646,
+      "sha256": "b699921c09d217782a4672bda3a7dd9bebb3f0c9d8e10614af4cfd9f14a2362f",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "pre-final-https-regression.json",
+      "bytes": 1200,
+      "sha256": "fc671fb5d458a21ae248c42c167ce5beabfcd1b5b46b9432d278ca16c5731522",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "pre-final-https.log",
+      "bytes": 92,
+      "sha256": "f95e92b099523b160de4fb114b6b895a70cc344d664efb24864b8de1c4de7102",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "pre-sync-acceptance.json",
+      "bytes": 11662,
+      "sha256": "ede984d83f5d944b555e5367f1de94f0dc55f89fa712fa91b89818e80e2ec43b",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "pre-sync-component-tests.log",
+      "bytes": 15110,
+      "sha256": "2e281f34709e0e382aa0cdc2396a7d97e2992a0a0c93fc88b81101db1ad32236",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "pre-sync-full-tests.log",
+      "bytes": 46811,
+      "sha256": "521e98928803aedf9568168cdc2b4a00660106d6411b23cc76416569dd364d1c",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "process-exits.json",
+      "bytes": 1787,
+      "sha256": "944bf614ed4817d60147b0e9bd226015561e83b7690312d16e2fb6d78e0d5475",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 413333,
+      "sha256": "1dfef4374a2df00b2846b71ae2213efec891fb7697bc413c578501fedd561a91",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 411485,
+      "sha256": "fabd825d0d57a908e3099fc6fdabf9d98cdcfbab344b40048d236c9802ac80ba",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 281201,
+      "sha256": "b6a38523b741f6d1534c1d8d64ecdaa6362bc473d41430ed0319fe2211ca5676",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 298421,
+      "sha256": "b2096c61d7c5aec66732a48750140abd819ac520ffec1419c2cc3ea8b2e89803",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 426727,
+      "sha256": "c6e7a49cee35df9346cc4745036b8853380758811fb4aef1e13665503bfa9ac0",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    },
+    {
+      "file": "upstream.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C06 0.4.0 Linux 本輪生成／執行；中間與最終日誌分別標示，非 Windows／GPU 實機驗收"
+    }
+  ]
+}

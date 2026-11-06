@@ -1,0 +1,12 @@
+{
+  "historical_artifacts_verified": 75,
+  "prior_run_artifacts_verified": 53,
+  "architecture_snapshots_verified": 8,
+  "previous_committed_record_files_unchanged": 144,
+  "dependency_locks_and_original_licenses_unchanged": true,
+  "vendor_and_public_fixtures_verified": true,
+  "browser_verified": true,
+  "actual_process_exits": 11,
+  "windows_executed": false,
+  "gpu_executed": false
+}

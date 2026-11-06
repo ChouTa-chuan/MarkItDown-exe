@@ -24,13 +24,14 @@ class RecordedResult(unittest.TextTestResult):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--report', type=Path, required=True)
-    parser.add_argument('--check', choices=('C01', 'C02', 'C05'), default='C01')
+    parser.add_argument('--check', choices=('C01', 'C02', 'C05', 'C06'), default='C01')
     args = parser.parse_args()
     # 使用已安裝的套件，避免把原始碼路徑插入 sys.path 而掩蓋漏打包的新模組。
     sys.path.insert(0, str(ROOT / 'tests'))
     modules = {'C01':['test_components'],
                'C02':['test_component_migration', 'test_settings', 'test_models', 'test_desktop'],
-               'C05':['test_component_downloads']}[args.check]
+               'C05':['test_component_downloads'],
+               'C06':['test_component_lifecycle','test_component_downloads']}[args.check]
     suite = unittest.defaultTestLoader.loadTestsFromNames(modules)
     result = unittest.TextTestRunner(verbosity=2, resultclass=RecordedResult).run(suite)
     accepted = (result.wasSuccessful() and result.testsRun > 0 and not result.skipped
@@ -47,9 +48,14 @@ def main():
                   fixture_scope={
                       'C01':'Synthetic payloads, actual filesystem and SQLite; no downloads or engine inference',
                       'C02':'v1-v5 settings, SQLite schema migration, synthetic downloads, desktop text conversion, pinned local models and explicit OCR path checks',
-                      'C05':'Real Ed25519, filesystem and SQLite; injected HTTP protocol cases, no native engine execution; actual HTTPS checked separately'
+                      'C05':'Real Ed25519, filesystem and SQLite; injected HTTP protocol cases, no native engine execution; actual HTTPS checked separately',
+                      'C06':'Real ZIP/filesystem/SQLite/kernel locks and spawned process exits, synthetic model health; includes C05 regression, no Windows/GPU or native OCR worker acceptance'
                   }[args.check],
                   windows_executed=False, gpu_executed=False)
+    if args.check == 'C06':
+        from test_component_lifecycle import PROCESS_OBSERVATIONS
+        report['process_observations'] = PROCESS_OBSERVATIONS
+        report['real_process_exit_checks'] = len(PROCESS_OBSERVATIONS)
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     return 0 if accepted else 1

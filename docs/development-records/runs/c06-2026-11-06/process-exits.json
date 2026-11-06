@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "source_report": "acceptance.json",
+  "source_version": "0.4.0",
+  "scope": "Actual spawn/exit/kill observations with recovery and lock assertions; not physical power loss or Windows execution",
+  "all_related_tests_passed": true,
+  "observations": [
+    {
+      "operation": "install",
+      "stage": "journaled",
+      "exit_code": 86,
+      "actual_spawned_process": true
+    },
+    {
+      "operation": "install",
+      "stage": "staged",
+      "exit_code": 86,
+      "actual_spawned_process": true
+    },
+    {
+      "operation": "install",
+      "stage": "published",
+      "exit_code": 86,
+      "actual_spawned_process": true
+    },
+    {
+      "operation": "install",
+      "stage": "registered",
+      "exit_code": 86,
+      "actual_spawned_process": true
+    },
+    {
+      "operation": "install",
+      "stage": "committed",
+      "exit_code": 86,
+      "actual_spawned_process": true
+    },
+    {
+      "operation": "repair",
+      "stage": "old_moved",
+      "exit_code": 86,
+      "actual_spawned_process": true
+    },
+    {
+      "operation": "remove",
+      "stage": "old_moved",
+      "exit_code": 87,
+      "actual_spawned_process": true
+    },
+    {
+      "operation": "remove",
+      "stage": "registered",
+      "exit_code": 87,
+      "actual_spawned_process": true
+    },
+    {
+      "operation": "remove",
+      "stage": "committed",
+      "exit_code": 87,
+      "actual_spawned_process": true
+    },
+    {
+      "operation": "lease",
+      "stage": "killed_while_in_use",
+      "exit_code": -9,
+      "actual_spawned_process": true
+    },
+    {
+      "operation": "kernel_lock",
+      "stage": "holder_exit",
+      "exit_code": 88,
+      "actual_spawned_process": true
+    }
+  ],
+  "windows_executed": false,
+  "gpu_executed": false
+}
