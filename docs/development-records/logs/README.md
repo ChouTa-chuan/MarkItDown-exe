@@ -60,4 +60,4 @@
 | [windows-tooling-verified.log](windows-tooling-verified.log) | 無標準 unittest 摘要，查看原始建置／工具／調試內容 |
 | [windows-tooling.log](windows-tooling.log) | 無標準 unittest 摘要，查看原始建置／工具／調試內容 |
 
-[返回保存核對索引](../README.md)
+[返回開發紀錄](../README.md)

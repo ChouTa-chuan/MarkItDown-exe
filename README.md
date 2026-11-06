@@ -72,7 +72,7 @@ flowchart TD
 
 - [完整產品與模組化架構 v0.4](docs/architecture-guide.md)
 - [每次更新與版本差異](CHANGELOG.md)
-- [開發紀錄保存核對與原始證據](docs/development-records/README.md)
+- [開發紀錄](docs/development-records/README.md)
 - [開發進度與驗證範圍](docs/development-status.md)
 - [互動進度頁：里程碑／模組／元件導入](docs/progress.html)（下載後可離線開啟）
 - [基本包與選配元件決策](docs/decisions/0002-base-and-optional-components.md)
