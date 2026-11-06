@@ -36,6 +36,19 @@
       "source_path": "README.md",
       "architecture_scope": "0.4 transition comparison",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-modular-architecture.md",
+      "title": "新版架構 v0.4：第四節完整模組架構圖與責任表",
+      "diagram_sha256": "784a2fd9bc33d1594c4c17af957eabef5b4a903e1bb191918d41f05eaacca3ba",
+      "file_sha256": "191be36b33d4f52fc1e206612a7e9a2703af935deb910f489aae560df0a3a1ac",
+      "section_sha256": "05fc498fc4695d2bdcfb943a74767f1476cef7fa7de2f2ec6d2194da9e42995a",
+      "source_kind": "git",
+      "source_commit": "828b87355a3a22bd4071a7831ed139256d3144c6",
+      "source_path": "docs/architecture-guide.md",
+      "source_section": "四、模組化架構與責任",
+      "architecture_scope": "0.4 detailed modular architecture",
+      "derived": false
     }
   ]
 }

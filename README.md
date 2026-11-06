@@ -16,7 +16,7 @@
 
 實線區塊為可沿用的核心與桌面原型；虛線連接的黃色區塊為新增導入規劃。Windows／GPU 的可用性仍須各自驗證。
 
-[架構圖版本紀錄：舊版核心／新版完整圖／首頁比較圖](docs/architecture/README.md)
+[架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
 ```mermaid
 flowchart TD
