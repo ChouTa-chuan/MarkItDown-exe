@@ -1,0 +1,85 @@
+168 INFO: PyInstaller: 6.22.3, contrib hooks: 2026.9
+168 INFO: Python: 3.12.14
+172 INFO: Platform: Linux-6.18.57-x86_64-with-glibc2.41
+173 INFO: Python environment: /workspace/markitdown-clean-venv
+174 INFO: Removing temporary files and cleaning cache in /home/agent/.cache/pyinstaller
+[0;93m2026-11-06 11:03:55.913143084 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+1508 INFO: Module search paths (PYTHONPATH):
+['/workspace/MarkItDown-exe',
+ '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python312.zip',
+ '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12',
+ '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/lib-dynload',
+ '/workspace/markitdown-clean-venv/lib/python3.12/site-packages',
+ '/workspace/MarkItDown-exe/packaging',
+ '/workspace/MarkItDown-exe/src']
+2310 INFO: Appending 'binaries' from .spec
+2311 INFO: Appending 'datas' from .spec
+2355 INFO: checking Analysis
+2355 INFO: Building Analysis because Analysis-00.toc is non existent
+2355 INFO: Looking for Python shared library...
+2371 INFO: Using Python shared library: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/libpython3.12.so.1.0
+2371 INFO: Running Analysis Analysis-00.toc
+2371 INFO: Target bytecode optimization level: 0
+2371 INFO: Initializing module dependency graph...
+2371 INFO: Initializing module graph hook caches...
+2380 INFO: Analyzing modules for base_library.zip ...
+3127 INFO: Processing standard module hook 'hook-encodings.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+4265 INFO: Processing standard module hook 'hook-math.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+7505 INFO: Processing standard module hook 'hook-pickle.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+9379 INFO: Processing standard module hook 'hook-heapq.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+10529 INFO: Caching module dependency graph...
+10598 INFO: Analyzing /workspace/MarkItDown-exe/packaging/ocr_worker_entry.py
+10659 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+13207 INFO: Processing standard module hook 'hook-xml.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+14829 INFO: Processing standard module hook 'hook-_ctypes.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+15383 INFO: Processing standard module hook 'hook-sqlite3.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+16006 INFO: Processing standard module hook 'hook-platform.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+16107 INFO: Processing standard module hook 'hook-psutil.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+16522 INFO: Processing standard module hook 'hook-onnxruntime.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+16648 INFO: Processing standard module hook 'hook-numpy.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+17618 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks/pre_safe_import_module'
+17618 INFO: SetuptoolsInfo: initializing cached setuptools info...
+23281 INFO: Processing standard module hook 'hook-sysconfig.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+23597 INFO: Processing standard module hook 'hook-webbrowser.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+28796 INFO: Processing standard module hook 'hook-difflib.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+30570 INFO: Processing standard module hook 'hook-charset_normalizer.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+31113 INFO: Processing pre-safe-import-module hook 'hook-tensorflow.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/pre_safe_import_module'
+31214 INFO: Processing standard module hook 'hook-cv2.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+32091 INFO: Processing standard module hook 'hook-PIL.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+32415 INFO: Processing standard module hook 'hook-PIL.Image.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+33681 INFO: Processing standard module hook 'hook-xml.etree.cElementTree.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+34600 INFO: Processing standard module hook 'hook-PIL.ImageFilter.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+35705 INFO: Processing standard module hook 'hook-xml.dom.domreg.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+36016 INFO: Processing standard module hook 'hook-shapely.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+36596 INFO: Processing module hooks (post-graph stage)...
+37395 INFO: Processing standard module hook 'hook-PIL.SpiderImagePlugin.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+37700 INFO: Performing binary vs. data reclassification (621 entries)
+37754 INFO: Looking for ctypes DLLs
+38049 INFO: Analyzing run-time hooks ...
+38065 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks/rthooks'
+38073 INFO: Including run-time hook 'pyi_rth_inspect.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks/rthooks'
+38083 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks/rthooks'
+38202 INFO: Creating base_library.zip...
+38268 INFO: Looking for dynamic libraries
+40459 INFO: Warnings written to /workspace/markitdown-c07-build-final/ocr-worker/warn-ocr-worker.txt
+40496 INFO: Graph cross-reference written to /workspace/markitdown-c07-build-final/ocr-worker/xref-ocr-worker.html
+49007 INFO: checking PYZ
+49007 INFO: Building PYZ because PYZ-00.toc is non existent
+49007 INFO: Building PYZ (ZlibArchive) /workspace/markitdown-c07-build-final/ocr-worker/PYZ-00.pyz
+49710 INFO: Building PYZ (ZlibArchive) /workspace/markitdown-c07-build-final/ocr-worker/PYZ-00.pyz completed successfully.
+49738 INFO: checking PKG
+49738 INFO: Building PKG because PKG-00.toc is non existent
+49738 INFO: Building PKG (CArchive) MarkItDownOCRWorker.pkg
+49769 INFO: Building PKG (CArchive) MarkItDownOCRWorker.pkg completed successfully.
+49769 INFO: Bootloader /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/bootloader/Linux-64bit-intel/run
+49769 INFO: checking EXE
+49769 INFO: Building EXE because EXE-00.toc is non existent
+49769 INFO: Building EXE from EXE-00.toc
+49769 INFO: Copying bootloader EXE to /workspace/markitdown-c07-build-final/ocr-worker/MarkItDownOCRWorker
+49770 INFO: Appending PKG archive to custom ELF section in EXE
+49855 INFO: Building EXE from EXE-00.toc completed successfully.
+49863 INFO: checking COLLECT
+49863 INFO: Building COLLECT because COLLECT-00.toc is non existent
+49863 INFO: Building COLLECT COLLECT-00.toc
+51003 INFO: Building COLLECT COLLECT-00.toc completed successfully.
+51016 INFO: Build complete! The results are available in: /workspace/markitdown-c07-dist-final

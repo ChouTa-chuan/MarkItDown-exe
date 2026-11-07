@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-06",
+  "updated": "2026-11-07",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 320,
-  "headline": "C06 完成：交易安裝、鎖、恢復與維護；新架構導入 4/12",
+  "tests_passed": 343,
+  "headline": "C07 完成：獨立 CPU 元件與版本化協定；新架構導入 5/12",
   "blocker": "缺少 Windows／GPU 執行器；ONNX 繁體品質仍未達標，正式安裝包未經驗收。",
-  "next": "接續 C07 實際 CPU 選配 worker 與版本化協定；C03／C04 Windows OCR／profile 及 Windows／GPU 實機門檻仍保留。",
+  "next": "接續 C08 元件管理介面；C03／C04 Windows OCR／profile、C10 自動路由與 Windows／GPU 實機門檻仍保留。",
   "milestones": [
     {
       "id": "m0",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 320 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 343 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -246,19 +246,19 @@
     }
   ],
   "limits": [
-    "C01／C02／C05／C06 已完成 Linux 服務驗收，新導入 4/12；桌面／實際 worker 接線與 Windows OCR／profile 尚待各自檢核，既有 19/25 另計。",
+    "C01／C02／C05／C06／C07 已完成 Linux 驗收，新導入 5/12；C07 為實際獨立 CPU worker，桌面／自動路由與 Windows OCR／profile 尚待各自檢核，既有 19/25 另計。",
     "ONNX 為實驗性選配，繁體合成樣本有漏字／字形錯誤；Tesseract 預設保留，GPU 尚未實機驗證。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 321,
+  "tests_run": 344,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收 4/12：C01 元件基礎、C02 模型／設定、C05 可信下載、C06 交易安裝與維護 API。C03／C04 Windows 門檻保留；既有 19/25 另計。",
+    "description": "已驗收 5/12：C01 元件基礎、C02 模型／設定、C05 可信下載、C06 交易維護、C07 實際獨立 CPU worker。C03／C04 Windows 門檻保留；既有 19/25 另計。",
     "phases": [
       {
         "id": "a",
@@ -310,13 +310,13 @@
             "id": "C06",
             "label": "交易安裝、鎖、修復與移除",
             "done": true,
-            "acceptance": "Linux 92/92（含 C05 41 項回歸）：ZIP staging、健康後原子切 active、11 次真實子程序退出與恢復、租約／反向依賴、修復移除及快取配額；GUI／實際 worker 留 C07／C08／C10。"
+            "acceptance": "Linux 92/92（含 C05 41 項回歸）：ZIP staging、健康後原子切 active、11 次真實子程序退出與恢復、租約／反向依賴、修復移除及快取配額；C07 已接真實 CPU worker／子程序 guard，GUI／自動路由留 C08／C10。"
           },
           {
             "id": "C07",
             "label": "獨立選配 worker 協定",
-            "done": false,
-            "acceptance": "至少一個實際 CPU 選配 worker，版本／逾時／取消／資源受控，不改主 runtime。"
+            "done": true,
+            "acceptance": "Linux 115/115（含 C05／C06 回歸）＋實際 frozen 10/10：無 OCR 套件控制端／空 PATH，真實 CPU 推論、版本／RAM／逾時／取消／guard，不改主環境；GUI／路由／Windows／GPU 仍待後續。"
           }
         ]
       },
@@ -373,7 +373,7 @@
       {
         "id": "components",
         "title": "元件生命週期",
-        "detail": "C01／C02／C05 沿用；C06 新增 ZIP 交易安裝、所有權、日誌恢復、使用租約、修復移除與快取配額。完整管理頁仍待 C08。",
+        "detail": "C01／C02／C05 沿用；C06 新增 ZIP 交易安裝、所有權、日誌恢復、使用租約、修復移除與快取配額。完整管理頁仍待 C08。 C07 接上真實 CPU 健康／租約及子程序 guard。",
         "state": "partial",
         "evidence": "C06 92 項含 C05 回歸；11 次實際子程序退出，非 Windows／GPU 實測"
       },
@@ -387,15 +387,16 @@
       {
         "id": "component_workers",
         "title": "獨立選配工作程序",
-        "detail": "CPU／GPU 引擎各自打包，透過版本化協定接入，不替換核心 runtime。",
-        "state": "pending"
+        "detail": "C07 完成獨立 CPU frozen 元件、版本化 IPC、RAM 准入／回壓、逾時／取消與自己持有 guard；GPU 仍待實機。",
+        "state": "partial",
+        "evidence": "115 項含元件回歸＋無 OCR 套件控制端實際 frozen 10 項；非繁體品質通過"
       },
       {
         "id": "updates",
         "title": "更新協調",
         "detail": "C05 可信目錄與下載、C06 active／前版原子切換與相容性回復完成；通知、正式目錄與主程式更新整合仍待後續。",
         "state": "partial",
-        "evidence": "docs/component-lifecycle.md；鎖與租約需 C07／C10 在實際任務接入"
+        "evidence": "docs/component-workers.md；CPU API 已接租約／子程序 guard，自動文件路由仍待 C10"
       },
       {
         "id": "component_ui",

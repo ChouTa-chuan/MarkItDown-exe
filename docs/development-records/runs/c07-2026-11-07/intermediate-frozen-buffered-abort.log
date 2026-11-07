@@ -1,0 +1,14 @@
+hello: {"protocol":"1.0.0","type":"hello","component_id":"onnx-cpu-ocr","component_version":"1.0.0","pid":314429,"frozen":true,"device":"cpu"}
+{"protocol":"1.0.0","type":"progress","job_id":"bda14e7ea08542219d126fbcbb8f6428","stage":"loading"}
+{"protocol":"1.0.0","type":"ready","job_id":"bda14e7ea08542219d126fbcbb8f6428","providers":["CPUExecutionProvider","CPUExecutionProvider","CPUExecutionProvider"]}
+{"protocol":"1.0.0","type":"progress","job_id":"bda14e7ea08542219d126fbcbb8f6428","stage":"inference"}
+{"protocol":"1.0.0","type":"progress","job_id":"bda14e7ea08542219d126fbcbb8f6428","stage":"export"}
+{"protocol":"1.0.0","type":"completed","job_id":"bda14e7ea08542219d126fbcbb8f6428","result":"result.json","bytes":626,"sha256":"a526501ab2c82a17cb7bf4604cc9f7e380c71b1a9f3add7479c5ae43a8652691"}
+exit: -6
+stderr: [0;93m2026-11-06 10:55:48.985288370 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+Fatal Python error: _enter_buffered_busy: could not acquire lock for <_io.BufferedReader name='<stdin>'> at interpreter shutdown, possibly due to daemon threads
+Python runtime state: finalizing (tstate=0x00007fe2fa63fde0)
+
+Current thread 0x00007fe2fa64f640 (most recent call first):
+  <no Python frame>
+

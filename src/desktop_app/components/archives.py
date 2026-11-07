@@ -18,6 +18,18 @@ def sync_directory(path):
         finally:os.close(descriptor)
 
 
+def durable_mkdir(path, *, exist_ok=True):
+    """新建父目錄也須持久化，不能只同步最後一次 rename 的直接父目錄。"""
+    path=Path(path);_chain(path)
+    missing=[]
+    for item in (path,*path.parents):
+        if item.exists():break
+        missing.append(item)
+    path.mkdir(parents=True,exist_ok=exist_ok)
+    for item in missing:
+        sync_directory(item);sync_directory(item.parent)
+
+
 def durable_rename(source, target):
     _chain(source);_chain(target)
     os.rename(source,target)

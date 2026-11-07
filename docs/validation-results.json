@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-06T07:10:57.252231+00:00",
+  "recorded_at": "2026-11-07T10:34:23.743876+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 321,
-    "passed": 320,
+    "run": 344,
+    "passed": 343,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -151,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.4.0",
+  "source_version": "0.5.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -179,7 +179,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C01 generic capability resolver remains outside automatic conversion routing; C02 legacy model adapter is integrated with its existing dialog"
   },
-  "current_run_scope": "0.4.0 installed package: full unittest regression, C06 lifecycle/ZIP/kernel locks/cache with actual spawned exits, C05 regression plus separate real HTTPS check; historical frozen/PowerShell evidence not regenerated",
+  "current_run_scope": "0.5.0 installed full unittest regression and C07 protocol/native worker with C05/C06 regression; separately actual isolated CPU frozen component in a controller without OCR/Qt; historical main frozen/PowerShell evidence not regenerated",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -240,10 +240,36 @@
     "cache_quota_and_receipts": true,
     "cache_default_quota_bytes": 8589934592,
     "physical_power_loss_tested": false,
-    "actual_worker_or_gui_integrated": false,
+    "actual_worker_or_gui_integrated": true,
     "windows_executed": false,
     "gpu_executed": false,
     "report": "development-records/runs/c06-2026-11-06/acceptance.json",
-    "https_regression": "development-records/runs/c06-2026-11-06/https-regression.json"
-  }
+    "https_regression": "development-records/runs/c06-2026-11-06/https-regression.json",
+    "integration_scope": "C07 CPU health/managed API and child-owned guard integrated; GUI and automatic document routing pending",
+    "c07_regression_report": "development-records/runs/c07-2026-11-07/acceptance.json"
+  },
+  "component_workers": {
+    "check": "C07",
+    "accepted": true,
+    "checks_passed": 115,
+    "new_worker_checks": 23,
+    "c05_c06_regression_checks": 92,
+    "actual_isolated_frozen_checks_passed": 10,
+    "protocol": "1.0.0",
+    "component": "onnx-cpu-ocr/1.0.0",
+    "controller_without_ocr_or_qt": true,
+    "path_empty": true,
+    "controller_environment_unchanged": true,
+    "child_owned_guard": true,
+    "gui_integrated": false,
+    "automatic_document_routing_integrated": false,
+    "main_frozen_rebuilt": false,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "traditional_chinese_quality_passed": false,
+    "production_catalog_published": false,
+    "report": "development-records/runs/c07-2026-11-07/acceptance.json",
+    "actual_frozen_report": "development-records/runs/c07-2026-11-07/frozen-acceptance.json"
+  },
+  "completed_date_taipei": "2026-11-07"
 }

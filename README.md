@@ -6,15 +6,15 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.4.0**，C06 交易安裝與元件維護；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.5.0**，C07 獨立 CPU 選配 worker；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
-| 新架構導入 | **C01–C12：4/12**，C01／C02／C05／C06 驗收完成 |
-| 功能測試基線 | **320 通過、1 項 ONNX 繁體品質預期失敗** |
+| 新架構導入 | **C01–C12：5/12**，C01／C02／C05／C06／C07 驗收完成 |
+| 功能測試基線 | **343 通過、1 項 ONNX 繁體品質預期失敗** |
 
 ## 模組架構封面
 
-綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；通用安裝／下載服務與自動分析的虛線表示後續介面接線；Windows／GPU 仍須各自驗證。
+綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；通用安裝／下載服務與自動分析的虛線表示 C08／C10 後續接線；C07 已完成真正 CPU 工作程序；Windows／GPU 仍須各自驗證。
 
 [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
@@ -33,6 +33,7 @@ flowchart TD
         FIRST["首次啟動：基本引擎檢查／RAM 建議"]
         COMPONENTS["元件基礎：契約／登錄／完整性驗證"]
         CAPABILITY["能力解析：相容／依賴／健康檢查"]
+        CPUWORKER["獨立 CPU worker：版本化 IPC／RAM／逾時與取消"]
         OPTIONAL["獨立選配引擎：額外 OCR／GPU／進階模型"]
         COMPONENTS --> CAPABILITY
         LEGACY["舊模型轉接：只讀引用／專用目錄下載"]
@@ -44,7 +45,9 @@ flowchart TD
         CAPABILITY --> LEASE["使用中保護：active／租約／前版回復"]
     end
     UI -.->|待 C08| INSTALL
-    LEASE -.->|待 C07／C10| RES
+    LEASE --> CPUWORKER
+    CPUWORKER --> QUALITY
+    LEASE -.->|待 C10| RES
     UI -.->|待 C08| DOWNLOAD
     UI --> LEGACY
     PREFS --> UI
@@ -54,7 +57,7 @@ flowchart TD
     OPTIONAL -.-> QUALITY
     classDef existing fill:#e8f7f3,stroke:#21856d,color:#153c31;
     classDef foundation fill:#e8efff,stroke:#4c6fb8,color:#203c77;
-    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE foundation;
+    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER foundation;
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
     class FIRST,OPTIONAL planned;
@@ -67,11 +70,11 @@ flowchart TD
 | 資源與背景工作 | RAM 軟預算、系統保留量、低優先權、spawn 程序 | Linux 已測，實機負載待擴充 |
 | 格式、OCR 與表格 | MarkItDown、Tesseract、合併格、稀疏表格與續表提示 | 有代表性驗收，非任意版面保證 |
 | 品質與輸出 | 原文差異、頁面來源、輸出保護、Markdown／HTML 表格 | 可沿用 |
-| 能力解析 | 重新核對元件相容性、依賴、實檔及可信健康探針 | C01 已驗收；實際引擎與分析流程待接入 |
+| 能力解析 | 重新核對元件相容性、依賴、實檔及可信健康探針 | C01 已驗收；C07 CPU 真實健康探針完成，分析流程待 C10 接入 |
 | 設定與遷移 | v1–v5 讀取、v6 偏好、遷移備份及防止未來設定覆寫 | C02 已驗收；外部路徑保留 |
 | 首次精靈 | 基本引擎檢查、RAM 建議與完成紀錄 | C09 待新增 |
 | 元件與更新服務 | 描述、登錄、下載、驗證、修復、移除及回復 | C01／C02 沿用，C05 下載、C06 安裝維護 API 完成；完整管理頁待 C08 |
-| 選配工作程序 | CPU／GPU 元件各自打包相依環境，避免改動核心 runtime | 待新增；GPU 候選路由尚未實機通過 |
+| 選配工作程序 | CPU／GPU 元件各自打包相依環境，避免改動核心 runtime | C07 實際 Linux CPU 元件通過；GUI／自動路由與 GPU 仍待後續 |
 
 ## 使用者能得到什麼
 
@@ -80,7 +83,7 @@ flowchart TD
 - RAM 自動／手動預算、系統保留量與 CPU 執行緒設定，降低與其他工作競爭；屬軟性預算。
 - 模型版本與完整性驗證、離線手冊及第三方授權清單。
 
-**新版發行目標**：基本包內含 Python、必要依賴、Windows Tesseract 與繁中／英文模型，安裝後離線可用；額外語言、ONNX／GPU 與進階模型由程式內按需管理。現有開發包仍含 ONNX，基本 Tesseract native 與選配拆包尚未完成。
+**新版發行目標**：基本包內含 Python、必要依賴、Windows Tesseract 與繁中／英文模型，安裝後離線可用；額外語言、ONNX／GPU 與進階模型由程式內按需管理。C07 已證明 Linux CPU 選配可在沒有 OCR 套件的控制端運作；完整開發包仍含 ONNX，Windows 基本 Tesseract native 與 profile 拆包尚未完成。
 
 預設仍是 Tesseract。ONNX OCR 為實驗性選配，繁體樣本有已知漏字／字形問題；GPU 偵測不等於可用，也不保證提高準確度。表格與閱讀順序有驗收範圍，圖表、公式及任意混排仍需後續擴充。
 
@@ -92,6 +95,7 @@ flowchart TD
 - [開發進度與驗證範圍](docs/development-status.md)
 - [互動進度頁：里程碑／模組／元件導入](docs/progress.html)（下載後可離線開啟）
 - [基本包與選配元件決策](docs/decisions/0002-base-and-optional-components.md)
+- [C07 獨立 CPU 選配 worker 與協定](docs/component-workers.md)
 - [C05 可信目錄與可恢復下載](docs/component-downloads.md)／[C06 交易安裝與元件維護](docs/component-lifecycle.md)
 - [Windows 安裝包來源、自動驗收與實機待辦](docs/windows-acceptance.md)
 

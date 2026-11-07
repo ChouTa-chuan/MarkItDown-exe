@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "completed_date_taipei": "2026-11-07",
+  "source_version": "0.5.0",
+  "architecture_version": "0.4",
+  "check": "C07",
+  "scope": "本輪合成英文、實際 Linux frozen CPU／原生及控制端驗收、原始失敗／最終日誌、授權來源與進度畫面；非 Windows／GPU／正式發行",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 4446,
+      "sha256": "3a25e12b4eaf379eefc03643af5fd88264d9f6ae8a5966a04277cd7f2bb2397a",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 13884,
+      "sha256": "4ff91a3e3040a3184bcfb0a1a16dec308b2ae0a576970c8baf48779cc78b2f51",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "component-tests.log",
+      "bytes": 18549,
+      "sha256": "4945d1d0edfc223698fdc53329a3869ff5e34932bf0ff7f747a2f499376a181e",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "component.json",
+      "bytes": 180695,
+      "sha256": "571bb766d4db6df15a7b22211c352ab21563b00d3b1bf8e6ea35b87ff08339ea",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "controller-install.log",
+      "bytes": 1192,
+      "sha256": "ad8fc7d389d022cca2473b82f890bb85f7731a188176f2f8094e2340223e7a91",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "controller-lock.log",
+      "bytes": 16459,
+      "sha256": "fad7055a4ed55fb23d79c50e5db59a613c7fa0c089c357d1f3d8bf7845fd3838",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "frozen-acceptance.json",
+      "bytes": 3064,
+      "sha256": "564ee7e0fbb79b6c6a7d552268b25b2f24918bdd45e65fb619170234acf9e469",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "frozen-english-output.md",
+      "bytes": 99,
+      "sha256": "61f43011494cba1acbd9000e70414fd3df0aa758dcd9de532599b9b4d6af2c26",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "frozen-tests.log",
+      "bytes": 86,
+      "sha256": "bd86b01f74a7c663c3de5759c5826c4ce7efcfa15426737d693b90988b1a56fc",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "frozen-worker-result.json",
+      "bytes": 697,
+      "sha256": "642ff36753ea3db90716313c5f0966264764030392b08fb65500bf83399bf589",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "full-tests.log",
+      "bytes": 50248,
+      "sha256": "6acd56fc08d93803018f01e8671402679c846bbcece6160156accb7e0f2e9f2f",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "installed-notices-manifest.json",
+      "bytes": 85048,
+      "sha256": "d06cbbe57e831fa945e9aad11e2d16a6b7c7c022fee68775dbd7542398141e46",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 953,
+      "sha256": "1676e5abc498db19a72601a34269f7f985bc7ce2269b5a0e1fc66b8060e68403",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "intermediate-frozen-buffered-abort.log",
+      "bytes": 1292,
+      "sha256": "3cb9df1f52592b1cbc9a05d18dc8d89b549c0f5a126ad2011dfe9019dc51f506",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "intermediate-full-broken-pipe.log",
+      "bytes": 51779,
+      "sha256": "301c1a883395b5372ebba5add382d3d9e6f6c3696a416fe821d33f8178c17b73",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "intermediate-resource-fixture.log",
+      "bytes": 4016,
+      "sha256": "b32d3b1deb891107a847c1ce67454e31125dac8b2db1c37e75f17a440b8479c8",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "intermediate-workers.log",
+      "bytes": 3338,
+      "sha256": "04fe5712b40689d00b17ec7e34f9a04932d077490ac69708baca8b1b64cdb029",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "licenses.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-binaries-manifest.json",
+      "bytes": 23650,
+      "sha256": "60ce81128432d83f653c0e3f2b9700d6dc92ada273c7122353459dda655cf119",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/libatomic1-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/libgcc-s1-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/libglib2.0-0t64-copyright.txt",
+      "bytes": 55072,
+      "sha256": "b9fe78c8a0720c051c9ac8e8c6f25663b54f228e501d24fc0ba89c66cec7f7c1",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/libice6-copyright.txt",
+      "bytes": 1256,
+      "sha256": "fc16500a74acc2d0a7bb2fa1005956a52551abdce2afe0642a9a8dc2b6af53c6",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/libpcre2-8-0-copyright.txt",
+      "bytes": 6627,
+      "sha256": "e915cde4251f96ec6af107ecd2e194440a4e69440893b0c982802f8a1e4ae40a",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/libsm6-copyright.txt",
+      "bytes": 1224,
+      "sha256": "333d829128c80619625f7e43a0ff0e79f36812b2b7ba12696eec9b4b42ce729b",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/libstdc++6-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/libuuid1-copyright.txt",
+      "bytes": 30341,
+      "sha256": "56b67e2eb8bac5a15d91e261d558d73f1f029113cced229753138194997366b6",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/libx11-6-copyright.txt",
+      "bytes": 47102,
+      "sha256": "0b380a7fd5b2228f26e9585e56f14812efd3350f3df307507d2bc055dfd8de3e",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/libxau6-copyright.txt",
+      "bytes": 1224,
+      "sha256": "118dd263a7b91c8f21c489f949bf13281dff9e766deea92b829dac4dce66601a",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/libxdmcp6-copyright.txt",
+      "bytes": 1265,
+      "sha256": "1bcbb50f8603fe8b86d330bfa460b772ea04fbd3c70e4499f0768b5340b9fd6e",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/libxext6-copyright.txt",
+      "bytes": 10421,
+      "sha256": "bc57e445ca1d9fe082c8d54189dd411ff26caa8552c9c63d44ea06a982f32124",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/manifest.json",
+      "bytes": 23650,
+      "sha256": "60ce81128432d83f653c0e3f2b9700d6dc92ada273c7122353459dda655cf119",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "native-notices/zlib1g-copyright.txt",
+      "bytes": 2927,
+      "sha256": "9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "package-report.json",
+      "bytes": 444,
+      "sha256": "c3c1cfedebfa37e8b92d04545544fad40fd3f294e36b6c2fa6d75afde025c5db",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "pipe-regression.log",
+      "bytes": 450,
+      "sha256": "fdbfc5b42ed75c46ce4cc0d5c16ebab0cdcc5ac281fa1f3c8d7d1043d3ee04a9",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 429906,
+      "sha256": "994378227f19b547ac5a588e91f9a69efd6ac47db24c03e939ca3cc7fb3fef3f",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 430132,
+      "sha256": "cc1ddde2fb9d71e5163961f01f6b5833533cf7f7de4354640e0a87e8a1f0d2ca",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 280067,
+      "sha256": "7264be5bb6ceb9b81fad14c965451e7b3ff907e56bfbb53dceaca326a9ea08d3",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 295816,
+      "sha256": "35c49e7de95d3f852982e77fa276abbf759c4023ec27e5277e97bd6bb928911f",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 425533,
+      "sha256": "b097c002423c3c98d74f1e7d43ea2b0629ae49590a8e340a8c986541b2210954",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "upstream.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "worker-assets.log",
+      "bytes": 58,
+      "sha256": "7970e3c9f9bc2db53b7d8a3caae029907c295783580663841ca58e9625b30d55",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    },
+    {
+      "file": "worker-build.log",
+      "bytes": 8125,
+      "sha256": "2fa6a64b9dd25cb7f5b0e25dc0930c25d47cce89f7beba6b264e06a9a92c0ffc",
+      "source": "C07 本輪生成；intermediate 為歷史失敗／中間觀察，native-notices 為第三方授權原文"
+    }
+  ]
+}

@@ -86,7 +86,7 @@ flowchart TD
 | planning／analysis | 格式、逐頁路由及必要處理判斷 | 沿用 planning.py、pdf_pipeline.py；支援能力不足的明確結果 |
 | capabilities | 格式需求、元件健康與相容性解析 | 新增；讀取實測健康紀錄，不以已下載代替可用 |
 | components | 安裝／修復／移除／版本與使用中鎖定的服務入口 | 新增；內部分開 catalog、registry、download、installer、locks |
-| component_workers | 選配引擎的程序協定、逾時、取消與結果轉接 | 新增；各自打包 runtime，不把任意 Python 套件注入主程式 |
+| component_workers | 選配引擎的程序協定、逾時、取消與結果轉接 | C07 Linux CPU frozen／IPC／guard 已驗收；GPU 仍待後續，不注入主程式環境 |
 | converters | MarkItDown 與原生格式解析 | 沿用 conversion.py 及 vendor 轉接，不重寫所有格式 |
 | inference／models | OCR、模型與裝置後端 | 既有 Tesseract／ONNX 分別做 adapter，模型管理逐步接入 components |
 | resources | RAM／CPU／VRAM 准入、回壓、暫停／恢復 | 沿用 resources.py；加入下載、解壓、安裝及磁碟預算 |
@@ -100,7 +100,7 @@ flowchart TD
 
 ## 五、元件契約、儲存與隔離
 
-實作更新（2026-11-06）：程式 0.4.0 完成 [C01](components.md)、[C02](component-migration.md)、[C05](component-downloads.md)與 [C06 交易安裝／維護](component-lifecycle.md)。元件服務 API 已驗收；實際選配 worker、完整元件 GUI、自動路由及 Windows／GPU 尚待後續，不把服務測試當成已可發行的 Windows 產品。
+實作更新（2026-11-07）：程式 0.5.0 完成 [C01](components.md)、[C02](component-migration.md)、[C05](component-downloads.md)、[C06 交易安裝／維護](component-lifecycle.md)與 [C07 獨立 CPU worker](component-workers.md)。實際 frozen CPU 元件在無 OCR 套件的控制端完成安裝與推論；完整元件 GUI、自動路由及 Windows／GPU 尚待後續。
 
 元件目錄至少記錄：ID、種類、版本、來源／授權、包檔大小與解壓上限、SHA-256、平台／架構、依賴、app／worker 協定版本範圍、RAM／VRAM／磁碟需求、提供的能力、健康檢查方式及受信任簽章資訊。資源數值屬預估，後續以實測校準。
 
@@ -224,7 +224,7 @@ Linux 可先完成契約、元件事務、下載與協定測試；PowerShell Lin
 
 ## 十二、開發里程碑與接續順序
 
-保留既有 0–5 階段及 **19/25** 檢核作為歷史開發基線；它不是新版完整產品完成率。新架構增加獨立的 **C01–C12 導入驗收**，目前 **4/12**：C01／C02／C05／C06 完成 Linux 驗收；C06 92 項含 C05 回歸，另有 11 次真實程序退出與恢復證據。C03／C04 Windows 原生與完整 profile 門檻保留，其餘仍待各自驗證。兩個分母不相加，不用撰寫規劃把功能標成完成。
+保留既有 0–5 階段及 **19/25** 檢核作為歷史開發基線；它不是新版完整產品完成率。新架構增加獨立的 **C01–C12 導入驗收**，目前 **5/12**：C01／C02／C05／C06／C07 完成 Linux 驗收；C07 115 項含 C05／C06 回歸，另有實際 frozen 隔離環境 10 項證據。C03／C04 Windows 原生與完整 profile 門檻保留，其餘仍待各自驗證。兩個分母不相加，不用撰寫規劃把功能標成完成。
 
 | 原階段 | 既有基線 | 新架構接續工作 |
 | --- | --- | --- |
@@ -242,14 +242,14 @@ Linux 可先完成契約、元件事務、下載與協定測試；PowerShell Lin
 | B 基本包 | C03 Windows 基本 Tesseract 與雙語離線 OCR | 固定原生檔／DLL／模型／授權，無外部引擎可離線轉掃描 PDF | 0、3、5 |
 | B 基本包 | C04 profile 鎖定、打包與自我檢查 | 核心相依閉包正確、基本包不依賴選配、各 profile 清單／授權與能力自檢 | 0、5 |
 | C 元件服務 | C05 可信目錄與可恢復下載（已完成） | Linux 41/41＋HTTPS 6/6：簽章／來源、取消、限次重試、Range／ETag、離線匯入與損毀拒絕 | 4 |
-| C 元件服務 | C06 交易安裝、鎖、修復與移除（已完成） | Linux 92/92：staging、原子啟用、真實程序退出恢復、版本回復、使用租約與快取配額；實際任務接線待 C07／C10 | 1、4、5 |
-| C 元件服務 | C07 獨立選配 worker 協定 | 至少一個實際 CPU 選配 worker，可控逾時／取消／資源與版本，不改主 runtime | 1、4 |
+| C 元件服務 | C06 交易安裝、鎖、修復與移除（已完成） | Linux 92/92：staging、原子啟用、真實程序退出恢復、版本回復、使用租約與快取配額；C07 已接真實 CPU／guard，文件路由待 C10 | 1、4、5 |
+| C 元件服務 | C07 獨立選配 worker 協定（已完成） | Linux 115/115＋實際 frozen 10/10；獨立 CPU、版本化 IPC、逾時／取消／資源與 guard，不改控制端環境 | 1、4 |
 | D 使用流程 | C08 元件管理介面 | 版本／容量／授權／健康狀態與維護動作可操作，失敗不阻塞基本功能 | 2 |
 | D 使用流程 | C09 首次啟動與基本引擎自動設定 | 新裝離線可用、RAM 建議、略過選配與再啟動不重複設定；保留舊偏好 | 2 |
 | D 使用流程 | C10 自動分析與可用能力協作 | 原品質回歸；缺元件有可選處理與批次隔離，不默默下載或降低品質 | 1、3 |
 | E 實機驗收 | C11 Windows 完整生命週期 | 無 Python 乾淨機、離線、安裝／升級／修復／回復／移除、使用者資料及人工 UI 通過 | 0、2、5 |
 | E GPU 加值 | C12 GPU 真實推論與資源／品質矩陣 | 實卡與相容依賴、VRAM／OOM／回退准入及負載、品質與效能比較 | 4、5 |
 
-C01／C02／C05／C06 已完成。C03／C04 的完整門檻仍需 Windows 執行器；下一段接續 C07 實際 CPU worker 與協定，再按相依關係接入 C08–C10。取得 Windows 執行器後優先補基本 CPU 與 profile 證據。基本版交付需 C01–C11 的相應證據；GPU 功能另待 C12，不阻擋已通過的 CPU 基本版。
+C01／C02／C05／C06／C07 已完成。C03／C04 的完整門檻仍需 Windows 執行器；下一段接續 C08 元件管理介面，再按相依關係接入 C09–C10。取得 Windows 執行器後優先補基本 CPU 與 profile 證據。基本版交付需 C01–C11 的相應證據；GPU 功能另待 C12，不阻擋已通過的 CPU 基本版。
 
 目前不承諾固定工期或包體積；先量測 Windows 原生整合、下載大小、模型負載與品質，再估算。變更契約／模型／資源策略需補相容與回歸證據。規劃、實作、驗證與發佈分別記錄；所有新增元件都要有來源、授權、固定版本與可重驗雜湊。

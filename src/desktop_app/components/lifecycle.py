@@ -8,7 +8,7 @@ import uuid
 
 from ..capabilities import CapabilityResolver, HealthResult, incompatibility
 from ..core import Cancelled
-from .archives import delete_owned_tree, durable_rename, expected_directories, extract_archive, inventory, sync_directory, verify_tree
+from .archives import delete_owned_tree, durable_mkdir, durable_rename, expected_directories, extract_archive, inventory, sync_directory, verify_tree
 from .cache import CacheStore
 from .contracts import ComponentSpec, ComponentState
 from .lifecycle_store import LifecycleError, LifecycleStore
@@ -46,6 +46,11 @@ class ComponentManager:
         self.store = LifecycleStore(registry.directory)
         self.staging = registry.directory/'lifecycle-staging'
         self.lock_path = registry.directory/'.locks/lifecycle.lock'
+        self.worker_guard_path = registry.directory/'.locks/worker-use.lock'
+
+    def _workers_idle(self):
+        # worker 自己持有 shared guard；控制端死亡後也不能刪改仍在讀取的元件。
+        return file_lock(self.worker_guard_path,exclusive=True)
 
     def _check(self, cancel):
         if cancel.is_set():raise Cancelled('元件維護已取消，原版本保留。')
@@ -137,6 +142,10 @@ class ComponentManager:
         sync_directory(base.parent)
 
     def _recover_one(self, value):
+        with self._workers_idle():
+            return self._recover_one_locked(value)
+
+    def _recover_one_locked(self, value):
         spec = self.store.validate_journal(value)
         base = self._base(value)
         target = self.registry.installation_path(spec)
@@ -160,7 +169,7 @@ class ComponentManager:
                 if target.exists() or target.is_symlink():
                     verify_tree(target,spec)
                     delete_owned_tree(target,spec)
-                target.parent.mkdir(parents=True,exist_ok=True)
+                durable_mkdir(target.parent)
                 durable_rename(previous,target)
             elif value['had_payload']:
                 inventory(target,spec)  # 尚未搬走的舊版本，可能正是待修復的已知檔案。
@@ -202,6 +211,7 @@ class ComponentManager:
         check()
         with file_lock(self.lock_path,exclusive=True):
             self._recover_all()
+            with self._workers_idle():pass
             catalog = self.verifier.load(catalog)
             spec = catalog.component(component_id,version)
             reason = incompatibility(spec,self.host)
@@ -217,7 +227,7 @@ class ComponentManager:
             if owner is not None and not repair:
                 self._ready(spec,catalog,check)
                 self.verifier.load(catalog)
-                self.store.activate(spec)
+                with self._workers_idle():self.store.activate(spec)
                 return MaintenanceResult(*spec.key,'ready',self.store.active()[spec.component_id][1])
             if existed:inventory(target,spec)
             archive = Path(archive).absolute()
@@ -230,17 +240,18 @@ class ComponentManager:
                 try:
                     self.fault('journaled')
                     base = self._base(value)
-                    base.mkdir(parents=True,exist_ok=False)
+                    durable_mkdir(base,exist_ok=False)
                     extract_archive(archive,base/'payload',spec,check)
                     self._stage_health(spec,base/'payload',catalog,check)
                     self.fault('staged')
                     check();self.verifier.load(catalog)
-                    target.parent.mkdir(parents=True,exist_ok=True)
-                    if existed:
-                        durable_rename(target,base/'previous')
-                        self.fault('old_moved')
-                    if target.exists() or target.is_symlink():raise LifecycleError('目標目錄已變更，未覆寫。')
-                    durable_rename(base/'payload',target)
+                    with self._workers_idle():
+                        durable_mkdir(target.parent)
+                        if existed:
+                            durable_rename(target,base/'previous')
+                            self.fault('old_moved')
+                        if target.exists() or target.is_symlink():raise LifecycleError('目標目錄已變更，未覆寫。')
+                        durable_rename(base/'payload',target)
                     self.fault('published')
                     record = self.registry.register(spec)
                     if not record.installed:
@@ -254,7 +265,7 @@ class ComponentManager:
                     self._ready(spec,catalog,check)
                     self.fault('registered')
                     check();self.verifier.load(catalog)
-                    self.store.commit(value)
+                    with self._workers_idle():self.store.commit(value)
                     self.fault('committed')
                     self._recover_one({**value,'phase':'committed'})
                     self.fault('cleaned')
@@ -275,6 +286,7 @@ class ComponentManager:
             return self._activate_locked(catalog,component_id,version,check)
 
     def _activate_locked(self, catalog, component_id, version,check):
+        with self._workers_idle():pass
         catalog = self.verifier.load(catalog)
         spec = catalog.component(component_id,version)
         self._owned_spec(*spec.key)
@@ -282,7 +294,7 @@ class ComponentManager:
         self._ready(spec,catalog,check)
         check()
         self.verifier.load(catalog)
-        self.store.activate(spec)
+        with self._workers_idle():self.store.activate(spec)
         return MaintenanceResult(*spec.key,'ready',self.store.active()[spec.component_id][1])
 
     def rollback(self, catalog, component_id, *, cancel=None):
@@ -314,6 +326,7 @@ class ComponentManager:
         check()
         with file_lock(self.lock_path,exclusive=True):
             self._recover_all()
+            with self._workers_idle():pass
             spec = self._owned_spec(component_id,version)
             if spec.required:raise LifecycleError('必要基本元件不提供單獨移除。')
             for key in self.store.owned_keys():
@@ -331,15 +344,15 @@ class ComponentManager:
             try:
                 self.fault('journaled')
                 check()
-                base = self._base(value);base.mkdir(parents=True,exist_ok=False)
+                base = self._base(value);durable_mkdir(base,exist_ok=False)
                 if existed:
-                    durable_rename(target,base/'previous')
+                    with self._workers_idle():durable_rename(target,base/'previous')
                     self.fault('old_moved')
                 record = self.registry.get(*spec.key)
                 self.registry._update(record,ComponentState.MISSING,'已移除受管元件。',installed=False)
                 self.fault('registered')
                 check()
-                self.store.commit(value)
+                with self._workers_idle():self.store.commit(value)
                 self.fault('committed')
                 self._recover_one({**value,'phase':'committed'})
             except Exception:

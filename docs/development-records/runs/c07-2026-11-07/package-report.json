@@ -1,0 +1,15 @@
+{
+  "component_id": "onnx-cpu-ocr",
+  "version": "1.0.0",
+  "protocol": "1.0.0",
+  "files": 814,
+  "descriptor_bytes": 152846,
+  "package_bytes": 202741436,
+  "unpacked_bytes": 536330062,
+  "sha256": "11c8e0e9ff648954c3e99a30630e47fd5f1fe6307fa813c5e062d374f3db6d18",
+  "platform": "linux",
+  "architecture": "x86_64",
+  "development_only": true,
+  "production_catalog_published": false,
+  "source_url_is_deliberately_non_downloadable": true
+}

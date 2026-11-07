@@ -1,0 +1,117 @@
+{
+  "recorded_at": "2026-11-07T10:34:23.743876+00:00",
+  "source_version": "0.5.0",
+  "accepted": true,
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "controller": {
+    "packages": {
+      "cryptography": "50.0.2",
+      "pycparser": "3.12",
+      "markitdown-desktop": "0.5.0",
+      "psutil": "7.2.2",
+      "pip": "25.0.1",
+      "cffi": "2.1.1",
+      "setuptools": "84.2.1"
+    },
+    "native_available": {
+      "onnxruntime": false,
+      "rapidocr_onnxruntime": false,
+      "numpy": false,
+      "PIL": false,
+      "PySide6": false
+    }
+  },
+  "controller_unchanged": true,
+  "path_empty_during_install_health_and_inference": true,
+  "ephemeral_test_key_not_saved": true,
+  "package_sha256": "11c8e0e9ff648954c3e99a30630e47fd5f1fe6307fa813c5e062d374f3db6d18",
+  "package_bytes": 202741436,
+  "unpacked_bytes": 536330062,
+  "files": 814,
+  "health_checks": [
+    {
+      "staging": true,
+      "passed": true,
+      "message": "選配 CPU 推論完成；品質限制保留。"
+    },
+    {
+      "staging": false,
+      "passed": true,
+      "message": "選配 CPU 推論完成；品質限制保留。"
+    },
+    {
+      "staging": false,
+      "passed": true,
+      "message": "選配 CPU 推論完成；品質限制保留。"
+    },
+    {
+      "staging": false,
+      "passed": true,
+      "message": "選配 CPU 推論完成；品質限制保留。"
+    },
+    {
+      "staging": false,
+      "passed": true,
+      "message": "選配 CPU 推論完成；品質限制保留。"
+    },
+    {
+      "staging": false,
+      "passed": true,
+      "message": "選配 CPU 推論完成；品質限制保留。"
+    }
+  ],
+  "actual_worker_pid": 435755,
+  "actual_providers": [
+    "CPUExecutionProvider",
+    "CPUExecutionProvider",
+    "CPUExecutionProvider"
+  ],
+  "runtime": {
+    "python": "3.12.14",
+    "rapidocr": "1.4.4",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.5.4",
+    "opencv": "5.0.0.93",
+    "frozen": true
+  },
+  "checks": [
+    "signed offline import",
+    "staging real CPU health",
+    "final real CPU health",
+    "managed real OCR lease",
+    "invalid PNG failure isolated",
+    "subsequent real OCR succeeds",
+    "cancel native worker without output",
+    "RAM rejection before spawn",
+    "remove idle real bundle",
+    "controller package environment unchanged"
+  ],
+  "checks_passed": 10,
+  "events": [
+    {
+      "state": "running",
+      "message": "選配 CPU 工作程序已啟動。"
+    },
+    {
+      "state": "running",
+      "message": "選配工作階段：loading"
+    },
+    {
+      "state": "running",
+      "message": "選配工作階段：inference"
+    },
+    {
+      "state": "running",
+      "message": "選配工作階段：export"
+    }
+  ],
+  "output_sha256": "61f43011494cba1acbd9000e70414fd3df0aa758dcd9de532599b9b4d6af2c26",
+  "installed_notice_packages": 58,
+  "installed_notice_files": 299,
+  "native_binary_records": 109,
+  "native_copyright_packages": 13,
+  "windows_executed": false,
+  "gpu_executed": false,
+  "traditional_chinese_quality_passed": false,
+  "production_release": false
+}

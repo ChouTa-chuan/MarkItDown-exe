@@ -1,0 +1,7 @@
+{
+  "expected": "WORKER HEALTH CHECK 12345",
+  "bytes": 15208,
+  "sha256": "2dcad1eb6d69de30de61f74b3d95349275b17e8a90f286df4778b360e478b8b3",
+  "source": "Synthetic English raster generated with DejaVuSans; no user data or font binary bundled",
+  "scope": "Functional CPU OCR health only; no Traditional Chinese quality or GPU claim"
+}

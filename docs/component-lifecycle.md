@@ -1,6 +1,6 @@
 # C06：交易安裝、鎖、修復與移除
 
-程式 **0.4.0**，架構 **0.4**，2026-11-06（台北）。本輪完成 Linux 的元件維護 API，詳見[逐項驗收與程序退出紀錄](development-records/runs/c06-2026-11-06/README.md)。完整桌面管理、實際選配 worker 與現有轉換器的接線仍依 C07／C08／C10 進行，Windows／GPU 門檻保留。
+程式 **0.4.0**，架構 **0.4**，2026-11-06（台北）。本輪完成 Linux 的元件維護 API，詳見[逐項驗收與程序退出紀錄](development-records/runs/c06-2026-11-06/README.md)。0.5.0 已透過 [C07](component-workers.md)接入實際 CPU worker；完整桌面管理與現有文件自動路由仍依 C08／C10 進行，Windows／GPU 門檻保留。
 
 ## 模組與責任
 
@@ -47,7 +47,7 @@
 
 使用前重新驗證簽章目錄、active 所有權、實檔與健康。更新共用 runtime 前也反向檢查目前 active 元件是否仍相容，不能更新後才把其他元件弄壞。`rollback()` 只選明確前一版本，仍需目前目錄允許且通過相容／依賴／健康檢查；失敗不偷偷換別的引擎。
 
-所有使用者必須經過租約 API 才有這項保護。實際 worker 應在自己的程序持有租約；父程序的 Python context 不能代替仍存活子程序的鎖。現有文件轉換尚未接入通用元件，接線與工作程序協定留 C07／C10。重型健康探針的原生逾時／取消也由 C07 的工作程序負責；本輪探針為可信合成模型讀取與資料運算。
+所有使用者必須經過租約 API 才有這項保護。程式 0.5.0 的 C07 worker 已在自己的程序持有 `.locks/worker-use.lock` 共享 guard；維護／恢復／搬移／active 提交時取得排他 guard，避免父程序退出後仍改動正在使用的檔案。健康 worker 執行時允許取得 shared guard，父程序維護鎖仍保留；控制通道失聯使 worker 退出並釋放鎖。新增目錄逐層 fsync，未宣稱物理斷電驗證。C06 原始合成探針證據保持固定；C07 另存真實 frozen OCR 健康、原生逾時／取消與回歸證據。現有文件自動路由的接線留 C10。
 
 ## 移除、資源與快取
 
@@ -66,7 +66,7 @@ manager = ComponentManager(registry, verifier, host, trusted_health_checks)
 manager.recover()  # 啟動整合時先處理未完成維護。
 manager.install(catalog, component_id, version, verified_archive)
 with manager.lease(catalog, component_id) as lease:
-    # 在此範圍內使用 lease.directory；實際隔離 worker 接線屬 C07。
+    # 在此範圍內使用 lease.directory；C07 的 CPUWorkerBinding.run_managed 已封裝此範圍與子程序 guard。
     consume_component(lease.directory)
 manager.rollback(catalog, component_id)
 manager.remove(component_id, version)

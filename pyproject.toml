@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "markitdown-desktop"
-version = "0.4.0"
+version = "0.5.0"
 description = "Windows document conversion desktop application core"
 requires-python = ">=3.11"
 dependencies = ["psutil>=5.9,<8", "cryptography>=50.0.2,<51"]
@@ -23,4 +23,4 @@ markitdown-gui = "desktop_app.desktop:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-desktop_app = ["data/*.json", "data/*.md", "data/licenses/**/*"]
+desktop_app = ["data/*.json", "data/*.md", "data/*.png", "data/licenses/**/*"]

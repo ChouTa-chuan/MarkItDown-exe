@@ -97,7 +97,19 @@
       "source_version": "0.4.0",
       "architecture_scope": "0.4 C06 transactional lifecycle and leases accepted on Linux",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-c07-cpu-worker.md",
+      "title": "架構 v0.4：C07 獨立 CPU 選配工作程序",
+      "diagram_sha256": "dd5418d52b72d92001f244282306019d6f39dc4148c60668c2a8bb18f1ebcb8a",
+      "file_sha256": "6299b01642f55cef34b605caedb203604f8ac769e27a866f1ff0e16047097b0c",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_description": "程式 0.5.0 與首頁圖一併提交",
+      "source_version": "0.5.0",
+      "architecture_scope": "0.4 C07 real frozen CPU worker and protocol accepted on Linux",
+      "derived": false
     }
   ],
-  "updated_at": "2026-11-06"
+  "updated_at": "2026-11-07"
 }

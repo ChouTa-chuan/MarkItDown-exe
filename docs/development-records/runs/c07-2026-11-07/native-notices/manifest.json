@@ -1,0 +1,713 @@
+{
+  "scope": "Actual bundled binaries and native package copyright evidence; final Windows/native release clearance remains pending",
+  "files": [
+    {
+      "file": "onnxruntime/capi/libonnxruntime_providers_shared.so",
+      "source_basename": "libonnxruntime_providers_shared.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libpython3.12.so.1.0",
+      "source_basename": "libpython3.12.so.1.0",
+      "origin": "python-runtime",
+      "system_package": null
+    },
+    {
+      "file": "cv2/qt/plugins/platforms/libqxcb.so",
+      "source_basename": "libqxcb.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/_core/_multiarray_umath.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_multiarray_umath.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/linalg/_umath_linalg.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_umath_linalg.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PIL/_imagingft.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_imagingft.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PIL/_imaging.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_imaging.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PIL/_webp.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_webp.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PIL/_imagingtk.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_imagingtk.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PIL/_avif.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_avif.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PIL/_imagingcms.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_imagingcms.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/_core/_multiarray_tests.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_multiarray_tests.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "charset_normalizer/cd.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "cd.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "charset_normalizer/md.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "md.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "psutil/_psutil_linux.abi3.so",
+      "source_basename": "_psutil_linux.abi3.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/mtrand.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "mtrand.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/bit_generator.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "bit_generator.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_sfc64.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_sfc64.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_philox.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_philox.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_pcg64.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_pcg64.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_mt19937.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_mt19937.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_generator.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_generator.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_common.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_common.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_bounded_integers.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_bounded_integers.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/fft/_pocketfft_umath.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_pocketfft_umath.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "yaml/_yaml.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_yaml.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "cv2/cv2.abi3.so",
+      "source_basename": "cv2.abi3.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "onnxruntime/capi/onnxruntime_pybind11_state.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "onnxruntime_pybind11_state.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "shapely/lib.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "lib.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "shapely/_geometry_helpers.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_geometry_helpers.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "shapely/_geos.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_geos.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pyclipper/_pyclipper.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_pyclipper.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libstdc++.so.6",
+      "source_basename": "libstdc++.so.6.0.33",
+      "origin": "system-native",
+      "system_package": "libstdc++6"
+    },
+    {
+      "file": "libgcc_s.so.1",
+      "source_basename": "libgcc_s.so.1",
+      "origin": "system-native",
+      "system_package": "libgcc-s1"
+    },
+    {
+      "file": "libSM.so.6",
+      "source_basename": "libSM.so.6.0.1",
+      "origin": "system-native",
+      "system_package": "libsm6"
+    },
+    {
+      "file": "libXau.so.6",
+      "source_basename": "libXau.so.6.0.0",
+      "origin": "system-native",
+      "system_package": "libxau6"
+    },
+    {
+      "file": "opencv_python.libs/libxcb-render-161c0eb5.so.0.0.0",
+      "source_basename": "libxcb-render-161c0eb5.so.0.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libgthread-2.0.so.0",
+      "source_basename": "libgthread-2.0.so.0.8400.4",
+      "origin": "system-native",
+      "system_package": "libglib2.0-0t64"
+    },
+    {
+      "file": "libz.so.1",
+      "source_basename": "libz.so.1.3.1",
+      "origin": "system-native",
+      "system_package": "zlib1g"
+    },
+    {
+      "file": "opencv_python.libs/libxcb-xinerama-fe4b410c.so.0.0.0",
+      "source_basename": "libxcb-xinerama-fe4b410c.so.0.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libxcb-render-util-f04ad2c5.so.0.0.0",
+      "source_basename": "libxcb-render-util-f04ad2c5.so.0.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libXext.so.6",
+      "source_basename": "libXext.so.6.4.0",
+      "origin": "system-native",
+      "system_package": "libxext6"
+    },
+    {
+      "file": "opencv_python.libs/libxcb-shm-0be6dfbf.so.0.0.0",
+      "source_basename": "libxcb-shm-0be6dfbf.so.0.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libxkbcommon-x11-27b61ed0.so.0.0.0",
+      "source_basename": "libxkbcommon-x11-27b61ed0.so.0.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libQt5XcbQpa-bb93e554.so.5.15.19",
+      "source_basename": "libQt5XcbQpa-bb93e554.so.5.15.19",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libxkbcommon-de59cad2.so.0.0.0",
+      "source_basename": "libxkbcommon-de59cad2.so.0.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libxcb-sync-e532c63b.so.1.0.0",
+      "source_basename": "libxcb-sync-e532c63b.so.1.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libQt5Gui-afbd4980.so.5.15.19",
+      "source_basename": "libQt5Gui-afbd4980.so.5.15.19",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libxcb-shape-7716c890.so.0.0.0",
+      "source_basename": "libxcb-shape-7716c890.so.0.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libICE.so.6",
+      "source_basename": "libICE.so.6.3.0",
+      "origin": "system-native",
+      "system_package": "libice6"
+    },
+    {
+      "file": "libuuid.so.1",
+      "source_basename": "libuuid.so.1.3.0",
+      "origin": "system-native",
+      "system_package": "libuuid1"
+    },
+    {
+      "file": "libX11.so.6",
+      "source_basename": "libX11.so.6.4.0",
+      "origin": "system-native",
+      "system_package": "libx11-6"
+    },
+    {
+      "file": "opencv_python.libs/libxcb-randr-562554c2.so.0.1.0",
+      "source_basename": "libxcb-randr-562554c2.so.0.1.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libxcb-util-9255dd30.so.1.0.0",
+      "source_basename": "libxcb-util-9255dd30.so.1.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libXdmcp.so.6",
+      "source_basename": "libXdmcp.so.6.0.0",
+      "origin": "system-native",
+      "system_package": "libxdmcp6"
+    },
+    {
+      "file": "opencv_python.libs/libxcb-image-c881c1c3.so.0.0.0",
+      "source_basename": "libxcb-image-c881c1c3.so.0.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libpng16-529cb57a.so.16.58.0",
+      "source_basename": "libpng16-529cb57a.so.16.58.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libatomic.so.1",
+      "source_basename": "libatomic.so.1.2.0",
+      "origin": "system-native",
+      "system_package": "libatomic1"
+    },
+    {
+      "file": "opencv_python.libs/libX11-xcb-b482bfde.so.1.0.0",
+      "source_basename": "libX11-xcb-b482bfde.so.1.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libpcre2-8.so.0",
+      "source_basename": "libpcre2-8.so.0.14.0",
+      "origin": "system-native",
+      "system_package": "libpcre2-8-0"
+    },
+    {
+      "file": "opencv_python.libs/libxcb-icccm-9453e4f7.so.4.0.0",
+      "source_basename": "libxcb-icccm-9453e4f7.so.4.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libxcb-xfixes-6de855b8.so.0.0.0",
+      "source_basename": "libxcb-xfixes-6de855b8.so.0.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libxcb-keysyms-28f5419b.so.1.0.0",
+      "source_basename": "libxcb-keysyms-28f5419b.so.1.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libglib-2.0.so.0",
+      "source_basename": "libglib-2.0.so.0.8400.4",
+      "origin": "system-native",
+      "system_package": "libglib2.0-0t64"
+    },
+    {
+      "file": "opencv_python.libs/libpcre2-16-bca4e6b3.so.0.7.1",
+      "source_basename": "libpcre2-16-bca4e6b3.so.0.7.1",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libXau-154567c4.so.6.0.0",
+      "source_basename": "libXau-154567c4.so.6.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libxcb-xkb-fd53f741.so.1.0.0",
+      "source_basename": "libxcb-xkb-fd53f741.so.1.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libQt5Core-9088e21b.so.5.15.19",
+      "source_basename": "libQt5Core-9088e21b.so.5.15.19",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy.libs/libgfortran-83c28eba-468e71e5.so.5.0.0",
+      "source_basename": "libgfortran-83c28eba-468e71e5.so.5.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy.libs/libquadmath-2284e583-a9307bba.so.0.0.0",
+      "source_basename": "libquadmath-2284e583-a9307bba.so.0.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy.libs/libscipy_openblas64_-f48b354e.so",
+      "source_basename": "libscipy_openblas64_-f48b354e.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libpng16-1d1ba958.so.16.58.0",
+      "source_basename": "libpng16-1d1ba958.so.16.58.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libharfbuzz-fb49c9fc.so.0.61450.0",
+      "source_basename": "libharfbuzz-fb49c9fc.so.0.61450.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libbrotlidec-7e5462ba.so.1.2.0",
+      "source_basename": "libbrotlidec-7e5462ba.so.1.2.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libbrotlicommon-53534446.so.1.2.0",
+      "source_basename": "libbrotlicommon-53534446.so.1.2.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libfreetype-57f805ba.so.6.20.6",
+      "source_basename": "libfreetype-57f805ba.so.6.20.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libopenjp2-e530e1bf.so.2.5.4",
+      "source_basename": "libopenjp2-e530e1bf.so.2.5.4",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libzstd-40ad5e7e.so.1.5.7",
+      "source_basename": "libzstd-40ad5e7e.so.1.5.7",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libtiff-20b7e810.so.6.3.0",
+      "source_basename": "libtiff-20b7e810.so.6.3.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/liblzma-de26b416.so.5.8.4",
+      "source_basename": "liblzma-de26b416.so.5.8.4",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libXau-154567c4.so.6.0.0",
+      "source_basename": "libXau-154567c4.so.6.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libjpeg-6dc8d115.so.62.4.0",
+      "source_basename": "libjpeg-6dc8d115.so.62.4.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libxcb-9065bb12.so.1.1.0",
+      "source_basename": "libxcb-9065bb12.so.1.1.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libwebpdemux-9fe2abcc.so.2.0.17",
+      "source_basename": "libwebpdemux-9fe2abcc.so.2.0.17",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libsharpyuv-0066295b.so.0.1.2",
+      "source_basename": "libsharpyuv-0066295b.so.0.1.2",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libwebp-51b0b3f7.so.7.2.0",
+      "source_basename": "libwebp-51b0b3f7.so.7.2.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libwebpmux-8fb1c9f6.so.3.1.2",
+      "source_basename": "libwebpmux-8fb1c9f6.so.3.1.2",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libavif-c6062d5f.so.16.4.2",
+      "source_basename": "libavif-c6062d5f.so.16.4.2",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/liblcms2-88eaba2f.so.2.0.19",
+      "source_basename": "liblcms2-88eaba2f.so.2.0.19",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libswscale-fe215b0b.so.9.5.101",
+      "source_basename": "libswscale-fe215b0b.so.9.5.101",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libaom-a0d22147.so.3.14.1",
+      "source_basename": "libaom-a0d22147.so.3.14.1",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libavformat-4762a711.so.62.12.101",
+      "source_basename": "libavformat-4762a711.so.62.12.101",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libssl-81259c47.so.1.1.1k",
+      "source_basename": "libssl-81259c47.so.1.1.1k",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libavdevice-f388f22c.so.62.3.101",
+      "source_basename": "libavdevice-f388f22c.so.62.3.101",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libQt5Widgets-5be2f68b.so.5.15.19",
+      "source_basename": "libQt5Widgets-5be2f68b.so.5.15.19",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libswresample-2dfded3b.so.6.3.101",
+      "source_basename": "libswresample-2dfded3b.so.6.3.101",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libavif-43e630fc.so.16.4.2",
+      "source_basename": "libavif-43e630fc.so.16.4.2",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libavfilter-8d3f2f4f.so.11.14.101",
+      "source_basename": "libavfilter-8d3f2f4f.so.11.14.101",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libavcodec-c4204469.so.62.28.101",
+      "source_basename": "libavcodec-c4204469.so.62.28.101",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libquadmath-2284e583.so.0.0.0",
+      "source_basename": "libquadmath-2284e583.so.0.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libopenblasp-r0-59ffcd50.3.15.so",
+      "source_basename": "libopenblasp-r0-59ffcd50.3.15.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libvpx-4fb239ff.so.11.0.1",
+      "source_basename": "libvpx-4fb239ff.so.11.0.1",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libgfortran-83c28eba.so.5.0.0",
+      "source_basename": "libgfortran-83c28eba.so.5.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libcrypto-5409cd36.so.1.1.1k",
+      "source_basename": "libcrypto-5409cd36.so.1.1.1k",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libavutil-befbbc48.so.60.26.101",
+      "source_basename": "libavutil-befbbc48.so.60.26.101",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libdrm-b0291a67.so.2.4.0",
+      "source_basename": "libdrm-b0291a67.so.2.4.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "opencv_python.libs/libQt5Test-2553f470.so.5.15.19",
+      "source_basename": "libQt5Test-2553f470.so.5.15.19",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "shapely.libs/libgeos-d1e818bb.so.3.14.1",
+      "source_basename": "libgeos-d1e818bb.so.3.14.1",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "shapely.libs/libgeos_c-ac38a227.so.1.20.5",
+      "source_basename": "libgeos_c-ac38a227.so.1.20.5",
+      "origin": "installed-wheel",
+      "system_package": null
+    }
+  ],
+  "native_copyrights": {
+    "libstdc++6": {
+      "file": "libstdc++6-copyright.txt",
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79"
+    },
+    "libgcc-s1": {
+      "file": "libgcc-s1-copyright.txt",
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79"
+    },
+    "libsm6": {
+      "file": "libsm6-copyright.txt",
+      "sha256": "333d829128c80619625f7e43a0ff0e79f36812b2b7ba12696eec9b4b42ce729b"
+    },
+    "libxau6": {
+      "file": "libxau6-copyright.txt",
+      "sha256": "118dd263a7b91c8f21c489f949bf13281dff9e766deea92b829dac4dce66601a"
+    },
+    "libglib2.0-0t64": {
+      "file": "libglib2.0-0t64-copyright.txt",
+      "sha256": "b9fe78c8a0720c051c9ac8e8c6f25663b54f228e501d24fc0ba89c66cec7f7c1"
+    },
+    "zlib1g": {
+      "file": "zlib1g-copyright.txt",
+      "sha256": "9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6"
+    },
+    "libxext6": {
+      "file": "libxext6-copyright.txt",
+      "sha256": "bc57e445ca1d9fe082c8d54189dd411ff26caa8552c9c63d44ea06a982f32124"
+    },
+    "libice6": {
+      "file": "libice6-copyright.txt",
+      "sha256": "fc16500a74acc2d0a7bb2fa1005956a52551abdce2afe0642a9a8dc2b6af53c6"
+    },
+    "libuuid1": {
+      "file": "libuuid1-copyright.txt",
+      "sha256": "56b67e2eb8bac5a15d91e261d558d73f1f029113cced229753138194997366b6"
+    },
+    "libx11-6": {
+      "file": "libx11-6-copyright.txt",
+      "sha256": "0b380a7fd5b2228f26e9585e56f14812efd3350f3df307507d2bc055dfd8de3e"
+    },
+    "libxdmcp6": {
+      "file": "libxdmcp6-copyright.txt",
+      "sha256": "1bcbb50f8603fe8b86d330bfa460b772ea04fbd3c70e4499f0768b5340b9fd6e"
+    },
+    "libatomic1": {
+      "file": "libatomic1-copyright.txt",
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79"
+    },
+    "libpcre2-8-0": {
+      "file": "libpcre2-8-0-copyright.txt",
+      "sha256": "e915cde4251f96ec6af107ecd2e194440a4e69440893b0c982802f8a1e4ae40a"
+    }
+  }
+}

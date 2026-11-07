@@ -1,0 +1,4112 @@
+{
+  "schema_version": 1,
+  "component_id": "onnx-cpu-ocr",
+  "version": "1.0.0",
+  "kind": "engine",
+  "display_name": "ONNX CPU OCR（開發選配，繁體品質未達標）",
+  "source_url": "https://example.invalid/markitdown-development/onnx-cpu-ocr-development.zip",
+  "license_id": "Multiple; development-only bundle, see NOTICE.txt",
+  "license_path": "NOTICE.txt",
+  "package_sha256": "11c8e0e9ff648954c3e99a30630e47fd5f1fe6307fa813c5e062d374f3db6d18",
+  "download_bytes": 202741436,
+  "unpacked_bytes": 536330062,
+  "files": [
+    {
+      "path": "MarkItDownOCRWorker",
+      "sha256": "e32e9ca5e4da44f5834f55c987a0d7ee6a302d86a3a5f0ee9750ed76987b0d71",
+      "size": 5564784
+    },
+    {
+      "path": "_internal/PIL/_avif.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "642ebac0cc9ac2e53a6abfb815f392832da737cac2b1f91ebcff7732081c1b65",
+      "size": 97889
+    },
+    {
+      "path": "_internal/PIL/_imaging.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "d898ef14b7c4455374dd640484f463ecc7f4e88b8fb41503cd8d19edcd200bf6",
+      "size": 3482049
+    },
+    {
+      "path": "_internal/PIL/_imagingcms.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "e04cff5147dd848945d2151f7102da62d01cb7ce0021dbc8255fc3047df25a7c",
+      "size": 159633
+    },
+    {
+      "path": "_internal/PIL/_imagingft.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "ec9b3071a11d90e5fbe0509f4ffa984a0fde3c848683e5fa2189800a42c248a0",
+      "size": 345281
+    },
+    {
+      "path": "_internal/PIL/_imagingtk.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "64ef97cc24e52c8752ba704821945139def64bdeb2d4cc8c0522f76e2ca4971c",
+      "size": 47200
+    },
+    {
+      "path": "_internal/PIL/_webp.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "101c37ad4308d511d1fb4fe9220d68a910ec64ec299f05739ed7aeca63fa4c02",
+      "size": 110617
+    },
+    {
+      "path": "_internal/base_library.zip",
+      "sha256": "e1c510538d1ae1ece5007d1b5ad8d520d3a81722582b75c9249ee949867a2743",
+      "size": 1333490
+    },
+    {
+      "path": "_internal/charset_normalizer/cd.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "c2f3063d035647a23fd2ac5243dbf6925056c3aba636696a980293516d240eca",
+      "size": 178648
+    },
+    {
+      "path": "_internal/charset_normalizer/md.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "f20c7da02510ade7b0968eda061d2cb1d6eb29ccaa77af92ddea82b326bc8c3b",
+      "size": 340528
+    },
+    {
+      "path": "_internal/cv2/__init__.py",
+      "sha256": "69192904dead3ada37c8b305ee850ac7474924730881a9d5e0b2390944eb5aae",
+      "size": 6630
+    },
+    {
+      "path": "_internal/cv2/config-3.py",
+      "sha256": "9a7aadf724b822001f5e963b01fd4e375d45e2cbbe328d2ca7b42a440c083a1c",
+      "size": 724
+    },
+    {
+      "path": "_internal/cv2/config.py",
+      "sha256": "974e2d4096ee1a9a9a341df1bf33e16973683bf1ac733006de27ff2f23bc584d",
+      "size": 111
+    },
+    {
+      "path": "_internal/cv2/cv2.abi3.so",
+      "sha256": "f7746177b49e0368c73142ab92d3d5a4a9ce989aecce7178d7e05c58679349c9",
+      "size": 74161369
+    },
+    {
+      "path": "_internal/cv2/data/__init__.py",
+      "sha256": "d76e4f72d7bf3ad079e59c635a0e64a3cba0a67a20675b113323f8f1db4108cc",
+      "size": 70
+    },
+    {
+      "path": "_internal/cv2/load_config_py3.py",
+      "sha256": "9c22766454a9ac2f6869d37830b2efc699e7b8c3125484e9976c6e677c066029",
+      "size": 244
+    },
+    {
+      "path": "_internal/cv2/mat_wrapper/__init__.py",
+      "sha256": "8b627063a9260cbfeced85f3225f8966e582315624462e05ea3eb45b78f83fd0",
+      "size": 1124
+    },
+    {
+      "path": "_internal/cv2/misc/__init__.py",
+      "sha256": "cabf4f9312ac97145cf3b861b482519f94689a63fd8daaa4b18afe643ba3edc5",
+      "size": 37
+    },
+    {
+      "path": "_internal/cv2/misc/version.py",
+      "sha256": "893131ab58f01a002fde3b58407448f294a999fccfb23906f5baec1f46dd6219",
+      "size": 90
+    },
+    {
+      "path": "_internal/cv2/qt/plugins/platforms/libqxcb.so",
+      "sha256": "192199a01685a8373befffae7af3ae225d040bd9fb5fe449bdb217d3457e41d7",
+      "size": 28353
+    },
+    {
+      "path": "_internal/cv2/typing/__init__.py",
+      "sha256": "2b3b300c0cb200e24779970429a7e9f447fbcc54e679bd60740d16549ecc63ef",
+      "size": 4306
+    },
+    {
+      "path": "_internal/cv2/utils/__init__.py",
+      "sha256": "7eec381871ce5ecc7129cf8069d00438a42afc8d46af81b7c8c951bc06d33f7d",
+      "size": 330
+    },
+    {
+      "path": "_internal/cv2/version.py",
+      "sha256": "2ce40cb5304ebfc940682d2646a3f1f53d0a30a546e7cdf73eacb1511238a4d9",
+      "size": 92
+    },
+    {
+      "path": "_internal/desktop_app/data/worker-health.json",
+      "sha256": "c83811e237fc9bf74bec595ec7372f852a357a23e465c0f03d5e256f5f8fbbe8",
+      "size": 337
+    },
+    {
+      "path": "_internal/desktop_app/data/worker-health.png",
+      "sha256": "2dcad1eb6d69de30de61f74b3d95349275b17e8a90f286df4778b360e478b8b3",
+      "size": 15208
+    },
+    {
+      "path": "_internal/libICE.so.6",
+      "sha256": "551550ecec0044de5548693d3feaa53a10c76b95e1bd1ae21476e3481e00da59",
+      "size": 106352
+    },
+    {
+      "path": "_internal/libQt5Core-9088e21b.so.5.15.19",
+      "sha256": "648bc35ad28d32776aac2b572cf9a2ef508e5b8a4f9cc4e9c090c4789bd88023",
+      "size": 7516361
+    },
+    {
+      "path": "_internal/libQt5Gui-afbd4980.so.5.15.19",
+      "sha256": "536788d31cc7baf50118b6e7145219e2b5792243646d2bd6bc8e24931599d2d5",
+      "size": 9954737
+    },
+    {
+      "path": "_internal/libQt5Test-2553f470.so.5.15.19",
+      "sha256": "3b19c992c34add06a756c00ab31aa065a47e57ca9cb01b4d699db7dd249f0a17",
+      "size": 440457
+    },
+    {
+      "path": "_internal/libQt5Widgets-5be2f68b.so.5.15.19",
+      "sha256": "1271c7b6b606be4c802c110b389c1a6645608df668c739999b0cc029b5de506d",
+      "size": 9122297
+    },
+    {
+      "path": "_internal/libQt5XcbQpa-bb93e554.so.5.15.19",
+      "sha256": "ca88133317c2baf28265d4b91806ca74173663847bc2a4cb2e283f44ce83591b",
+      "size": 1930225
+    },
+    {
+      "path": "_internal/libSM.so.6",
+      "sha256": "8bacaea082b2ce4284bff87ab3c2aa9852d97b38e088206394665788d9e7f1b2",
+      "size": 39120
+    },
+    {
+      "path": "_internal/libX11-xcb-b482bfde.so.1.0.0",
+      "sha256": "bd84887dc1555a36fa203b55b129d7f12856b5979f00dbbcf083785c0dba50b0",
+      "size": 8761
+    },
+    {
+      "path": "_internal/libX11.so.6",
+      "sha256": "b03e563b316b8b53c7988f0ee91d6656cc425538e00947a8b14482d179e80099",
+      "size": 1342984
+    },
+    {
+      "path": "_internal/libXau-154567c4.so.6.0.0",
+      "sha256": "05484d24bf78cb8ed03169f1cb067204d829cb7af21de8820400d29d115e4320",
+      "size": 22081
+    },
+    {
+      "path": "_internal/libXau.so.6",
+      "sha256": "4275ec5b14bec21770c44447b3a52977e211c7ba08745008f3a1783878e091bb",
+      "size": 14472
+    },
+    {
+      "path": "_internal/libXdmcp.so.6",
+      "sha256": "761409b24c818719f8c8a2a64a61c8ac6a3067f3d8882485dca64a98d7500040",
+      "size": 26728
+    },
+    {
+      "path": "_internal/libXext.so.6",
+      "sha256": "74cef58f0855cbbe23fce87566249f717e5c8ebeceee09efee393616a9b17697",
+      "size": 81568
+    },
+    {
+      "path": "_internal/libaom-a0d22147.so.3.14.1",
+      "sha256": "1158ff3dfd6b92bdf3f163c02c11c629baadba467604dcf5c579cf8daac071ea",
+      "size": 8141337
+    },
+    {
+      "path": "_internal/libatomic.so.1",
+      "sha256": "9558489f171274c220104894258f483055853ed8a23d4ff754c850ce55765aa2",
+      "size": 30848
+    },
+    {
+      "path": "_internal/libavcodec-c4204469.so.62.28.101",
+      "sha256": "94401ecabe5cd87f7db30af2843c8ff0674e57947d102f307ebed8788740cbb9",
+      "size": 18439145
+    },
+    {
+      "path": "_internal/libavdevice-f388f22c.so.62.3.101",
+      "sha256": "5283f510f78eb716fcdc9c94bd23c8e625a5cd3e60845d1738225523819b7af8",
+      "size": 106641
+    },
+    {
+      "path": "_internal/libavfilter-8d3f2f4f.so.11.14.101",
+      "sha256": "eb0e1201d15ed0d5d65497d7827c41f3a00f422540f82260e2d9ea15967abae2",
+      "size": 5377905
+    },
+    {
+      "path": "_internal/libavformat-4762a711.so.62.12.101",
+      "sha256": "150705d76b62a20a16cbb131ba5c9e25c086ccb7914bf0b50c084bc66c15c0e1",
+      "size": 2991673
+    },
+    {
+      "path": "_internal/libavif-43e630fc.so.16.4.2",
+      "sha256": "08bd56025b1f665362a7ac4f1f2ac552e36803817a3637840a376242d38f30da",
+      "size": 1165369
+    },
+    {
+      "path": "_internal/libavif-c6062d5f.so.16.4.2",
+      "sha256": "d12ec0b696860b292114b130ecac6082fc75c198c1b4fa57b26089e9b0a7eb6a",
+      "size": 4918457
+    },
+    {
+      "path": "_internal/libavutil-befbbc48.so.60.26.101",
+      "sha256": "fe9258859653c19d0d4029bbb84622bc5c39707d7936372df757661e6b961b18",
+      "size": 1066369
+    },
+    {
+      "path": "_internal/libbrotlicommon-53534446.so.1.2.0",
+      "sha256": "72c1ab487e4bd44c906336747bf1926cbf5f164f9d05e0b4fd18b7d8d113b7fe",
+      "size": 146089
+    },
+    {
+      "path": "_internal/libbrotlidec-7e5462ba.so.1.2.0",
+      "sha256": "1b497acc3d8d8e1fc286088f0c288be7c0c54bf5a8fa94b12b23e54de205d48c",
+      "size": 68105
+    },
+    {
+      "path": "_internal/libcrypto-5409cd36.so.1.1.1k",
+      "sha256": "af6e7717a5384f73fd0c15d6472282f6b4106c58f55575fa33df7e798a0256c2",
+      "size": 3215921
+    },
+    {
+      "path": "_internal/libdrm-b0291a67.so.2.4.0",
+      "sha256": "2b8f19025340baf49d5fb8b6b68113c429baf3ceb0e04d7b2663f673c44cdbed",
+      "size": 96417
+    },
+    {
+      "path": "_internal/libfreetype-57f805ba.so.6.20.6",
+      "sha256": "5be086dea47fd1c3fadd431ee79fe0b5e5a0c6c38e78f1db55cf2dad17dea430",
+      "size": 1179825
+    },
+    {
+      "path": "_internal/libgcc_s.so.1",
+      "sha256": "30c61ab012a4241bed033725a09b61f5fdd3bb7df95ee852d0b096520524c7af",
+      "size": 182856
+    },
+    {
+      "path": "_internal/libgeos-d1e818bb.so.3.14.1",
+      "sha256": "1e9192b9f1b9f43cd7adbb9999d23d9efda34695cc057bb1911bfc1f9c1d1c9d",
+      "size": 5254185
+    },
+    {
+      "path": "_internal/libgeos_c-ac38a227.so.1.20.5",
+      "sha256": "47a714ef803c586c8ec85473efe42fab96dadc1fe51663fc7123dd4743acb9a8",
+      "size": 649249
+    },
+    {
+      "path": "_internal/libgfortran-83c28eba-468e71e5.so.5.0.0",
+      "sha256": "a6a368328d02a5d8a149746f13f6268f8cc9192df5c18777b25c3c9b5ef52160",
+      "size": 2862249
+    },
+    {
+      "path": "_internal/libgfortran-83c28eba.so.5.0.0",
+      "sha256": "468e71e59e1d784821a76702e5ecd1e0dbcfc024499f74a552d1bea4b26f27ad",
+      "size": 2751569
+    },
+    {
+      "path": "_internal/libglib-2.0.so.0",
+      "sha256": "980ab64e995225de1543779e3bafafac9d705904d42ca3b5eb76e7a336cc5e1d",
+      "size": 1404320
+    },
+    {
+      "path": "_internal/libgthread-2.0.so.0",
+      "sha256": "673907ae4a625ae4185c45c3ba40e363562fe94f533c3c4a1085868dbc492ec7",
+      "size": 14336
+    },
+    {
+      "path": "_internal/libharfbuzz-fb49c9fc.so.0.61450.0",
+      "sha256": "4a30b9e3a12a72691b70b14945f3e8adaa8c2bc191bd8b706aae6ed0f0fa9fc0",
+      "size": 1529553
+    },
+    {
+      "path": "_internal/libjpeg-6dc8d115.so.62.4.0",
+      "sha256": "cc04bc42fd6296e81d24d13955fb95bd829624f6c74105eaf4a7fcf2ce42e048",
+      "size": 859489
+    },
+    {
+      "path": "_internal/liblcms2-88eaba2f.so.2.0.19",
+      "sha256": "4cf9f69016c7804bcb4fa56f5bbc55640cb1b7196ac7b93ba29ed9df9bd9ff4d",
+      "size": 422689
+    },
+    {
+      "path": "_internal/liblzma-de26b416.so.5.8.4",
+      "sha256": "ab4d2f260d6777088cc4bd96ce4997a5199d20b94e146a764b02c37d42477ce9",
+      "size": 202625
+    },
+    {
+      "path": "_internal/libopenblasp-r0-59ffcd50.3.15.so",
+      "sha256": "c073ab726795e391fd4ee09ce941c7d9e23e71a3737a910367f03d89487542f5",
+      "size": 38982937
+    },
+    {
+      "path": "_internal/libopenjp2-e530e1bf.so.2.5.4",
+      "sha256": "eea7a2058e0f2084d41ba88c561bddc866bd38e74f76b5ca4fccb965e2fb1c24",
+      "size": 476905
+    },
+    {
+      "path": "_internal/libpcre2-16-bca4e6b3.so.0.7.1",
+      "sha256": "3ba35e91573e04d26e114a07dd6e60d2bbca4708d4d596917f092d527a2843a9",
+      "size": 502753
+    },
+    {
+      "path": "_internal/libpcre2-8.so.0",
+      "sha256": "92e9b4167f9bbc237ca8f5526d82ee99ec9f8dbd0270ef1dd0ab24e2217f48e3",
+      "size": 711216
+    },
+    {
+      "path": "_internal/libpng16-1d1ba958.so.16.58.0",
+      "sha256": "38d5a01026f61afba1bb94698846722840067fc87b2ee9003fe8dcccf1bc155f",
+      "size": 226481
+    },
+    {
+      "path": "_internal/libpng16-529cb57a.so.16.58.0",
+      "sha256": "e4d04733e75ffa81ab878c0ed628463ee4bba178120c32dc0372963680c6e768",
+      "size": 1076721
+    },
+    {
+      "path": "_internal/libpython3.12.so.1.0",
+      "sha256": "7e177a680eabb11fcb7d3867f7a1b9c4b93a9bd5b18129ce1af51ec07977b024",
+      "size": 32465344
+    },
+    {
+      "path": "_internal/libquadmath-2284e583-a9307bba.so.0.0.0",
+      "sha256": "6bc3069003caec1f075be3c51ae8355332f081fa9465910c4b5724e7fe7d8ad4",
+      "size": 275553
+    },
+    {
+      "path": "_internal/libquadmath-2284e583.so.0.0.0",
+      "sha256": "a9307bbaa353623fa014e8b682d50c4629f5e5c7d61daa9a8652f7d165cd421a",
+      "size": 272193
+    },
+    {
+      "path": "_internal/libscipy_openblas64_-f48b354e.so",
+      "sha256": "432e1c1739731468ba305771af96773939e43016643e2d630f58cb45b6670e96",
+      "size": 24325657
+    },
+    {
+      "path": "_internal/libsharpyuv-0066295b.so.0.1.2",
+      "sha256": "8abd5c39ee3b26330288b2e833d4d9b5d4b5ed4c881649057354df17326b6996",
+      "size": 47841
+    },
+    {
+      "path": "_internal/libssl-81259c47.so.1.1.1k",
+      "sha256": "3b5222f85e27642d50b37dc42345a65d129b1fcc556f94eac56d008833bdafa4",
+      "size": 687353
+    },
+    {
+      "path": "_internal/libstdc++.so.6",
+      "sha256": "972bb2a18b71140dab0240f8a1f68ab3fb1d56bcd4c4f824a91b70888faf5a00",
+      "size": 2497768
+    },
+    {
+      "path": "_internal/libswresample-2dfded3b.so.6.3.101",
+      "sha256": "45f1bbfcae84449e2293c07398376c478a9ea1c4190c23e1c9a414a055b46657",
+      "size": 150337
+    },
+    {
+      "path": "_internal/libswscale-fe215b0b.so.9.5.101",
+      "sha256": "146094fd188bf8e6585b21acb5946f298efbdbee88690f0134e1e8fa48c44a73",
+      "size": 2017409
+    },
+    {
+      "path": "_internal/libtiff-20b7e810.so.6.3.0",
+      "sha256": "729883f61144533eb3215d405e4daad528a68f89e9a1fccf51e9862819f30020",
+      "size": 617449
+    },
+    {
+      "path": "_internal/libuuid.so.1",
+      "sha256": "632fd43a9d8d6f3496833b7e62e7840f397163373dddf8b8eb0b2b7f36593117",
+      "size": 39048
+    },
+    {
+      "path": "_internal/libvpx-4fb239ff.so.11.0.1",
+      "sha256": "be3407f96ebd5fd5fde8eb91c9bf7d1e083916ddf856cf45784c67f1b2cb7f41",
+      "size": 3692569
+    },
+    {
+      "path": "_internal/libwebp-51b0b3f7.so.7.2.0",
+      "sha256": "6a97159a7c36acacb112618eb74720c97bbab4ecc499a8bfeb495dd726285259",
+      "size": 745233
+    },
+    {
+      "path": "_internal/libwebpdemux-9fe2abcc.so.2.0.17",
+      "sha256": "5d728787db553c48c74dccd93d2763ec88234850a5f2f821df11483c8d28d2a7",
+      "size": 35985
+    },
+    {
+      "path": "_internal/libwebpmux-8fb1c9f6.so.3.1.2",
+      "sha256": "6bdb41f738f088e7420374d67a4a6523cc4786f340d355d2bf4f124dcf3d5820",
+      "size": 65921
+    },
+    {
+      "path": "_internal/libxcb-9065bb12.so.1.1.0",
+      "sha256": "f3707868b0b2e78dbdac0994d2977b0ec4303c9c6250f03576b1bd93c42cad63",
+      "size": 228569
+    },
+    {
+      "path": "_internal/libxcb-icccm-9453e4f7.so.4.0.0",
+      "sha256": "4cce664f12f61f7f5f35ce99b77ffc600125fde677e4140d7c5cbeeed1725557",
+      "size": 28417
+    },
+    {
+      "path": "_internal/libxcb-image-c881c1c3.so.0.0.0",
+      "sha256": "d2d3aa33012d06db83c422bd2138453edb8d55ca1b79659e4f0005b734e4eff0",
+      "size": 29673
+    },
+    {
+      "path": "_internal/libxcb-keysyms-28f5419b.so.1.0.0",
+      "sha256": "f12f9472c2b76a78f149129171b97f29cefac19e59aa249bd04e2c1fd0edb3c9",
+      "size": 13889
+    },
+    {
+      "path": "_internal/libxcb-randr-562554c2.so.0.1.0",
+      "sha256": "32a6509485332f5497d086e4c6bd9f26dd6b0027e06956ff7cab9260b8eb71d8",
+      "size": 138953
+    },
+    {
+      "path": "_internal/libxcb-render-161c0eb5.so.0.0.0",
+      "sha256": "646dba7950d90dbb03cb22756cabfa5b04635968eaf2136d7a6b2b7e37e5ce60",
+      "size": 106753
+    },
+    {
+      "path": "_internal/libxcb-render-util-f04ad2c5.so.0.0.0",
+      "sha256": "89cffc2c86fa565b02f53207d7c33f5a15a30c1d7bd8b4e77169e797164d87d8",
+      "size": 30313
+    },
+    {
+      "path": "_internal/libxcb-shape-7716c890.so.0.0.0",
+      "sha256": "fcab683bb15400cc661666124feec67e25454f62fad04830bdf43a3573c4899b",
+      "size": 29937
+    },
+    {
+      "path": "_internal/libxcb-shm-0be6dfbf.so.0.0.0",
+      "sha256": "3f6cbaedacdf0eb23246a4c77b59fc8036711b6a23a2baa651001199a5834e29",
+      "size": 29545
+    },
+    {
+      "path": "_internal/libxcb-sync-e532c63b.so.1.0.0",
+      "sha256": "bc4b29666777726add6b8463f9d574727aac5b6699eb83fd03284a402f707bb6",
+      "size": 47937
+    },
+    {
+      "path": "_internal/libxcb-util-9255dd30.so.1.0.0",
+      "sha256": "dc208fbcb5c9a8c2e1ccf3694b164a356b063cac662dba1bd4ca3b1ac9cd70bb",
+      "size": 30337
+    },
+    {
+      "path": "_internal/libxcb-xfixes-6de855b8.so.0.0.0",
+      "sha256": "295225acbb1878c65c1277469528479c7f6f80abaa0ee271d7c0c0865f3e6bf8",
+      "size": 65793
+    },
+    {
+      "path": "_internal/libxcb-xinerama-fe4b410c.so.0.0.0",
+      "sha256": "35010a319eaf31664707265683b8229445d4a6ce2f18f922527c30db34f9bff6",
+      "size": 25697
+    },
+    {
+      "path": "_internal/libxcb-xkb-fd53f741.so.1.0.0",
+      "sha256": "aa99b0d07e83480c38ecceb95c39e710840a7b87496c6502c9d7899cb107899b",
+      "size": 219337
+    },
+    {
+      "path": "_internal/libxkbcommon-de59cad2.so.0.0.0",
+      "sha256": "4c262f4cf31ffbdb94fd6d16bb89c8e8d5d46720e4eec2dd1c6a32d53b5bf395",
+      "size": 347745
+    },
+    {
+      "path": "_internal/libxkbcommon-x11-27b61ed0.so.0.0.0",
+      "sha256": "dab9fef7e66b923d3ca4bc3c1a3be599beb48ef20734bbb7a0f9db9c99c31f12",
+      "size": 64465
+    },
+    {
+      "path": "_internal/libz.so.1",
+      "sha256": "85590dd58edf5445e18bc7193e5ebc01ac5841f1ae187e97705a662e90c6421e",
+      "size": 125376
+    },
+    {
+      "path": "_internal/libzstd-40ad5e7e.so.1.5.7",
+      "sha256": "95a5af7845018639470635243c36b428f90af32b728804af6d951e7fcb08bbea",
+      "size": 815025
+    },
+    {
+      "path": "_internal/numpy/_core/_multiarray_tests.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "01fbdfb35211b8e07d1b0c395f84f15f709e78859fe7a3f4a89915a5d7aa7309",
+      "size": 146912
+    },
+    {
+      "path": "_internal/numpy/_core/_multiarray_umath.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "b185dfe64b07180bedc7c15fb2735b0d0f4f4e09eb9c15bd8e67f74568aebcbf",
+      "size": 10637297
+    },
+    {
+      "path": "_internal/numpy/fft/_pocketfft_umath.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "29a1547b480b7ddc1e45cdc772b3f4b614cccced70204181bf5d3ad138a04ebb",
+      "size": 539296
+    },
+    {
+      "path": "_internal/numpy/linalg/_umath_linalg.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "2e075f582c3a25a21fe97a55931a0fdb22ceb84f4fce8203a5040d405ccf65ce",
+      "size": 235897
+    },
+    {
+      "path": "_internal/numpy/random/_bounded_integers.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "73bf58f374a46edac9bd1fbb3fc16f199b4a8e8ed12a222a23897e722655adcd",
+      "size": 317000
+    },
+    {
+      "path": "_internal/numpy/random/_common.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "232d131170bce32fbe3bfed38a5f14a0104d7efd7bff521162c2e0b6e2ac4bee",
+      "size": 258912
+    },
+    {
+      "path": "_internal/numpy/random/_generator.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "e362c7a4c9d5d97404ee1fcbf00c2b345ecec945df50f6ea3e0f4631d4ab336e",
+      "size": 845808
+    },
+    {
+      "path": "_internal/numpy/random/_mt19937.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "3f06703c3971d813adda172ffd2de8af16df18875242e4b1542d9e8e8f33919f",
+      "size": 139336
+    },
+    {
+      "path": "_internal/numpy/random/_pcg64.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "61175f3da7d43f4811277cdf743906b8d405d1800cee79632a17fbca478e6964",
+      "size": 151344
+    },
+    {
+      "path": "_internal/numpy/random/_philox.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "51f2c84d85fbd199adf32b234e2558b3add7f7a8b86d0797fb36d3ee068619ef",
+      "size": 131184
+    },
+    {
+      "path": "_internal/numpy/random/_sfc64.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "cb9c0d024e0e30dbc6bbec4bad8fbee6ba2aeaa4f444c5ea66473d8c8c31a609",
+      "size": 96336
+    },
+    {
+      "path": "_internal/numpy/random/bit_generator.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "3734537d37d6d54654e33890ec17cf6e54cca3aba8cfc5e6160786c236457df3",
+      "size": 245424
+    },
+    {
+      "path": "_internal/numpy/random/mtrand.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "53a0dea25039fd6e55ce2a6c94789c9273fdfa1cc4bda60dde6e813f455c9bc5",
+      "size": 666552
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/INSTALLER",
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "size": 4
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/METADATA",
+      "sha256": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+      "size": 6635
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/RECORD",
+      "sha256": "b2c090f162b2bd66b1adfeb0fbc6c662cb7b4b8caf7d51cc1c328327dfdc4734",
+      "size": 111606
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/REQUESTED",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/WHEEL",
+      "sha256": "ac90a994678616346852fc495a154e351832198199a0e921c9e8f4b372b28e82",
+      "size": 138
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/entry_points.txt",
+      "sha256": "ec26fade0c8bdac211a6c1dd003a65eb16885b925395423e93fcaa115af4052c",
+      "size": 220
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+      "sha256": "4860083caa0de2ac3292ca98bd074bd8f45d8b32624e37b1e70a240bff61e488",
+      "size": 46794
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "size": 1018
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+      "sha256": "3f2c1ffa76383a55ae0aac01c9737cd70050dff63e1f026694fbe9d662573c98",
+      "size": 690
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+      "sha256": "e340270d4f64384569a91d546acb5b094d69ce47f0c015db77abb74dc6f815af",
+      "size": 20785
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+      "sha256": "f7b14309e5f54e5022b26448eefd419988ada2aec01d3c1162d84a0ea8f21f2c",
+      "size": 1414
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+      "sha256": "211e7d737d6179a08f791ebb0a99897ce7cd2457410c542876d125576edfe910",
+      "size": 1514
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+      "sha256": "c17011467b4fe6e20fbfbeda4df09e58c2bca5480a063e55735a4000a379aad9",
+      "size": 1543
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+      "sha256": "a85ca13fdf90160b64a0698215868c13b74d835ad0a4e2ba44713b8c5058a056",
+      "size": 1498
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+      "sha256": "a14cc25e10d40a3aa705b7de2fb764a6535d8ee9b2db4e1724900585457dfd55",
+      "size": 2266
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "size": 1593
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "size": 3511
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+      "sha256": "469778be8f33d54e1bcaab28c281cc472916d2d273f835e55bc487d30503face",
+      "size": 2745
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+      "sha256": "0e111337b25494a773106695f0e799f642b8567aaacca4f116a74a8177179156",
+      "size": 2926
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+      "sha256": "e7d4f4fb20358f314210a892ae17351e04993813646f697ec387385ca2a36918",
+      "size": 1154
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+      "sha256": "6f5828a57223d4cc7f8ea505a2623e7b978b242752c1515e355f46ba2cec1800",
+      "size": 1509
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+      "sha256": "9d4098846018319cd68e228ee6220361787f73bccbf00237a85e4fc9621b998f",
+      "size": 1226
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+      "sha256": "268b0ca06759d31ea3ca68dd35f20e877916e927b1c2a835e4592a3c4354b1f9",
+      "size": 332
+    },
+    {
+      "path": "_internal/numpy.libs/libgfortran-83c28eba-468e71e5.so.5.0.0",
+      "sha256": "a6a368328d02a5d8a149746f13f6268f8cc9192df5c18777b25c3c9b5ef52160",
+      "size": 2862249
+    },
+    {
+      "path": "_internal/numpy.libs/libquadmath-2284e583-a9307bba.so.0.0.0",
+      "sha256": "6bc3069003caec1f075be3c51ae8355332f081fa9465910c4b5724e7fe7d8ad4",
+      "size": 275553
+    },
+    {
+      "path": "_internal/numpy.libs/libscipy_openblas64_-f48b354e.so",
+      "sha256": "432e1c1739731468ba305771af96773939e43016643e2d630f58cb45b6670e96",
+      "size": 24325657
+    },
+    {
+      "path": "_internal/onnxruntime/capi/libonnxruntime_providers_shared.so",
+      "sha256": "086ec1d5388f64153d9c63470d126693db9a182c8ce236d3a1119068471b8a0d",
+      "size": 14632
+    },
+    {
+      "path": "_internal/onnxruntime/capi/onnxruntime_pybind11_state.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "610a1f1700874da6b18c408888281ea75e03591f637ce0292f169c978ad46b15",
+      "size": 30958696
+    },
+    {
+      "path": "_internal/onnxruntime-1.31.1.dist-info/INSTALLER",
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "size": 4
+    },
+    {
+      "path": "_internal/onnxruntime-1.31.1.dist-info/METADATA",
+      "sha256": "82f146c3aad08fd55eadf57e410022535697a858bd6bf760320b2328301d41cf",
+      "size": 5839
+    },
+    {
+      "path": "_internal/onnxruntime-1.31.1.dist-info/RECORD",
+      "sha256": "e3a88696cd64b30e0f520e88609f426acfdf047c29a706c848526b1727802e8b",
+      "size": 60717
+    },
+    {
+      "path": "_internal/onnxruntime-1.31.1.dist-info/REQUESTED",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "_internal/onnxruntime-1.31.1.dist-info/WHEEL",
+      "sha256": "1af6f27b74ad55a23778069797ca03074c02fedaa76c11f1963f3920804df623",
+      "size": 113
+    },
+    {
+      "path": "_internal/onnxruntime-1.31.1.dist-info/entry_points.txt",
+      "sha256": "eea2d2e056c65f03d98df7695401a99e693d23a9ba1f90b1127c1c0b1d489a3b",
+      "size": 77
+    },
+    {
+      "path": "_internal/onnxruntime-1.31.1.dist-info/top_level.txt",
+      "sha256": "ce4fdf2447a4ad39bd0cbc57d8bc067a0a2456a3fa6e5a8f845a0c22e87436ff",
+      "size": 12
+    },
+    {
+      "path": "_internal/opencv_python-5.0.0.93.dist-info/INSTALLER",
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "size": 4
+    },
+    {
+      "path": "_internal/opencv_python-5.0.0.93.dist-info/LICENSE-3RD-PARTY.txt",
+      "sha256": "2537f5653345db7231ff12f307bcfa4c89807d45ed1c4bb8ebfb6f26f61b160a",
+      "size": 179634
+    },
+    {
+      "path": "_internal/opencv_python-5.0.0.93.dist-info/LICENSE.txt",
+      "sha256": "09d719058e782ac7bc71ba21c944e1136cde2bb957c0e888121f0218d6b5f02c",
+      "size": 1070
+    },
+    {
+      "path": "_internal/opencv_python-5.0.0.93.dist-info/METADATA",
+      "sha256": "20749df4e7500c53075dee344cd02f63d4df0dce93526e49e7e1c90fbc094e3e",
+      "size": 19749
+    },
+    {
+      "path": "_internal/opencv_python-5.0.0.93.dist-info/RECORD",
+      "sha256": "0f280e72b8f26f6adfee35972bfb5f2b5fcd66719a945e33f79282977a8ff1f5",
+      "size": 8874
+    },
+    {
+      "path": "_internal/opencv_python-5.0.0.93.dist-info/WHEEL",
+      "sha256": "6a64b1cf98670e593de58d6559d5b0a34e778ebdfe2059140a09431aaa146b75",
+      "size": 106
+    },
+    {
+      "path": "_internal/opencv_python-5.0.0.93.dist-info/sboms/auditwheel.cdx.json",
+      "sha256": "a2b196bf39d6c2d3e0d2544c21860bf64769d77c7c2941ebfec9d6d85ade82cc",
+      "size": 12370
+    },
+    {
+      "path": "_internal/opencv_python-5.0.0.93.dist-info/top_level.txt",
+      "sha256": "498f2fadffec60e83df4e3fd7ae873eeadfaa4fcbfd952b9bdb784597c304a87",
+      "size": 4
+    },
+    {
+      "path": "_internal/opencv_python.libs/libQt5Core-9088e21b.so.5.15.19",
+      "sha256": "648bc35ad28d32776aac2b572cf9a2ef508e5b8a4f9cc4e9c090c4789bd88023",
+      "size": 7516361
+    },
+    {
+      "path": "_internal/opencv_python.libs/libQt5Gui-afbd4980.so.5.15.19",
+      "sha256": "536788d31cc7baf50118b6e7145219e2b5792243646d2bd6bc8e24931599d2d5",
+      "size": 9954737
+    },
+    {
+      "path": "_internal/opencv_python.libs/libQt5Test-2553f470.so.5.15.19",
+      "sha256": "3b19c992c34add06a756c00ab31aa065a47e57ca9cb01b4d699db7dd249f0a17",
+      "size": 440457
+    },
+    {
+      "path": "_internal/opencv_python.libs/libQt5Widgets-5be2f68b.so.5.15.19",
+      "sha256": "1271c7b6b606be4c802c110b389c1a6645608df668c739999b0cc029b5de506d",
+      "size": 9122297
+    },
+    {
+      "path": "_internal/opencv_python.libs/libQt5XcbQpa-bb93e554.so.5.15.19",
+      "sha256": "ca88133317c2baf28265d4b91806ca74173663847bc2a4cb2e283f44ce83591b",
+      "size": 1930225
+    },
+    {
+      "path": "_internal/opencv_python.libs/libX11-xcb-b482bfde.so.1.0.0",
+      "sha256": "bd84887dc1555a36fa203b55b129d7f12856b5979f00dbbcf083785c0dba50b0",
+      "size": 8761
+    },
+    {
+      "path": "_internal/opencv_python.libs/libXau-154567c4.so.6.0.0",
+      "sha256": "05484d24bf78cb8ed03169f1cb067204d829cb7af21de8820400d29d115e4320",
+      "size": 22081
+    },
+    {
+      "path": "_internal/opencv_python.libs/libaom-a0d22147.so.3.14.1",
+      "sha256": "1158ff3dfd6b92bdf3f163c02c11c629baadba467604dcf5c579cf8daac071ea",
+      "size": 8141337
+    },
+    {
+      "path": "_internal/opencv_python.libs/libavcodec-c4204469.so.62.28.101",
+      "sha256": "94401ecabe5cd87f7db30af2843c8ff0674e57947d102f307ebed8788740cbb9",
+      "size": 18439145
+    },
+    {
+      "path": "_internal/opencv_python.libs/libavdevice-f388f22c.so.62.3.101",
+      "sha256": "5283f510f78eb716fcdc9c94bd23c8e625a5cd3e60845d1738225523819b7af8",
+      "size": 106641
+    },
+    {
+      "path": "_internal/opencv_python.libs/libavfilter-8d3f2f4f.so.11.14.101",
+      "sha256": "eb0e1201d15ed0d5d65497d7827c41f3a00f422540f82260e2d9ea15967abae2",
+      "size": 5377905
+    },
+    {
+      "path": "_internal/opencv_python.libs/libavformat-4762a711.so.62.12.101",
+      "sha256": "150705d76b62a20a16cbb131ba5c9e25c086ccb7914bf0b50c084bc66c15c0e1",
+      "size": 2991673
+    },
+    {
+      "path": "_internal/opencv_python.libs/libavif-43e630fc.so.16.4.2",
+      "sha256": "08bd56025b1f665362a7ac4f1f2ac552e36803817a3637840a376242d38f30da",
+      "size": 1165369
+    },
+    {
+      "path": "_internal/opencv_python.libs/libavutil-befbbc48.so.60.26.101",
+      "sha256": "fe9258859653c19d0d4029bbb84622bc5c39707d7936372df757661e6b961b18",
+      "size": 1066369
+    },
+    {
+      "path": "_internal/opencv_python.libs/libcrypto-5409cd36.so.1.1.1k",
+      "sha256": "af6e7717a5384f73fd0c15d6472282f6b4106c58f55575fa33df7e798a0256c2",
+      "size": 3215921
+    },
+    {
+      "path": "_internal/opencv_python.libs/libdrm-b0291a67.so.2.4.0",
+      "sha256": "2b8f19025340baf49d5fb8b6b68113c429baf3ceb0e04d7b2663f673c44cdbed",
+      "size": 96417
+    },
+    {
+      "path": "_internal/opencv_python.libs/libgfortran-83c28eba.so.5.0.0",
+      "sha256": "468e71e59e1d784821a76702e5ecd1e0dbcfc024499f74a552d1bea4b26f27ad",
+      "size": 2751569
+    },
+    {
+      "path": "_internal/opencv_python.libs/libopenblasp-r0-59ffcd50.3.15.so",
+      "sha256": "c073ab726795e391fd4ee09ce941c7d9e23e71a3737a910367f03d89487542f5",
+      "size": 38982937
+    },
+    {
+      "path": "_internal/opencv_python.libs/libpcre2-16-bca4e6b3.so.0.7.1",
+      "sha256": "3ba35e91573e04d26e114a07dd6e60d2bbca4708d4d596917f092d527a2843a9",
+      "size": 502753
+    },
+    {
+      "path": "_internal/opencv_python.libs/libpng16-529cb57a.so.16.58.0",
+      "sha256": "e4d04733e75ffa81ab878c0ed628463ee4bba178120c32dc0372963680c6e768",
+      "size": 1076721
+    },
+    {
+      "path": "_internal/opencv_python.libs/libquadmath-2284e583.so.0.0.0",
+      "sha256": "a9307bbaa353623fa014e8b682d50c4629f5e5c7d61daa9a8652f7d165cd421a",
+      "size": 272193
+    },
+    {
+      "path": "_internal/opencv_python.libs/libssl-81259c47.so.1.1.1k",
+      "sha256": "3b5222f85e27642d50b37dc42345a65d129b1fcc556f94eac56d008833bdafa4",
+      "size": 687353
+    },
+    {
+      "path": "_internal/opencv_python.libs/libswresample-2dfded3b.so.6.3.101",
+      "sha256": "45f1bbfcae84449e2293c07398376c478a9ea1c4190c23e1c9a414a055b46657",
+      "size": 150337
+    },
+    {
+      "path": "_internal/opencv_python.libs/libswscale-fe215b0b.so.9.5.101",
+      "sha256": "146094fd188bf8e6585b21acb5946f298efbdbee88690f0134e1e8fa48c44a73",
+      "size": 2017409
+    },
+    {
+      "path": "_internal/opencv_python.libs/libvpx-4fb239ff.so.11.0.1",
+      "sha256": "be3407f96ebd5fd5fde8eb91c9bf7d1e083916ddf856cf45784c67f1b2cb7f41",
+      "size": 3692569
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-icccm-9453e4f7.so.4.0.0",
+      "sha256": "4cce664f12f61f7f5f35ce99b77ffc600125fde677e4140d7c5cbeeed1725557",
+      "size": 28417
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-image-c881c1c3.so.0.0.0",
+      "sha256": "d2d3aa33012d06db83c422bd2138453edb8d55ca1b79659e4f0005b734e4eff0",
+      "size": 29673
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-keysyms-28f5419b.so.1.0.0",
+      "sha256": "f12f9472c2b76a78f149129171b97f29cefac19e59aa249bd04e2c1fd0edb3c9",
+      "size": 13889
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-randr-562554c2.so.0.1.0",
+      "sha256": "32a6509485332f5497d086e4c6bd9f26dd6b0027e06956ff7cab9260b8eb71d8",
+      "size": 138953
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-render-161c0eb5.so.0.0.0",
+      "sha256": "646dba7950d90dbb03cb22756cabfa5b04635968eaf2136d7a6b2b7e37e5ce60",
+      "size": 106753
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-render-util-f04ad2c5.so.0.0.0",
+      "sha256": "89cffc2c86fa565b02f53207d7c33f5a15a30c1d7bd8b4e77169e797164d87d8",
+      "size": 30313
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-shape-7716c890.so.0.0.0",
+      "sha256": "fcab683bb15400cc661666124feec67e25454f62fad04830bdf43a3573c4899b",
+      "size": 29937
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-shm-0be6dfbf.so.0.0.0",
+      "sha256": "3f6cbaedacdf0eb23246a4c77b59fc8036711b6a23a2baa651001199a5834e29",
+      "size": 29545
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-sync-e532c63b.so.1.0.0",
+      "sha256": "bc4b29666777726add6b8463f9d574727aac5b6699eb83fd03284a402f707bb6",
+      "size": 47937
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-util-9255dd30.so.1.0.0",
+      "sha256": "dc208fbcb5c9a8c2e1ccf3694b164a356b063cac662dba1bd4ca3b1ac9cd70bb",
+      "size": 30337
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-xfixes-6de855b8.so.0.0.0",
+      "sha256": "295225acbb1878c65c1277469528479c7f6f80abaa0ee271d7c0c0865f3e6bf8",
+      "size": 65793
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-xinerama-fe4b410c.so.0.0.0",
+      "sha256": "35010a319eaf31664707265683b8229445d4a6ce2f18f922527c30db34f9bff6",
+      "size": 25697
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxcb-xkb-fd53f741.so.1.0.0",
+      "sha256": "aa99b0d07e83480c38ecceb95c39e710840a7b87496c6502c9d7899cb107899b",
+      "size": 219337
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxkbcommon-de59cad2.so.0.0.0",
+      "sha256": "4c262f4cf31ffbdb94fd6d16bb89c8e8d5d46720e4eec2dd1c6a32d53b5bf395",
+      "size": 347745
+    },
+    {
+      "path": "_internal/opencv_python.libs/libxkbcommon-x11-27b61ed0.so.0.0.0",
+      "sha256": "dab9fef7e66b923d3ca4bc3c1a3be599beb48ef20734bbb7a0f9db9c99c31f12",
+      "size": 64465
+    },
+    {
+      "path": "_internal/pillow-13.0.0.dist-info/INSTALLER",
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "size": 4
+    },
+    {
+      "path": "_internal/pillow-13.0.0.dist-info/METADATA",
+      "sha256": "dba7fdfe24e302f46bae562f55d66cc367c0618abae9894a1ebec93dc8f0e511",
+      "size": 9118
+    },
+    {
+      "path": "_internal/pillow-13.0.0.dist-info/RECORD",
+      "sha256": "8a825a0cc300e145dedf519a1506c3e13fdd8848024da884357e5494e9386353",
+      "size": 16241
+    },
+    {
+      "path": "_internal/pillow-13.0.0.dist-info/REQUESTED",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "_internal/pillow-13.0.0.dist-info/WHEEL",
+      "sha256": "c58d27a294d0bb25ef5b3465c41b45d28fbc19afdbcfc665637ef1d33291c3b8",
+      "size": 152
+    },
+    {
+      "path": "_internal/pillow-13.0.0.dist-info/licenses/LICENSE",
+      "sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce",
+      "size": 70307
+    },
+    {
+      "path": "_internal/pillow-13.0.0.dist-info/sboms/auditwheel.cdx.json",
+      "sha256": "d4c7d41b4eac586f935c189dc49205b127137c39f2babc54ac5d34fe4afc1e0e",
+      "size": 1358
+    },
+    {
+      "path": "_internal/pillow-13.0.0.dist-info/sboms/pillow-13.0.0.cdx.json",
+      "sha256": "fe1ca6e3a4f73e7018a3805a75a19377453f342d203712f37387ad6ee853fd44",
+      "size": 21892
+    },
+    {
+      "path": "_internal/pillow-13.0.0.dist-info/top_level.txt",
+      "sha256": "ae266aae4fa1c99aa1e5fd59d19c228b774a7f112c07286ef5c53d20e0c5f8d6",
+      "size": 4
+    },
+    {
+      "path": "_internal/pillow.libs/libXau-154567c4.so.6.0.0",
+      "sha256": "8b5a93469805d3550471766696d4755f05bc6ca0587f22c03037ca7d12545c8b",
+      "size": 2100545
+    },
+    {
+      "path": "_internal/pillow.libs/libavif-c6062d5f.so.16.4.2",
+      "sha256": "d12ec0b696860b292114b130ecac6082fc75c198c1b4fa57b26089e9b0a7eb6a",
+      "size": 4918457
+    },
+    {
+      "path": "_internal/pillow.libs/libbrotlicommon-53534446.so.1.2.0",
+      "sha256": "72c1ab487e4bd44c906336747bf1926cbf5f164f9d05e0b4fd18b7d8d113b7fe",
+      "size": 146089
+    },
+    {
+      "path": "_internal/pillow.libs/libbrotlidec-7e5462ba.so.1.2.0",
+      "sha256": "1b497acc3d8d8e1fc286088f0c288be7c0c54bf5a8fa94b12b23e54de205d48c",
+      "size": 68105
+    },
+    {
+      "path": "_internal/pillow.libs/libfreetype-57f805ba.so.6.20.6",
+      "sha256": "5be086dea47fd1c3fadd431ee79fe0b5e5a0c6c38e78f1db55cf2dad17dea430",
+      "size": 1179825
+    },
+    {
+      "path": "_internal/pillow.libs/libharfbuzz-fb49c9fc.so.0.61450.0",
+      "sha256": "4a30b9e3a12a72691b70b14945f3e8adaa8c2bc191bd8b706aae6ed0f0fa9fc0",
+      "size": 1529553
+    },
+    {
+      "path": "_internal/pillow.libs/libjpeg-6dc8d115.so.62.4.0",
+      "sha256": "cc04bc42fd6296e81d24d13955fb95bd829624f6c74105eaf4a7fcf2ce42e048",
+      "size": 859489
+    },
+    {
+      "path": "_internal/pillow.libs/liblcms2-88eaba2f.so.2.0.19",
+      "sha256": "4cf9f69016c7804bcb4fa56f5bbc55640cb1b7196ac7b93ba29ed9df9bd9ff4d",
+      "size": 422689
+    },
+    {
+      "path": "_internal/pillow.libs/liblzma-de26b416.so.5.8.4",
+      "sha256": "ab4d2f260d6777088cc4bd96ce4997a5199d20b94e146a764b02c37d42477ce9",
+      "size": 202625
+    },
+    {
+      "path": "_internal/pillow.libs/libopenjp2-e530e1bf.so.2.5.4",
+      "sha256": "eea7a2058e0f2084d41ba88c561bddc866bd38e74f76b5ca4fccb965e2fb1c24",
+      "size": 476905
+    },
+    {
+      "path": "_internal/pillow.libs/libpng16-1d1ba958.so.16.58.0",
+      "sha256": "38d5a01026f61afba1bb94698846722840067fc87b2ee9003fe8dcccf1bc155f",
+      "size": 226481
+    },
+    {
+      "path": "_internal/pillow.libs/libsharpyuv-0066295b.so.0.1.2",
+      "sha256": "8abd5c39ee3b26330288b2e833d4d9b5d4b5ed4c881649057354df17326b6996",
+      "size": 47841
+    },
+    {
+      "path": "_internal/pillow.libs/libtiff-20b7e810.so.6.3.0",
+      "sha256": "729883f61144533eb3215d405e4daad528a68f89e9a1fccf51e9862819f30020",
+      "size": 617449
+    },
+    {
+      "path": "_internal/pillow.libs/libwebp-51b0b3f7.so.7.2.0",
+      "sha256": "6a97159a7c36acacb112618eb74720c97bbab4ecc499a8bfeb495dd726285259",
+      "size": 745233
+    },
+    {
+      "path": "_internal/pillow.libs/libwebpdemux-9fe2abcc.so.2.0.17",
+      "sha256": "5d728787db553c48c74dccd93d2763ec88234850a5f2f821df11483c8d28d2a7",
+      "size": 35985
+    },
+    {
+      "path": "_internal/pillow.libs/libwebpmux-8fb1c9f6.so.3.1.2",
+      "sha256": "6bdb41f738f088e7420374d67a4a6523cc4786f340d355d2bf4f124dcf3d5820",
+      "size": 65921
+    },
+    {
+      "path": "_internal/pillow.libs/libxcb-9065bb12.so.1.1.0",
+      "sha256": "f3707868b0b2e78dbdac0994d2977b0ec4303c9c6250f03576b1bd93c42cad63",
+      "size": 228569
+    },
+    {
+      "path": "_internal/pillow.libs/libzstd-40ad5e7e.so.1.5.7",
+      "sha256": "95a5af7845018639470635243c36b428f90af32b728804af6d951e7fcb08bbea",
+      "size": 815025
+    },
+    {
+      "path": "_internal/psutil/_psutil_linux.abi3.so",
+      "sha256": "8085c743a77f6059be6d18d54317ccce2e715425bb5f15aa8835770463d6b9fd",
+      "size": 150904
+    },
+    {
+      "path": "_internal/psutil-7.2.2.dist-info/INSTALLER",
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "size": 4
+    },
+    {
+      "path": "_internal/psutil-7.2.2.dist-info/LICENSE",
+      "sha256": "b89c063b3786e28e0c0a38f1931db61fed35e69dd2a2966fbecffee0f46c8d10",
+      "size": 1548
+    },
+    {
+      "path": "_internal/psutil-7.2.2.dist-info/METADATA",
+      "sha256": "525f8ba78523cf7bc3759d62a105e7c57fd679ea702402b9449fb0746aa0217f",
+      "size": 22187
+    },
+    {
+      "path": "_internal/psutil-7.2.2.dist-info/RECORD",
+      "sha256": "b28445afbcb938e8a146ed1e7357406fdb031c24c828c819a04b1ef502d683fb",
+      "size": 1879
+    },
+    {
+      "path": "_internal/psutil-7.2.2.dist-info/REQUESTED",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "_internal/psutil-7.2.2.dist-info/WHEEL",
+      "sha256": "aca9cca3026cd7b9774535accd80fde13f5a55cf32141be943e4575a4e8835cd",
+      "size": 184
+    },
+    {
+      "path": "_internal/psutil-7.2.2.dist-info/top_level.txt",
+      "sha256": "8023619f9ef0ce4b038d20084a680c2746a25f342e964d062616f6f81032620c",
+      "size": 7
+    },
+    {
+      "path": "_internal/pyclipper/_pyclipper.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "ae66885834f8446881ab0935c59748ab4630ca229da0880914f3e42934f3e18a",
+      "size": 3547384
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/__init__.py",
+      "sha256": "25e7859135d306af5eb626086e2211a9b4da01cff1327beb0fb2298dcba33a51",
+      "size": 143
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/cal_rec_boxes/__init__.py",
+      "sha256": "485d5bca0cd84c80ea4576ff4ed5e906828851b287c581c746a9a272a7ce945c",
+      "size": 104
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/cal_rec_boxes/main.py",
+      "sha256": "d7cf9cb01f189a873cef9897150e379085608f9908a7288857ea2599ff7eee76",
+      "size": 10493
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/ch_ppocr_cls/__init__.py",
+      "sha256": "aeaf19b49fb6b5a361547544e7cb98972dd0b6756e9ad320d9fe7008891ae9b2",
+      "size": 111
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/ch_ppocr_cls/text_cls.py",
+      "sha256": "ead555ddeb7a8a0da067f4d2f9e2760e93db9e46d906888e0522277dda6620c8",
+      "size": 4229
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/ch_ppocr_cls/utils.py",
+      "sha256": "a6d3debaaf21b092731b20a249b816512070b8e932db7b0f15d5536dcda2328a",
+      "size": 1025
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/ch_ppocr_det/__init__.py",
+      "sha256": "8f33f181e76809c609ead8f5d44afed1e83f74e752239c0f30ca961fdf152e63",
+      "size": 112
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/ch_ppocr_det/text_detect.py",
+      "sha256": "fc9d63ba47940d3e5bfefe6738f310b583cd4de4708fefe114fce11236f2c199",
+      "size": 4556
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/ch_ppocr_det/utils.py",
+      "sha256": "0b3405390c37c7d6f0c9c7099eeec36b050b8e0dee7659fbd82a73bcbd265cd0",
+      "size": 7930
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/ch_ppocr_rec/__init__.py",
+      "sha256": "989f6e9e87508f91cdfc496c7c4ef7580bbb6cc1a0f87a90e139029d10970de0",
+      "size": 117
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/ch_ppocr_rec/text_recognize.py",
+      "sha256": "48d8656d11403d09b2ed32b65a686906b9502ca1a4e16a3934d91b35129d032a",
+      "size": 4700
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/ch_ppocr_rec/utils.py",
+      "sha256": "4a1dc2e8602d12374b12124bbe99a1b42080d72a337799760beaf0d51a32ca90",
+      "size": 6907
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/config.yaml",
+      "sha256": "bf94a1da4cba828e67b1d61e27cee14d9e7da27c9f272e04048a17e41ae97332",
+      "size": 1221
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/main.py",
+      "sha256": "156c49e683fddd26f04280f391f882b857a74d2f020497870f7dd8d850ed5a2c",
+      "size": 12799
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/models/ch_PP-OCRv4_det_infer.onnx",
+      "sha256": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9",
+      "size": 4745517
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/models/ch_PP-OCRv4_rec_infer.onnx",
+      "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+      "size": 10857958
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/models/ch_ppocr_mobile_v2.0_cls_infer.onnx",
+      "sha256": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c",
+      "size": 585532
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/utils/__init__.py",
+      "sha256": "2623808f8f540452cc02951858cb65ef5dacd615b5409ec6c970bc375b1f946d",
+      "size": 619
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/utils/infer_engine.py",
+      "sha256": "3e402c95026ab793533b0de296b0b7e897ad50618d089b2b2214bd90833c3f29",
+      "size": 8152
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/utils/load_image.py",
+      "sha256": "2335171bf0574b56fc4d6d7261bd9bf0dc955db6cec3b5aaf060d345256e65a4",
+      "size": 3755
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/utils/logger.py",
+      "sha256": "2efcad9f0f7afb77c6734d9ec2fcce60f3045b3e6ce7e4752f69ed9e1e647f17",
+      "size": 510
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/utils/parse_parameters.py",
+      "sha256": "a59078f844649e9b08638345a32cd3981a27fd731f4f844a1155f850cb7a6c9e",
+      "size": 7476
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/utils/process_img.py",
+      "sha256": "c54bfd7cb592e40c7be9042fce4a40e5fa5359e8c11a26c3492534065f42f236",
+      "size": 2145
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime/utils/vis_res.py",
+      "sha256": "5225cfd945fd99968cfe2883960949e043d760a8d0dab92ec912e98b01e42205",
+      "size": 5077
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime-1.4.4.dist-info/INSTALLER",
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "size": 4
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime-1.4.4.dist-info/METADATA",
+      "sha256": "1ac15bed7c7fb77d3fac58c2aba0a4d3e2da48de5c65badd3503900acebcf1df",
+      "size": 1264
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime-1.4.4.dist-info/RECORD",
+      "sha256": "a53bd382fb638be9fff238196c1990b5b61358fe3bb8b98af4644f2a2c396592",
+      "size": 4600
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime-1.4.4.dist-info/REQUESTED",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime-1.4.4.dist-info/WHEEL",
+      "sha256": "b59a1e1a3b56c5645f769944ec4ddde3954f94b3509ef6ca8989f1ee0c00cbc0",
+      "size": 92
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime-1.4.4.dist-info/entry_points.txt",
+      "sha256": "b67da401ac093d142470cb61c3f9fbc484c635c022a67ff3629a6ed8b24ab17b",
+      "size": 72
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime-1.4.4.dist-info/top_level.txt",
+      "sha256": "c2eabcaf5c3656287e8d066e4bd33fbbe66a24a7f3390125942ebc56697c2a88",
+      "size": 21
+    },
+    {
+      "path": "_internal/shapely/_geometry_helpers.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "205ca8be2c947dfe8f7bd0e40212d1ed5590f2a7cb3923283b631b1c91aee9af",
+      "size": 382897
+    },
+    {
+      "path": "_internal/shapely/_geos.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "e3e767cfaa9fa049ddbbfcea188642d5c90453b4356602449f5cc4a685845c1e",
+      "size": 69744
+    },
+    {
+      "path": "_internal/shapely/lib.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "214e683d6d571695ea27c9885fd64d857d76adf194d7e9e9327aac422c5ece33",
+      "size": 290697
+    },
+    {
+      "path": "_internal/shapely.libs/libgeos-d1e818bb.so.3.14.1",
+      "sha256": "1e9192b9f1b9f43cd7adbb9999d23d9efda34695cc057bb1911bfc1f9c1d1c9d",
+      "size": 5254185
+    },
+    {
+      "path": "_internal/shapely.libs/libgeos_c-ac38a227.so.1.20.5",
+      "sha256": "47a714ef803c586c8ec85473efe42fab96dadc1fe51663fc7123dd4743acb9a8",
+      "size": 649249
+    },
+    {
+      "path": "_internal/worker-assets/installed/altgraph/METADATA",
+      "sha256": "dc60641dba229a3aef09f764f562c38d908b930c92615af2e626af31d6ff19b5",
+      "size": 7519
+    },
+    {
+      "path": "_internal/worker-assets/installed/altgraph/original/altgraph-0.17.5.dist-info/LICENSE",
+      "sha256": "6c194d6db0c64d45535d10c95142b9b0cda7b7dcc7f1ddee302b3d536f3dbe46",
+      "size": 1002
+    },
+    {
+      "path": "_internal/worker-assets/installed/beautifulsoup4/METADATA",
+      "sha256": "b2f888103259f1607c85f3b1163be1bc49fc9941a3243c3b89a21075bfc6d4fb",
+      "size": 3812
+    },
+    {
+      "path": "_internal/worker-assets/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE",
+      "sha256": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+      "size": 1441
+    },
+    {
+      "path": "_internal/worker-assets/installed/certifi/METADATA",
+      "sha256": "e463e38f7fe7da36a11e6d3fecc5dfa5b97be8c8022620400750d79ae7d842bc",
+      "size": 2526
+    },
+    {
+      "path": "_internal/worker-assets/installed/certifi/original/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "size": 989
+    },
+    {
+      "path": "_internal/worker-assets/installed/cffi/METADATA",
+      "sha256": "558bafb9093a8e790175d9ecff9688382981d744877dad86fd6770db0f4dc918",
+      "size": 2527
+    },
+    {
+      "path": "_internal/worker-assets/installed/cffi/original/cffi-2.1.1.dist-info/licenses/LICENSE",
+      "sha256": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+      "size": 1123
+    },
+    {
+      "path": "_internal/worker-assets/installed/charset-normalizer/METADATA",
+      "sha256": "89ce6362bb7be88558f4be99a98f5d1b4da93d19cd0323e5ee0bac05cf883dfb",
+      "size": 46395
+    },
+    {
+      "path": "_internal/worker-assets/installed/charset-normalizer/original/charset_normalizer-3.5.2.dist-info/licenses/LICENSE",
+      "sha256": "6d0d41bfe170ac6c7dc248c9a63e254d0fb45a60d50a8257d0af92c6e249b887",
+      "size": 1071
+    },
+    {
+      "path": "_internal/worker-assets/installed/click/METADATA",
+      "sha256": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+      "size": 2567
+    },
+    {
+      "path": "_internal/worker-assets/installed/click/original/click-8.5.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+      "size": 1475
+    },
+    {
+      "path": "_internal/worker-assets/installed/cobble/METADATA",
+      "sha256": "6eb2cf88cfb39b884adde1eff7d8f89f80b256572eb0c6c164d6f99943dbd49f",
+      "size": 2698
+    },
+    {
+      "path": "_internal/worker-assets/installed/cryptography/METADATA",
+      "sha256": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+      "size": 4394
+    },
+    {
+      "path": "_internal/worker-assets/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE",
+      "sha256": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+      "size": 197
+    },
+    {
+      "path": "_internal/worker-assets/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+      "sha256": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+      "size": 11360
+    },
+    {
+      "path": "_internal/worker-assets/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD",
+      "sha256": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+      "size": 1532
+    },
+    {
+      "path": "_internal/worker-assets/installed/defusedxml/METADATA",
+      "sha256": "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1",
+      "size": 32518
+    },
+    {
+      "path": "_internal/worker-assets/installed/defusedxml/original/defusedxml-0.7.1.dist-info/LICENSE",
+      "sha256": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8",
+      "size": 2409
+    },
+    {
+      "path": "_internal/worker-assets/installed/et-xmlfile/METADATA",
+      "sha256": "0e97d7ea909ed0fbe03d88bc8b6f58677cee1b07bd3353ce361cd2405915204e",
+      "size": 2711
+    },
+    {
+      "path": "_internal/worker-assets/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.python",
+      "sha256": "4ccdaaebc0f44b83720ec0399bb7ab329adce067dd62f73c5535a2dc05628ab2",
+      "size": 14688
+    },
+    {
+      "path": "_internal/worker-assets/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.rst",
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "size": 1131
+    },
+    {
+      "path": "_internal/worker-assets/installed/flatbuffers/METADATA",
+      "sha256": "9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e",
+      "size": 1004
+    },
+    {
+      "path": "_internal/worker-assets/installed/hatchling/METADATA",
+      "sha256": "482be6d989f36d3c7a31ceefb69ea757f1b603daa9dc598f8626fd0d81d1ca4a",
+      "size": 3901
+    },
+    {
+      "path": "_internal/worker-assets/installed/hatchling/original/hatchling-1.33.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "7f143a8127ad4873862d70854b5bd2abd0085aa73e64fd2b08704a3b9f5c07fc",
+      "size": 1088
+    },
+    {
+      "path": "_internal/worker-assets/installed/idna/METADATA",
+      "sha256": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+      "size": 7207
+    },
+    {
+      "path": "_internal/worker-assets/installed/idna/original/idna-3.20.dist-info/licenses/LICENSE.md",
+      "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+      "size": 1541
+    },
+    {
+      "path": "_internal/worker-assets/installed/lxml/METADATA",
+      "sha256": "aad89f8107bc74045b86c9b7f7c0984196102520dd7faed5e4e45693b7c315ef",
+      "size": 3279
+    },
+    {
+      "path": "_internal/worker-assets/installed/lxml/original/lxml-6.1.3.dist-info/licenses/LICENSE.txt",
+      "sha256": "8fc2b568133516e46845d2147917adeee1648e70ae9ab5ed6c5417afef4ce855",
+      "size": 1507
+    },
+    {
+      "path": "_internal/worker-assets/installed/lxml/original/lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+      "sha256": "388fa99f3bde4447cd5a4cbb114037be026854db6cfe89e112691c1d8abdcf3c",
+      "size": 6221
+    },
+    {
+      "path": "_internal/worker-assets/installed/magika/METADATA",
+      "sha256": "b54a3585962103cacdd8782eb5c72751dbdc202a300469b54782a4824e5b7143",
+      "size": 10647
+    },
+    {
+      "path": "_internal/worker-assets/installed/mammoth/METADATA",
+      "sha256": "aa45c59d8352de6aebe3c85b991045ffdf0acbedb76237dcf48d5e8cee0d8b6d",
+      "size": 26193
+    },
+    {
+      "path": "_internal/worker-assets/installed/mammoth/original/mammoth-1.13.0.dist-info/licenses/LICENSE",
+      "sha256": "6663bbd049205d38a496ccacb412a151980b444627d38de218b3b809aef330f1",
+      "size": 1307
+    },
+    {
+      "path": "_internal/worker-assets/installed/markdownify/METADATA",
+      "sha256": "4b457b9a3b3c6e7c87277a5157f9f99588b6cf89ee16ae20c8a019c6a66f6e2b",
+      "size": 9922
+    },
+    {
+      "path": "_internal/worker-assets/installed/markdownify/original/markdownify-1.2.3.dist-info/LICENSE",
+      "sha256": "fae8b42db142dabf03b0c5c495831a5d11b9649ead0cf0bd4ab4f52294b263be",
+      "size": 1083
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown/METADATA",
+      "sha256": "c3bb731d953a39542a306aff1876fbfb2220a7cad032d71cc948daadbb2efc43",
+      "size": 4982
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown/original/markitdown-0.1.9.dist-info/licenses/LICENSE",
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "size": 1141
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/METADATA",
+      "sha256": "0b46e67030b2a15d521fdd70abfdf3f59b2db000f441a426b9054cffc213b9e7",
+      "size": 661
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/markitdown/LICENSE",
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "size": 1141
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/altgraph/wheel/altgraph-0.17.5.dist-info/LICENSE",
+      "sha256": "6c194d6db0c64d45535d10c95142b9b0cda7b7dcc7f1ddee302b3d536f3dbe46",
+      "size": 1002
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE",
+      "sha256": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+      "size": 1441
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/certifi/wheel/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "size": 989
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/cffi/wheel/cffi-2.1.1.dist-info/licenses/LICENSE",
+      "sha256": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+      "size": 1123
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/charset-normalizer/wheel/charset_normalizer-3.5.2.dist-info/licenses/LICENSE",
+      "sha256": "18577485d3704f1a479ded8e573c0976cfed315fd2fd17983fa988da4c2f70d1",
+      "size": 1092
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/click/wheel/click-8.5.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+      "size": 1475
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/colorama/wheel/colorama-0.4.6.dist-info/licenses/LICENSE.txt",
+      "sha256": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318",
+      "size": 1491
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE",
+      "sha256": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+      "size": 197
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+      "sha256": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+      "size": 11360
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD",
+      "sha256": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+      "size": 1532
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/defusedxml/wheel/defusedxml-0.7.1.dist-info/LICENSE",
+      "sha256": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8",
+      "size": 2409
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.python",
+      "sha256": "4ccdaaebc0f44b83720ec0399bb7ab329adce067dd62f73c5535a2dc05628ab2",
+      "size": 14688
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.rst",
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "size": 1131
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/hatchling/wheel/hatchling-1.33.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "7f143a8127ad4873862d70854b5bd2abd0085aa73e64fd2b08704a3b9f5c07fc",
+      "size": 1088
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/idna/wheel/idna-3.20.dist-info/licenses/LICENSE.md",
+      "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+      "size": 1541
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSE.txt",
+      "sha256": "e7c3ce8d76331b0101cc46790ab43958ea90a364bcf962ed8763d5a818340e69",
+      "size": 1538
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+      "sha256": "df682c668de65321677b5e4861dca4128a8bad8067f230956e9da3f985b3d398",
+      "size": 6348
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/mammoth/wheel/mammoth-1.13.0.dist-info/licenses/LICENSE",
+      "sha256": "6663bbd049205d38a496ccacb412a151980b444627d38de218b3b809aef330f1",
+      "size": 1307
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/markdownify/wheel/markdownify-1.2.3.dist-info/LICENSE",
+      "sha256": "fae8b42db142dabf03b0c5c495831a5d11b9649ead0cf0bd4ab4f52294b263be",
+      "size": 1083
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy/_core/include/numpy/random/LICENSE.txt",
+      "sha256": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+      "size": 1039
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy/ma/LICENSE",
+      "sha256": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+      "size": 1616
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy/random/LICENSE.md",
+      "sha256": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+      "size": 3582
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+      "sha256": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341",
+      "size": 45831
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+      "sha256": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+      "size": 1039
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+      "sha256": "aea41976c720f91bd19725c16916a1ace40eb1ea42620d340e587a5de4bbcea0",
+      "size": 704
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+      "sha256": "d208152e2777ffd0126eacc1bd21c0320d69e4e6b622d21a2a12a47e8ef73763",
+      "size": 21155
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+      "sha256": "b0fd592d4ead563148e3977e7b589169d46a5ef2ff133c755a81af880a3fc919",
+      "size": 1441
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+      "sha256": "a732977853530066790c42817087f4829b518dd98d340c916acbfd227e39d3cb",
+      "size": 1542
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+      "sha256": "585483905b13d4b42f800c55ba99e89d6e2e33ccd5f503e201c07531d148ff41",
+      "size": 1573
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+      "sha256": "8db000e158c162e7249787852d8c69764706502ccee725c06641b31c1e95c8af",
+      "size": 1523
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+      "sha256": "19060ef465e1797d682ee0fc3081bd25ab1395e995e43d25c9d13c95d9a3cd6b",
+      "size": 2314
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+      "sha256": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+      "size": 1616
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+      "sha256": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+      "size": 3582
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+      "sha256": "cf5619f25b112d5ce7c896efffc8e610bcb345dfadcc19f2c1460aa48fff2c9e",
+      "size": 2805
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+      "sha256": "92c10699884321f1c2947fe2a70ab23b0fbf1507f756d89dd08f38c61fc3d4fa",
+      "size": 2986
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+      "sha256": "41190663b77bee5302386495a07b7eabfbfa571aa0ae2f11da6764162062fc4f",
+      "size": 1176
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+      "sha256": "322ac46d870c8aeead6c53adcccc839296fb3c8e456eae155081297daf7f8013",
+      "size": 1540
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+      "sha256": "28cad82ce1379dc529df30da78ec012d7d0d1d576b03ddcb93388aee53659f59",
+      "size": 1253
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+      "sha256": "454ec7350e478e037061850b67395753b425b1cb0a34bbc26290b020bf89d763",
+      "size": 340
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/onnxruntime/wheel/onnxruntime/LICENSE",
+      "sha256": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674",
+      "size": 1094
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/onnxruntime/wheel/onnxruntime/ThirdPartyNotices.txt",
+      "sha256": "c53a76501ef60db6f865f20599f220761201ac4057683acefdab37d861b86622",
+      "size": 344457
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/opencv-python/wheel/cv2/LICENSE-3RD-PARTY.txt",
+      "sha256": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb",
+      "size": 183251
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/opencv-python/wheel/cv2/LICENSE.txt",
+      "sha256": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107",
+      "size": 1090
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE-3RD-PARTY.txt",
+      "sha256": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb",
+      "size": 183251
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE.txt",
+      "sha256": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107",
+      "size": 1090
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/openpyxl/wheel/openpyxl-3.1.5.dist-info/LICENCE.rst",
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "size": 1131
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "size": 197
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "size": 10174
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "size": 1344
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSE",
+      "sha256": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae",
+      "size": 1634
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+      "sha256": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066",
+      "size": 1360
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "size": 2889
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+      "sha256": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc",
+      "size": 1099
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+      "sha256": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1",
+      "size": 1104
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+      "sha256": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f",
+      "size": 6203
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+      "sha256": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f",
+      "size": 1542
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+      "sha256": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128",
+      "size": 11519
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "size": 13936
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+      "sha256": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345",
+      "size": 1486
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+      "sha256": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a",
+      "size": 1058
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+      "sha256": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00",
+      "size": 1059
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+      "sha256": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1",
+      "size": 1249
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+      "sha256": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2",
+      "size": 5974
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+      "sha256": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940",
+      "size": 1606
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+      "sha256": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+      "size": 10767
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+      "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+      "size": 1337
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+      "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+      "size": 1079
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pathspec/wheel/pathspec-1.1.1.dist-info/licenses/LICENSE",
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+      "size": 16726
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pdfminer-six/wheel/pdfminer_six-20251230.dist-info/licenses/LICENSE",
+      "sha256": "f01e5d699a33766b5caf4a5099f2856aba4f3f75ea1df05dc0572b34b4bea8f2",
+      "size": 1093
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pdfplumber/wheel/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt",
+      "sha256": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821",
+      "size": 1086
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pefile/wheel/pefile-2024.8.26.dist-info/LICENSE",
+      "sha256": "b44409c067c6da52bfb54bb6624fb11a7b52157c3a13ae1400232f8196e86ad3",
+      "size": 1083
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+      "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236",
+      "size": 78481
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pluggy/wheel/pluggy-1.7.0.dist-info/licenses/LICENSE",
+      "sha256": "d6b65e6c213a5d0b577911d34d6e5949b9f59d76c238c5071a2f3fc16cfb2606",
+      "size": 1110
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/protobuf/wheel/protobuf-7.36.2.dist-info/LICENSE",
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+      "size": 1732
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/psutil/wheel/psutil-7.2.2.dist-info/LICENSE",
+      "sha256": "c7adc4d5d1337a548b967421f1fbe258b93033a0417708fd6f4e38f8ecbceb80",
+      "size": 1577
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pyclipper/wheel/pyclipper-1.4.0.dist-info/licenses/LICENSE",
+      "sha256": "73c25539e7fb486b834c33747d579e0bc56c0f984294c88f3cb2329420ba300f",
+      "size": 1131
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pycparser/wheel/pycparser-3.12.dist-info/licenses/LICENSE",
+      "sha256": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+      "size": 1543
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pyinstaller/wheel/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt",
+      "sha256": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64",
+      "size": 32604
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pyinstaller-hooks-contrib/wheel/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE",
+      "sha256": "91d0baaff00773038e72c0a1fc9d5d2d38706b7a2b9c04f34296608f931b9cd0",
+      "size": 27666
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pyside6-essentials/wheel/pyside6_essentials-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt",
+      "sha256": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+      "size": 470
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "size": 2889
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/python-docx/wheel/python_docx-1.2.0.dist-info/licenses/LICENSE",
+      "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+      "size": 1104
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/python-pptx/wheel/python_pptx-1.0.2.dist-info/LICENSE",
+      "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+      "size": 1104
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pywin32-ctypes/wheel/pywin32_ctypes-0.2.3.dist-info/LICENSE.txt",
+      "sha256": "dfa83b3e2709adfcdb838d9ad55823ca674abb780e60563d9dd9544ccbf785e9",
+      "size": 1644
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pyyaml/wheel/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "size": 1101
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/reportlab/wheel/reportlab/fonts/DarkGarden-copying-gpl.txt",
+      "sha256": "1b2a567f289f66a143c56353e7b3d4fa5862514a5e3c5cfdf8b02ee5e5aaa953",
+      "size": 17976
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/reportlab/wheel/reportlab/fonts/DarkGarden-copying.txt",
+      "sha256": "3cd1020510efa7f6b3166a5a2740f92bd664a695ea179e0bda442e74cd0ef3a4",
+      "size": 1318
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/reportlab/wheel/reportlab/fonts/bitstream-vera-license.txt",
+      "sha256": "3361d054759a2fc686a2c058be82deaf9c2e6fe549be9004d7935a6c1736315d",
+      "size": 5954
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/reportlab/wheel/reportlab-4.4.9.dist-info/licenses/LICENSE",
+      "sha256": "ef831761646313921375fc2cb888e8eeaf7da213d0b92852c10c42f3a0b4d138",
+      "size": 1707
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/requests/wheel/requests-2.34.2.dist-info/licenses/LICENSE",
+      "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "size": 10142
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/requests/wheel/requests-2.34.2.dist-info/licenses/NOTICE",
+      "sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+      "size": 38
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+      "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d",
+      "size": 7634
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+      "size": 1023
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE",
+      "sha256": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04",
+      "size": 10278
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+      "size": 1023
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE",
+      "sha256": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683",
+      "size": 1076
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE",
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+      "size": 1076
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE",
+      "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+      "size": 1053
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "size": 197
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "size": 10174
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "size": 1344
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE",
+      "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+      "size": 1089
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE",
+      "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+      "size": 1072
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt",
+      "sha256": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654",
+      "size": 1107
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE",
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+      "size": 1076
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/config/NOTICE",
+      "sha256": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8",
+      "size": 493
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/config/_validate_pyproject/NOTICE",
+      "sha256": "09c9bcea95ca086f8bc5bed174e40bc835b297d40fb5f86bbbb570fe0a5581a7",
+      "size": 18737
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+      "size": 1023
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "e8cd7d34604d2758ff589f0f34d6ed79c3f7fb14aaf5e12fb09221421391a3bf",
+      "size": 1612
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_GEOS",
+      "sha256": "7233baa9a7d4a17257b357706b7dbdc4b675e5ca45425b3418673b16990cf239",
+      "size": 27296
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_win32",
+      "sha256": "fdbb2abb8c598c8888755b52340bddcee38668a2def23e51e7d9e3f187bb8d51",
+      "size": 1180
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/shiboken6/wheel/shiboken6-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt",
+      "sha256": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+      "size": 470
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/six/wheel/six-1.17.0.dist-info/LICENSE",
+      "sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+      "size": 1066
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/soupsieve/wheel/soupsieve-4.0.dist-info/licenses/LICENSE.md",
+      "sha256": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+      "size": 1096
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/tomlkit/wheel/tomlkit-0.15.2.dist-info/licenses/LICENSE",
+      "sha256": "f2f9b460ba719da6626add264d3782f275a4ff7aab677beda08b330911e23adb",
+      "size": 1062
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/tqdm/wheel/tqdm-4.70.1.dist-info/licenses/LICENCE",
+      "sha256": "fcff87c3a47ce8028a8512aa182d4fcf0ad1c90544ee75cf9b343684cac194de",
+      "size": 1985
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/trove-classifiers/wheel/trove_classifiers-2026.9.21.13.dist-info/licenses/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/typing-extensions/wheel/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "size": 13936
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/tzdata/wheel/tzdata-2026.6.dist-info/licenses/LICENSE",
+      "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+      "size": 625
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/tzdata/wheel/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/urllib3/wheel/urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+      "size": 1093
+    },
+    {
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/xlsxwriter/wheel/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt",
+      "sha256": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7",
+      "size": 1349
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/METADATA",
+      "sha256": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+      "size": 6635
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy/_core/include/numpy/random/LICENSE.txt",
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "size": 1018
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy/ma/LICENSE",
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "size": 1593
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy/random/LICENSE.md",
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "size": 3511
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+      "sha256": "4860083caa0de2ac3292ca98bd074bd8f45d8b32624e37b1e70a240bff61e488",
+      "size": 46794
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "size": 1018
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+      "sha256": "3f2c1ffa76383a55ae0aac01c9737cd70050dff63e1f026694fbe9d662573c98",
+      "size": 690
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+      "sha256": "e340270d4f64384569a91d546acb5b094d69ce47f0c015db77abb74dc6f815af",
+      "size": 20785
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+      "sha256": "f7b14309e5f54e5022b26448eefd419988ada2aec01d3c1162d84a0ea8f21f2c",
+      "size": 1414
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+      "sha256": "211e7d737d6179a08f791ebb0a99897ce7cd2457410c542876d125576edfe910",
+      "size": 1514
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+      "sha256": "c17011467b4fe6e20fbfbeda4df09e58c2bca5480a063e55735a4000a379aad9",
+      "size": 1543
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+      "sha256": "a85ca13fdf90160b64a0698215868c13b74d835ad0a4e2ba44713b8c5058a056",
+      "size": 1498
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+      "sha256": "a14cc25e10d40a3aa705b7de2fb764a6535d8ee9b2db4e1724900585457dfd55",
+      "size": 2266
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "size": 1593
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "size": 3511
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+      "sha256": "469778be8f33d54e1bcaab28c281cc472916d2d273f835e55bc487d30503face",
+      "size": 2745
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+      "sha256": "0e111337b25494a773106695f0e799f642b8567aaacca4f116a74a8177179156",
+      "size": 2926
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+      "sha256": "e7d4f4fb20358f314210a892ae17351e04993813646f697ec387385ca2a36918",
+      "size": 1154
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+      "sha256": "6f5828a57223d4cc7f8ea505a2623e7b978b242752c1515e355f46ba2cec1800",
+      "size": 1509
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+      "sha256": "9d4098846018319cd68e228ee6220361787f73bccbf00237a85e4fc9621b998f",
+      "size": 1226
+    },
+    {
+      "path": "_internal/worker-assets/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+      "sha256": "268b0ca06759d31ea3ca68dd35f20e877916e927b1c2a835e4592a3c4354b1f9",
+      "size": 332
+    },
+    {
+      "path": "_internal/worker-assets/installed/onnxruntime/METADATA",
+      "sha256": "82f146c3aad08fd55eadf57e410022535697a858bd6bf760320b2328301d41cf",
+      "size": 5839
+    },
+    {
+      "path": "_internal/worker-assets/installed/onnxruntime/original/onnxruntime/LICENSE",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "size": 1073
+    },
+    {
+      "path": "_internal/worker-assets/installed/onnxruntime/original/onnxruntime/ThirdPartyNotices.txt",
+      "sha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3",
+      "size": 338088
+    },
+    {
+      "path": "_internal/worker-assets/installed/opencv-python/METADATA",
+      "sha256": "20749df4e7500c53075dee344cd02f63d4df0dce93526e49e7e1c90fbc094e3e",
+      "size": 19749
+    },
+    {
+      "path": "_internal/worker-assets/installed/opencv-python/original/cv2/LICENSE-3RD-PARTY.txt",
+      "sha256": "2537f5653345db7231ff12f307bcfa4c89807d45ed1c4bb8ebfb6f26f61b160a",
+      "size": 179634
+    },
+    {
+      "path": "_internal/worker-assets/installed/opencv-python/original/cv2/LICENSE.txt",
+      "sha256": "09d719058e782ac7bc71ba21c944e1136cde2bb957c0e888121f0218d6b5f02c",
+      "size": 1070
+    },
+    {
+      "path": "_internal/worker-assets/installed/opencv-python/original/opencv_python-5.0.0.93.dist-info/LICENSE-3RD-PARTY.txt",
+      "sha256": "2537f5653345db7231ff12f307bcfa4c89807d45ed1c4bb8ebfb6f26f61b160a",
+      "size": 179634
+    },
+    {
+      "path": "_internal/worker-assets/installed/opencv-python/original/opencv_python-5.0.0.93.dist-info/LICENSE.txt",
+      "sha256": "09d719058e782ac7bc71ba21c944e1136cde2bb957c0e888121f0218d6b5f02c",
+      "size": 1070
+    },
+    {
+      "path": "_internal/worker-assets/installed/openpyxl/METADATA",
+      "sha256": "23f80ca9830dd89435da1710f26deda8f81e5409287e74540210c72627a4ad96",
+      "size": 2510
+    },
+    {
+      "path": "_internal/worker-assets/installed/openpyxl/original/openpyxl-3.1.5.dist-info/LICENCE.rst",
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "size": 1131
+    },
+    {
+      "path": "_internal/worker-assets/installed/packaging/METADATA",
+      "sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+      "size": 3544
+    },
+    {
+      "path": "_internal/worker-assets/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "size": 197
+    },
+    {
+      "path": "_internal/worker-assets/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "size": 10174
+    },
+    {
+      "path": "_internal/worker-assets/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "size": 1344
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/METADATA",
+      "sha256": "b2b43910a5ef734a08be961df9c484f4664ad9ec2fa5a08294d0edfa08bcdd4b",
+      "size": 18156
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSE",
+      "sha256": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae",
+      "size": 1634
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+      "sha256": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066",
+      "size": 1360
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "size": 2889
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+      "sha256": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc",
+      "size": 1099
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+      "sha256": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1",
+      "size": 1104
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+      "sha256": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f",
+      "size": 6203
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+      "sha256": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f",
+      "size": 1542
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+      "sha256": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128",
+      "size": 11519
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "size": 13936
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+      "sha256": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345",
+      "size": 1486
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+      "sha256": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a",
+      "size": 1058
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+      "sha256": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00",
+      "size": 1059
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+      "sha256": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1",
+      "size": 1249
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+      "sha256": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2",
+      "size": 5974
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+      "sha256": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940",
+      "size": 1606
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+      "sha256": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+      "size": 10767
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+      "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+      "size": 1337
+    },
+    {
+      "path": "_internal/worker-assets/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+      "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+      "size": 1079
+    },
+    {
+      "path": "_internal/worker-assets/installed/pathspec/METADATA",
+      "sha256": "68de3f158b6592f086e78754c962092f32a761944ab66a660c0d62ad79c4b69b",
+      "size": 14797
+    },
+    {
+      "path": "_internal/worker-assets/installed/pathspec/original/pathspec-1.1.1.dist-info/licenses/LICENSE",
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+      "size": 16726
+    },
+    {
+      "path": "_internal/worker-assets/installed/pdfminer-six/METADATA",
+      "sha256": "77a7aa49c45244383288e8b98cb567f19a9083ad0d74716e3011c831df801d44",
+      "size": 4289
+    },
+    {
+      "path": "_internal/worker-assets/installed/pdfminer-six/original/pdfminer_six-20251230.dist-info/licenses/LICENSE",
+      "sha256": "f01e5d699a33766b5caf4a5099f2856aba4f3f75ea1df05dc0572b34b4bea8f2",
+      "size": 1093
+    },
+    {
+      "path": "_internal/worker-assets/installed/pdfplumber/METADATA",
+      "sha256": "24f9118940ac3810a6bf0dd1970094e29cc659c71c334a6fc2e65d7120a74b62",
+      "size": 43599
+    },
+    {
+      "path": "_internal/worker-assets/installed/pdfplumber/original/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt",
+      "sha256": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821",
+      "size": 1086
+    },
+    {
+      "path": "_internal/worker-assets/installed/pillow/METADATA",
+      "sha256": "dba7fdfe24e302f46bae562f55d66cc367c0618abae9894a1ebec93dc8f0e511",
+      "size": 9118
+    },
+    {
+      "path": "_internal/worker-assets/installed/pillow/original/pillow-13.0.0.dist-info/licenses/LICENSE",
+      "sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce",
+      "size": 70307
+    },
+    {
+      "path": "_internal/worker-assets/installed/pip/METADATA",
+      "sha256": "4fa7318cf30f979db7cec45c12cbbc2b4f88a15f12eefbf59a6291d0a03af926",
+      "size": 3677
+    },
+    {
+      "path": "_internal/worker-assets/installed/pip/original/pip-25.0.1.dist-info/LICENSE.txt",
+      "sha256": "634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104",
+      "size": 1093
+    },
+    {
+      "path": "_internal/worker-assets/installed/pluggy/METADATA",
+      "sha256": "20ac8237e37f1d6e7e75500cd663015177ba80c1a1a595ff6bae18a539ff8a2c",
+      "size": 4966
+    },
+    {
+      "path": "_internal/worker-assets/installed/pluggy/original/pluggy-1.7.0.dist-info/licenses/LICENSE",
+      "sha256": "d6b65e6c213a5d0b577911d34d6e5949b9f59d76c238c5071a2f3fc16cfb2606",
+      "size": 1110
+    },
+    {
+      "path": "_internal/worker-assets/installed/protobuf/METADATA",
+      "sha256": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c",
+      "size": 595
+    },
+    {
+      "path": "_internal/worker-assets/installed/protobuf/original/protobuf-7.36.2.dist-info/LICENSE",
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+      "size": 1732
+    },
+    {
+      "path": "_internal/worker-assets/installed/psutil/METADATA",
+      "sha256": "525f8ba78523cf7bc3759d62a105e7c57fd679ea702402b9449fb0746aa0217f",
+      "size": 22187
+    },
+    {
+      "path": "_internal/worker-assets/installed/psutil/original/psutil-7.2.2.dist-info/LICENSE",
+      "sha256": "b89c063b3786e28e0c0a38f1931db61fed35e69dd2a2966fbecffee0f46c8d10",
+      "size": 1548
+    },
+    {
+      "path": "_internal/worker-assets/installed/pyclipper/METADATA",
+      "sha256": "2a2d7b4ef4dd2764ee10701dd84741876680af346570dd8fac922795eb9ddf91",
+      "size": 8577
+    },
+    {
+      "path": "_internal/worker-assets/installed/pyclipper/original/pyclipper-1.4.0.dist-info/licenses/LICENSE",
+      "sha256": "32ee7398e3123736fd14e9f08287edc2d97ace102ab54d8dc4edc8d31c651fa8",
+      "size": 1110
+    },
+    {
+      "path": "_internal/worker-assets/installed/pycparser/METADATA",
+      "sha256": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+      "size": 9709
+    },
+    {
+      "path": "_internal/worker-assets/installed/pycparser/original/pycparser-3.12.dist-info/licenses/LICENSE",
+      "sha256": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+      "size": 1543
+    },
+    {
+      "path": "_internal/worker-assets/installed/pyinstaller/METADATA",
+      "sha256": "2991d3dcd53fe9966b8c16586322a7f9bbc564dd4752c190bd4fe8d6747f7046",
+      "size": 8517
+    },
+    {
+      "path": "_internal/worker-assets/installed/pyinstaller/original/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt",
+      "sha256": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64",
+      "size": 32604
+    },
+    {
+      "path": "_internal/worker-assets/installed/pyinstaller-hooks-contrib/METADATA",
+      "sha256": "1820f1a8a554ce1b6ae528c7fe502f4676c844eb1151f7f040adc8010052b0ba",
+      "size": 16042
+    },
+    {
+      "path": "_internal/worker-assets/installed/pyinstaller-hooks-contrib/original/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE",
+      "sha256": "91d0baaff00773038e72c0a1fc9d5d2d38706b7a2b9c04f34296608f931b9cd0",
+      "size": 27666
+    },
+    {
+      "path": "_internal/worker-assets/installed/pypdfium2/METADATA",
+      "sha256": "3e1628ac6c4cf1dc173e9441f972d9324f8f9ff92d6930c340efceb8175e37e8",
+      "size": 62414
+    },
+    {
+      "path": "_internal/worker-assets/installed/pyside6-essentials/METADATA",
+      "sha256": "68a36226bc8fdd63b54c51f35e8f52226e2e263881a102b23400056e2e689e60",
+      "size": 3721
+    },
+    {
+      "path": "_internal/worker-assets/installed/python-dateutil/METADATA",
+      "sha256": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907",
+      "size": 7341
+    },
+    {
+      "path": "_internal/worker-assets/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "size": 2889
+    },
+    {
+      "path": "_internal/worker-assets/installed/python-docx/METADATA",
+      "sha256": "4c4cc819ebe6de4aca44daccfd3f9173e6f46d9ed900ad1c388ff9efb7b6b1d7",
+      "size": 2022
+    },
+    {
+      "path": "_internal/worker-assets/installed/python-docx/original/python_docx-1.2.0.dist-info/licenses/LICENSE",
+      "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+      "size": 1104
+    },
+    {
+      "path": "_internal/worker-assets/installed/python-pptx/METADATA",
+      "sha256": "d38c6af5f1817cc528706264d8343cd1c95dbdec5672f29b944f54f79134a3a2",
+      "size": 2503
+    },
+    {
+      "path": "_internal/worker-assets/installed/python-pptx/original/python_pptx-1.0.2.dist-info/LICENSE",
+      "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+      "size": 1104
+    },
+    {
+      "path": "_internal/worker-assets/installed/pyyaml/METADATA",
+      "sha256": "03c3b415ed38d09faedc49360e930769b40c58f68585e6de00e2e4916a858d34",
+      "size": 2351
+    },
+    {
+      "path": "_internal/worker-assets/installed/pyyaml/original/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "size": 1101
+    },
+    {
+      "path": "_internal/worker-assets/installed/rapidocr-onnxruntime/METADATA",
+      "sha256": "1ac15bed7c7fb77d3fac58c2aba0a4d3e2da48de5c65badd3503900acebcf1df",
+      "size": 1264
+    },
+    {
+      "path": "_internal/worker-assets/installed/reportlab/METADATA",
+      "sha256": "c73111f8f0ce43fc2194b3e03d0a1e3dd5aa136a7f87b63261776fad7d023097",
+      "size": 1723
+    },
+    {
+      "path": "_internal/worker-assets/installed/reportlab/original/reportlab/fonts/DarkGarden-copying-gpl.txt",
+      "sha256": "1b2a567f289f66a143c56353e7b3d4fa5862514a5e3c5cfdf8b02ee5e5aaa953",
+      "size": 17976
+    },
+    {
+      "path": "_internal/worker-assets/installed/reportlab/original/reportlab/fonts/DarkGarden-copying.txt",
+      "sha256": "3cd1020510efa7f6b3166a5a2740f92bd664a695ea179e0bda442e74cd0ef3a4",
+      "size": 1318
+    },
+    {
+      "path": "_internal/worker-assets/installed/reportlab/original/reportlab/fonts/bitstream-vera-license.txt",
+      "sha256": "3361d054759a2fc686a2c058be82deaf9c2e6fe549be9004d7935a6c1736315d",
+      "size": 5954
+    },
+    {
+      "path": "_internal/worker-assets/installed/reportlab/original/reportlab-4.4.9.dist-info/licenses/LICENSE",
+      "sha256": "ef831761646313921375fc2cb888e8eeaf7da213d0b92852c10c42f3a0b4d138",
+      "size": 1707
+    },
+    {
+      "path": "_internal/worker-assets/installed/requests/METADATA",
+      "sha256": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+      "size": 4806
+    },
+    {
+      "path": "_internal/worker-assets/installed/requests/original/requests-2.34.2.dist-info/licenses/LICENSE",
+      "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "size": 10142
+    },
+    {
+      "path": "_internal/worker-assets/installed/requests/original/requests-2.34.2.dist-info/licenses/NOTICE",
+      "sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+      "size": 38
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/METADATA",
+      "sha256": "24939b84ead30ff4581918c8d5a95aafd377f6a8afc61f30ea18358a8786bfa4",
+      "size": 6581
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+      "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d",
+      "size": 7634
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+      "size": 1023
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE",
+      "sha256": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04",
+      "size": 10278
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+      "size": 1023
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE",
+      "sha256": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683",
+      "size": 1076
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE",
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+      "size": 1076
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE",
+      "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+      "size": 1053
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "size": 197
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "size": 10174
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "size": 1344
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE",
+      "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+      "size": 1089
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE",
+      "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+      "size": 1072
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt",
+      "sha256": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654",
+      "size": 1107
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE",
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+      "size": 1076
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/config/NOTICE",
+      "sha256": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8",
+      "size": 493
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/config/_validate_pyproject/NOTICE",
+      "sha256": "09c9bcea95ca086f8bc5bed174e40bc835b297d40fb5f86bbbb570fe0a5581a7",
+      "size": 18737
+    },
+    {
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools-84.2.1.dist-info/licenses/LICENSE",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+      "size": 1023
+    },
+    {
+      "path": "_internal/worker-assets/installed/shapely/METADATA",
+      "sha256": "ce7d4ab6a5e625f674d0c434dbd2629d50b95816e7e059b596366eddc9e88950",
+      "size": 6746
+    },
+    {
+      "path": "_internal/worker-assets/installed/shapely/original/shapely-2.2.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "4a207eac9bf257ed286e1c6f0fce253d1abfdb134fc61ec855e37f5692a3f754",
+      "size": 1583
+    },
+    {
+      "path": "_internal/worker-assets/installed/shapely/original/shapely-2.2.0.dist-info/licenses/LICENSE_GEOS",
+      "sha256": "81d9aaf9ab7e3e6184568a70f27ee3e138d8d1e543b46dad5af88cff61cf1b36",
+      "size": 26787
+    },
+    {
+      "path": "_internal/worker-assets/installed/shiboken6/METADATA",
+      "sha256": "586ac5f74d295853db808e93852887297b813f133ce13df319c8f3ee0ffaa417",
+      "size": 2473
+    },
+    {
+      "path": "_internal/worker-assets/installed/six/METADATA",
+      "sha256": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+      "size": 1658
+    },
+    {
+      "path": "_internal/worker-assets/installed/six/original/six-1.17.0.dist-info/LICENSE",
+      "sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+      "size": 1066
+    },
+    {
+      "path": "_internal/worker-assets/installed/soupsieve/METADATA",
+      "sha256": "c1d4799cbf1c070586fa86f922f621c33845a5977886fcb6431c763dc083f838",
+      "size": 4387
+    },
+    {
+      "path": "_internal/worker-assets/installed/soupsieve/original/soupsieve-4.0.dist-info/licenses/LICENSE.md",
+      "sha256": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+      "size": 1096
+    },
+    {
+      "path": "_internal/worker-assets/installed/tomlkit/METADATA",
+      "sha256": "a2e59805b99c14685196efea6e2f17438853c9f18658a9b98370a883abcb2963",
+      "size": 3409
+    },
+    {
+      "path": "_internal/worker-assets/installed/tomlkit/original/tomlkit-0.15.2.dist-info/licenses/LICENSE",
+      "sha256": "f2f9b460ba719da6626add264d3782f275a4ff7aab677beda08b330911e23adb",
+      "size": 1062
+    },
+    {
+      "path": "_internal/worker-assets/installed/tqdm/METADATA",
+      "sha256": "a5da70b966afea3a759716041bad7187f2ece02c22348cf9e7c0a512bbf15f57",
+      "size": 57366
+    },
+    {
+      "path": "_internal/worker-assets/installed/tqdm/original/tqdm-4.70.1.dist-info/licenses/LICENCE",
+      "sha256": "fcff87c3a47ce8028a8512aa182d4fcf0ad1c90544ee75cf9b343684cac194de",
+      "size": 1985
+    },
+    {
+      "path": "_internal/worker-assets/installed/trove-classifiers/METADATA",
+      "sha256": "ca7e96493232b21f92aeccf456b2e01f1d4dbcaa8e17a9e1b5e6f03c6eb7461f",
+      "size": 2350
+    },
+    {
+      "path": "_internal/worker-assets/installed/trove-classifiers/original/trove_classifiers-2026.9.21.13.dist-info/licenses/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357
+    },
+    {
+      "path": "_internal/worker-assets/installed/typing-extensions/METADATA",
+      "sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+      "size": 3310
+    },
+    {
+      "path": "_internal/worker-assets/installed/typing-extensions/original/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "size": 13936
+    },
+    {
+      "path": "_internal/worker-assets/installed/tzdata/METADATA",
+      "sha256": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8",
+      "size": 1358
+    },
+    {
+      "path": "_internal/worker-assets/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/LICENSE",
+      "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+      "size": 625
+    },
+    {
+      "path": "_internal/worker-assets/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357
+    },
+    {
+      "path": "_internal/worker-assets/installed/urllib3/METADATA",
+      "sha256": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4",
+      "size": 7389
+    },
+    {
+      "path": "_internal/worker-assets/installed/urllib3/original/urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+      "size": 1093
+    },
+    {
+      "path": "_internal/worker-assets/installed/xlsxwriter/METADATA",
+      "sha256": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
+      "size": 2908
+    },
+    {
+      "path": "_internal/worker-assets/installed/xlsxwriter/original/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt",
+      "sha256": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7",
+      "size": 1349
+    },
+    {
+      "path": "_internal/worker-assets/installed-manifest.json",
+      "sha256": "d06cbbe57e831fa945e9aad11e2d16a6b7c7c022fee68775dbd7542398141e46",
+      "size": 85048
+    },
+    {
+      "path": "_internal/worker-assets/licenses/index.html",
+      "sha256": "1f1c9875a02d051669f344d80021d39a04b7aec5b70219104abfd64ef4ba8b01",
+      "size": 21105
+    },
+    {
+      "path": "_internal/worker-assets/licenses/markitdown/LICENSE",
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "size": 1141
+    },
+    {
+      "path": "_internal/worker-assets/licenses/models/SOURCE.json",
+      "sha256": "b5b441741787fefbfbe4381baadcc7f1b25dd8f3f1ea2baf01d756c4d02620a0",
+      "size": 434
+    },
+    {
+      "path": "_internal/worker-assets/licenses/models/tessdata-fast-Apache-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    {
+      "path": "_internal/worker-assets/licenses/standards/BSD-2-Clause.txt",
+      "sha256": "f32fb3b417a194167cfad068223fc975ba96c5960513a10f66a3c28720aec1df",
+      "size": 1267
+    },
+    {
+      "path": "_internal/worker-assets/licenses/standards/SOURCE.json",
+      "sha256": "aee93a231453078d13c7f69f169308bd3abc88b1904cfe5e12ca7ef4b4b6a1ab",
+      "size": 354
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/altgraph/METADATA",
+      "sha256": "dc60641dba229a3aef09f764f562c38d908b930c92615af2e626af31d6ff19b5",
+      "size": 7519
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/altgraph/wheel/altgraph-0.17.5.dist-info/LICENSE",
+      "sha256": "6c194d6db0c64d45535d10c95142b9b0cda7b7dcc7f1ddee302b3d536f3dbe46",
+      "size": 1002
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/beautifulsoup4/METADATA",
+      "sha256": "b2f888103259f1607c85f3b1163be1bc49fc9941a3243c3b89a21075bfc6d4fb",
+      "size": 3812
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/AUTHORS",
+      "sha256": "b989238918e1fdac1e46717cb405b63e92497a272413af0d989c1df6c8abcb6f",
+      "size": 2201
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE",
+      "sha256": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+      "size": 1441
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/certifi/METADATA",
+      "sha256": "e463e38f7fe7da36a11e6d3fecc5dfa5b97be8c8022620400750d79ae7d842bc",
+      "size": 2526
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/certifi/wheel/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "size": 989
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cffi/METADATA",
+      "sha256": "67b6a7595df7ede2195016a05d285faa7d362a8f57c238984edb8bb674b5770d",
+      "size": 2594
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cffi/wheel/cffi-2.1.1.dist-info/licenses/LICENSE",
+      "sha256": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+      "size": 1123
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/charset-normalizer/METADATA",
+      "sha256": "49e955a09e1a159e0846872798006e8db7d518d8d70c637066fefdb08d3d9f7b",
+      "size": 47287
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/charset-normalizer/wheel/charset_normalizer-3.5.2.dist-info/licenses/LICENSE",
+      "sha256": "18577485d3704f1a479ded8e573c0976cfed315fd2fd17983fa988da4c2f70d1",
+      "size": 1092
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/click/METADATA",
+      "sha256": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+      "size": 2567
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/click/wheel/click-8.5.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+      "size": 1475
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cobble/METADATA",
+      "sha256": "6eb2cf88cfb39b884adde1eff7d8f89f80b256572eb0c6c164d6f99943dbd49f",
+      "size": 2698
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/colorama/METADATA",
+      "sha256": "7baed29eb50c3b29bdb33ff84e3177bf1bc05784f7685ecdcaa4471c7dd810cc",
+      "size": 17158
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/colorama/wheel/colorama-0.4.6.dist-info/licenses/LICENSE.txt",
+      "sha256": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318",
+      "size": 1491
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cryptography/METADATA",
+      "sha256": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+      "size": 4394
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE",
+      "sha256": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+      "size": 197
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+      "sha256": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+      "size": 11360
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD",
+      "sha256": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+      "size": 1532
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/defusedxml/METADATA",
+      "sha256": "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1",
+      "size": 32518
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/defusedxml/wheel/defusedxml-0.7.1.dist-info/LICENSE",
+      "sha256": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8",
+      "size": 2409
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/et-xmlfile/METADATA",
+      "sha256": "0e97d7ea909ed0fbe03d88bc8b6f58677cee1b07bd3353ce361cd2405915204e",
+      "size": 2711
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.python",
+      "sha256": "4ccdaaebc0f44b83720ec0399bb7ab329adce067dd62f73c5535a2dc05628ab2",
+      "size": 14688
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.rst",
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "size": 1131
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/flatbuffers/METADATA",
+      "sha256": "9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e",
+      "size": 1004
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/hatchling/METADATA",
+      "sha256": "482be6d989f36d3c7a31ceefb69ea757f1b603daa9dc598f8626fd0d81d1ca4a",
+      "size": 3901
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/hatchling/wheel/hatchling/licenses/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/hatchling/wheel/hatchling/licenses/__pycache__/__init__.cpython-312.pyc",
+      "sha256": "75d15c7303c846c7a8ad5f83c9d1794930b8edea287b7b39474acc1b5f9aeadf",
+      "size": 181
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/hatchling/wheel/hatchling/licenses/__pycache__/supported.cpython-312.pyc",
+      "sha256": "6351e644ceb9fa56778374b165d0c7381d54d7cea163c975982e1f3fc61a7b4d",
+      "size": 241
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/hatchling/wheel/hatchling/licenses/supported.py",
+      "sha256": "641fb474d6916e23ea297f2b8d8ae20addad1c8f65e2852e7ca4445e73ed92e6",
+      "size": 68
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/hatchling/wheel/hatchling-1.33.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "7f143a8127ad4873862d70854b5bd2abd0085aa73e64fd2b08704a3b9f5c07fc",
+      "size": 1088
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/idna/METADATA",
+      "sha256": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+      "size": 7207
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/idna/wheel/idna-3.20.dist-info/licenses/LICENSE.md",
+      "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+      "size": 1541
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/inventory.json",
+      "sha256": "7b721890a54453406fc7528f0054d8aad3d0ddefb315afe576aa0e750c0a6107",
+      "size": 79501
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/lxml/METADATA",
+      "sha256": "4038f4e4decac1c15eb5fd883abf1370f2df9b176b53bd172dd709d4542e2a48",
+      "size": 3368
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSE.txt",
+      "sha256": "e7c3ce8d76331b0101cc46790ab43958ea90a364bcf962ed8763d5a818340e69",
+      "size": 1538
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+      "sha256": "df682c668de65321677b5e4861dca4128a8bad8067f230956e9da3f985b3d398",
+      "size": 6348
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/magika/METADATA",
+      "sha256": "72b51757fa5acba3f59ed4abb2d038debda3fc9de68178903e90dbbf8298e9c9",
+      "size": 10874
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/mammoth/METADATA",
+      "sha256": "aa45c59d8352de6aebe3c85b991045ffdf0acbedb76237dcf48d5e8cee0d8b6d",
+      "size": 26193
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/mammoth/wheel/mammoth-1.13.0.dist-info/licenses/LICENSE",
+      "sha256": "6663bbd049205d38a496ccacb412a151980b444627d38de218b3b809aef330f1",
+      "size": 1307
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/markdownify/METADATA",
+      "sha256": "4b457b9a3b3c6e7c87277a5157f9f99588b6cf89ee16ae20c8a019c6a66f6e2b",
+      "size": 9922
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/markdownify/wheel/markdownify-1.2.3.dist-info/LICENSE",
+      "sha256": "fae8b42db142dabf03b0c5c495831a5d11b9649ead0cf0bd4ab4f52294b263be",
+      "size": 1083
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/METADATA",
+      "sha256": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+      "size": 6635
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy/_core/include/numpy/random/LICENSE.txt",
+      "sha256": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+      "size": 1039
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy/ma/LICENSE",
+      "sha256": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+      "size": 1616
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy/random/LICENSE.md",
+      "sha256": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+      "size": 3582
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+      "sha256": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341",
+      "size": 45831
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+      "sha256": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+      "size": 1039
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+      "sha256": "aea41976c720f91bd19725c16916a1ace40eb1ea42620d340e587a5de4bbcea0",
+      "size": 704
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+      "sha256": "d208152e2777ffd0126eacc1bd21c0320d69e4e6b622d21a2a12a47e8ef73763",
+      "size": 21155
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+      "sha256": "b0fd592d4ead563148e3977e7b589169d46a5ef2ff133c755a81af880a3fc919",
+      "size": 1441
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+      "sha256": "a732977853530066790c42817087f4829b518dd98d340c916acbfd227e39d3cb",
+      "size": 1542
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+      "sha256": "585483905b13d4b42f800c55ba99e89d6e2e33ccd5f503e201c07531d148ff41",
+      "size": 1573
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+      "sha256": "8db000e158c162e7249787852d8c69764706502ccee725c06641b31c1e95c8af",
+      "size": 1523
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+      "sha256": "19060ef465e1797d682ee0fc3081bd25ab1395e995e43d25c9d13c95d9a3cd6b",
+      "size": 2314
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+      "sha256": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+      "size": 1616
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+      "sha256": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+      "size": 3582
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+      "sha256": "cf5619f25b112d5ce7c896efffc8e610bcb345dfadcc19f2c1460aa48fff2c9e",
+      "size": 2805
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+      "sha256": "92c10699884321f1c2947fe2a70ab23b0fbf1507f756d89dd08f38c61fc3d4fa",
+      "size": 2986
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+      "sha256": "41190663b77bee5302386495a07b7eabfbfa571aa0ae2f11da6764162062fc4f",
+      "size": 1176
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+      "sha256": "322ac46d870c8aeead6c53adcccc839296fb3c8e456eae155081297daf7f8013",
+      "size": 1540
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+      "sha256": "28cad82ce1379dc529df30da78ec012d7d0d1d576b03ddcb93388aee53659f59",
+      "size": 1253
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+      "sha256": "454ec7350e478e037061850b67395753b425b1cb0a34bbc26290b020bf89d763",
+      "size": 340
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/onnxruntime/METADATA",
+      "sha256": "2f3c9b07cbbb008caa43327723e11875e3a595eadfb30c9c1abd92163afe878e",
+      "size": 6099
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/onnxruntime/wheel/onnxruntime/LICENSE",
+      "sha256": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674",
+      "size": 1094
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/onnxruntime/wheel/onnxruntime/ThirdPartyNotices.txt",
+      "sha256": "c53a76501ef60db6f865f20599f220761201ac4057683acefdab37d861b86622",
+      "size": 344457
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/opencv-python/METADATA",
+      "sha256": "b81ca3fc0f3a4ab5d214e2d2ac24f1db7c38b8a3a27f9588e62a14bfd42992f2",
+      "size": 20050
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/opencv-python/wheel/cv2/LICENSE-3RD-PARTY.txt",
+      "sha256": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb",
+      "size": 183251
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/opencv-python/wheel/cv2/LICENSE.txt",
+      "sha256": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107",
+      "size": 1090
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE-3RD-PARTY.txt",
+      "sha256": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb",
+      "size": 183251
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE.txt",
+      "sha256": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107",
+      "size": 1090
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/openpyxl/METADATA",
+      "sha256": "23f80ca9830dd89435da1710f26deda8f81e5409287e74540210c72627a4ad96",
+      "size": 2510
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/openpyxl/wheel/openpyxl-3.1.5.dist-info/LICENCE.rst",
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "size": 1131
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/METADATA",
+      "sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+      "size": 3544
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/wheel/packaging/licenses/__init__.py",
+      "sha256": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+      "size": 7859
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/wheel/packaging/licenses/__pycache__/__init__.cpython-312.pyc",
+      "sha256": "a76a38d9e93da20b3f6366df31971566fe0f62523efc2405c58321fc9b1ce9e7",
+      "size": 5763
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/wheel/packaging/licenses/__pycache__/_spdx.cpython-312.pyc",
+      "sha256": "9b254e20ffa15833ea937524f43c5caec8eef4e1f14f2d6b1633e6039284f65a",
+      "size": 49839
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/wheel/packaging/licenses/_spdx.py",
+      "sha256": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+      "size": 51122
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "size": 197
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "size": 10174
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "size": 1344
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/METADATA",
+      "sha256": "b2b43910a5ef734a08be961df9c484f4664ad9ec2fa5a08294d0edfa08bcdd4b",
+      "size": 18156
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSE",
+      "sha256": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae",
+      "size": 1634
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+      "sha256": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066",
+      "size": 1360
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "size": 2889
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+      "sha256": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc",
+      "size": 1099
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT",
+      "sha256": "87217d0a79195441ab615a3abb3ab6777502e57804ea83f973df975a67ebd720",
+      "size": 1264
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+      "sha256": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1",
+      "size": 1104
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+      "sha256": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f",
+      "size": 6203
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+      "sha256": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f",
+      "size": 1542
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+      "sha256": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128",
+      "size": 11519
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "size": 13936
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+      "sha256": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345",
+      "size": 1486
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+      "sha256": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a",
+      "size": 1058
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+      "sha256": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00",
+      "size": 1059
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+      "sha256": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1",
+      "size": 1249
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+      "sha256": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2",
+      "size": 5974
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+      "sha256": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940",
+      "size": 1606
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+      "sha256": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+      "size": 10767
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+      "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+      "size": 1337
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+      "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+      "size": 1079
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pathspec/METADATA",
+      "sha256": "68de3f158b6592f086e78754c962092f32a761944ab66a660c0d62ad79c4b69b",
+      "size": 14797
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pathspec/wheel/pathspec-1.1.1.dist-info/licenses/LICENSE",
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+      "size": 16726
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pdfminer-six/METADATA",
+      "sha256": "77a7aa49c45244383288e8b98cb567f19a9083ad0d74716e3011c831df801d44",
+      "size": 4289
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pdfminer-six/wheel/pdfminer_six-20251230.dist-info/licenses/LICENSE",
+      "sha256": "f01e5d699a33766b5caf4a5099f2856aba4f3f75ea1df05dc0572b34b4bea8f2",
+      "size": 1093
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pdfplumber/METADATA",
+      "sha256": "24f9118940ac3810a6bf0dd1970094e29cc659c71c334a6fc2e65d7120a74b62",
+      "size": 43599
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pdfplumber/wheel/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt",
+      "sha256": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821",
+      "size": 1086
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pefile/METADATA",
+      "sha256": "8ad83a5f8659e8da6eeaabf2dafa0eebb8c05832a3def16a5db4dd0d52e72474",
+      "size": 1355
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pefile/wheel/pefile-2024.8.26.dist-info/LICENSE",
+      "sha256": "b44409c067c6da52bfb54bb6624fb11a7b52157c3a13ae1400232f8196e86ad3",
+      "size": 1083
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pillow/METADATA",
+      "sha256": "140f39cb31ec9b46109828a6286f034a4848621263d6aab38d2f142083dd06c5",
+      "size": 9300
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+      "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236",
+      "size": 78481
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pluggy/METADATA",
+      "sha256": "20ac8237e37f1d6e7e75500cd663015177ba80c1a1a595ff6bae18a539ff8a2c",
+      "size": 4966
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pluggy/wheel/pluggy-1.7.0.dist-info/licenses/LICENSE",
+      "sha256": "d6b65e6c213a5d0b577911d34d6e5949b9f59d76c238c5071a2f3fc16cfb2606",
+      "size": 1110
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/protobuf/METADATA",
+      "sha256": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c",
+      "size": 595
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/protobuf/wheel/protobuf-7.36.2.dist-info/LICENSE",
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+      "size": 1732
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/psutil/METADATA",
+      "sha256": "a263a40220d921d9cb963fc636d34f817aa2eb72c2696e3e3465d088cdb1976b",
+      "size": 22729
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/psutil/wheel/psutil-7.2.2.dist-info/LICENSE",
+      "sha256": "c7adc4d5d1337a548b967421f1fbe258b93033a0417708fd6f4e38f8ecbceb80",
+      "size": 1577
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyclipper/METADATA",
+      "sha256": "98fe70a18b29110448b184deeaa5bcd9d018ce9e9db6ef232dd03146b68f1f78",
+      "size": 8824
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyclipper/wheel/pyclipper-1.4.0.dist-info/licenses/LICENSE",
+      "sha256": "73c25539e7fb486b834c33747d579e0bc56c0f984294c88f3cb2329420ba300f",
+      "size": 1131
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pycparser/METADATA",
+      "sha256": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+      "size": 9709
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pycparser/wheel/pycparser-3.12.dist-info/licenses/LICENSE",
+      "sha256": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+      "size": 1543
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyinstaller/METADATA",
+      "sha256": "2991d3dcd53fe9966b8c16586322a7f9bbc564dd4752c190bd4fe8d6747f7046",
+      "size": 8517
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyinstaller/wheel/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt",
+      "sha256": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64",
+      "size": 32604
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyinstaller-hooks-contrib/METADATA",
+      "sha256": "1820f1a8a554ce1b6ae528c7fe502f4676c844eb1151f7f040adc8010052b0ba",
+      "size": 16042
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyinstaller-hooks-contrib/wheel/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE",
+      "sha256": "91d0baaff00773038e72c0a1fc9d5d2d38706b7a2b9c04f34296608f931b9cd0",
+      "size": 27666
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/METADATA",
+      "sha256": "8733a714c056453b87b48c819495cc05f9038d38221b89505043d28c2501237e",
+      "size": 63509
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/Apache-2.0.txt",
+      "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+      "size": 11560
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/BSD-3-Clause.txt",
+      "sha256": "ad9a9e823df025f42389c1812eae28019f657d1ed7b3a4ebfd5010b0736a0da4",
+      "size": 1485
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/CC-BY-4.0.txt",
+      "sha256": "f1b1748301cd4274f46733c218d510929661b4990855de5fc645dacd69c4371c",
+      "size": 14844
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/abseil.txt",
+      "sha256": "f54fff0b905df5b3464527c652a30e903b172d6dcab4d89b5e6f105d5e4a4603",
+      "size": 11564
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/agg23.txt",
+      "sha256": "c110d3ea2ad77467ce0dcff7d3337e6c8be8049a5103f4b9bd5fd911a77972e5",
+      "size": 725
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/fast_float.txt",
+      "sha256": "bf1b57355feca8fce77ee95f48002f8d4789fb71b30ec7599c06cda4901fbb2b",
+      "size": 1106
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/freetype.txt",
+      "sha256": "f4b133e25df1f86ad3ffea453aa0e613f0474f34778dbbb3e437e7b2724937d8",
+      "size": 6741
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/icu.txt",
+      "sha256": "93679f4389d53b6835d89843f251844fb9bc455b35bab036d3c8e7abe497a47a",
+      "size": 28286
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/lcms.txt",
+      "sha256": "7312b68c5b25e9bf2b828706fb4e29588f22705112f411fd42e1f7d84c3d139a",
+      "size": 1353
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.ijg",
+      "sha256": "db16a04128171879c60708d171b88d97345a2dd20f9bfc173680a4497c73f704",
+      "size": 13059
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.md",
+      "sha256": "be2b2b5ab168bce87bc3e31f2a5c5adba4b7f6e9e51d618e958d1d46972ebd95",
+      "size": 5755
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libopenjpeg.txt",
+      "sha256": "c5ab0890a737c2dfa7ba675036554f6d17741d98629b0c2a145354d00617e6b2",
+      "size": 1794
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libpng.txt",
+      "sha256": "452390433ba0f88aa3e2b122c647741b72a0c117cd6ed7a329b49785aecb5511",
+      "size": 5479
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/llvm-libc.txt",
+      "sha256": "3b6226c32e168c83b891d8d6f0d3c29c2116dc3ef93dc93c307b54f279ecf383",
+      "size": 15418
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium-binaries.txt",
+      "sha256": "8854f4388f1ca13b3ad9baa42e95f5546b4c0b17109c159256d3eca7be39b09b",
+      "size": 1184
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium.txt",
+      "sha256": "961eacd9633fff6d051db7208b755e9210e30efac7adec3e6a6d52798f0ccf0e",
+      "size": 12818
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/simdutf.txt",
+      "sha256": "c172a0ba936ff31230febb5dad869e25cb7c1a07480c7a381be8cf011bb52719",
+      "size": 1077
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/zlib.txt",
+      "sha256": "33fd641c9f3b0e0be64bc78fea9e94807674cdd70c48477599226cb8956565fe",
+      "size": 1332
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyside6-essentials/METADATA",
+      "sha256": "c5eacdfdda84b8d0e026020a630e6a732bd403c00fc17e3efb9e2e92df0b98a7",
+      "size": 3889
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyside6-essentials/wheel/pyside6_essentials-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt",
+      "sha256": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+      "size": 470
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-dateutil/METADATA",
+      "sha256": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907",
+      "size": 7341
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md",
+      "sha256": "56004c45a95e9ee5582ea60f9a7ee42179c8594c7b9c245bbfb4a3445b4af640",
+      "size": 7031
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "size": 2889
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-docx/METADATA",
+      "sha256": "4c4cc819ebe6de4aca44daccfd3f9173e6f46d9ed900ad1c388ff9efb7b6b1d7",
+      "size": 2022
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-docx/wheel/python_docx-1.2.0.dist-info/licenses/LICENSE",
+      "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+      "size": 1104
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-pptx/METADATA",
+      "sha256": "d38c6af5f1817cc528706264d8343cd1c95dbdec5672f29b944f54f79134a3a2",
+      "size": 2503
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-pptx/wheel/python_pptx-1.0.2.dist-info/LICENSE",
+      "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+      "size": 1104
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pywin32-ctypes/METADATA",
+      "sha256": "1e3767d3faff4d5b9c347160883831098d1f25acf4306b02c9acdcc6bfb5883b",
+      "size": 3909
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pywin32-ctypes/wheel/pywin32_ctypes-0.2.3.dist-info/LICENSE.txt",
+      "sha256": "dfa83b3e2709adfcdb838d9ad55823ca674abb780e60563d9dd9544ccbf785e9",
+      "size": 1644
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyyaml/METADATA",
+      "sha256": "847a701020334386852b6e07bad1053cb0ce3da9ee1846e7e9d02b24e8bb3f8d",
+      "size": 2410
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyyaml/wheel/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "size": 1101
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/rapidocr-onnxruntime/METADATA",
+      "sha256": "1ac15bed7c7fb77d3fac58c2aba0a4d3e2da48de5c65badd3503900acebcf1df",
+      "size": 1264
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/reportlab/METADATA",
+      "sha256": "c73111f8f0ce43fc2194b3e03d0a1e3dd5aa136a7f87b63261776fad7d023097",
+      "size": 1723
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/reportlab/wheel/reportlab/fonts/DarkGarden-copying-gpl.txt",
+      "sha256": "1b2a567f289f66a143c56353e7b3d4fa5862514a5e3c5cfdf8b02ee5e5aaa953",
+      "size": 17976
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/reportlab/wheel/reportlab/fonts/DarkGarden-copying.txt",
+      "sha256": "3cd1020510efa7f6b3166a5a2740f92bd664a695ea179e0bda442e74cd0ef3a4",
+      "size": 1318
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/reportlab/wheel/reportlab/fonts/bitstream-vera-license.txt",
+      "sha256": "3361d054759a2fc686a2c058be82deaf9c2e6fe549be9004d7935a6c1736315d",
+      "size": 5954
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/reportlab/wheel/reportlab-4.4.9.dist-info/licenses/LICENSE",
+      "sha256": "ef831761646313921375fc2cb888e8eeaf7da213d0b92852c10c42f3a0b4d138",
+      "size": 1707
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/requests/METADATA",
+      "sha256": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+      "size": 4806
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/requests/wheel/requests-2.34.2.dist-info/licenses/LICENSE",
+      "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "size": 10142
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/requests/wheel/requests-2.34.2.dist-info/licenses/NOTICE",
+      "sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+      "size": 38
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/METADATA",
+      "sha256": "24939b84ead30ff4581918c8d5a95aafd377f6a8afc61f30ea18358a8786bfa4",
+      "size": 6581
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+      "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d",
+      "size": 7634
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+      "size": 1023
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE",
+      "sha256": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04",
+      "size": 10278
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+      "size": 1023
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE",
+      "sha256": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683",
+      "size": 1076
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE",
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+      "size": 1076
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE",
+      "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+      "size": 1053
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging/licenses/__init__.py",
+      "sha256": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+      "size": 7859
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging/licenses/__pycache__/__init__.cpython-312.pyc",
+      "sha256": "65965019e3a43209e4698e582d4e7f5564da126fa974bf1738855f73c564a2ee",
+      "size": 5783
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging/licenses/__pycache__/_spdx.cpython-312.pyc",
+      "sha256": "1284f48c288dd95e3ef03f0e8e46afcbc6ea5076f0e6a69b5dd6d400b672d2b0",
+      "size": 49859
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging/licenses/_spdx.py",
+      "sha256": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+      "size": 51122
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "size": 197
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "size": 10174
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "size": 1344
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE",
+      "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+      "size": 1089
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE",
+      "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+      "size": 1072
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt",
+      "sha256": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654",
+      "size": 1107
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE",
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+      "size": 1076
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/config/NOTICE",
+      "sha256": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8",
+      "size": 493
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/config/_validate_pyproject/NOTICE",
+      "sha256": "09c9bcea95ca086f8bc5bed174e40bc835b297d40fb5f86bbbb570fe0a5581a7",
+      "size": 18737
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+      "size": 1023
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/shapely/METADATA",
+      "sha256": "f4fef957712e3a9e731434b4213dc72fd80b116cbd49f50f0d956c2237efb203",
+      "size": 6774
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "e8cd7d34604d2758ff589f0f34d6ed79c3f7fb14aaf5e12fb09221421391a3bf",
+      "size": 1612
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_GEOS",
+      "sha256": "7233baa9a7d4a17257b357706b7dbdc4b675e5ca45425b3418673b16990cf239",
+      "size": 27296
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_win32",
+      "sha256": "fdbb2abb8c598c8888755b52340bddcee38668a2def23e51e7d9e3f187bb8d51",
+      "size": 1180
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/shiboken6/METADATA",
+      "sha256": "2e443fc68a670b00b5ee6f2d67fa3005613de00a8294a8f257c6c1263032009a",
+      "size": 2594
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/shiboken6/wheel/shiboken6-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt",
+      "sha256": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+      "size": 470
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/six/METADATA",
+      "sha256": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+      "size": 1658
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/six/wheel/six-1.17.0.dist-info/LICENSE",
+      "sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+      "size": 1066
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/soupsieve/METADATA",
+      "sha256": "c1d4799cbf1c070586fa86f922f621c33845a5977886fcb6431c763dc083f838",
+      "size": 4387
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/soupsieve/wheel/soupsieve-4.0.dist-info/licenses/LICENSE.md",
+      "sha256": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+      "size": 1096
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/cobble.txt",
+      "sha256": "d6d46202db973b560d2f521dced9110b3e0a46d9a75e1428dade8b7608dd0cca",
+      "size": 1770
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/flatbuffers.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/magika.txt",
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "size": 11357
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/qt-gpl3.txt",
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "size": 35147
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/qt-lgpl3.txt",
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "size": 7651
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/rapidocr-onnxruntime.txt",
+      "sha256": "3e0af25fdd06aa9586ae97adb00ea927ebe5a3805ac77d2d3a81ce5f55693333",
+      "size": 11422
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/sources.json",
+      "sha256": "32b829fc5948a633f7ab855d27a811bacc592d83dabd446f221d88280cf37b2d",
+      "size": 1651
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tomlkit/METADATA",
+      "sha256": "a2e59805b99c14685196efea6e2f17438853c9f18658a9b98370a883abcb2963",
+      "size": 3409
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tomlkit/wheel/tomlkit-0.15.2.dist-info/licenses/LICENSE",
+      "sha256": "f2f9b460ba719da6626add264d3782f275a4ff7aab677beda08b330911e23adb",
+      "size": 1062
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tqdm/METADATA",
+      "sha256": "a5da70b966afea3a759716041bad7187f2ece02c22348cf9e7c0a512bbf15f57",
+      "size": 57366
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tqdm/wheel/tqdm-4.70.1.dist-info/licenses/LICENCE",
+      "sha256": "fcff87c3a47ce8028a8512aa182d4fcf0ad1c90544ee75cf9b343684cac194de",
+      "size": 1985
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/trove-classifiers/METADATA",
+      "sha256": "ca7e96493232b21f92aeccf456b2e01f1d4dbcaa8e17a9e1b5e6f03c6eb7461f",
+      "size": 2350
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/trove-classifiers/wheel/trove_classifiers-2026.9.21.13.dist-info/licenses/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/typing-extensions/METADATA",
+      "sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+      "size": 3310
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/typing-extensions/wheel/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "size": 13936
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tzdata/METADATA",
+      "sha256": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8",
+      "size": 1358
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tzdata/wheel/tzdata-2026.6.dist-info/licenses/LICENSE",
+      "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+      "size": 625
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tzdata/wheel/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/urllib3/METADATA",
+      "sha256": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4",
+      "size": 7389
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/urllib3/wheel/urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+      "size": 1093
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/xlsxwriter/METADATA",
+      "sha256": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
+      "size": 2908
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/xlsxwriter/wheel/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt",
+      "sha256": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7",
+      "size": 1349
+    },
+    {
+      "path": "_internal/worker-assets/native/libatomic1-copyright.txt",
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "size": 69004
+    },
+    {
+      "path": "_internal/worker-assets/native/libgcc-s1-copyright.txt",
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "size": 69004
+    },
+    {
+      "path": "_internal/worker-assets/native/libglib2.0-0t64-copyright.txt",
+      "sha256": "b9fe78c8a0720c051c9ac8e8c6f25663b54f228e501d24fc0ba89c66cec7f7c1",
+      "size": 55072
+    },
+    {
+      "path": "_internal/worker-assets/native/libice6-copyright.txt",
+      "sha256": "fc16500a74acc2d0a7bb2fa1005956a52551abdce2afe0642a9a8dc2b6af53c6",
+      "size": 1256
+    },
+    {
+      "path": "_internal/worker-assets/native/libpcre2-8-0-copyright.txt",
+      "sha256": "e915cde4251f96ec6af107ecd2e194440a4e69440893b0c982802f8a1e4ae40a",
+      "size": 6627
+    },
+    {
+      "path": "_internal/worker-assets/native/libsm6-copyright.txt",
+      "sha256": "333d829128c80619625f7e43a0ff0e79f36812b2b7ba12696eec9b4b42ce729b",
+      "size": 1224
+    },
+    {
+      "path": "_internal/worker-assets/native/libstdc++6-copyright.txt",
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "size": 69004
+    },
+    {
+      "path": "_internal/worker-assets/native/libuuid1-copyright.txt",
+      "sha256": "56b67e2eb8bac5a15d91e261d558d73f1f029113cced229753138194997366b6",
+      "size": 30341
+    },
+    {
+      "path": "_internal/worker-assets/native/libx11-6-copyright.txt",
+      "sha256": "0b380a7fd5b2228f26e9585e56f14812efd3350f3df307507d2bc055dfd8de3e",
+      "size": 47102
+    },
+    {
+      "path": "_internal/worker-assets/native/libxau6-copyright.txt",
+      "sha256": "118dd263a7b91c8f21c489f949bf13281dff9e766deea92b829dac4dce66601a",
+      "size": 1224
+    },
+    {
+      "path": "_internal/worker-assets/native/libxdmcp6-copyright.txt",
+      "sha256": "1bcbb50f8603fe8b86d330bfa460b772ea04fbd3c70e4499f0768b5340b9fd6e",
+      "size": 1265
+    },
+    {
+      "path": "_internal/worker-assets/native/libxext6-copyright.txt",
+      "sha256": "bc57e445ca1d9fe082c8d54189dd411ff26caa8552c9c63d44ea06a982f32124",
+      "size": 10421
+    },
+    {
+      "path": "_internal/worker-assets/native/manifest.json",
+      "sha256": "60ce81128432d83f653c0e3f2b9700d6dc92ada273c7122353459dda655cf119",
+      "size": 23650
+    },
+    {
+      "path": "_internal/worker-assets/native/zlib1g-copyright.txt",
+      "sha256": "9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6",
+      "size": 2927
+    },
+    {
+      "path": "_internal/worker-assets/python-runtime/LICENSE.txt",
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "size": 13936
+    },
+    {
+      "path": "_internal/yaml/_yaml.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "957a099a4521c1f7669306fb6f79ca63fa4b9a0b4c463f7cac833a65a5c5c0cb",
+      "size": 2679264
+    },
+    {
+      "path": "NOTICE.txt",
+      "sha256": "2b037ce0f4a2a02690652c59994914ab384c30163ebf53e366ef7f06dcfd26fe",
+      "size": 361
+    }
+  ],
+  "capabilities": [
+    "ocr.onnx.cpu",
+    "ocr.text.experimental"
+  ],
+  "platforms": [
+    "linux"
+  ],
+  "architectures": [
+    "x86_64"
+  ],
+  "app_versions": {
+    "minimum": "0.5.0",
+    "maximum_exclusive": "1.0.0"
+  },
+  "worker_protocols": {
+    "minimum": "1.0.0",
+    "maximum_exclusive": "2.0.0"
+  },
+  "dependencies": [],
+  "resources": {
+    "ram_mib": 768,
+    "vram_mib": 0,
+    "disk_mib": 512
+  },
+  "health_check": "onnx.cpu.health",
+  "required": false,
+  "signature": null
+}

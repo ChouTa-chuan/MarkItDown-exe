@@ -1,0 +1,2 @@
+# C07 控制端驗收環境；不是正式基本版 profile，不含 Qt／MarkItDown／OCR runtime。
+setuptools==84.2.1
