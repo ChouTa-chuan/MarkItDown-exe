@@ -35,6 +35,11 @@ def validate(data):
                 if check['id'] in seen or type(check['done']) is not bool or not check['acceptance']:
                     raise ValueError('Invalid component rollout check')
                 seen.add(check['id'])
+                for subcheck in check.get('subchecks', []):
+                    if type(subcheck.get('done')) is not bool or not subcheck.get('label'):
+                        raise ValueError('Invalid component subcheck')
+                if check['done'] and any(not sub['done'] for sub in check.get('subchecks', [])):
+                    raise ValueError('Completed check contains an incomplete subcheck')
         if seen!={f'C{index:02}' for index in range(1,13)}:
             raise ValueError('Expected component rollout checks C01 through C12')
         module_ids = set()

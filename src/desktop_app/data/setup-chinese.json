@@ -1,0 +1,11 @@
+{
+  "scope": "Generated regression image, not a real user document",
+  "reference": "繁體中文文件測試\n會議紀錄與資料轉換",
+  "font": "NotoSansCJK-Bold 72px",
+  "size": [
+    1600,
+    600
+  ],
+  "sha256": "e339f9f6bfbefc7c648112f92da52f64eaf946d715b3566eee0bb9242dc457cb",
+  "purpose": "Hold the known ONNX quality target constant across Windows/Linux fonts"
+}

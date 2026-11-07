@@ -49,6 +49,14 @@ def main():
                 assert page.locator('#component-count').inner_text()==f"{sum(check['done'] for check in component_checks)} / {len(component_checks)}"
                 assert page.locator('#component-phases article').count()==len(rollout['phases'])
                 assert page.locator('#component-phases details').count()==len(component_checks)
+                for check in component_checks:
+                    if check.get('subchecks'):
+                        detail=page.locator('#component-phases details').filter(has=page.locator('summary',has_text=check['id']+' ·'))
+                        assert detail.locator('li').count()==len(check['subchecks'])
+                        detail.locator('summary').click()
+                        assert detail.locator('li').first.is_visible()
+                        for index, subcheck in enumerate(check['subchecks']):
+                            assert detail.locator('li').nth(index).inner_text()==('已驗收：' if subcheck['done'] else '待驗收：')+subcheck['label']
                 assert page.locator('#component-modules article').count()==len(rollout['modules'])
                 # 狀態卡不能全部固定顯示待開發，需跟隨 C01 等實際交付證據。
                 for index, module in enumerate(rollout['modules']):

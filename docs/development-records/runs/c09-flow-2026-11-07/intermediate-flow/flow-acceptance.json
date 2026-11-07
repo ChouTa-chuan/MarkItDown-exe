@@ -1,0 +1,78 @@
+{
+  "recorded_at": "2026-11-07T11:21:59.097936+00:00",
+  "source_version": "0.7.0",
+  "flow_accepted": true,
+  "full_c09_complete": false,
+  "checks_passed": 9,
+  "checks": [
+    "production QTimer startup route",
+    "RAM recommendations",
+    "actual CPU bilingual probe",
+    "persist setup and skip optional",
+    "completed startup does not repeat",
+    "two OCR PDF pages with empty PATH",
+    "existing preferences preserved",
+    "missing engine does not block text",
+    "offline and original models unchanged"
+  ],
+  "observations": {
+    "new_session": {
+      "ram": {
+        "total_mib": 34087,
+        "available_mib": 33132,
+        "automatic_budget_mib": 8521,
+        "reserve_mib": 2048
+      },
+      "engine": {
+        "ready": true,
+        "executable": "/usr/bin/tesseract",
+        "data_dir": "/tmp/markitdown-c09-b2y20y0p/中文首次設定/models/tesseract",
+        "origin": "本機 PATH",
+        "version": "tesseract 5.5.0",
+        "languages": [
+          "chi_tra",
+          "eng"
+        ],
+        "samples": [
+          [
+            "worker-health.png",
+            "WORKER HEALTH CHECK 12345\n"
+          ],
+          [
+            "setup-chinese.png",
+            "繁體中文文件測試\n\n會議紀錄與資料轉換\n"
+          ]
+        ],
+        "message": "本機 CPU 引擎及繁中／英文合成辨識通過；不代表任意文件準確率或 Windows 基本包已驗收。"
+      },
+      "existing_settings": false
+    },
+    "existing_preferences_preserved": true,
+    "missing_engine": {
+      "ram": {
+        "total_mib": 34087,
+        "available_mib": 32826,
+        "automatic_budget_mib": 8521,
+        "reserve_mib": 2048
+      },
+      "engine": {
+        "ready": false,
+        "executable": null,
+        "data_dir": null,
+        "origin": "本機 PATH",
+        "version": "",
+        "languages": [],
+        "samples": [],
+        "message": "RuntimeError: 找不到基本 Tesseract 引擎；可繼續文字轉換，掃描 OCR 仍待設定。"
+      },
+      "existing_settings": false
+    }
+  },
+  "tesseract_bundled": false,
+  "models_preseeded_for_acceptance": true,
+  "external_system_tesseract_used": true,
+  "windows_executed": false,
+  "gpu_executed": false,
+  "traditional_chinese_general_quality_passed": false,
+  "scope": "Linux installed package and system native engine; not a clean-machine base installation or Windows/installer acceptance"
+}

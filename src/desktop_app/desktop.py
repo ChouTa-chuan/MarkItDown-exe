@@ -4,7 +4,7 @@ from dataclasses import replace
 from pathlib import Path
 from threading import Event
 
-from PySide6.QtCore import QThread, Signal, QStandardPaths
+from PySide6.QtCore import QThread, Signal, QStandardPaths, QTimer
 from PySide6.QtGui import QAction, QCloseEvent, QDragEnterEvent, QDropEvent
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFileDialog, QFormLayout,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow, QMessageBox, QPushButton,
@@ -62,6 +62,7 @@ class Window(QMainWindow):
         self.sources = []
         self.job = None
         self.component_dialog = None
+        self.setup_dialog = None
         self.component_service_factory = component_service_factory
         self.settings_path = settings_path or Path(
             QStandardPaths.writableLocation(QStandardPaths.AppLocalDataLocation)) / "settings.json"
@@ -80,6 +81,9 @@ class Window(QMainWindow):
         self.components_button = QPushButton('選配元件管理')
         self.components_button.clicked.connect(self.manage_components)
         toolbar.addWidget(self.components_button)
+        self.setup_button=QPushButton('首次設定／重新檢查')
+        self.setup_button.clicked.connect(lambda:self.offer_setup(force=True))
+        toolbar.addWidget(self.setup_button)
         layout.addLayout(toolbar)
         self.files = QTreeWidget()
         self.files.setHeaderLabels(["文件", "狀態", "說明"])
@@ -260,6 +264,21 @@ class Window(QMainWindow):
         except (OSError, RuntimeError, ValueError) as exc:
             self.status.setText(f'元件管理未開啟：{exc}；基本轉換仍可使用。')
 
+    def offer_setup(self,force=False):
+        if self.job is not None and self.job.isRunning(): return
+        if self.setup_dialog is not None and self.setup_dialog.isVisible():
+            self.setup_dialog.raise_(); return
+        from .onboarding.service import SetupSession
+        from .onboarding.dialog import SetupDialog
+        try:
+            session=SetupSession(self.settings_path,settings=self.preferences(),expected_settings=self.loaded_settings)
+            if not force and not session.due: return
+            self.setup_dialog=SetupDialog(session,self)
+            self.setup_dialog.saved.connect(self.load_preferences)
+            self.setup_dialog.open()
+        except (OSError,RuntimeError,ValueError) as exc:
+            self.status.setText(f'首次設定未開啟：{exc}；原設定保留，基本轉換仍可使用。')
+
     def choose_model_directory(self):
         directory = QFileDialog.getExistingDirectory(self, "選擇 OCR 模型目錄")
         if directory:
@@ -267,7 +286,9 @@ class Window(QMainWindow):
 
     def save_preferences(self):
         try:
-            save_settings(self.preferences(), self.settings_path)
+            saved=self.preferences()
+            save_settings(saved, self.settings_path)
+            self.loaded_settings=saved
             self.status.setText("資源設定已儲存。")
         except (OSError, ValueError) as exc:
             self.status.setText(f"儲存失敗：{exc}")
@@ -325,7 +346,7 @@ class Window(QMainWindow):
                        self.output, self.auto_budget, self.reserve, self.save_button, self.quality,
                        self.ocr_engine, self.engine_button, self.model_path, self.models_button,
                        self.model_directory_button, self.device, self.device_button, self.cpu_threads,
-                       self.backend, self.vram_budget, self.components_button]:
+                       self.backend, self.vram_budget, self.components_button, self.setup_button]:
             widget.setEnabled(not running)
         self.budget.setEnabled(not running and not self.auto_budget.isChecked())
         self.cancel_button.setEnabled(running)
@@ -355,7 +376,9 @@ class Window(QMainWindow):
         self.set_running(False)
 
     def closeEvent(self, event: QCloseEvent):
-        if self.component_dialog is not None and self.component_dialog.busy():
+        if self.setup_dialog is not None and self.setup_dialog.busy():
+            self.setup_dialog.reject(); event.ignore()
+        elif self.component_dialog is not None and self.component_dialog.busy():
             self.component_dialog.cancel()
             self.status.setText('請等待元件操作收尾後再關閉。')
             event.ignore()
@@ -374,6 +397,7 @@ def main():
     app.setApplicationName("MarkItDownDesktop")
     window = Window()
     window.show()
+    QTimer.singleShot(0,window.offer_setup)
     return app.exec()
 
 

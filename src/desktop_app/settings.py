@@ -148,7 +148,10 @@ def _backup(raw, path, version):
             temporary.unlink(missing_ok=True)
 
 
-def save_settings(settings: Settings, path: Path):
+_UNSPECIFIED = object()
+
+
+def save_settings(settings: Settings, path: Path, *, expected_raw=_UNSPECIFIED):
     """明確儲存才備份／升級；拒絕覆蓋損毀或未來設定，失敗保留原檔。"""
     encoded = json.dumps(asdict(settings), ensure_ascii=False, indent=2, allow_nan=False) + '\n'
     if len(encoded.encode('utf-8')) > 65536:
@@ -157,6 +160,9 @@ def save_settings(settings: Settings, path: Path):
     if path.is_symlink():
         raise ValueError('不覆寫符號連結設定檔。')
     previous = _read(path) if path.exists() else None
+    # 首次設定可能在背景檢查數十秒；拒絕以過期畫面覆寫這段期間的新偏好。
+    if expected_raw is not _UNSPECIFIED and previous != expected_raw:
+        raise ValueError('設定已變更，請重新開啟首次設定；原檔未覆寫。')
     if previous is not None:
         _, original_version = _decode(previous)
         if original_version < 6:

@@ -6,11 +6,11 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.6.0**，C08 元件管理介面；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.7.0**，C09 首次流程／RAM 子檢核；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
-| 新架構導入 | **C01–C12：6/12**，C01／C02／C05／C06／C07／C08 驗收完成 |
-| 功能測試基線 | **366 通過、1 項 ONNX 繁體品質預期失敗** |
+| 新架構導入 | **C01–C12：6/12**，C01／C02／C05／C06／C07／C08 驗收完成；C09 流程子檢核完成，完整項待基本包 |
+| 功能測試基線 | **388 通過、1 項 ONNX 繁體品質預期失敗** |
 
 ## 模組架構封面
 
@@ -31,7 +31,8 @@ flowchart TD
     end
     subgraph Planned["新架構：基本包＋選配元件管理"]
         COMPONENTUI["元件管理介面：版本／容量／授權／背景維護"]
-        FIRST["首次啟動：基本引擎檢查／RAM 建議"]
+        FIRST["基本包自帶引擎：待 C03／C04"]
+        FIRSTFLOW["首次流程已實作：RAM／保留偏好／離線檢查／完成標記"]
         COMPONENTS["元件基礎：契約／登錄／完整性驗證"]
         CAPABILITY["能力解析：相容／依賴／健康檢查"]
         CPUWORKER["獨立 CPU worker：版本化 IPC／RAM／逾時與取消"]
@@ -55,13 +56,15 @@ flowchart TD
     COMPONENTUI --> DOWNLOAD
     UI --> LEGACY
     PREFS --> UI
-    FIRST -.-> UI
+    UI --> FIRSTFLOW
+    FIRSTFLOW --> PREFS
+    FIRST -.-> FIRSTFLOW
     CAPABILITY -.-> PLAN
     RES -.-> OPTIONAL
     OPTIONAL -.-> QUALITY
     classDef existing fill:#e8f7f3,stroke:#21856d,color:#153c31;
     classDef foundation fill:#e8efff,stroke:#4c6fb8,color:#203c77;
-    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI foundation;
+    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI,FIRSTFLOW foundation;
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
     class FIRST,OPTIONAL planned;
@@ -76,7 +79,7 @@ flowchart TD
 | 品質與輸出 | 原文差異、頁面來源、輸出保護、Markdown／HTML 表格 | 可沿用 |
 | 能力解析 | 重新核對元件相容性、依賴、實檔及可信健康探針 | C01 已驗收；C07 CPU 真實健康探針完成，分析流程待 C10 接入 |
 | 設定與遷移 | v1–v5 讀取、v6 偏好、遷移備份及防止未來設定覆寫 | C02 已驗收；外部路徑保留 |
-| 首次精靈 | 基本引擎檢查、RAM 建議與完成紀錄 | C09 待新增 |
+| 首次精靈 | 基本引擎檢查、RAM 建議與完成紀錄 | C09 流程／RAM 子檢核完成；基本包自帶 OCR 待 C03／C04，C09 全項未關閉 |
 | 元件與更新服務 | 描述、登錄、下載、驗證、修復、移除及回復 | C01／C02 沿用，C05 下載、C06 安裝維護 API 完成；C08 背景管理完成；正式目錄與 Windows 仍待後續 |
 | 選配工作程序 | CPU／GPU 元件各自打包相依環境，避免改動核心 runtime | C07 實際 Linux CPU 元件通過；C08 已接健康管理，自動路由與 GPU 仍待後續 |
 
@@ -99,6 +102,7 @@ flowchart TD
 - [開發進度與驗證範圍](docs/development-status.md)
 - [互動進度頁：里程碑／模組／元件導入](docs/progress.html)（下載後可離線開啟）
 - [基本包與選配元件決策](docs/decisions/0002-base-and-optional-components.md)
+- [C09 首次流程與 RAM 子檢核（完整項仍待基本包）](docs/onboarding.md)
 - [C08 元件管理介面與操作範圍](docs/component-management.md)
 - [C07 獨立 CPU 選配 worker 與協定](docs/component-workers.md)
 - [C05 可信目錄與可恢復下載](docs/component-downloads.md)／[C06 交易安裝與元件維護](docs/component-lifecycle.md)

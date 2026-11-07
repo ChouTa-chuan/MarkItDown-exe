@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "source_version": "0.7.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-07",
+  "check": "C09-flow",
+  "full_c09_complete": false,
+  "scope": "本輪首次設定／RAM 子檢核、真實 Qt／本機 Tesseract 合成健康與掃描輸出、初始及最終日誌；非內含引擎基本包／Windows／GPU 驗收",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 3491,
+      "sha256": "0703d50fbe1b9e05749f57241551e78ec47323479c53d137689132ce322fd5bb",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 8957,
+      "sha256": "6d15a9102a0d56be61ea68636bd69200050e57fb14d9d9a7c300687d9b26f705",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "bilingual-scan.md",
+      "bytes": 342,
+      "sha256": "c036ae4df4933f70ef6fc0705ead5b7b6ab4a31ea9a6c05a6e52e657c9442c17",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "bilingual-scan.pdf",
+      "bytes": 69148,
+      "sha256": "4bb500829e00613f0bedeb3b2fa20146dddd7c8547a40c0452af432f754a5297",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "component-tests.log",
+      "bytes": 13063,
+      "sha256": "564d77e14549a72480b13dd79a938829cbef1dbc3c89988653859584300984f1",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "desktop-after-setup.png",
+      "bytes": 124754,
+      "sha256": "a77f8eac7fad328f89633d077e9709fbd6aef40f364329e9042676ed247e6693",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "flow-acceptance.json",
+      "bytes": 3088,
+      "sha256": "ff4f198555db2549cf2a9ad4c51f89510d9e7c9468ec108ca817cdc24c3c3265",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "flow.log",
+      "bytes": 865,
+      "sha256": "71f4bfdaf03fa505931b97d75b6226aea33c34b59d85a4694979170270eb9e40",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "full-tests.log",
+      "bytes": 57486,
+      "sha256": "b81ddfd28432177d6c10f7b370dc23d8f4553aae41685cf01b8881760b2d80c7",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "initial-browser-collapsed-details.log",
+      "bytes": 495,
+      "sha256": "b99c6110ef5899020a682a63fa229dabaeb371a64afdce3af81231e76141a987",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "initial-onboarding-tests.log",
+      "bytes": 3436,
+      "sha256": "142f463a91425c6ed64645cc12d647ae95332a419d95e780188a42ffc057d4eb",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 1028,
+      "sha256": "68e375f36c4aad4e83efd0ee63b6d5cf1406b4057f440acaf6f4aa42bba10967",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "intermediate-flow/bilingual-scan.md",
+      "bytes": 342,
+      "sha256": "c036ae4df4933f70ef6fc0705ead5b7b6ab4a31ea9a6c05a6e52e657c9442c17",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "intermediate-flow/desktop-after-setup.png",
+      "bytes": 124068,
+      "sha256": "d57c99de75a43bd2d46e18eae44f86756494f00539846382bdeca76ab39b771d",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "intermediate-flow/flow-acceptance.json",
+      "bytes": 2433,
+      "sha256": "e7c9c4c70b956e811e8cf049dd7a67fb0cfa5fbc14b1e9e951bb36f46051875f",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "intermediate-flow/flow.log",
+      "bytes": 865,
+      "sha256": "71f4bfdaf03fa505931b97d75b6226aea33c34b59d85a4694979170270eb9e40",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "intermediate-flow/setup-missing-engine.png",
+      "bytes": 83194,
+      "sha256": "1fb10c662b64aabeb1f9bdd20c514486f4c61c7b5fb4b9ec08bf078fabbe15f2",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "intermediate-flow/setup-ready.png",
+      "bytes": 86276,
+      "sha256": "af06f0d6710619ebe02cf87f511a3b70e85e10ece033c97c572af3998385a58a",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "licenses.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 505967,
+      "sha256": "3edce3a739da184fa595468e21d281af4539ad815fe079d5763f69ccf4a35f61",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 503435,
+      "sha256": "9b7653595be8d671dbfc9eb62b61bb03eb9f272d449d92238195c37b69418909",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 281827,
+      "sha256": "834e6c104fd8e6872a62ca9703557000e6a425a85823709ab5207d98f4dcb68f",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 298320,
+      "sha256": "c4e8b72e2b9f8afcb8a9008fdc50050de5fbc030f1eb3edd3dbf3bb4500d114f",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 435786,
+      "sha256": "95bc15d95303cffc5bac9bc10a85ba461ef14943c6a1d3a550b52dd979306b4f",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "setup-missing-engine.png",
+      "bytes": 83207,
+      "sha256": "18f8b9df1b586c1ca0f8fa13eb986750bf691f9dcc07458ab744e090dd4900a5",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "setup-ready.png",
+      "bytes": 86439,
+      "sha256": "730015eb5615f919a24bf56ae648cd14798e7de7877af560b3c6a4f575f5a5cf",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    },
+    {
+      "file": "upstream.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C09-flow 本輪生成；initial／intermediate 為過程觀察；所有輸入均為合成或固定公開健康樣本"
+    }
+  ]
+}

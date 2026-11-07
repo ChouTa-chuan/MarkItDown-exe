@@ -121,6 +121,18 @@
       "source_version": "0.6.0",
       "architecture_scope": "0.4 C08 background component UI and real frozen CPU health accepted on Linux",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-c09-first-run-flow.md",
+      "title": "架構 v0.4：C09 首次流程／RAM 子檢核（全項未關閉）",
+      "diagram_sha256": "e7b5796095f6972279cd22d30fb06db41b1af7c1d034fb1742d91c9656caebb3",
+      "file_sha256": "6a36693d48a2126b986c4f5ab264d28e1c2d9a2b15970ba253dc04a5d07330b1",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_description": "程式 0.7.0 與首頁圖一併提交；全項 C09 保持未完成",
+      "source_version": "0.7.0",
+      "architecture_scope": "0.4 C09 first-run flow subchecks accepted on Linux; full C09 base installation pending",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-07"

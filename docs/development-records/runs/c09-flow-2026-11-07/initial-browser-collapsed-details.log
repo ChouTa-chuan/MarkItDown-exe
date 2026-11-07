@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/MarkItDown-exe/scripts/check_progress_browser.py", line 92, in <module>
+    main()
+  File "/workspace/MarkItDown-exe/scripts/check_progress_browser.py", line 57, in main
+    assert detail.locator('li').nth(index).inner_text()==('已驗收：' if subcheck['done'] else '待驗收：')+subcheck['label']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

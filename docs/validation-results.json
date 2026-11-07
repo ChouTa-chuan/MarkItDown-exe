@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-07T10:53:30.733654+00:00",
+  "recorded_at": "2026-11-07T11:28:24.694453+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 367,
-    "passed": 366,
+    "run": 389,
+    "passed": 388,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -151,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.6.0",
+  "source_version": "0.7.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -179,7 +179,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C01 generic capability resolver remains outside automatic conversion routing; C02 legacy model adapter is integrated with its existing dialog"
   },
-  "current_run_scope": "0.6.0 installed full regression; C08 Qt/service and C05-C07/desktop regression, separate real frozen CPU GUI pipeline and cancellation. Existing C07 bundle reused; main frozen/Windows not rebuilt.",
+  "current_run_scope": "0.7.0 installed full regression plus C09 first-run flow subchecks, settings/desktop/core regression and actual Qt/system Tesseract bilingual/scan flow; full C09 stays incomplete pending base native package C03/C04. Main frozen/Windows not rebuilt.",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -300,5 +300,31 @@
     "report": "development-records/runs/c08-2026-11-07/acceptance.json",
     "actual_gui_report": "development-records/runs/c08-2026-11-07/ui-native-acceptance.json",
     "long_running_io_and_health_use_background_thread": true
+  },
+  "onboarding": {
+    "flow_accepted": true,
+    "full_c09_complete": false,
+    "subchecks_passed": 3,
+    "subchecks_total": 4,
+    "unit_regression_checks": 94,
+    "new_checks": 22,
+    "actual_local_flow_checks": 9,
+    "onboarding_version": 1,
+    "settings_schema": 6,
+    "ram_advice_explicit_application": true,
+    "existing_preferences_preserved": true,
+    "expected_raw_prevents_observed_concurrent_changes": true,
+    "skip_optional_and_no_automatic_network": true,
+    "no_repeat_after_completion": true,
+    "missing_engine_does_not_block_basic_text": true,
+    "actual_empty_path_two_page_scan": true,
+    "base_tesseract_bundled": false,
+    "models_preseeded_for_acceptance": true,
+    "external_system_tesseract_used": true,
+    "main_frozen_rebuilt": false,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "report": "development-records/runs/c09-flow-2026-11-07/acceptance.json",
+    "actual_flow_report": "development-records/runs/c09-flow-2026-11-07/flow-acceptance.json"
   }
 }
