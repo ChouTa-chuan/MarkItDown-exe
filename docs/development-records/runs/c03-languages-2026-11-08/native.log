@@ -1,0 +1,4 @@
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+Four-language native checks passed: 10; mixed quality: [{'language': 'chi_tra', 'exact_reference': True}, {'language': 'eng', 'exact_reference': True}, {'language': 'jpn', 'exact_reference': True}, {'language': 'kor', 'exact_reference': True}]

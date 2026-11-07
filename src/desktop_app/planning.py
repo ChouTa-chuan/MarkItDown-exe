@@ -4,6 +4,8 @@ from .resources import MIB
 
 
 def analyze(request: Request) -> Plan:
+    from .languages import validate_languages
+    validate_languages(request.ocr_languages)
     if request.component_id is not None or request.component_version is not None:
         from .components.contracts import _name, Version
         if request.ocr_backend!='managed_cpu': raise ValueError('元件版本選擇只適用於受管 CPU OCR。')

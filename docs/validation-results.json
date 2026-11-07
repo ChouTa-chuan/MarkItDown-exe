@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-07T21:57:49.216630+00:00",
+  "recorded_at": "2026-11-07T23:00:25.162135+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 440,
-    "passed": 439,
+    "run": 458,
+    "passed": 457,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -151,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.9.0",
+  "source_version": "0.10.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -179,7 +179,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C10 requires exact active component/version/capability on OCR pages and revalidates leased health; original C01 report retained"
   },
-  "current_run_scope": "0.9.0 installed full regression; embedded base profile and core/full self-test semantics. Actual Linux frozen core from isolated base build lock: 38 runtime versions, 235 hashed assets, selected actual notices/native origins, six formats with empty PATH and four public PDFs. Full self-test rejects absent native OCR; Windows/GPU not executed.",
+  "current_run_scope": "0.10.0 installed full regression; C03 four-language model selection, v1-v6 to v7 settings, fixed model downloads and original sample preservation. Actual existing Linux Tesseract with explicit paths, empty PATH/TESSDATA_PREFIX, four individual and mixed pages, CLI and Qt. No frozen/Windows rebuild; no general accuracy claim.",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -400,6 +400,32 @@
     "bundle_file_bytes": 352814293,
     "windows_executed": false,
     "gpu_executed": false,
-    "evidence": "development-records/runs/c04-build-2026-11-08/README.md"
+    "evidence": "development-records/runs/c04-build-2026-11-08/README.md",
+    "historical_source_version": "0.9.0"
+  },
+  "four_language_ocr": {
+    "check": "C03-languages",
+    "subcheck_accepted": true,
+    "full_c03_complete": false,
+    "new_tests": 18,
+    "acceptance_tests": 138,
+    "actual_native_checks": 10,
+    "languages": [
+      "chi_tra",
+      "eng",
+      "jpn",
+      "kor"
+    ],
+    "individual_fixed_targets_matched": true,
+    "mixed_fixed_targets_matched": true,
+    "model_bytes": 10639763,
+    "settings_schema": 7,
+    "legacy_default_retained": true,
+    "native_ocr_bundled": false,
+    "frozen_rebuilt": false,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "onnx_japanese_korean_accepted": false,
+    "evidence": "development-records/runs/c03-languages-2026-11-08/README.md"
   }
 }

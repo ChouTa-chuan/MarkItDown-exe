@@ -28,19 +28,22 @@ class DownloadThread(QThread):
 class ModelDialog(QDialog):
     installed = Signal(str)
 
-    def __init__(self, directory, parent=None, *, registry=None, managed_directory=None):
+    def __init__(self, directory, parent=None, *, registry=None, managed_directory=None, four_languages=False):
         super().__init__(parent)
         self.directory = Path(directory).absolute()
         self.managed_directory = Path(managed_directory).absolute() if managed_directory else None
         self.registry = registry
+        self.four_languages=four_languages
+        from .languages import model_manifest
+        spec=model_manifest() if four_languages else models.manifest()
         self.adapter = LegacyModelsAdapter(self.directory, registry,
-                                           managed=self.directory == self.managed_directory)
+                                           managed=self.directory == self.managed_directory,spec=spec)
         self.job = None
         self.setWindowTitle("OCR 模型管理")
         self.resize(620, 320)
         layout = QVBoxLayout(self)
-        spec = models.manifest()
-        info = QLabel(f"繁體中文＋英文 CPU OCR · 約 6.4 MB\n來源：{spec['source']}\n"
+        label='繁體中文＋英文＋日文＋韓文 CPU OCR' if four_languages else '繁體中文＋英文 CPU OCR · 約 6.4 MB'
+        info = QLabel(f"{label}\n來源：{spec['source']}\n"
                       f"固定版本：{spec['commit']}\n授權：{spec['license']}\n目錄：{self.directory}\n"
                       "只驗模型，不代表 OCR 引擎就緒。此功能不下載 Tesseract 執行檔，也不啟用 GPU。\n"
                       "舊／外部目錄只讀；下載請使用程式專用目錄，原資料不搬移。")
@@ -82,7 +85,7 @@ class ModelDialog(QDialog):
 
     def open_managed(self):
         dialog = ModelDialog(self.managed_directory, self, registry=self.registry,
-                             managed_directory=self.managed_directory)
+                             managed_directory=self.managed_directory,four_languages=self.four_languages)
         dialog.installed.connect(self.installed.emit)
         dialog.exec()
 

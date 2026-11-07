@@ -22,6 +22,7 @@ def main():
     parser.add_argument("--ocr-backend", choices=["tesseract", "onnx", "onnx_verify", "managed_cpu"])
     parser.add_argument('--component-id',help='受管 OCR 元件識別名稱；只適用 managed_cpu')
     parser.add_argument('--component-version',help='固定已啟用版本；不自動切換')
+    parser.add_argument('--ocr-languages',help='Tesseract 語言以 + 分隔：chi_tra／eng／jpn／kor；legacy 沿用舊行為')
     parser.add_argument("--vram-budget-mib", type=int)
     parser.add_argument("--ram-budget-mib", type=int)
     parser.add_argument("--reserve-mib", type=int)
@@ -31,6 +32,7 @@ def main():
     previous = signal.signal(signal.SIGINT, lambda *_: cancel.set())
     try:
         saved = load_settings(args.settings) if args.settings else Settings()
+        from .languages import parse_languages
         settings = replace(saved,
             ram_budget_mib=saved.ram_budget_mib if args.ram_budget_mib is None else args.ram_budget_mib,
             reserve_mib=saved.reserve_mib if args.reserve_mib is None else args.reserve_mib,
@@ -41,6 +43,7 @@ def main():
             ocr_backend=saved.ocr_backend if args.ocr_backend is None else args.ocr_backend,
             vram_budget_mib=saved.vram_budget_mib if args.vram_budget_mib is None else args.vram_budget_mib,
             quality=saved.quality if args.quality is None else args.quality,
+            ocr_languages=saved.ocr_languages if args.ocr_languages is None else parse_languages(args.ocr_languages),
         )
         context=None
         if settings.ocr_backend=='managed_cpu' and args.settings:
@@ -53,7 +56,7 @@ def main():
         result = runner.run(Request(args.source, args.destination, Quality(settings.quality),
                                     settings.ocr_executable, settings.ocr_data_dir,
                                     settings.device, settings.cpu_threads, settings.ocr_backend,
-                                    settings.vram_budget_mib,component_id,version), cancel,
+                                    settings.vram_budget_mib,component_id,version,ocr_languages=settings.ocr_languages), cancel,
                             lambda state, message: print(f"{state.value}: {message}"))
         print(f"{result.state.value}: {result.message}")
         return 0 if result.state == State.COMPLETED else 1

@@ -24,12 +24,14 @@ class RecordedResult(unittest.TextTestResult):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--report', type=Path, required=True)
-    parser.add_argument('--check', choices=('C01', 'C02', 'C04-locks', 'C04-build', 'C05', 'C06', 'C07', 'C08', 'C09-flow', 'C10'), default='C01')
+    parser.add_argument('--check', choices=('C01', 'C02', 'C03-languages', 'C04-locks', 'C04-build', 'C05', 'C06', 'C07', 'C08', 'C09-flow', 'C10'), default='C01')
     args = parser.parse_args()
     # 使用已安裝的套件，避免把原始碼路徑插入 sys.path 而掩蓋漏打包的新模組。
     sys.path.insert(0, str(ROOT / 'tests'))
     modules = {'C01':['test_components'],
                'C02':['test_component_migration', 'test_settings', 'test_models', 'test_desktop'],
+               'C03-languages':['test_languages','test_onboarding','test_settings','test_component_migration',
+                                'test_models','test_desktop','test_help_ui','test_core','test_pdf_pipeline'],
                'C04-locks':['test_packaging_profiles','test_license_inventory','test_formats','test_core','test_devices'],
                'C04-build':['test_build_profile','test_diagnostics','test_packaging_profiles','test_license_inventory',
                             'test_formats','test_core','test_devices','test_desktop','test_help_ui'],
@@ -58,6 +60,7 @@ def main():
                   fixture_scope={
                       'C01':'Synthetic payloads, actual filesystem and SQLite; no downloads or engine inference',
                       'C02':'v1-v5 settings, SQLite schema migration, synthetic downloads, desktop text conversion, pinned local models and explicit OCR path checks',
+                      'C03-languages':'Four-language model/preference contracts, v1-v6 settings migration, Qt, local native health and PDF/core regression. New JA/KO model inference and full GUI/CLI acceptance reported separately; no bundled Windows native OCR.',
                       'C04-locks':'Offline Python runtime/build closure for Linux and Windows target markers, original Windows notices and actual core/format/device regressions. Clean isolated base venv acceptance reported separately; not native/frozen/Windows acceptance.',
                       'C04-build':'Embedded base profile, selected asset integrity and core/full self-test semantics; C04 closure, diagnostics, formats/core/device/Qt regressions. Actual frozen acceptance reported separately; full C04/native/Windows gates remain pending.',
                       'C05':'Real Ed25519, filesystem and SQLite; injected HTTP protocol cases, no native engine execution; actual HTTPS checked separately',
@@ -74,6 +77,9 @@ def main():
         report['base_ocr_bundled']=False
     if args.check in ('C04-locks','C04-build'):
         report['full_c04_complete']=False
+        report['native_ocr_bundled']=False
+    if args.check=='C03-languages':
+        report['full_c03_complete']=False
         report['native_ocr_bundled']=False
     if args.check in ('C06', 'C07', 'C08', 'C10'):
         from test_component_lifecycle import PROCESS_OBSERVATIONS

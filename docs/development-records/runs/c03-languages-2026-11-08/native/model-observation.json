@@ -1,0 +1,27 @@
+{
+  "directory": "/workspace/markitdown-c03-four-language-native/models/tesseract-four-language-managed",
+  "states": [
+    [
+      "LICENSE",
+      "valid"
+    ],
+    [
+      "chi_tra.traineddata",
+      "valid"
+    ],
+    [
+      "eng.traineddata",
+      "valid"
+    ],
+    [
+      "jpn.traineddata",
+      "valid"
+    ],
+    [
+      "kor.traineddata",
+      "valid"
+    ]
+  ],
+  "owned": true,
+  "reference_id": null
+}

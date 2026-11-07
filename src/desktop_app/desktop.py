@@ -40,7 +40,8 @@ class BatchThread(QThread):
                                   self.settings.device, self.settings.cpu_threads,
                                   self.settings.ocr_backend, self.settings.vram_budget_mib,
                                   choice.component_id if choice and self.settings.ocr_backend=='managed_cpu' else None,
-                                  choice.version if choice and self.settings.ocr_backend=='managed_cpu' else None)
+                                  choice.version if choice and self.settings.ocr_backend=='managed_cpu' else None,
+                                  ocr_languages=self.settings.ocr_languages)
                 outcome = runner.run(request, self.cancel,
                     lambda state, message, i=index: self.event.emit(i, state.value, message))
                 self.outcomes.append(outcome)
@@ -133,6 +134,11 @@ class Window(QMainWindow):
         self.backend.addItem("雙引擎交叉核對（較慢，保留差異）", "onnx_verify")
         self.backend.addItem('受管 CPU OCR（選配、繁體品質未達標）','managed_cpu')
         form.addRow("OCR 後端", self.backend)
+        from .languages import PRESETS
+        self.languages=QComboBox()
+        for label,value in PRESETS:self.languages.addItem(label,value)
+        self.languages.setToolTip('語言選擇用於 Tesseract；四語混合不代表自動分類或必然較準確，日韓尚未驗收 ONNX。')
+        form.addRow('OCR 語言',self.languages)
         managed_row=QHBoxLayout()
         self.managed_id=QLineEdit('onnx-cpu-ocr')
         self.managed_id.setToolTip('預設 ONNX CPU 元件識別名稱；通常不用修改。')
@@ -222,6 +228,9 @@ class Window(QMainWindow):
             self.device.setCurrentIndex(self.device.findData(saved.device))
             self.cpu_threads.setValue(saved.cpu_threads)
             self.backend.setCurrentIndex(self.backend.findData(saved.ocr_backend))
+            language_value='+'.join(saved.ocr_languages) if saved.ocr_languages else 'legacy'
+            if self.languages.findData(language_value)<0:self.languages.addItem('自訂：'+language_value,language_value)
+            self.languages.setCurrentIndex(self.languages.findData(language_value))
             choice=next((item for item in saved.component_preferences if item.capability=='ocr.onnx.cpu'),None)
             self.managed_id.setText(choice.component_id if choice else 'onnx-cpu-ocr')
             self.managed_version.setText(choice.version or '' if choice else '')
@@ -231,7 +240,8 @@ class Window(QMainWindow):
             self.status.setText(f"設定未載入：{exc}；原檔未變更。")
 
     def preferences(self):
-        # 元件偏好等尚無控制項的 v6 欄位也須保留，不能每次儲存重設。
+        from .languages import parse_languages
+        # 未顯示的元件偏好仍須保留；v7 只新增語言，不重設舊引擎與其他設定。
         choices=self.loaded_settings.component_preferences
         if self.backend.currentData()=='managed_cpu':
             selected=ComponentPreference('ocr.onnx.cpu',self.managed_id.text().strip(),self.managed_version.text().strip() or None)
@@ -243,11 +253,14 @@ class Window(QMainWindow):
                         ocr_data_dir=self.model_path.text() if self.model_path.text().strip() else None,
                         device=self.device.currentData(), cpu_threads=self.cpu_threads.value(),
                         ocr_backend=self.backend.currentData(), vram_budget_mib=self.vram_budget.value(),
-                        quality=self.quality.currentData(),component_preferences=choices)
+                        quality=self.quality.currentData(),component_preferences=choices,
+                        ocr_languages=parse_languages(self.languages.currentData()))
 
     def update_managed_fields(self):
         enabled=self.backend.currentData()=='managed_cpu' and self.backend.isEnabled() and not (self.job and self.job.isRunning())
         self.managed_id.setEnabled(bool(enabled)); self.managed_version.setEnabled(bool(enabled))
+        self.languages.setEnabled(self.backend.isEnabled() and self.backend.currentData()=='tesseract'
+                                  and not (self.job and self.job.isRunning()))
 
     def show_help(self,document,title):
         from .help_ui import HelpDialog
@@ -267,13 +280,13 @@ class Window(QMainWindow):
     def manage_models(self):
         from .model_dialog import ModelDialog
         from .components.registry import ComponentRegistry
-        managed_directory = self.settings_path.parent / 'models/tesseract-managed'
+        managed_directory = self.settings_path.parent / 'models/tesseract-four-language-managed'
         legacy_directory = self.settings_path.parent / 'models/tesseract'
         directory = (Path(self.model_path.text()) if self.model_path.text().strip() else
                      legacy_directory if legacy_directory.exists() else managed_directory)
         try:
             registry = ComponentRegistry(self.settings_path.parent / 'component-state')
-            dialog = ModelDialog(directory, self, registry=registry, managed_directory=managed_directory)
+            dialog = ModelDialog(directory, self, registry=registry, managed_directory=managed_directory,four_languages=True)
         except (OSError, RuntimeError, ValueError) as exc:
             self.status.setText(f'模型登錄未開啟：{exc}；原模型未變更。')
             return

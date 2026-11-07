@@ -58,7 +58,8 @@ def prepare(output, root=ROOT):
     with tempfile.TemporaryDirectory(prefix='.base-assets-', dir=output.parent) as temporary:
         staged = Path(temporary)/'data'; staged.mkdir()
         source = root/'src/desktop_app/data'
-        for name in ['user-guide.md','ocr-models.json','worker-health.png','worker-health.json','setup-chinese.png','setup-chinese.json']:
+        for name in ['user-guide.md','ocr-models.json','ocr-four-languages.json','worker-health.png','worker-health.json',
+                     'setup-chinese.png','setup-chinese.json','setup-japanese.png','setup-japanese.json','setup-korean.png','setup-korean.json']:
             shutil.copyfile(source/name, staged/name)
         for name in ['models','standards','markitdown']:
             shutil.copytree(source/'licenses'/name, staged/'licenses'/name)

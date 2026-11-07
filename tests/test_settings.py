@@ -60,7 +60,7 @@ class SettingsTests(unittest.TestCase):
         raw = '{"schema_version":1,"ram_budget_mib":768}'
         self.path.write_text(raw)
         saved = load_settings(self.path)
-        self.assertEqual(saved.schema_version, 6)
+        self.assertEqual(saved.schema_version, 7)
         self.assertEqual(saved.ram_budget_mib, 768)
         self.assertIsNone(saved.ocr_data_dir)
         self.assertEqual(self.path.read_text(), raw)
@@ -73,14 +73,14 @@ class SettingsTests(unittest.TestCase):
     def test_v2_migration_preserves_paths(self):
         self.path.write_text('{"schema_version":2,"ocr_data_dir":"C:/models"}')
         saved = load_settings(self.path)
-        self.assertEqual(saved.schema_version, 6)
+        self.assertEqual(saved.schema_version, 7)
         self.assertEqual(saved.ocr_data_dir, 'C:/models')
         self.assertEqual(saved.cpu_threads, 1)
 
     def test_v3_migration_preserves_cpu_settings(self):
         self.path.write_text('{"schema_version":3,"device":"cpu","cpu_threads":2}')
         saved=load_settings(self.path)
-        self.assertEqual(saved.schema_version,6)
+        self.assertEqual(saved.schema_version,7)
         self.assertEqual(saved.cpu_threads,2)
         self.assertEqual(saved.ocr_backend,'tesseract')
 
@@ -92,4 +92,4 @@ class SettingsTests(unittest.TestCase):
     def test_v4_migrates_without_changing_backend(self):
         self.path.write_text('{"schema_version":4,"ocr_backend":"onnx"}')
         self.assertEqual(load_settings(self.path).ocr_backend,'onnx')
-        self.assertEqual(load_settings(self.path).schema_version,6)
+        self.assertEqual(load_settings(self.path).schema_version,7)

@@ -1,0 +1,32 @@
+{
+  "ready": true,
+  "executable": "/usr/bin/tesseract",
+  "data_dir": "/workspace/markitdown-c03-four-language-native/models/tesseract-four-language-managed",
+  "origin": "使用者既有設定",
+  "version": "tesseract 5.5.0",
+  "languages": [
+    "chi_tra",
+    "eng",
+    "jpn",
+    "kor"
+  ],
+  "samples": [
+    [
+      "worker-health.png",
+      "WORKER HEALTH CHECK 12345\n"
+    ],
+    [
+      "setup-chinese.png",
+      "繁體中文文件測試\n\n會議紀錄與資料轉換\n"
+    ],
+    [
+      "setup-japanese.png",
+      "日本語の文書変換\n\n会議の記録と資料\n\n確認番号 12345\n"
+    ],
+    [
+      "setup-korean.png",
+      "한국어 문서 변환\n\n회의 기록과 자료\n\n확인 번호 12345\n"
+    ]
+  ],
+  "message": "本機 CPU 引擎及所選語言合成辨識通過；不代表任意文件準確率或 Windows 基本包已驗收。"
+}

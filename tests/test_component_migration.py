@@ -31,13 +31,13 @@ class SettingsMigrationTests(MigrationDirectoryTests):
         values = dict(ram_budget_mib=896, reserve_mib=768, resource_wait_seconds=7.5,
                       ocr_executable='C:/自備引擎/tesseract.exe', ocr_data_dir='C:/外部模型',
                       device='cpu', cpu_threads=3, ocr_backend='onnx_verify', vram_budget_mib=512)
-        for version in range(1, 6):
+        for version in range(1, 7):
             with self.subTest(version=version):
                 path = self.root / f'設定-v{version}.json'
                 raw = (json.dumps(dict(schema_version=version, **values), ensure_ascii=False, indent=3) + '\n').encode()
                 path.write_bytes(raw)
                 loaded = load_settings(path)
-                self.assertEqual(loaded.schema_version, 6)
+                self.assertEqual(loaded.schema_version, 7)
                 for key, value in values.items():self.assertEqual(getattr(loaded, key), value)
                 self.assertEqual(path.read_bytes(), raw)
                 self.assertEqual(list(self.root.glob(path.name + '*.bak')), [])

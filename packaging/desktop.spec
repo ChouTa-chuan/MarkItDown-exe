@@ -16,6 +16,11 @@ if find_spec("rapidocr_onnxruntime"):
 for package in ("markitdown-desktop", "markitdown", "magika", "mammoth", "pdfplumber", "python-pptx", "openpyxl"):
     datas += copy_metadata(package)
 datas += [(str(root / "THIRD_PARTY_NOTICES"), "."),
+          (str(root / 'src/desktop_app/data/ocr-four-languages.json'), 'desktop_app/data'),
+          (str(root / 'src/desktop_app/data/setup-japanese.png'), 'desktop_app/data'),
+          (str(root / 'src/desktop_app/data/setup-japanese.json'), 'desktop_app/data'),
+          (str(root / 'src/desktop_app/data/setup-korean.png'), 'desktop_app/data'),
+          (str(root / 'src/desktop_app/data/setup-korean.json'), 'desktop_app/data'),
           (str(root / 'src/desktop_app/data/worker-health.png'), 'desktop_app/data'),
           (str(root / 'src/desktop_app/data/worker-health.json'), 'desktop_app/data'),
           (str(root / 'src/desktop_app/data/setup-chinese.png'), 'desktop_app/data'),

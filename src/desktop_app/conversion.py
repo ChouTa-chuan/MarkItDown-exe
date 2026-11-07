@@ -42,7 +42,8 @@ def convert_document(request: Request, checkpoint, progress=lambda stage: None, 
             _write_chunks(request, pdf_chunks(request.source, checkpoint, progress, reports,
                                              request.ocr_executable, request.ocr_data_dir,
                                              request.ocr_backend, request.device, request.cpu_threads,
-                                             request.vram_budget_mib,managed=managed), checkpoint, output_progress)
+                                             request.vram_budget_mib,managed=managed,
+                                             languages=request.ocr_languages), checkpoint, output_progress)
         warnings = sum(len(report["warnings"]) for report in reports)
         return f"逐頁分析 {len(reports)} 頁，OCR {sum(r['route'] == 'ocr' for r in reports)} 頁，品質提醒 {warnings} 項。"
     checkpoint()

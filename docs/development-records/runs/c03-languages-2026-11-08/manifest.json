@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "source_version": "0.10.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-08",
+  "check": "C03-languages",
+  "full_c03_complete": false,
+  "scope": "四語模型／選擇／設定及本機 Tesseract／CLI／Qt 實測；無內含 Windows 原生引擎，完整 C03 未關閉",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 4806,
+      "sha256": "3b111f32b290ab3f58ec1079ef57c13e8deae8d0f006f38991dd880346a56578",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 12654,
+      "sha256": "2cc8a84b818c65a6f759ad1a4564f9d2ab533edd16db3f2db469038f191391ad",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "component-tests.log",
+      "bytes": 19015,
+      "sha256": "9616d3b85e1f8c598cfe217135e81030d1cbe857eeb3f497f413acfa073fb7ec",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "full-tests.log",
+      "bytes": 67801,
+      "sha256": "858fd7e1b9b8ee56a9aa9e1a1eeb7992a3869c1ded63037c760b9e8f7c172d11",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 1396,
+      "sha256": "2e2d02cb3f949d4fe4aee515a63cb3bcd83dbfb9cdda0a84d8abc4a74cb165c9",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "intermediate-acceptance.json",
+      "bytes": 12654,
+      "sha256": "f74e9648df48305c949dc7ffbe9604276bbc54818dca18240cdccdb04ad8d703",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "intermediate-component-tests.log",
+      "bytes": 19015,
+      "sha256": "f929805c7863f8e6e38cce47c840e8a8115f86386ae67eb9b48e39987861aded",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "intermediate-original-440-tests.log",
+      "bytes": 65126,
+      "sha256": "48a83d0426eaa3aee12340b04220eed5c67248e28c1060dddfd914cd0e7c94e7",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "language-tests.log",
+      "bytes": 2774,
+      "sha256": "f8e5346a4b8db4e6fbaacd091d2628748a6941ebf8b68b9ac04403366080f7f6",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "licenses.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "model-sources.json",
+      "bytes": 1486,
+      "sha256": "a91d1e8fa39fd17a4e46a7138bc15cb77d836c0a392fd6c7bb4d94bbfc4c1d34",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/chi_tra.md",
+      "bytes": 225,
+      "sha256": "1a13d9c32adeccbd33160726737a480c805a7f79031ba9b58eb580b8a080dc46",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/chi_tra.pdf",
+      "bytes": 46031,
+      "sha256": "27aab973a2d77bd99fe553b7a5e12a6df9e6c3349272d5747428ef0220291f85",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/desktop-japanese.png",
+      "bytes": 131880,
+      "sha256": "0722793bbea58306c5c9d25c508f654b2b6191822e1295060d00dc9f42afca1c",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/eng.md",
+      "bytes": 193,
+      "sha256": "86e99f1f54191a44e1f05ae770f8991214d5ff90cdab001f0bf27de0cb9a2fc5",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/eng.pdf",
+      "bytes": 23515,
+      "sha256": "7cb44676728c34d508a726ec0e1ba3b0bfc5c4828fdac886a79a3f6d34e740a6",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/four-language-acceptance.json",
+      "bytes": 2059,
+      "sha256": "0c4519d8082c58390435121373222344f3bef7b6d4f8f7edc8b052bdeaa91617",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/four-language-health.json",
+      "bytes": 882,
+      "sha256": "c7e355884760d4f4225ae1c43bee230df9ce91db5d217d946cee4f7f346fb03f",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/four-language-mixed.md",
+      "bytes": 1453,
+      "sha256": "2ea271e690993dd7ba9dc464f192bf6a8afd6dcfb71638efb1dded88419ebdc7",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/four-language-mixed.pdf",
+      "bytes": 157748,
+      "sha256": "55ba64651300282245dfe85ca700e3bb53c2f81af44028b7cfa510a439bc25e9",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/four-language-models.png",
+      "bytes": 55945,
+      "sha256": "2559fb906f18960a1a610b57f42322a1deb05d27e8eea66b65739ebacc465200",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/gui/jpn.pdf.md",
+      "bytes": 367,
+      "sha256": "32784eb4714514fa90101875d49ad9d52154e75502762420d3f0333b800d393a",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/jpn-cli.log",
+      "bytes": 435,
+      "sha256": "35394faed889ffb7c4318cef5a202411263a313933e9b79982048c0fa2aa8400",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/jpn-cli.md",
+      "bytes": 238,
+      "sha256": "d72ac9da3f5064078fc778f7ada9d11ee8460bb68ab25d7959b7812adb2c36ae",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/jpn.md",
+      "bytes": 238,
+      "sha256": "d72ac9da3f5064078fc778f7ada9d11ee8460bb68ab25d7959b7812adb2c36ae",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/jpn.pdf",
+      "bytes": 49482,
+      "sha256": "4531ab7c995c0f2f826b2afa5ce503218027475e47223747da0d573e675359e8",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/kor-cli.log",
+      "bytes": 435,
+      "sha256": "35394faed889ffb7c4318cef5a202411263a313933e9b79982048c0fa2aa8400",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/kor-cli.md",
+      "bytes": 237,
+      "sha256": "a86aecac56e86b5551d41e56b965f6be94f18a375161c607bb22242f4630916a",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/kor.md",
+      "bytes": 237,
+      "sha256": "a86aecac56e86b5551d41e56b965f6be94f18a375161c607bb22242f4630916a",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/kor.pdf",
+      "bytes": 39859,
+      "sha256": "43cde6ca0d5d983743c1d344cfb9a4a43d783d7f1dcbdf6246df522d8ff59f08",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/model-observation.json",
+      "bytes": 422,
+      "sha256": "2f0ab7d71fb40fb25b55e092ec91071f710ac0dde6f6d7230b0748f29b01c356",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/model-receipt.json",
+      "bytes": 248,
+      "sha256": "34b065b21bd439b248664e5281827ad0ac4bf55f8ac55c6a388866c7af2d9324",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/models/tesseract-four-language-managed/.markitdown-model-owner.json",
+      "bytes": 248,
+      "sha256": "34b065b21bd439b248664e5281827ad0ac4bf55f8ac55c6a388866c7af2d9324",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/models/tesseract-four-language-managed/notes.txt",
+      "bytes": 18,
+      "sha256": "0662f3fffcb06b234e549e868673096cacebb33efc40d004042a8c99bda83703",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/settings.json",
+      "bytes": 546,
+      "sha256": "70439c0e3a7ce177cd079380e8542dca39cfcf71109070fa16f3205bc16ef68b",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native/settings.json.pre-v6-f32758694a3ff4af.bak",
+      "bytes": 74,
+      "sha256": "f32758694a3ff4afdd5271bc4a0cd55fef75132a8dc174d29c6ec43e341008eb",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "native.log",
+      "bytes": 394,
+      "sha256": "568c9b42cced0a6e43851c35242171e90fb81288c86fdfef6d433d4b60eeb3d4",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "official-downloads.json",
+      "bytes": 265,
+      "sha256": "ce3dd5535559065c3098eebdf83dc0ddc9a06b2b7cc4f4506321daa150c7192a",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "profiles.log",
+      "bytes": 308,
+      "sha256": "60f4d04e67ddb2356cc4afea6ee669302d131723567341544a94a26097ec9171",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 601669,
+      "sha256": "e60bd00a5d7f8f810c8aa086b47065234e681169bf08f2105a9bae76d0c7b800",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 608608,
+      "sha256": "bede2bbda357d3b00bf8f473f32f9e7927be6bcc60b4018fff0a3b6300b5bf5b",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 280145,
+      "sha256": "9b0f5b742d5fa366ecadbf57ff61172dcb4bc7c3f8e9835a257132cea82177eb",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 297545,
+      "sha256": "3e0184c44e70f48f151aa9e02b0df95cc6197df088c5660c49d12012c6050718",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 441799,
+      "sha256": "4b433b39b8b363783864e9b7c9069c3e8ed2d59beb55c7fff06e518c6210d857",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    },
+    {
+      "file": "upstream.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C03-languages 本輪生成；合成 PDF／影像及固定官方來源，native 為既有 Linux Tesseract 實測；不含使用者文件／模型 binary，不是 Windows 或 GPU 驗收"
+    }
+  ]
+}

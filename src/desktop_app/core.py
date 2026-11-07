@@ -32,6 +32,7 @@ class Request:
     vram_budget_mib: int = 768
     component_id: str | None = None
     component_version: str | None = None
+    ocr_languages: tuple[str, ...] | None = None
 
 
 @dataclass(frozen=True)

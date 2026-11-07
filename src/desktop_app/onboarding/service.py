@@ -97,7 +97,8 @@ def probe_engine(settings, directory, cancel, check=lambda:None, *, which=shutil
         if data is not None:
             if not Path(data).is_dir(): raise RuntimeError('已指定的模型目錄不存在，未改用其他目錄。')
         else:
-            for candidate in (Path(directory)/'models/tesseract-managed',Path(directory)/'models/tesseract'):
+            for candidate in (Path(directory)/'models/tesseract-four-language-managed',
+                              Path(directory)/'models/tesseract-managed',Path(directory)/'models/tesseract'):
                 if candidate.is_dir() and all(value=='valid' for value in models.inspect(candidate).values()):
                     data=str(candidate.absolute()); break
             if data is None and os.environ.get('TESSDATA_PREFIX'):
@@ -108,11 +109,15 @@ def probe_engine(settings, directory, cancel, check=lambda:None, *, which=shutil
         check()
         language_text=native_command([executable,'--list-langs',*data_args],cancel,timeout=5)
         languages=tuple(sorted(set(line.strip() for line in language_text.splitlines()[1:] if line.strip())))
-        if not {'chi_tra','eng'}<=set(languages): raise RuntimeError('基本 OCR 須具備 chi_tra 與 eng；未自動下載或改成其他引擎。')
+        required=settings.ocr_languages or ('chi_tra','eng')
+        if not set(required)<=set(languages): raise RuntimeError('缺少所選 OCR 語言：'+'、'.join(name for name in required if name not in languages)+'；未自動下載或改成其他引擎。')
         from PIL import Image
         from ..pdf_pipeline import _normalize_ocr_image
         asset_root=Path(resources.files('desktop_app').joinpath('data'))
-        for name,manifest_name in (('worker-health.png','worker-health.json'),('setup-chinese.png','setup-chinese.json')):
+        health=[('eng','worker-health'),('chi_tra','setup-chinese'),('jpn','setup-japanese'),('kor','setup-korean')]
+        for language,stem in health:
+            if language not in required:continue
+            name,manifest_name=stem+'.png',stem+'.json'
             check()
             reference=json.loads((asset_root/manifest_name).read_bytes()); path=asset_root/name
             if hashlib.sha256(path.read_bytes()).hexdigest()!=reference['sha256']: raise RuntimeError('合成健康樣本完整性異常。')
@@ -123,12 +128,13 @@ def probe_engine(settings, directory, cancel, check=lambda:None, *, which=shutil
                     prepared,dpi=_normalize_ocr_image(image,144)
                     try: prepared.save(source)
                     finally: prepared.close()
-                text=native_command([executable,str(source),'stdout','-l','chi_tra+eng','--dpi',str(dpi),'--psm','11',*data_args],cancel)
+                selected=language if settings.ocr_languages is not None else '+'.join(required)
+                text=native_command([executable,str(source),'stdout','-l',selected,'--dpi',str(dpi),'--psm','11',*data_args],cancel)
             if ''.join(expected.split()) not in ''.join(text.split()): raise RuntimeError('基本 OCR 合成健康樣本未達目標，請稍後重新檢查。')
             samples.append((name,text))
         check()
         return EngineObservation(True,executable,data,origin,version,languages,tuple(samples),
-            '本機 CPU 引擎及繁中／英文合成辨識通過；不代表任意文件準確率或 Windows 基本包已驗收。')
+            '本機 CPU 引擎及所選語言合成辨識通過；不代表任意文件準確率或 Windows 基本包已驗收。')
     except Cancelled: raise
     except Exception as exc:
         return EngineObservation(False,executable,data,origin,version,languages,tuple(samples),f'{type(exc).__name__}: {exc}')

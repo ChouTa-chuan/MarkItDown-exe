@@ -31,11 +31,11 @@ class LegacyModelAssessment:
 class LegacyModelsAdapter:
     """managed 是呼叫端允許新建專用目錄，不等於已有資料的所有權證據。"""
 
-    def __init__(self, directory, registry=None, *, managed=False):
+    def __init__(self, directory, registry=None, *, managed=False, spec=None):
         self.directory = Path(directory).absolute()
         self.registry = registry
         self.managed = managed
-        self.spec = models.manifest()
+        self.spec = models.manifest() if spec is None else spec
         self.manifest_hash = hashlib.sha256(json.dumps(self.spec, sort_keys=True).encode()).hexdigest()
 
     @property
@@ -70,7 +70,7 @@ class LegacyModelsAdapter:
         """重讀可信固定清單，登錄僅存觀察；未知檔案保留，不從 DB 取得所有權。"""
         try:
             _chain(self.directory)
-            states = models.inspect(self.directory)
+            states = models.inspect(self.directory, spec=self.spec)
         except (OSError, IntegrityError):
             states = {name: 'corrupt' for name in self.spec['files']}
         owned = self.owns_directory()
@@ -99,11 +99,11 @@ class LegacyModelsAdapter:
         self._claim_empty()
         options = {} if opener is None else {'opener': opener}
         # 原下載器的固定來源、16 MiB 限制、取消、暫存驗證與既有檔拒絕覆寫繼續沿用。
-        models.install(self.directory, cancel, progress, **options)
+        models.install(self.directory, cancel, progress, spec=self.spec, **options)
         return self.observe()
 
     def remove(self):
         if not self.owns_directory():
             raise PermissionError('未確認所有權的模型不提供移除；外部與舊目錄保持原樣。')
-        models.remove(self.directory)
+        models.remove(self.directory,spec=self.spec)
         return self.observe()

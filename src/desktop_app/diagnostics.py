@@ -120,7 +120,7 @@ def collect_report(scope='full'):
         elif scope == 'full':
             # C03 尚未提供內含引擎；不得借用 PATH／本機安裝冒充基本包已備妥。
             def missing_native():
-                raise RuntimeError('基本包原生 Tesseract／雙語模型尚未整合；C03 待完成。')
+                raise RuntimeError('基本包原生 Tesseract／四語模型尚未整合；C03 待完成。')
             check('bundled_tesseract_bilingual',missing_native)
     report['complete']=all(item['outcome']=='passed' for item in report['checks'])
     report['core_complete']=all(item['outcome']=='passed' for item in report['checks']

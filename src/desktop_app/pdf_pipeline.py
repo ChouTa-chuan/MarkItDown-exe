@@ -31,18 +31,22 @@ def decide_page(number, text, image_coverage):
     return PageDecision(number, "native", tuple(warnings))
 
 
-def _run_ocr(image, checkpoint, progress, dpi, executable=None, data_dir=None):
+def _run_ocr(image, checkpoint, progress, dpi, executable=None, data_dir=None, *, languages=None):
+    from .languages import validate_languages
+    validate_languages(languages)
     executable = executable or shutil.which("tesseract")
     if not executable:
         raise RuntimeError("本頁需要 OCR，但找不到 Tesseract；請安裝 OCR 元件後重試。")
     data_args = ["--tessdata-dir", data_dir] if data_dir else []
-    languages = subprocess.run([executable, "--list-langs", *data_args], capture_output=True,
+    available = subprocess.run([executable, "--list-langs", *data_args], capture_output=True,
                                text=True, timeout=10, check=True).stdout.splitlines()[1:]
-    languages = {name.strip() for name in languages}
-    selected = "+".join(name for name in ("chi_tra", "eng") if name in languages)
+    available = {name.strip() for name in available}
+    if languages is not None and not set(languages)<=available:
+        raise RuntimeError('缺少所選 OCR 語言模型：'+'、'.join(name for name in languages if name not in available)+'；未改用其他語言。')
+    selected = "+".join(languages) if languages is not None else "+".join(name for name in ("chi_tra", "eng") if name in available)
     if not selected:
         raise RuntimeError("OCR 缺少 chi_tra 或 eng 語言模型，無法辨識。")
-    warning = None if "chi_tra" in languages else "未安裝繁體中文 OCR 模型；本頁僅以英文模型處理，中文結果需檢查。"
+    warning = None if languages is not None or "chi_tra" in available else "未安裝繁體中文 OCR 模型；本頁僅以英文模型處理，中文結果需檢查。"
     with tempfile.TemporaryDirectory(prefix="markitdown-ocr-") as directory:
         source = Path(directory) / "page.png"
         prepared, dpi = _normalize_ocr_image(image, dpi)
@@ -183,10 +187,12 @@ def _native_columns(page, text, words=None, checkpoint=lambda:None):
 
 
 def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=None,
-               backend="tesseract", device="auto", threads=1, vram_budget_mib=768, *, managed=None):
+               backend="tesseract", device="auto", threads=1, vram_budget_mib=768, *, managed=None,languages=None):
     """逐頁產出內容與核對提醒；頁面、渲染器及引擎在取消或例外時仍需釋放。"""
     import pdfplumber
     import pypdfium2
+    from .languages import validate_languages
+    validate_languages(languages)
     renderer = None
     onnx = None
     previous_tail = None
@@ -205,12 +211,16 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                     route = decision.route
                     progress(f"第 {index+1}/{len(document.pages)} 頁：{'OCR' if route == 'ocr' else '原生分析'}")
                     if route == "ocr":
+                        if backend!='tesseract' and set(languages or ()) & {'jpn','kor'}:
+                            raise RuntimeError('日文／韓文目前僅驗證 Tesseract；請明確選擇 Tesseract 後重試，未更換後端。')
                         if backend=='managed_cpu' and managed is None:
                             raise RuntimeError('受管 OCR 尚未接入此呼叫；未改用其他引擎。')
                         if backend in ("onnx", "onnx_verify") and onnx is None:
                             from .onnx_ocr import OnnxOCR
                             onnx = OnnxOCR(device, threads, vram_budget_mib, checkpoint, progress)
                         warnings.append("OCR 結果需核對；圖表、公式與原始版面尚未完整還原。")
+                        if backend=='tesseract' and len(languages or ())>1 and set(languages)&{'jpn','kor'}:
+                            warnings.append('多語混合解碼可能混淆相近字形；若已知文件語言，請選對應語言並核對原文。')
                         if renderer is None:
                             renderer = pypdfium2.PdfDocument(str(source))
                         text = ""
@@ -229,7 +239,7 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                                         from .quality import compare_ocr
                                         checkpoint()
                                         primary, primary_warning = _run_ocr(image, checkpoint, progress,
-                                                                           actual_dpi, executable, data_dir)
+                                                                           actual_dpi, executable, data_dir,languages=languages)
                                         current_comparison = compare_ocr(primary, recognized)
                                         recognized = primary
                                         warning = current_comparison.warning
@@ -237,7 +247,7 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                                             warning += " " + primary_warning
                                 else:
                                     recognized, warning = _run_ocr(image, checkpoint, progress, actual_dpi,
-                                                                   executable, data_dir)
+                                                                   executable, data_dir,languages=languages)
                             finally:
                                 image.close()
                             if warning and warning not in warnings:
@@ -301,6 +311,8 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                     if component: reports[-1]['component']=component
                     checkpoint()
                     yield f"<!-- source-page: {index+1}; route: {route} -->\n\n"
+                    if route=='ocr' and backend=='tesseract' and languages is not None:
+                        yield '<!-- source-ocr-languages: '+'+'.join(languages)+' -->\n\n'
                     if component:
                         yield (f"<!-- source-component: {component['component_id']}; version: {component['version']}; "
                                f"protocol: {component['protocol']}; device: {component['device']} -->\n\n")

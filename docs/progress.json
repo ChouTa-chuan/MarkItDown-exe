@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-08",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 439,
-  "headline": "C04 基本核心打包／自檢子檢核完成；新架構導入維持 7/12",
+  "tests_passed": 457,
+  "headline": "C03 四語模型／選擇子檢核完成；新架構導入維持 7/12",
   "blocker": "缺少 Windows／GPU 執行器；ONNX 繁體品質仍未達標，正式安裝包未經驗收。",
-  "next": "接續 C03 Windows 原生 Tesseract 與雙語 OCR，再完成完整 profile／C09；Windows／GPU 實機與正式來源門檻保留。",
+  "next": "接續 Windows 原生 Tesseract／DLL 與四語基本包，再完成完整 C03／C04／C09；GPU 與正式來源門檻保留。",
   "milestones": [
     {
       "id": "m0",
@@ -217,7 +217,7 @@
       "title": "設定儲存",
       "layer": "支援",
       "state": "verified",
-      "detail": "schema v6 讀取 v1–v5，保存品質及元件偏好；儲存前備份，拒絕覆蓋損毀或未來設定。",
+      "detail": "schema v7 讀取 v1–v6，保留原偏好與首次標記，新增 OCR 語言；明確儲存前備份原文，拒絕覆蓋未來／損壞設定。",
       "evidence": "tests/test_settings.py／test_component_migration.py／test_desktop.py"
     },
     {
@@ -225,8 +225,8 @@
       "title": "模型與 GPU",
       "layer": "處理",
       "state": "partial",
-      "detail": "Tesseract 模型已轉接登錄並區分所有權；ONNX CPU 沿用，繁體有已知缺口，GPU 尚未實機驗證。",
-      "evidence": "ONNX CPU 英文掃描及打包模型驗證；繁體品質預期失敗保留，GPU 分支僅模擬"
+      "detail": "Tesseract 四語固定模型／單語與混合選擇已測；ONNX 繁體缺口保留，日韓／GPU 未驗，不自行更換後端。",
+      "evidence": "四語本機 Tesseract／CLI／Qt 10 項；非 Windows 內含引擎或一般準確率"
     },
     {
       "id": "quality",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 439 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 457 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -246,19 +246,19 @@
     }
   ],
   "limits": [
-    "C01／C02／C05–C08／C10 已驗收，7/12；C04 完成基本依賴及 Linux frozen 核心／自檢 2/4 子檢核，完整 C04／C09 仍待原生基本包與 Windows。既有 19/25 分開追蹤。",
-    "ONNX 為實驗性選配，繁體合成樣本有漏字／字形錯誤；Tesseract 預設保留，GPU 尚未實機驗證。",
+    "C01／C02／C05–C08／C10 已驗收，7/12；C03 四語 1/4、C04 2/4、C09 3/4 子檢核，完整原生基本包與 Windows 未驗。既有 19/25 分開追蹤。",
+    "Tesseract 日韓／四語合成樣本通過，不代表任意混排／直排／低品質文件準確率；ONNX 繁體缺口與日韓未驗保留，GPU 未實機。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 440,
+  "tests_run": 458,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收 7/12：C01／C02／C05–C08／C10。C04 已完成基本依賴與 Linux frozen 核心／自檢兩項子檢核；完整自檢明確拒絕缺少原生 OCR，C04／C09 全項仍待 C03 與 Windows。",
+    "description": "已驗收 7/12。C03 四語模型與本機選擇完成 1/4、C04 依賴／Linux 核心自檢完成 2/4、C09 流程完成 3/4；完整原生基本包與 Windows 尚待驗收。",
     "phases": [
       {
         "id": "a",
@@ -284,9 +284,27 @@
         "checks": [
           {
             "id": "C03",
-            "label": "Windows Tesseract 與繁中／英文 OCR",
+            "label": "Windows Tesseract 與繁中／英／日／韓 OCR",
             "done": false,
-            "acceptance": "原生引擎／DLL／模型／授權隨基本包，無外部引擎即可離線 OCR。"
+            "acceptance": "四語模型／設定／選擇子檢核 138/138，真正本機 Tesseract／Qt／CLI 10/10；單語與固定四頁混合樣本原文符合。Windows 執行檔／DLL、四語內含與乾淨機尚未驗，整項不列完成。",
+            "subchecks": [
+              {
+                "label": "固定四語模型、語言選擇／設定遷移與本機離線 OCR（Linux）",
+                "done": true
+              },
+              {
+                "label": "Windows 固定原生引擎／DLL、來源與授權",
+                "done": false
+              },
+              {
+                "label": "基本包內含四語模型與離線自動設定／完整自檢",
+                "done": false
+              },
+              {
+                "label": "乾淨 Windows 四語掃描、中文路徑及安裝驗收",
+                "done": false
+              }
+            ]
           },
           {
             "id": "C04",

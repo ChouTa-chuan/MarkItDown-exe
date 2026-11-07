@@ -27,9 +27,9 @@ def digest(path):
     return result.hexdigest()
 
 
-def inspect(directory):
+def inspect(directory, *, spec=None):
     result = {}
-    for name, expected in manifest()["files"].items():
+    for name, expected in (manifest() if spec is None else spec)["files"].items():
         path = directory/name
         try:
             result[name] = ("corrupt" if path.is_symlink() else "missing" if not path.exists()
@@ -39,11 +39,11 @@ def inspect(directory):
     return result
 
 
-def install(directory, cancel=None, progress=lambda text: None, opener=urllib.request.urlopen):
+def install(directory, cancel=None, progress=lambda text: None, opener=urllib.request.urlopen, *, spec=None):
     """只下載固定清單中的模型與授權；既有內容不符時拒絕覆寫。"""
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
-    spec = manifest()
+    spec = manifest() if spec is None else spec
     def checkpoint():
         if cancel is not None and cancel.is_set():
             raise Cancelled("模型下載已取消。")
@@ -85,13 +85,14 @@ def install(directory, cancel=None, progress=lambda text: None, opener=urllib.re
     progress("模型及授權已全部驗證完成。")
 
 
-def remove(directory):
+def remove(directory, *, spec=None):
     """只移除已辨識且未修改的受管檔案，保留未知資料。"""
-    for name, expected in manifest()["files"].items():
+    spec=manifest() if spec is None else spec
+    for name, expected in spec["files"].items():
         target = directory/name
         if target.is_symlink():
             raise ValueError(f"不移除符號連結：{name}")
         if target.exists() and digest(target) != expected:
             raise ValueError(f"檔案已被修改，未移除：{name}")
-    for name in manifest()["files"]:
+    for name in spec["files"]:
         (directory/name).unlink(missing_ok=True)

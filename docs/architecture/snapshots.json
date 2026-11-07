@@ -169,6 +169,18 @@
       "source_version": "0.9.0",
       "architecture_scope": "0.4 C04 Linux frozen base core and scoped diagnostics accepted; native OCR and complete Windows profiles pending",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-c03-four-languages.md",
+      "title": "架構 v0.4：C03 四語模型與語言選擇",
+      "diagram_sha256": "135aa568eab6280630c15377531860d49638ebe534ca2e725e4be707d3d68fd8",
+      "file_sha256": "6e39ebf24a1b015f3e91c79a45b4f3043ad5b3a63f1facfe1741c937c0c5df80",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_description": "程式 0.10.0 與首頁圖一併提交；C03 本機子檢核，完整 Windows 未關閉",
+      "source_version": "0.10.0",
+      "architecture_scope": "0.4 four-language model/preference/local Tesseract subcheck accepted; Windows native packaging pending",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-07"

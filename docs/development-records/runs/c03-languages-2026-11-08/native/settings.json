@@ -1,0 +1,21 @@
+{
+  "schema_version": 7,
+  "ram_budget_mib": 2048,
+  "reserve_mib": 0,
+  "resource_wait_seconds": 30.0,
+  "ocr_executable": "/usr/bin/tesseract",
+  "ocr_data_dir": "/workspace/markitdown-c03-four-language-native/models/tesseract-four-language-managed",
+  "device": "auto",
+  "cpu_threads": 1,
+  "ocr_backend": "tesseract",
+  "vram_budget_mib": 768,
+  "quality": "precise",
+  "onboarding_version": 0,
+  "component_preferences": [],
+  "update_channel": "stable",
+  "allow_optional_downloads": false,
+  "ocr_languages": [
+    "jpn",
+    "eng"
+  ]
+}

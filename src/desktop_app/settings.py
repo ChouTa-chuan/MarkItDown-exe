@@ -9,6 +9,7 @@ import tempfile
 
 from .resources import MIB, Policy
 from .components.contracts import Version, _name
+from .languages import validate_languages
 
 
 @dataclass(frozen=True)
@@ -27,7 +28,7 @@ class ComponentPreference:
 
 @dataclass(frozen=True)
 class Settings:
-    schema_version: int = 6
+    schema_version: int = 7
     ram_budget_mib: int | None = None
     reserve_mib: int = 2048
     resource_wait_seconds: float = 30.0
@@ -42,9 +43,10 @@ class Settings:
     component_preferences: tuple[ComponentPreference, ...] = ()
     update_channel: str = 'stable'
     allow_optional_downloads: bool = False
+    ocr_languages: tuple[str, ...] | None = None
 
     def __post_init__(self):
-        if type(self.schema_version) is not int or self.schema_version != 6:
+        if type(self.schema_version) is not int or self.schema_version != 7:
             raise ValueError("不支援的設定版本，請勿以舊版程式覆寫。")
         if self.ram_budget_mib is not None and (
                 type(self.ram_budget_mib) is not int or self.ram_budget_mib <= 0):
@@ -75,6 +77,7 @@ class Settings:
                 or not all(isinstance(item, ComponentPreference) for item in self.component_preferences)
                 or len({item.capability for item in self.component_preferences}) != len(self.component_preferences)):
             raise ValueError('元件偏好無效、重複或超過限制。')
+        validate_languages(self.ocr_languages)
 
     def policy(self) -> Policy:
         return Policy(budget=None if self.ram_budget_mib is None else self.ram_budget_mib*MIB,
@@ -111,7 +114,7 @@ def _decode(raw):
     if "schema_version" not in content:
         raise ValueError("設定檔缺少 schema_version。")
     original_version = content['schema_version']
-    if type(original_version) is not int or original_version not in (1, 2, 3, 4, 5, 6):
+    if type(original_version) is not int or original_version not in (1, 2, 3, 4, 5, 6, 7):
         raise ValueError('不支援的設定版本，原檔未變更。')
     preferences = content.get('component_preferences', [])
     if not isinstance(preferences, list) or len(preferences) > 64:
@@ -120,11 +123,14 @@ def _decode(raw):
         preferences = tuple(ComponentPreference(**item) for item in preferences)
     except TypeError as exc:
         raise ValueError('元件偏好欄位無效。') from exc
-    return Settings(**{**content, 'schema_version': 6, 'component_preferences': preferences}), original_version
+    languages=content.get('ocr_languages')
+    if languages is not None and not isinstance(languages,list):raise ValueError('OCR 語言須為 JSON 清單或 null。')
+    return Settings(**{**content, 'schema_version': 7, 'component_preferences': preferences,
+                       'ocr_languages':None if languages is None else tuple(languages)}), original_version
 
 
 def load_settings(path: Path) -> Settings:
-    """v1–v5 只在記憶體遷移；讀取不寫檔、不下載、不更動外部資料。"""
+    """v1–v6 只在記憶體遷移；讀取不寫檔、不下載、不更動外部資料。"""
     return _decode(_read(Path(path)))[0]
 
 
@@ -165,7 +171,7 @@ def save_settings(settings: Settings, path: Path, *, expected_raw=_UNSPECIFIED):
         raise ValueError('設定已變更，請重新開啟首次設定；原檔未覆寫。')
     if previous is not None:
         _, original_version = _decode(previous)
-        if original_version < 6:
+        if original_version < 7:
             _backup(previous, path, original_version)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = None

@@ -68,7 +68,7 @@ class SetupDialog(QDialog):
         self.details.setPlainText(f'實體 RAM：{ram.total_mib:,} MiB　當下可用：{ram.available_mib:,} MiB'
             f'\n建議自動上限：約 {ram.automatic_budget_mib:,} MiB（實體 RAM 的 25%）'
             f'\n建議系統保留：{ram.reserve_mib:,} MiB；屬軟性預算，不保證瞬間不超量。'
-            f'\n\n基本 CPU OCR：'+('已通過合成繁中／英文檢查' if engine.ready else '尚未就緒')+
+            f'\n\n基本 CPU OCR：'+('已通過所選語言合成檢查' if engine.ready else '尚未就緒')+
             f'\n引擎：{engine.executable or "未找到"}\n模型：{engine.data_dir or "引擎預設位置"}'
             f'\n來源：{engine.origin}\n版本：{engine.version}\n語言：{", ".join(engine.languages)}'
             f'\n{engine.message}\n\n選配可之後從主視窗開啟；GPU 不會自動啟用。')
