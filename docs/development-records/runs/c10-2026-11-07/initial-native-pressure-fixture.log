@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/MarkItDown-exe/scripts/check_managed_conversion_acceptance.py", line 168, in <module>
+    parser.add_argument('--output',type=Path,required=True);args=parser.parse_args();acceptance(args.package_directory,args.output)
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/MarkItDown-exe/scripts/check_managed_conversion_acceptance.py", line 93, in acceptance
+    require(paused.wait(5),'RAM pressure did not pause conversion')
+  File "/workspace/MarkItDown-exe/scripts/check_managed_conversion_acceptance.py", line 36, in require
+    if not condition: raise AssertionError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: RAM pressure did not pause conversion

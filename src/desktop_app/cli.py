@@ -19,7 +19,9 @@ def main():
     parser.add_argument("--quality", choices=[quality.value for quality in Quality])
     parser.add_argument("--device", choices=["auto", "cpu", "gpu"])
     parser.add_argument("--cpu-threads", type=int)
-    parser.add_argument("--ocr-backend", choices=["tesseract", "onnx", "onnx_verify"])
+    parser.add_argument("--ocr-backend", choices=["tesseract", "onnx", "onnx_verify", "managed_cpu"])
+    parser.add_argument('--component-id',help='受管 OCR 元件識別名稱；只適用 managed_cpu')
+    parser.add_argument('--component-version',help='固定已啟用版本；不自動切換')
     parser.add_argument("--vram-budget-mib", type=int)
     parser.add_argument("--ram-budget-mib", type=int)
     parser.add_argument("--reserve-mib", type=int)
@@ -40,11 +42,18 @@ def main():
             vram_budget_mib=saved.vram_budget_mib if args.vram_budget_mib is None else args.vram_budget_mib,
             quality=saved.quality if args.quality is None else args.quality,
         )
-        runner = Runner(settings.policy(), max_resource_wait=settings.resource_wait_seconds)
+        context=None
+        if settings.ocr_backend=='managed_cpu' and args.settings:
+            from .components.management import ComponentManagement
+            context=ComponentManagement(args.settings.parent,settings=settings).conversion_context()
+        choice=next((item for item in settings.component_preferences if item.capability=='ocr.onnx.cpu'),None)
+        component_id=args.component_id or (choice.component_id if choice and settings.ocr_backend=='managed_cpu' else None)
+        version=args.component_version or (choice.version if choice and settings.ocr_backend=='managed_cpu' else None)
+        runner = Runner(settings.policy(), max_resource_wait=settings.resource_wait_seconds,component_context=context)
         result = runner.run(Request(args.source, args.destination, Quality(settings.quality),
                                     settings.ocr_executable, settings.ocr_data_dir,
                                     settings.device, settings.cpu_threads, settings.ocr_backend,
-                                    settings.vram_budget_mib), cancel,
+                                    settings.vram_budget_mib,component_id,version), cancel,
                             lambda state, message: print(f"{state.value}: {message}"))
         print(f"{result.state.value}: {result.message}")
         return 0 if result.state == State.COMPLETED else 1

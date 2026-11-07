@@ -89,6 +89,11 @@ class ComponentManagement:
             raise CatalogError('目錄檔超過大小限制或為空。')
         return raw
 
+    def conversion_context(self):
+        """交給同一應用程式的 spawn 子程序；只攜帶固定公鑰政策，不攜帶回呼／私鑰。"""
+        from ..component_workers.managed import ManagedContext
+        return ManagedContext(str(self.directory),None if self.source is None else self.source.policy)
+
     def _catalog(self):
         if self.verifier is None:
             raise CatalogError('正式選配元件目錄尚未提供；基本轉換與原模型管理仍可使用。')
@@ -201,7 +206,7 @@ class ComponentManagement:
                             else: cached=download.download(self._catalog(),*key,cancel=cancel,checkpoint=check,progress=progress)
                             check(); status('正在交易安裝與健康檢查；大型元件可能需要較久…')
                             manager.install(self._catalog(),*key,cached.path,repair=operation=='repair',cancel=cancel)
-                            message='元件已驗證並啟用；文件自動路由尚待接入。'
+                            message='元件已驗證並啟用；轉換會依目前 OCR 後端與版本選擇使用。'
                         elif operation=='health':
                             status('正在重驗檔案與健康…'); manager.check_health(self._catalog(),*key,cancel=cancel)
                             message='健康檢查通過；使用時仍會重新驗證。'

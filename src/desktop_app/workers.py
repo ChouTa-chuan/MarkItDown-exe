@@ -5,7 +5,7 @@ from .conversion import convert_document
 from .core import Cancelled
 
 
-def worker(request, cancel, permit, messages):
+def worker(request, cancel, permit, messages, component_context=None,policy=None,owner_pid=None,resource_wait=30):
     def checkpoint():
         # permit 由父程序依 RAM 壓力控制；等待期間仍持續檢查取消。
         while not permit.wait(0.1):
@@ -27,7 +27,11 @@ def worker(request, cancel, permit, messages):
         messages.put(("progress", f"工作程序 CPU 執行緒設定上限：{request.cpu_threads}；支援度依原生套件而異。"))
         if request.device == "gpu" and not (request.source.suffix.lower() == ".pdf" and request.quality.value == "precise"):
             messages.put(("progress", "原生格式解析使用 CPU；此步驟沒有 GPU 加速。"))
-        summary = convert_document(request, checkpoint, lambda stage: messages.put(("progress", stage)))
+        summary = convert_document(request, checkpoint, lambda stage: messages.put(("progress", stage)),
+            component_context=component_context,policy=policy,cancel=cancel,permit=permit,
+            owner_pid=owner_pid,resource_wait=resource_wait,
+            record_component=lambda evidence:messages.put(('component',evidence)),
+            resource_event=lambda state,message:messages.put(('worker_state',(state.value,message))))
         messages.put(("completed", summary or ""))
     except Cancelled as exc:
         messages.put(("cancelled", str(exc)))

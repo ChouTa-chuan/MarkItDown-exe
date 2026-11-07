@@ -84,6 +84,11 @@ class TrustPolicy:
         if source_origin(url) not in self.allowed_origins:
             raise CatalogError('來源或重新導向不在應用程式核准的 HTTPS 白名單。')
 
+    def __reduce__(self):
+        """僅供可信本機 spawn 傳遞公鑰政策；重建時仍執行完整契約驗證。"""
+        return (type(self),(self.policy_version,self.catalog_id,self.minimum_revision,dict(self.keys),
+                self.revoked_keys,self.allowed_origins,self.max_download_bytes,self.max_unpacked_bytes))
+
 
 def _time(value):
     if not isinstance(value, str) or len(value) != 20 or not value.endswith('Z'):

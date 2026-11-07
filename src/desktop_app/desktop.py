@@ -12,31 +12,38 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFileDialog, 
 
 from .application import Runner
 from .core import Request, State, Quality
-from .settings import Settings, load_settings, save_settings
+from .settings import Settings, ComponentPreference, load_settings, save_settings
 
 
 class BatchThread(QThread):
     event = Signal(int, str, str)
     converted = Signal(str)
 
-    def __init__(self, sources, directory, settings, quality=Quality.PRECISE, parent=None):
+    def __init__(self, sources, directory, settings, quality=Quality.PRECISE, parent=None, *, component_context=None):
         super().__init__(parent)
         self.sources = sources
         self.directory = directory
         self.settings = settings
         self.quality = quality
         self.cancel = Event()
+        self.component_context = component_context
+        self.outcomes = []
 
     def run(self):
-        runner = Runner(self.settings.policy(), max_resource_wait=self.settings.resource_wait_seconds)
+        runner = Runner(self.settings.policy(), max_resource_wait=self.settings.resource_wait_seconds,
+                        component_context=self.component_context)
         try:
             for index, source in enumerate(self.sources):
+                choice=next((item for item in self.settings.component_preferences if item.capability=='ocr.onnx.cpu'),None)
                 request = Request(source, self.directory / (source.name + ".md"), self.quality,
                                   self.settings.ocr_executable, self.settings.ocr_data_dir,
                                   self.settings.device, self.settings.cpu_threads,
-                                  self.settings.ocr_backend, self.settings.vram_budget_mib)
+                                  self.settings.ocr_backend, self.settings.vram_budget_mib,
+                                  choice.component_id if choice and self.settings.ocr_backend=='managed_cpu' else None,
+                                  choice.version if choice and self.settings.ocr_backend=='managed_cpu' else None)
                 outcome = runner.run(request, self.cancel,
                     lambda state, message, i=index: self.event.emit(i, state.value, message))
+                self.outcomes.append(outcome)
                 self.event.emit(index, outcome.state.value, outcome.message)
                 if outcome.state == State.COMPLETED:
                     self.converted.emit(str(request.destination))
@@ -70,7 +77,7 @@ class Window(QMainWindow):
         self.setCentralWidget(container)
         layout = QVBoxLayout(container)
         layout.addWidget(QLabel("本機文件轉 Markdown｜Office / 文字型 PDF / HTML / UTF-8 文字"))
-        layout.addWidget(QLabel("PDF 精準模式自動逐頁分析與 OCR；OCR 需另備 Tesseract。GPU 尚未開放。"))
+        layout.addWidget(QLabel("PDF 精準模式自動逐頁分析；OCR 依所選後端與元件執行，GPU 尚待實機驗證。"))
         toolbar = QHBoxLayout()
         self.add_button = QPushButton("新增檔案／拖放")
         self.add_button.clicked.connect(self.choose_files)
@@ -124,7 +131,17 @@ class Window(QMainWindow):
         self.backend.addItem("Tesseract（外部引擎）", "tesseract")
         self.backend.addItem("ONNX OCR（實驗性，繁體品質未達標）", "onnx")
         self.backend.addItem("雙引擎交叉核對（較慢，保留差異）", "onnx_verify")
+        self.backend.addItem('受管 CPU OCR（選配、繁體品質未達標）','managed_cpu')
         form.addRow("OCR 後端", self.backend)
+        managed_row=QHBoxLayout()
+        self.managed_id=QLineEdit('onnx-cpu-ocr')
+        self.managed_id.setToolTip('預設 ONNX CPU 元件識別名稱；通常不用修改。')
+        self.managed_version=QLineEdit()
+        self.managed_version.setPlaceholderText('留空用啟用版本；指定版本須先啟用')
+        managed_row.addWidget(self.managed_id); managed_row.addWidget(self.managed_version)
+        form.addRow('受管元件／版本',managed_row)
+        self.backend.currentIndexChanged.connect(self.update_managed_fields)
+        self.update_managed_fields()
         self.vram_budget = QSpinBox()
         self.vram_budget.setRange(192, 1048576)
         self.vram_budget.setValue(768)
@@ -205,6 +222,9 @@ class Window(QMainWindow):
             self.device.setCurrentIndex(self.device.findData(saved.device))
             self.cpu_threads.setValue(saved.cpu_threads)
             self.backend.setCurrentIndex(self.backend.findData(saved.ocr_backend))
+            choice=next((item for item in saved.component_preferences if item.capability=='ocr.onnx.cpu'),None)
+            self.managed_id.setText(choice.component_id if choice else 'onnx-cpu-ocr')
+            self.managed_version.setText(choice.version or '' if choice else '')
             self.vram_budget.setValue(saved.vram_budget_mib)
             self.quality.setCurrentIndex(self.quality.findData(saved.quality))
         except (OSError, ValueError) as exc:
@@ -212,13 +232,22 @@ class Window(QMainWindow):
 
     def preferences(self):
         # 元件偏好等尚無控制項的 v6 欄位也須保留，不能每次儲存重設。
+        choices=self.loaded_settings.component_preferences
+        if self.backend.currentData()=='managed_cpu':
+            selected=ComponentPreference('ocr.onnx.cpu',self.managed_id.text().strip(),self.managed_version.text().strip() or None)
+            existed=any(item.capability=='ocr.onnx.cpu' for item in choices)
+            choices=tuple(selected if item.capability=='ocr.onnx.cpu' else item for item in choices)+(() if existed else (selected,))
         return replace(self.loaded_settings, ram_budget_mib=None if self.auto_budget.isChecked() else self.budget.value(),
                         reserve_mib=self.reserve.value(), resource_wait_seconds=self.wait_seconds,
                         ocr_executable=self.ocr_engine.text() if self.ocr_engine.text().strip() else None,
                         ocr_data_dir=self.model_path.text() if self.model_path.text().strip() else None,
                         device=self.device.currentData(), cpu_threads=self.cpu_threads.value(),
                         ocr_backend=self.backend.currentData(), vram_budget_mib=self.vram_budget.value(),
-                        quality=self.quality.currentData())
+                        quality=self.quality.currentData(),component_preferences=choices)
+
+    def update_managed_fields(self):
+        enabled=self.backend.currentData()=='managed_cpu' and self.backend.isEnabled() and not (self.job and self.job.isRunning())
+        self.managed_id.setEnabled(bool(enabled)); self.managed_version.setEnabled(bool(enabled))
 
     def show_help(self,document,title):
         from .help_ui import HelpDialog
@@ -330,9 +359,17 @@ class Window(QMainWindow):
         if not self.sources or not self.output.text().strip():
             self.status.setText("請加入文件並選擇輸出資料夾。")
             return
-        self.preview.clear()
-        self.job = BatchThread(list(self.sources), Path(self.output.text().strip()), self.preferences(),
-                               Quality(self.quality.currentData()), self)
+        try:
+            settings=self.preferences(); component_context=None
+            if settings.ocr_backend=='managed_cpu':
+                from .components.management import ComponentManagement
+                factory=self.component_service_factory or ComponentManagement
+                component_context=factory(self.settings_path.parent,settings=settings).conversion_context()
+            self.preview.clear()
+            self.job = BatchThread(list(self.sources), Path(self.output.text().strip()), settings,
+                                   Quality(self.quality.currentData()), self,component_context=component_context)
+        except (OSError,ValueError,RuntimeError) as exc:
+            self.status.setText(f'轉換未開始：{exc}'); return
         self.job.event.connect(self.on_event)
         self.job.converted.connect(self.show_preview)
         self.job.finished.connect(self.on_finished)
@@ -350,6 +387,7 @@ class Window(QMainWindow):
             widget.setEnabled(not running)
         self.budget.setEnabled(not running and not self.auto_budget.isChecked())
         self.cancel_button.setEnabled(running)
+        self.update_managed_fields()
 
     def on_event(self, index, state, message):
         labels = {"queued":"排隊", "running":"處理中", "paused":"等待資源",

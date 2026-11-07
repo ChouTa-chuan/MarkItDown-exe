@@ -1,6 +1,6 @@
 # C07：獨立 CPU 選配工作程序
 
-程式 **0.5.0**、架構 **0.4**。完成一個真正的 Linux x86_64 frozen CPU OCR 元件及版本化協定，新增導入 **5/12**，既有基線 **19/25**。原始證據見[本輪開發紀錄](development-records/runs/c07-2026-11-07/README.md)。更新：0.6.0 已由 [C08](component-management.md)接上背景健康／維護介面，取消健康會保留 Cancelled；自動文件選擇與 Windows／GPU 仍保留給 C10／C03–C04／C11–C12。
+程式 **0.5.0**、架構 **0.4**。完成一個真正的 Linux x86_64 frozen CPU OCR 元件及版本化協定，新增導入 **5/12**，既有基線 **19/25**。原始證據見[本輪開發紀錄](development-records/runs/c07-2026-11-07/README.md)。更新：0.6.0 已由 [C08](component-management.md)接上背景健康／維護介面，取消健康會保留 Cancelled；0.8.0 已由 [C10](managed-conversion.md)接上精準 PDF 的受管 OCR；Windows／GPU 仍保留給 C03–C04／C11–C12。
 
 ## 模組責任
 

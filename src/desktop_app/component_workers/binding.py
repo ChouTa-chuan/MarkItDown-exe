@@ -13,10 +13,12 @@ from . import protocol as wire
 
 class CPUWorkerBinding:
     def __init__(self, guard, policy=None, *, read_snapshot=snapshot, cpu_threads=1,
-                 timeout=120, cancel=None):
+                 timeout=120, cancel=None, permit=None, resource_wait=30, notify=lambda state,message:None):
         self.guard=Path(guard).absolute();self.policy=policy or Policy()
         wire.require(self.guard.name=='worker-use.lock' and self.guard.parent.name=='.locks','binding 必須使用元件管理器的 worker guard。')
         self.read_snapshot=read_snapshot;self.cpu_threads=cpu_threads;self.timeout=timeout;self.cancel=cancel
+        self.permit=permit;self.resource_wait=resource_wait
+        self.notify=notify
 
     def runner(self, spec, directory):
         wire.require(Path(directory).absolute().is_relative_to(self.guard.parent.parent),'元件不屬於此 binding 的受管根目錄。')
@@ -27,10 +29,11 @@ class CPUWorkerBinding:
         executable=Path(directory)/name;_chain(executable);_plain(executable)
         wire.require(executable.is_file() and (os.name=='nt' or os.access(executable,os.X_OK)),'元件入口無法執行。')
         return WorkerRunner((str(executable),),self.guard,self.policy,estimate_mib=spec.resources.ram_mib,
-            cpu_threads=self.cpu_threads,timeout=self.timeout,read_snapshot=self.read_snapshot,require_frozen=True)
+            cpu_threads=self.cpu_threads,timeout=self.timeout,read_snapshot=self.read_snapshot,require_frozen=True,
+            permit=self.permit,resource_wait=max(0.001,min(600,self.resource_wait)))
 
     def health(self, spec, directory, host):
-        outcome=self.runner(spec,directory).run(operation='health',cancel=self.cancel)
+        outcome=self.runner(spec,directory).run(operation='health',cancel=self.cancel,notify=self.notify)
         # 健康取消須保留取消語意，不能被能力解析誤判為引擎不健康。
         if outcome.state==State.CANCELLED: raise Cancelled(outcome.message)
         return HealthResult(outcome.state==State.COMPLETED and outcome.report['health_passed'],outcome.message)

@@ -1,0 +1,141 @@
+{
+  "recorded_at": "2026-11-07T12:09:40.852247+00:00",
+  "source_version": "0.8.0",
+  "accepted": true,
+  "checks_passed": 10,
+  "checks": [
+    "real signed offline install",
+    "native/blank/OCR page routing",
+    "frozen CPU provenance",
+    "original text/table and warnings retained",
+    "RAM pause/resume and live lease blocks maintenance",
+    "native cancellation leaves no output",
+    "withdrawal before commit rejected",
+    "GUI version failure isolates subsequent native/text files",
+    "GUI real managed conversion",
+    "lease release and controller runtime isolation"
+  ],
+  "package_sha256": "11c8e0e9ff648954c3e99a30630e47fd5f1fe6307fa813c5e062d374f3db6d18",
+  "events": [
+    {
+      "state": "queued",
+      "message": "PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。"
+    },
+    {
+      "state": "running",
+      "message": "背景工作程序已啟動"
+    },
+    {
+      "state": "running",
+      "message": "工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。"
+    },
+    {
+      "state": "running",
+      "message": "運算裝置：受管 CPU OCR：需要 OCR 時才驗證已啟用元件，繁體品質仍為實驗性。"
+    },
+    {
+      "state": "running",
+      "message": "寫入 Markdown"
+    },
+    {
+      "state": "running",
+      "message": "第 1/4 頁：原生分析"
+    },
+    {
+      "state": "running",
+      "message": "第 2/4 頁：原生分析"
+    },
+    {
+      "state": "running",
+      "message": "第 3/4 頁：OCR"
+    },
+    {
+      "state": "running",
+      "message": "已固定受管 OCR：onnx-cpu-ocr 1.0.0／CPU；繁體品質仍需核對。"
+    },
+    {
+      "state": "paused",
+      "message": "超出應用程式 RAM 軟性預算。"
+    },
+    {
+      "state": "running",
+      "message": "資源恢復，繼續處理"
+    },
+    {
+      "state": "running",
+      "message": "選配 CPU 工作程序已啟動。"
+    },
+    {
+      "state": "running",
+      "message": "選配工作階段：loading"
+    },
+    {
+      "state": "running",
+      "message": "選配工作階段：inference"
+    },
+    {
+      "state": "running",
+      "message": "選配工作階段：export"
+    },
+    {
+      "state": "running",
+      "message": "第 4/4 頁：原生分析"
+    },
+    {
+      "state": "running",
+      "message": "提交輸出"
+    }
+  ],
+  "component_evidence": [
+    [
+      {
+        "component_id": "onnx-cpu-ocr",
+        "version": "1.0.0",
+        "protocol": "1.0.0",
+        "device": "cpu",
+        "state": "completed",
+        "pid": 449530,
+        "frozen": true,
+        "providers": [
+          "CPUExecutionProvider",
+          "CPUExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      }
+    ],
+    [
+      {
+        "component_id": "onnx-cpu-ocr",
+        "version": "1.0.0",
+        "protocol": "1.0.0",
+        "device": "cpu",
+        "state": "completed",
+        "pid": 449695,
+        "frozen": true,
+        "providers": [
+          "CPUExecutionProvider",
+          "CPUExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      }
+    ]
+  ],
+  "cancel_evidence": [
+    {
+      "component_id": "onnx-cpu-ocr",
+      "version": "1.0.0",
+      "protocol": "1.0.0",
+      "device": "cpu",
+      "state": "cancelled",
+      "pid": 449600,
+      "frozen": null,
+      "providers": []
+    }
+  ],
+  "ephemeral_key_not_saved": true,
+  "path_empty_during_conversion": true,
+  "windows_executed": false,
+  "gpu_executed": false,
+  "traditional_chinese_quality_passed": false,
+  "production_catalog_published": false
+}

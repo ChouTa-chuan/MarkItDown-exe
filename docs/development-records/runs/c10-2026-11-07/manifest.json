@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "source_version": "0.8.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-07",
+  "check": "C10",
+  "full_c09_complete": false,
+  "scope": "本輪自動逐頁分析／受管 CPU 元件接線、真實 frozen／Qt 驗收與過程紀錄；非 Windows／GPU／繁體品質或正式元件發布",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 4295,
+      "sha256": "31ade2dc59b0c41da40cde909d18a9d7f7cc3277c1c21ba038fb22536eecc76d",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 25702,
+      "sha256": "e1a654513203b4e54cac63edb72571d5e1f1d91b9f38c14710e271ae5e1301be",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "component-tests.log",
+      "bytes": 36783,
+      "sha256": "f4d90584ec04e49f4d5aa7b724d120040178059b40d3342f4f6c92f46373e1bf",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "desktop-batch-isolation.png",
+      "bytes": 129700,
+      "sha256": "73ed042cc4f8bb4053cd4fd165bbdf2cdf871b88dddb472106de0d35edc2c374",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "desktop-managed-success.png",
+      "bytes": 124219,
+      "sha256": "9c06ceacd2871b2a9d2c7623401e7969a6417fdd23f2f8f649be2bf2923e4f10",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "full-tests.log",
+      "bytes": 60818,
+      "sha256": "b1a060288d45bfcf51c763cad3c881e954c7ce71ac9258908987e6d3fd85156f",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "gui-mixed-output.md",
+      "bytes": 729,
+      "sha256": "c819f36ee8ae23369239cedd356b57b5fa4d11aafc6a73abae232eb413c9275e",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "initial-fixture-arguments.log",
+      "bytes": 15033,
+      "sha256": "f82923119850a269f409a2490769e527afbc173e71b99ab58ca42c005b976b8f",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "initial-full-device-fixture.log",
+      "bytes": 61192,
+      "sha256": "8f9488514de0f6fe1c63c77936e6bf9427c0b3a9267c5af4891fe49a3faa1b1b",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "initial-native-pressure-fixture.log",
+      "bytes": 839,
+      "sha256": "4e2bb062a7e15780a1b39df581aa5c08e2d63675fd18be83ba67d0fdd37bb001",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 1107,
+      "sha256": "19f0a5a9c53da360f53572bd3dd93c92779532d1f7a6fd5513b50221f54280fc",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-acceptance-234.log",
+      "bytes": 35854,
+      "sha256": "b48b1233ec3bfb6af452ee9acb140bb78a66e8fc4578049cfa9a1e476225e3b5",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-acceptance-241.log",
+      "bytes": 36590,
+      "sha256": "109b90e56a6f75a6d222e6ba9ad5de8d3b42ae7ce79a1afa6a1326c0eda1b913",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-full-408.log",
+      "bytes": 60625,
+      "sha256": "95394327892354b2baaa6b726f64f72890bdc1116a48f18c7869540959b1ca6c",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-managed-tests.log",
+      "bytes": 3238,
+      "sha256": "7af882c977238eae4c2b90d2617e31586ee58f2ce13d5f3f2862ddcdd74b2890",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-native/mixed-source.pdf",
+      "bytes": 17949,
+      "sha256": "aa6897c76d7e907b286765132c6e5b00adeb995a2a1169e21d475e9e46ac7e84",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-native/native-source.pdf",
+      "bytes": 1508,
+      "sha256": "135c10c04e05339f326d95db85da9a5bd4385429e3c80b0bd1f57c4ebf8a241e",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-native-passed/desktop-batch-isolation.png",
+      "bytes": 129380,
+      "sha256": "e853cb49b66918eb62ce9829f0f45c14bbe8a4e6ba4512fc315b73febc86168f",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-native-passed/desktop-managed-success.png",
+      "bytes": 124182,
+      "sha256": "483e787f9a18c3f3bad231bdd898818f046fb62feac398388d9d8ef5080a1529",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-native-passed/gui-mixed-output.md",
+      "bytes": 729,
+      "sha256": "c819f36ee8ae23369239cedd356b57b5fa4d11aafc6a73abae232eb413c9275e",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-native-passed/managed-native-acceptance.json",
+      "bytes": 3589,
+      "sha256": "22ee0d4e9014e2bf0fb40303d299d041a99ba1119807e88ba2a20dac517855f0",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-native-passed/mixed-output.md",
+      "bytes": 729,
+      "sha256": "c819f36ee8ae23369239cedd356b57b5fa4d11aafc6a73abae232eb413c9275e",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-native-passed/mixed-source.pdf",
+      "bytes": 17949,
+      "sha256": "5649757fd8a7c65ab77cfb78364223083424164f3d393b870494296b6b6b207b",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-native-passed/native-source.pdf",
+      "bytes": 1508,
+      "sha256": "68f0647a54acdb10369a6366b662723c6f892efb9a9f7579d3211e989ee31413",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-native-passed/native.log",
+      "bytes": 762,
+      "sha256": "632a7d4d7036e6efb7d1a9b0f755b6b16cb52d3e5491041568b5b32cdc9cae4a",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "licenses.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "managed-native-acceptance.json",
+      "bytes": 3589,
+      "sha256": "154f7f6daa60a7de5d59e541bed6f016087c395f415a65eefc906d652c742462",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "managed-tests.log",
+      "bytes": 3431,
+      "sha256": "eac98bfac52108875248c6d465a18da60b18f19521660a70018adb28edef4a33",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "mixed-output.md",
+      "bytes": 729,
+      "sha256": "c819f36ee8ae23369239cedd356b57b5fa4d11aafc6a73abae232eb413c9275e",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "mixed-source.pdf",
+      "bytes": 17949,
+      "sha256": "48bb302730068f20998b9ee0d29cac696767bb5c452519f7469fe87b30ecab04",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "native-source.pdf",
+      "bytes": 1508,
+      "sha256": "746b5134c5fde992f803c68550d5d01b191773ba6191d0051a66b094abc688ca",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "native.log",
+      "bytes": 762,
+      "sha256": "632a7d4d7036e6efb7d1a9b0f755b6b16cb52d3e5491041568b5b32cdc9cae4a",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 517747,
+      "sha256": "27f97c3b50f15270070ce3b368c12c1f52e99b1974f31a103e70054e6ee0aeef",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 517874,
+      "sha256": "0c751df345becf2e101013a3286b8779fe39c1251b8b36edc2616b90d0583b0b",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 279403,
+      "sha256": "c8923ab7cc41e8d30b2fa5c387842ae080833002ca197ba479f7b8871e5baf7a",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 295990,
+      "sha256": "dda2cc1a1ea9d8eecb1855d40e73f93b3bfb777b288b4576dbb4be31b8554ad7",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 441232,
+      "sha256": "980693325627ea7a2f3a4d7c634780cf378421bfab2805957e1264f3d84da0b1",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    },
+    {
+      "file": "upstream.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C10 本輪生成；initial／intermediate 為過程觀察；PDF／影像為合成工程樣本，非使用者文件或 Windows／GPU 驗收"
+    }
+  ]
+}

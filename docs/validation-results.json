@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-07T11:28:24.694453+00:00",
+  "recorded_at": "2026-11-07T12:16:58.939236+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 389,
-    "passed": 388,
+    "run": 409,
+    "passed": 408,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -151,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.7.0",
+  "source_version": "0.8.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -171,15 +171,15 @@
     "actual_sqlite_and_files": true,
     "fresh_health_and_dependencies": true,
     "stale_result_rejected": true,
-    "gui_integrated": false,
+    "gui_integrated": true,
     "download_or_installer_implemented": false,
     "signature_trust_verified": false,
     "windows_executed": false,
     "gpu_executed": false,
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
-    "scope_note": "C01 generic capability resolver remains outside automatic conversion routing; C02 legacy model adapter is integrated with its existing dialog"
+    "scope_note": "C10 requires exact active component/version/capability on OCR pages and revalidates leased health; original C01 report retained"
   },
-  "current_run_scope": "0.7.0 installed full regression plus C09 first-run flow subchecks, settings/desktop/core regression and actual Qt/system Tesseract bilingual/scan flow; full C09 stays incomplete pending base native package C03/C04. Main frozen/Windows not rebuilt.",
+  "current_run_scope": "0.8.0 installed full regression; C10 managed PDF/native/blank routing, fixed leases/version/capability, nested resource state, atomic output and C05-C08/device/layout regression. Separate actual frozen CPU/Qt mixed-document acceptance; C07 bundle reused; main frozen/Windows not rebuilt.",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -247,7 +247,7 @@
     "gpu_executed": false,
     "report": "development-records/runs/c06-2026-11-06/acceptance.json",
     "https_regression": "development-records/runs/c06-2026-11-06/https-regression.json",
-    "integration_scope": "C07 worker API/guard and C08 background GUI/health-without-switch integrated; automatic document routing pending",
+    "integration_scope": "C10 document-scoped shared lease through final output, explicit version/capability gates, C07 child-owned guard, C08 GUI; original C06 report retained",
     "c07_regression_report": "development-records/runs/c07-2026-11-07/acceptance.json"
   },
   "component_workers": {
@@ -264,7 +264,7 @@
     "controller_environment_unchanged": true,
     "child_owned_guard": true,
     "gui_integrated": true,
-    "automatic_document_routing_integrated": false,
+    "automatic_document_routing_integrated": true,
     "main_frozen_rebuilt": false,
     "windows_executed": false,
     "gpu_executed": false,
@@ -326,5 +326,33 @@
     "gpu_executed": false,
     "report": "development-records/runs/c09-flow-2026-11-07/acceptance.json",
     "actual_flow_report": "development-records/runs/c09-flow-2026-11-07/flow-acceptance.json"
+  },
+  "managed_conversion": {
+    "check": "C10",
+    "accepted": true,
+    "checks_passed": 242,
+    "new_checks": 20,
+    "c05_c08_regression_checks": 152,
+    "unchanged_layout_matrix_checks": 63,
+    "device_regression_checks": 7,
+    "actual_frozen_gui_checks_passed": 10,
+    "lazy_ocr_only": true,
+    "native_blank_do_not_require_optional": true,
+    "document_scoped_lease_through_commit": true,
+    "explicit_active_version_and_capability": true,
+    "fresh_catalog_before_after_ocr_and_commit": true,
+    "no_automatic_download_or_quality_fallback": true,
+    "nested_resource_state_and_full_process_tree": true,
+    "first_component_execution_evidence_bounded": true,
+    "default_tesseract_unchanged": true,
+    "settings_schema": 6,
+    "main_frozen_rebuilt": false,
+    "native_bundle_rebuilt": false,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "traditional_chinese_quality_passed": false,
+    "production_catalog_published": false,
+    "report": "development-records/runs/c10-2026-11-07/acceptance.json",
+    "actual_report": "development-records/runs/c10-2026-11-07/managed-native-acceptance.json"
   }
 }

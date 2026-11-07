@@ -18,7 +18,9 @@ def convert_text(request: Request, checkpoint, progress=lambda stage: None):
         _write_chunks(request, chunks(), checkpoint, progress)
 
 
-def convert_document(request: Request, checkpoint, progress=lambda stage: None):
+def convert_document(request: Request, checkpoint, progress=lambda stage: None, *, component_context=None,
+                     policy=None,cancel=None,permit=None,owner_pid=None,resource_wait=30,record_component=lambda evidence:None,
+                     resource_event=None):
     if request.source.suffix.lower() in {".txt", ".md"}:
         return convert_text(request, checkpoint, progress)
     if request.source.suffix.lower() == ".pdf" and request.quality == Quality.PRECISE:
@@ -26,10 +28,21 @@ def convert_document(request: Request, checkpoint, progress=lambda stage: None):
         progress("運算裝置：" + ocr_backend(request.device, request.ocr_backend))
         from .pdf_pipeline import pdf_chunks
         reports = []
-        _write_chunks(request, pdf_chunks(request.source, checkpoint, progress, reports,
-                                         request.ocr_executable, request.ocr_data_dir,
-                                         request.ocr_backend, request.device, request.cpu_threads,
-                                         request.vram_budget_mib), checkpoint, progress)
+        from contextlib import nullcontext
+        session=nullcontext(None)
+        if request.ocr_backend=='managed_cpu':
+            from .component_workers.managed import ManagedOCRSession
+            session=ManagedOCRSession(component_context,request,checkpoint,progress,policy=policy,cancel=cancel,
+                                      permit=permit,owner_pid=owner_pid,resource_wait=resource_wait,record_component=record_component,
+                                      resource_event=resource_event)
+        with session as managed:
+            def output_progress(stage):
+                progress(stage)
+                if stage=='提交輸出' and managed is not None: managed.validate(for_commit=True)
+            _write_chunks(request, pdf_chunks(request.source, checkpoint, progress, reports,
+                                             request.ocr_executable, request.ocr_data_dir,
+                                             request.ocr_backend, request.device, request.cpu_threads,
+                                             request.vram_budget_mib,managed=managed), checkpoint, output_progress)
         warnings = sum(len(report["warnings"]) for report in reports)
         return f"逐頁分析 {len(reports)} 頁，OCR {sum(r['route'] == 'ocr' for r in reports)} 頁，品質提醒 {warnings} 項。"
     checkpoint()
@@ -46,7 +59,9 @@ def convert_document(request: Request, checkpoint, progress=lambda stage: None):
 
 
 def _write_chunks(request, chunks, checkpoint, progress):
-    destination = request.destination.resolve()
+    # 保留最後檔名，不 resolve 懸空連結到其他路徑；既有連結也是既有輸出。
+    destination = request.destination.absolute()
+    if destination.exists() or destination.is_symlink(): raise FileExistsError(destination)
     checkpoint()
     destination.parent.mkdir(parents=True, exist_ok=True)
     temporary = None

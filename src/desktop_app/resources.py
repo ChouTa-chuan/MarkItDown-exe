@@ -41,8 +41,9 @@ class Policy:
         return True, "可執行"
 
 
-def snapshot() -> Snapshot:
-    root = psutil.Process(os.getpid())
+def snapshot(root_pid=None) -> Snapshot:
+    # 外部元件巢狀程序也須計入同一應用程式預算，不只量測 PDF 子程序自己。
+    root = psutil.Process(os.getpid() if root_pid is None else root_pid)
     usage = 0
     for process in [root, *root.children(recursive=True)]:
         try:

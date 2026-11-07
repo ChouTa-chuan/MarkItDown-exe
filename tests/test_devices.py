@@ -49,8 +49,10 @@ class DeviceTests(unittest.TestCase):
         permit, cancel, messages = Event(), Event(), Queue()
         permit.set()
         observed = []
-        def convert(*args):
+        def convert(*args,**kwargs):
             observed.append(os.environ['OMP_THREAD_LIMIT'])
+            self.assertIs(kwargs['cancel'],cancel)
+            self.assertIs(kwargs['permit'],permit)
         with patch.dict(os.environ), patch('desktop_app.workers.convert_document', side_effect=convert), \
              patch('desktop_app.workers.psutil.Process'):
             worker(Request(Path('test.txt'), Path('output.md'), cpu_threads=2), cancel, permit, messages)

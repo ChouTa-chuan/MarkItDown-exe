@@ -42,7 +42,7 @@ RAM 建議維持既有政策：自動預算約實體 RAM 的 25%，保留量依�
 - 全專案 **389 項：388 通過、1 既有 ONNX 繁體品質預期失敗、0 跳過**。
 - 真正 Qt＋本機 CPU 流程 **9/9**：正式 QTimer 接點、自動 RAM 建議、雙語健康、儲存與略過、再開不重複、空 PATH／空 `TESSDATA_PREFIX` 下兩頁真實掃描 PDF OCR、舊偏好保留、缺引擎仍可文字轉換、原模型不變且不連網。引擎是系統現有 `/usr/bin/tesseract`，模型由驗收先預置，未宣稱全新機器沒有前置條件。
 
-原始結果、畫面、範例輸出與雜湊見[本輪流程紀錄](development-records/runs/c09-flow-2026-11-07/README.md)。沒有增加第三方依賴，原 Windows／Linux 鎖定與授權原文不變。完整 C09 等 C03／C04 的基本包證據；可接續 C10 自動文件分析與元件協作，Windows／GPU 實機及正式元件來源仍保留各自門檻。
+原始結果、畫面、範例輸出與雜湊見[本輪流程紀錄](development-records/runs/c09-flow-2026-11-07/README.md)。沒有增加第三方依賴，原 Windows／Linux 鎖定與授權原文不變。完整 C09 等 C03／C04 的基本包證據；0.8.0 已完成 [C10 自動文件分析與元件協作](managed-conversion.md)，Windows／GPU 實機及正式元件來源仍保留各自門檻。
 
 ```bash
 python -m pip install --no-deps --no-build-isolation .

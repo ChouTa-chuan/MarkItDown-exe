@@ -24,7 +24,7 @@ class RecordedResult(unittest.TextTestResult):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--report', type=Path, required=True)
-    parser.add_argument('--check', choices=('C01', 'C02', 'C05', 'C06', 'C07', 'C08', 'C09-flow'), default='C01')
+    parser.add_argument('--check', choices=('C01', 'C02', 'C05', 'C06', 'C07', 'C08', 'C09-flow', 'C10'), default='C01')
     args = parser.parse_args()
     # 使用已安裝的套件，避免把原始碼路徑插入 sys.path 而掩蓋漏打包的新模組。
     sys.path.insert(0, str(ROOT / 'tests'))
@@ -35,7 +35,10 @@ def main():
                'C07':['test_component_workers','test_component_lifecycle','test_component_downloads'],
                'C08':['test_component_management','test_component_workers','test_component_lifecycle',
                       'test_component_downloads','test_desktop','test_help_ui'],
-               'C09-flow':['test_onboarding','test_settings','test_component_migration','test_desktop','test_help_ui','test_core']}[args.check]
+               'C09-flow':['test_onboarding','test_settings','test_component_migration','test_desktop','test_help_ui','test_core'],
+               'C10':['test_managed_conversion','test_component_workers','test_component_lifecycle','test_component_downloads',
+                      'test_component_management','test_desktop','test_help_ui','test_borderless','test_tables',
+                      'test_table_continuation','test_pdf_pipeline','test_pdf_acceptance','test_devices']}[args.check]
     suite = unittest.defaultTestLoader.loadTestsFromNames(modules)
     result = unittest.TextTestRunner(verbosity=2, resultclass=RecordedResult).run(suite)
     accepted = (result.wasSuccessful() and result.testsRun > 0 and not result.skipped
@@ -56,14 +59,15 @@ def main():
                       'C06':'Real ZIP/filesystem/SQLite/kernel locks and spawned process exits, synthetic model health; includes C05 regression, no Windows/GPU or native OCR worker acceptance',
                       'C07':'Versioned IPC, fault/resource fixtures and actual native CPU subprocess; C05/C06 regression included. Frozen isolated-runtime acceptance reported separately; no Windows/GPU',
                       'C08':'Actual Qt offscreen, signed catalog, ZIP/SQLite, synthetic model health and injected HTTP; desktop text and C05-C07 regressions. Separate real frozen CPU GUI acceptance; no Windows/GPU',
-                      'C09-flow':'First-run flow, RAM advice, explicit path/preference/CAS protection, Qt and actual local CPU bilingual health; settings/migration/desktop/core regression. Does not close full C09 clean-base-install gate.'
+                      'C09-flow':'First-run flow, RAM advice, explicit path/preference/CAS protection, Qt and actual local CPU bilingual health; settings/migration/desktop/core regression. Does not close full C09 clean-base-install gate.',
+                      'C10':'Managed PDF routing/leases/version/cancellation and fixture worker boundaries; C05-C08 regression and unchanged 63-check layout matrix. Separate actual frozen CPU/Qt managed conversion acceptance; no Windows/GPU.'
                   }[args.check],
                   windows_executed=False, gpu_executed=False)
     if args.check=='C09-flow':
         report['flow_accepted']=accepted
         report['full_c09_complete']=False
         report['base_ocr_bundled']=False
-    if args.check in ('C06', 'C07', 'C08'):
+    if args.check in ('C06', 'C07', 'C08', 'C10'):
         from test_component_lifecycle import PROCESS_OBSERVATIONS
         report['process_observations'] = PROCESS_OBSERVATIONS
         report['real_process_exit_checks'] = len(PROCESS_OBSERVATIONS)

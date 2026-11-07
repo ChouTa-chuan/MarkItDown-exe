@@ -133,6 +133,18 @@
       "source_version": "0.7.0",
       "architecture_scope": "0.4 C09 first-run flow subchecks accepted on Linux; full C09 base installation pending",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-c10-managed-conversion.md",
+      "title": "架構 v0.4：C10 逐頁能力與受管 OCR 協作",
+      "diagram_sha256": "e30bf008e58b77ea14fd6836a4d5c51d2a31ab3bfe9aef0e420fb491fcaab08d",
+      "file_sha256": "832ef88d2a1361e0e69c7b982164eec746a974874cad347db8e0fce1c58e416f",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_description": "程式 0.8.0 與首頁圖一併提交；C09 全項仍未完成",
+      "source_version": "0.8.0",
+      "architecture_scope": "0.4 C10 managed PDF capability/lease/version integration accepted on Linux",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-07"

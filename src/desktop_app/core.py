@@ -30,6 +30,8 @@ class Request:
     cpu_threads: int = 1
     ocr_backend: str = "tesseract"
     vram_budget_mib: int = 768
+    component_id: str | None = None
+    component_version: str | None = None
 
 
 @dataclass(frozen=True)

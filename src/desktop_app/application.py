@@ -1,5 +1,6 @@
 """批次應用服務：以 spawn 隔離工作，依 RAM 狀況協作暫停與恢復。"""
 import multiprocessing as mp
+import os
 from queue import Empty
 import time
 import math
@@ -17,17 +18,19 @@ class Outcome:
     request: Request
     state: State
     message: str = ""
+    components: tuple[dict, ...] = ()
 
 
 class Runner:
     def __init__(self, policy: Policy, read_snapshot=snapshot, poll_seconds=0.1,
-                 max_resource_wait=30.0):
+                 max_resource_wait=30.0, component_context=None):
         if not math.isfinite(poll_seconds) or not math.isfinite(max_resource_wait) or poll_seconds <= 0 or max_resource_wait < 0:
             raise ValueError("輪詢時間必須大於零，等待上限不得為負值。")
         self.policy = policy
         self.read_snapshot = read_snapshot
         self.poll_seconds = poll_seconds
         self.max_resource_wait = max_resource_wait
+        self.component_context = component_context
 
     def run(self, request: Request, cancel: Event | None = None,
             notify=lambda state, message: None) -> Outcome:
@@ -35,6 +38,7 @@ class Runner:
         cancel = cancel if cancel is not None else Event()
         process = messages = None
         stop = permit = None
+        components=[]
         try:
             plan = analyze(request)
             notify(State.QUEUED, plan.explanation)
@@ -56,18 +60,23 @@ class Runner:
             context = mp.get_context("spawn")
             stop, permit, messages = context.Event(), context.Event(), context.Queue()
             permit.set()
-            process = context.Process(target=worker, args=(request, stop, permit, messages))
+            process = context.Process(target=worker, args=(request, stop, permit, messages,
+                self.component_context,self.policy,os.getpid(),self.max_resource_wait))
             process.start()
             notify(State.RUNNING, "背景工作程序已啟動")
             paused_since = None
+            nested_paused = False
             terminal = None
             while True:
                 if cancel.is_set():
                     stop.set()
                     permit.set()
                 else:
+                    # 受管後端由 C07 在載入前准入；此處只量測完整實際程序樹，
+                    # 避免原生 runtime 已配置後再重複加算整份模型估計而造成無法恢復。
+                    extra=0 if request.ocr_backend=='managed_cpu' else plan.additional_bytes
                     allowed, reason = self.policy.admit(self.read_snapshot(),
-                        plan.additional_bytes, resuming=paused_since is not None)
+                        extra, resuming=paused_since is not None)
                     if not allowed:
                         permit.clear()
                         if paused_since is None:
@@ -79,13 +88,19 @@ class Runner:
                         permit.set()
                         if paused_since is not None:
                             paused_since = None
-                            notify(State.RUNNING, "資源恢復，繼續處理")
+                            notify(State.PAUSED if nested_paused else State.RUNNING,
+                                   '上層資源恢復，仍等待元件資源。' if nested_paused else "資源恢復，繼續處理")
                 try:
                     kind, message = messages.get(timeout=self.poll_seconds)
                     if kind == "progress":
-                        notify(State.PAUSED if paused_since is not None else State.RUNNING, message)
+                        notify(State.PAUSED if paused_since is not None or nested_paused else State.RUNNING, message)
+                    elif kind=='worker_state':
+                        state,detail=message;nested_paused=state==State.PAUSED.value
+                        notify(State.PAUSED if paused_since is not None or nested_paused else State.RUNNING,detail)
+                    elif kind=='component':
+                        if len(components)<8: components.append(message)
                     else:
-                        terminal = Outcome(request, State(kind), message)
+                        terminal = Outcome(request, State(kind), message,tuple(components))
                         break
                 except Empty:
                     if not process.is_alive():
@@ -95,8 +110,13 @@ class Runner:
                         except Empty:
                             return Outcome(request, State.FAILED,
                                            f"工作程序提前結束，exitcode={process.exitcode}")
-                        if kind != "progress":
-                            terminal = Outcome(request, State(kind), message)
+                        if kind=='component':
+                            if len(components)<8: components.append(message)
+                        elif kind=='worker_state':
+                            state,detail=message;nested_paused=state==State.PAUSED.value
+                            notify(State.PAUSED if paused_since is not None or nested_paused else State.RUNNING,detail)
+                        elif kind != "progress":
+                            terminal = Outcome(request, State(kind), message,tuple(components))
                             break
             return terminal
         except Exception as exc:

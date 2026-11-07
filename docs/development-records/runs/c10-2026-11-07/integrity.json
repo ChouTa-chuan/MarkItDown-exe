@@ -1,0 +1,25 @@
+{
+  "previous_manifests_verified": {
+    "docs/development-records/manifest.json": 75,
+    "docs/development-records/runs/c01-2026-11-06/manifest.json": 13,
+    "docs/development-records/runs/c02-2026-11-06/manifest.json": 19,
+    "docs/development-records/runs/c05-2026-11-06/manifest.json": 21,
+    "docs/development-records/runs/c06-2026-11-06/manifest.json": 27,
+    "docs/development-records/runs/c07-2026-11-07/manifest.json": 44,
+    "docs/development-records/runs/c08-2026-11-07/manifest.json": 29,
+    "docs/development-records/runs/c09-flow-2026-11-07/manifest.json": 28
+  },
+  "previous_committed_record_files_unchanged": 269,
+  "previous_architecture_snapshots_unchanged": 11,
+  "architecture_snapshots_verified": 12,
+  "locked_requirements_unchanged": true,
+  "original_license_asset_files_unchanged": 221,
+  "traditional_quality_fixture_unchanged": true,
+  "baseline_commit": "459b1b1ce9cc8eb7b3e7f9fb46141efcf7f738c7",
+  "source_version": "0.8.0",
+  "completed_date_taipei": "2026-11-07",
+  "check": "C10",
+  "full_c09_complete": false,
+  "windows_executed": false,
+  "gpu_executed": false
+}

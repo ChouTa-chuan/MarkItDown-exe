@@ -183,7 +183,7 @@ def _native_columns(page, text, words=None, checkpoint=lambda:None):
 
 
 def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=None,
-               backend="tesseract", device="auto", threads=1, vram_budget_mib=768):
+               backend="tesseract", device="auto", threads=1, vram_budget_mib=768, *, managed=None):
     """逐頁產出內容與核對提醒；頁面、渲染器及引擎在取消或例外時仍需釋放。"""
     import pdfplumber
     import pypdfium2
@@ -205,6 +205,8 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                     route = decision.route
                     progress(f"第 {index+1}/{len(document.pages)} 頁：{'OCR' if route == 'ocr' else '原生分析'}")
                     if route == "ocr":
+                        if backend=='managed_cpu' and managed is None:
+                            raise RuntimeError('受管 OCR 尚未接入此呼叫；未改用其他引擎。')
                         if backend in ("onnx", "onnx_verify") and onnx is None:
                             from .onnx_ocr import OnnxOCR
                             onnx = OnnxOCR(device, threads, vram_budget_mib, checkpoint, progress)
@@ -217,7 +219,10 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                             checkpoint()
                             image, actual_dpi = _render(renderer, index, dpi)
                             try:
-                                if onnx is not None:
+                                if backend=='managed_cpu':
+                                    recognized,warning=managed.recognize(image)
+                                    current_comparison=None
+                                elif onnx is not None:
                                     recognized, warning = onnx.recognize(image)
                                     current_comparison = None
                                     if backend == "onnx_verify":
@@ -292,8 +297,13 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                             text,column_warning=_native_columns(page,text,analysis.words,checkpoint)
                             if column_warning:warnings.append(column_warning)
                     reports.append({"page": index+1, "route": route, "warnings": warnings})
+                    component=managed.provenance if route=='ocr' and managed is not None else None
+                    if component: reports[-1]['component']=component
                     checkpoint()
                     yield f"<!-- source-page: {index+1}; route: {route} -->\n\n"
+                    if component:
+                        yield (f"<!-- source-component: {component['component_id']}; version: {component['version']}; "
+                               f"protocol: {component['protocol']}; device: {component['device']} -->\n\n")
                     for warning in warnings:
                         yield f"> ⚠ 第 {index+1} 頁：{warning}\n\n"
                     yield text.strip() + "\n\n"

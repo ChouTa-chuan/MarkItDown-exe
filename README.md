@@ -6,15 +6,15 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.7.0**，C09 首次流程／RAM 子檢核；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.8.0**，C10 逐頁能力與受管 OCR 協作；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
-| 新架構導入 | **C01–C12：6/12**，C01／C02／C05／C06／C07／C08 驗收完成；C09 流程子檢核完成，完整項待基本包 |
-| 功能測試基線 | **388 通過、1 項 ONNX 繁體品質預期失敗** |
+| 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C09 流程子檢核完成，完整項待基本包 |
+| 功能測試基線 | **408 通過、1 項 ONNX 繁體品質預期失敗** |
 
 ## 模組架構封面
 
-綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；自動文件路由的虛線保留給 C10；Windows／GPU 仍須各自驗證。
+綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08／C10 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；C10 已接逐頁需求、文件租約與提交重驗，GPU 選配仍保留虛線；Windows／GPU 仍須各自驗證。
 
 [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
@@ -35,6 +35,7 @@ flowchart TD
         FIRSTFLOW["首次流程已實作：RAM／保留偏好／離線檢查／完成標記"]
         COMPONENTS["元件基礎：契約／登錄／完整性驗證"]
         CAPABILITY["能力解析：相容／依賴／健康檢查"]
+        ROUTE["精準 PDF 按頁需求：原生／空白／受管 OCR"]
         CPUWORKER["獨立 CPU worker：版本化 IPC／RAM／逾時與取消"]
         OPTIONAL["獨立選配引擎：額外 OCR／GPU／進階模型"]
         COMPONENTS --> CAPABILITY
@@ -52,19 +53,21 @@ flowchart TD
     COMPONENTUI --> CAPABILITY
     LEASE --> CPUWORKER
     CPUWORKER --> QUALITY
-    LEASE -.->|待 C10| RES
+    RES --> ROUTE
+    ROUTE -->|需要受管 OCR| CAPABILITY
+    ROUTE -->|原生或空白| NATIVE
     COMPONENTUI --> DOWNLOAD
     UI --> LEGACY
     PREFS --> UI
     UI --> FIRSTFLOW
     FIRSTFLOW --> PREFS
     FIRST -.-> FIRSTFLOW
-    CAPABILITY -.-> PLAN
+    PREFS --> ROUTE
     RES -.-> OPTIONAL
     OPTIONAL -.-> QUALITY
     classDef existing fill:#e8f7f3,stroke:#21856d,color:#153c31;
     classDef foundation fill:#e8efff,stroke:#4c6fb8,color:#203c77;
-    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI,FIRSTFLOW foundation;
+    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI,FIRSTFLOW,ROUTE foundation;
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
     class FIRST,OPTIONAL planned;
@@ -77,11 +80,11 @@ flowchart TD
 | 資源與背景工作 | RAM 軟預算、系統保留量、低優先權、spawn 程序 | Linux 已測，實機負載待擴充 |
 | 格式、OCR 與表格 | MarkItDown、Tesseract、合併格、稀疏表格與續表提示 | 有代表性驗收，非任意版面保證 |
 | 品質與輸出 | 原文差異、頁面來源、輸出保護、Markdown／HTML 表格 | 可沿用 |
-| 能力解析 | 重新核對元件相容性、依賴、實檔及可信健康探針 | C01 已驗收；C07 CPU 真實健康探針完成，分析流程待 C10 接入 |
+| 能力解析 | 重新核對元件相容性、依賴、實檔及可信健康探針 | C01 已驗收；C07／C10 在 OCR 頁重新驗證、固定版本與能力，原生／空白頁不要求 OCR 元件 |
 | 設定與遷移 | v1–v5 讀取、v6 偏好、遷移備份及防止未來設定覆寫 | C02 已驗收；外部路徑保留 |
 | 首次精靈 | 基本引擎檢查、RAM 建議與完成紀錄 | C09 流程／RAM 子檢核完成；基本包自帶 OCR 待 C03／C04，C09 全項未關閉 |
 | 元件與更新服務 | 描述、登錄、下載、驗證、修復、移除及回復 | C01／C02 沿用，C05 下載、C06 安裝維護 API 完成；C08 背景管理完成；正式目錄與 Windows 仍待後續 |
-| 選配工作程序 | CPU／GPU 元件各自打包相依環境，避免改動核心 runtime | C07 實際 Linux CPU 元件通過；C08 已接健康管理，自動路由與 GPU 仍待後續 |
+| 選配工作程序 | CPU／GPU 元件各自打包相依環境，避免改動核心 runtime | C07 實際 Linux CPU 元件通過；C08 管理、C10 文件路由已接；GPU 仍待實機 |
 
 ## 使用者能得到什麼
 
@@ -102,6 +105,7 @@ flowchart TD
 - [開發進度與驗證範圍](docs/development-status.md)
 - [互動進度頁：里程碑／模組／元件導入](docs/progress.html)（下載後可離線開啟）
 - [基本包與選配元件決策](docs/decisions/0002-base-and-optional-components.md)
+- [C10 自動分析與受管元件協作](docs/managed-conversion.md)
 - [C09 首次流程與 RAM 子檢核（完整項仍待基本包）](docs/onboarding.md)
 - [C08 元件管理介面與操作範圍](docs/component-management.md)
 - [C07 獨立 CPU 選配 worker 與協定](docs/component-workers.md)

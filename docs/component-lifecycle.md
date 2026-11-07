@@ -1,6 +1,6 @@
 # C06：交易安裝、鎖、修復與移除
 
-程式 **0.4.0**，架構 **0.4**，2026-11-06（台北）。本輪完成 Linux 的元件維護 API，詳見[逐項驗收與程序退出紀錄](development-records/runs/c06-2026-11-06/README.md)。0.5.0 已透過 [C07](component-workers.md)接入實際 CPU worker；0.6.0 的 [C08](component-management.md)已接上背景桌面管理與不切換 active 的 check_health；現有文件自動路由留 C10，Windows／GPU 門檻保留。
+程式 **0.4.0**，架構 **0.4**，2026-11-06（台北）。本輪完成 Linux 的元件維護 API，詳見[逐項驗收與程序退出紀錄](development-records/runs/c06-2026-11-06/README.md)。0.5.0 已透過 [C07](component-workers.md)接入實際 CPU worker；0.6.0 的 [C08](component-management.md)已接上背景桌面管理與不切換 active 的 check_health；0.8.0 的 [C10](managed-conversion.md)已接整份文件租約、能力／版號閘與提交重驗，Windows／GPU 門檻保留。
 
 ## 模組與責任
 
@@ -47,7 +47,7 @@
 
 使用前重新驗證簽章目錄、active 所有權、實檔與健康。更新共用 runtime 前也反向檢查目前 active 元件是否仍相容，不能更新後才把其他元件弄壞。`rollback()` 只選明確前一版本，仍需目前目錄允許且通過相容／依賴／健康檢查；失敗不偷偷換別的引擎。
 
-所有使用者必須經過租約 API 才有這項保護。程式 0.5.0 的 C07 worker 已在自己的程序持有 `.locks/worker-use.lock` 共享 guard；維護／恢復／搬移／active 提交時取得排他 guard，避免父程序退出後仍改動正在使用的檔案。健康 worker 執行時允許取得 shared guard，父程序維護鎖仍保留；控制通道失聯使 worker 退出並釋放鎖。新增目錄逐層 fsync，未宣稱物理斷電驗證。C06 原始合成探針證據保持固定；C07 另存真實 frozen OCR 健康、原生逾時／取消與回歸證據。現有文件自動路由的接線留 C10。
+所有使用者必須經過租約 API 才有這項保護。程式 0.5.0 的 C07 worker 已在自己的程序持有 `.locks/worker-use.lock` 共享 guard；維護／恢復／搬移／active 提交時取得排他 guard，避免父程序退出後仍改動正在使用的檔案。健康 worker 執行時允許取得 shared guard，父程序維護鎖仍保留；控制通道失聯使 worker 退出並釋放鎖。新增目錄逐層 fsync，未宣稱物理斷電驗證。C06 原始合成探針證據保持固定；C07 另存真實 frozen OCR 健康、原生逾時／取消與回歸證據。現有文件自動路由已由 C10 接上整份租約。
 
 ## 移除、資源與快取
 

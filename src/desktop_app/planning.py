@@ -4,6 +4,11 @@ from .resources import MIB
 
 
 def analyze(request: Request) -> Plan:
+    if request.component_id is not None or request.component_version is not None:
+        from .components.contracts import _name, Version
+        if request.ocr_backend!='managed_cpu': raise ValueError('元件版本選擇只適用於受管 CPU OCR。')
+        if request.component_id is not None: _name(request.component_id)
+        if request.component_version is not None: Version.parse(request.component_version)
     if request.device not in ("auto", "cpu", "gpu"):
         raise ValueError("不支援的運算裝置設定。")
     if type(request.cpu_threads) is not int or not 1 <= request.cpu_threads <= 256:
@@ -15,7 +20,7 @@ def analyze(request: Request) -> Plan:
         raise UnsupportedFormat(f"尚未整合 {suffix or '無副檔名'} 格式。")
     if request.source.resolve() == request.destination.resolve():
         raise ValueError("輸出不得覆蓋來源。")
-    if request.destination.exists():
+    if request.destination.exists() or request.destination.is_symlink():
         raise FileExistsError(request.destination)
     if suffix in {".txt", ".md"}:
         return Plan(("stream_utf8", "atomic_export"), 8*MIB,

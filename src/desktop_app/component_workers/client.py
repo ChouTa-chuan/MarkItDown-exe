@@ -57,7 +57,7 @@ class WorkerRunner:
     """command 由可信程式 binding 提供，不能從下載目錄讀取任意 shell 命令。"""
     def __init__(self, command, guard, policy, *, estimate_mib=768, cpu_threads=1,
                  timeout=120, handshake_timeout=10, resource_wait=30, cancel_grace=1,
-                 read_snapshot=snapshot, require_frozen=True):
+                 read_snapshot=snapshot, require_frozen=True, permit=None):
         if not isinstance(command,tuple) or not command or not all(isinstance(item,str) and item and '\x00' not in item for item in command):
             raise ValueError('工作程序命令須為可信非空參數 tuple。')
         for value in (timeout,handshake_timeout,resource_wait,cancel_grace):
@@ -71,6 +71,7 @@ class WorkerRunner:
         self.estimate_mib=estimate_mib;self.cpu_threads=cpu_threads
         self.timeout=timeout;self.handshake_timeout=handshake_timeout;self.resource_wait=resource_wait
         self.cancel_grace=cancel_grace;self.read_snapshot=read_snapshot;self.require_frozen=require_frozen
+        self.permit=permit
 
     def run(self, source=None, destination=None, *, operation='ocr', cancel=None,
             notify=lambda state,message:None):
@@ -86,6 +87,7 @@ class WorkerRunner:
             while True:
                 check()
                 allowed,reason=self.policy.admit(self.read_snapshot(),extra)
+                if self.permit is not None and not self.permit.is_set(): allowed,reason=False,'等待上層 RAM 調度。'
                 if allowed:return
                 notify(State.PAUSED,reason)
                 if time.monotonic()-waiting>=self.resource_wait:raise WorkerError(reason+' 資源等待逾時。')
@@ -184,6 +186,7 @@ class WorkerRunner:
                 elif time.monotonic()>=deadline:raise WorkerError('選配工作逾時，已停止該程序。')
                 else:
                     allowed,reason=self.policy.admit(self.read_snapshot(),0,resuming=paused is not None)
+                    if self.permit is not None and not self.permit.is_set(): allowed,reason=False,'等待上層 RAM 調度。'
                     if not allowed:
                         if paused is None:
                             paused=time.monotonic();signal('pause');notify(State.PAUSED,reason)

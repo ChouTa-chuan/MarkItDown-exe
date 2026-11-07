@@ -20,6 +20,7 @@ class HelpTests(unittest.TestCase):
         self.assertIn('Windows',dialog.viewer.toPlainText())
         self.assertIn('選配元件管理',dialog.viewer.toPlainText())
         self.assertIn('首次設定與 RAM 建議',dialog.viewer.toPlainText())
+        self.assertIn('受管 CPU OCR 與文件路由',dialog.viewer.toPlainText())
         dialog.close()
 
     def test_packaged_attribution_and_folder(self):

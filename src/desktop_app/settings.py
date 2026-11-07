@@ -61,7 +61,7 @@ class Settings:
             raise ValueError("運算裝置須為 auto、cpu 或 gpu。")
         if type(self.cpu_threads) is not int or not 1 <= self.cpu_threads <= 256:
             raise ValueError("CPU 執行緒上限須為 1 至 256 的整數。")
-        if self.ocr_backend not in ("tesseract", "onnx", "onnx_verify"):
+        if self.ocr_backend not in ("tesseract", "onnx", "onnx_verify", "managed_cpu"):
             raise ValueError("不支援的 OCR 後端。")
         if type(self.vram_budget_mib) is not int or self.vram_budget_mib < 192:
             raise ValueError("GPU 記憶體預算須為至少 192 MiB 的整數。")

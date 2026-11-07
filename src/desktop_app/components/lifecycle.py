@@ -322,13 +322,18 @@ class ComponentManager:
             return self._activate_locked(catalog,component_id,previous,check)
 
     @contextmanager
-    def lease(self, catalog, component_id):
+    def lease(self, catalog, component_id, *, expected_version=None, capability=None):
         with file_lock(self.lock_path,exclusive=False):
             if self.store.journals():raise LifecycleError('有未完成事務，請先執行恢復。')
             catalog = self.verifier.load(catalog)
             active = self.store.active().get(component_id)
             if active is None:raise LifecycleError('沒有已啟用的元件版本。')
             spec = catalog.component(component_id,active[0])
+            # 指定版本不自動升級／降級，也不先執行錯誤版本的健康探針。
+            if expected_version is not None and str(spec.version)!=str(expected_version):
+                raise LifecycleError('指定版本未啟用，請到元件管理切換後重試。')
+            if capability is not None and capability not in spec.capabilities:
+                raise LifecycleError('啟用版本沒有文件要求的能力。')
             self._owned_spec(*spec.key)
             self._ready(spec,catalog,self.checkpoint)
             self.verifier.load(catalog)
