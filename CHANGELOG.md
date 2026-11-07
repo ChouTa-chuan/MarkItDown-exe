@@ -35,6 +35,16 @@
 - 各份快照附中文說明、保存日期、來源及 SHA-256；後續更新新增快照，不覆寫既有紀錄。
 - 驗證範圍為來源圖一致性、文件雜湊、相對連結與程式版本未變；轉換程式未修改，未重跑功能測試或變更既有驗收進度。
 
+## 0.8.1 — 2026-11-08
+
+相對 **0.8.0** 完成 C04 的基本版 Python 依賴拆分子檢核，架構 **0.4**。完整 C04／C09 仍待原生基本包／profile／Windows，已驗收維持 **7/12**，既有 **19/25**。
+
+- 新增 base runtime／build 規格、Linux／Windows marker 與 metadata 快照、四份雜湊鎖定及離線驗證工具。runtime 各 38 套件，Linux build 47、Windows build 49；原 55／58 套件上位鎖定、版號與 SHA-256 不變。
+- 保留 Magika 必要 ONNX Runtime／NumPy，拆除 RapidOCR 及 OCR 相依、測試產生工具；不修改上游或把檔案辨識 runtime 當成 OCR 可用。分開列出原 Windows 授權引用，非 Linux binary／原生引擎／最終 SBOM 驗收。
+- 新增 **15 項** extras／平台／閉包／衝突／證據反例，子檢核加原授權／格式／核心／裝置 **52/52**；乾淨基本 venv **6/6**，核對 38 套件及安裝 metadata、pip check、空 PATH 六格式與 Qt 批次，缺 native OCR 明確拒絕。全專案 **424 項：423 通過、1 既有繁體品質預期失敗、0 跳過**。
+- 新增[profile 指南](docs/packaging-profiles.md)、[第十三份架構快照](docs/architecture/versions/v0.4-c04-base-locks.md)、C04 部分完成視覺與[原始紀錄／樣本／本地 wheel](docs/development-records/runs/c04-locks-2026-11-08/README.md)。最初沙箱安裝未取得套件，沿用原代理於核准執行環境重試成功，前後日誌分存；初次輪與後續 metadata 加強的實際驗收都保留。
+- 未改舊 Windows 建置入口，未重建 frozen／native／Windows 安裝包，沒有 tag／Release、正式目錄或手動發行。Windows／GPU、繁體品質與 RAM 軟預算限制保留；下一段接 profile 打包／自檢與 C03 原生引擎。
+
 ## 0.8.0 — 2026-11-07
 
 相對 **0.7.0** 完成 C10 自動分析與受管元件協作，架構 **0.4**。新導入 **6/12 → 7/12（C01／C02／C05／C06／C07／C08／C10）**，既有 **19/25**；完整 C09 仍待 C03／C04 基本包自帶雙語 OCR。

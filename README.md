@@ -6,15 +6,15 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.8.0**，C10 逐頁能力與受管 OCR 協作；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.8.1**，C04 基本版依賴拆分子檢核；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
-| 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C09 流程子檢核完成，完整項待基本包 |
-| 功能測試基線 | **408 通過、1 項 ONNX 繁體品質預期失敗** |
+| 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C04 依賴拆分、C09 流程子檢核完成，完整項仍待基本包 |
+| 功能測試基線 | **423 通過、1 項 ONNX 繁體品質預期失敗** |
 
 ## 模組架構封面
 
-綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08／C10 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；C10 已接逐頁需求、文件租約與提交重驗，GPU 選配仍保留虛線；Windows／GPU 仍須各自驗證。
+綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08／C10 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；C10 已接逐頁需求、文件租約與提交重驗；C04 已驗基本依賴拆分，完整打包仍保留虛線；Windows／GPU 仍須各自驗證。
 
 [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
@@ -32,6 +32,7 @@ flowchart TD
     subgraph Planned["新架構：基本包＋選配元件管理"]
         COMPONENTUI["元件管理介面：版本／容量／授權／背景維護"]
         FIRST["基本包自帶引擎：待 C03／C04"]
+        PROFILE["基本依賴已拆分：38 runtime／47 Linux、49 Windows build"]
         FIRSTFLOW["首次流程已實作：RAM／保留偏好／離線檢查／完成標記"]
         COMPONENTS["元件基礎：契約／登錄／完整性驗證"]
         CAPABILITY["能力解析：相容／依賴／健康檢查"]
@@ -61,13 +62,14 @@ flowchart TD
     PREFS --> UI
     UI --> FIRSTFLOW
     FIRSTFLOW --> PREFS
+    PROFILE -.-> FIRST
     FIRST -.-> FIRSTFLOW
     PREFS --> ROUTE
     RES -.-> OPTIONAL
     OPTIONAL -.-> QUALITY
     classDef existing fill:#e8f7f3,stroke:#21856d,color:#153c31;
     classDef foundation fill:#e8efff,stroke:#4c6fb8,color:#203c77;
-    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI,FIRSTFLOW,ROUTE foundation;
+    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI,FIRSTFLOW,ROUTE,PROFILE foundation;
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
     class FIRST,OPTIONAL planned;
@@ -84,6 +86,7 @@ flowchart TD
 | 設定與遷移 | v1–v5 讀取、v6 偏好、遷移備份及防止未來設定覆寫 | C02 已驗收；外部路徑保留 |
 | 首次精靈 | 基本引擎檢查、RAM 建議與完成紀錄 | C09 流程／RAM 子檢核完成；基本包自帶 OCR 待 C03／C04，C09 全項未關閉 |
 | 元件與更新服務 | 描述、登錄、下載、驗證、修復、移除及回復 | C01／C02 沿用，C05 下載、C06 安裝維護 API 完成；C08 背景管理完成；正式目錄與 Windows 仍待後續 |
+| 基本版依賴 profile | 執行／建置閉包、平台 marker、原版 hash 與既有授權引用 | C04 依賴子檢核 52/52＋乾淨 Linux 6/6；完整 native／frozen／Windows 待驗 |
 | 選配工作程序 | CPU／GPU 元件各自打包相依環境，避免改動核心 runtime | C07 實際 Linux CPU 元件通過；C08 管理、C10 文件路由已接；GPU 仍待實機 |
 
 ## 使用者能得到什麼
@@ -93,7 +96,7 @@ flowchart TD
 - RAM 自動／手動預算、系統保留量與 CPU 執行緒設定，降低與其他工作競爭；屬軟性預算。
 - 模型版本與完整性驗證、離線手冊及第三方授權清單。
 
-**新版發行目標**：基本包內含 Python、必要依賴、Windows Tesseract 與繁中／英文模型，安裝後離線可用；額外語言、ONNX／GPU 與進階模型由程式內按需管理。C07 已證明 Linux CPU 選配可在沒有 OCR 套件的控制端運作；完整開發包仍含 ONNX，Windows 基本 Tesseract native 與 profile 拆包尚未完成。
+**新版發行目標**：基本包內含 Python、必要依賴、Windows Tesseract 與繁中／英文模型，安裝後離線可用；額外語言、ONNX／GPU 與進階模型由程式內按需管理。C07 已證明 Linux CPU 選配可在沒有 OCR 套件的控制端運作；完整開發包仍含 ONNX，C04 已完成 Python 依賴拆分，基本環境仍因 Magika 保留 ONNX Runtime；Windows 基本 Tesseract native、profile 打包與自檢尚未完成。
 
 預設仍是 Tesseract。ONNX OCR 為實驗性選配，繁體樣本有已知漏字／字形問題；GPU 偵測不等於可用，也不保證提高準確度。表格與閱讀順序有驗收範圍，圖表、公式及任意混排仍需後續擴充。
 
@@ -105,6 +108,7 @@ flowchart TD
 - [開發進度與驗證範圍](docs/development-status.md)
 - [互動進度頁：里程碑／模組／元件導入](docs/progress.html)（下載後可離線開啟）
 - [基本包與選配元件決策](docs/decisions/0002-base-and-optional-components.md)
+- [C04 基本版依賴拆分與驗收範圍](docs/packaging-profiles.md)
 - [C10 自動分析與受管元件協作](docs/managed-conversion.md)
 - [C09 首次流程與 RAM 子檢核（完整項仍待基本包）](docs/onboarding.md)
 - [C08 元件管理介面與操作範圍](docs/component-management.md)

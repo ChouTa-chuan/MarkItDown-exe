@@ -24,12 +24,13 @@ class RecordedResult(unittest.TextTestResult):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--report', type=Path, required=True)
-    parser.add_argument('--check', choices=('C01', 'C02', 'C05', 'C06', 'C07', 'C08', 'C09-flow', 'C10'), default='C01')
+    parser.add_argument('--check', choices=('C01', 'C02', 'C04-locks', 'C05', 'C06', 'C07', 'C08', 'C09-flow', 'C10'), default='C01')
     args = parser.parse_args()
     # 使用已安裝的套件，避免把原始碼路徑插入 sys.path 而掩蓋漏打包的新模組。
     sys.path.insert(0, str(ROOT / 'tests'))
     modules = {'C01':['test_components'],
                'C02':['test_component_migration', 'test_settings', 'test_models', 'test_desktop'],
+               'C04-locks':['test_packaging_profiles','test_license_inventory','test_formats','test_core','test_devices'],
                'C05':['test_component_downloads'],
                'C06':['test_component_lifecycle','test_component_downloads'],
                'C07':['test_component_workers','test_component_lifecycle','test_component_downloads'],
@@ -55,6 +56,7 @@ def main():
                   fixture_scope={
                       'C01':'Synthetic payloads, actual filesystem and SQLite; no downloads or engine inference',
                       'C02':'v1-v5 settings, SQLite schema migration, synthetic downloads, desktop text conversion, pinned local models and explicit OCR path checks',
+                      'C04-locks':'Offline Python runtime/build closure for Linux and Windows target markers, original Windows notices and actual core/format/device regressions. Clean isolated base venv acceptance reported separately; not native/frozen/Windows acceptance.',
                       'C05':'Real Ed25519, filesystem and SQLite; injected HTTP protocol cases, no native engine execution; actual HTTPS checked separately',
                       'C06':'Real ZIP/filesystem/SQLite/kernel locks and spawned process exits, synthetic model health; includes C05 regression, no Windows/GPU or native OCR worker acceptance',
                       'C07':'Versioned IPC, fault/resource fixtures and actual native CPU subprocess; C05/C06 regression included. Frozen isolated-runtime acceptance reported separately; no Windows/GPU',
@@ -67,6 +69,9 @@ def main():
         report['flow_accepted']=accepted
         report['full_c09_complete']=False
         report['base_ocr_bundled']=False
+    if args.check=='C04-locks':
+        report['full_c04_complete']=False
+        report['native_ocr_bundled']=False
     if args.check in ('C06', 'C07', 'C08', 'C10'):
         from test_component_lifecycle import PROCESS_OBSERVATIONS
         report['process_observations'] = PROCESS_OBSERVATIONS

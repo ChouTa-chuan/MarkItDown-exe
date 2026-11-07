@@ -1,0 +1,365 @@
+{
+  "schema_version": 1,
+  "source_version": "0.8.1",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-08",
+  "check": "C04-locks",
+  "full_c04_complete": false,
+  "scope": "基本 Python 閉包／hash／既有 Windows 授權引用、乾淨 Linux runtime／Qt 與過程紀錄；非完整原生包或 Windows／GPU 驗收",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 4602,
+      "sha256": "7d800550914a78720fd908ab0f89f53f97ec689d347d6345b10f173af014cc62",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 4624,
+      "sha256": "fc49c18ef9e7223a91207879dacc59fc0267e4d1ea83d8222c1d01011365b02d",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "base-environment.txt",
+      "bytes": 1027,
+      "sha256": "f10069bbe64f765ba3d838a9a4cafe18f89b65fb941df12083bef2266a67c75c",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "base-runtime.log",
+      "bytes": 1015,
+      "sha256": "e802fd3f58667d138d8445e970136986801d5fc5d661ec3f5b325466c87222a7",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "component-tests.log",
+      "bytes": 6912,
+      "sha256": "eb0a4438cef4805abe868b0078f4eff4bfa504abb27b19bdd385d3d51e47e350",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "fixture-preparation.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "fixtures/fixtures.json",
+      "bytes": 1376,
+      "sha256": "bc5fcead1daa5e2436632d50b3faff959fc4f4704a7024ea23f83dee9225ba59",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "fixtures/中文.txt",
+      "bytes": 44,
+      "sha256": "b4775f238e2a0f9073e16985aae3476d17575215e34c50116c0b345bd771aeb0",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "fixtures/原生.pdf",
+      "bytes": 603,
+      "sha256": "f2cb2d51513bbab1740beb333f394db0bf242d1a9e56f64f1d49c50c8e1a9b99",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "fixtures/掃描.pdf",
+      "bytes": 23515,
+      "sha256": "aac34267aae18246382d5e5d9c63d71c60c28d43ba261c371bfc5fc6ab2d109a",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "fixtures/文件.docx",
+      "bytes": 36830,
+      "sha256": "807b1dbc26d265fe4bfdcb34d344bb032f025a32637750fd17814735c6f16e17",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "fixtures/簡報.pptx",
+      "bytes": 28279,
+      "sha256": "0e4fea70ba619b9206a74965942b44d36956ed3dd948c41695ff436a81fbef17",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "fixtures/網頁.html",
+      "bytes": 84,
+      "sha256": "431f74e4715d63176fcdc5755aec2a95cd278298d6cd87e6246d3fbb02ad5319",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "fixtures/資料.xlsx",
+      "bytes": 4905,
+      "sha256": "a9335564264747ee56a79d950f71fcb2841bbc0c21a5f5e220c3cc14800b95f6",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "full-tests.log",
+      "bytes": 62946,
+      "sha256": "3d7fbe30c4293bd201701fbd468f5045a748d9ad4d47c57c61dfd9d92e6fe2ba",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "initial-sandbox-install.log",
+      "bytes": 173,
+      "sha256": "a3c0da1f612414487508c65289000b78b60fbfbc7086c1e23d1d4eacfd5612fd",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "initial-wheel-build.log",
+      "bytes": 1553,
+      "sha256": "6cf1a0d0f27b420a4d142f29df924dd78f582cb9f571cb416e97bccc97aee9ee",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 1213,
+      "sha256": "7fbcddfcb6850fda28fa39f15bf5470f66e1d38a753c2f1576cacb90db1afb4d",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/base-runtime-acceptance.json",
+      "bytes": 2485,
+      "sha256": "33ea7bcc551a53b1987cbd4c3129ac80eb1273b16de81f61c5dc41d803ff247f",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/desktop-base-profile.png",
+      "bytes": 123320,
+      "sha256": "be97c0a90f7cfd0a5a3c4ca0260538ccc4eac78af6ed14440965125ef7090964",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/gui/中文.txt.md",
+      "bytes": 44,
+      "sha256": "b4775f238e2a0f9073e16985aae3476d17575215e34c50116c0b345bd771aeb0",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/gui/原生.pdf.md",
+      "bytes": 70,
+      "sha256": "234c6defe1ab5f8b10fc050f272702f5abb5505435e1bf7f8428ef822882fe6a",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/gui/文件.docx.md",
+      "bytes": 97,
+      "sha256": "fe99b51fc156e2bd5d88d7b8e45dddf23f45fc6bb3cb2a88fb51ae35dd13c2c5",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/pip-check.log",
+      "bytes": 294,
+      "sha256": "b5c689654c98c889a2d3072bad980df4e7ddb0cecec416d9b37ca9cd28de7e36",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/runtime.log",
+      "bytes": 1015,
+      "sha256": "26fbbd2f0f5d46bef3677422b9c198c46eda46a4395773c3209a72dd89ead0d5",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/中文.txt.md",
+      "bytes": 44,
+      "sha256": "b4775f238e2a0f9073e16985aae3476d17575215e34c50116c0b345bd771aeb0",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/原生.pdf.md",
+      "bytes": 70,
+      "sha256": "234c6defe1ab5f8b10fc050f272702f5abb5505435e1bf7f8428ef822882fe6a",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/文件.docx.md",
+      "bytes": 97,
+      "sha256": "fe99b51fc156e2bd5d88d7b8e45dddf23f45fc6bb3cb2a88fb51ae35dd13c2c5",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/簡報.pptx.md",
+      "bytes": 61,
+      "sha256": "7785061882d0df0e76f3a6c4ec180f96bd6d1f46e90d244f204a5befe85bcafa",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/網頁.html.md",
+      "bytes": 37,
+      "sha256": "84f27ae5db2d2ae49b0e7baec386f69efe9e80a140081fbc5d63436aec71e6a0",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "intermediate-runtime/資料.xlsx.md",
+      "bytes": 62,
+      "sha256": "b6e9bde9d5f94ed3c6b6dea5153e02d450b5e7285f1a2e0dd03546297bbfa354",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "licenses.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "local-wheel-install.log",
+      "bytes": 571,
+      "sha256": "a9f9caa48220e7cde666cfe101a5dee236eac4c73d7578ce2f90ab924c04798b",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "local-wheels/markitdown-0.1.9-py3-none-any.whl",
+      "bytes": 94018,
+      "sha256": "1449e5184c50e3edbc570226b401867e6444ea744f7a42c3a5dbe07c64ff289a",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "local-wheels/markitdown_desktop-0.8.1-py3-none-any.whl",
+      "bytes": 949274,
+      "sha256": "eb5cdefc564b5d5b6e8e7415d32f65c49a5a9ae3fcabb050a8a65aa5e1d094d8",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "profile-report.json",
+      "bytes": 113836,
+      "sha256": "d5f966245960e996d7055a6c79b448a4b057e0ff58176e2d0ee77bc48d351eed",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "profile-tests.log",
+      "bytes": 2227,
+      "sha256": "6474e87003b44cb31f053f45c21f2eef4dcf8d631120df0940132cea89e48f4e",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "profiles.log",
+      "bytes": 308,
+      "sha256": "60f4d04e67ddb2356cc4afea6ee669302d131723567341544a94a26097ec9171",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime/base-runtime-acceptance.json",
+      "bytes": 2570,
+      "sha256": "17c9f4f7e40ae286c60b0280795b78fc8e891c666a22405674bef09c231e0356",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime/desktop-base-profile.png",
+      "bytes": 123469,
+      "sha256": "765f7bcb5f40dd97fc34123ac0bd53924b2833b0ff17d65ead74054aefd705e2",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime/gui/中文.txt.md",
+      "bytes": 44,
+      "sha256": "b4775f238e2a0f9073e16985aae3476d17575215e34c50116c0b345bd771aeb0",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime/gui/原生.pdf.md",
+      "bytes": 70,
+      "sha256": "234c6defe1ab5f8b10fc050f272702f5abb5505435e1bf7f8428ef822882fe6a",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime/gui/文件.docx.md",
+      "bytes": 97,
+      "sha256": "fe99b51fc156e2bd5d88d7b8e45dddf23f45fc6bb3cb2a88fb51ae35dd13c2c5",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime/pip-check.log",
+      "bytes": 294,
+      "sha256": "b5c689654c98c889a2d3072bad980df4e7ddb0cecec416d9b37ca9cd28de7e36",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime/中文.txt.md",
+      "bytes": 44,
+      "sha256": "b4775f238e2a0f9073e16985aae3476d17575215e34c50116c0b345bd771aeb0",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime/原生.pdf.md",
+      "bytes": 70,
+      "sha256": "234c6defe1ab5f8b10fc050f272702f5abb5505435e1bf7f8428ef822882fe6a",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime/文件.docx.md",
+      "bytes": 97,
+      "sha256": "fe99b51fc156e2bd5d88d7b8e45dddf23f45fc6bb3cb2a88fb51ae35dd13c2c5",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime/簡報.pptx.md",
+      "bytes": 61,
+      "sha256": "7785061882d0df0e76f3a6c4ec180f96bd6d1f46e90d244f204a5befe85bcafa",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime/網頁.html.md",
+      "bytes": 37,
+      "sha256": "84f27ae5db2d2ae49b0e7baec386f69efe9e80a140081fbc5d63436aec71e6a0",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime/資料.xlsx.md",
+      "bytes": 62,
+      "sha256": "b6e9bde9d5f94ed3c6b6dea5153e02d450b5e7285f1a2e0dd03546297bbfa354",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "runtime-install.log",
+      "bytes": 8948,
+      "sha256": "dfa237e01d5394829e18a6e538b444a28c0ff243b6c280015ee193b0bdb41dc5",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 561984,
+      "sha256": "0484c2a24c68260179801507e0e8ecf239f2d9fdcfdba68a193252c849c3713e",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 563552,
+      "sha256": "5b41f09d861c65458e1a2a0e9f949074cfb5d95857e7b074ace02c972a7e6c7d",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 281285,
+      "sha256": "a31aced19449857d1a3aa1f832fec4dded23f8c5413cf0a79d1f1b72358ef017",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 298019,
+      "sha256": "5e1a60c163814cdf517c1ea6d5d69949511fbfacd4a14cb6d4c0630447947ad7",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 441383,
+      "sha256": "0f41d2379c7eec7ee49b9a526f7375d7062a46da720f8629e1bdeed15b172dbf",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "upstream.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    },
+    {
+      "file": "wheel-build.log",
+      "bytes": 1553,
+      "sha256": "8c1a67d76c328604e64b0292bceb63507d940db7ade32c40e61f2cbba797a668",
+      "source": "C04-locks 本輪生成；initial／intermediate 為過程觀察；輸入均為合成樣本，本地 wheel 為實際安裝證據，非 Windows／GPU／native OCR 驗收"
+    }
+  ]
+}

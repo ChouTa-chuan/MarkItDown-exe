@@ -2,7 +2,17 @@
 
 記錄專案從規劃、實作、測試到調整方向的過程。之後每次開發在最上方追加日期、版本、做了什麼、遇到的問題與接下來要處理的事項，舊紀錄持續保留。
 
-目前程式版本 **0.8.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
+目前程式版本 **0.8.1**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
+
+**2026-11-08｜完成 C04 基本版依賴拆分子檢核，程式 0.8.0 → 0.8.1**
+
+- 檢視既有打包仍使用完整開發清單，本輪先拆基本 Python 閉包：runtime 38、Linux build 47／Windows build 49 套件，原版本與全部 hash 沿用。原上位鎖定與 221 份授權資產不變，Windows 授權按 profile 引用，不冒充 Linux native／原生引擎或完整再散布審核。
+- 確認 Magika 為上游必要檔案辨識功能，仍需 ONNX Runtime；Excel／其他核心仍需 NumPy，沒有直接移除。基本版不含 RapidOCR、OpenCV 等 OCR 相依與 python-docx／reportlab 測試產生工具，上游原始碼保持固定。
+- 新工具從兩份專案、extras、建置輸入與平台 metadata 追蹤閉包，遇到版本衝突、缺相依、marker／extras、改動 hash／授權或選配混入時拒絕。Windows marker 在 Linux 求值有專門反例，不把 metadata 分析列為 Windows 執行通過。
+- 第一輪沙箱 pip 只得到找不到套件結果，沿用相同代理與 CA 在核准執行環境重試安裝成功，沒有改網路設定或升版。建立全新、不含系統套件的基本 venv，實際只含 38 個第三方套件、兩個本地專案與 pip；檢查安裝 metadata 與固定快照一致，pip check 通過。
+- 新增 15 項，含原授權／格式／核心／裝置的 **52/52** 通過；空 PATH／空 TESSDATA_PREFIX 的基本環境 **6/6**，文字／HTML／DOCX／XLSX／PPTX／原生 PDF 與 Qt 批次實測，缺原生 OCR 明確失敗且無輸出。初次實測與加強安裝 metadata 核對後的最終結果分存。完整 **424 項：423 通過、1 既有繁體品質預期失敗、0 跳過**。
+- **只完成 C04 的依賴拆分子檢核，完整 C04 未關閉，總數仍 7/12，既有 19/25。** 新增[樣本、輸出、實際視窗、wheel 與日誌](runs/c04-locks-2026-11-08/README.md)及[第十三份架構快照](../architecture/versions/v0.4-c04-base-locks.md)，前十二份圖與全部先前附件固定。
+- 舊 PyInstaller／Windows workflow 尚未改成基本包，未重建 frozen、native／Windows 安裝包或發布 tag／Release。C03 Tesseract 原生檔／DLL／雙語模型與授權、profile 專用打包／自檢、完整 C09 及 Windows／GPU 仍待後續，正式來源、繁體品質及 RAM 軟預算限制保留。
 
 **2026-11-07｜完成 C10 文件分析與受管 OCR 協作，程式 0.7.0 → 0.8.0**
 

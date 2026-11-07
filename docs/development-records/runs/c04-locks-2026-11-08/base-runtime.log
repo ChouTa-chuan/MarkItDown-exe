@@ -1,0 +1,8 @@
+[0;93m2026-11-07 21:20:37.177826592 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+[0;93m2026-11-07 21:20:38.777219835 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+[0;93m2026-11-07 21:20:41.031660074 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+[0;93m2026-11-07 21:20:42.463714217 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+[0;93m2026-11-07 21:20:45.545137898 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+Base isolated runtime checks passed: 6; full C04/native/Windows gates remain pending

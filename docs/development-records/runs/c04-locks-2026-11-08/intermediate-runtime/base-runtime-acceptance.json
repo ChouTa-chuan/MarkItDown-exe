@@ -1,0 +1,101 @@
+{
+  "source_version": "0.8.1",
+  "check": "C04-locks",
+  "accepted": true,
+  "checks_passed": 6,
+  "checks": [
+    "exact isolated 38-package runtime",
+    "pip dependency integrity",
+    "six actual formats in spawned workers with empty PATH",
+    "missing native OCR fails explicitly",
+    "actual Qt batch without optional OCR or test generators",
+    "saved profile and notice verification"
+  ],
+  "results": [
+    {
+      "file": "中文.txt",
+      "state": "completed",
+      "message": ""
+    },
+    {
+      "file": "網頁.html",
+      "state": "completed",
+      "message": ""
+    },
+    {
+      "file": "文件.docx",
+      "state": "completed",
+      "message": ""
+    },
+    {
+      "file": "資料.xlsx",
+      "state": "completed",
+      "message": ""
+    },
+    {
+      "file": "簡報.pptx",
+      "state": "completed",
+      "message": ""
+    },
+    {
+      "file": "原生.pdf",
+      "state": "completed",
+      "message": "逐頁分析 1 頁，OCR 0 頁，品質提醒 0 項。"
+    },
+    {
+      "file": "掃描.pdf",
+      "state": "failed",
+      "message": "RuntimeError: 本頁需要 OCR，但找不到 Tesseract；請安裝 OCR 元件後重試。"
+    }
+  ],
+  "installed": {
+    "charset-normalizer": "3.5.2",
+    "python-pptx": "1.0.2",
+    "openpyxl": "3.1.5",
+    "pillow": "13.0.0",
+    "cryptography": "50.0.2",
+    "pycparser": "3.12",
+    "pdfplumber": "0.11.9",
+    "markitdown": "0.1.9",
+    "six": "1.17.0",
+    "idna": "3.20",
+    "defusedxml": "0.7.1",
+    "psutil": "7.2.2",
+    "cobble": "0.1.4",
+    "pip": "25.0.1",
+    "lxml": "6.1.3",
+    "mammoth": "1.13.0",
+    "typing-extensions": "4.16.0",
+    "onnxruntime": "1.31.1",
+    "pyside6-essentials": "6.12.0",
+    "shiboken6": "6.12.0",
+    "magika": "1.0.3",
+    "tzdata": "2026.6",
+    "click": "8.5.0",
+    "markitdown-desktop": "0.8.1",
+    "pypdfium2": "5.14.0",
+    "markdownify": "1.2.3",
+    "python-dateutil": "4.0.0",
+    "certifi": "2026.10.23",
+    "packaging": "26.3",
+    "flatbuffers": "25.12.19",
+    "soupsieve": "4.0",
+    "cffi": "2.1.1",
+    "urllib3": "2.8.0",
+    "pdfminer-six": "20251230",
+    "et-xmlfile": "2.0.0",
+    "beautifulsoup4": "4.15.0",
+    "protobuf": "7.36.2",
+    "requests": "2.34.2",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4",
+    "xlsxwriter": "3.3.1"
+  },
+  "path_empty": true,
+  "frozen": false,
+  "windows_executed": false,
+  "gpu_executed": false,
+  "native_ocr_bundled": false,
+  "full_c04_complete": false,
+  "full_c09_complete": false
+}

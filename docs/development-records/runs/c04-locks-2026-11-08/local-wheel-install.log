@@ -1,0 +1,5 @@
+WARNING: The directory '/home/agent/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Processing /workspace/markitdown-c04-profile-wheels/markitdown_desktop-0.8.1-py3-none-any.whl
+Processing /workspace/markitdown-c04-profile-wheels/markitdown-0.1.9-py3-none-any.whl
+Installing collected packages: markitdown-desktop, markitdown
+Successfully installed markitdown-0.1.9 markitdown-desktop-0.8.1

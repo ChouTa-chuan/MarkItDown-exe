@@ -1,0 +1,1942 @@
+{
+  "schema_version": 1,
+  "profile": "base",
+  "source_version": "0.8.1",
+  "config_sha256": "530996f91a060f30be63cce700660b00bd24ce3ad258c2c965565553dfcd0a66",
+  "native_ocr_integrated": false,
+  "release_ready": false,
+  "windows_executed": false,
+  "scope": "Python dependency closure and existing Windows notices only; not frozen/native acceptance",
+  "profiles": {
+    "linux-runtime": {
+      "lock": "packaging/profiles/base-linux-runtime.txt",
+      "lock_sha256": "46ae2cd301c8607a58cdface6aaa8c57565da38de6a4f5f5be7050ca1a2d453b",
+      "package_count": 38,
+      "packages": [
+        "beautifulsoup4",
+        "certifi",
+        "cffi",
+        "charset-normalizer",
+        "click",
+        "cobble",
+        "cryptography",
+        "defusedxml",
+        "et-xmlfile",
+        "flatbuffers",
+        "idna",
+        "lxml",
+        "magika",
+        "mammoth",
+        "markdownify",
+        "numpy",
+        "onnxruntime",
+        "openpyxl",
+        "packaging",
+        "pandas",
+        "pdfminer-six",
+        "pdfplumber",
+        "pillow",
+        "protobuf",
+        "psutil",
+        "pycparser",
+        "pypdfium2",
+        "pyside6-essentials",
+        "python-dateutil",
+        "python-pptx",
+        "requests",
+        "shiboken6",
+        "six",
+        "soupsieve",
+        "typing-extensions",
+        "tzdata",
+        "urllib3",
+        "xlsxwriter"
+      ],
+      "roots": [
+        "psutil>=5.9,<8",
+        "cryptography>=50.0.2,<51",
+        "PySide6-Essentials==6.12.0",
+        "pdfplumber==0.11.9",
+        "pypdfium2==5.14.0",
+        "beautifulsoup4",
+        "requests",
+        "certifi>=2026.10.19",
+        "markdownify",
+        "magika>=0.6.1,<2",
+        "charset-normalizer",
+        "defusedxml",
+        "mammoth>=1.12.2,<2",
+        "lxml",
+        "python-pptx",
+        "pandas",
+        "openpyxl",
+        "pdfminer.six>=20251230",
+        "pdfplumber>=0.11.9"
+      ],
+      "dependency_edges": [
+        [
+          "<root>",
+          "beautifulsoup4"
+        ],
+        [
+          "<root>",
+          "certifi"
+        ],
+        [
+          "<root>",
+          "charset-normalizer"
+        ],
+        [
+          "<root>",
+          "cryptography"
+        ],
+        [
+          "<root>",
+          "defusedxml"
+        ],
+        [
+          "<root>",
+          "lxml"
+        ],
+        [
+          "<root>",
+          "magika"
+        ],
+        [
+          "<root>",
+          "mammoth"
+        ],
+        [
+          "<root>",
+          "markdownify"
+        ],
+        [
+          "<root>",
+          "openpyxl"
+        ],
+        [
+          "<root>",
+          "pandas"
+        ],
+        [
+          "<root>",
+          "pdfminer-six"
+        ],
+        [
+          "<root>",
+          "pdfplumber"
+        ],
+        [
+          "<root>",
+          "psutil"
+        ],
+        [
+          "<root>",
+          "pypdfium2"
+        ],
+        [
+          "<root>",
+          "pyside6-essentials"
+        ],
+        [
+          "<root>",
+          "python-pptx"
+        ],
+        [
+          "<root>",
+          "requests"
+        ],
+        [
+          "beautifulsoup4",
+          "soupsieve"
+        ],
+        [
+          "beautifulsoup4",
+          "typing-extensions"
+        ],
+        [
+          "cffi",
+          "pycparser"
+        ],
+        [
+          "cryptography",
+          "cffi"
+        ],
+        [
+          "magika",
+          "click"
+        ],
+        [
+          "magika",
+          "onnxruntime"
+        ],
+        [
+          "mammoth",
+          "cobble"
+        ],
+        [
+          "markdownify",
+          "beautifulsoup4"
+        ],
+        [
+          "markdownify",
+          "six"
+        ],
+        [
+          "onnxruntime",
+          "flatbuffers"
+        ],
+        [
+          "onnxruntime",
+          "numpy"
+        ],
+        [
+          "onnxruntime",
+          "packaging"
+        ],
+        [
+          "onnxruntime",
+          "protobuf"
+        ],
+        [
+          "openpyxl",
+          "et-xmlfile"
+        ],
+        [
+          "pandas",
+          "numpy"
+        ],
+        [
+          "pandas",
+          "python-dateutil"
+        ],
+        [
+          "pdfminer-six",
+          "charset-normalizer"
+        ],
+        [
+          "pdfminer-six",
+          "cryptography"
+        ],
+        [
+          "pdfplumber",
+          "pdfminer-six"
+        ],
+        [
+          "pdfplumber",
+          "pillow"
+        ],
+        [
+          "pdfplumber",
+          "pypdfium2"
+        ],
+        [
+          "pyside6-essentials",
+          "shiboken6"
+        ],
+        [
+          "python-dateutil",
+          "tzdata"
+        ],
+        [
+          "python-pptx",
+          "lxml"
+        ],
+        [
+          "python-pptx",
+          "pillow"
+        ],
+        [
+          "python-pptx",
+          "typing-extensions"
+        ],
+        [
+          "python-pptx",
+          "xlsxwriter"
+        ],
+        [
+          "requests",
+          "certifi"
+        ],
+        [
+          "requests",
+          "charset-normalizer"
+        ],
+        [
+          "requests",
+          "idna"
+        ],
+        [
+          "requests",
+          "urllib3"
+        ]
+      ],
+      "marker_environment": {
+        "implementation_name": "cpython",
+        "implementation_version": "3.12.14",
+        "os_name": "posix",
+        "platform_machine": "x86_64",
+        "platform_release": "",
+        "platform_system": "Linux",
+        "platform_version": "",
+        "python_full_version": "3.12.14",
+        "platform_python_implementation": "CPython",
+        "python_version": "3.12",
+        "sys_platform": "linux",
+        "extra": ""
+      },
+      "notice_scope": "Windows wheel originals for matching pinned versions; Linux binary licenses not claimed",
+      "windows_notice_files": {
+        "beautifulsoup4/METADATA": "b2f888103259f1607c85f3b1163be1bc49fc9941a3243c3b89a21075bfc6d4fb",
+        "beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/AUTHORS": "b989238918e1fdac1e46717cb405b63e92497a272413af0d989c1df6c8abcb6f",
+        "beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+        "certifi/METADATA": "e463e38f7fe7da36a11e6d3fecc5dfa5b97be8c8022620400750d79ae7d842bc",
+        "certifi/wheel/certifi-2026.10.23.dist-info/licenses/LICENSE": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+        "cffi/METADATA": "67b6a7595df7ede2195016a05d285faa7d362a8f57c238984edb8bb674b5770d",
+        "cffi/wheel/cffi-2.1.1.dist-info/licenses/LICENSE": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+        "charset-normalizer/METADATA": "49e955a09e1a159e0846872798006e8db7d518d8d70c637066fefdb08d3d9f7b",
+        "charset-normalizer/wheel/charset_normalizer-3.5.2.dist-info/licenses/LICENSE": "18577485d3704f1a479ded8e573c0976cfed315fd2fd17983fa988da4c2f70d1",
+        "click/METADATA": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+        "click/wheel/click-8.5.0.dist-info/licenses/LICENSE.txt": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+        "cobble/METADATA": "6eb2cf88cfb39b884adde1eff7d8f89f80b256572eb0c6c164d6f99943dbd49f",
+        "supplemental/cobble.txt": "d6d46202db973b560d2f521dced9110b3e0a46d9a75e1428dade8b7608dd0cca",
+        "cryptography/METADATA": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+        "defusedxml/METADATA": "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1",
+        "defusedxml/wheel/defusedxml-0.7.1.dist-info/LICENSE": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8",
+        "et-xmlfile/METADATA": "0e97d7ea909ed0fbe03d88bc8b6f58677cee1b07bd3353ce361cd2405915204e",
+        "et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.python": "4ccdaaebc0f44b83720ec0399bb7ab329adce067dd62f73c5535a2dc05628ab2",
+        "et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.rst": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+        "flatbuffers/METADATA": "9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e",
+        "supplemental/flatbuffers.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "idna/METADATA": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+        "idna/wheel/idna-3.20.dist-info/licenses/LICENSE.md": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+        "lxml/METADATA": "4038f4e4decac1c15eb5fd883abf1370f2df9b176b53bd172dd709d4542e2a48",
+        "lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSE.txt": "e7c3ce8d76331b0101cc46790ab43958ea90a364bcf962ed8763d5a818340e69",
+        "lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt": "df682c668de65321677b5e4861dca4128a8bad8067f230956e9da3f985b3d398",
+        "magika/METADATA": "72b51757fa5acba3f59ed4abb2d038debda3fc9de68178903e90dbbf8298e9c9",
+        "supplemental/magika.txt": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+        "mammoth/METADATA": "aa45c59d8352de6aebe3c85b991045ffdf0acbedb76237dcf48d5e8cee0d8b6d",
+        "mammoth/wheel/mammoth-1.13.0.dist-info/licenses/LICENSE": "6663bbd049205d38a496ccacb412a151980b444627d38de218b3b809aef330f1",
+        "markdownify/METADATA": "4b457b9a3b3c6e7c87277a5157f9f99588b6cf89ee16ae20c8a019c6a66f6e2b",
+        "markdownify/wheel/markdownify-1.2.3.dist-info/LICENSE": "fae8b42db142dabf03b0c5c495831a5d11b9649ead0cf0bd4ab4f52294b263be",
+        "numpy/METADATA": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+        "numpy/wheel/numpy/ma/LICENSE": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+        "numpy/wheel/numpy/random/LICENSE.md": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+        "numpy/wheel/numpy/_core/include/numpy/random/LICENSE.txt": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md": "8db000e158c162e7249787852d8c69764706502ccee725c06641b31c1e95c8af",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt": "19060ef465e1797d682ee0fc3081bd25ab1395e995e43d25c9d13c95d9a3cd6b",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md": "cf5619f25b112d5ce7c896efffc8e610bcb345dfadcc19f2c1460aa48fff2c9e",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md": "92c10699884321f1c2947fe2a70ab23b0fbf1507f756d89dd08f38c61fc3d4fa",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md": "41190663b77bee5302386495a07b7eabfbfa571aa0ae2f11da6764162062fc4f",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md": "322ac46d870c8aeead6c53adcccc839296fb3c8e456eae155081297daf7f8013",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md": "28cad82ce1379dc529df30da78ec012d7d0d1d576b03ddcb93388aee53659f59",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md": "454ec7350e478e037061850b67395753b425b1cb0a34bbc26290b020bf89d763",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING": "aea41976c720f91bd19725c16916a1ace40eb1ea42620d340e587a5de4bbcea0",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE": "d208152e2777ffd0126eacc1bd21c0320d69e4e6b622d21a2a12a47e8ef73763",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt": "b0fd592d4ead563148e3977e7b589169d46a5ef2ff133c755a81af880a3fc919",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md": "a732977853530066790c42817087f4829b518dd98d340c916acbfd227e39d3cb",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE": "585483905b13d4b42f800c55ba99e89d6e2e33ccd5f503e201c07531d148ff41",
+        "onnxruntime/METADATA": "2f3c9b07cbbb008caa43327723e11875e3a595eadfb30c9c1abd92163afe878e",
+        "onnxruntime/wheel/onnxruntime/LICENSE": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674",
+        "onnxruntime/wheel/onnxruntime/ThirdPartyNotices.txt": "c53a76501ef60db6f865f20599f220761201ac4057683acefdab37d861b86622",
+        "openpyxl/METADATA": "23f80ca9830dd89435da1710f26deda8f81e5409287e74540210c72627a4ad96",
+        "openpyxl/wheel/openpyxl-3.1.5.dist-info/LICENCE.rst": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+        "packaging/METADATA": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+        "packaging/wheel/packaging/licenses/__init__.py": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+        "packaging/wheel/packaging/licenses/_spdx.py": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.BSD": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+        "pandas/METADATA": "b2b43910a5ef734a08be961df9c484f4664ad9ec2fa5a08294d0edfa08bcdd4b",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSE": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT": "87217d0a79195441ab615a3abb3ab6777502e57804ea83f973df975a67ebd720",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+        "pdfminer-six/METADATA": "77a7aa49c45244383288e8b98cb567f19a9083ad0d74716e3011c831df801d44",
+        "pdfminer-six/wheel/pdfminer_six-20251230.dist-info/licenses/LICENSE": "f01e5d699a33766b5caf4a5099f2856aba4f3f75ea1df05dc0572b34b4bea8f2",
+        "pdfplumber/METADATA": "24f9118940ac3810a6bf0dd1970094e29cc659c71c334a6fc2e65d7120a74b62",
+        "pdfplumber/wheel/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821",
+        "pillow/METADATA": "140f39cb31ec9b46109828a6286f034a4848621263d6aab38d2f142083dd06c5",
+        "pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236",
+        "protobuf/METADATA": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c",
+        "protobuf/wheel/protobuf-7.36.2.dist-info/LICENSE": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+        "psutil/METADATA": "a263a40220d921d9cb963fc636d34f817aa2eb72c2696e3e3465d088cdb1976b",
+        "psutil/wheel/psutil-7.2.2.dist-info/LICENSE": "c7adc4d5d1337a548b967421f1fbe258b93033a0417708fd6f4e38f8ecbceb80",
+        "pycparser/METADATA": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+        "pycparser/wheel/pycparser-3.12.dist-info/licenses/LICENSE": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+        "pypdfium2/METADATA": "8733a714c056453b87b48c819495cc05f9038d38221b89505043d28c2501237e",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/Apache-2.0.txt": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/BSD-3-Clause.txt": "ad9a9e823df025f42389c1812eae28019f657d1ed7b3a4ebfd5010b0736a0da4",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/CC-BY-4.0.txt": "f1b1748301cd4274f46733c218d510929661b4990855de5fc645dacd69c4371c",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/abseil.txt": "f54fff0b905df5b3464527c652a30e903b172d6dcab4d89b5e6f105d5e4a4603",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/agg23.txt": "c110d3ea2ad77467ce0dcff7d3337e6c8be8049a5103f4b9bd5fd911a77972e5",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/fast_float.txt": "bf1b57355feca8fce77ee95f48002f8d4789fb71b30ec7599c06cda4901fbb2b",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/freetype.txt": "f4b133e25df1f86ad3ffea453aa0e613f0474f34778dbbb3e437e7b2724937d8",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/icu.txt": "93679f4389d53b6835d89843f251844fb9bc455b35bab036d3c8e7abe497a47a",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/lcms.txt": "7312b68c5b25e9bf2b828706fb4e29588f22705112f411fd42e1f7d84c3d139a",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.ijg": "db16a04128171879c60708d171b88d97345a2dd20f9bfc173680a4497c73f704",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.md": "be2b2b5ab168bce87bc3e31f2a5c5adba4b7f6e9e51d618e958d1d46972ebd95",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libopenjpeg.txt": "c5ab0890a737c2dfa7ba675036554f6d17741d98629b0c2a145354d00617e6b2",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libpng.txt": "452390433ba0f88aa3e2b122c647741b72a0c117cd6ed7a329b49785aecb5511",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/llvm-libc.txt": "3b6226c32e168c83b891d8d6f0d3c29c2116dc3ef93dc93c307b54f279ecf383",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium-binaries.txt": "8854f4388f1ca13b3ad9baa42e95f5546b4c0b17109c159256d3eca7be39b09b",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium.txt": "961eacd9633fff6d051db7208b755e9210e30efac7adec3e6a6d52798f0ccf0e",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/simdutf.txt": "c172a0ba936ff31230febb5dad869e25cb7c1a07480c7a381be8cf011bb52719",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/zlib.txt": "33fd641c9f3b0e0be64bc78fea9e94807674cdd70c48477599226cb8956565fe",
+        "pyside6-essentials/METADATA": "c5eacdfdda84b8d0e026020a630e6a732bd403c00fc17e3efb9e2e92df0b98a7",
+        "pyside6-essentials/wheel/pyside6_essentials-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+        "supplemental/qt-lgpl3.txt": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+        "supplemental/qt-gpl3.txt": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+        "python-dateutil/METADATA": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907",
+        "python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md": "56004c45a95e9ee5582ea60f9a7ee42179c8594c7b9c245bbfb4a3445b4af640",
+        "python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/LICENSE": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+        "python-pptx/METADATA": "d38c6af5f1817cc528706264d8343cd1c95dbdec5672f29b944f54f79134a3a2",
+        "python-pptx/wheel/python_pptx-1.0.2.dist-info/LICENSE": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+        "requests/METADATA": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+        "requests/wheel/requests-2.34.2.dist-info/licenses/LICENSE": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+        "requests/wheel/requests-2.34.2.dist-info/licenses/NOTICE": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+        "shiboken6/METADATA": "2e443fc68a670b00b5ee6f2d67fa3005613de00a8294a8f257c6c1263032009a",
+        "shiboken6/wheel/shiboken6-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+        "six/METADATA": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+        "six/wheel/six-1.17.0.dist-info/LICENSE": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+        "soupsieve/METADATA": "c1d4799cbf1c070586fa86f922f621c33845a5977886fcb6431c763dc083f838",
+        "soupsieve/wheel/soupsieve-4.0.dist-info/licenses/LICENSE.md": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+        "typing-extensions/METADATA": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+        "typing-extensions/wheel/typing_extensions-4.16.0.dist-info/licenses/LICENSE": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+        "tzdata/METADATA": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8",
+        "tzdata/wheel/tzdata-2026.6.dist-info/licenses/LICENSE": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+        "tzdata/wheel/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "urllib3/METADATA": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4",
+        "urllib3/wheel/urllib3-2.8.0.dist-info/licenses/LICENSE.txt": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+        "xlsxwriter/METADATA": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
+        "xlsxwriter/wheel/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7"
+      }
+    },
+    "linux-build": {
+      "lock": "packaging/profiles/base-linux-build.txt",
+      "lock_sha256": "e073b1298125e75576babc17796c533893afb64fbf038c4e86ee37c77efdc3c0",
+      "package_count": 47,
+      "packages": [
+        "altgraph",
+        "beautifulsoup4",
+        "certifi",
+        "cffi",
+        "charset-normalizer",
+        "click",
+        "cobble",
+        "cryptography",
+        "defusedxml",
+        "et-xmlfile",
+        "flatbuffers",
+        "hatchling",
+        "idna",
+        "lxml",
+        "magika",
+        "mammoth",
+        "markdownify",
+        "numpy",
+        "onnxruntime",
+        "openpyxl",
+        "packaging",
+        "pandas",
+        "pathspec",
+        "pdfminer-six",
+        "pdfplumber",
+        "pillow",
+        "pluggy",
+        "protobuf",
+        "psutil",
+        "pycparser",
+        "pyinstaller",
+        "pyinstaller-hooks-contrib",
+        "pypdfium2",
+        "pyside6-essentials",
+        "python-dateutil",
+        "python-pptx",
+        "requests",
+        "setuptools",
+        "shiboken6",
+        "six",
+        "soupsieve",
+        "tomlkit",
+        "trove-classifiers",
+        "typing-extensions",
+        "tzdata",
+        "urllib3",
+        "xlsxwriter"
+      ],
+      "roots": [
+        "psutil>=5.9,<8",
+        "cryptography>=50.0.2,<51",
+        "PySide6-Essentials==6.12.0",
+        "pdfplumber==0.11.9",
+        "pypdfium2==5.14.0",
+        "beautifulsoup4",
+        "requests",
+        "certifi>=2026.10.19",
+        "markdownify",
+        "magika>=0.6.1,<2",
+        "charset-normalizer",
+        "defusedxml",
+        "mammoth>=1.12.2,<2",
+        "lxml",
+        "python-pptx",
+        "pandas",
+        "openpyxl",
+        "pdfminer.six>=20251230",
+        "pdfplumber>=0.11.9",
+        "hatchling>=1.26",
+        "setuptools>=68",
+        "pyinstaller>=6,<7"
+      ],
+      "dependency_edges": [
+        [
+          "<root>",
+          "beautifulsoup4"
+        ],
+        [
+          "<root>",
+          "certifi"
+        ],
+        [
+          "<root>",
+          "charset-normalizer"
+        ],
+        [
+          "<root>",
+          "cryptography"
+        ],
+        [
+          "<root>",
+          "defusedxml"
+        ],
+        [
+          "<root>",
+          "hatchling"
+        ],
+        [
+          "<root>",
+          "lxml"
+        ],
+        [
+          "<root>",
+          "magika"
+        ],
+        [
+          "<root>",
+          "mammoth"
+        ],
+        [
+          "<root>",
+          "markdownify"
+        ],
+        [
+          "<root>",
+          "openpyxl"
+        ],
+        [
+          "<root>",
+          "pandas"
+        ],
+        [
+          "<root>",
+          "pdfminer-six"
+        ],
+        [
+          "<root>",
+          "pdfplumber"
+        ],
+        [
+          "<root>",
+          "psutil"
+        ],
+        [
+          "<root>",
+          "pyinstaller"
+        ],
+        [
+          "<root>",
+          "pypdfium2"
+        ],
+        [
+          "<root>",
+          "pyside6-essentials"
+        ],
+        [
+          "<root>",
+          "python-pptx"
+        ],
+        [
+          "<root>",
+          "requests"
+        ],
+        [
+          "<root>",
+          "setuptools"
+        ],
+        [
+          "beautifulsoup4",
+          "soupsieve"
+        ],
+        [
+          "beautifulsoup4",
+          "typing-extensions"
+        ],
+        [
+          "cffi",
+          "pycparser"
+        ],
+        [
+          "cryptography",
+          "cffi"
+        ],
+        [
+          "hatchling",
+          "packaging"
+        ],
+        [
+          "hatchling",
+          "pathspec"
+        ],
+        [
+          "hatchling",
+          "pluggy"
+        ],
+        [
+          "hatchling",
+          "tomlkit"
+        ],
+        [
+          "hatchling",
+          "trove-classifiers"
+        ],
+        [
+          "magika",
+          "click"
+        ],
+        [
+          "magika",
+          "onnxruntime"
+        ],
+        [
+          "mammoth",
+          "cobble"
+        ],
+        [
+          "markdownify",
+          "beautifulsoup4"
+        ],
+        [
+          "markdownify",
+          "six"
+        ],
+        [
+          "onnxruntime",
+          "flatbuffers"
+        ],
+        [
+          "onnxruntime",
+          "numpy"
+        ],
+        [
+          "onnxruntime",
+          "packaging"
+        ],
+        [
+          "onnxruntime",
+          "protobuf"
+        ],
+        [
+          "openpyxl",
+          "et-xmlfile"
+        ],
+        [
+          "pandas",
+          "numpy"
+        ],
+        [
+          "pandas",
+          "python-dateutil"
+        ],
+        [
+          "pdfminer-six",
+          "charset-normalizer"
+        ],
+        [
+          "pdfminer-six",
+          "cryptography"
+        ],
+        [
+          "pdfplumber",
+          "pdfminer-six"
+        ],
+        [
+          "pdfplumber",
+          "pillow"
+        ],
+        [
+          "pdfplumber",
+          "pypdfium2"
+        ],
+        [
+          "pyinstaller",
+          "altgraph"
+        ],
+        [
+          "pyinstaller",
+          "packaging"
+        ],
+        [
+          "pyinstaller",
+          "pyinstaller-hooks-contrib"
+        ],
+        [
+          "pyinstaller",
+          "setuptools"
+        ],
+        [
+          "pyinstaller-hooks-contrib",
+          "packaging"
+        ],
+        [
+          "pyside6-essentials",
+          "shiboken6"
+        ],
+        [
+          "python-dateutil",
+          "tzdata"
+        ],
+        [
+          "python-pptx",
+          "lxml"
+        ],
+        [
+          "python-pptx",
+          "pillow"
+        ],
+        [
+          "python-pptx",
+          "typing-extensions"
+        ],
+        [
+          "python-pptx",
+          "xlsxwriter"
+        ],
+        [
+          "requests",
+          "certifi"
+        ],
+        [
+          "requests",
+          "charset-normalizer"
+        ],
+        [
+          "requests",
+          "idna"
+        ],
+        [
+          "requests",
+          "urllib3"
+        ]
+      ],
+      "marker_environment": {
+        "implementation_name": "cpython",
+        "implementation_version": "3.12.14",
+        "os_name": "posix",
+        "platform_machine": "x86_64",
+        "platform_release": "",
+        "platform_system": "Linux",
+        "platform_version": "",
+        "python_full_version": "3.12.14",
+        "platform_python_implementation": "CPython",
+        "python_version": "3.12",
+        "sys_platform": "linux",
+        "extra": ""
+      },
+      "notice_scope": "Windows wheel originals for matching pinned versions; Linux binary licenses not claimed",
+      "windows_notice_files": {
+        "altgraph/METADATA": "dc60641dba229a3aef09f764f562c38d908b930c92615af2e626af31d6ff19b5",
+        "altgraph/wheel/altgraph-0.17.5.dist-info/LICENSE": "6c194d6db0c64d45535d10c95142b9b0cda7b7dcc7f1ddee302b3d536f3dbe46",
+        "beautifulsoup4/METADATA": "b2f888103259f1607c85f3b1163be1bc49fc9941a3243c3b89a21075bfc6d4fb",
+        "beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/AUTHORS": "b989238918e1fdac1e46717cb405b63e92497a272413af0d989c1df6c8abcb6f",
+        "beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+        "certifi/METADATA": "e463e38f7fe7da36a11e6d3fecc5dfa5b97be8c8022620400750d79ae7d842bc",
+        "certifi/wheel/certifi-2026.10.23.dist-info/licenses/LICENSE": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+        "cffi/METADATA": "67b6a7595df7ede2195016a05d285faa7d362a8f57c238984edb8bb674b5770d",
+        "cffi/wheel/cffi-2.1.1.dist-info/licenses/LICENSE": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+        "charset-normalizer/METADATA": "49e955a09e1a159e0846872798006e8db7d518d8d70c637066fefdb08d3d9f7b",
+        "charset-normalizer/wheel/charset_normalizer-3.5.2.dist-info/licenses/LICENSE": "18577485d3704f1a479ded8e573c0976cfed315fd2fd17983fa988da4c2f70d1",
+        "click/METADATA": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+        "click/wheel/click-8.5.0.dist-info/licenses/LICENSE.txt": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+        "cobble/METADATA": "6eb2cf88cfb39b884adde1eff7d8f89f80b256572eb0c6c164d6f99943dbd49f",
+        "supplemental/cobble.txt": "d6d46202db973b560d2f521dced9110b3e0a46d9a75e1428dade8b7608dd0cca",
+        "cryptography/METADATA": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+        "defusedxml/METADATA": "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1",
+        "defusedxml/wheel/defusedxml-0.7.1.dist-info/LICENSE": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8",
+        "et-xmlfile/METADATA": "0e97d7ea909ed0fbe03d88bc8b6f58677cee1b07bd3353ce361cd2405915204e",
+        "et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.python": "4ccdaaebc0f44b83720ec0399bb7ab329adce067dd62f73c5535a2dc05628ab2",
+        "et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.rst": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+        "flatbuffers/METADATA": "9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e",
+        "supplemental/flatbuffers.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "hatchling/METADATA": "482be6d989f36d3c7a31ceefb69ea757f1b603daa9dc598f8626fd0d81d1ca4a",
+        "hatchling/wheel/hatchling/licenses/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "hatchling/wheel/hatchling/licenses/supported.py": "641fb474d6916e23ea297f2b8d8ae20addad1c8f65e2852e7ca4445e73ed92e6",
+        "hatchling/wheel/hatchling-1.33.0.dist-info/licenses/LICENSE.txt": "7f143a8127ad4873862d70854b5bd2abd0085aa73e64fd2b08704a3b9f5c07fc",
+        "idna/METADATA": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+        "idna/wheel/idna-3.20.dist-info/licenses/LICENSE.md": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+        "lxml/METADATA": "4038f4e4decac1c15eb5fd883abf1370f2df9b176b53bd172dd709d4542e2a48",
+        "lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSE.txt": "e7c3ce8d76331b0101cc46790ab43958ea90a364bcf962ed8763d5a818340e69",
+        "lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt": "df682c668de65321677b5e4861dca4128a8bad8067f230956e9da3f985b3d398",
+        "magika/METADATA": "72b51757fa5acba3f59ed4abb2d038debda3fc9de68178903e90dbbf8298e9c9",
+        "supplemental/magika.txt": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+        "mammoth/METADATA": "aa45c59d8352de6aebe3c85b991045ffdf0acbedb76237dcf48d5e8cee0d8b6d",
+        "mammoth/wheel/mammoth-1.13.0.dist-info/licenses/LICENSE": "6663bbd049205d38a496ccacb412a151980b444627d38de218b3b809aef330f1",
+        "markdownify/METADATA": "4b457b9a3b3c6e7c87277a5157f9f99588b6cf89ee16ae20c8a019c6a66f6e2b",
+        "markdownify/wheel/markdownify-1.2.3.dist-info/LICENSE": "fae8b42db142dabf03b0c5c495831a5d11b9649ead0cf0bd4ab4f52294b263be",
+        "numpy/METADATA": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+        "numpy/wheel/numpy/ma/LICENSE": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+        "numpy/wheel/numpy/random/LICENSE.md": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+        "numpy/wheel/numpy/_core/include/numpy/random/LICENSE.txt": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md": "8db000e158c162e7249787852d8c69764706502ccee725c06641b31c1e95c8af",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt": "19060ef465e1797d682ee0fc3081bd25ab1395e995e43d25c9d13c95d9a3cd6b",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md": "cf5619f25b112d5ce7c896efffc8e610bcb345dfadcc19f2c1460aa48fff2c9e",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md": "92c10699884321f1c2947fe2a70ab23b0fbf1507f756d89dd08f38c61fc3d4fa",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md": "41190663b77bee5302386495a07b7eabfbfa571aa0ae2f11da6764162062fc4f",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md": "322ac46d870c8aeead6c53adcccc839296fb3c8e456eae155081297daf7f8013",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md": "28cad82ce1379dc529df30da78ec012d7d0d1d576b03ddcb93388aee53659f59",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md": "454ec7350e478e037061850b67395753b425b1cb0a34bbc26290b020bf89d763",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING": "aea41976c720f91bd19725c16916a1ace40eb1ea42620d340e587a5de4bbcea0",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE": "d208152e2777ffd0126eacc1bd21c0320d69e4e6b622d21a2a12a47e8ef73763",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt": "b0fd592d4ead563148e3977e7b589169d46a5ef2ff133c755a81af880a3fc919",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md": "a732977853530066790c42817087f4829b518dd98d340c916acbfd227e39d3cb",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE": "585483905b13d4b42f800c55ba99e89d6e2e33ccd5f503e201c07531d148ff41",
+        "onnxruntime/METADATA": "2f3c9b07cbbb008caa43327723e11875e3a595eadfb30c9c1abd92163afe878e",
+        "onnxruntime/wheel/onnxruntime/LICENSE": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674",
+        "onnxruntime/wheel/onnxruntime/ThirdPartyNotices.txt": "c53a76501ef60db6f865f20599f220761201ac4057683acefdab37d861b86622",
+        "openpyxl/METADATA": "23f80ca9830dd89435da1710f26deda8f81e5409287e74540210c72627a4ad96",
+        "openpyxl/wheel/openpyxl-3.1.5.dist-info/LICENCE.rst": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+        "packaging/METADATA": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+        "packaging/wheel/packaging/licenses/__init__.py": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+        "packaging/wheel/packaging/licenses/_spdx.py": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.BSD": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+        "pandas/METADATA": "b2b43910a5ef734a08be961df9c484f4664ad9ec2fa5a08294d0edfa08bcdd4b",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSE": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT": "87217d0a79195441ab615a3abb3ab6777502e57804ea83f973df975a67ebd720",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+        "pathspec/METADATA": "68de3f158b6592f086e78754c962092f32a761944ab66a660c0d62ad79c4b69b",
+        "pathspec/wheel/pathspec-1.1.1.dist-info/licenses/LICENSE": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+        "pdfminer-six/METADATA": "77a7aa49c45244383288e8b98cb567f19a9083ad0d74716e3011c831df801d44",
+        "pdfminer-six/wheel/pdfminer_six-20251230.dist-info/licenses/LICENSE": "f01e5d699a33766b5caf4a5099f2856aba4f3f75ea1df05dc0572b34b4bea8f2",
+        "pdfplumber/METADATA": "24f9118940ac3810a6bf0dd1970094e29cc659c71c334a6fc2e65d7120a74b62",
+        "pdfplumber/wheel/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821",
+        "pillow/METADATA": "140f39cb31ec9b46109828a6286f034a4848621263d6aab38d2f142083dd06c5",
+        "pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236",
+        "pluggy/METADATA": "20ac8237e37f1d6e7e75500cd663015177ba80c1a1a595ff6bae18a539ff8a2c",
+        "pluggy/wheel/pluggy-1.7.0.dist-info/licenses/LICENSE": "d6b65e6c213a5d0b577911d34d6e5949b9f59d76c238c5071a2f3fc16cfb2606",
+        "protobuf/METADATA": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c",
+        "protobuf/wheel/protobuf-7.36.2.dist-info/LICENSE": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+        "psutil/METADATA": "a263a40220d921d9cb963fc636d34f817aa2eb72c2696e3e3465d088cdb1976b",
+        "psutil/wheel/psutil-7.2.2.dist-info/LICENSE": "c7adc4d5d1337a548b967421f1fbe258b93033a0417708fd6f4e38f8ecbceb80",
+        "pycparser/METADATA": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+        "pycparser/wheel/pycparser-3.12.dist-info/licenses/LICENSE": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+        "pyinstaller/METADATA": "2991d3dcd53fe9966b8c16586322a7f9bbc564dd4752c190bd4fe8d6747f7046",
+        "pyinstaller/wheel/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64",
+        "pyinstaller-hooks-contrib/METADATA": "1820f1a8a554ce1b6ae528c7fe502f4676c844eb1151f7f040adc8010052b0ba",
+        "pyinstaller-hooks-contrib/wheel/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE": "91d0baaff00773038e72c0a1fc9d5d2d38706b7a2b9c04f34296608f931b9cd0",
+        "pypdfium2/METADATA": "8733a714c056453b87b48c819495cc05f9038d38221b89505043d28c2501237e",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/Apache-2.0.txt": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/BSD-3-Clause.txt": "ad9a9e823df025f42389c1812eae28019f657d1ed7b3a4ebfd5010b0736a0da4",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/CC-BY-4.0.txt": "f1b1748301cd4274f46733c218d510929661b4990855de5fc645dacd69c4371c",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/abseil.txt": "f54fff0b905df5b3464527c652a30e903b172d6dcab4d89b5e6f105d5e4a4603",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/agg23.txt": "c110d3ea2ad77467ce0dcff7d3337e6c8be8049a5103f4b9bd5fd911a77972e5",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/fast_float.txt": "bf1b57355feca8fce77ee95f48002f8d4789fb71b30ec7599c06cda4901fbb2b",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/freetype.txt": "f4b133e25df1f86ad3ffea453aa0e613f0474f34778dbbb3e437e7b2724937d8",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/icu.txt": "93679f4389d53b6835d89843f251844fb9bc455b35bab036d3c8e7abe497a47a",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/lcms.txt": "7312b68c5b25e9bf2b828706fb4e29588f22705112f411fd42e1f7d84c3d139a",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.ijg": "db16a04128171879c60708d171b88d97345a2dd20f9bfc173680a4497c73f704",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.md": "be2b2b5ab168bce87bc3e31f2a5c5adba4b7f6e9e51d618e958d1d46972ebd95",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libopenjpeg.txt": "c5ab0890a737c2dfa7ba675036554f6d17741d98629b0c2a145354d00617e6b2",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libpng.txt": "452390433ba0f88aa3e2b122c647741b72a0c117cd6ed7a329b49785aecb5511",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/llvm-libc.txt": "3b6226c32e168c83b891d8d6f0d3c29c2116dc3ef93dc93c307b54f279ecf383",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium-binaries.txt": "8854f4388f1ca13b3ad9baa42e95f5546b4c0b17109c159256d3eca7be39b09b",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium.txt": "961eacd9633fff6d051db7208b755e9210e30efac7adec3e6a6d52798f0ccf0e",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/simdutf.txt": "c172a0ba936ff31230febb5dad869e25cb7c1a07480c7a381be8cf011bb52719",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/zlib.txt": "33fd641c9f3b0e0be64bc78fea9e94807674cdd70c48477599226cb8956565fe",
+        "pyside6-essentials/METADATA": "c5eacdfdda84b8d0e026020a630e6a732bd403c00fc17e3efb9e2e92df0b98a7",
+        "pyside6-essentials/wheel/pyside6_essentials-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+        "supplemental/qt-lgpl3.txt": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+        "supplemental/qt-gpl3.txt": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+        "python-dateutil/METADATA": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907",
+        "python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md": "56004c45a95e9ee5582ea60f9a7ee42179c8594c7b9c245bbfb4a3445b4af640",
+        "python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/LICENSE": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+        "python-pptx/METADATA": "d38c6af5f1817cc528706264d8343cd1c95dbdec5672f29b944f54f79134a3a2",
+        "python-pptx/wheel/python_pptx-1.0.2.dist-info/LICENSE": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+        "requests/METADATA": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+        "requests/wheel/requests-2.34.2.dist-info/licenses/LICENSE": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+        "requests/wheel/requests-2.34.2.dist-info/licenses/NOTICE": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+        "setuptools/METADATA": "24939b84ead30ff4581918c8d5a95aafd377f6a8afc61f30ea18358a8786bfa4",
+        "setuptools/wheel/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04",
+        "setuptools/wheel/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683",
+        "setuptools/wheel/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+        "setuptools/wheel/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+        "setuptools/wheel/setuptools/_vendor/packaging/licenses/__init__.py": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+        "setuptools/wheel/setuptools/_vendor/packaging/licenses/_spdx.py": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+        "setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+        "setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+        "setuptools/wheel/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+        "setuptools/wheel/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+        "setuptools/wheel/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654",
+        "setuptools/wheel/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+        "setuptools/wheel/setuptools/config/NOTICE": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8",
+        "setuptools/wheel/setuptools/config/_validate_pyproject/NOTICE": "09c9bcea95ca086f8bc5bed174e40bc835b297d40fb5f86bbbb570fe0a5581a7",
+        "setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+        "setuptools/wheel/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d",
+        "setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+        "setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+        "shiboken6/METADATA": "2e443fc68a670b00b5ee6f2d67fa3005613de00a8294a8f257c6c1263032009a",
+        "shiboken6/wheel/shiboken6-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+        "six/METADATA": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+        "six/wheel/six-1.17.0.dist-info/LICENSE": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+        "soupsieve/METADATA": "c1d4799cbf1c070586fa86f922f621c33845a5977886fcb6431c763dc083f838",
+        "soupsieve/wheel/soupsieve-4.0.dist-info/licenses/LICENSE.md": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+        "tomlkit/METADATA": "a2e59805b99c14685196efea6e2f17438853c9f18658a9b98370a883abcb2963",
+        "tomlkit/wheel/tomlkit-0.15.2.dist-info/licenses/LICENSE": "f2f9b460ba719da6626add264d3782f275a4ff7aab677beda08b330911e23adb",
+        "trove-classifiers/METADATA": "ca7e96493232b21f92aeccf456b2e01f1d4dbcaa8e17a9e1b5e6f03c6eb7461f",
+        "trove-classifiers/wheel/trove_classifiers-2026.9.21.13.dist-info/licenses/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "typing-extensions/METADATA": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+        "typing-extensions/wheel/typing_extensions-4.16.0.dist-info/licenses/LICENSE": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+        "tzdata/METADATA": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8",
+        "tzdata/wheel/tzdata-2026.6.dist-info/licenses/LICENSE": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+        "tzdata/wheel/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "urllib3/METADATA": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4",
+        "urllib3/wheel/urllib3-2.8.0.dist-info/licenses/LICENSE.txt": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+        "xlsxwriter/METADATA": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
+        "xlsxwriter/wheel/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7"
+      }
+    },
+    "windows-runtime": {
+      "lock": "packaging/profiles/base-windows-runtime.txt",
+      "lock_sha256": "3e6f43f67a4d514a963284d79490987c9a8dcd3db08ed2f77188e1d04d7e99f0",
+      "package_count": 38,
+      "packages": [
+        "beautifulsoup4",
+        "certifi",
+        "cffi",
+        "charset-normalizer",
+        "click",
+        "cobble",
+        "cryptography",
+        "defusedxml",
+        "et-xmlfile",
+        "flatbuffers",
+        "idna",
+        "lxml",
+        "magika",
+        "mammoth",
+        "markdownify",
+        "numpy",
+        "onnxruntime",
+        "openpyxl",
+        "packaging",
+        "pandas",
+        "pdfminer-six",
+        "pdfplumber",
+        "pillow",
+        "protobuf",
+        "psutil",
+        "pycparser",
+        "pypdfium2",
+        "pyside6-essentials",
+        "python-dateutil",
+        "python-pptx",
+        "requests",
+        "shiboken6",
+        "six",
+        "soupsieve",
+        "typing-extensions",
+        "tzdata",
+        "urllib3",
+        "xlsxwriter"
+      ],
+      "roots": [
+        "psutil>=5.9,<8",
+        "cryptography>=50.0.2,<51",
+        "PySide6-Essentials==6.12.0",
+        "pdfplumber==0.11.9",
+        "pypdfium2==5.14.0",
+        "beautifulsoup4",
+        "requests",
+        "certifi>=2026.10.19",
+        "markdownify",
+        "magika>=0.6.1,<2",
+        "charset-normalizer",
+        "defusedxml",
+        "mammoth>=1.12.2,<2",
+        "lxml",
+        "python-pptx",
+        "pandas",
+        "openpyxl",
+        "pdfminer.six>=20251230",
+        "pdfplumber>=0.11.9"
+      ],
+      "dependency_edges": [
+        [
+          "<root>",
+          "beautifulsoup4"
+        ],
+        [
+          "<root>",
+          "certifi"
+        ],
+        [
+          "<root>",
+          "charset-normalizer"
+        ],
+        [
+          "<root>",
+          "cryptography"
+        ],
+        [
+          "<root>",
+          "defusedxml"
+        ],
+        [
+          "<root>",
+          "lxml"
+        ],
+        [
+          "<root>",
+          "magika"
+        ],
+        [
+          "<root>",
+          "mammoth"
+        ],
+        [
+          "<root>",
+          "markdownify"
+        ],
+        [
+          "<root>",
+          "openpyxl"
+        ],
+        [
+          "<root>",
+          "pandas"
+        ],
+        [
+          "<root>",
+          "pdfminer-six"
+        ],
+        [
+          "<root>",
+          "pdfplumber"
+        ],
+        [
+          "<root>",
+          "psutil"
+        ],
+        [
+          "<root>",
+          "pypdfium2"
+        ],
+        [
+          "<root>",
+          "pyside6-essentials"
+        ],
+        [
+          "<root>",
+          "python-pptx"
+        ],
+        [
+          "<root>",
+          "requests"
+        ],
+        [
+          "beautifulsoup4",
+          "soupsieve"
+        ],
+        [
+          "beautifulsoup4",
+          "typing-extensions"
+        ],
+        [
+          "cffi",
+          "pycparser"
+        ],
+        [
+          "cryptography",
+          "cffi"
+        ],
+        [
+          "magika",
+          "click"
+        ],
+        [
+          "magika",
+          "onnxruntime"
+        ],
+        [
+          "mammoth",
+          "cobble"
+        ],
+        [
+          "markdownify",
+          "beautifulsoup4"
+        ],
+        [
+          "markdownify",
+          "six"
+        ],
+        [
+          "onnxruntime",
+          "flatbuffers"
+        ],
+        [
+          "onnxruntime",
+          "numpy"
+        ],
+        [
+          "onnxruntime",
+          "packaging"
+        ],
+        [
+          "onnxruntime",
+          "protobuf"
+        ],
+        [
+          "openpyxl",
+          "et-xmlfile"
+        ],
+        [
+          "pandas",
+          "numpy"
+        ],
+        [
+          "pandas",
+          "python-dateutil"
+        ],
+        [
+          "pandas",
+          "tzdata"
+        ],
+        [
+          "pdfminer-six",
+          "charset-normalizer"
+        ],
+        [
+          "pdfminer-six",
+          "cryptography"
+        ],
+        [
+          "pdfplumber",
+          "pdfminer-six"
+        ],
+        [
+          "pdfplumber",
+          "pillow"
+        ],
+        [
+          "pdfplumber",
+          "pypdfium2"
+        ],
+        [
+          "pyside6-essentials",
+          "shiboken6"
+        ],
+        [
+          "python-dateutil",
+          "tzdata"
+        ],
+        [
+          "python-pptx",
+          "lxml"
+        ],
+        [
+          "python-pptx",
+          "pillow"
+        ],
+        [
+          "python-pptx",
+          "typing-extensions"
+        ],
+        [
+          "python-pptx",
+          "xlsxwriter"
+        ],
+        [
+          "requests",
+          "certifi"
+        ],
+        [
+          "requests",
+          "charset-normalizer"
+        ],
+        [
+          "requests",
+          "idna"
+        ],
+        [
+          "requests",
+          "urllib3"
+        ]
+      ],
+      "marker_environment": {
+        "implementation_name": "cpython",
+        "implementation_version": "3.12.14",
+        "os_name": "nt",
+        "platform_machine": "AMD64",
+        "platform_release": "",
+        "platform_system": "Windows",
+        "platform_version": "",
+        "python_full_version": "3.12.14",
+        "platform_python_implementation": "CPython",
+        "python_version": "3.12",
+        "sys_platform": "win32",
+        "extra": ""
+      },
+      "notice_scope": "Windows wheel originals for matching pinned versions; Linux binary licenses not claimed",
+      "windows_notice_files": {
+        "beautifulsoup4/METADATA": "b2f888103259f1607c85f3b1163be1bc49fc9941a3243c3b89a21075bfc6d4fb",
+        "beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/AUTHORS": "b989238918e1fdac1e46717cb405b63e92497a272413af0d989c1df6c8abcb6f",
+        "beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+        "certifi/METADATA": "e463e38f7fe7da36a11e6d3fecc5dfa5b97be8c8022620400750d79ae7d842bc",
+        "certifi/wheel/certifi-2026.10.23.dist-info/licenses/LICENSE": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+        "cffi/METADATA": "67b6a7595df7ede2195016a05d285faa7d362a8f57c238984edb8bb674b5770d",
+        "cffi/wheel/cffi-2.1.1.dist-info/licenses/LICENSE": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+        "charset-normalizer/METADATA": "49e955a09e1a159e0846872798006e8db7d518d8d70c637066fefdb08d3d9f7b",
+        "charset-normalizer/wheel/charset_normalizer-3.5.2.dist-info/licenses/LICENSE": "18577485d3704f1a479ded8e573c0976cfed315fd2fd17983fa988da4c2f70d1",
+        "click/METADATA": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+        "click/wheel/click-8.5.0.dist-info/licenses/LICENSE.txt": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+        "cobble/METADATA": "6eb2cf88cfb39b884adde1eff7d8f89f80b256572eb0c6c164d6f99943dbd49f",
+        "supplemental/cobble.txt": "d6d46202db973b560d2f521dced9110b3e0a46d9a75e1428dade8b7608dd0cca",
+        "cryptography/METADATA": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+        "defusedxml/METADATA": "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1",
+        "defusedxml/wheel/defusedxml-0.7.1.dist-info/LICENSE": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8",
+        "et-xmlfile/METADATA": "0e97d7ea909ed0fbe03d88bc8b6f58677cee1b07bd3353ce361cd2405915204e",
+        "et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.python": "4ccdaaebc0f44b83720ec0399bb7ab329adce067dd62f73c5535a2dc05628ab2",
+        "et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.rst": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+        "flatbuffers/METADATA": "9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e",
+        "supplemental/flatbuffers.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "idna/METADATA": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+        "idna/wheel/idna-3.20.dist-info/licenses/LICENSE.md": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+        "lxml/METADATA": "4038f4e4decac1c15eb5fd883abf1370f2df9b176b53bd172dd709d4542e2a48",
+        "lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSE.txt": "e7c3ce8d76331b0101cc46790ab43958ea90a364bcf962ed8763d5a818340e69",
+        "lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt": "df682c668de65321677b5e4861dca4128a8bad8067f230956e9da3f985b3d398",
+        "magika/METADATA": "72b51757fa5acba3f59ed4abb2d038debda3fc9de68178903e90dbbf8298e9c9",
+        "supplemental/magika.txt": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+        "mammoth/METADATA": "aa45c59d8352de6aebe3c85b991045ffdf0acbedb76237dcf48d5e8cee0d8b6d",
+        "mammoth/wheel/mammoth-1.13.0.dist-info/licenses/LICENSE": "6663bbd049205d38a496ccacb412a151980b444627d38de218b3b809aef330f1",
+        "markdownify/METADATA": "4b457b9a3b3c6e7c87277a5157f9f99588b6cf89ee16ae20c8a019c6a66f6e2b",
+        "markdownify/wheel/markdownify-1.2.3.dist-info/LICENSE": "fae8b42db142dabf03b0c5c495831a5d11b9649ead0cf0bd4ab4f52294b263be",
+        "numpy/METADATA": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+        "numpy/wheel/numpy/ma/LICENSE": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+        "numpy/wheel/numpy/random/LICENSE.md": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+        "numpy/wheel/numpy/_core/include/numpy/random/LICENSE.txt": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md": "8db000e158c162e7249787852d8c69764706502ccee725c06641b31c1e95c8af",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt": "19060ef465e1797d682ee0fc3081bd25ab1395e995e43d25c9d13c95d9a3cd6b",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md": "cf5619f25b112d5ce7c896efffc8e610bcb345dfadcc19f2c1460aa48fff2c9e",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md": "92c10699884321f1c2947fe2a70ab23b0fbf1507f756d89dd08f38c61fc3d4fa",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md": "41190663b77bee5302386495a07b7eabfbfa571aa0ae2f11da6764162062fc4f",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md": "322ac46d870c8aeead6c53adcccc839296fb3c8e456eae155081297daf7f8013",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md": "28cad82ce1379dc529df30da78ec012d7d0d1d576b03ddcb93388aee53659f59",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md": "454ec7350e478e037061850b67395753b425b1cb0a34bbc26290b020bf89d763",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING": "aea41976c720f91bd19725c16916a1ace40eb1ea42620d340e587a5de4bbcea0",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE": "d208152e2777ffd0126eacc1bd21c0320d69e4e6b622d21a2a12a47e8ef73763",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt": "b0fd592d4ead563148e3977e7b589169d46a5ef2ff133c755a81af880a3fc919",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md": "a732977853530066790c42817087f4829b518dd98d340c916acbfd227e39d3cb",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE": "585483905b13d4b42f800c55ba99e89d6e2e33ccd5f503e201c07531d148ff41",
+        "onnxruntime/METADATA": "2f3c9b07cbbb008caa43327723e11875e3a595eadfb30c9c1abd92163afe878e",
+        "onnxruntime/wheel/onnxruntime/LICENSE": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674",
+        "onnxruntime/wheel/onnxruntime/ThirdPartyNotices.txt": "c53a76501ef60db6f865f20599f220761201ac4057683acefdab37d861b86622",
+        "openpyxl/METADATA": "23f80ca9830dd89435da1710f26deda8f81e5409287e74540210c72627a4ad96",
+        "openpyxl/wheel/openpyxl-3.1.5.dist-info/LICENCE.rst": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+        "packaging/METADATA": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+        "packaging/wheel/packaging/licenses/__init__.py": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+        "packaging/wheel/packaging/licenses/_spdx.py": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.BSD": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+        "pandas/METADATA": "b2b43910a5ef734a08be961df9c484f4664ad9ec2fa5a08294d0edfa08bcdd4b",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSE": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT": "87217d0a79195441ab615a3abb3ab6777502e57804ea83f973df975a67ebd720",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+        "pdfminer-six/METADATA": "77a7aa49c45244383288e8b98cb567f19a9083ad0d74716e3011c831df801d44",
+        "pdfminer-six/wheel/pdfminer_six-20251230.dist-info/licenses/LICENSE": "f01e5d699a33766b5caf4a5099f2856aba4f3f75ea1df05dc0572b34b4bea8f2",
+        "pdfplumber/METADATA": "24f9118940ac3810a6bf0dd1970094e29cc659c71c334a6fc2e65d7120a74b62",
+        "pdfplumber/wheel/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821",
+        "pillow/METADATA": "140f39cb31ec9b46109828a6286f034a4848621263d6aab38d2f142083dd06c5",
+        "pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236",
+        "protobuf/METADATA": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c",
+        "protobuf/wheel/protobuf-7.36.2.dist-info/LICENSE": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+        "psutil/METADATA": "a263a40220d921d9cb963fc636d34f817aa2eb72c2696e3e3465d088cdb1976b",
+        "psutil/wheel/psutil-7.2.2.dist-info/LICENSE": "c7adc4d5d1337a548b967421f1fbe258b93033a0417708fd6f4e38f8ecbceb80",
+        "pycparser/METADATA": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+        "pycparser/wheel/pycparser-3.12.dist-info/licenses/LICENSE": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+        "pypdfium2/METADATA": "8733a714c056453b87b48c819495cc05f9038d38221b89505043d28c2501237e",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/Apache-2.0.txt": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/BSD-3-Clause.txt": "ad9a9e823df025f42389c1812eae28019f657d1ed7b3a4ebfd5010b0736a0da4",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/CC-BY-4.0.txt": "f1b1748301cd4274f46733c218d510929661b4990855de5fc645dacd69c4371c",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/abseil.txt": "f54fff0b905df5b3464527c652a30e903b172d6dcab4d89b5e6f105d5e4a4603",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/agg23.txt": "c110d3ea2ad77467ce0dcff7d3337e6c8be8049a5103f4b9bd5fd911a77972e5",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/fast_float.txt": "bf1b57355feca8fce77ee95f48002f8d4789fb71b30ec7599c06cda4901fbb2b",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/freetype.txt": "f4b133e25df1f86ad3ffea453aa0e613f0474f34778dbbb3e437e7b2724937d8",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/icu.txt": "93679f4389d53b6835d89843f251844fb9bc455b35bab036d3c8e7abe497a47a",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/lcms.txt": "7312b68c5b25e9bf2b828706fb4e29588f22705112f411fd42e1f7d84c3d139a",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.ijg": "db16a04128171879c60708d171b88d97345a2dd20f9bfc173680a4497c73f704",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.md": "be2b2b5ab168bce87bc3e31f2a5c5adba4b7f6e9e51d618e958d1d46972ebd95",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libopenjpeg.txt": "c5ab0890a737c2dfa7ba675036554f6d17741d98629b0c2a145354d00617e6b2",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libpng.txt": "452390433ba0f88aa3e2b122c647741b72a0c117cd6ed7a329b49785aecb5511",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/llvm-libc.txt": "3b6226c32e168c83b891d8d6f0d3c29c2116dc3ef93dc93c307b54f279ecf383",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium-binaries.txt": "8854f4388f1ca13b3ad9baa42e95f5546b4c0b17109c159256d3eca7be39b09b",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium.txt": "961eacd9633fff6d051db7208b755e9210e30efac7adec3e6a6d52798f0ccf0e",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/simdutf.txt": "c172a0ba936ff31230febb5dad869e25cb7c1a07480c7a381be8cf011bb52719",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/zlib.txt": "33fd641c9f3b0e0be64bc78fea9e94807674cdd70c48477599226cb8956565fe",
+        "pyside6-essentials/METADATA": "c5eacdfdda84b8d0e026020a630e6a732bd403c00fc17e3efb9e2e92df0b98a7",
+        "pyside6-essentials/wheel/pyside6_essentials-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+        "supplemental/qt-lgpl3.txt": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+        "supplemental/qt-gpl3.txt": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+        "python-dateutil/METADATA": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907",
+        "python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md": "56004c45a95e9ee5582ea60f9a7ee42179c8594c7b9c245bbfb4a3445b4af640",
+        "python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/LICENSE": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+        "python-pptx/METADATA": "d38c6af5f1817cc528706264d8343cd1c95dbdec5672f29b944f54f79134a3a2",
+        "python-pptx/wheel/python_pptx-1.0.2.dist-info/LICENSE": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+        "requests/METADATA": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+        "requests/wheel/requests-2.34.2.dist-info/licenses/LICENSE": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+        "requests/wheel/requests-2.34.2.dist-info/licenses/NOTICE": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+        "shiboken6/METADATA": "2e443fc68a670b00b5ee6f2d67fa3005613de00a8294a8f257c6c1263032009a",
+        "shiboken6/wheel/shiboken6-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+        "six/METADATA": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+        "six/wheel/six-1.17.0.dist-info/LICENSE": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+        "soupsieve/METADATA": "c1d4799cbf1c070586fa86f922f621c33845a5977886fcb6431c763dc083f838",
+        "soupsieve/wheel/soupsieve-4.0.dist-info/licenses/LICENSE.md": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+        "typing-extensions/METADATA": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+        "typing-extensions/wheel/typing_extensions-4.16.0.dist-info/licenses/LICENSE": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+        "tzdata/METADATA": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8",
+        "tzdata/wheel/tzdata-2026.6.dist-info/licenses/LICENSE": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+        "tzdata/wheel/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "urllib3/METADATA": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4",
+        "urllib3/wheel/urllib3-2.8.0.dist-info/licenses/LICENSE.txt": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+        "xlsxwriter/METADATA": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
+        "xlsxwriter/wheel/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7"
+      }
+    },
+    "windows-build": {
+      "lock": "packaging/profiles/base-windows-build.txt",
+      "lock_sha256": "12476a01a80725ffa0cf0322e4fbb0d05f70df1f93a4f9b67f468827b0c8e68f",
+      "package_count": 49,
+      "packages": [
+        "altgraph",
+        "beautifulsoup4",
+        "certifi",
+        "cffi",
+        "charset-normalizer",
+        "click",
+        "cobble",
+        "cryptography",
+        "defusedxml",
+        "et-xmlfile",
+        "flatbuffers",
+        "hatchling",
+        "idna",
+        "lxml",
+        "magika",
+        "mammoth",
+        "markdownify",
+        "numpy",
+        "onnxruntime",
+        "openpyxl",
+        "packaging",
+        "pandas",
+        "pathspec",
+        "pdfminer-six",
+        "pdfplumber",
+        "pefile",
+        "pillow",
+        "pluggy",
+        "protobuf",
+        "psutil",
+        "pycparser",
+        "pyinstaller",
+        "pyinstaller-hooks-contrib",
+        "pypdfium2",
+        "pyside6-essentials",
+        "python-dateutil",
+        "python-pptx",
+        "pywin32-ctypes",
+        "requests",
+        "setuptools",
+        "shiboken6",
+        "six",
+        "soupsieve",
+        "tomlkit",
+        "trove-classifiers",
+        "typing-extensions",
+        "tzdata",
+        "urllib3",
+        "xlsxwriter"
+      ],
+      "roots": [
+        "psutil>=5.9,<8",
+        "cryptography>=50.0.2,<51",
+        "PySide6-Essentials==6.12.0",
+        "pdfplumber==0.11.9",
+        "pypdfium2==5.14.0",
+        "beautifulsoup4",
+        "requests",
+        "certifi>=2026.10.19",
+        "markdownify",
+        "magika>=0.6.1,<2",
+        "charset-normalizer",
+        "defusedxml",
+        "mammoth>=1.12.2,<2",
+        "lxml",
+        "python-pptx",
+        "pandas",
+        "openpyxl",
+        "pdfminer.six>=20251230",
+        "pdfplumber>=0.11.9",
+        "hatchling>=1.26",
+        "setuptools>=68",
+        "pyinstaller>=6,<7"
+      ],
+      "dependency_edges": [
+        [
+          "<root>",
+          "beautifulsoup4"
+        ],
+        [
+          "<root>",
+          "certifi"
+        ],
+        [
+          "<root>",
+          "charset-normalizer"
+        ],
+        [
+          "<root>",
+          "cryptography"
+        ],
+        [
+          "<root>",
+          "defusedxml"
+        ],
+        [
+          "<root>",
+          "hatchling"
+        ],
+        [
+          "<root>",
+          "lxml"
+        ],
+        [
+          "<root>",
+          "magika"
+        ],
+        [
+          "<root>",
+          "mammoth"
+        ],
+        [
+          "<root>",
+          "markdownify"
+        ],
+        [
+          "<root>",
+          "openpyxl"
+        ],
+        [
+          "<root>",
+          "pandas"
+        ],
+        [
+          "<root>",
+          "pdfminer-six"
+        ],
+        [
+          "<root>",
+          "pdfplumber"
+        ],
+        [
+          "<root>",
+          "psutil"
+        ],
+        [
+          "<root>",
+          "pyinstaller"
+        ],
+        [
+          "<root>",
+          "pypdfium2"
+        ],
+        [
+          "<root>",
+          "pyside6-essentials"
+        ],
+        [
+          "<root>",
+          "python-pptx"
+        ],
+        [
+          "<root>",
+          "requests"
+        ],
+        [
+          "<root>",
+          "setuptools"
+        ],
+        [
+          "beautifulsoup4",
+          "soupsieve"
+        ],
+        [
+          "beautifulsoup4",
+          "typing-extensions"
+        ],
+        [
+          "cffi",
+          "pycparser"
+        ],
+        [
+          "cryptography",
+          "cffi"
+        ],
+        [
+          "hatchling",
+          "packaging"
+        ],
+        [
+          "hatchling",
+          "pathspec"
+        ],
+        [
+          "hatchling",
+          "pluggy"
+        ],
+        [
+          "hatchling",
+          "tomlkit"
+        ],
+        [
+          "hatchling",
+          "trove-classifiers"
+        ],
+        [
+          "magika",
+          "click"
+        ],
+        [
+          "magika",
+          "onnxruntime"
+        ],
+        [
+          "mammoth",
+          "cobble"
+        ],
+        [
+          "markdownify",
+          "beautifulsoup4"
+        ],
+        [
+          "markdownify",
+          "six"
+        ],
+        [
+          "onnxruntime",
+          "flatbuffers"
+        ],
+        [
+          "onnxruntime",
+          "numpy"
+        ],
+        [
+          "onnxruntime",
+          "packaging"
+        ],
+        [
+          "onnxruntime",
+          "protobuf"
+        ],
+        [
+          "openpyxl",
+          "et-xmlfile"
+        ],
+        [
+          "pandas",
+          "numpy"
+        ],
+        [
+          "pandas",
+          "python-dateutil"
+        ],
+        [
+          "pandas",
+          "tzdata"
+        ],
+        [
+          "pdfminer-six",
+          "charset-normalizer"
+        ],
+        [
+          "pdfminer-six",
+          "cryptography"
+        ],
+        [
+          "pdfplumber",
+          "pdfminer-six"
+        ],
+        [
+          "pdfplumber",
+          "pillow"
+        ],
+        [
+          "pdfplumber",
+          "pypdfium2"
+        ],
+        [
+          "pyinstaller",
+          "altgraph"
+        ],
+        [
+          "pyinstaller",
+          "packaging"
+        ],
+        [
+          "pyinstaller",
+          "pefile"
+        ],
+        [
+          "pyinstaller",
+          "pyinstaller-hooks-contrib"
+        ],
+        [
+          "pyinstaller",
+          "pywin32-ctypes"
+        ],
+        [
+          "pyinstaller",
+          "setuptools"
+        ],
+        [
+          "pyinstaller-hooks-contrib",
+          "packaging"
+        ],
+        [
+          "pyside6-essentials",
+          "shiboken6"
+        ],
+        [
+          "python-dateutil",
+          "tzdata"
+        ],
+        [
+          "python-pptx",
+          "lxml"
+        ],
+        [
+          "python-pptx",
+          "pillow"
+        ],
+        [
+          "python-pptx",
+          "typing-extensions"
+        ],
+        [
+          "python-pptx",
+          "xlsxwriter"
+        ],
+        [
+          "requests",
+          "certifi"
+        ],
+        [
+          "requests",
+          "charset-normalizer"
+        ],
+        [
+          "requests",
+          "idna"
+        ],
+        [
+          "requests",
+          "urllib3"
+        ]
+      ],
+      "marker_environment": {
+        "implementation_name": "cpython",
+        "implementation_version": "3.12.14",
+        "os_name": "nt",
+        "platform_machine": "AMD64",
+        "platform_release": "",
+        "platform_system": "Windows",
+        "platform_version": "",
+        "python_full_version": "3.12.14",
+        "platform_python_implementation": "CPython",
+        "python_version": "3.12",
+        "sys_platform": "win32",
+        "extra": ""
+      },
+      "notice_scope": "Windows wheel originals for matching pinned versions; Linux binary licenses not claimed",
+      "windows_notice_files": {
+        "altgraph/METADATA": "dc60641dba229a3aef09f764f562c38d908b930c92615af2e626af31d6ff19b5",
+        "altgraph/wheel/altgraph-0.17.5.dist-info/LICENSE": "6c194d6db0c64d45535d10c95142b9b0cda7b7dcc7f1ddee302b3d536f3dbe46",
+        "beautifulsoup4/METADATA": "b2f888103259f1607c85f3b1163be1bc49fc9941a3243c3b89a21075bfc6d4fb",
+        "beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/AUTHORS": "b989238918e1fdac1e46717cb405b63e92497a272413af0d989c1df6c8abcb6f",
+        "beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+        "certifi/METADATA": "e463e38f7fe7da36a11e6d3fecc5dfa5b97be8c8022620400750d79ae7d842bc",
+        "certifi/wheel/certifi-2026.10.23.dist-info/licenses/LICENSE": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+        "cffi/METADATA": "67b6a7595df7ede2195016a05d285faa7d362a8f57c238984edb8bb674b5770d",
+        "cffi/wheel/cffi-2.1.1.dist-info/licenses/LICENSE": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+        "charset-normalizer/METADATA": "49e955a09e1a159e0846872798006e8db7d518d8d70c637066fefdb08d3d9f7b",
+        "charset-normalizer/wheel/charset_normalizer-3.5.2.dist-info/licenses/LICENSE": "18577485d3704f1a479ded8e573c0976cfed315fd2fd17983fa988da4c2f70d1",
+        "click/METADATA": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+        "click/wheel/click-8.5.0.dist-info/licenses/LICENSE.txt": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+        "cobble/METADATA": "6eb2cf88cfb39b884adde1eff7d8f89f80b256572eb0c6c164d6f99943dbd49f",
+        "supplemental/cobble.txt": "d6d46202db973b560d2f521dced9110b3e0a46d9a75e1428dade8b7608dd0cca",
+        "cryptography/METADATA": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+        "defusedxml/METADATA": "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1",
+        "defusedxml/wheel/defusedxml-0.7.1.dist-info/LICENSE": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8",
+        "et-xmlfile/METADATA": "0e97d7ea909ed0fbe03d88bc8b6f58677cee1b07bd3353ce361cd2405915204e",
+        "et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.python": "4ccdaaebc0f44b83720ec0399bb7ab329adce067dd62f73c5535a2dc05628ab2",
+        "et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.rst": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+        "flatbuffers/METADATA": "9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e",
+        "supplemental/flatbuffers.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "hatchling/METADATA": "482be6d989f36d3c7a31ceefb69ea757f1b603daa9dc598f8626fd0d81d1ca4a",
+        "hatchling/wheel/hatchling/licenses/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "hatchling/wheel/hatchling/licenses/supported.py": "641fb474d6916e23ea297f2b8d8ae20addad1c8f65e2852e7ca4445e73ed92e6",
+        "hatchling/wheel/hatchling-1.33.0.dist-info/licenses/LICENSE.txt": "7f143a8127ad4873862d70854b5bd2abd0085aa73e64fd2b08704a3b9f5c07fc",
+        "idna/METADATA": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+        "idna/wheel/idna-3.20.dist-info/licenses/LICENSE.md": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+        "lxml/METADATA": "4038f4e4decac1c15eb5fd883abf1370f2df9b176b53bd172dd709d4542e2a48",
+        "lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSE.txt": "e7c3ce8d76331b0101cc46790ab43958ea90a364bcf962ed8763d5a818340e69",
+        "lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt": "df682c668de65321677b5e4861dca4128a8bad8067f230956e9da3f985b3d398",
+        "magika/METADATA": "72b51757fa5acba3f59ed4abb2d038debda3fc9de68178903e90dbbf8298e9c9",
+        "supplemental/magika.txt": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+        "mammoth/METADATA": "aa45c59d8352de6aebe3c85b991045ffdf0acbedb76237dcf48d5e8cee0d8b6d",
+        "mammoth/wheel/mammoth-1.13.0.dist-info/licenses/LICENSE": "6663bbd049205d38a496ccacb412a151980b444627d38de218b3b809aef330f1",
+        "markdownify/METADATA": "4b457b9a3b3c6e7c87277a5157f9f99588b6cf89ee16ae20c8a019c6a66f6e2b",
+        "markdownify/wheel/markdownify-1.2.3.dist-info/LICENSE": "fae8b42db142dabf03b0c5c495831a5d11b9649ead0cf0bd4ab4f52294b263be",
+        "numpy/METADATA": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+        "numpy/wheel/numpy/ma/LICENSE": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+        "numpy/wheel/numpy/random/LICENSE.md": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+        "numpy/wheel/numpy/_core/include/numpy/random/LICENSE.txt": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md": "8db000e158c162e7249787852d8c69764706502ccee725c06641b31c1e95c8af",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt": "19060ef465e1797d682ee0fc3081bd25ab1395e995e43d25c9d13c95d9a3cd6b",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md": "cf5619f25b112d5ce7c896efffc8e610bcb345dfadcc19f2c1460aa48fff2c9e",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md": "92c10699884321f1c2947fe2a70ab23b0fbf1507f756d89dd08f38c61fc3d4fa",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md": "41190663b77bee5302386495a07b7eabfbfa571aa0ae2f11da6764162062fc4f",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md": "322ac46d870c8aeead6c53adcccc839296fb3c8e456eae155081297daf7f8013",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md": "28cad82ce1379dc529df30da78ec012d7d0d1d576b03ddcb93388aee53659f59",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md": "454ec7350e478e037061850b67395753b425b1cb0a34bbc26290b020bf89d763",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING": "aea41976c720f91bd19725c16916a1ace40eb1ea42620d340e587a5de4bbcea0",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE": "d208152e2777ffd0126eacc1bd21c0320d69e4e6b622d21a2a12a47e8ef73763",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt": "b0fd592d4ead563148e3977e7b589169d46a5ef2ff133c755a81af880a3fc919",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md": "a732977853530066790c42817087f4829b518dd98d340c916acbfd227e39d3cb",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE": "585483905b13d4b42f800c55ba99e89d6e2e33ccd5f503e201c07531d148ff41",
+        "onnxruntime/METADATA": "2f3c9b07cbbb008caa43327723e11875e3a595eadfb30c9c1abd92163afe878e",
+        "onnxruntime/wheel/onnxruntime/LICENSE": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674",
+        "onnxruntime/wheel/onnxruntime/ThirdPartyNotices.txt": "c53a76501ef60db6f865f20599f220761201ac4057683acefdab37d861b86622",
+        "openpyxl/METADATA": "23f80ca9830dd89435da1710f26deda8f81e5409287e74540210c72627a4ad96",
+        "openpyxl/wheel/openpyxl-3.1.5.dist-info/LICENCE.rst": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+        "packaging/METADATA": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+        "packaging/wheel/packaging/licenses/__init__.py": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+        "packaging/wheel/packaging/licenses/_spdx.py": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.BSD": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+        "pandas/METADATA": "b2b43910a5ef734a08be961df9c484f4664ad9ec2fa5a08294d0edfa08bcdd4b",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSE": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT": "87217d0a79195441ab615a3abb3ab6777502e57804ea83f973df975a67ebd720",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+        "pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+        "pathspec/METADATA": "68de3f158b6592f086e78754c962092f32a761944ab66a660c0d62ad79c4b69b",
+        "pathspec/wheel/pathspec-1.1.1.dist-info/licenses/LICENSE": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+        "pdfminer-six/METADATA": "77a7aa49c45244383288e8b98cb567f19a9083ad0d74716e3011c831df801d44",
+        "pdfminer-six/wheel/pdfminer_six-20251230.dist-info/licenses/LICENSE": "f01e5d699a33766b5caf4a5099f2856aba4f3f75ea1df05dc0572b34b4bea8f2",
+        "pdfplumber/METADATA": "24f9118940ac3810a6bf0dd1970094e29cc659c71c334a6fc2e65d7120a74b62",
+        "pdfplumber/wheel/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821",
+        "pefile/METADATA": "8ad83a5f8659e8da6eeaabf2dafa0eebb8c05832a3def16a5db4dd0d52e72474",
+        "pefile/wheel/pefile-2024.8.26.dist-info/LICENSE": "b44409c067c6da52bfb54bb6624fb11a7b52157c3a13ae1400232f8196e86ad3",
+        "pillow/METADATA": "140f39cb31ec9b46109828a6286f034a4848621263d6aab38d2f142083dd06c5",
+        "pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236",
+        "pluggy/METADATA": "20ac8237e37f1d6e7e75500cd663015177ba80c1a1a595ff6bae18a539ff8a2c",
+        "pluggy/wheel/pluggy-1.7.0.dist-info/licenses/LICENSE": "d6b65e6c213a5d0b577911d34d6e5949b9f59d76c238c5071a2f3fc16cfb2606",
+        "protobuf/METADATA": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c",
+        "protobuf/wheel/protobuf-7.36.2.dist-info/LICENSE": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+        "psutil/METADATA": "a263a40220d921d9cb963fc636d34f817aa2eb72c2696e3e3465d088cdb1976b",
+        "psutil/wheel/psutil-7.2.2.dist-info/LICENSE": "c7adc4d5d1337a548b967421f1fbe258b93033a0417708fd6f4e38f8ecbceb80",
+        "pycparser/METADATA": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+        "pycparser/wheel/pycparser-3.12.dist-info/licenses/LICENSE": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+        "pyinstaller/METADATA": "2991d3dcd53fe9966b8c16586322a7f9bbc564dd4752c190bd4fe8d6747f7046",
+        "pyinstaller/wheel/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64",
+        "pyinstaller-hooks-contrib/METADATA": "1820f1a8a554ce1b6ae528c7fe502f4676c844eb1151f7f040adc8010052b0ba",
+        "pyinstaller-hooks-contrib/wheel/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE": "91d0baaff00773038e72c0a1fc9d5d2d38706b7a2b9c04f34296608f931b9cd0",
+        "pypdfium2/METADATA": "8733a714c056453b87b48c819495cc05f9038d38221b89505043d28c2501237e",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/Apache-2.0.txt": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/BSD-3-Clause.txt": "ad9a9e823df025f42389c1812eae28019f657d1ed7b3a4ebfd5010b0736a0da4",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/CC-BY-4.0.txt": "f1b1748301cd4274f46733c218d510929661b4990855de5fc645dacd69c4371c",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/abseil.txt": "f54fff0b905df5b3464527c652a30e903b172d6dcab4d89b5e6f105d5e4a4603",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/agg23.txt": "c110d3ea2ad77467ce0dcff7d3337e6c8be8049a5103f4b9bd5fd911a77972e5",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/fast_float.txt": "bf1b57355feca8fce77ee95f48002f8d4789fb71b30ec7599c06cda4901fbb2b",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/freetype.txt": "f4b133e25df1f86ad3ffea453aa0e613f0474f34778dbbb3e437e7b2724937d8",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/icu.txt": "93679f4389d53b6835d89843f251844fb9bc455b35bab036d3c8e7abe497a47a",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/lcms.txt": "7312b68c5b25e9bf2b828706fb4e29588f22705112f411fd42e1f7d84c3d139a",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.ijg": "db16a04128171879c60708d171b88d97345a2dd20f9bfc173680a4497c73f704",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.md": "be2b2b5ab168bce87bc3e31f2a5c5adba4b7f6e9e51d618e958d1d46972ebd95",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libopenjpeg.txt": "c5ab0890a737c2dfa7ba675036554f6d17741d98629b0c2a145354d00617e6b2",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libpng.txt": "452390433ba0f88aa3e2b122c647741b72a0c117cd6ed7a329b49785aecb5511",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/llvm-libc.txt": "3b6226c32e168c83b891d8d6f0d3c29c2116dc3ef93dc93c307b54f279ecf383",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium-binaries.txt": "8854f4388f1ca13b3ad9baa42e95f5546b4c0b17109c159256d3eca7be39b09b",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium.txt": "961eacd9633fff6d051db7208b755e9210e30efac7adec3e6a6d52798f0ccf0e",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/simdutf.txt": "c172a0ba936ff31230febb5dad869e25cb7c1a07480c7a381be8cf011bb52719",
+        "pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/zlib.txt": "33fd641c9f3b0e0be64bc78fea9e94807674cdd70c48477599226cb8956565fe",
+        "pyside6-essentials/METADATA": "c5eacdfdda84b8d0e026020a630e6a732bd403c00fc17e3efb9e2e92df0b98a7",
+        "pyside6-essentials/wheel/pyside6_essentials-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+        "supplemental/qt-lgpl3.txt": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+        "supplemental/qt-gpl3.txt": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+        "python-dateutil/METADATA": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907",
+        "python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md": "56004c45a95e9ee5582ea60f9a7ee42179c8594c7b9c245bbfb4a3445b4af640",
+        "python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/LICENSE": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+        "python-pptx/METADATA": "d38c6af5f1817cc528706264d8343cd1c95dbdec5672f29b944f54f79134a3a2",
+        "python-pptx/wheel/python_pptx-1.0.2.dist-info/LICENSE": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+        "pywin32-ctypes/METADATA": "1e3767d3faff4d5b9c347160883831098d1f25acf4306b02c9acdcc6bfb5883b",
+        "pywin32-ctypes/wheel/pywin32_ctypes-0.2.3.dist-info/LICENSE.txt": "dfa83b3e2709adfcdb838d9ad55823ca674abb780e60563d9dd9544ccbf785e9",
+        "requests/METADATA": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+        "requests/wheel/requests-2.34.2.dist-info/licenses/LICENSE": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+        "requests/wheel/requests-2.34.2.dist-info/licenses/NOTICE": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+        "setuptools/METADATA": "24939b84ead30ff4581918c8d5a95aafd377f6a8afc61f30ea18358a8786bfa4",
+        "setuptools/wheel/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04",
+        "setuptools/wheel/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683",
+        "setuptools/wheel/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+        "setuptools/wheel/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+        "setuptools/wheel/setuptools/_vendor/packaging/licenses/__init__.py": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+        "setuptools/wheel/setuptools/_vendor/packaging/licenses/_spdx.py": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+        "setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+        "setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+        "setuptools/wheel/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+        "setuptools/wheel/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+        "setuptools/wheel/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654",
+        "setuptools/wheel/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+        "setuptools/wheel/setuptools/config/NOTICE": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8",
+        "setuptools/wheel/setuptools/config/_validate_pyproject/NOTICE": "09c9bcea95ca086f8bc5bed174e40bc835b297d40fb5f86bbbb570fe0a5581a7",
+        "setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+        "setuptools/wheel/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d",
+        "setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+        "setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+        "shiboken6/METADATA": "2e443fc68a670b00b5ee6f2d67fa3005613de00a8294a8f257c6c1263032009a",
+        "shiboken6/wheel/shiboken6-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+        "six/METADATA": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+        "six/wheel/six-1.17.0.dist-info/LICENSE": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+        "soupsieve/METADATA": "c1d4799cbf1c070586fa86f922f621c33845a5977886fcb6431c763dc083f838",
+        "soupsieve/wheel/soupsieve-4.0.dist-info/licenses/LICENSE.md": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+        "tomlkit/METADATA": "a2e59805b99c14685196efea6e2f17438853c9f18658a9b98370a883abcb2963",
+        "tomlkit/wheel/tomlkit-0.15.2.dist-info/licenses/LICENSE": "f2f9b460ba719da6626add264d3782f275a4ff7aab677beda08b330911e23adb",
+        "trove-classifiers/METADATA": "ca7e96493232b21f92aeccf456b2e01f1d4dbcaa8e17a9e1b5e6f03c6eb7461f",
+        "trove-classifiers/wheel/trove_classifiers-2026.9.21.13.dist-info/licenses/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "typing-extensions/METADATA": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+        "typing-extensions/wheel/typing_extensions-4.16.0.dist-info/licenses/LICENSE": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+        "tzdata/METADATA": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8",
+        "tzdata/wheel/tzdata-2026.6.dist-info/licenses/LICENSE": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+        "tzdata/wheel/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "urllib3/METADATA": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4",
+        "urllib3/wheel/urllib3-2.8.0.dist-info/licenses/LICENSE.txt": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+        "xlsxwriter/METADATA": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
+        "xlsxwriter/wheel/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "base",
+  "python": "3.12.14",
+  "application_extras": ["desktop", "precise"],
+  "markitdown_extras": ["docx", "pptx", "xlsx", "pdf"],
+  "forbidden_packages": ["rapidocr-onnxruntime", "onnxruntime-gpu", "opencv-python", "pyclipper", "shapely", "pyyaml", "python-docx", "reportlab"],
+  "native_ocr_required": true,
+  "native_ocr_integrated": false,
+  "release_ready": false,
+  "scope": "C04 dependency split only; Magika still requires CPU ONNX Runtime. Native Tesseract, frozen profiles and Windows acceptance remain pending."
+}

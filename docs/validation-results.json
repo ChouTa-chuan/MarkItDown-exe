@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-07T12:16:58.939236+00:00",
+  "recorded_at": "2026-11-07T21:17:34.452202+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 409,
-    "passed": 408,
+    "run": 424,
+    "passed": 423,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -151,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.8.0",
+  "source_version": "0.8.1",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -179,7 +179,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C10 requires exact active component/version/capability on OCR pages and revalidates leased health; original C01 report retained"
   },
-  "current_run_scope": "0.8.0 installed full regression; C10 managed PDF/native/blank routing, fixed leases/version/capability, nested resource state, atomic output and C05-C08/device/layout regression. Separate actual frozen CPU/Qt mixed-document acceptance; C07 bundle reused; main frozen/Windows not rebuilt.",
+  "current_run_scope": "0.8.1 installed full regression; C04 base dependency split, platform/extras/version closure and original Windows notice verification. Separate isolated 38-package Linux venv: six formats, Qt batch, empty PATH and missing native OCR rejection. No frozen/native/Windows rebuild.",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -354,5 +354,26 @@
     "production_catalog_published": false,
     "report": "development-records/runs/c10-2026-11-07/acceptance.json",
     "actual_report": "development-records/runs/c10-2026-11-07/managed-native-acceptance.json"
+  },
+  "base_profiles": {
+    "check": "C04-locks",
+    "subcheck_accepted": true,
+    "full_c04_complete": false,
+    "full_c09_complete": false,
+    "new_tests": 15,
+    "acceptance_tests": 52,
+    "isolated_runtime_checks": 6,
+    "runtime_packages": 38,
+    "linux_build_packages": 47,
+    "windows_build_packages": 49,
+    "native_ocr_bundled": false,
+    "frozen_rebuilt": false,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "rapidocr_in_base": false,
+    "onnxruntime_required_by_magika": true,
+    "original_locks_unchanged": true,
+    "original_license_assets_unchanged": true,
+    "evidence": "development-records/runs/c04-locks-2026-11-08/README.md"
   }
 }

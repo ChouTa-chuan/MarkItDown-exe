@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-07",
+  "updated": "2026-11-08",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 408,
-  "headline": "C10 完成：按頁能力與受管 CPU 協作；新架構導入 7/12",
+  "tests_passed": 423,
+  "headline": "C04 基本版依賴拆分子檢核完成；新架構導入維持 7/12",
   "blocker": "缺少 Windows／GPU 執行器；ONNX 繁體品質仍未達標，正式安裝包未經驗收。",
-  "next": "接續 C03／C04 基本包與 profile、完整 C09；Windows／GPU 實機與正式來源門檻保留。",
+  "next": "接續 profile 專用打包／自檢、C03 Windows 原生 OCR 與完整 C09；正式來源、Windows／GPU 門檻保留。",
   "milestones": [
     {
       "id": "m0",
@@ -201,7 +201,7 @@
       "title": "資源調度",
       "layer": "支援",
       "state": "partial",
-      "detail": "RAM 回壓沿用；C06 安裝／解壓 checkpoint、磁碟准入與快取配額 API 已測，統一轉換准入待 C10，RAM 仍軟預算。",
+      "detail": "RAM 回壓及 C06 安裝／磁碟准入沿用；C10 已接完整程序樹與受管 OCR 准入，RAM 仍為軟性預算。",
       "evidence": "tests/test_core.py／test_component_lifecycle.py"
     },
     {
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 408 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 423 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -246,19 +246,19 @@
     }
   ],
   "limits": [
-    "C01／C02／C05–C08／C10 已驗收，7/12；C09 三個流程子檢核完成但基本包自帶 OCR 尚缺 C03／C04。正式來源未發布，Windows／GPU 及既有 19/25 分開追蹤。",
+    "C01／C02／C05–C08／C10 已驗收，7/12；C04 完成基本版依賴拆分子檢核，整項及 C09 仍待原生基本包／profile／Windows。正式來源未發布，既有 19/25 分開追蹤。",
     "ONNX 為實驗性選配，繁體合成樣本有漏字／字形錯誤；Tesseract 預設保留，GPU 尚未實機驗證。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 409,
+  "tests_run": 424,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收 7/12：C01／C02／C05–C08／C10。C10 接入逐頁需求、版本／能力租約及原子輸出；C09 三個子檢核完成，全項仍待基本包。正式目錄與 Windows／GPU 尚待後續。",
+    "description": "已驗收 7/12：C01／C02／C05–C08／C10。C04 完成基本版 Python 執行／建置閉包、雜湊與既有授權子檢核；C04／C09 全項仍待原生基本包、打包自檢與 Windows。",
     "phases": [
       {
         "id": "a",
@@ -292,7 +292,25 @@
             "id": "C04",
             "label": "profile 鎖定、打包與能力自檢",
             "done": false,
-            "acceptance": "保留 Magika 必要 runtime；基本包不依賴選配 OCR，各 profile 有完整授權與自檢。"
+            "acceptance": "基本版依賴拆分：52/52＋乾淨 Linux venv 真實轉換／Qt 6/6。runtime 38 套件，Linux build 47／Windows build 49；保留 Magika 必要 ONNX Runtime，移除 RapidOCR OCR 相依。完整 C04 尚未完成。",
+            "subchecks": [
+              {
+                "label": "基本版 Python 閉包／hash／既有授權；乾淨 Linux 格式與 Qt 驗證",
+                "done": true
+              },
+              {
+                "label": "profile 接入 PyInstaller 與專用能力自我檢查",
+                "done": false
+              },
+              {
+                "label": "原生 OCR／選配各自 bundle 清單、授權與離線驗證",
+                "done": false
+              },
+              {
+                "label": "Windows 乾淨基本／選配環境與隔離驗收",
+                "done": false
+              }
+            ]
           }
         ]
       },

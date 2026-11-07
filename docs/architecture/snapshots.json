@@ -145,6 +145,18 @@
       "source_version": "0.8.0",
       "architecture_scope": "0.4 C10 managed PDF capability/lease/version integration accepted on Linux",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-c04-base-locks.md",
+      "title": "架構 v0.4：C04 基本版依賴拆分子檢核",
+      "diagram_sha256": "f9f4f66c04237f77a7a3042527e8b4a5a00f11c7ae72aed06ec9e9aa045fccd5",
+      "file_sha256": "8db966cac64ce8407051e7ea3a451f42bbd86fdf5a8fd8c154933465b92f7a50",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_description": "程式 0.8.1 與首頁圖一併提交；完整 C04／C09 未關閉",
+      "source_version": "0.8.1",
+      "architecture_scope": "0.4 C04 base Python dependency split accepted on Linux; complete frozen/native/Windows profile acceptance pending",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-07"
