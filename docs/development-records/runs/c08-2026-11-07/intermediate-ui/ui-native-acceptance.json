@@ -1,0 +1,151 @@
+{
+  "recorded_at": "2026-11-07T10:51:23.627557+00:00",
+  "source_version": "0.6.0",
+  "accepted": true,
+  "checks_passed": 9,
+  "checks": [
+    "signed catalog GUI import",
+    "real frozen GUI offline install",
+    "UI heartbeat during real install",
+    "real CPU health",
+    "verified original license in GUI",
+    "native health cancellation and child exit",
+    "health succeeds after cancellation",
+    "confirmed GUI removal",
+    "basic text conversion after maintenance"
+  ],
+  "package_sha256": "11c8e0e9ff648954c3e99a30630e47fd5f1fe6307fa813c5e062d374f3db6d18",
+  "package_bytes": 202741436,
+  "install_heartbeat_ticks": 1303,
+  "native_probe_observations": [
+    {
+      "state": "completed",
+      "pid": 438362,
+      "report": {
+        "schema_version": 1,
+        "protocol": "1.0.0",
+        "job_id": "09de5d0f4c2d4e88bcd4d69c2e21aaff",
+        "component_id": "onnx-cpu-ocr",
+        "component_version": "1.0.0",
+        "actual_device": "cpu",
+        "providers": [
+          "CPUExecutionProvider",
+          "CPUExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "text": "WORKER HEALTH CHECK 12345",
+        "warning": "ONNX OCR 結果請核對，模型可能不涵蓋所有繁體字形。",
+        "input_sha256": "2dcad1eb6d69de30de61f74b3d95349275b17e8a90f286df4778b360e478b8b3",
+        "health_passed": true,
+        "runtime": {
+          "python": "3.12.14",
+          "rapidocr": "1.4.4",
+          "onnxruntime": "1.31.1",
+          "numpy": "2.5.4",
+          "opencv": "5.0.0.93",
+          "frozen": true
+        }
+      }
+    },
+    {
+      "state": "completed",
+      "pid": 438373,
+      "report": {
+        "schema_version": 1,
+        "protocol": "1.0.0",
+        "job_id": "1f6d88fce74e4925a820bb7ab7e94ba8",
+        "component_id": "onnx-cpu-ocr",
+        "component_version": "1.0.0",
+        "actual_device": "cpu",
+        "providers": [
+          "CPUExecutionProvider",
+          "CPUExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "text": "WORKER HEALTH CHECK 12345",
+        "warning": "ONNX OCR 結果請核對，模型可能不涵蓋所有繁體字形。",
+        "input_sha256": "2dcad1eb6d69de30de61f74b3d95349275b17e8a90f286df4778b360e478b8b3",
+        "health_passed": true,
+        "runtime": {
+          "python": "3.12.14",
+          "rapidocr": "1.4.4",
+          "onnxruntime": "1.31.1",
+          "numpy": "2.5.4",
+          "opencv": "5.0.0.93",
+          "frozen": true
+        }
+      }
+    },
+    {
+      "state": "completed",
+      "pid": 438398,
+      "report": {
+        "schema_version": 1,
+        "protocol": "1.0.0",
+        "job_id": "69ca0c16b9684e87a33517b1b404e8ea",
+        "component_id": "onnx-cpu-ocr",
+        "component_version": "1.0.0",
+        "actual_device": "cpu",
+        "providers": [
+          "CPUExecutionProvider",
+          "CPUExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "text": "WORKER HEALTH CHECK 12345",
+        "warning": "ONNX OCR 結果請核對，模型可能不涵蓋所有繁體字形。",
+        "input_sha256": "2dcad1eb6d69de30de61f74b3d95349275b17e8a90f286df4778b360e478b8b3",
+        "health_passed": true,
+        "runtime": {
+          "python": "3.12.14",
+          "rapidocr": "1.4.4",
+          "onnxruntime": "1.31.1",
+          "numpy": "2.5.4",
+          "opencv": "5.0.0.93",
+          "frozen": true
+        }
+      }
+    },
+    {
+      "state": "cancelled",
+      "pid": 438409,
+      "report": null
+    },
+    {
+      "state": "completed",
+      "pid": 438441,
+      "report": {
+        "schema_version": 1,
+        "protocol": "1.0.0",
+        "job_id": "eb6e7ec905544d1b84714419d01ffa69",
+        "component_id": "onnx-cpu-ocr",
+        "component_version": "1.0.0",
+        "actual_device": "cpu",
+        "providers": [
+          "CPUExecutionProvider",
+          "CPUExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "text": "WORKER HEALTH CHECK 12345",
+        "warning": "ONNX OCR 結果請核對，模型可能不涵蓋所有繁體字形。",
+        "input_sha256": "2dcad1eb6d69de30de61f74b3d95349275b17e8a90f286df4778b360e478b8b3",
+        "health_passed": true,
+        "runtime": {
+          "python": "3.12.14",
+          "rapidocr": "1.4.4",
+          "onnxruntime": "1.31.1",
+          "numpy": "2.5.4",
+          "opencv": "5.0.0.93",
+          "frozen": true
+        }
+      }
+    }
+  ],
+  "control_process_imported_optional_ocr": false,
+  "path_empty_during_install_and_health": true,
+  "ephemeral_key_not_saved": true,
+  "windows_executed": false,
+  "gpu_executed": false,
+  "traditional_chinese_quality_passed": false,
+  "production_catalog_published": false,
+  "automation_scope": "Qt offscreen; only file chooser/removal confirmation return values supplied; runner wrapper observes actual outcomes without replacing execution"
+}

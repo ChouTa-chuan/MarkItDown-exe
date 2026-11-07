@@ -285,6 +285,20 @@ class ComponentManager:
             self._recover_all()
             return self._activate_locked(catalog,component_id,version,check)
 
+    def check_health(self, catalog, component_id, version, *, cancel=None):
+        """重驗指定受管版本，不切換 active；C08 背景健康操作使用共享維護租約。"""
+        cancel = cancel if cancel is not None else Event()
+        check = lambda:self._check(cancel)
+        with file_lock(self.lock_path,exclusive=False):
+            check()
+            if self.store.journals(): raise LifecycleError('有未完成事務，請先執行恢復。')
+            catalog = self.verifier.load(catalog)
+            spec = catalog.component(component_id,version)
+            self._owned_spec(*spec.key)
+            self._ready(spec,catalog,check)
+            check();self.verifier.load(catalog)
+            return MaintenanceResult(*spec.key,'ready')
+
     def _activate_locked(self, catalog, component_id, version,check):
         with self._workers_idle():pass
         catalog = self.verifier.load(catalog)

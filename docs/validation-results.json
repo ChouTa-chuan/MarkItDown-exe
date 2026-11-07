@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-07T10:34:23.743876+00:00",
+  "recorded_at": "2026-11-07T10:53:30.733654+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 344,
-    "passed": 343,
+    "run": 367,
+    "passed": 366,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -151,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.5.0",
+  "source_version": "0.6.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -179,7 +179,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C01 generic capability resolver remains outside automatic conversion routing; C02 legacy model adapter is integrated with its existing dialog"
   },
-  "current_run_scope": "0.5.0 installed full unittest regression and C07 protocol/native worker with C05/C06 regression; separately actual isolated CPU frozen component in a controller without OCR/Qt; historical main frozen/PowerShell evidence not regenerated",
+  "current_run_scope": "0.6.0 installed full regression; C08 Qt/service and C05-C07/desktop regression, separate real frozen CPU GUI pipeline and cancellation. Existing C07 bundle reused; main frozen/Windows not rebuilt.",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -201,10 +201,11 @@
     "managed_empty_directory_receipt_verified": true,
     "explicit_ocr_path_no_silent_fallback": true,
     "real_pinned_model_reference_verified": true,
-    "full_component_manager_implemented": false,
+    "full_component_manager_implemented": true,
     "windows_executed": false,
     "gpu_executed": false,
-    "report": "development-records/runs/c02-2026-11-06/acceptance.json"
+    "report": "development-records/runs/c02-2026-11-06/acceptance.json",
+    "c08_integration_scope": "C08 GUI and service completed; historical migration report retained"
   },
   "component_downloads": {
     "check": "C05",
@@ -218,12 +219,13 @@
     "real_https_resume_claimed": false,
     "production_catalog_published": false,
     "production_private_key_in_repository": false,
-    "gui_integrated": false,
+    "gui_integrated": true,
     "installs_or_executes_component": false,
     "windows_executed": false,
     "gpu_executed": false,
     "report": "development-records/runs/c05-2026-11-06/acceptance.json",
-    "actual_https_report": "development-records/runs/c05-2026-11-06/https-acceptance.json"
+    "actual_https_report": "development-records/runs/c05-2026-11-06/https-acceptance.json",
+    "integration_scope": "C08 explicitly downloads/imports and calls separate C06 installer; production source is unconfigured"
   },
   "component_lifecycle": {
     "check": "C06",
@@ -245,7 +247,7 @@
     "gpu_executed": false,
     "report": "development-records/runs/c06-2026-11-06/acceptance.json",
     "https_regression": "development-records/runs/c06-2026-11-06/https-regression.json",
-    "integration_scope": "C07 CPU health/managed API and child-owned guard integrated; GUI and automatic document routing pending",
+    "integration_scope": "C07 worker API/guard and C08 background GUI/health-without-switch integrated; automatic document routing pending",
     "c07_regression_report": "development-records/runs/c07-2026-11-07/acceptance.json"
   },
   "component_workers": {
@@ -261,7 +263,7 @@
     "path_empty": true,
     "controller_environment_unchanged": true,
     "child_owned_guard": true,
-    "gui_integrated": false,
+    "gui_integrated": true,
     "automatic_document_routing_integrated": false,
     "main_frozen_rebuilt": false,
     "windows_executed": false,
@@ -269,7 +271,34 @@
     "traditional_chinese_quality_passed": false,
     "production_catalog_published": false,
     "report": "development-records/runs/c07-2026-11-07/acceptance.json",
-    "actual_frozen_report": "development-records/runs/c07-2026-11-07/frozen-acceptance.json"
+    "actual_frozen_report": "development-records/runs/c07-2026-11-07/frozen-acceptance.json",
+    "c08_native_health_cancellation_preserved": true
   },
-  "completed_date_taipei": "2026-11-07"
+  "completed_date_taipei": "2026-11-07",
+  "component_management": {
+    "check": "C08",
+    "accepted": true,
+    "checks_passed": 152,
+    "new_management_checks": 23,
+    "c05_c07_regression_checks": 115,
+    "desktop_help_regression_checks": 14,
+    "actual_frozen_gui_checks_passed": 9,
+    "gui_integrated": true,
+    "default_production_source_configured": false,
+    "ephemeral_test_key_not_saved": true,
+    "catalog_and_zip_import_explicit": true,
+    "health_does_not_switch_active": true,
+    "health_cancelled_not_unhealthy": true,
+    "failed_optional_does_not_block_basic_text": true,
+    "settings_schema_unchanged": 6,
+    "registry_schema_unchanged": 2,
+    "lifecycle_schema_unchanged": 1,
+    "main_frozen_rebuilt": false,
+    "new_native_bundle_built": false,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "report": "development-records/runs/c08-2026-11-07/acceptance.json",
+    "actual_gui_report": "development-records/runs/c08-2026-11-07/ui-native-acceptance.json",
+    "long_running_io_and_health_use_background_thread": true
+  }
 }

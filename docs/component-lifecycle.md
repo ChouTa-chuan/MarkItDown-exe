@@ -1,6 +1,6 @@
 # C06：交易安裝、鎖、修復與移除
 
-程式 **0.4.0**，架構 **0.4**，2026-11-06（台北）。本輪完成 Linux 的元件維護 API，詳見[逐項驗收與程序退出紀錄](development-records/runs/c06-2026-11-06/README.md)。0.5.0 已透過 [C07](component-workers.md)接入實際 CPU worker；完整桌面管理與現有文件自動路由仍依 C08／C10 進行，Windows／GPU 門檻保留。
+程式 **0.4.0**，架構 **0.4**，2026-11-06（台北）。本輪完成 Linux 的元件維護 API，詳見[逐項驗收與程序退出紀錄](development-records/runs/c06-2026-11-06/README.md)。0.5.0 已透過 [C07](component-workers.md)接入實際 CPU worker；0.6.0 的 [C08](component-management.md)已接上背景桌面管理與不切換 active 的 check_health；現有文件自動路由留 C10，Windows／GPU 門檻保留。
 
 ## 模組與責任
 

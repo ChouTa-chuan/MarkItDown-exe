@@ -1,6 +1,6 @@
 # C07：獨立 CPU 選配工作程序
 
-程式 **0.5.0**、架構 **0.4**。完成一個真正的 Linux x86_64 frozen CPU OCR 元件及版本化協定，新增導入 **5/12**，既有基線 **19/25**。原始證據見[本輪開發紀錄](development-records/runs/c07-2026-11-07/README.md)。桌面完整管理、自動文件分析的元件選擇及 Windows／GPU 驗收分別保留給 C08／C10／C03–C04／C11–C12。
+程式 **0.5.0**、架構 **0.4**。完成一個真正的 Linux x86_64 frozen CPU OCR 元件及版本化協定，新增導入 **5/12**，既有基線 **19/25**。原始證據見[本輪開發紀錄](development-records/runs/c07-2026-11-07/README.md)。更新：0.6.0 已由 [C08](component-management.md)接上背景健康／維護介面，取消健康會保留 Cancelled；自動文件選擇與 Windows／GPU 仍保留給 C10／C03–C04／C11–C12。
 
 ## 模組責任
 
@@ -75,4 +75,4 @@ python -m venv /tmp/c07-controller
 python scripts/check_component_acceptance.py --check C07 --report /tmp/c07-tests.json
 ```
 
-同平台／版本可重建並重新驗證功能；二進位與暫存來源路徑未承諾位元組可重現。Windows 必須在 Windows 實際建置與驗證。本輪沒有重建主程式 frozen、啟動手動 Windows workflow 或更動目前 PDF 自動路由；下一段接續 C08 元件管理介面。
+同平台／版本可重建並重新驗證功能；二進位與暫存來源路徑未承諾位元組可重現。Windows 必須在 Windows 實際建置與驗證。本輪沒有重建主程式 frozen、啟動手動 Windows workflow 或更動目前 PDF 自動路由；後續由 C08 接上背景健康／維護介面；目前進度見 [開發狀態](development-status.md)。

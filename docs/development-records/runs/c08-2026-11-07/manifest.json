@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "completed_date_taipei": "2026-11-07",
+  "source_version": "0.6.0",
+  "architecture_version": "0.4",
+  "check": "C08",
+  "scope": "合成／實際 Linux Qt＋frozen CPU 元件驗收、初始失敗／最終日誌、視窗與進度畫面；非 Windows／GPU 或正式發布，私鑰未保存",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 3970,
+      "sha256": "fd0c3c91af5a71654a30fb6dea377f64689972482bfd02213881906b86f60235",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 17457,
+      "sha256": "bc7a6ec7aec505872edf63367f44d2fa0ab0e8acd3a93f091ac1d045354c6a55",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "component-before-install.png",
+      "bytes": 96395,
+      "sha256": "910c1dee77a77ad1334ca2f66f049885ad0bcec4af10b2741347e73277b422a6",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "component-installed.png",
+      "bytes": 104672,
+      "sha256": "5d2f8bae41204f344f678061dd497f4b50afade5d91f61ba282e9b1f2313aded",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "component-license.png",
+      "bytes": 85243,
+      "sha256": "494751dc859d1ac27c8e4b9004c4c2987519d2f86a0007646a941541938a0004",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "component-tests.log",
+      "bytes": 24129,
+      "sha256": "546793f33ed441f448dd260276b5b4d3adab702708617f3d5519ee6f82bdba69",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "desktop-with-component-entry.png",
+      "bytes": 100225,
+      "sha256": "16e55df22c5de25d4254bc60b35e75fd7fcea4b8616d5e7b566c73217e54eebe",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "full-tests.log",
+      "bytes": 54149,
+      "sha256": "b50123bdd0c87e015c0c4390dbc50abcf95acfe375ecb0b1038631efb67108e5",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "initial-empty-catalog-fixture.log",
+      "bytes": 4835,
+      "sha256": "afc84426afb1286dfe34ad65bb1643dbedae991fcab09e4fdbcfce7110fa8ece",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 1031,
+      "sha256": "5458d658ed009d0250a18673cd78a88c67dda1ee63dbf1caf165cde9ad1fd030",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "intermediate-before-confirmation-acceptance.json",
+      "bytes": 17457,
+      "sha256": "c2d241bb365f78137d61c60be67125acabe8fc513e07f388397bdfc9aeaa0922",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "intermediate-before-confirmation-tests.log",
+      "bytes": 24129,
+      "sha256": "15f6466d2d2618965ac2107fbd0f22a98d6e964aea9873f703997c499f27a4d6",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "intermediate-management-tests.log",
+      "bytes": 4000,
+      "sha256": "56da6fb1e207458a8cc0aeae5c403f193d9e08f4a11b94a8e90aa23082ec2319",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "intermediate-ui/component-before-install.png",
+      "bytes": 96395,
+      "sha256": "910c1dee77a77ad1334ca2f66f049885ad0bcec4af10b2741347e73277b422a6",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "intermediate-ui/component-installed.png",
+      "bytes": 104672,
+      "sha256": "5d2f8bae41204f344f678061dd497f4b50afade5d91f61ba282e9b1f2313aded",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "intermediate-ui/component-license.png",
+      "bytes": 85243,
+      "sha256": "494751dc859d1ac27c8e4b9004c4c2987519d2f86a0007646a941541938a0004",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "intermediate-ui/desktop-with-component-entry.png",
+      "bytes": 100112,
+      "sha256": "9d65eef055d63ebd1bbfd656b967eb199ea93c0df595f217830f3035d31571e3",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "intermediate-ui/ui-native-acceptance.json",
+      "bytes": 4877,
+      "sha256": "be3800acb07826bf5586c097c1ed823455cad4d33fecbe57efcc4e842aa69de3",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "intermediate-ui/ui-native.log",
+      "bytes": 885,
+      "sha256": "4c1961bd8f68ebbd2e782ac6d8925cabf44fa94088199b54a860dd8d489e05d7",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "licenses.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 455469,
+      "sha256": "5d8068828f09abde6c4dcacb5d2b5553d9ddc81ef6546a14ccf9360103bcb792",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 452218,
+      "sha256": "b53fd2fc7d05def81f7743f25504d2b9bf710c7dfb08cf304828c621ad978287",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 284712,
+      "sha256": "a13caf0b6fec569c499110cc210e63486a770371297e1618bd15ddde6b0abbd0",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 302637,
+      "sha256": "25bc49f78f70c2c697dda9d3232c98685e71ad6303102379f8fc90ee3dc30d12",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 432828,
+      "sha256": "6b1bc5ab552bbdbe0d2148c53ac4f64d352c0e5b6ee1e1ea20f2906669ec9442",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "ui-native-acceptance.json",
+      "bytes": 4877,
+      "sha256": "92650fb64f5250b0055f71b1e0dd6e8304562144955572fc28c1fc9f5882edd7",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "ui-native.log",
+      "bytes": 785,
+      "sha256": "dc662242a4f5164b722c6c2d2ca0610f12f22c424720e230f3a19c11f110ab62",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    },
+    {
+      "file": "upstream.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C08 本輪生成；initial／intermediate 為失敗或中間觀察，最終檔案於 README 指定"
+    }
+  ]
+}

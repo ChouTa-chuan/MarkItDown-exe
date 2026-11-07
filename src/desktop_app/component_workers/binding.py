@@ -6,7 +6,7 @@ from ..capabilities import HealthResult
 from ..components.contracts import Version
 from ..components.registry import _chain, _plain
 from ..resources import Policy, snapshot
-from ..core import State
+from ..core import State, Cancelled
 from .client import WorkerRunner
 from . import protocol as wire
 
@@ -31,6 +31,8 @@ class CPUWorkerBinding:
 
     def health(self, spec, directory, host):
         outcome=self.runner(spec,directory).run(operation='health',cancel=self.cancel)
+        # 健康取消須保留取消語意，不能被能力解析誤判為引擎不健康。
+        if outcome.state==State.CANCELLED: raise Cancelled(outcome.message)
         return HealthResult(outcome.state==State.COMPLETED and outcome.report['health_passed'],outcome.message)
 
     def run_managed(self, manager, catalog, source, destination, *, cancel=None, notify=lambda state,message:None):

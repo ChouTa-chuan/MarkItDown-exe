@@ -12,7 +12,7 @@
 | `components/network.py` | 保留系統 proxy／CA 與 TLS 驗證；目錄下載限長，重新導向在送出請求前核對來源 |
 | `components/downloads.py` | 受管快取、有界重試、取消、Range／ETag 續傳、完整性、離線匯入及 C01 登錄 |
 
-這是提供給後續元件服務的 API，尚未接入桌面下載介面。既有模型視窗仍由 C02 adapter 處理固定 Tesseract 清單；通用交易安裝、解壓、修復／移除與使用中鎖留 C06，完整管理頁留 C08。
+此 API 由 C06 提供交易安裝與維護，程式 0.6.0 的 [C08 管理頁](component-management.md)已接上背景下載／離線安裝。既有模型視窗仍由 C02 adapter 處理固定 Tesseract 清單。正式元件來源與發行金鑰尚未發布；開啟視窗不自動下載。
 
 ## 信任政策與簽章
 

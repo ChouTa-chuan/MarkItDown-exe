@@ -13,7 +13,7 @@ if find_spec("rapidocr_onnxruntime"):
     datas += ocr_data
     binaries += ocr_binaries
     hiddenimports += ocr_imports
-for package in ("markitdown", "magika", "mammoth", "pdfplumber", "python-pptx", "openpyxl"):
+for package in ("markitdown-desktop", "markitdown", "magika", "mammoth", "pdfplumber", "python-pptx", "openpyxl"):
     datas += copy_metadata(package)
 datas += [(str(root / "THIRD_PARTY_NOTICES"), "."),
           (str(root / 'src/desktop_app/data/licenses'), 'desktop_app/data/licenses'),

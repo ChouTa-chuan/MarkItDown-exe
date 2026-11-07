@@ -18,6 +18,7 @@ class HelpTests(unittest.TestCase):
         self.assertIn('開始轉換',dialog.viewer.toPlainText())
         self.assertIn('雙引擎',dialog.viewer.toPlainText())
         self.assertIn('Windows',dialog.viewer.toPlainText())
+        self.assertIn('選配元件管理',dialog.viewer.toPlainText())
         dialog.close()
 
     def test_packaged_attribution_and_folder(self):

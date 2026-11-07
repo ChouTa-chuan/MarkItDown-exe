@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-07",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 343,
-  "headline": "C07 完成：獨立 CPU 元件與版本化協定；新架構導入 5/12",
+  "tests_passed": 366,
+  "headline": "C08 完成：背景元件管理與真實 CPU 健康；新架構導入 6/12",
   "blocker": "缺少 Windows／GPU 執行器；ONNX 繁體品質仍未達標，正式安裝包未經驗收。",
-  "next": "接續 C08 元件管理介面；C03／C04 Windows OCR／profile、C10 自動路由與 Windows／GPU 實機門檻仍保留。",
+  "next": "接續 C09 首次啟動與基本引擎設定；C03／C04 Windows 原生／profile、C10 自動路由與 Windows／GPU 實機仍待後續。",
   "milestones": [
     {
       "id": "m0",
@@ -161,8 +161,8 @@
       "title": "桌面介面",
       "layer": "介面",
       "state": "partial",
-      "detail": "舊／外部模型只讀，專用目錄明確下載；v6 偏好保存與離線說明，完整元件管理頁仍待 C08。",
-      "evidence": "C02 Linux Qt 離屏操作與合成畫面；原桌面文字轉換回歸"
+      "detail": "桌面批次／預覽、原模型管理與 C08 背景選配管理；版本、容量、授權、健康與維護可操作，Windows UI 仍待驗。",
+      "evidence": "C08 152 項含桌面回歸＋真實 Qt／frozen CPU 9 項；正式來源尚未發布"
     },
     {
       "id": "application",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 343 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 366 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -246,19 +246,19 @@
     }
   ],
   "limits": [
-    "C01／C02／C05／C06／C07 已完成 Linux 驗收，新導入 5/12；C07 為實際獨立 CPU worker，桌面／自動路由與 Windows OCR／profile 尚待各自檢核，既有 19/25 另計。",
+    "C01／C02／C05／C06／C07／C08 已完成 Linux 驗收，新導入 6/12；正式元件來源尚未發布，預設不內建測試信任根，首次啟動／自動路由與 Windows 門檻仍保留。既有 19/25 另計。",
     "ONNX 為實驗性選配，繁體合成樣本有漏字／字形錯誤；Tesseract 預設保留，GPU 尚未實機驗證。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 344,
+  "tests_run": 367,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收 5/12：C01 元件基礎、C02 模型／設定、C05 可信下載、C06 交易維護、C07 實際獨立 CPU worker。C03／C04 Windows 門檻保留；既有 19/25 另計。",
+    "description": "已驗收 6/12：C01 元件基礎、C02 模型／設定、C05 可信下載、C06 維護、C07 CPU worker、C08 背景管理介面。C03／C04 Windows 與正式目錄仍待後續；既有 19/25 另計。",
     "phases": [
       {
         "id": "a",
@@ -268,7 +268,7 @@
             "id": "C01",
             "label": "元件／能力／版本契約與登錄",
             "done": true,
-            "acceptance": "Linux 43/43：版本／依賴／相容性、持久化、檔案完整性、健康與並行失效。下載或安裝存在不等於 ready；尚未接入 GUI／實際元件安裝。"
+            "acceptance": "Linux 43/43：版本／依賴／相容性、持久化、檔案完整性、健康與並行失效。下載或安裝存在不等於 ready；C01 為基礎證據，下載／安裝／GUI 分別由 C05／C06／C08 接續驗收。"
           },
           {
             "id": "C02",
@@ -304,19 +304,19 @@
             "id": "C05",
             "label": "可信目錄與可恢復下載",
             "done": true,
-            "acceptance": "Linux 41/41＋實際 HTTPS 6/6：Ed25519、來源／到期／撤銷、限次重試、取消、Range／ETag、離線匯入與損毀拒絕；只登錄 verified，不安裝或執行，完整桌面管理留 C08。"
+            "acceptance": "Linux 41/41＋實際 HTTPS 6/6：Ed25519、來源／到期／撤銷、限次重試、取消、Range／ETag、離線匯入與損毀拒絕；只登錄 verified，不安裝或執行，C08 已接背景管理。"
           },
           {
             "id": "C06",
             "label": "交易安裝、鎖、修復與移除",
             "done": true,
-            "acceptance": "Linux 92/92（含 C05 41 項回歸）：ZIP staging、健康後原子切 active、11 次真實子程序退出與恢復、租約／反向依賴、修復移除及快取配額；C07 已接真實 CPU worker／子程序 guard，GUI／自動路由留 C08／C10。"
+            "acceptance": "Linux 92/92（含 C05 41 項回歸）：ZIP staging、健康後原子切 active、11 次真實子程序退出與恢復、租約／反向依賴、修復移除及快取配額；C07 已接真實 CPU worker／子程序 guard，C08 已接 GUI，自動路由留 C10。"
           },
           {
             "id": "C07",
             "label": "獨立選配 worker 協定",
             "done": true,
-            "acceptance": "Linux 115/115（含 C05／C06 回歸）＋實際 frozen 10/10：無 OCR 套件控制端／空 PATH，真實 CPU 推論、版本／RAM／逾時／取消／guard，不改主環境；GUI／路由／Windows／GPU 仍待後續。"
+            "acceptance": "Linux 115/115（含 C05／C06 回歸）＋實際 frozen 10/10：無 OCR 套件控制端／空 PATH，真實 CPU 推論、版本／RAM／逾時／取消／guard，不改主環境；C08 已接 GUI 健康，文件路由／Windows／GPU 仍待後續。"
           }
         ]
       },
@@ -327,8 +327,8 @@
           {
             "id": "C08",
             "label": "元件管理介面",
-            "done": false,
-            "acceptance": "容量、授權、版本與健康狀態可操作，選配失敗不阻塞基本功能。"
+            "done": true,
+            "acceptance": "Linux Qt 152/152（23 項管理＋115 項 C05–C07＋14 項桌面／說明）及真實 frozen UI 9/9：容量、授權、版本、健康、取消與維護；預設正式來源未配置，Windows／GPU 不列完成。"
           },
           {
             "id": "C09",
@@ -373,7 +373,7 @@
       {
         "id": "components",
         "title": "元件生命週期",
-        "detail": "C01／C02／C05 沿用；C06 新增 ZIP 交易安裝、所有權、日誌恢復、使用租約、修復移除與快取配額。完整管理頁仍待 C08。 C07 接上真實 CPU 健康／租約及子程序 guard。",
+        "detail": "C01／C02／C05 沿用；C06 新增 ZIP 交易安裝、所有權、日誌恢復、使用租約、修復移除與快取配額。C08 已接背景管理介面。 C07 接上真實 CPU 健康／租約及子程序 guard。",
         "state": "partial",
         "evidence": "C06 92 項含 C05 回歸；11 次實際子程序退出，非 Windows／GPU 實測"
       },
@@ -394,15 +394,16 @@
       {
         "id": "updates",
         "title": "更新協調",
-        "detail": "C05 可信目錄與下載、C06 active／前版原子切換與相容性回復完成；通知、正式目錄與主程式更新整合仍待後續。",
+        "detail": "C05／C06 沿用，C08 可明確更新目錄、選版、修復與回復；正式目錄、通知與主程式更新整合仍待後續。",
         "state": "partial",
         "evidence": "docs/component-workers.md；CPU API 已接租約／子程序 guard，自動文件路由仍待 C10"
       },
       {
         "id": "component_ui",
         "title": "元件管理介面",
-        "detail": "顯示版本、容量、授權與健康狀態；基本／選配清楚區分。",
-        "state": "pending"
+        "detail": "Linux C08：版本／容量／授權／背景維護、健康、取消與關閉保護；正式來源尚未發布，Windows 真人 UI 待 C11。",
+        "state": "verified",
+        "evidence": "23 項新服務／Qt；152 項含回歸＋真實 frozen UI 9 項，未替換交易或推論"
       }
     ]
   }

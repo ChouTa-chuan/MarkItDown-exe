@@ -1,0 +1,25 @@
+{
+  "previous_manifests_verified": {
+    "docs/development-records/manifest.json": 75,
+    "docs/development-records/runs/c01-2026-11-06/manifest.json": 13,
+    "docs/development-records/runs/c02-2026-11-06/manifest.json": 19,
+    "docs/development-records/runs/c05-2026-11-06/manifest.json": 21,
+    "docs/development-records/runs/c06-2026-11-06/manifest.json": 27,
+    "docs/development-records/runs/c07-2026-11-07/manifest.json": 44
+  },
+  "previous_committed_record_files_unchanged": 210,
+  "previous_architecture_snapshots_unchanged": 9,
+  "architecture_snapshots_verified": 10,
+  "locked_requirements_unchanged": [
+    "packaging/requirements-controller-test-linux.txt",
+    "packaging/requirements-linux.txt",
+    "packaging/requirements-windows.txt"
+  ],
+  "original_license_asset_files_unchanged": 221,
+  "baseline_commit": "fcf98e4b3807f73d1a174aff509aa8fe7414bb95",
+  "completed_date_taipei": "2026-11-07",
+  "source_version": "0.6.0",
+  "new_dependencies": false,
+  "windows_executed": false,
+  "gpu_executed": false
+}

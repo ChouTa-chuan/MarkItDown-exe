@@ -49,7 +49,7 @@ class BatchThread(QThread):
 
 
 class Window(QMainWindow):
-    def __init__(self, settings_path=None):
+    def __init__(self, settings_path=None, *, component_service_factory=None):
         super().__init__()
         self.setWindowTitle("MarkItDown 桌面版 · 開發預覽")
         help_menu=self.menuBar().addMenu('說明')
@@ -61,6 +61,8 @@ class Window(QMainWindow):
         self.setAcceptDrops(True)
         self.sources = []
         self.job = None
+        self.component_dialog = None
+        self.component_service_factory = component_service_factory
         self.settings_path = settings_path or Path(
             QStandardPaths.writableLocation(QStandardPaths.AppLocalDataLocation)) / "settings.json"
         container = QWidget()
@@ -75,6 +77,9 @@ class Window(QMainWindow):
         self.clear_button.clicked.connect(self.clear_sources)
         toolbar.addWidget(self.add_button)
         toolbar.addWidget(self.clear_button)
+        self.components_button = QPushButton('選配元件管理')
+        self.components_button.clicked.connect(self.manage_components)
+        toolbar.addWidget(self.components_button)
         layout.addLayout(toolbar)
         self.files = QTreeWidget()
         self.files.setHeaderLabels(["文件", "狀態", "說明"])
@@ -242,6 +247,19 @@ class Window(QMainWindow):
         dialog.installed.connect(self.model_path.setText)
         dialog.exec()
 
+    def manage_components(self):
+        if self.job is not None and self.job.isRunning(): return
+        from .component_dialog import ComponentDialog
+        from .components.management import ComponentManagement
+        try:
+            # 正式信任根尚未發布；預設只開啟本機管理，不採用使用者輸入的金鑰。
+            factory = self.component_service_factory or ComponentManagement
+            service = factory(self.settings_path.parent, settings=self.preferences())
+            self.component_dialog = ComponentDialog(service,self)
+            self.component_dialog.exec()
+        except (OSError, RuntimeError, ValueError) as exc:
+            self.status.setText(f'元件管理未開啟：{exc}；基本轉換仍可使用。')
+
     def choose_model_directory(self):
         directory = QFileDialog.getExistingDirectory(self, "選擇 OCR 模型目錄")
         if directory:
@@ -307,7 +325,7 @@ class Window(QMainWindow):
                        self.output, self.auto_budget, self.reserve, self.save_button, self.quality,
                        self.ocr_engine, self.engine_button, self.model_path, self.models_button,
                        self.model_directory_button, self.device, self.device_button, self.cpu_threads,
-                       self.backend, self.vram_budget]:
+                       self.backend, self.vram_budget, self.components_button]:
             widget.setEnabled(not running)
         self.budget.setEnabled(not running and not self.auto_budget.isChecked())
         self.cancel_button.setEnabled(running)
@@ -337,7 +355,11 @@ class Window(QMainWindow):
         self.set_running(False)
 
     def closeEvent(self, event: QCloseEvent):
-        if self.job is not None and self.job.isRunning():
+        if self.component_dialog is not None and self.component_dialog.busy():
+            self.component_dialog.cancel()
+            self.status.setText('請等待元件操作收尾後再關閉。')
+            event.ignore()
+        elif self.job is not None and self.job.isRunning():
             self.cancel_batch()
             self.status.setText("已要求取消，請等待工作程序停止後再關閉視窗。")
             event.ignore()
