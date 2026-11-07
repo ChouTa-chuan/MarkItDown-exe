@@ -157,6 +157,18 @@
       "source_version": "0.8.1",
       "architecture_scope": "0.4 C04 base Python dependency split accepted on Linux; complete frozen/native/Windows profile acceptance pending",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-c04-frozen-core.md",
+      "title": "架構 v0.4：C04 基本核心打包與自我檢查",
+      "diagram_sha256": "49dc9249b6f7463c7f13122c4b328c00d169f850b8fda02aef7db08f28c59c28",
+      "file_sha256": "99e944542dc31f11191f83f2e331fc6d969f734e0d070b65041755da39d070b5",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_description": "程式 0.9.0 與首頁圖一併提交；C04 2/4，完整 C04／C09 未關閉",
+      "source_version": "0.9.0",
+      "architecture_scope": "0.4 C04 Linux frozen base core and scoped diagnostics accepted; native OCR and complete Windows profiles pending",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-07"

@@ -9,6 +9,11 @@ if __name__ == "__main__":
         from desktop_app.diagnostics import main
         raise SystemExit(main(sys.argv[1:]))
     if '--verify-help-assets' in sys.argv:
+        from desktop_app.build_profile import load_profile
+        if load_profile() is not None:
+            from desktop_app.diagnostics import verify_help
+            verify_help()
+            raise SystemExit(0)
         from importlib.resources import files
         from pathlib import Path
         import json,hashlib

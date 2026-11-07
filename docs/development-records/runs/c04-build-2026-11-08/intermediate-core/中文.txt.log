@@ -1,0 +1,6 @@
+queued: 純文字使用原生解析，不需 OCR 或 GPU；以固定區塊處理。
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 寫入 Markdown
+running: 提交輸出
+completed: 

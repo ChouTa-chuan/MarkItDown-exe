@@ -1,0 +1,8 @@
+queued: PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 運算裝置：CPU／Tesseract
+running: 寫入 Markdown
+running: 第 1/1 頁：原生分析
+running: 提交輸出
+completed: 逐頁分析 1 頁，OCR 0 頁，品質提醒 0 項。

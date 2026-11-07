@@ -35,6 +35,17 @@
 - 各份快照附中文說明、保存日期、來源及 SHA-256；後續更新新增快照，不覆寫既有紀錄。
 - 驗證範圍為來源圖一致性、文件雜湊、相對連結與程式版本未變；轉換程式未修改，未重跑功能測試或變更既有驗收進度。
 
+## 0.9.0 — 2026-11-08
+
+相對 **0.8.1** 完成 C04 第二項子檢核：Linux 基本核心 PyInstaller／依 profile 自檢，架構 **0.4**。C04 **1/4 → 2/4**，完整 C04／C09 未關閉，總數仍 **7/12**，既有 **19/25**。
+
+- 新增基本 `base.spec`、嚴格獨立 build 環境／版本驗證與資產準備器，內嵌 38 個固定 runtime、兩個本地專案及 235 份資產 hash；沒有 RapidOCR、OpenCV 或 OCR 模型，Magika 必要 ONNX Runtime 保留。
+- 自檢分 core／full：基本核心四項通過，完整自檢因 C03 未整合原生 OCR 必須失敗，兩者皆 release_ready false。舊來源／開發包五項 ONNX 自檢沿用；損壞 profile 仍保存失敗報告，既有報告不覆寫。
+- 保存實際 40 個 runtime／本地專案 METADATA、99 份 wheel 授權／原文、固定官方補充文字與 Python 原授權；另列 256 筆 binary 來源與 75 套件系統 copyright。缺少主程式公開授權、完整再散布／Qt／native 清單審核仍保留，不把原文存在當成發行核准。
+- 新增 **16 項**，子檢核含診斷／依賴／授權／格式／核心／裝置／Qt **86/86**；真正 frozen 程式 **7/7**，空 PATH／新工作目錄的六格式、core／full 語意與缺 OCR 拒絕，另有公開 PDF **5/5**。全專案 **440 項：439 通過、1 既有繁體品質預期失敗、0 跳過**。
+- 檢視實際授權後修正只看檔名而漏掉 licenses 目錄內原文的擷取，補官方固定來源再重建。保存時再發現 Python 授權子模組／編譯快取混入，排除後新增反例、重建與重驗，未推送不完整結果。最終 bundle 約 336 MiB，1177 個檔案／連結列 hash；binary 本體保留工作區、不放 Git。過早啟動驗收的編排錯誤、早期 7／5 通過及最終結果分開保存於[本輪紀錄](docs/development-records/runs/c04-build-2026-11-08/README.md)。
+- 更新中文封面、[第十四份快照](docs/architecture/versions/v0.4-c04-frozen-core.md)、[profile 指南](docs/packaging-profiles.md)與視覺進度。原十三份圖、上位 lock、第三方原資產與舊紀錄保持固定；原 Windows 開發 workflow 未切換，沒有 Windows／GPU、tag／Release 或手動發行。
+
 ## 0.8.1 — 2026-11-08
 
 相對 **0.8.0** 完成 C04 的基本版 Python 依賴拆分子檢核，架構 **0.4**。完整 C04／C09 仍待原生基本包／profile／Windows，已驗收維持 **7/12**，既有 **19/25**。

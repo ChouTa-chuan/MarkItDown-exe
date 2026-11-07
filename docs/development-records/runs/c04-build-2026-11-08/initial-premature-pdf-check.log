@@ -1,0 +1,93 @@
+test_added_fixture_provenance_matches_vendored_commit (test_pdf_acceptance.PublicPDFAcceptanceTests.test_added_fixture_provenance_matches_vendored_commit) ... ok
+test_article_preserves_paragraph_and_list_order (test_pdf_acceptance.PublicPDFAcceptanceTests.test_article_preserves_paragraph_and_list_order) ... ERROR
+test_multipage_repair_preserves_people_totals_and_disclaimer (test_pdf_acceptance.PublicPDFAcceptanceTests.test_multipage_repair_preserves_people_totals_and_disclaimer) ... ERROR
+test_receipt_preserves_money_signs_discount_order_and_payment (test_pdf_acceptance.PublicPDFAcceptanceTests.test_receipt_preserves_money_signs_discount_order_and_payment) ... ERROR
+test_sparse_inventory_exact_structure_and_content (test_pdf_acceptance.PublicPDFAcceptanceTests.test_sparse_inventory_exact_structure_and_content) ... ERROR
+
+======================================================================
+ERROR: test_article_preserves_paragraph_and_list_order (test_pdf_acceptance.PublicPDFAcceptanceTests.test_article_preserves_paragraph_and_list_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/MarkItDown-exe/tests/test_pdf_acceptance.py", line 125, in test_article_preserves_paragraph_and_list_order
+    text=self.convert('upstream-article.pdf',1,4254)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/MarkItDown-exe/tests/test_pdf_acceptance.py", line 52, in convert
+    subprocess.run([executable,'--cli',str(source),str(self.output),'--reserve-mib','0',
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/markitdown-c04-base-dist-final/MarkItDownBaseCore/MarkItDownBaseCore'
+
+======================================================================
+ERROR: test_multipage_repair_preserves_people_totals_and_disclaimer (test_pdf_acceptance.PublicPDFAcceptanceTests.test_multipage_repair_preserves_people_totals_and_disclaimer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/MarkItDown-exe/tests/test_pdf_acceptance.py", line 103, in test_multipage_repair_preserves_people_totals_and_disclaimer
+    text=self.convert('upstream-repair.pdf',3,2188)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/MarkItDown-exe/tests/test_pdf_acceptance.py", line 52, in convert
+    subprocess.run([executable,'--cli',str(source),str(self.output),'--reserve-mib','0',
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/markitdown-c04-base-dist-final/MarkItDownBaseCore/MarkItDownBaseCore'
+
+======================================================================
+ERROR: test_receipt_preserves_money_signs_discount_order_and_payment (test_pdf_acceptance.PublicPDFAcceptanceTests.test_receipt_preserves_money_signs_discount_order_and_payment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/MarkItDown-exe/tests/test_pdf_acceptance.py", line 116, in test_receipt_preserves_money_signs_discount_order_and_payment
+    text=self.convert('upstream-receipt.pdf',1,905)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/MarkItDown-exe/tests/test_pdf_acceptance.py", line 52, in convert
+    subprocess.run([executable,'--cli',str(source),str(self.output),'--reserve-mib','0',
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/markitdown-c04-base-dist-final/MarkItDownBaseCore/MarkItDownBaseCore'
+
+======================================================================
+ERROR: test_sparse_inventory_exact_structure_and_content (test_pdf_acceptance.PublicPDFAcceptanceTests.test_sparse_inventory_exact_structure_and_content)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/MarkItDown-exe/tests/test_pdf_acceptance.py", line 71, in test_sparse_inventory_exact_structure_and_content
+    text=self.convert('upstream-sparse.pdf',2,1397)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/MarkItDown-exe/tests/test_pdf_acceptance.py", line 52, in convert
+    subprocess.run([executable,'--cli',str(source),str(self.output),'--reserve-mib','0',
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/markitdown-c04-base-dist-final/MarkItDownBaseCore/MarkItDownBaseCore'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.142s
+
+FAILED (errors=4)
+Traceback (most recent call last):
+  File "/workspace/MarkItDown-exe/scripts/check_layout_acceptance.py", line 72, in <module>
+    if args.executable:report['executable_sha256']=hashlib.sha256(executable.read_bytes()).hexdigest()
+                                                                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/markitdown-c04-base-dist-final/MarkItDownBaseCore/MarkItDownBaseCore'

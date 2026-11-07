@@ -8,5 +8,5 @@
   "native_ocr_required": true,
   "native_ocr_integrated": false,
   "release_ready": false,
-  "scope": "C04 dependency split only; Magika still requires CPU ONNX Runtime. Native Tesseract, frozen profiles and Windows acceptance remain pending."
+  "scope": "C04 dependency split and Linux frozen core development profile; Magika still requires CPU ONNX Runtime. Native Tesseract, full profile and Windows acceptance remain pending."
 }

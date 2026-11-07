@@ -32,6 +32,10 @@ def sample_pdf(path):
 
 
 def verify_help():
+    from .build_profile import load_profile, verify_assets
+    profile = load_profile()
+    if profile is not None:
+        return verify_assets(profile)
     root=Path(resources.files('desktop_app').joinpath('data'))
     for name in ('user-guide.md','third-party.md'):
         if len((root/name).read_text(encoding='utf-8'))<100:raise RuntimeError('Offline guide missing')
@@ -54,13 +58,18 @@ def _convert(source,destination,backend='tesseract'):
     return destination.read_text(encoding='utf-8')
 
 
-def collect_report():
+def collect_report(scope='full'):
+    from .build_profile import load_profile, verify_runtime
+    profile = load_profile()
+    if scope not in ('core', 'full') or (profile is None and scope != 'full'):
+        raise ValueError('core 範圍只適用於內含明確 profile 的建置。')
     report={'schema_version':1,'recorded_at':datetime.now(timezone.utc).isoformat(),
             'platform':platform.system(),'architecture':platform.machine(),
             'python':platform.python_version(),'frozen':bool(getattr(sys,'frozen',False)),
             'external_python_required':not bool(getattr(sys,'frozen',False)),
             'checks':[],'scope':'Generated samples, CPU only; no general quality, GPU or human desktop acceptance',
-            'tesseract_bundled':False}
+            'tesseract_bundled':False,'profile':profile['id'] if profile else 'legacy-development',
+            'requested_scope':scope,'release_ready':False,'full_c04_complete':False}
     def check(name,operation):
         try:
             detail=operation()
@@ -72,7 +81,10 @@ def collect_report():
         from .onnx_ocr import verify_models
         verify_models()
         return 'Three pinned ONNX model hashes verified'
-    check('onnx_model_integrity',models)
+    if profile is None:
+        check('onnx_model_integrity',models)
+    else:
+        check('base_runtime_integrity',lambda:verify_runtime(profile))
     with tempfile.TemporaryDirectory(prefix='markitdown-self-test-') as directory:
         root=Path(directory)
         def text():
@@ -103,8 +115,18 @@ def collect_report():
             if 'ONNX SCAN TEST 12345' not in content or 'route: ocr' not in content:
                 raise RuntimeError('Scanned PDF OCR content/routing mismatch')
             return 'ONNX CPU scan without external Tesseract'
-        check('onnx_scanned_pdf_spawn',scanned)
+        if profile is None:
+            check('onnx_scanned_pdf_spawn',scanned)
+        elif scope == 'full':
+            # C03 尚未提供內含引擎；不得借用 PATH／本機安裝冒充基本包已備妥。
+            def missing_native():
+                raise RuntimeError('基本包原生 Tesseract／雙語模型尚未整合；C03 待完成。')
+            check('bundled_tesseract_bilingual',missing_native)
     report['complete']=all(item['outcome']=='passed' for item in report['checks'])
+    report['core_complete']=all(item['outcome']=='passed' for item in report['checks']
+                                if item['name']!='bundled_tesseract_bilingual')
+    report['native_ocr_required']=bool(profile)
+    report['native_ocr_integrated']=False
     return report
 
 
@@ -124,9 +146,17 @@ def write_report(report,path):
 def main(argv=None):
     parser=argparse.ArgumentParser(description='Offline installation self-test; generated samples only')
     parser.add_argument('--report',type=Path,required=True)
+    parser.add_argument('--scope',choices=('full','core'),default='full',help='core 僅驗明確 profile 的核心，不能代表完整基本版')
     args=parser.parse_args(argv)
     if args.report.exists():parser.error('Report already exists; select a new report path')
-    report=collect_report();write_report(report,args.report)
+    try:
+        report=collect_report() if args.scope=='full' else collect_report(scope=args.scope)
+    except Exception as exc:
+        report={'schema_version':1,'recorded_at':datetime.now(timezone.utc).isoformat(),
+                'profile':'invalid','requested_scope':args.scope,'complete':False,'core_complete':False,
+                'release_ready':False,'checks':[{'name':'build_profile','outcome':'failed',
+                                                'detail':f'{type(exc).__name__}: {exc}'}]}
+    write_report(report,args.report)
     return 0 if report['complete'] else 1
 
 

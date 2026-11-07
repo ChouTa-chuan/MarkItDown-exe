@@ -1,0 +1,433 @@
+{
+  "scope": "Actual installed runtime metadata/notices, not final redistribution clearance",
+  "packages": [
+    {
+      "name": "beautifulsoup4",
+      "version": "4.15.0",
+      "notice_files": [
+        "licenses/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/AUTHORS",
+        "licenses/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23",
+      "notice_files": [
+        "licenses/installed/certifi/original/certifi-2026.10.23.dist-info/licenses/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "cffi",
+      "version": "2.1.1",
+      "notice_files": [
+        "licenses/installed/cffi/original/cffi-2.1.1.dist-info/licenses/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "notice_files": [
+        "licenses/installed/charset-normalizer/original/charset_normalizer-3.5.2.dist-info/licenses/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "notice_files": [
+        "licenses/installed/click/original/click-8.5.0.dist-info/licenses/LICENSE.txt"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "cobble",
+      "version": "0.1.4",
+      "notice_files": [],
+      "supplemental_sources": [
+        {
+          "name": "cobble",
+          "url": "https://raw.githubusercontent.com/mwilliamson/python-cobble/a4f92a3462303c1402c8c55e3b5a45fa3bc2fa37/README.rst",
+          "sha256": "d6d46202db973b560d2f521dced9110b3e0a46d9a75e1428dade8b7608dd0cca",
+          "bytes": 1770,
+          "note": "Original README declares BSD-2-Clause; license text absent from wheel/source root.",
+          "path": "licenses/supplemental/cobble.txt"
+        }
+      ]
+    },
+    {
+      "name": "cryptography",
+      "version": "50.0.2",
+      "notice_files": [
+        "licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE",
+        "licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+        "licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "defusedxml",
+      "version": "0.7.1",
+      "notice_files": [
+        "licenses/installed/defusedxml/original/defusedxml-0.7.1.dist-info/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "et-xmlfile",
+      "version": "2.0.0",
+      "notice_files": [
+        "licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.python",
+        "licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.rst"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19",
+      "notice_files": [],
+      "supplemental_sources": [
+        {
+          "name": "flatbuffers",
+          "url": "https://raw.githubusercontent.com/google/flatbuffers/7e163021e59cca4f8e1e35a7c828b5c6b7915953/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "bytes": 11358,
+          "path": "licenses/supplemental/flatbuffers.txt"
+        }
+      ]
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "notice_files": [
+        "licenses/installed/idna/original/idna-3.20.dist-info/licenses/LICENSE.md"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "lxml",
+      "version": "6.1.3",
+      "notice_files": [
+        "licenses/installed/lxml/original/lxml-6.1.3.dist-info/licenses/LICENSE.txt",
+        "licenses/installed/lxml/original/lxml-6.1.3.dist-info/licenses/LICENSES.txt"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "magika",
+      "version": "1.0.3",
+      "notice_files": [],
+      "supplemental_sources": [
+        {
+          "name": "magika",
+          "url": "https://raw.githubusercontent.com/google/magika/5cbb4fdc301d606e4ea8a3d8b42fa040a9aff060/LICENSE",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+          "bytes": 11357,
+          "path": "licenses/supplemental/magika.txt"
+        }
+      ]
+    },
+    {
+      "name": "mammoth",
+      "version": "1.13.0",
+      "notice_files": [
+        "licenses/installed/mammoth/original/mammoth-1.13.0.dist-info/licenses/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "markdownify",
+      "version": "1.2.3",
+      "notice_files": [
+        "licenses/installed/markdownify/original/markdownify-1.2.3.dist-info/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "markitdown",
+      "version": "0.1.9",
+      "notice_files": [
+        "licenses/installed/markitdown/original/markitdown-0.1.9.dist-info/licenses/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "markitdown-desktop",
+      "version": "0.9.0",
+      "notice_files": [],
+      "supplemental_sources": []
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.4",
+      "notice_files": [
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+        "licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+        "licenses/installed/numpy/original/numpy/_core/include/numpy/random/LICENSE.txt",
+        "licenses/installed/numpy/original/numpy/ma/LICENSE",
+        "licenses/installed/numpy/original/numpy/random/LICENSE.md"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.31.1",
+      "notice_files": [
+        "licenses/installed/onnxruntime/original/onnxruntime/LICENSE",
+        "licenses/installed/onnxruntime/original/onnxruntime/ThirdPartyNotices.txt"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "openpyxl",
+      "version": "3.1.5",
+      "notice_files": [
+        "licenses/installed/openpyxl/original/openpyxl-3.1.5.dist-info/LICENCE.rst"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "notice_files": [
+        "licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE",
+        "licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+        "licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.BSD"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "pandas",
+      "version": "3.1.0",
+      "notice_files": [
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+        "licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "pdfminer-six",
+      "version": "20251230",
+      "notice_files": [
+        "licenses/installed/pdfminer-six/original/pdfminer_six-20251230.dist-info/licenses/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "pdfplumber",
+      "version": "0.11.9",
+      "notice_files": [
+        "licenses/installed/pdfplumber/original/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "pillow",
+      "version": "13.0.0",
+      "notice_files": [
+        "licenses/installed/pillow/original/pillow-13.0.0.dist-info/licenses/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2",
+      "notice_files": [
+        "licenses/installed/protobuf/original/protobuf-7.36.2.dist-info/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2",
+      "notice_files": [
+        "licenses/installed/psutil/original/psutil-7.2.2.dist-info/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "pycparser",
+      "version": "3.12",
+      "notice_files": [
+        "licenses/installed/pycparser/original/pycparser-3.12.dist-info/licenses/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "pypdfium2",
+      "version": "5.14.0",
+      "notice_files": [
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/LICENSES/Apache-2.0.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/LICENSES/BSD-3-Clause.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/LICENSES/CC-BY-4.0.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/abseil.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/agg23.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/fast_float.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/freetype.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/icu.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/lcms.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libjpeg_turbo.ijg",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libjpeg_turbo.md",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libopenjpeg.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libpng.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/llvm-libc.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/pdfium-binaries.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/pdfium.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/simdutf.txt",
+        "licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/zlib.txt"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "pyside6-essentials",
+      "version": "6.12.0",
+      "notice_files": [],
+      "supplemental_sources": [
+        {
+          "name": "qt-lgpl3",
+          "url": "https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/LICENSES/LGPL-3.0-only.txt",
+          "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+          "bytes": 7651,
+          "path": "licenses/supplemental/qt-lgpl3.txt"
+        },
+        {
+          "name": "qt-gpl3",
+          "url": "https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/LICENSES/GPL-3.0-only.txt",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+          "bytes": 35147,
+          "path": "licenses/supplemental/qt-gpl3.txt"
+        }
+      ]
+    },
+    {
+      "name": "python-dateutil",
+      "version": "4.0.0",
+      "notice_files": [
+        "licenses/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md",
+        "licenses/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "python-pptx",
+      "version": "1.0.2",
+      "notice_files": [
+        "licenses/installed/python-pptx/original/python_pptx-1.0.2.dist-info/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "notice_files": [
+        "licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/LICENSE",
+        "licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/NOTICE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "shiboken6",
+      "version": "6.12.0",
+      "notice_files": [],
+      "supplemental_sources": [
+        {
+          "name": "qt-lgpl3",
+          "url": "https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/LICENSES/LGPL-3.0-only.txt",
+          "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+          "bytes": 7651,
+          "path": "licenses/supplemental/qt-lgpl3.txt"
+        },
+        {
+          "name": "qt-gpl3",
+          "url": "https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/LICENSES/GPL-3.0-only.txt",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+          "bytes": 35147,
+          "path": "licenses/supplemental/qt-gpl3.txt"
+        }
+      ]
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "notice_files": [
+        "licenses/installed/six/original/six-1.17.0.dist-info/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "soupsieve",
+      "version": "4.0",
+      "notice_files": [
+        "licenses/installed/soupsieve/original/soupsieve-4.0.dist-info/licenses/LICENSE.md"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "notice_files": [
+        "licenses/installed/typing-extensions/original/typing_extensions-4.16.0.dist-info/licenses/LICENSE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "notice_files": [
+        "licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/LICENSE",
+        "licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "notice_files": [
+        "licenses/installed/urllib3/original/urllib3-2.8.0.dist-info/licenses/LICENSE.txt"
+      ],
+      "supplemental_sources": []
+    },
+    {
+      "name": "xlsxwriter",
+      "version": "3.3.1",
+      "notice_files": [
+        "licenses/installed/xlsxwriter/original/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt"
+      ],
+      "supplemental_sources": []
+    }
+  ]
+}

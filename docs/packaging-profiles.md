@@ -1,6 +1,6 @@
 # C04：基本版依賴拆分
 
-2026-11-08（台北），程式 **0.8.1**、架構 **0.4**。本輪完成 C04 的「基本版 Python 閉包、雜湊鎖定與既有授權核對」子檢核；**完整 C04 未關閉，已驗收仍為 7/12**，既有 **19/25**。
+2026-11-08（台北），程式 **0.9.0**、架構 **0.4**。已完成 C04 的「基本依賴拆分」及「Linux 基本核心打包／自檢」兩個子檢核；**完整 C04 未關閉，已驗收仍為 7/12**，既有 **19/25**。
 
 ## 已完成的拆分
 
@@ -42,14 +42,42 @@ Windows metadata 逐一比對既有 wheel 原文與授權雜湊；Linux metadata
 
 重現入口為 [check_base_profile.py](../scripts/check_base_profile.py)：完整環境先用 `--prepare-fixtures --fixtures <新資料夾>`，乾淨 Linux 基本環境再用 `--fixtures <資料夾> --output <新輸出資料夾>`。執行前需將本地專案 wheel 安裝進基本 venv；只有本地 wheel 使用 `--no-deps`，第三方依賴必須先按新 lock 加 `--require-hashes` 安裝。
 
-本輪 **15 項新測試**，含平台 marker、延遲 extras、循環、版本衝突、缺閉包、授權／metadata／hash 改動及選配混入反例。子檢核與格式／核心／裝置／授權回歸 **52/52**，乾淨基本環境實際驗收 **6/6**；全專案 **424 項：423 通過、1 既有繁體品質預期失敗、0 跳過**。樣本與原始結果見[本輪開發紀錄](development-records/runs/c04-locks-2026-11-08/README.md)。
+0.8.1 的依賴拆分新增 **15 項測試**，含平台 marker、延遲 extras、循環、版本衝突、缺閉包、授權／metadata／hash 改動及選配混入反例。子檢核與格式／核心／裝置／授權回歸 **52/52**，乾淨基本環境實際驗收 **6/6**；全專案 **424 項：423 通過、1 既有繁體品質預期失敗、0 跳過**。樣本與原始結果見[依賴拆分紀錄](development-records/runs/c04-locks-2026-11-08/README.md)。
+
+## 0.9.0：Linux 基本核心獨立程式與自檢
+
+新增 `packaging/base.spec`，保留原 `desktop.spec` 與 Windows 開發流程。必須使用已按 base build lock 安裝的獨立 x64 CPython 3.12 venv；`prepare_base_assets.py` 核對套件集合、版號與目前專案版本，再選取 38 個 runtime、兩個本地專案的實際 METADATA／可取得原授權，以及實際 Python 授權。禁止直接使用完整開發環境，未混入 RapidOCR／OpenCV／OCR 模型或測試產生工具。
+
+新的 build profile 清單與全部資產雜湊內嵌於 `desktop_app/data/build-profile.json`。PyInstaller 收集實際 binary 的來源及系統 copyright，型別辨識保留 Magika／CPU ONNX Runtime。wheel 的授權目錄也納入擷取，避免漏掉以 Apache-2.0.txt 等命名的原文；缺少 wheel 原文的套件另保留既有、具來源／hash 的官方補充文字。來源證據與可取得原文不等於完成全部授權／Qt 再散布義務或原生 OCR 審核。
+
+| 自檢 | 結果與解讀 |
+| --- | --- |
+| `--self-test --scope core --report <新檔案>` | 基本資產、固定 runtime／選配缺席、Unicode 文字 spawn、原生 PDF 四項通過；`complete: true` 僅限 core |
+| `--self-test --report <新檔案>` | 四項 core 加必要內含 OCR；因 C03 未整合，第五項失敗，退出碼 1，`complete: false` |
+| 兩種範圍共通 | `release_ready: false`、`native_ocr_integrated: false`、`full_c04_complete: false`，不能以 core 通過發布完整基本版 |
+
+沒有 profile 的來源／歷史開發包保留原五項 ONNX 自檢；使用者不能用 CLI 任意改選 profile。缺少原生引擎的判斷依內含能力，不借用系統 Tesseract；損壞 profile 仍保存失敗報告。輸出檔案保護沿用，既有證據不覆寫。
+
+在獨立基本 build venv 安裝本地專案後，依序執行以下步驟，**等待建置命令成功結束再啟動驗收**。目錄均須使用新的位置：
+
+```bash
+python scripts/prepare_base_assets.py --output /tmp/base-assets
+MARKITDOWN_BASE_ASSETS=/tmp/base-assets python -m PyInstaller --noconfirm --clean --distpath /tmp/base-dist --workpath /tmp/base-work packaging/base.spec
+python scripts/check_base_frozen.py --executable /tmp/base-dist/MarkItDownBaseCore/MarkItDownBaseCore --fixtures <已驗 hash 的合成來源目錄> --output /tmp/base-results
+```
+
+上例是 Linux；Windows 必須在原生 Windows 建置並用 PowerShell 設定同名環境變數，不能直接用 Linux 產物當 EXE。合成來源可沿用 0.8.1 的產生器／固定 SHA-256，由完整測試環境產生，驗收控制端與實際 frozen 程式分開。
+
+新增 **16 項 profile／診斷測試**，子檢核含依賴／授權／核心／格式／裝置／Qt **86/86**；實際 frozen **7/7**，另有四份公開 PDF 的 **5/5**，保存原文字元、逐格表格、金額與順序。從新工作目錄、空 PATH／空 TESSDATA_PREFIX／空 PYTHONPATH 執行核心及六格式檢查，不需外部 Python 或 OCR；缺少原生／選配 OCR 都失敗且不留下輸出。全專案 **440 項：439 通過、1 既有繁體品質預期失敗、0 跳過**。
+
+實際原文、binary 來源、完整 bundle 檔案雜湊、core／full 報告及中間紀錄見[本輪紀錄](development-records/runs/c04-build-2026-11-08/README.md)。沒有把故意缺 OCR 的完整自檢失敗計作 OCR 功能通過；測試驗證的是能正確拒絕就緒。
 
 ## 接續工作
 
-1. 將 profile 接進 PyInstaller、授權選取與 profile 專用自我檢查；舊 diagnostics 仍要求開發包內含 ONNX OCR，尚未替換。
+1. 完成 C03 原生引擎後擴充基本 profile 的完整 OCR 自檢，並對選配 profile 分別產生原生清單與證據。
 2. C03 固定 Windows Tesseract、必要 DLL、雙語模型與原始授權，再整合基本包與離線自動設定。
 3. 基本版與選配各自實際產生原生 bundle、清單、授權及自檢；Windows 乾淨環境驗證後才能關閉完整 C04／C09，GPU 另待 C12。
 
-既有 `packaging/desktop.spec`、`build-windows.ps1` 與手動 Windows workflow 仍使用原開發包，不因加入 profile 鎖定就變成基本版發行管線。本輪未重建 frozen／Windows 安裝包、發布目錄／金鑰、建立 tag／Release 或觸發手動發行。ONNX 繁體品質缺口、Windows／GPU 實機與 RAM 軟性預算限制保留。
+既有 `packaging/desktop.spec`、`build-windows.ps1` 與手動 Windows workflow 仍使用原開發包，不因加入 profile 鎖定就變成基本版發行管線。本輪僅重建 Linux 基本核心 frozen，未建 Windows 安裝包、發布目錄／金鑰、建立 tag／Release 或觸發手動發行。ONNX 繁體品質缺口、Windows／GPU 實機與 RAM 軟性預算限制保留。
 
 [架構指引](architecture-guide.md) · [開發進度](progress.html) · [版本差異](../CHANGELOG.md)

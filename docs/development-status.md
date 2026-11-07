@@ -2,7 +2,15 @@
 
 更新：2026-11-08。互動視覺版見 [里程碑／模組](progress.html)。
 
-## 本輪交付：C04 基本版依賴拆分子檢核
+## 本輪交付：C04 基本核心打包／自檢子檢核
+
+- 程式 **0.8.1 → 0.9.0**、架構 **0.4**。完成 C04 第二項子檢核（Linux 基本核心 PyInstaller／自檢），C04 為 **2/4**，整項未關閉，總數仍 **7/12**，既有 **19/25**。
+- 新增基本 spec、實際 runtime 授權／來源／資產準備器及內嵌 profile；38 個 runtime 保留，排除 RapidOCR／OpenCV／OCR 模型。從獨立 build 環境原生建置，實際 binary 來源、原授權與 bundle hash 另存；完整再散布／native／Windows 待驗。
+- core 自檢四項通過，full 自檢因缺 C03 原生 OCR 正確退出失敗；兩者均明列 release_ready false，不借用系統引擎。來源與舊開發包的五項 ONNX 自檢沿用，損壞 profile 仍保存失敗報告。
+- 新增 **16 項**，子檢核含回歸 **86/86**；實際獨立程式 **7/7**（含六格式、空 PATH、缺 OCR 拒絕），公開 PDF **5/5**；全專案 **440 項：439 通過、1 既有繁體品質預期失敗、0 跳過**。
+- [原始建置與驗收、資產／授權／來源、輸出](development-records/runs/c04-build-2026-11-08/README.md)獨立保存。完整 C04／C09、C03 原生引擎及 Windows／GPU 仍待後續，沒有 tag／Release 或手動 Windows 發行。
+
+## 前輪交付：C04 基本版依賴拆分子檢核
 
 - 程式 **0.8.0 → 0.8.1**、架構 **0.4**。完成 [基本版 Python 閉包／hash／既有授權](packaging-profiles.md)，完整 C04 未關閉，新導入維持 **7/12**，既有 **19/25**。
 - 新增 Linux／Windows 的 runtime 38 套件、build 47／49 套件鎖定；原版本與全部 SHA-256 沿用，原上位 55／58 套件清單不變。保留 Magika 必要 ONNX Runtime／NumPy，拆除 RapidOCR 及 OCR 相依、測試產生工具。
@@ -93,7 +101,7 @@
 
 ## 驗證
 
-- 本輪乾淨 Linux venv：424 項檢查，423 通過、1 品質預期失敗、0 跳過。保留的未達標項為 ONNX 繁體辨識，不列為品質通過。
+- 本輪乾淨 Linux venv：440 項檢查，439 通過、1 品質預期失敗、0 跳過。保留的未達標項為 ONNX 繁體辨識，不列為品質通過。
 - 品質缺口追蹤：test_traditional_chinese_quality_known_gap 保留嚴格斷言，模型改善後須移除 expectedFailure。
 - 品質比較已擴充四份合成樣本。原 17 字會議樣本：Tesseract 0 差異、ONNX 2；另有金額樣本兩者各 1 差異。原文、輸出及核對結果見 ocr-quality-sample.json，不代表真實文件準確率。
 - ONNX 英文掃描 CPU 推論可用；CUDA 記憶體／provider／回退分支為模擬測試，沒有真實 GPU 推論。
@@ -111,16 +119,16 @@
 | 4 GPU／模型 | 1/3 | GPU 真實推論、VRAM／回退實機驗收 |
 | 5 發佈 | 1/3 | 授權清單與使用說明完成；Windows 安裝包及實機驗收未完成 |
 
-既有基線維持 19/25，等權檢核而非工時或新版產品完成率。此前完成版面驗收與 Windows 安裝／驗收來源，但未關閉實機檢核。此前完成 C10 自動能力協作；本輪完成 C04 依賴拆分子檢核，新增導入維持 7/12；C09 全項仍待基本包自帶 OCR，不合併或更改原分母。已通過的舊授權／模型管理基線不代表新增 native／選配元件也已驗收。
+既有基線維持 19/25，等權檢核而非工時或新版產品完成率。此前完成版面驗收與 Windows 安裝／驗收來源，但未關閉實機檢核。此前完成 C10 自動能力協作；本輪完成 C04 基本核心打包／自檢子檢核，新增導入維持 7/12；C09 全項仍待基本包自帶 OCR，不合併或更改原分母。已通過的舊授權／模型管理基線不代表新增 native／選配元件也已驗收。
 
 ## 後續
 
 - C01／C02／C05／C06／C07／C08／C10 完成；C09 全項待 C03／C04 基本包，後續補 Windows／GPU 實機與發行證據。C03／C04 Windows OCR／profile 仍需 Windows 執行器。
-- C04 已完成基本 Python 閉包，接續 profile 打包／自檢與選配規格；C03 補 Windows 基本 Tesseract；現有 diagnostics 強制 ONNX 的假設須調整。
+- C04 已完成基本 Python 閉包與 Linux 核心打包／自檢，接續原生基本版與選配規格；C03 補 Windows 基本 Tesseract；現有 diagnostics 強制 ONNX 的假設須調整。
 - 以真實繁中、低品質、旋轉與複雜表格建立品質資料集；ONNX 未達標前不取代 Tesseract。
 - Windows 原生 OCR 打包、乾淨機及 GPU 硬體驗收；目前沒有相應機器，不能將模擬視為完成。
 - Windows 最終二進位／Qt 再散布審核、安裝精靈、簽章、磁碟配額、崩潰清理及硬性資源限制仍待完成；鎖定依賴授權清單與操作手冊已完成。
 - ONNX CPU 模型隨套件提供，不需額外 OCR 執行檔；Tesseract 原生檔仍未整合進 Windows 包。
 - 原生函式期間無法立即暫停，RAM／GPU arena 都不是整機硬性上限。
 
-本輪為 0.8.1 C04 依賴拆分子檢核；完整 profile 打包／自檢未驗收，完整 C09 仍待基本包，正式來源與 Windows／GPU 尚待後續。依使用者要求同步 GitHub main，實際同步以遠端提交查核；不自動啟動手動 Windows CI、建立 tag 或發布 Release。
+本輪為 0.9.0 C04 基本核心打包／自檢子檢核；完整 native profile／Windows 未驗收，完整 C09 仍待基本包，正式來源與 Windows／GPU 尚待後續。依使用者要求同步 GitHub main，實際同步以遠端提交查核；不自動啟動手動 Windows CI、建立 tag 或發布 Release。

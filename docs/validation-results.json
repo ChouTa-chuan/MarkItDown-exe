@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-07T21:17:34.452202+00:00",
+  "recorded_at": "2026-11-07T21:57:49.216630+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 424,
-    "passed": 423,
+    "run": 440,
+    "passed": 439,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -151,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.8.1",
+  "source_version": "0.9.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -179,7 +179,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C10 requires exact active component/version/capability on OCR pages and revalidates leased health; original C01 report retained"
   },
-  "current_run_scope": "0.8.1 installed full regression; C04 base dependency split, platform/extras/version closure and original Windows notice verification. Separate isolated 38-package Linux venv: six formats, Qt batch, empty PATH and missing native OCR rejection. No frozen/native/Windows rebuild.",
+  "current_run_scope": "0.9.0 installed full regression; embedded base profile and core/full self-test semantics. Actual Linux frozen core from isolated base build lock: 38 runtime versions, 235 hashed assets, selected actual notices/native origins, six formats with empty PATH and four public PDFs. Full self-test rejects absent native OCR; Windows/GPU not executed.",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -375,5 +375,31 @@
     "original_locks_unchanged": true,
     "original_license_assets_unchanged": true,
     "evidence": "development-records/runs/c04-locks-2026-11-08/README.md"
+  },
+  "base_frozen_core": {
+    "check": "C04-build",
+    "subcheck_accepted": true,
+    "full_c04_complete": false,
+    "full_c09_complete": false,
+    "new_tests": 16,
+    "acceptance_tests": 86,
+    "actual_frozen_checks": 7,
+    "public_pdf_checks": 5,
+    "core_checks_passed": 4,
+    "full_self_test_complete": false,
+    "full_self_test_exitcode": 1,
+    "native_ocr_bundled": false,
+    "release_ready": false,
+    "runtime_packages": 38,
+    "hashed_assets": 235,
+    "actual_installed_notice_packages": 40,
+    "actual_wheel_notice_files": 99,
+    "native_binary_origins": 256,
+    "system_copyright_packages": 75,
+    "bundle_files": 1177,
+    "bundle_file_bytes": 352814293,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "evidence": "development-records/runs/c04-build-2026-11-08/README.md"
   }
 }

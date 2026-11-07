@@ -1,0 +1,1843 @@
+{
+  "scope": "Actual bundled binaries and native package copyright evidence; final Windows/native release clearance remains pending",
+  "files": [
+    {
+      "file": "libpython3.12.so.1.0",
+      "source_basename": "libpython3.12.so.1.0",
+      "origin": "python-runtime",
+      "system_package": null
+    },
+    {
+      "file": "pypdfium2_raw/libpdfium.so",
+      "source_basename": "libpdfium.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "onnxruntime/capi/libonnxruntime_providers_shared.so",
+      "source_basename": "libonnxruntime_providers_shared.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/networkinformation/libqglib.so",
+      "source_basename": "libqglib.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/networkinformation/libqnetworkmanager.so",
+      "source_basename": "libqnetworkmanager.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/tls/libqcertonlybackend.so",
+      "source_basename": "libqcertonlybackend.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libcrypto.so.3",
+      "source_basename": "libcrypto.so.3",
+      "origin": "system-native",
+      "system_package": "libssl3t64"
+    },
+    {
+      "file": "libssl.so.3",
+      "source_basename": "libssl.so.3",
+      "origin": "system-native",
+      "system_package": "libssl3t64"
+    },
+    {
+      "file": "PySide6/Qt/plugins/tls/libqopensslbackend.so",
+      "source_basename": "libqopensslbackend.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/networkinformation/libqconnman.so",
+      "source_basename": "libqconnman.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platforminputcontexts/libibusplatforminputcontextplugin.so",
+      "source_basename": "libibusplatforminputcontextplugin.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/wayland-shell-integration/libivi-shell.so",
+      "source_basename": "libivi-shell.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/xcbglintegrations/libqxcb-egl-integration.so",
+      "source_basename": "libqxcb-egl-integration.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platforms/libqminimal.so",
+      "source_basename": "libqminimal.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/imageformats/libqwbmp.so",
+      "source_basename": "libqwbmp.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/generic/libqevdevtabletplugin.so",
+      "source_basename": "libqevdevtabletplugin.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/generic/libqevdevmouseplugin.so",
+      "source_basename": "libqevdevmouseplugin.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platforms/libqvnc.so",
+      "source_basename": "libqvnc.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/iconengines/libqsvgicon.so",
+      "source_basename": "libqsvgicon.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/wayland-shell-integration/libfullscreen-shell-v1.so",
+      "source_basename": "libfullscreen-shell-v1.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/wayland-shell-integration/libqt-shell.so",
+      "source_basename": "libqt-shell.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/imageformats/libqwebp.so",
+      "source_basename": "libqwebp.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platforms/libqeglfs.so",
+      "source_basename": "libqeglfs.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platforms/libqwayland.so",
+      "source_basename": "libqwayland.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/imageformats/libqgif.so",
+      "source_basename": "libqgif.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/egldeviceintegrations/libqeglfs-kms-egldevice-integration.so",
+      "source_basename": "libqeglfs-kms-egldevice-integration.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platformthemes/libqgtk3.so",
+      "source_basename": "libqgtk3.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/imageformats/libqicns.so",
+      "source_basename": "libqicns.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/wayland-graphics-integration-client/libdmabuf-server.so",
+      "source_basename": "libdmabuf-server.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/wayland-decoration-client/libbradient.so",
+      "source_basename": "libbradient.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/wayland-graphics-integration-client/libqt-plugin-wayland-egl.so",
+      "source_basename": "libqt-plugin-wayland-egl.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/imageformats/libqjpeg.so",
+      "source_basename": "libqjpeg.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/egldeviceintegrations/libqeglfs-emu-integration.so",
+      "source_basename": "libqeglfs-emu-integration.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/imageformats/libqsvg.so",
+      "source_basename": "libqsvg.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/wayland-graphics-integration-client/libvulkan-server.so",
+      "source_basename": "libvulkan-server.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/wayland-decoration-client/libadwaita.so",
+      "source_basename": "libadwaita.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/generic/libqevdevkeyboardplugin.so",
+      "source_basename": "libqevdevkeyboardplugin.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platforms/libqxcb.so",
+      "source_basename": "libqxcb.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/imageformats/libqico.so",
+      "source_basename": "libqico.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so",
+      "source_basename": "libcomposeplatforminputcontextplugin.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platforms/libqlinuxfb.so",
+      "source_basename": "libqlinuxfb.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/imageformats/libqtiff.so",
+      "source_basename": "libqtiff.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/egldeviceintegrations/libqeglfs-x11-integration.so",
+      "source_basename": "libqeglfs-x11-integration.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/imageformats/libqtga.so",
+      "source_basename": "libqtga.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platforms/libqoffscreen.so",
+      "source_basename": "libqoffscreen.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/xcbglintegrations/libqxcb-glx-integration.so",
+      "source_basename": "libqxcb-glx-integration.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platforms/libqvkkhrdisplay.so",
+      "source_basename": "libqvkkhrdisplay.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/generic/libqevdevtouchplugin.so",
+      "source_basename": "libqevdevtouchplugin.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/generic/libqtuiotouchplugin.so",
+      "source_basename": "libqtuiotouchplugin.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/wayland-shell-integration/libxdg-shell.so",
+      "source_basename": "libxdg-shell.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platforms/libqminimalegl.so",
+      "source_basename": "libqminimalegl.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/platformthemes/libqxdgdesktopportal.so",
+      "source_basename": "libqxdgdesktopportal.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/wayland-graphics-integration-client/libshm-emulation-server.so",
+      "source_basename": "libshm-emulation-server.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/wayland-shell-integration/libwl-shell-plugin.so",
+      "source_basename": "libwl-shell-plugin.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/plugins/wayland-graphics-integration-client/libdrm-egl-server.so",
+      "source_basename": "libdrm-egl-server.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "charset_normalizer/cd.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "cd.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "charset_normalizer/md.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "md.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "lxml/etree.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "etree.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "lxml/_elementpath.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_elementpath.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "lxml/sax.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "sax.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "lxml/objectify.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "objectify.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "lxml/html/diff.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "diff.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "lxml/html/_difflib.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_difflib.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "lxml/builder.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "builder.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PIL/_webp.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_webp.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PIL/_imagingtk.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_imagingtk.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PIL/_avif.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_avif.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PIL/_imagingcms.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_imagingcms.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/_core/_multiarray_tests.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_multiarray_tests.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/_core/_multiarray_umath.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_multiarray_umath.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "psutil/_psutil_linux.abi3.so",
+      "source_basename": "_psutil_linux.abi3.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/linalg/_umath_linalg.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_umath_linalg.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/mtrand.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "mtrand.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/bit_generator.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "bit_generator.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_sfc64.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_sfc64.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_philox.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_philox.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_pcg64.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_pcg64.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_mt19937.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_mt19937.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_generator.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_generator.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_common.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_common.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/random/_bounded_integers.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_bounded_integers.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy/fft/_pocketfft_umath.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_pocketfft_umath.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PIL/_imaging.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_imaging.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PIL/_imagingft.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_imagingft.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/writers.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "writers.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/window/indexers.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "indexers.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/window/aggregations.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "aggregations.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/vectorized.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "vectorized.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/tzconversion.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "tzconversion.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/timezones.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "timezones.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/timestamps.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "timestamps.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/timedeltas.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "timedeltas.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/strptime.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "strptime.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/period.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "period.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/parsing.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "parsing.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/offsets.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "offsets.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/np_datetime.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "np_datetime.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/nattype.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "nattype.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/fields.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "fields.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/dtypes.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "dtypes.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/conversion.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "conversion.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/ccalendar.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "ccalendar.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslibs/base.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "base.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/tslib.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "tslib.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/testing.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "testing.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/sparse.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "sparse.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/sas.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "sas.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/reshape.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "reshape.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/properties.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "properties.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/parsers.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "parsers.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/pandas_parser.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "pandas_parser.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/pandas_datetime.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "pandas_datetime.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/ops_dispatch.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "ops_dispatch.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/ops.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "ops.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/missing.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "missing.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/lib.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "lib.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/join.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "join.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/interval.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "interval.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/internals.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "internals.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/indexing.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "indexing.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/index.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "index.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/hashtable.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "hashtable.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/hashing.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "hashing.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/groupby.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "groupby.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/byteswap.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "byteswap.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/arrays.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "arrays.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/algos.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "algos.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/_ujson.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_ujson.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pandas/_libs/_cyutility.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_cyutility.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "cryptography/hazmat/bindings/_rust.abi3.so",
+      "source_basename": "_rust.abi3.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "_cffi_backend.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "_cffi_backend.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "onnxruntime/capi/onnxruntime_pybind11_state.cpython-312-x86_64-linux-gnu.so",
+      "source_basename": "onnxruntime_pybind11_state.cpython-312-x86_64-linux-gnu.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/QtWidgets.abi3.so",
+      "source_basename": "QtWidgets.abi3.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/QtDBus.abi3.so",
+      "source_basename": "QtDBus.abi3.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "shiboken6/Shiboken.abi3.so",
+      "source_basename": "Shiboken.abi3.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/QtNetwork.abi3.so",
+      "source_basename": "QtNetwork.abi3.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/QtGui.abi3.so",
+      "source_basename": "QtGui.abi3.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/QtCore.abi3.so",
+      "source_basename": "QtCore.abi3.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libgcc_s.so.1",
+      "source_basename": "libgcc_s.so.1",
+      "origin": "system-native",
+      "system_package": "libgcc-s1"
+    },
+    {
+      "file": "libstdc++.so.6",
+      "source_basename": "libstdc++.so.6.0.33",
+      "origin": "system-native",
+      "system_package": "libstdc++6"
+    },
+    {
+      "file": "libbrotlicommon.so.1",
+      "source_basename": "libbrotlicommon.so.1.1.0",
+      "origin": "system-native",
+      "system_package": "libbrotli1"
+    },
+    {
+      "file": "libbrotlidec.so.1",
+      "source_basename": "libbrotlidec.so.1.1.0",
+      "origin": "system-native",
+      "system_package": "libbrotli1"
+    },
+    {
+      "file": "PySide6/Qt/lib/libicui18n.so.73",
+      "source_basename": "libicui18n.so.73",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libkrb5.so.3",
+      "source_basename": "libkrb5.so.3.3",
+      "origin": "system-native",
+      "system_package": "libkrb5-3"
+    },
+    {
+      "file": "libglib-2.0.so.0",
+      "source_basename": "libglib-2.0.so.0.8400.4",
+      "origin": "system-native",
+      "system_package": "libglib2.0-0t64"
+    },
+    {
+      "file": "libblkid.so.1",
+      "source_basename": "libblkid.so.1.1.0",
+      "origin": "system-native",
+      "system_package": "libblkid1"
+    },
+    {
+      "file": "libkeyutils.so.1",
+      "source_basename": "libkeyutils.so.1.10",
+      "origin": "system-native",
+      "system_package": "libkeyutils1"
+    },
+    {
+      "file": "libselinux.so.1",
+      "source_basename": "libselinux.so.1",
+      "origin": "system-native",
+      "system_package": "libselinux1"
+    },
+    {
+      "file": "libgmodule-2.0.so.0",
+      "source_basename": "libgmodule-2.0.so.0.8400.4",
+      "origin": "system-native",
+      "system_package": "libglib2.0-0t64"
+    },
+    {
+      "file": "PySide6/Qt/lib/libicuuc.so.73",
+      "source_basename": "libicuuc.so.73",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libpcre2-8.so.0",
+      "source_basename": "libpcre2-8.so.0.14.0",
+      "origin": "system-native",
+      "system_package": "libpcre2-8-0"
+    },
+    {
+      "file": "libkrb5support.so.0",
+      "source_basename": "libkrb5support.so.0.1",
+      "origin": "system-native",
+      "system_package": "libkrb5support0"
+    },
+    {
+      "file": "libgio-2.0.so.0",
+      "source_basename": "libgio-2.0.so.0.8400.4",
+      "origin": "system-native",
+      "system_package": "libglib2.0-0t64"
+    },
+    {
+      "file": "libgssapi_krb5.so.2",
+      "source_basename": "libgssapi_krb5.so.2.2",
+      "origin": "system-native",
+      "system_package": "libgssapi-krb5-2"
+    },
+    {
+      "file": "libgthread-2.0.so.0",
+      "source_basename": "libgthread-2.0.so.0.8400.4",
+      "origin": "system-native",
+      "system_package": "libglib2.0-0t64"
+    },
+    {
+      "file": "libatomic.so.1",
+      "source_basename": "libatomic.so.1.2.0",
+      "origin": "system-native",
+      "system_package": "libatomic1"
+    },
+    {
+      "file": "libzstd.so.1",
+      "source_basename": "libzstd.so.1.5.7",
+      "origin": "system-native",
+      "system_package": "libzstd1"
+    },
+    {
+      "file": "libk5crypto.so.3",
+      "source_basename": "libk5crypto.so.3.1",
+      "origin": "system-native",
+      "system_package": "libk5crypto3"
+    },
+    {
+      "file": "libgobject-2.0.so.0",
+      "source_basename": "libgobject-2.0.so.0.8400.4",
+      "origin": "system-native",
+      "system_package": "libglib2.0-0t64"
+    },
+    {
+      "file": "PySide6/Qt/lib/libicudata.so.73",
+      "source_basename": "libicudata.so.73",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libcom_err.so.2",
+      "source_basename": "libcom_err.so.2.1",
+      "origin": "system-native",
+      "system_package": "libcom-err2"
+    },
+    {
+      "file": "PySide6/Qt/lib/libQt6Core.so.6",
+      "source_basename": "libQt6Core.so.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/lib/libQt6Network.so.6",
+      "source_basename": "libQt6Network.so.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libffi.so.8",
+      "source_basename": "libffi.so.8.1.4",
+      "origin": "system-native",
+      "system_package": "libffi8"
+    },
+    {
+      "file": "libz.so.1",
+      "source_basename": "libz.so.1.3.1",
+      "origin": "system-native",
+      "system_package": "zlib1g"
+    },
+    {
+      "file": "libmount.so.1",
+      "source_basename": "libmount.so.1.1.0",
+      "origin": "system-native",
+      "system_package": "libmount1"
+    },
+    {
+      "file": "libsystemd.so.0",
+      "source_basename": "libsystemd.so.0.40.0",
+      "origin": "system-native",
+      "system_package": "libsystemd0"
+    },
+    {
+      "file": "libdbus-1.so.3",
+      "source_basename": "libdbus-1.so.3.38.3",
+      "origin": "system-native",
+      "system_package": "libdbus-1-3"
+    },
+    {
+      "file": "libcap.so.2",
+      "source_basename": "libcap.so.2.75",
+      "origin": "system-native",
+      "system_package": "libcap2"
+    },
+    {
+      "file": "PySide6/Qt/lib/libQt6DBus.so.6",
+      "source_basename": "libQt6DBus.so.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/lib/libQt6Gui.so.6",
+      "source_basename": "libQt6Gui.so.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libfreetype.so.6",
+      "source_basename": "libfreetype.so.6.20.2",
+      "origin": "system-native",
+      "system_package": "libfreetype6"
+    },
+    {
+      "file": "libXau.so.6",
+      "source_basename": "libXau.so.6.0.0",
+      "origin": "system-native",
+      "system_package": "libxau6"
+    },
+    {
+      "file": "libexpat.so.1",
+      "source_basename": "libexpat.so.1.13.0",
+      "origin": "system-native",
+      "system_package": "libexpat1"
+    },
+    {
+      "file": "libpng16.so.16",
+      "source_basename": "libpng16.so.16.48.0",
+      "origin": "system-native",
+      "system_package": "libpng16-16t64"
+    },
+    {
+      "file": "libXdmcp.so.6",
+      "source_basename": "libXdmcp.so.6.0.0",
+      "origin": "system-native",
+      "system_package": "libxdmcp6"
+    },
+    {
+      "file": "libfontconfig.so.1",
+      "source_basename": "libfontconfig.so.1.12.1",
+      "origin": "system-native",
+      "system_package": "libfontconfig1"
+    },
+    {
+      "file": "libX11.so.6",
+      "source_basename": "libX11.so.6.4.0",
+      "origin": "system-native",
+      "system_package": "libx11-6"
+    },
+    {
+      "file": "libxkbcommon.so.0",
+      "source_basename": "libxkbcommon.so.0.0.0",
+      "origin": "system-native",
+      "system_package": "libxkbcommon0"
+    },
+    {
+      "file": "libbz2.so.1.0",
+      "source_basename": "libbz2.so.1.0.4",
+      "origin": "system-native",
+      "system_package": "libbz2-1.0"
+    },
+    {
+      "file": "PySide6/Qt/lib/libQt6WaylandClient.so.6",
+      "source_basename": "libQt6WaylandClient.so.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libxcb-icccm.so.4",
+      "source_basename": "libxcb-icccm.so.4.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-icccm4"
+    },
+    {
+      "file": "libxcb-util.so.1",
+      "source_basename": "libxcb-util.so.1.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-util1"
+    },
+    {
+      "file": "libX11-xcb.so.1",
+      "source_basename": "libX11-xcb.so.1.0.0",
+      "origin": "system-native",
+      "system_package": "libx11-xcb1"
+    },
+    {
+      "file": "libxcb-cursor.so.0",
+      "source_basename": "libxcb-cursor.so.0.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-cursor0"
+    },
+    {
+      "file": "libxcb-shape.so.0",
+      "source_basename": "libxcb-shape.so.0.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-shape0"
+    },
+    {
+      "file": "libxcb-image.so.0",
+      "source_basename": "libxcb-image.so.0.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-image0"
+    },
+    {
+      "file": "libxkbcommon-x11.so.0",
+      "source_basename": "libxkbcommon-x11.so.0.0.0",
+      "origin": "system-native",
+      "system_package": "libxkbcommon-x11-0"
+    },
+    {
+      "file": "libxcb-render-util.so.0",
+      "source_basename": "libxcb-render-util.so.0.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-render-util0"
+    },
+    {
+      "file": "libxcb-xfixes.so.0",
+      "source_basename": "libxcb-xfixes.so.0.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-xfixes0"
+    },
+    {
+      "file": "libxcb-shm.so.0",
+      "source_basename": "libxcb-shm.so.0.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-shm0"
+    },
+    {
+      "file": "PySide6/Qt/lib/libQt6XcbQpa.so.6",
+      "source_basename": "libQt6XcbQpa.so.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libxcb-xkb.so.1",
+      "source_basename": "libxcb-xkb.so.1.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-xkb1"
+    },
+    {
+      "file": "libxcb-sync.so.1",
+      "source_basename": "libxcb-sync.so.1.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-sync1"
+    },
+    {
+      "file": "libxcb-keysyms.so.1",
+      "source_basename": "libxcb-keysyms.so.1.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-keysyms1"
+    },
+    {
+      "file": "libxcb-randr.so.0",
+      "source_basename": "libxcb-randr.so.0.1.0",
+      "origin": "system-native",
+      "system_package": "libxcb-randr0"
+    },
+    {
+      "file": "libxcb-render.so.0",
+      "source_basename": "libxcb-render.so.0.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-render0"
+    },
+    {
+      "file": "PySide6/Qt/lib/libQt6Svg.so.6",
+      "source_basename": "libQt6Svg.so.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/lib/libQt6EglFSDeviceIntegration.so.6",
+      "source_basename": "libQt6EglFSDeviceIntegration.so.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/lib/libQt6OpenGL.so.6",
+      "source_basename": "libQt6OpenGL.so.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/lib/libQt6EglFsKmsSupport.so.6",
+      "source_basename": "libQt6EglFsKmsSupport.so.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "libXext.so.6",
+      "source_basename": "libXext.so.6.4.0",
+      "origin": "system-native",
+      "system_package": "libxext6"
+    },
+    {
+      "file": "libpango-1.0.so.0",
+      "source_basename": "libpango-1.0.so.0.5600.3",
+      "origin": "system-native",
+      "system_package": "libpango-1.0-0"
+    },
+    {
+      "file": "libcairo.so.2",
+      "source_basename": "libcairo.so.2.11804.4",
+      "origin": "system-native",
+      "system_package": "libcairo2"
+    },
+    {
+      "file": "libgraphite2.so.3",
+      "source_basename": "libgraphite2.so.3.2.1",
+      "origin": "system-native",
+      "system_package": "libgraphite2-3"
+    },
+    {
+      "file": "libXrender.so.1",
+      "source_basename": "libXrender.so.1.3.0",
+      "origin": "system-native",
+      "system_package": "libxrender1"
+    },
+    {
+      "file": "libXi.so.6",
+      "source_basename": "libXi.so.6.1.0",
+      "origin": "system-native",
+      "system_package": "libxi6"
+    },
+    {
+      "file": "libatspi.so.0",
+      "source_basename": "libatspi.so.0.0.1",
+      "origin": "system-native",
+      "system_package": "libatspi2.0-0t64"
+    },
+    {
+      "file": "libepoxy.so.0",
+      "source_basename": "libepoxy.so.0.0.0",
+      "origin": "system-native",
+      "system_package": "libepoxy0"
+    },
+    {
+      "file": "libXcomposite.so.1",
+      "source_basename": "libXcomposite.so.1.0.0",
+      "origin": "system-native",
+      "system_package": "libxcomposite1"
+    },
+    {
+      "file": "libXinerama.so.1",
+      "source_basename": "libXinerama.so.1.0.0",
+      "origin": "system-native",
+      "system_package": "libxinerama1"
+    },
+    {
+      "file": "libpixman-1.so.0",
+      "source_basename": "libpixman-1.so.0.44.0",
+      "origin": "system-native",
+      "system_package": "libpixman-1-0"
+    },
+    {
+      "file": "libdatrie.so.1",
+      "source_basename": "libdatrie.so.1.4.0",
+      "origin": "system-native",
+      "system_package": "libdatrie1"
+    },
+    {
+      "file": "libatk-bridge-2.0.so.0",
+      "source_basename": "libatk-bridge-2.0.so.0.0.0",
+      "origin": "system-native",
+      "system_package": "libatk-bridge2.0-0t64"
+    },
+    {
+      "file": "libatk-1.0.so.0",
+      "source_basename": "libatk-1.0.so.0.25611.1",
+      "origin": "system-native",
+      "system_package": "libatk1.0-0t64"
+    },
+    {
+      "file": "libXrandr.so.2",
+      "source_basename": "libXrandr.so.2.2.0",
+      "origin": "system-native",
+      "system_package": "libxrandr2"
+    },
+    {
+      "file": "libpangoft2-1.0.so.0",
+      "source_basename": "libpangoft2-1.0.so.0.5600.3",
+      "origin": "system-native",
+      "system_package": "libpangoft2-1.0-0"
+    },
+    {
+      "file": "libgdk-3.so.0",
+      "source_basename": "libgdk-3.so.0.2417.32",
+      "origin": "system-native",
+      "system_package": "libgtk-3-0t64"
+    },
+    {
+      "file": "libcloudproviders.so.0",
+      "source_basename": "libcloudproviders.so.0.3.6",
+      "origin": "system-native",
+      "system_package": "libcloudproviders0"
+    },
+    {
+      "file": "libjpeg.so.62",
+      "source_basename": "libjpeg.so.62.3.0",
+      "origin": "system-native",
+      "system_package": "libjpeg62-turbo"
+    },
+    {
+      "file": "libXcursor.so.1",
+      "source_basename": "libXcursor.so.1.0.2",
+      "origin": "system-native",
+      "system_package": "libxcursor1"
+    },
+    {
+      "file": "libthai.so.0",
+      "source_basename": "libthai.so.0.3.1",
+      "origin": "system-native",
+      "system_package": "libthai0"
+    },
+    {
+      "file": "libgdk_pixbuf-2.0.so.0",
+      "source_basename": "libgdk_pixbuf-2.0.so.0.4200.12",
+      "origin": "system-native",
+      "system_package": "libgdk-pixbuf-2.0-0"
+    },
+    {
+      "file": "libfribidi.so.0",
+      "source_basename": "libfribidi.so.0.4.0",
+      "origin": "system-native",
+      "system_package": "libfribidi0"
+    },
+    {
+      "file": "libharfbuzz.so.0",
+      "source_basename": "libharfbuzz.so.0.61020.0",
+      "origin": "system-native",
+      "system_package": "libharfbuzz0b"
+    },
+    {
+      "file": "libgtk-3.so.0",
+      "source_basename": "libgtk-3.so.0.2417.32",
+      "origin": "system-native",
+      "system_package": "libgtk-3-0t64"
+    },
+    {
+      "file": "libXfixes.so.3",
+      "source_basename": "libXfixes.so.3.1.0",
+      "origin": "system-native",
+      "system_package": "libxfixes3"
+    },
+    {
+      "file": "libcairo-gobject.so.2",
+      "source_basename": "libcairo-gobject.so.2.11804.4",
+      "origin": "system-native",
+      "system_package": "libcairo-gobject2"
+    },
+    {
+      "file": "libXdamage.so.1",
+      "source_basename": "libXdamage.so.1.1.0",
+      "origin": "system-native",
+      "system_package": "libxdamage1"
+    },
+    {
+      "file": "libpangocairo-1.0.so.0",
+      "source_basename": "libpangocairo-1.0.so.0.5600.3",
+      "origin": "system-native",
+      "system_package": "libpangocairo-1.0-0"
+    },
+    {
+      "file": "libxcb-glx.so.0",
+      "source_basename": "libxcb-glx.so.0.0.0",
+      "origin": "system-native",
+      "system_package": "libxcb-glx0"
+    },
+    {
+      "file": "PySide6/Qt/lib/libQt6WlShellIntegration.so.6",
+      "source_basename": "libQt6WlShellIntegration.so.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libwebpmux-8fb1c9f6.so.3.1.2",
+      "source_basename": "libwebpmux-8fb1c9f6.so.3.1.2",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libsharpyuv-0066295b.so.0.1.2",
+      "source_basename": "libsharpyuv-0066295b.so.0.1.2",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libwebp-51b0b3f7.so.7.2.0",
+      "source_basename": "libwebp-51b0b3f7.so.7.2.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libwebpdemux-9fe2abcc.so.2.0.17",
+      "source_basename": "libwebpdemux-9fe2abcc.so.2.0.17",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libavif-c6062d5f.so.16.4.2",
+      "source_basename": "libavif-c6062d5f.so.16.4.2",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/liblcms2-88eaba2f.so.2.0.19",
+      "source_basename": "liblcms2-88eaba2f.so.2.0.19",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy.libs/libquadmath-2284e583-a9307bba.so.0.0.0",
+      "source_basename": "libquadmath-2284e583-a9307bba.so.0.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy.libs/libgfortran-83c28eba-468e71e5.so.5.0.0",
+      "source_basename": "libgfortran-83c28eba-468e71e5.so.5.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "numpy.libs/libscipy_openblas64_-f48b354e.so",
+      "source_basename": "libscipy_openblas64_-f48b354e.so",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libzstd-40ad5e7e.so.1.5.7",
+      "source_basename": "libzstd-40ad5e7e.so.1.5.7",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/liblzma-de26b416.so.5.8.4",
+      "source_basename": "liblzma-de26b416.so.5.8.4",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libjpeg-6dc8d115.so.62.4.0",
+      "source_basename": "libjpeg-6dc8d115.so.62.4.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libopenjp2-e530e1bf.so.2.5.4",
+      "source_basename": "libopenjp2-e530e1bf.so.2.5.4",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libtiff-20b7e810.so.6.3.0",
+      "source_basename": "libtiff-20b7e810.so.6.3.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libXau-154567c4.so.6.0.0",
+      "source_basename": "libXau-154567c4.so.6.0.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libxcb-9065bb12.so.1.1.0",
+      "source_basename": "libxcb-9065bb12.so.1.1.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libpng16-1d1ba958.so.16.58.0",
+      "source_basename": "libpng16-1d1ba958.so.16.58.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libbrotlicommon-53534446.so.1.2.0",
+      "source_basename": "libbrotlicommon-53534446.so.1.2.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libfreetype-57f805ba.so.6.20.6",
+      "source_basename": "libfreetype-57f805ba.so.6.20.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libharfbuzz-fb49c9fc.so.0.61450.0",
+      "source_basename": "libharfbuzz-fb49c9fc.so.0.61450.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "pillow.libs/libbrotlidec-7e5462ba.so.1.2.0",
+      "source_basename": "libbrotlidec-7e5462ba.so.1.2.0",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/libpyside6.abi3.so.6.12",
+      "source_basename": "libpyside6.abi3.so.6.12",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "shiboken6/libshiboken6.abi3.so.6.12",
+      "source_basename": "libshiboken6.abi3.so.6.12",
+      "origin": "installed-wheel",
+      "system_package": null
+    },
+    {
+      "file": "PySide6/Qt/lib/libQt6Widgets.so.6",
+      "source_basename": "libQt6Widgets.so.6",
+      "origin": "installed-wheel",
+      "system_package": null
+    }
+  ],
+  "native_copyrights": {
+    "libssl3t64": {
+      "file": "libssl3t64-copyright.txt",
+      "sha256": "6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35"
+    },
+    "libgcc-s1": {
+      "file": "libgcc-s1-copyright.txt",
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79"
+    },
+    "libstdc++6": {
+      "file": "libstdc++6-copyright.txt",
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79"
+    },
+    "libbrotli1": {
+      "file": "libbrotli1-copyright.txt",
+      "sha256": "24a64e5bb83d0960d1835696a1e23c0896ad6055b0ca47c66ab0eb9a766324b1"
+    },
+    "libkrb5-3": {
+      "file": "libkrb5-3-copyright.txt",
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816"
+    },
+    "libglib2.0-0t64": {
+      "file": "libglib2.0-0t64-copyright.txt",
+      "sha256": "b9fe78c8a0720c051c9ac8e8c6f25663b54f228e501d24fc0ba89c66cec7f7c1"
+    },
+    "libblkid1": {
+      "file": "libblkid1-copyright.txt",
+      "sha256": "56b67e2eb8bac5a15d91e261d558d73f1f029113cced229753138194997366b6"
+    },
+    "libkeyutils1": {
+      "file": "libkeyutils1-copyright.txt",
+      "sha256": "73f5682b0466f41cea2b9b7f1ff8a8052464f6c09fb29eeac4490512af09bd50"
+    },
+    "libselinux1": {
+      "file": "libselinux1-copyright.txt",
+      "sha256": "864f1bb189f609075d580b8c4aada16d85a44546884f1687989e1cacc8c56751"
+    },
+    "libpcre2-8-0": {
+      "file": "libpcre2-8-0-copyright.txt",
+      "sha256": "e915cde4251f96ec6af107ecd2e194440a4e69440893b0c982802f8a1e4ae40a"
+    },
+    "libkrb5support0": {
+      "file": "libkrb5support0-copyright.txt",
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816"
+    },
+    "libgssapi-krb5-2": {
+      "file": "libgssapi-krb5-2-copyright.txt",
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816"
+    },
+    "libatomic1": {
+      "file": "libatomic1-copyright.txt",
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79"
+    },
+    "libzstd1": {
+      "file": "libzstd1-copyright.txt",
+      "sha256": "5cec9fef4d3fa7e0371fbef4ec3fc416e0105dc2a9922117f84e825cb11f50f8"
+    },
+    "libk5crypto3": {
+      "file": "libk5crypto3-copyright.txt",
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816"
+    },
+    "libcom-err2": {
+      "file": "libcom-err2-copyright.txt",
+      "sha256": "2041b5febdc110151ca3372d01b16b85dda1888e33f3f60fce0f59940eed7d19"
+    },
+    "libffi8": {
+      "file": "libffi8-copyright.txt",
+      "sha256": "25ee86cfccc2b7eb9a156a127f1e1b38c46c231f516ff201912223eaf62ee186"
+    },
+    "zlib1g": {
+      "file": "zlib1g-copyright.txt",
+      "sha256": "9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6"
+    },
+    "libmount1": {
+      "file": "libmount1-copyright.txt",
+      "sha256": "56b67e2eb8bac5a15d91e261d558d73f1f029113cced229753138194997366b6"
+    },
+    "libsystemd0": {
+      "file": "libsystemd0-copyright.txt",
+      "sha256": "a79e4b379cabbd960bb44f6cc1a069081a3778c59a25ee529b68df5a2cb7d27d"
+    },
+    "libdbus-1-3": {
+      "file": "libdbus-1-3-copyright.txt",
+      "sha256": "f5fd0bfcceb21f4c23a517368abcbfe8a4c1cfb3b521757b50fae4898840fe35"
+    },
+    "libcap2": {
+      "file": "libcap2-copyright.txt",
+      "sha256": "04f9fb974e10f6ca0cd226811f72b3855f8383daad0e5de7adac8d5b0b7796c3"
+    },
+    "libfreetype6": {
+      "file": "libfreetype6-copyright.txt",
+      "sha256": "acdab1506824347784d2cc0a634cfa17dbf525c0d5b4902b4ac9d0d4e1fed6c7"
+    },
+    "libxau6": {
+      "file": "libxau6-copyright.txt",
+      "sha256": "118dd263a7b91c8f21c489f949bf13281dff9e766deea92b829dac4dce66601a"
+    },
+    "libexpat1": {
+      "file": "libexpat1-copyright.txt",
+      "sha256": "60919fe1a156395ff14511bb6ff79756c50ade2fff59ac60c9bae1d8a7fe6292"
+    },
+    "libpng16-16t64": {
+      "file": "libpng16-16t64-copyright.txt",
+      "sha256": "7e729164c60950b2b57f1712d82a051c9ba54f421c9b69815d9e4686ddc5709b"
+    },
+    "libxdmcp6": {
+      "file": "libxdmcp6-copyright.txt",
+      "sha256": "1bcbb50f8603fe8b86d330bfa460b772ea04fbd3c70e4499f0768b5340b9fd6e"
+    },
+    "libfontconfig1": {
+      "file": "libfontconfig1-copyright.txt",
+      "sha256": "b215a61cdd3e62b5b17cc28b1852c78acb3dd38be0fb30706f7efc050dba91db"
+    },
+    "libx11-6": {
+      "file": "libx11-6-copyright.txt",
+      "sha256": "0b380a7fd5b2228f26e9585e56f14812efd3350f3df307507d2bc055dfd8de3e"
+    },
+    "libxkbcommon0": {
+      "file": "libxkbcommon0-copyright.txt",
+      "sha256": "5eeaeb1b6e029a0274e1573765bb0bae2926ef96a3679203faa4fd00fdaeaa88"
+    },
+    "libbz2-1.0": {
+      "file": "libbz2-1.0-copyright.txt",
+      "sha256": "832ed535ff3c3d025a8d2348eb1b697b89addcf2eaadbc17650262040b9145e2"
+    },
+    "libxcb-icccm4": {
+      "file": "libxcb-icccm4-copyright.txt",
+      "sha256": "b5b83faabe190515e7a5938aa00441204cd163e24191ef7bcf5e4ac690acd376"
+    },
+    "libxcb-util1": {
+      "file": "libxcb-util1-copyright.txt",
+      "sha256": "1142dc404c2f6845a5e9a39ee569e670fd629b3a974a03bcd64f84e57e5acd90"
+    },
+    "libx11-xcb1": {
+      "file": "libx11-xcb1-copyright.txt",
+      "sha256": "0b380a7fd5b2228f26e9585e56f14812efd3350f3df307507d2bc055dfd8de3e"
+    },
+    "libxcb-cursor0": {
+      "file": "libxcb-cursor0-copyright.txt",
+      "sha256": "8ee3b982784137d7e651d37c8c0978983984b0fe93ce2760013b0abbf6652bed"
+    },
+    "libxcb-shape0": {
+      "file": "libxcb-shape0-copyright.txt",
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80"
+    },
+    "libxcb-image0": {
+      "file": "libxcb-image0-copyright.txt",
+      "sha256": "daf2d51e978ec64fc21f59b12d850c2efc907c15eae5c4ba2f3237ce946476de"
+    },
+    "libxkbcommon-x11-0": {
+      "file": "libxkbcommon-x11-0-copyright.txt",
+      "sha256": "5eeaeb1b6e029a0274e1573765bb0bae2926ef96a3679203faa4fd00fdaeaa88"
+    },
+    "libxcb-render-util0": {
+      "file": "libxcb-render-util0-copyright.txt",
+      "sha256": "fc1a08132096d37decac98a8a82e21ee8104e43c434daa2c620d19b55d8b8367"
+    },
+    "libxcb-xfixes0": {
+      "file": "libxcb-xfixes0-copyright.txt",
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80"
+    },
+    "libxcb-shm0": {
+      "file": "libxcb-shm0-copyright.txt",
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80"
+    },
+    "libxcb-xkb1": {
+      "file": "libxcb-xkb1-copyright.txt",
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80"
+    },
+    "libxcb-sync1": {
+      "file": "libxcb-sync1-copyright.txt",
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80"
+    },
+    "libxcb-keysyms1": {
+      "file": "libxcb-keysyms1-copyright.txt",
+      "sha256": "cb93f3be4559362c1b8c9484a4a669677f155333456757b9be406dd7d6fa2b01"
+    },
+    "libxcb-randr0": {
+      "file": "libxcb-randr0-copyright.txt",
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80"
+    },
+    "libxcb-render0": {
+      "file": "libxcb-render0-copyright.txt",
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80"
+    },
+    "libxext6": {
+      "file": "libxext6-copyright.txt",
+      "sha256": "bc57e445ca1d9fe082c8d54189dd411ff26caa8552c9c63d44ea06a982f32124"
+    },
+    "libpango-1.0-0": {
+      "file": "libpango-1.0-0-copyright.txt",
+      "sha256": "8d9dd932bc836ab2ea02e0b13c7cc1e9e5472a71008f0caa2a8793eb5780ee94"
+    },
+    "libcairo2": {
+      "file": "libcairo2-copyright.txt",
+      "sha256": "408fb9e704e875cd42d432e7c9b3b378f568e3c89db2b5c5ef3d11c025319574"
+    },
+    "libgraphite2-3": {
+      "file": "libgraphite2-3-copyright.txt",
+      "sha256": "a33017ba0308c41bdbde4751bff349ab7b26af45fadbb1e3e7ac67c372985572"
+    },
+    "libxrender1": {
+      "file": "libxrender1-copyright.txt",
+      "sha256": "ed2a78123a5076b4f11da38cb1ffb85b5cb9fdc26b5746c517b1d7e7a9029704"
+    },
+    "libxi6": {
+      "file": "libxi6-copyright.txt",
+      "sha256": "c812f9c54513ae593aab9580b54a4b18219648df7068d49ca1daa47f522ba3fa"
+    },
+    "libatspi2.0-0t64": {
+      "file": "libatspi2.0-0t64-copyright.txt",
+      "sha256": "72fbc9d2c44016dd061f3f63f75253e57089bcd23a4f9023039de4631e7cf918"
+    },
+    "libepoxy0": {
+      "file": "libepoxy0-copyright.txt",
+      "sha256": "a8be83fe8a66a6ecc1a9fbcec9cf1b43aacca69d38220a94fb37632f090b611e"
+    },
+    "libxcomposite1": {
+      "file": "libxcomposite1-copyright.txt",
+      "sha256": "e37c7a7e4026343c3e5c13990a6d9a8879194ae3ab26bfe420b34f6f206bf35f"
+    },
+    "libxinerama1": {
+      "file": "libxinerama1-copyright.txt",
+      "sha256": "e49d9732f261b3ffcb50c40914bd9d144de5557dad9b2ae20dbe8e3c5b3d17fb"
+    },
+    "libpixman-1-0": {
+      "file": "libpixman-1-0-copyright.txt",
+      "sha256": "1b3fb5690861e15ca4fd6640fd4def4b2576617942eec04b6fcb7d8bc6c4c9da"
+    },
+    "libdatrie1": {
+      "file": "libdatrie1-copyright.txt",
+      "sha256": "7c994f175cb0da0bbe158f729ca43bc6193bb99d3c8bc82b41c46d93904b584d"
+    },
+    "libatk-bridge2.0-0t64": {
+      "file": "libatk-bridge2.0-0t64-copyright.txt",
+      "sha256": "72fbc9d2c44016dd061f3f63f75253e57089bcd23a4f9023039de4631e7cf918"
+    },
+    "libatk1.0-0t64": {
+      "file": "libatk1.0-0t64-copyright.txt",
+      "sha256": "72fbc9d2c44016dd061f3f63f75253e57089bcd23a4f9023039de4631e7cf918"
+    },
+    "libxrandr2": {
+      "file": "libxrandr2-copyright.txt",
+      "sha256": "6d8e6239cfe9dd25bbeef06dcf0610d802ebbdc8968db87cf5adf00ff98927d4"
+    },
+    "libpangoft2-1.0-0": {
+      "file": "libpangoft2-1.0-0-copyright.txt",
+      "sha256": "8d9dd932bc836ab2ea02e0b13c7cc1e9e5472a71008f0caa2a8793eb5780ee94"
+    },
+    "libgtk-3-0t64": {
+      "file": "libgtk-3-0t64-copyright.txt",
+      "sha256": "ededd0b07c091f82888eacad33ecd01018d0ccdf85e91f0f5d85de58529f6842"
+    },
+    "libcloudproviders0": {
+      "file": "libcloudproviders0-copyright.txt",
+      "sha256": "950a9f9c5d081d138f29643696619b9a8d2134386555e244774faa2d9a464e00"
+    },
+    "libjpeg62-turbo": {
+      "file": "libjpeg62-turbo-copyright.txt",
+      "sha256": "3821184e23385bf2cdc01f56bd999b34036fc3aa03d5135d41680374eb81bf8a"
+    },
+    "libxcursor1": {
+      "file": "libxcursor1-copyright.txt",
+      "sha256": "817abc0ccc9e2591057be256b0f6d80edb134221ced29dd545a9eafaf40b423c"
+    },
+    "libthai0": {
+      "file": "libthai0-copyright.txt",
+      "sha256": "62d2835587b92a6abdbe62fe4524a7b6a59ac478df2c591eb98c3fbce6c3fa08"
+    },
+    "libgdk-pixbuf-2.0-0": {
+      "file": "libgdk-pixbuf-2.0-0-copyright.txt",
+      "sha256": "2b914b2304e7474aaa8108307b9e95c3f8345e0a4153c7bfa0ca9c48813cb406"
+    },
+    "libfribidi0": {
+      "file": "libfribidi0-copyright.txt",
+      "sha256": "a9b76593ba12d42b47000f8779d0b631432147980e71464e8ba88238becbc038"
+    },
+    "libharfbuzz0b": {
+      "file": "libharfbuzz0b-copyright.txt",
+      "sha256": "9295e101a07824e8ae77c448884bd357a64b831cd4c47f125bf4ac7ea0d8f911"
+    },
+    "libxfixes3": {
+      "file": "libxfixes3-copyright.txt",
+      "sha256": "051ffe073ab38244c504bb379903b4ecda6081fb3d97d0d3dce44bc11712eef2"
+    },
+    "libcairo-gobject2": {
+      "file": "libcairo-gobject2-copyright.txt",
+      "sha256": "408fb9e704e875cd42d432e7c9b3b378f568e3c89db2b5c5ef3d11c025319574"
+    },
+    "libxdamage1": {
+      "file": "libxdamage1-copyright.txt",
+      "sha256": "09182bc7805ff77a41251e450cebd0d33c48a74ba8ec4b734855a22c86f50417"
+    },
+    "libpangocairo-1.0-0": {
+      "file": "libpangocairo-1.0-0-copyright.txt",
+      "sha256": "8d9dd932bc836ab2ea02e0b13c7cc1e9e5472a71008f0caa2a8793eb5780ee94"
+    },
+    "libxcb-glx0": {
+      "file": "libxcb-glx0-copyright.txt",
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80"
+    }
+  }
+}

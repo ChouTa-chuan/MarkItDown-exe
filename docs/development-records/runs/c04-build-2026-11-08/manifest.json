@@ -1,0 +1,3515 @@
+{
+  "schema_version": 1,
+  "source_version": "0.9.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-08",
+  "check": "C04-build",
+  "full_c04_complete": false,
+  "scope": "Linux frozen 基本核心／profile 自檢、實際資產／來源／授權及中間紀錄；完整自檢缺 native OCR 仍失敗，不代表完整基本版",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 6200,
+      "sha256": "eb9433001cb5896b6c013933d505f7ecf303170edfb2870bb7e736066ecf4592",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 7486,
+      "sha256": "9c7d29dd44689b2fae3542067072efda2882641df4de3a8c109883b7995c8e1d",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "assets.log",
+      "bytes": 54,
+      "sha256": "b8ef8b0776b6bf5d00e013e929a222ce15c2231c253628673465dd6f0f3dce72",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "build-environment.txt",
+      "bytes": 981,
+      "sha256": "8fb80c11e1cfb4507e1146b814bc4adf4102be9abe635c2e145b4c3d3648c3c4",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "build-install.log",
+      "bytes": 9306,
+      "sha256": "3910a10fe29d000e6a97a81a8c232a93ced3098286399fae5d28898320865c08",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "build.log",
+      "bytes": 16096,
+      "sha256": "5c9961a5adc9e6d611e4a17c6d963d3c44198cdeb78da8849bd061fee38dc87f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/base-runtime-lock.txt",
+      "bytes": 73275,
+      "sha256": "46ae2cd301c8607a58cdface6aaa8c57565da38de6a4f5f5be7050ca1a2d453b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/build-profile.json",
+      "bytes": 33476,
+      "sha256": "963b2731a01357ab78fc28448f0f403dc2eba7561e14078f178a368c0bb8a488",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/beautifulsoup4/METADATA",
+      "bytes": 3812,
+      "sha256": "b2f888103259f1607c85f3b1163be1bc49fc9941a3243c3b89a21075bfc6d4fb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/AUTHORS",
+      "bytes": 2201,
+      "sha256": "b989238918e1fdac1e46717cb405b63e92497a272413af0d989c1df6c8abcb6f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE",
+      "bytes": 1441,
+      "sha256": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/certifi/METADATA",
+      "bytes": 2526,
+      "sha256": "e463e38f7fe7da36a11e6d3fecc5dfa5b97be8c8022620400750d79ae7d842bc",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/certifi/original/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "bytes": 989,
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/cffi/METADATA",
+      "bytes": 2527,
+      "sha256": "558bafb9093a8e790175d9ecff9688382981d744877dad86fd6770db0f4dc918",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/cffi/original/cffi-2.1.1.dist-info/licenses/LICENSE",
+      "bytes": 1123,
+      "sha256": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/charset-normalizer/METADATA",
+      "bytes": 46395,
+      "sha256": "89ce6362bb7be88558f4be99a98f5d1b4da93d19cd0323e5ee0bac05cf883dfb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/charset-normalizer/original/charset_normalizer-3.5.2.dist-info/licenses/LICENSE",
+      "bytes": 1071,
+      "sha256": "6d0d41bfe170ac6c7dc248c9a63e254d0fb45a60d50a8257d0af92c6e249b887",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/click/METADATA",
+      "bytes": 2567,
+      "sha256": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/click/original/click-8.5.0.dist-info/licenses/LICENSE.txt",
+      "bytes": 1475,
+      "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/cobble/METADATA",
+      "bytes": 2698,
+      "sha256": "6eb2cf88cfb39b884adde1eff7d8f89f80b256572eb0c6c164d6f99943dbd49f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/cryptography/METADATA",
+      "bytes": 4394,
+      "sha256": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE",
+      "bytes": 197,
+      "sha256": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+      "bytes": 11360,
+      "sha256": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD",
+      "bytes": 1532,
+      "sha256": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/defusedxml/METADATA",
+      "bytes": 32518,
+      "sha256": "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/defusedxml/original/defusedxml-0.7.1.dist-info/LICENSE",
+      "bytes": 2409,
+      "sha256": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/et-xmlfile/METADATA",
+      "bytes": 2711,
+      "sha256": "0e97d7ea909ed0fbe03d88bc8b6f58677cee1b07bd3353ce361cd2405915204e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.python",
+      "bytes": 14688,
+      "sha256": "4ccdaaebc0f44b83720ec0399bb7ab329adce067dd62f73c5535a2dc05628ab2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.rst",
+      "bytes": 1131,
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/flatbuffers/METADATA",
+      "bytes": 1004,
+      "sha256": "9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/idna/METADATA",
+      "bytes": 7207,
+      "sha256": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/idna/original/idna-3.20.dist-info/licenses/LICENSE.md",
+      "bytes": 1541,
+      "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/lxml/METADATA",
+      "bytes": 3279,
+      "sha256": "aad89f8107bc74045b86c9b7f7c0984196102520dd7faed5e4e45693b7c315ef",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/lxml/original/lxml-6.1.3.dist-info/licenses/LICENSE.txt",
+      "bytes": 1507,
+      "sha256": "8fc2b568133516e46845d2147917adeee1648e70ae9ab5ed6c5417afef4ce855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/lxml/original/lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+      "bytes": 6221,
+      "sha256": "388fa99f3bde4447cd5a4cbb114037be026854db6cfe89e112691c1d8abdcf3c",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/magika/METADATA",
+      "bytes": 10647,
+      "sha256": "b54a3585962103cacdd8782eb5c72751dbdc202a300469b54782a4824e5b7143",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/mammoth/METADATA",
+      "bytes": 26193,
+      "sha256": "aa45c59d8352de6aebe3c85b991045ffdf0acbedb76237dcf48d5e8cee0d8b6d",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/mammoth/original/mammoth-1.13.0.dist-info/licenses/LICENSE",
+      "bytes": 1307,
+      "sha256": "6663bbd049205d38a496ccacb412a151980b444627d38de218b3b809aef330f1",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/manifest.json",
+      "bytes": 18178,
+      "sha256": "749205649d2d3eef8b13da42cf6f446be5bf29cc50b6bb3a573908bf45d10585",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/markdownify/METADATA",
+      "bytes": 9922,
+      "sha256": "4b457b9a3b3c6e7c87277a5157f9f99588b6cf89ee16ae20c8a019c6a66f6e2b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/markdownify/original/markdownify-1.2.3.dist-info/LICENSE",
+      "bytes": 1083,
+      "sha256": "fae8b42db142dabf03b0c5c495831a5d11b9649ead0cf0bd4ab4f52294b263be",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/markitdown/METADATA",
+      "bytes": 4982,
+      "sha256": "c3bb731d953a39542a306aff1876fbfb2220a7cad032d71cc948daadbb2efc43",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/markitdown/original/markitdown-0.1.9.dist-info/licenses/LICENSE",
+      "bytes": 1141,
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/markitdown-desktop/METADATA",
+      "bytes": 661,
+      "sha256": "1fe129dab6bdb25f19aa7811c82666178963ff21f328915acaceeef8f8aa2717",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/METADATA",
+      "bytes": 6635,
+      "sha256": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy/_core/include/numpy/random/LICENSE.txt",
+      "bytes": 1018,
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy/ma/LICENSE",
+      "bytes": 1593,
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy/random/LICENSE.md",
+      "bytes": 3511,
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+      "bytes": 46794,
+      "sha256": "4860083caa0de2ac3292ca98bd074bd8f45d8b32624e37b1e70a240bff61e488",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+      "bytes": 1018,
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+      "bytes": 690,
+      "sha256": "3f2c1ffa76383a55ae0aac01c9737cd70050dff63e1f026694fbe9d662573c98",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+      "bytes": 20785,
+      "sha256": "e340270d4f64384569a91d546acb5b094d69ce47f0c015db77abb74dc6f815af",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+      "bytes": 1414,
+      "sha256": "f7b14309e5f54e5022b26448eefd419988ada2aec01d3c1162d84a0ea8f21f2c",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+      "bytes": 1514,
+      "sha256": "211e7d737d6179a08f791ebb0a99897ce7cd2457410c542876d125576edfe910",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+      "bytes": 1543,
+      "sha256": "c17011467b4fe6e20fbfbeda4df09e58c2bca5480a063e55735a4000a379aad9",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+      "bytes": 1498,
+      "sha256": "a85ca13fdf90160b64a0698215868c13b74d835ad0a4e2ba44713b8c5058a056",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+      "bytes": 2266,
+      "sha256": "a14cc25e10d40a3aa705b7de2fb764a6535d8ee9b2db4e1724900585457dfd55",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+      "bytes": 1593,
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+      "bytes": 3511,
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+      "bytes": 2745,
+      "sha256": "469778be8f33d54e1bcaab28c281cc472916d2d273f835e55bc487d30503face",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+      "bytes": 2926,
+      "sha256": "0e111337b25494a773106695f0e799f642b8567aaacca4f116a74a8177179156",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+      "bytes": 1154,
+      "sha256": "e7d4f4fb20358f314210a892ae17351e04993813646f697ec387385ca2a36918",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+      "bytes": 1509,
+      "sha256": "6f5828a57223d4cc7f8ea505a2623e7b978b242752c1515e355f46ba2cec1800",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+      "bytes": 1226,
+      "sha256": "9d4098846018319cd68e228ee6220361787f73bccbf00237a85e4fc9621b998f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+      "bytes": 332,
+      "sha256": "268b0ca06759d31ea3ca68dd35f20e877916e927b1c2a835e4592a3c4354b1f9",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/onnxruntime/METADATA",
+      "bytes": 5839,
+      "sha256": "82f146c3aad08fd55eadf57e410022535697a858bd6bf760320b2328301d41cf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/onnxruntime/original/onnxruntime/LICENSE",
+      "bytes": 1073,
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/onnxruntime/original/onnxruntime/ThirdPartyNotices.txt",
+      "bytes": 338088,
+      "sha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/openpyxl/METADATA",
+      "bytes": 2510,
+      "sha256": "23f80ca9830dd89435da1710f26deda8f81e5409287e74540210c72627a4ad96",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/openpyxl/original/openpyxl-3.1.5.dist-info/LICENCE.rst",
+      "bytes": 1131,
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/packaging/METADATA",
+      "bytes": 3544,
+      "sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE",
+      "bytes": 197,
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "bytes": 1344,
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/METADATA",
+      "bytes": 18156,
+      "sha256": "b2b43910a5ef734a08be961df9c484f4664ad9ec2fa5a08294d0edfa08bcdd4b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSE",
+      "bytes": 1634,
+      "sha256": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+      "bytes": 1360,
+      "sha256": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+      "bytes": 2889,
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+      "bytes": 1099,
+      "sha256": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT",
+      "bytes": 1264,
+      "sha256": "87217d0a79195441ab615a3abb3ab6777502e57804ea83f973df975a67ebd720",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+      "bytes": 1104,
+      "sha256": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+      "bytes": 6203,
+      "sha256": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+      "bytes": 1542,
+      "sha256": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+      "bytes": 11519,
+      "sha256": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+      "bytes": 1486,
+      "sha256": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+      "bytes": 1058,
+      "sha256": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+      "bytes": 1059,
+      "sha256": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+      "bytes": 1249,
+      "sha256": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+      "bytes": 5974,
+      "sha256": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+      "bytes": 1606,
+      "sha256": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+      "bytes": 10767,
+      "sha256": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+      "bytes": 1337,
+      "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+      "bytes": 1079,
+      "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pdfminer-six/METADATA",
+      "bytes": 4289,
+      "sha256": "77a7aa49c45244383288e8b98cb567f19a9083ad0d74716e3011c831df801d44",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pdfminer-six/original/pdfminer_six-20251230.dist-info/licenses/LICENSE",
+      "bytes": 1093,
+      "sha256": "f01e5d699a33766b5caf4a5099f2856aba4f3f75ea1df05dc0572b34b4bea8f2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pdfplumber/METADATA",
+      "bytes": 43599,
+      "sha256": "24f9118940ac3810a6bf0dd1970094e29cc659c71c334a6fc2e65d7120a74b62",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pdfplumber/original/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt",
+      "bytes": 1086,
+      "sha256": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pillow/METADATA",
+      "bytes": 9118,
+      "sha256": "dba7fdfe24e302f46bae562f55d66cc367c0618abae9894a1ebec93dc8f0e511",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pillow/original/pillow-13.0.0.dist-info/licenses/LICENSE",
+      "bytes": 70307,
+      "sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/protobuf/METADATA",
+      "bytes": 595,
+      "sha256": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/protobuf/original/protobuf-7.36.2.dist-info/LICENSE",
+      "bytes": 1732,
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/psutil/METADATA",
+      "bytes": 22187,
+      "sha256": "525f8ba78523cf7bc3759d62a105e7c57fd679ea702402b9449fb0746aa0217f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/psutil/original/psutil-7.2.2.dist-info/LICENSE",
+      "bytes": 1548,
+      "sha256": "b89c063b3786e28e0c0a38f1931db61fed35e69dd2a2966fbecffee0f46c8d10",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pycparser/METADATA",
+      "bytes": 9709,
+      "sha256": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pycparser/original/pycparser-3.12.dist-info/licenses/LICENSE",
+      "bytes": 1543,
+      "sha256": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/METADATA",
+      "bytes": 62414,
+      "sha256": "3e1628ac6c4cf1dc173e9441f972d9324f8f9ff92d6930c340efceb8175e37e8",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/LICENSES/Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/LICENSES/BSD-3-Clause.txt",
+      "bytes": 1459,
+      "sha256": "a6d11f0694c0137e9b02924b9d33a159f6c72f220fa4655bb2e1ea3654377d39",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/LICENSES/CC-BY-4.0.txt",
+      "bytes": 14527,
+      "sha256": "419896aea50c15d6e40c5b4baf4bd346f78223b9a354c7357ad00262afdc08ec",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/abseil.txt",
+      "bytes": 11361,
+      "sha256": "c79a7fea0e3cac04cd43f20e7b648e5a0ff8fa5344e644b0ee09ca1162b62747",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/agg23.txt",
+      "bytes": 725,
+      "sha256": "c110d3ea2ad77467ce0dcff7d3337e6c8be8049a5103f4b9bd5fd911a77972e5",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/fast_float.txt",
+      "bytes": 1079,
+      "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/freetype.txt",
+      "bytes": 6741,
+      "sha256": "f4b133e25df1f86ad3ffea453aa0e613f0474f34778dbbb3e437e7b2724937d8",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/icu.txt",
+      "bytes": 27718,
+      "sha256": "e55522d81edc687a341a4411e0776e54ca654e90147f354a90458aaced4116af",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/lcms.txt",
+      "bytes": 1353,
+      "sha256": "7312b68c5b25e9bf2b828706fb4e29588f22705112f411fd42e1f7d84c3d139a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libjpeg_turbo.ijg",
+      "bytes": 12799,
+      "sha256": "75815e3bf6484201a3c3d17a1bbf10f2e8e3237f84df10a2357ea896db2a81d6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libjpeg_turbo.md",
+      "bytes": 5620,
+      "sha256": "96f5b328adbb78eeaaec6980d73fd558cb1e4d62560ed615646bc3cf5e532430",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libopenjpeg.txt",
+      "bytes": 1794,
+      "sha256": "c5ab0890a737c2dfa7ba675036554f6d17741d98629b0c2a145354d00617e6b2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libpng.txt",
+      "bytes": 5345,
+      "sha256": "bdb0a645ea18c60507d0368379b1ac5474b92255fcc2d115e07486a7672ba526",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/llvm-libc.txt",
+      "bytes": 15140,
+      "sha256": "ebcd9bbf783a73d05c53ba4d586b8d5813dcdf3bbec50265860ccc885e606f47",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/pdfium-binaries.txt",
+      "bytes": 1177,
+      "sha256": "ba26c1263131696b86c10496b5066b918a20b7161822a80c274d0080105f6c93",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/pdfium.txt",
+      "bytes": 12818,
+      "sha256": "961eacd9633fff6d051db7208b755e9210e30efac7adec3e6a6d52798f0ccf0e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/simdutf.txt",
+      "bytes": 1059,
+      "sha256": "fc8dbc04e03ad4efc08a647ffe7f995b811a95bc04c0e85a56d5277c6593fa5f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/zlib.txt",
+      "bytes": 1332,
+      "sha256": "33fd641c9f3b0e0be64bc78fea9e94807674cdd70c48477599226cb8956565fe",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/pyside6-essentials/METADATA",
+      "bytes": 3721,
+      "sha256": "68a36226bc8fdd63b54c51f35e8f52226e2e263881a102b23400056e2e689e60",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/python-dateutil/METADATA",
+      "bytes": 7341,
+      "sha256": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md",
+      "bytes": 7031,
+      "sha256": "56004c45a95e9ee5582ea60f9a7ee42179c8594c7b9c245bbfb4a3445b4af640",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+      "bytes": 2889,
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/python-pptx/METADATA",
+      "bytes": 2503,
+      "sha256": "d38c6af5f1817cc528706264d8343cd1c95dbdec5672f29b944f54f79134a3a2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/python-pptx/original/python_pptx-1.0.2.dist-info/LICENSE",
+      "bytes": 1104,
+      "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/requests/METADATA",
+      "bytes": 4806,
+      "sha256": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/LICENSE",
+      "bytes": 10142,
+      "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/NOTICE",
+      "bytes": 38,
+      "sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/shiboken6/METADATA",
+      "bytes": 2473,
+      "sha256": "586ac5f74d295853db808e93852887297b813f133ce13df319c8f3ee0ffaa417",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/six/METADATA",
+      "bytes": 1658,
+      "sha256": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/six/original/six-1.17.0.dist-info/LICENSE",
+      "bytes": 1066,
+      "sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/soupsieve/METADATA",
+      "bytes": 4387,
+      "sha256": "c1d4799cbf1c070586fa86f922f621c33845a5977886fcb6431c763dc083f838",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/soupsieve/original/soupsieve-4.0.dist-info/licenses/LICENSE.md",
+      "bytes": 1096,
+      "sha256": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/typing-extensions/METADATA",
+      "bytes": 3310,
+      "sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/typing-extensions/original/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/tzdata/METADATA",
+      "bytes": 1358,
+      "sha256": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/LICENSE",
+      "bytes": 625,
+      "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/urllib3/METADATA",
+      "bytes": 7389,
+      "sha256": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/urllib3/original/urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+      "bytes": 1093,
+      "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/xlsxwriter/METADATA",
+      "bytes": 2908,
+      "sha256": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/installed/xlsxwriter/original/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt",
+      "bytes": 1349,
+      "sha256": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/markitdown/LICENSE",
+      "bytes": 1141,
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/models/SOURCE.json",
+      "bytes": 434,
+      "sha256": "b5b441741787fefbfbe4381baadcc7f1b25dd8f3f1ea2baf01d756c4d02620a0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/models/tessdata-fast-Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libatk-bridge2.0-0t64-copyright.txt",
+      "bytes": 11841,
+      "sha256": "72fbc9d2c44016dd061f3f63f75253e57089bcd23a4f9023039de4631e7cf918",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libatk1.0-0t64-copyright.txt",
+      "bytes": 11841,
+      "sha256": "72fbc9d2c44016dd061f3f63f75253e57089bcd23a4f9023039de4631e7cf918",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libatomic1-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libatspi2.0-0t64-copyright.txt",
+      "bytes": 11841,
+      "sha256": "72fbc9d2c44016dd061f3f63f75253e57089bcd23a4f9023039de4631e7cf918",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libblkid1-copyright.txt",
+      "bytes": 30341,
+      "sha256": "56b67e2eb8bac5a15d91e261d558d73f1f029113cced229753138194997366b6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libbrotli1-copyright.txt",
+      "bytes": 1354,
+      "sha256": "24a64e5bb83d0960d1835696a1e23c0896ad6055b0ca47c66ab0eb9a766324b1",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libbz2-1.0-copyright.txt",
+      "bytes": 2228,
+      "sha256": "832ed535ff3c3d025a8d2348eb1b697b89addcf2eaadbc17650262040b9145e2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libcairo-gobject2-copyright.txt",
+      "bytes": 28461,
+      "sha256": "408fb9e704e875cd42d432e7c9b3b378f568e3c89db2b5c5ef3d11c025319574",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libcairo2-copyright.txt",
+      "bytes": 28461,
+      "sha256": "408fb9e704e875cd42d432e7c9b3b378f568e3c89db2b5c5ef3d11c025319574",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libcap2-copyright.txt",
+      "bytes": 4496,
+      "sha256": "04f9fb974e10f6ca0cd226811f72b3855f8383daad0e5de7adac8d5b0b7796c3",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libcloudproviders0-copyright.txt",
+      "bytes": 1090,
+      "sha256": "950a9f9c5d081d138f29643696619b9a8d2134386555e244774faa2d9a464e00",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libcom-err2-copyright.txt",
+      "bytes": 20459,
+      "sha256": "2041b5febdc110151ca3372d01b16b85dda1888e33f3f60fce0f59940eed7d19",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libdatrie1-copyright.txt",
+      "bytes": 2129,
+      "sha256": "7c994f175cb0da0bbe158f729ca43bc6193bb99d3c8bc82b41c46d93904b584d",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libdbus-1-3-copyright.txt",
+      "bytes": 20076,
+      "sha256": "f5fd0bfcceb21f4c23a517368abcbfe8a4c1cfb3b521757b50fae4898840fe35",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libepoxy0-copyright.txt",
+      "bytes": 1352,
+      "sha256": "a8be83fe8a66a6ecc1a9fbcec9cf1b43aacca69d38220a94fb37632f090b611e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libexpat1-copyright.txt",
+      "bytes": 1756,
+      "sha256": "60919fe1a156395ff14511bb6ff79756c50ade2fff59ac60c9bae1d8a7fe6292",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libffi8-copyright.txt",
+      "bytes": 10164,
+      "sha256": "25ee86cfccc2b7eb9a156a127f1e1b38c46c231f516ff201912223eaf62ee186",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libfontconfig1-copyright.txt",
+      "bytes": 1301,
+      "sha256": "b215a61cdd3e62b5b17cc28b1852c78acb3dd38be0fb30706f7efc050dba91db",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libfreetype6-copyright.txt",
+      "bytes": 31206,
+      "sha256": "acdab1506824347784d2cc0a634cfa17dbf525c0d5b4902b4ac9d0d4e1fed6c7",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libfribidi0-copyright.txt",
+      "bytes": 1460,
+      "sha256": "a9b76593ba12d42b47000f8779d0b631432147980e71464e8ba88238becbc038",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libgcc-s1-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libgdk-pixbuf-2.0-0-copyright.txt",
+      "bytes": 5415,
+      "sha256": "2b914b2304e7474aaa8108307b9e95c3f8345e0a4153c7bfa0ca9c48813cb406",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libglib2.0-0t64-copyright.txt",
+      "bytes": 55072,
+      "sha256": "b9fe78c8a0720c051c9ac8e8c6f25663b54f228e501d24fc0ba89c66cec7f7c1",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libgraphite2-3-copyright.txt",
+      "bytes": 9348,
+      "sha256": "a33017ba0308c41bdbde4751bff349ab7b26af45fadbb1e3e7ac67c372985572",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libgssapi-krb5-2-copyright.txt",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libgtk-3-0t64-copyright.txt",
+      "bytes": 60524,
+      "sha256": "ededd0b07c091f82888eacad33ecd01018d0ccdf85e91f0f5d85de58529f6842",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libharfbuzz0b-copyright.txt",
+      "bytes": 31772,
+      "sha256": "9295e101a07824e8ae77c448884bd357a64b831cd4c47f125bf4ac7ea0d8f911",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libjpeg62-turbo-copyright.txt",
+      "bytes": 38846,
+      "sha256": "3821184e23385bf2cdc01f56bd999b34036fc3aa03d5135d41680374eb81bf8a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libk5crypto3-copyright.txt",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libkeyutils1-copyright.txt",
+      "bytes": 2148,
+      "sha256": "73f5682b0466f41cea2b9b7f1ff8a8052464f6c09fb29eeac4490512af09bd50",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libkrb5-3-copyright.txt",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libkrb5support0-copyright.txt",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libmount1-copyright.txt",
+      "bytes": 30341,
+      "sha256": "56b67e2eb8bac5a15d91e261d558d73f1f029113cced229753138194997366b6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libpango-1.0-0-copyright.txt",
+      "bytes": 20017,
+      "sha256": "8d9dd932bc836ab2ea02e0b13c7cc1e9e5472a71008f0caa2a8793eb5780ee94",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libpangocairo-1.0-0-copyright.txt",
+      "bytes": 20017,
+      "sha256": "8d9dd932bc836ab2ea02e0b13c7cc1e9e5472a71008f0caa2a8793eb5780ee94",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libpangoft2-1.0-0-copyright.txt",
+      "bytes": 20017,
+      "sha256": "8d9dd932bc836ab2ea02e0b13c7cc1e9e5472a71008f0caa2a8793eb5780ee94",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libpcre2-8-0-copyright.txt",
+      "bytes": 6627,
+      "sha256": "e915cde4251f96ec6af107ecd2e194440a4e69440893b0c982802f8a1e4ae40a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libpixman-1-0-copyright.txt",
+      "bytes": 2247,
+      "sha256": "1b3fb5690861e15ca4fd6640fd4def4b2576617942eec04b6fcb7d8bc6c4c9da",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libpng16-16t64-copyright.txt",
+      "bytes": 13217,
+      "sha256": "7e729164c60950b2b57f1712d82a051c9ba54f421c9b69815d9e4686ddc5709b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libselinux1-copyright.txt",
+      "bytes": 1957,
+      "sha256": "864f1bb189f609075d580b8c4aada16d85a44546884f1687989e1cacc8c56751",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libssl3t64-copyright.txt",
+      "bytes": 2543,
+      "sha256": "6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libstdc++6-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libsystemd0-copyright.txt",
+      "bytes": 12521,
+      "sha256": "a79e4b379cabbd960bb44f6cc1a069081a3778c59a25ee529b68df5a2cb7d27d",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libthai0-copyright.txt",
+      "bytes": 2458,
+      "sha256": "62d2835587b92a6abdbe62fe4524a7b6a59ac478df2c591eb98c3fbce6c3fa08",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libx11-6-copyright.txt",
+      "bytes": 47102,
+      "sha256": "0b380a7fd5b2228f26e9585e56f14812efd3350f3df307507d2bc055dfd8de3e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libx11-xcb1-copyright.txt",
+      "bytes": 47102,
+      "sha256": "0b380a7fd5b2228f26e9585e56f14812efd3350f3df307507d2bc055dfd8de3e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxau6-copyright.txt",
+      "bytes": 1224,
+      "sha256": "118dd263a7b91c8f21c489f949bf13281dff9e766deea92b829dac4dce66601a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-cursor0-copyright.txt",
+      "bytes": 1851,
+      "sha256": "8ee3b982784137d7e651d37c8c0978983984b0fe93ce2760013b0abbf6652bed",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-glx0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-icccm4-copyright.txt",
+      "bytes": 2683,
+      "sha256": "b5b83faabe190515e7a5938aa00441204cd163e24191ef7bcf5e4ac690acd376",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-image0-copyright.txt",
+      "bytes": 2707,
+      "sha256": "daf2d51e978ec64fc21f59b12d850c2efc907c15eae5c4ba2f3237ce946476de",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-keysyms1-copyright.txt",
+      "bytes": 2758,
+      "sha256": "cb93f3be4559362c1b8c9484a4a669677f155333456757b9be406dd7d6fa2b01",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-randr0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-render-util0-copyright.txt",
+      "bytes": 2705,
+      "sha256": "fc1a08132096d37decac98a8a82e21ee8104e43c434daa2c620d19b55d8b8367",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-render0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-shape0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-shm0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-sync1-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-util1-copyright.txt",
+      "bytes": 2741,
+      "sha256": "1142dc404c2f6845a5e9a39ee569e670fd629b3a974a03bcd64f84e57e5acd90",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-xfixes0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcb-xkb1-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcomposite1-copyright.txt",
+      "bytes": 2324,
+      "sha256": "e37c7a7e4026343c3e5c13990a6d9a8879194ae3ab26bfe420b34f6f206bf35f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxcursor1-copyright.txt",
+      "bytes": 2774,
+      "sha256": "817abc0ccc9e2591057be256b0f6d80edb134221ced29dd545a9eafaf40b423c",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxdamage1-copyright.txt",
+      "bytes": 1221,
+      "sha256": "09182bc7805ff77a41251e450cebd0d33c48a74ba8ec4b734855a22c86f50417",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxdmcp6-copyright.txt",
+      "bytes": 1265,
+      "sha256": "1bcbb50f8603fe8b86d330bfa460b772ea04fbd3c70e4499f0768b5340b9fd6e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxext6-copyright.txt",
+      "bytes": 10421,
+      "sha256": "bc57e445ca1d9fe082c8d54189dd411ff26caa8552c9c63d44ea06a982f32124",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxfixes3-copyright.txt",
+      "bytes": 2320,
+      "sha256": "051ffe073ab38244c504bb379903b4ecda6081fb3d97d0d3dce44bc11712eef2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxi6-copyright.txt",
+      "bytes": 4435,
+      "sha256": "c812f9c54513ae593aab9580b54a4b18219648df7068d49ca1daa47f522ba3fa",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxinerama1-copyright.txt",
+      "bytes": 3670,
+      "sha256": "e49d9732f261b3ffcb50c40914bd9d144de5557dad9b2ae20dbe8e3c5b3d17fb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxkbcommon-x11-0-copyright.txt",
+      "bytes": 3566,
+      "sha256": "5eeaeb1b6e029a0274e1573765bb0bae2926ef96a3679203faa4fd00fdaeaa88",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxkbcommon0-copyright.txt",
+      "bytes": 3566,
+      "sha256": "5eeaeb1b6e029a0274e1573765bb0bae2926ef96a3679203faa4fd00fdaeaa88",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxrandr2-copyright.txt",
+      "bytes": 3733,
+      "sha256": "6d8e6239cfe9dd25bbeef06dcf0610d802ebbdc8968db87cf5adf00ff98927d4",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libxrender1-copyright.txt",
+      "bytes": 2252,
+      "sha256": "ed2a78123a5076b4f11da38cb1ffb85b5cb9fdc26b5746c517b1d7e7a9029704",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/libzstd1-copyright.txt",
+      "bytes": 5332,
+      "sha256": "5cec9fef4d3fa7e0371fbef4ec3fc416e0105dc2a9922117f84e825cb11f50f8",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/manifest.json",
+      "bytes": 60805,
+      "sha256": "1a5b8515248961d5ffeb4aebc4e94c6ac437382d63f55141cce827088718024a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/native/zlib1g-copyright.txt",
+      "bytes": 2927,
+      "sha256": "9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/python-runtime/LICENSE.txt",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/standards/BSD-2-Clause.txt",
+      "bytes": 1267,
+      "sha256": "f32fb3b417a194167cfad068223fc975ba96c5960513a10f66a3c28720aec1df",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/standards/SOURCE.json",
+      "bytes": 354,
+      "sha256": "aee93a231453078d13c7f69f169308bd3abc88b1904cfe5e12ca7ef4b4b6a1ab",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/supplemental/cobble.txt",
+      "bytes": 1770,
+      "sha256": "d6d46202db973b560d2f521dced9110b3e0a46d9a75e1428dade8b7608dd0cca",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/supplemental/flatbuffers.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/supplemental/magika.txt",
+      "bytes": 11357,
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/supplemental/qt-gpl3.txt",
+      "bytes": 35147,
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/licenses/supplemental/qt-lgpl3.txt",
+      "bytes": 7651,
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/ocr-models.json",
+      "bytes": 434,
+      "sha256": "b5b441741787fefbfbe4381baadcc7f1b25dd8f3f1ea2baf01d756c4d02620a0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/setup-chinese.json",
+      "bytes": 379,
+      "sha256": "5ac74cac9aae6928f5d54420b3a9274a4dd75cdbee947b01dfd13544894e5658",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/setup-chinese.png",
+      "bytes": 38983,
+      "sha256": "e339f9f6bfbefc7c648112f92da52f64eaf946d715b3566eee0bb9242dc457cb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/third-party.md",
+      "bytes": 1621,
+      "sha256": "013fe06247abc193e303a66d82b4f3d29c99fa2bef681a3e405a99e5d473f8c0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/user-guide.md",
+      "bytes": 10502,
+      "sha256": "7c3e2a4eda908f72084206af1dabb77c3a4c02a68a18f097aaf5b6f4b553b963",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/worker-health.json",
+      "bytes": 337,
+      "sha256": "c83811e237fc9bf74bec595ec7372f852a357a23e465c0f03d5e256f5f8fbbe8",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "bundled-data/worker-health.png",
+      "bytes": 15208,
+      "sha256": "2dcad1eb6d69de30de61f74b3d95349275b17e8a90f286df4778b360e478b8b3",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "component-tests.log",
+      "bytes": 11588,
+      "sha256": "3335815ee9f97f58957fb48e8fcef70d9c8267b8662bbf768b29b37684200d63",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/build-profile.json",
+      "bytes": 33476,
+      "sha256": "963b2731a01357ab78fc28448f0f403dc2eba7561e14078f178a368c0bb8a488",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/bundle-files.json",
+      "bytes": 222582,
+      "sha256": "c32af63a4f8bc1f0935c122de330b3ea022b1997eef6e12ffe10619d348dcbcc",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/core-self-test.json",
+      "bytes": 1164,
+      "sha256": "9f59649538b30afcd60222fc7d7fbbadf965be0da96f08d28d6d4aa1200648ee",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/core-self-test.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/frozen-acceptance.json",
+      "bytes": 2207,
+      "sha256": "37489fd18d9a3fb9c0b3e0104e799d823ddefa6fea2cdf25a23d0a284070c283",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/full-self-test.json",
+      "bytes": 1354,
+      "sha256": "0fc3468a6a703333c32b53123c6ca0b2ca42e0b7183a6a0ddae93a836d33b9dc",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/full-self-test.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/help-assets.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/installed-notices-manifest.json",
+      "bytes": 18178,
+      "sha256": "749205649d2d3eef8b13da42cf6f446be5bf29cc50b6bb3a573908bf45d10585",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/native-binaries-manifest.json",
+      "bytes": 60805,
+      "sha256": "1a5b8515248961d5ffeb4aebc4e94c6ac437382d63f55141cce827088718024a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/optional-ocr-rejected.log",
+      "bytes": 424,
+      "sha256": "c38e533ec7c84b19ebdf66b5dc163bfd0acfcefabd0e106a05214269e865e377",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/中文.txt.log",
+      "bytes": 268,
+      "sha256": "8bd32a3e685cb7595f03900f591c21c2afc303f9a681f78250a19044a7319e64",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/中文.txt.md",
+      "bytes": 44,
+      "sha256": "b4775f238e2a0f9073e16985aae3476d17575215e34c50116c0b345bd771aeb0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/原生.pdf.log",
+      "bytes": 403,
+      "sha256": "7778d90ab6cfbdcb41a8469d0abff31009b084cf25018c73c691d51e6226367a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/原生.pdf.md",
+      "bytes": 70,
+      "sha256": "234c6defe1ab5f8b10fc050f272702f5abb5505435e1bf7f8428ef822882fe6a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/掃描.pdf.log",
+      "bytes": 405,
+      "sha256": "f1a35aac2bb1b5c4cdcf96b0899e6159ff9a485569ff92fc64c0d76c489d0ecf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/文件.docx.log",
+      "bytes": 534,
+      "sha256": "34ea6abc18b8e3ae6ea21ceed417afeac8f10b07dbac018cd8b3e8a478eb4692",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/文件.docx.md",
+      "bytes": 97,
+      "sha256": "fe99b51fc156e2bd5d88d7b8e45dddf23f45fc6bb3cb2a88fb51ae35dd13c2c5",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/簡報.pptx.log",
+      "bytes": 534,
+      "sha256": "49ab15b5ab3aad9736b19c59cc9559d408c0a6f738de0642a56b2a35787dd3ce",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/簡報.pptx.md",
+      "bytes": 61,
+      "sha256": "7785061882d0df0e76f3a6c4ec180f96bd6d1f46e90d244f204a5befe85bcafa",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/網頁.html.log",
+      "bytes": 534,
+      "sha256": "a48db80c78684584f087f4fdb473240b5fb09e2c41d22c8de1b78b73878b54c0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/網頁.html.md",
+      "bytes": 37,
+      "sha256": "84f27ae5db2d2ae49b0e7baec386f69efe9e80a140081fbc5d63436aec71e6a0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/資料.xlsx.log",
+      "bytes": 534,
+      "sha256": "e7ffe2a5c5b95514891583b40f28aa23a0b7960d55be104364aa9e662053699c",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen/資料.xlsx.md",
+      "bytes": 62,
+      "sha256": "b6e9bde9d5f94ed3c6b6dea5153e02d450b5e7285f1a2e0dd03546297bbfa354",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "frozen.log",
+      "bytes": 70,
+      "sha256": "f9be066a43e0dbcf028aebb8ebf74040e7038f71f7a084ffa5dca58a0c2145cf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "full-tests.log",
+      "bytes": 65126,
+      "sha256": "886cc16057bb687d52811cf4f99f579ba9edb0a2c7d6266bd18dbab1e4f8c7f6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "initial-premature-executable-check.log",
+      "bytes": 1329,
+      "sha256": "967941b4a972fe53989d7d3c1c3a2a3cd965deedae9a7acd456b211959bd3f85",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "initial-premature-pdf-check.log",
+      "bytes": 7767,
+      "sha256": "358fef5bd2df8b25c5739ec5ce936471e653a5049801b88ebd0aceac6b3a7bef",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "initial-sandbox-install.log",
+      "bytes": 161,
+      "sha256": "56b80a8e3cb3bdb1fddc77ed2b97add4c77880fd35244b3d758b4ad9149953fe",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 1286,
+      "sha256": "2dfc6c403ad8b4c4c3ff9561e428d1c35c39d8ffa94ebf57baa9e8bb4041e038",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/acceptance.json",
+      "bytes": 7387,
+      "sha256": "2a96c9f3ee94b70d6c81376f3291436883c46d65c4554566c032542d987cadc3",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/build-profile.json",
+      "bytes": 29030,
+      "sha256": "beae8db2afd20422b4a8db9576862e96d267d39fc747a538eb61520874b185ba",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/build.log",
+      "bytes": 16038,
+      "sha256": "1830c7bd31360f8cb203a179dbbd95517f3381cb627d650d37a977ddad50798a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundle-files.json",
+      "bytes": 215891,
+      "sha256": "e431e8951a4627234276a1e91c892929feec20dc928d8909a8d7960623b0f0be",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/base-runtime-lock.txt",
+      "bytes": 73275,
+      "sha256": "46ae2cd301c8607a58cdface6aaa8c57565da38de6a4f5f5be7050ca1a2d453b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/build-profile.json",
+      "bytes": 29030,
+      "sha256": "beae8db2afd20422b4a8db9576862e96d267d39fc747a538eb61520874b185ba",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/beautifulsoup4/METADATA",
+      "bytes": 3812,
+      "sha256": "b2f888103259f1607c85f3b1163be1bc49fc9941a3243c3b89a21075bfc6d4fb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE",
+      "bytes": 1441,
+      "sha256": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/certifi/METADATA",
+      "bytes": 2526,
+      "sha256": "e463e38f7fe7da36a11e6d3fecc5dfa5b97be8c8022620400750d79ae7d842bc",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/certifi/original/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "bytes": 989,
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/cffi/METADATA",
+      "bytes": 2527,
+      "sha256": "558bafb9093a8e790175d9ecff9688382981d744877dad86fd6770db0f4dc918",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/cffi/original/cffi-2.1.1.dist-info/licenses/LICENSE",
+      "bytes": 1123,
+      "sha256": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/charset-normalizer/METADATA",
+      "bytes": 46395,
+      "sha256": "89ce6362bb7be88558f4be99a98f5d1b4da93d19cd0323e5ee0bac05cf883dfb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/charset-normalizer/original/charset_normalizer-3.5.2.dist-info/licenses/LICENSE",
+      "bytes": 1071,
+      "sha256": "6d0d41bfe170ac6c7dc248c9a63e254d0fb45a60d50a8257d0af92c6e249b887",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/click/METADATA",
+      "bytes": 2567,
+      "sha256": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/click/original/click-8.5.0.dist-info/licenses/LICENSE.txt",
+      "bytes": 1475,
+      "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/cobble/METADATA",
+      "bytes": 2698,
+      "sha256": "6eb2cf88cfb39b884adde1eff7d8f89f80b256572eb0c6c164d6f99943dbd49f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/cryptography/METADATA",
+      "bytes": 4394,
+      "sha256": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE",
+      "bytes": 197,
+      "sha256": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+      "bytes": 11360,
+      "sha256": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD",
+      "bytes": 1532,
+      "sha256": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/defusedxml/METADATA",
+      "bytes": 32518,
+      "sha256": "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/defusedxml/original/defusedxml-0.7.1.dist-info/LICENSE",
+      "bytes": 2409,
+      "sha256": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/et-xmlfile/METADATA",
+      "bytes": 2711,
+      "sha256": "0e97d7ea909ed0fbe03d88bc8b6f58677cee1b07bd3353ce361cd2405915204e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.python",
+      "bytes": 14688,
+      "sha256": "4ccdaaebc0f44b83720ec0399bb7ab329adce067dd62f73c5535a2dc05628ab2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.rst",
+      "bytes": 1131,
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/flatbuffers/METADATA",
+      "bytes": 1004,
+      "sha256": "9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/idna/METADATA",
+      "bytes": 7207,
+      "sha256": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/idna/original/idna-3.20.dist-info/licenses/LICENSE.md",
+      "bytes": 1541,
+      "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/lxml/METADATA",
+      "bytes": 3279,
+      "sha256": "aad89f8107bc74045b86c9b7f7c0984196102520dd7faed5e4e45693b7c315ef",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/lxml/original/lxml-6.1.3.dist-info/licenses/LICENSE.txt",
+      "bytes": 1507,
+      "sha256": "8fc2b568133516e46845d2147917adeee1648e70ae9ab5ed6c5417afef4ce855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/lxml/original/lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+      "bytes": 6221,
+      "sha256": "388fa99f3bde4447cd5a4cbb114037be026854db6cfe89e112691c1d8abdcf3c",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/magika/METADATA",
+      "bytes": 10647,
+      "sha256": "b54a3585962103cacdd8782eb5c72751dbdc202a300469b54782a4824e5b7143",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/mammoth/METADATA",
+      "bytes": 26193,
+      "sha256": "aa45c59d8352de6aebe3c85b991045ffdf0acbedb76237dcf48d5e8cee0d8b6d",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/mammoth/original/mammoth-1.13.0.dist-info/licenses/LICENSE",
+      "bytes": 1307,
+      "sha256": "6663bbd049205d38a496ccacb412a151980b444627d38de218b3b809aef330f1",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/manifest.json",
+      "bytes": 11656,
+      "sha256": "7dea4385450d2145bf20ae61e022da1cd3c0d18b6125c335fcb00f1b93721076",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/markdownify/METADATA",
+      "bytes": 9922,
+      "sha256": "4b457b9a3b3c6e7c87277a5157f9f99588b6cf89ee16ae20c8a019c6a66f6e2b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/markdownify/original/markdownify-1.2.3.dist-info/LICENSE",
+      "bytes": 1083,
+      "sha256": "fae8b42db142dabf03b0c5c495831a5d11b9649ead0cf0bd4ab4f52294b263be",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/markitdown/METADATA",
+      "bytes": 4982,
+      "sha256": "c3bb731d953a39542a306aff1876fbfb2220a7cad032d71cc948daadbb2efc43",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/markitdown/original/markitdown-0.1.9.dist-info/licenses/LICENSE",
+      "bytes": 1141,
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/markitdown-desktop/METADATA",
+      "bytes": 661,
+      "sha256": "1fe129dab6bdb25f19aa7811c82666178963ff21f328915acaceeef8f8aa2717",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/METADATA",
+      "bytes": 6635,
+      "sha256": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy/_core/include/numpy/random/LICENSE.txt",
+      "bytes": 1018,
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy/ma/LICENSE",
+      "bytes": 1593,
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy/random/LICENSE.md",
+      "bytes": 3511,
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+      "bytes": 46794,
+      "sha256": "4860083caa0de2ac3292ca98bd074bd8f45d8b32624e37b1e70a240bff61e488",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+      "bytes": 1018,
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+      "bytes": 690,
+      "sha256": "3f2c1ffa76383a55ae0aac01c9737cd70050dff63e1f026694fbe9d662573c98",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+      "bytes": 20785,
+      "sha256": "e340270d4f64384569a91d546acb5b094d69ce47f0c015db77abb74dc6f815af",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+      "bytes": 1414,
+      "sha256": "f7b14309e5f54e5022b26448eefd419988ada2aec01d3c1162d84a0ea8f21f2c",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+      "bytes": 1514,
+      "sha256": "211e7d737d6179a08f791ebb0a99897ce7cd2457410c542876d125576edfe910",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+      "bytes": 1543,
+      "sha256": "c17011467b4fe6e20fbfbeda4df09e58c2bca5480a063e55735a4000a379aad9",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+      "bytes": 1498,
+      "sha256": "a85ca13fdf90160b64a0698215868c13b74d835ad0a4e2ba44713b8c5058a056",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+      "bytes": 2266,
+      "sha256": "a14cc25e10d40a3aa705b7de2fb764a6535d8ee9b2db4e1724900585457dfd55",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+      "bytes": 1593,
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+      "bytes": 3511,
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+      "bytes": 2745,
+      "sha256": "469778be8f33d54e1bcaab28c281cc472916d2d273f835e55bc487d30503face",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+      "bytes": 2926,
+      "sha256": "0e111337b25494a773106695f0e799f642b8567aaacca4f116a74a8177179156",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+      "bytes": 1154,
+      "sha256": "e7d4f4fb20358f314210a892ae17351e04993813646f697ec387385ca2a36918",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+      "bytes": 1509,
+      "sha256": "6f5828a57223d4cc7f8ea505a2623e7b978b242752c1515e355f46ba2cec1800",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+      "bytes": 1226,
+      "sha256": "9d4098846018319cd68e228ee6220361787f73bccbf00237a85e4fc9621b998f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+      "bytes": 332,
+      "sha256": "268b0ca06759d31ea3ca68dd35f20e877916e927b1c2a835e4592a3c4354b1f9",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/onnxruntime/METADATA",
+      "bytes": 5839,
+      "sha256": "82f146c3aad08fd55eadf57e410022535697a858bd6bf760320b2328301d41cf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/onnxruntime/original/onnxruntime/LICENSE",
+      "bytes": 1073,
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/onnxruntime/original/onnxruntime/ThirdPartyNotices.txt",
+      "bytes": 338088,
+      "sha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/openpyxl/METADATA",
+      "bytes": 2510,
+      "sha256": "23f80ca9830dd89435da1710f26deda8f81e5409287e74540210c72627a4ad96",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/openpyxl/original/openpyxl-3.1.5.dist-info/LICENCE.rst",
+      "bytes": 1131,
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/packaging/METADATA",
+      "bytes": 3544,
+      "sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE",
+      "bytes": 197,
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "bytes": 1344,
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/METADATA",
+      "bytes": 18156,
+      "sha256": "b2b43910a5ef734a08be961df9c484f4664ad9ec2fa5a08294d0edfa08bcdd4b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSE",
+      "bytes": 1634,
+      "sha256": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+      "bytes": 1360,
+      "sha256": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+      "bytes": 2889,
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+      "bytes": 1099,
+      "sha256": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+      "bytes": 1104,
+      "sha256": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+      "bytes": 6203,
+      "sha256": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+      "bytes": 1542,
+      "sha256": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+      "bytes": 11519,
+      "sha256": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+      "bytes": 1486,
+      "sha256": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+      "bytes": 1058,
+      "sha256": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+      "bytes": 1059,
+      "sha256": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+      "bytes": 1249,
+      "sha256": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+      "bytes": 5974,
+      "sha256": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+      "bytes": 1606,
+      "sha256": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+      "bytes": 10767,
+      "sha256": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+      "bytes": 1337,
+      "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+      "bytes": 1079,
+      "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pdfminer-six/METADATA",
+      "bytes": 4289,
+      "sha256": "77a7aa49c45244383288e8b98cb567f19a9083ad0d74716e3011c831df801d44",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pdfminer-six/original/pdfminer_six-20251230.dist-info/licenses/LICENSE",
+      "bytes": 1093,
+      "sha256": "f01e5d699a33766b5caf4a5099f2856aba4f3f75ea1df05dc0572b34b4bea8f2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pdfplumber/METADATA",
+      "bytes": 43599,
+      "sha256": "24f9118940ac3810a6bf0dd1970094e29cc659c71c334a6fc2e65d7120a74b62",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pdfplumber/original/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt",
+      "bytes": 1086,
+      "sha256": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pillow/METADATA",
+      "bytes": 9118,
+      "sha256": "dba7fdfe24e302f46bae562f55d66cc367c0618abae9894a1ebec93dc8f0e511",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pillow/original/pillow-13.0.0.dist-info/licenses/LICENSE",
+      "bytes": 70307,
+      "sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/protobuf/METADATA",
+      "bytes": 595,
+      "sha256": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/protobuf/original/protobuf-7.36.2.dist-info/LICENSE",
+      "bytes": 1732,
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/psutil/METADATA",
+      "bytes": 22187,
+      "sha256": "525f8ba78523cf7bc3759d62a105e7c57fd679ea702402b9449fb0746aa0217f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/psutil/original/psutil-7.2.2.dist-info/LICENSE",
+      "bytes": 1548,
+      "sha256": "b89c063b3786e28e0c0a38f1931db61fed35e69dd2a2966fbecffee0f46c8d10",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pycparser/METADATA",
+      "bytes": 9709,
+      "sha256": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pycparser/original/pycparser-3.12.dist-info/licenses/LICENSE",
+      "bytes": 1543,
+      "sha256": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pypdfium2/METADATA",
+      "bytes": 62414,
+      "sha256": "3e1628ac6c4cf1dc173e9441f972d9324f8f9ff92d6930c340efceb8175e37e8",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/pyside6-essentials/METADATA",
+      "bytes": 3721,
+      "sha256": "68a36226bc8fdd63b54c51f35e8f52226e2e263881a102b23400056e2e689e60",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/python-dateutil/METADATA",
+      "bytes": 7341,
+      "sha256": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+      "bytes": 2889,
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/python-pptx/METADATA",
+      "bytes": 2503,
+      "sha256": "d38c6af5f1817cc528706264d8343cd1c95dbdec5672f29b944f54f79134a3a2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/python-pptx/original/python_pptx-1.0.2.dist-info/LICENSE",
+      "bytes": 1104,
+      "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/requests/METADATA",
+      "bytes": 4806,
+      "sha256": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/LICENSE",
+      "bytes": 10142,
+      "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/NOTICE",
+      "bytes": 38,
+      "sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/shiboken6/METADATA",
+      "bytes": 2473,
+      "sha256": "586ac5f74d295853db808e93852887297b813f133ce13df319c8f3ee0ffaa417",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/six/METADATA",
+      "bytes": 1658,
+      "sha256": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/six/original/six-1.17.0.dist-info/LICENSE",
+      "bytes": 1066,
+      "sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/soupsieve/METADATA",
+      "bytes": 4387,
+      "sha256": "c1d4799cbf1c070586fa86f922f621c33845a5977886fcb6431c763dc083f838",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/soupsieve/original/soupsieve-4.0.dist-info/licenses/LICENSE.md",
+      "bytes": 1096,
+      "sha256": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/typing-extensions/METADATA",
+      "bytes": 3310,
+      "sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/typing-extensions/original/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/tzdata/METADATA",
+      "bytes": 1358,
+      "sha256": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/LICENSE",
+      "bytes": 625,
+      "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/urllib3/METADATA",
+      "bytes": 7389,
+      "sha256": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/urllib3/original/urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+      "bytes": 1093,
+      "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/xlsxwriter/METADATA",
+      "bytes": 2908,
+      "sha256": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/installed/xlsxwriter/original/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt",
+      "bytes": 1349,
+      "sha256": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/markitdown/LICENSE",
+      "bytes": 1141,
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/models/SOURCE.json",
+      "bytes": 434,
+      "sha256": "b5b441741787fefbfbe4381baadcc7f1b25dd8f3f1ea2baf01d756c4d02620a0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/models/tessdata-fast-Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libatk-bridge2.0-0t64-copyright.txt",
+      "bytes": 11841,
+      "sha256": "72fbc9d2c44016dd061f3f63f75253e57089bcd23a4f9023039de4631e7cf918",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libatk1.0-0t64-copyright.txt",
+      "bytes": 11841,
+      "sha256": "72fbc9d2c44016dd061f3f63f75253e57089bcd23a4f9023039de4631e7cf918",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libatomic1-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libatspi2.0-0t64-copyright.txt",
+      "bytes": 11841,
+      "sha256": "72fbc9d2c44016dd061f3f63f75253e57089bcd23a4f9023039de4631e7cf918",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libblkid1-copyright.txt",
+      "bytes": 30341,
+      "sha256": "56b67e2eb8bac5a15d91e261d558d73f1f029113cced229753138194997366b6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libbrotli1-copyright.txt",
+      "bytes": 1354,
+      "sha256": "24a64e5bb83d0960d1835696a1e23c0896ad6055b0ca47c66ab0eb9a766324b1",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libbz2-1.0-copyright.txt",
+      "bytes": 2228,
+      "sha256": "832ed535ff3c3d025a8d2348eb1b697b89addcf2eaadbc17650262040b9145e2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libcairo-gobject2-copyright.txt",
+      "bytes": 28461,
+      "sha256": "408fb9e704e875cd42d432e7c9b3b378f568e3c89db2b5c5ef3d11c025319574",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libcairo2-copyright.txt",
+      "bytes": 28461,
+      "sha256": "408fb9e704e875cd42d432e7c9b3b378f568e3c89db2b5c5ef3d11c025319574",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libcap2-copyright.txt",
+      "bytes": 4496,
+      "sha256": "04f9fb974e10f6ca0cd226811f72b3855f8383daad0e5de7adac8d5b0b7796c3",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libcloudproviders0-copyright.txt",
+      "bytes": 1090,
+      "sha256": "950a9f9c5d081d138f29643696619b9a8d2134386555e244774faa2d9a464e00",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libcom-err2-copyright.txt",
+      "bytes": 20459,
+      "sha256": "2041b5febdc110151ca3372d01b16b85dda1888e33f3f60fce0f59940eed7d19",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libdatrie1-copyright.txt",
+      "bytes": 2129,
+      "sha256": "7c994f175cb0da0bbe158f729ca43bc6193bb99d3c8bc82b41c46d93904b584d",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libdbus-1-3-copyright.txt",
+      "bytes": 20076,
+      "sha256": "f5fd0bfcceb21f4c23a517368abcbfe8a4c1cfb3b521757b50fae4898840fe35",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libepoxy0-copyright.txt",
+      "bytes": 1352,
+      "sha256": "a8be83fe8a66a6ecc1a9fbcec9cf1b43aacca69d38220a94fb37632f090b611e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libexpat1-copyright.txt",
+      "bytes": 1756,
+      "sha256": "60919fe1a156395ff14511bb6ff79756c50ade2fff59ac60c9bae1d8a7fe6292",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libffi8-copyright.txt",
+      "bytes": 10164,
+      "sha256": "25ee86cfccc2b7eb9a156a127f1e1b38c46c231f516ff201912223eaf62ee186",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libfontconfig1-copyright.txt",
+      "bytes": 1301,
+      "sha256": "b215a61cdd3e62b5b17cc28b1852c78acb3dd38be0fb30706f7efc050dba91db",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libfreetype6-copyright.txt",
+      "bytes": 31206,
+      "sha256": "acdab1506824347784d2cc0a634cfa17dbf525c0d5b4902b4ac9d0d4e1fed6c7",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libfribidi0-copyright.txt",
+      "bytes": 1460,
+      "sha256": "a9b76593ba12d42b47000f8779d0b631432147980e71464e8ba88238becbc038",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libgcc-s1-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libgdk-pixbuf-2.0-0-copyright.txt",
+      "bytes": 5415,
+      "sha256": "2b914b2304e7474aaa8108307b9e95c3f8345e0a4153c7bfa0ca9c48813cb406",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libglib2.0-0t64-copyright.txt",
+      "bytes": 55072,
+      "sha256": "b9fe78c8a0720c051c9ac8e8c6f25663b54f228e501d24fc0ba89c66cec7f7c1",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libgraphite2-3-copyright.txt",
+      "bytes": 9348,
+      "sha256": "a33017ba0308c41bdbde4751bff349ab7b26af45fadbb1e3e7ac67c372985572",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libgssapi-krb5-2-copyright.txt",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libgtk-3-0t64-copyright.txt",
+      "bytes": 60524,
+      "sha256": "ededd0b07c091f82888eacad33ecd01018d0ccdf85e91f0f5d85de58529f6842",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libharfbuzz0b-copyright.txt",
+      "bytes": 31772,
+      "sha256": "9295e101a07824e8ae77c448884bd357a64b831cd4c47f125bf4ac7ea0d8f911",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libjpeg62-turbo-copyright.txt",
+      "bytes": 38846,
+      "sha256": "3821184e23385bf2cdc01f56bd999b34036fc3aa03d5135d41680374eb81bf8a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libk5crypto3-copyright.txt",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libkeyutils1-copyright.txt",
+      "bytes": 2148,
+      "sha256": "73f5682b0466f41cea2b9b7f1ff8a8052464f6c09fb29eeac4490512af09bd50",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libkrb5-3-copyright.txt",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libkrb5support0-copyright.txt",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libmount1-copyright.txt",
+      "bytes": 30341,
+      "sha256": "56b67e2eb8bac5a15d91e261d558d73f1f029113cced229753138194997366b6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libpango-1.0-0-copyright.txt",
+      "bytes": 20017,
+      "sha256": "8d9dd932bc836ab2ea02e0b13c7cc1e9e5472a71008f0caa2a8793eb5780ee94",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libpangocairo-1.0-0-copyright.txt",
+      "bytes": 20017,
+      "sha256": "8d9dd932bc836ab2ea02e0b13c7cc1e9e5472a71008f0caa2a8793eb5780ee94",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libpangoft2-1.0-0-copyright.txt",
+      "bytes": 20017,
+      "sha256": "8d9dd932bc836ab2ea02e0b13c7cc1e9e5472a71008f0caa2a8793eb5780ee94",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libpcre2-8-0-copyright.txt",
+      "bytes": 6627,
+      "sha256": "e915cde4251f96ec6af107ecd2e194440a4e69440893b0c982802f8a1e4ae40a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libpixman-1-0-copyright.txt",
+      "bytes": 2247,
+      "sha256": "1b3fb5690861e15ca4fd6640fd4def4b2576617942eec04b6fcb7d8bc6c4c9da",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libpng16-16t64-copyright.txt",
+      "bytes": 13217,
+      "sha256": "7e729164c60950b2b57f1712d82a051c9ba54f421c9b69815d9e4686ddc5709b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libselinux1-copyright.txt",
+      "bytes": 1957,
+      "sha256": "864f1bb189f609075d580b8c4aada16d85a44546884f1687989e1cacc8c56751",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libssl3t64-copyright.txt",
+      "bytes": 2543,
+      "sha256": "6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libstdc++6-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libsystemd0-copyright.txt",
+      "bytes": 12521,
+      "sha256": "a79e4b379cabbd960bb44f6cc1a069081a3778c59a25ee529b68df5a2cb7d27d",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libthai0-copyright.txt",
+      "bytes": 2458,
+      "sha256": "62d2835587b92a6abdbe62fe4524a7b6a59ac478df2c591eb98c3fbce6c3fa08",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libx11-6-copyright.txt",
+      "bytes": 47102,
+      "sha256": "0b380a7fd5b2228f26e9585e56f14812efd3350f3df307507d2bc055dfd8de3e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libx11-xcb1-copyright.txt",
+      "bytes": 47102,
+      "sha256": "0b380a7fd5b2228f26e9585e56f14812efd3350f3df307507d2bc055dfd8de3e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxau6-copyright.txt",
+      "bytes": 1224,
+      "sha256": "118dd263a7b91c8f21c489f949bf13281dff9e766deea92b829dac4dce66601a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-cursor0-copyright.txt",
+      "bytes": 1851,
+      "sha256": "8ee3b982784137d7e651d37c8c0978983984b0fe93ce2760013b0abbf6652bed",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-glx0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-icccm4-copyright.txt",
+      "bytes": 2683,
+      "sha256": "b5b83faabe190515e7a5938aa00441204cd163e24191ef7bcf5e4ac690acd376",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-image0-copyright.txt",
+      "bytes": 2707,
+      "sha256": "daf2d51e978ec64fc21f59b12d850c2efc907c15eae5c4ba2f3237ce946476de",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-keysyms1-copyright.txt",
+      "bytes": 2758,
+      "sha256": "cb93f3be4559362c1b8c9484a4a669677f155333456757b9be406dd7d6fa2b01",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-randr0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-render-util0-copyright.txt",
+      "bytes": 2705,
+      "sha256": "fc1a08132096d37decac98a8a82e21ee8104e43c434daa2c620d19b55d8b8367",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-render0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-shape0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-shm0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-sync1-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-util1-copyright.txt",
+      "bytes": 2741,
+      "sha256": "1142dc404c2f6845a5e9a39ee569e670fd629b3a974a03bcd64f84e57e5acd90",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-xfixes0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcb-xkb1-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcomposite1-copyright.txt",
+      "bytes": 2324,
+      "sha256": "e37c7a7e4026343c3e5c13990a6d9a8879194ae3ab26bfe420b34f6f206bf35f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxcursor1-copyright.txt",
+      "bytes": 2774,
+      "sha256": "817abc0ccc9e2591057be256b0f6d80edb134221ced29dd545a9eafaf40b423c",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxdamage1-copyright.txt",
+      "bytes": 1221,
+      "sha256": "09182bc7805ff77a41251e450cebd0d33c48a74ba8ec4b734855a22c86f50417",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxdmcp6-copyright.txt",
+      "bytes": 1265,
+      "sha256": "1bcbb50f8603fe8b86d330bfa460b772ea04fbd3c70e4499f0768b5340b9fd6e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxext6-copyright.txt",
+      "bytes": 10421,
+      "sha256": "bc57e445ca1d9fe082c8d54189dd411ff26caa8552c9c63d44ea06a982f32124",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxfixes3-copyright.txt",
+      "bytes": 2320,
+      "sha256": "051ffe073ab38244c504bb379903b4ecda6081fb3d97d0d3dce44bc11712eef2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxi6-copyright.txt",
+      "bytes": 4435,
+      "sha256": "c812f9c54513ae593aab9580b54a4b18219648df7068d49ca1daa47f522ba3fa",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxinerama1-copyright.txt",
+      "bytes": 3670,
+      "sha256": "e49d9732f261b3ffcb50c40914bd9d144de5557dad9b2ae20dbe8e3c5b3d17fb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxkbcommon-x11-0-copyright.txt",
+      "bytes": 3566,
+      "sha256": "5eeaeb1b6e029a0274e1573765bb0bae2926ef96a3679203faa4fd00fdaeaa88",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxkbcommon0-copyright.txt",
+      "bytes": 3566,
+      "sha256": "5eeaeb1b6e029a0274e1573765bb0bae2926ef96a3679203faa4fd00fdaeaa88",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxrandr2-copyright.txt",
+      "bytes": 3733,
+      "sha256": "6d8e6239cfe9dd25bbeef06dcf0610d802ebbdc8968db87cf5adf00ff98927d4",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libxrender1-copyright.txt",
+      "bytes": 2252,
+      "sha256": "ed2a78123a5076b4f11da38cb1ffb85b5cb9fdc26b5746c517b1d7e7a9029704",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/libzstd1-copyright.txt",
+      "bytes": 5332,
+      "sha256": "5cec9fef4d3fa7e0371fbef4ec3fc416e0105dc2a9922117f84e825cb11f50f8",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/manifest.json",
+      "bytes": 60805,
+      "sha256": "0b4eea9b068b32e9ac2db93e21d645264458fa095f140568355a2948212bfc01",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/native/zlib1g-copyright.txt",
+      "bytes": 2927,
+      "sha256": "9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/python-runtime/LICENSE.txt",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/standards/BSD-2-Clause.txt",
+      "bytes": 1267,
+      "sha256": "f32fb3b417a194167cfad068223fc975ba96c5960513a10f66a3c28720aec1df",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/licenses/standards/SOURCE.json",
+      "bytes": 354,
+      "sha256": "aee93a231453078d13c7f69f169308bd3abc88b1904cfe5e12ca7ef4b4b6a1ab",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/ocr-models.json",
+      "bytes": 434,
+      "sha256": "b5b441741787fefbfbe4381baadcc7f1b25dd8f3f1ea2baf01d756c4d02620a0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/setup-chinese.json",
+      "bytes": 379,
+      "sha256": "5ac74cac9aae6928f5d54420b3a9274a4dd75cdbee947b01dfd13544894e5658",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/setup-chinese.png",
+      "bytes": 38983,
+      "sha256": "e339f9f6bfbefc7c648112f92da52f64eaf946d715b3566eee0bb9242dc457cb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/third-party.md",
+      "bytes": 1621,
+      "sha256": "013fe06247abc193e303a66d82b4f3d29c99fa2bef681a3e405a99e5d473f8c0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/user-guide.md",
+      "bytes": 10502,
+      "sha256": "7c3e2a4eda908f72084206af1dabb77c3a4c02a68a18f097aaf5b6f4b553b963",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/worker-health.json",
+      "bytes": 337,
+      "sha256": "c83811e237fc9bf74bec595ec7372f852a357a23e465c0f03d5e256f5f8fbbe8",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/bundled-data/worker-health.png",
+      "bytes": 15208,
+      "sha256": "2dcad1eb6d69de30de61f74b3d95349275b17e8a90f286df4778b360e478b8b3",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/component-tests.log",
+      "bytes": 11432,
+      "sha256": "36451a654c811edefe67e6c1a527cf2b0c66f3d45f52161c00b6eb3825671c10",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/core-self-test.json",
+      "bytes": 1164,
+      "sha256": "54e0c8b50822c9b830e042f8bb9ca50037d981f57909b5c72fd2645b30070b46",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/core-self-test.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/frozen-acceptance.json",
+      "bytes": 2207,
+      "sha256": "210aa4b747c8084d1aa5d9c722121d7d5a954c88d73eb4aaefa49523b3a75ba3",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/frozen.log",
+      "bytes": 70,
+      "sha256": "f9be066a43e0dbcf028aebb8ebf74040e7038f71f7a084ffa5dca58a0c2145cf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/full-self-test.json",
+      "bytes": 1354,
+      "sha256": "b7fda3619f8d7121cedab8a3bb8fdb940a7622bd5ec57e53510de67d16e6cba8",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/full-self-test.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/full-tests.log",
+      "bytes": 64970,
+      "sha256": "32bd262d861c582b3c4af86fa171a7e809a4943352ee8db0d36a0fe3d37cffdf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/help-assets.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/installed-notices-manifest.json",
+      "bytes": 11656,
+      "sha256": "7dea4385450d2145bf20ae61e022da1cd3c0d18b6125c335fcb00f1b93721076",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/native-binaries-manifest.json",
+      "bytes": 60805,
+      "sha256": "0b4eea9b068b32e9ac2db93e21d645264458fa095f140568355a2948212bfc01",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/optional-ocr-rejected.log",
+      "bytes": 424,
+      "sha256": "c38e533ec7c84b19ebdf66b5dc163bfd0acfcefabd0e106a05214269e865e377",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/profile-tests.log",
+      "bytes": 2101,
+      "sha256": "71a20125a1763fb97a4c0d8da03f308aa744d258a32c30eaa4b53f520b2fd4b4",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/public-pdf.json",
+      "bytes": 2022,
+      "sha256": "be067e66c55fa44a81ed0e9c9c3ced18bead7afd827ea6889878cf15f7f3dd1d",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/public-pdf.log",
+      "bytes": 982,
+      "sha256": "058d6761f09ac169023fba8e5e9baa6174936024f1692d8dfffb25b06ac7be54",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/中文.txt.log",
+      "bytes": 268,
+      "sha256": "8bd32a3e685cb7595f03900f591c21c2afc303f9a681f78250a19044a7319e64",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/中文.txt.md",
+      "bytes": 44,
+      "sha256": "b4775f238e2a0f9073e16985aae3476d17575215e34c50116c0b345bd771aeb0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/原生.pdf.log",
+      "bytes": 403,
+      "sha256": "7778d90ab6cfbdcb41a8469d0abff31009b084cf25018c73c691d51e6226367a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/原生.pdf.md",
+      "bytes": 70,
+      "sha256": "234c6defe1ab5f8b10fc050f272702f5abb5505435e1bf7f8428ef822882fe6a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/掃描.pdf.log",
+      "bytes": 405,
+      "sha256": "f1a35aac2bb1b5c4cdcf96b0899e6159ff9a485569ff92fc64c0d76c489d0ecf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/文件.docx.log",
+      "bytes": 534,
+      "sha256": "50443082676417e3615d6f954d33ac8d2e96dfd7fdeb53785b92c4af681fd0fb",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/文件.docx.md",
+      "bytes": 97,
+      "sha256": "fe99b51fc156e2bd5d88d7b8e45dddf23f45fc6bb3cb2a88fb51ae35dd13c2c5",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/簡報.pptx.log",
+      "bytes": 534,
+      "sha256": "2bb4a23c5a61aee8a6fc317b559f01b4bd38b723b4f745a4104bc7e51d457702",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/簡報.pptx.md",
+      "bytes": 61,
+      "sha256": "7785061882d0df0e76f3a6c4ec180f96bd6d1f46e90d244f204a5befe85bcafa",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/網頁.html.log",
+      "bytes": 534,
+      "sha256": "364f6d445a8569a1240d52e4e00f8be48a825fe89bb1af9f60fe91647a1b48d4",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/網頁.html.md",
+      "bytes": 37,
+      "sha256": "84f27ae5db2d2ae49b0e7baec386f69efe9e80a140081fbc5d63436aec71e6a0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/資料.xlsx.log",
+      "bytes": 534,
+      "sha256": "680c620dd23ee103711280c1635e503fcb5a7806450ded62cc6173ceef0fa348",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-core/資料.xlsx.md",
+      "bytes": 62,
+      "sha256": "b6e9bde9d5f94ed3c6b6dea5153e02d450b5e7285f1a2e0dd03546297bbfa354",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/build-profile.json",
+      "bytes": 34096,
+      "sha256": "ef44730fc1a1811a297fab4c96808895c0212775af2880f45dc3c4ecaa3b9b90",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/build.log",
+      "bytes": 16095,
+      "sha256": "b5351b624e36ee517abb24ecaf53983b0f3010595271906e584bb17b5bac0d82",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/bundle-files.json",
+      "bytes": 223548,
+      "sha256": "7ffecb005296d4fd1c50700ccb10925cf9dc74507f7211c9989c857bd715ef82",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/core-self-test.json",
+      "bytes": 1164,
+      "sha256": "5286adb7eb1d8b037153ec1ab7a05f1bb7ac2f35beb5e85eb1e896f42e2062d2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/core-self-test.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/frozen-acceptance.json",
+      "bytes": 2207,
+      "sha256": "c3d0247a26a00476c2ed57d9aeb9a8761d756f10a6394ca489af62e688a54650",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/frozen.log",
+      "bytes": 70,
+      "sha256": "f9be066a43e0dbcf028aebb8ebf74040e7038f71f7a084ffa5dca58a0c2145cf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/full-self-test.json",
+      "bytes": 1354,
+      "sha256": "5ba73d6709682f0423aaea3955305d7b01a4a83b71d5ca8b19ac5f97725ff9b5",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/full-self-test.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/help-assets.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/installed-notices-manifest.json",
+      "bytes": 18542,
+      "sha256": "b694885cd0862104a37a8f93715ed659a3ad3f7a2a72efcbf935941289a92efd",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/native-binaries-manifest.json",
+      "bytes": 60805,
+      "sha256": "89958890c4c96ba9ed2779cd8eb5d671fbc5b22bf46e73cb3155453bdaaabdee",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/optional-ocr-rejected.log",
+      "bytes": 424,
+      "sha256": "c38e533ec7c84b19ebdf66b5dc163bfd0acfcefabd0e106a05214269e865e377",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/public-pdf.json",
+      "bytes": 2022,
+      "sha256": "e1bba61cf124bdb2be338b96ee6a43fc7f18df3a73bf6c35936ef5492b4b25fa",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/public-pdf.log",
+      "bytes": 991,
+      "sha256": "202eb403ef8ba69d7f34ee2682442aaeca3a13461597734079ea2d451cee2cf0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/中文.txt.log",
+      "bytes": 268,
+      "sha256": "8bd32a3e685cb7595f03900f591c21c2afc303f9a681f78250a19044a7319e64",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/中文.txt.md",
+      "bytes": 44,
+      "sha256": "b4775f238e2a0f9073e16985aae3476d17575215e34c50116c0b345bd771aeb0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/原生.pdf.log",
+      "bytes": 403,
+      "sha256": "7778d90ab6cfbdcb41a8469d0abff31009b084cf25018c73c691d51e6226367a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/原生.pdf.md",
+      "bytes": 70,
+      "sha256": "234c6defe1ab5f8b10fc050f272702f5abb5505435e1bf7f8428ef822882fe6a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/掃描.pdf.log",
+      "bytes": 405,
+      "sha256": "f1a35aac2bb1b5c4cdcf96b0899e6159ff9a485569ff92fc64c0d76c489d0ecf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/文件.docx.log",
+      "bytes": 534,
+      "sha256": "e4a7ffe8b348d0fae7a09381ec1d3fb581e2d65043cb188aa0f7ef602e81d466",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/文件.docx.md",
+      "bytes": 97,
+      "sha256": "fe99b51fc156e2bd5d88d7b8e45dddf23f45fc6bb3cb2a88fb51ae35dd13c2c5",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/簡報.pptx.log",
+      "bytes": 534,
+      "sha256": "e2020e4de4c23374f94a9b1ecee42692c95d1d714fc37ab38d626a444565cec2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/簡報.pptx.md",
+      "bytes": 61,
+      "sha256": "7785061882d0df0e76f3a6c4ec180f96bd6d1f46e90d244f204a5befe85bcafa",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/網頁.html.log",
+      "bytes": 534,
+      "sha256": "6f37e525f23f68c4a343aaa537888291bb52f33fdcf956a23f25ad6deba2c8ad",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/網頁.html.md",
+      "bytes": 37,
+      "sha256": "84f27ae5db2d2ae49b0e7baec386f69efe9e80a140081fbc5d63436aec71e6a0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/資料.xlsx.log",
+      "bytes": 534,
+      "sha256": "1d9bb2b1a240e3369de29f553f72d5571bb1955b026538c302c8ad60a35170db",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-notice-scan/資料.xlsx.md",
+      "bytes": 62,
+      "sha256": "b6e9bde9d5f94ed3c6b6dea5153e02d450b5e7285f1a2e0dd03546297bbfa354",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/build-profile.json",
+      "bytes": 29030,
+      "sha256": "eacc534fe9abe98599dfa1f09cc3e2bbeb94b8b02a5bfab7ca0fe4696491c1ff",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/build.log",
+      "bytes": 16078,
+      "sha256": "aa52e28558923e37d5cd90ee3fcaf671052b292d888fe9c854f0c9bcb410adc3",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/bundle-files.json",
+      "bytes": 215891,
+      "sha256": "5b82ac2952ca99cb0bd57f3a818301c1d73748cace672c99f5e1dad7ed4ec173",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/core-self-test.json",
+      "bytes": 1164,
+      "sha256": "70e40d88af5a42e59b6d95b3e73d34a4d576399e9f3ffdb1a12efe18a6e96424",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/core-self-test.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/frozen-acceptance.json",
+      "bytes": 2207,
+      "sha256": "cd9b30b93d63d91011f48a55da9d7d316cdce1abebfc1b74ec70858cd7d0c2a3",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/frozen.log",
+      "bytes": 70,
+      "sha256": "f9be066a43e0dbcf028aebb8ebf74040e7038f71f7a084ffa5dca58a0c2145cf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/full-self-test.json",
+      "bytes": 1354,
+      "sha256": "8175ea314ea6656a00376e6889d32777776a25bf32d93cf6547dc764b95318ac",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/full-self-test.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/help-assets.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/installed-notices-manifest.json",
+      "bytes": 11656,
+      "sha256": "7dea4385450d2145bf20ae61e022da1cd3c0d18b6125c335fcb00f1b93721076",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/native-binaries-manifest.json",
+      "bytes": 60805,
+      "sha256": "64deef91b529a74cc66b7565bda02c895c41a8aafb5e38243fa66b772d17bef2",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/optional-ocr-rejected.log",
+      "bytes": 424,
+      "sha256": "c38e533ec7c84b19ebdf66b5dc163bfd0acfcefabd0e106a05214269e865e377",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/public-pdf.json",
+      "bytes": 2022,
+      "sha256": "a57ea55e1b3387d34d79decc0c5438ade1478ae15667bf902c21c22bf599dc53",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/public-pdf.log",
+      "bytes": 991,
+      "sha256": "7688f6c7a7726d88b14c9e203d27a469bc04327aeaac04cdee1159f6b38aed78",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/中文.txt.log",
+      "bytes": 268,
+      "sha256": "8bd32a3e685cb7595f03900f591c21c2afc303f9a681f78250a19044a7319e64",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/中文.txt.md",
+      "bytes": 44,
+      "sha256": "b4775f238e2a0f9073e16985aae3476d17575215e34c50116c0b345bd771aeb0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/原生.pdf.log",
+      "bytes": 403,
+      "sha256": "7778d90ab6cfbdcb41a8469d0abff31009b084cf25018c73c691d51e6226367a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/原生.pdf.md",
+      "bytes": 70,
+      "sha256": "234c6defe1ab5f8b10fc050f272702f5abb5505435e1bf7f8428ef822882fe6a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/掃描.pdf.log",
+      "bytes": 405,
+      "sha256": "f1a35aac2bb1b5c4cdcf96b0899e6159ff9a485569ff92fc64c0d76c489d0ecf",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/文件.docx.log",
+      "bytes": 534,
+      "sha256": "648639c017fa128cd27b78178a76d7cf9582fa2b549f2a808511eaad20c1b48f",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/文件.docx.md",
+      "bytes": 97,
+      "sha256": "fe99b51fc156e2bd5d88d7b8e45dddf23f45fc6bb3cb2a88fb51ae35dd13c2c5",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/簡報.pptx.log",
+      "bytes": 534,
+      "sha256": "6319ae65625393a18f98820a64a0af5694c1102ea02b0486dda6bab6956720ba",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/簡報.pptx.md",
+      "bytes": 61,
+      "sha256": "7785061882d0df0e76f3a6c4ec180f96bd6d1f46e90d244f204a5befe85bcafa",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/網頁.html.log",
+      "bytes": 534,
+      "sha256": "612c58725a51848c93622b1c4a63faf67b1e45c87e2c54508fb16241995d8a73",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/網頁.html.md",
+      "bytes": 37,
+      "sha256": "84f27ae5db2d2ae49b0e7baec386f69efe9e80a140081fbc5d63436aec71e6a0",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/資料.xlsx.log",
+      "bytes": 534,
+      "sha256": "194ac93da29378ee390d2666ed5b7832aeca74fc33b685931c024c3189c19c39",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "intermediate-platform-check/資料.xlsx.md",
+      "bytes": 62,
+      "sha256": "b6e9bde9d5f94ed3c6b6dea5153e02d450b5e7285f1a2e0dd03546297bbfa354",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "licenses.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "local-install.log",
+      "bytes": 1680,
+      "sha256": "0eaff99ce30a21174b6e138aaa0d5e0046d89abec39cf04bb609d77a3386f32e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "pip-check.log",
+      "bytes": 294,
+      "sha256": "35bb3d1e4d1d0091788acae77c6d707f1dfb81d2384e34fd54a205f9497ce313",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "profile-tests.log",
+      "bytes": 2257,
+      "sha256": "12904a113e37f1de8ac14a6fcdb086d7ccb29cbda75844539500bc3282706b26",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "public-pdf.json",
+      "bytes": 2022,
+      "sha256": "b080381b1a7325ce778e9d007dd35bbd9acae816f6bc0428f3898f1a21640b54",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "public-pdf.log",
+      "bytes": 991,
+      "sha256": "a501993a12870ffc341d50482365e93a20127b9d4942044ade5c3736264f899b",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 562747,
+      "sha256": "3fd3f81f32bc1d352bbe7267f319c290230ac7bd8decb13ad9ffcbae3ea4eb39",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 565190,
+      "sha256": "2e504633b192f2f6b887b6afb38de3b67a17933dce7da75ca2b74ba3e513a900",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 283126,
+      "sha256": "c136e7555201305a35cd27175b670b4cf78c738e26474dbe82795242dc7d30ca",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 299731,
+      "sha256": "f7b3fdc48e4090e52c062ea5be748345661f9d3d5906678c760ee36377107b8a",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 444957,
+      "sha256": "bb2d49e25ab2e8643fef1f26a591740fd1b5590bc567a866523264d66fdda11e",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    },
+    {
+      "file": "upstream.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C04-build 本輪生成；bundled-data 為實際原文／資產，中間過程另列；合成／公開文件，不含使用者文件，非 Windows／GPU 驗收"
+    }
+  ]
+}

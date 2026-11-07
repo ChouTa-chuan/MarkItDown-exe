@@ -1,0 +1,7 @@
+queued: PDF 逐頁自動選擇原生解析或本機 OCR，必要時提供品質提醒。
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 運算裝置：CPU／Tesseract
+running: 寫入 Markdown
+running: 第 1/1 頁：OCR
+failed: RuntimeError: 本頁需要 OCR，但找不到 Tesseract；請安裝 OCR 元件後重試。

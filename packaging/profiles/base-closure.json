@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "profile": "base",
-  "source_version": "0.8.1",
-  "config_sha256": "530996f91a060f30be63cce700660b00bd24ce3ad258c2c965565553dfcd0a66",
+  "source_version": "0.9.0",
+  "config_sha256": "e011af3b877ac27165be7358e5d13bf7afdb76bb6598b7ec3f423cfa619ef34f",
   "native_ocr_integrated": false,
   "release_ready": false,
   "windows_executed": false,

@@ -1,0 +1,112 @@
+{
+  "recorded_at": "2026-11-07T21:57:49.216630+00:00",
+  "source_version": "0.9.0",
+  "check": "C04-build",
+  "accepted": true,
+  "checks_passed": 7,
+  "checks": [
+    "core self-test in frozen process",
+    "full self-test rejects missing native OCR",
+    "selected help/assets verified",
+    "six format conversions with empty PATH",
+    "missing native and optional OCR leave no output",
+    "38-runtime profile and absent OCR payloads",
+    "bundle file hashes and actual binary origins"
+  ],
+  "invocations": [
+    {
+      "label": "core-self-test",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "full-self-test",
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "label": "help-assets",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "中文.txt",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "網頁.html",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "文件.docx",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "資料.xlsx",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "簡報.pptx",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "原生.pdf",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "掃描.pdf",
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "label": "optional-ocr-rejected",
+      "returncode": 1,
+      "expected": 1
+    }
+  ],
+  "results": [
+    {
+      "file": "中文.txt",
+      "converted": true
+    },
+    {
+      "file": "網頁.html",
+      "converted": true
+    },
+    {
+      "file": "文件.docx",
+      "converted": true
+    },
+    {
+      "file": "資料.xlsx",
+      "converted": true
+    },
+    {
+      "file": "簡報.pptx",
+      "converted": true
+    },
+    {
+      "file": "原生.pdf",
+      "converted": true
+    },
+    {
+      "file": "掃描.pdf",
+      "converted": false
+    }
+  ],
+  "frozen": true,
+  "path_empty": true,
+  "checkout_on_pythonpath": false,
+  "windows_executed": false,
+  "gpu_executed": false,
+  "full_c04_complete": false,
+  "native_ocr_bundled": false,
+  "bundle_files": 1177,
+  "bundle_file_bytes": 352814293
+}

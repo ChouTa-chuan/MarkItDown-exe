@@ -1,0 +1,9 @@
+queued: 使用本機 MarkItDown 解析；尚未加入掃描 OCR 與精準版面重試。
+running: 背景工作程序已啟動
+running: 工作程序 CPU 執行緒設定上限：1；支援度依原生套件而異。
+running: 載入本機轉換器
+running: 解析文件（原生套件可能無法立即暫停）
+running: 寫入 Markdown
+running: 提交輸出
+completed: 
+[0;93m2026-11-07 21:42:31.397689634 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m

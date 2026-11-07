@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-08",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 423,
-  "headline": "C04 基本版依賴拆分子檢核完成；新架構導入維持 7/12",
+  "tests_passed": 439,
+  "headline": "C04 基本核心打包／自檢子檢核完成；新架構導入維持 7/12",
   "blocker": "缺少 Windows／GPU 執行器；ONNX 繁體品質仍未達標，正式安裝包未經驗收。",
-  "next": "接續 profile 專用打包／自檢、C03 Windows 原生 OCR 與完整 C09；正式來源、Windows／GPU 門檻保留。",
+  "next": "接續 C03 Windows 原生 Tesseract 與雙語 OCR，再完成完整 profile／C09；Windows／GPU 實機與正式來源門檻保留。",
   "milestones": [
     {
       "id": "m0",
@@ -209,8 +209,8 @@
       "title": "背景程序",
       "layer": "支援",
       "state": "partial",
-      "detail": "新增打包程式內建自我檢查，三種生成樣本走 spawn 與 RAM 調度；Windows 實測仍待完成。",
-      "evidence": "Linux frozen：無外部工具 PATH，自我檢查 5/5 通過"
+      "detail": "基本 frozen profile 自檢按內含能力執行；core 與 full 分開，缺原生 OCR 不借用外部引擎，完整基本版仍未就緒。",
+      "evidence": "Linux 基本獨立程式：7 項＋公開 PDF 5 項；Windows 未驗"
     },
     {
       "id": "settings",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 423 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 439 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -246,19 +246,19 @@
     }
   ],
   "limits": [
-    "C01／C02／C05–C08／C10 已驗收，7/12；C04 完成基本版依賴拆分子檢核，整項及 C09 仍待原生基本包／profile／Windows。正式來源未發布，既有 19/25 分開追蹤。",
+    "C01／C02／C05–C08／C10 已驗收，7/12；C04 完成基本依賴及 Linux frozen 核心／自檢 2/4 子檢核，完整 C04／C09 仍待原生基本包與 Windows。既有 19/25 分開追蹤。",
     "ONNX 為實驗性選配，繁體合成樣本有漏字／字形錯誤；Tesseract 預設保留，GPU 尚未實機驗證。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 424,
+  "tests_run": 440,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收 7/12：C01／C02／C05–C08／C10。C04 完成基本版 Python 執行／建置閉包、雜湊與既有授權子檢核；C04／C09 全項仍待原生基本包、打包自檢與 Windows。",
+    "description": "已驗收 7/12：C01／C02／C05–C08／C10。C04 已完成基本依賴與 Linux frozen 核心／自檢兩項子檢核；完整自檢明確拒絕缺少原生 OCR，C04／C09 全項仍待 C03 與 Windows。",
     "phases": [
       {
         "id": "a",
@@ -292,15 +292,15 @@
             "id": "C04",
             "label": "profile 鎖定、打包與能力自檢",
             "done": false,
-            "acceptance": "基本版依賴拆分：52/52＋乾淨 Linux venv 真實轉換／Qt 6/6。runtime 38 套件，Linux build 47／Windows build 49；保留 Magika 必要 ONNX Runtime，移除 RapidOCR OCR 相依。完整 C04 尚未完成。",
+            "acceptance": "兩個子檢核完成：基本依賴沿用；Linux frozen 核心／自檢 86/86＋真正獨立程式 7/7＋公開 PDF 5/5。core 自檢四項通過；full 仍因缺 C03 原生 OCR 失敗，整項未關閉。",
             "subchecks": [
               {
                 "label": "基本版 Python 閉包／hash／既有授權；乾淨 Linux 格式與 Qt 驗證",
                 "done": true
               },
               {
-                "label": "profile 接入 PyInstaller 與專用能力自我檢查",
-                "done": false
+                "label": "基本 profile PyInstaller／核心與完整自檢（Linux CLI 範圍）",
+                "done": true
               },
               {
                 "label": "原生 OCR／選配各自 bundle 清單、授權與離線驗證",
