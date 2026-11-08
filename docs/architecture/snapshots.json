@@ -229,6 +229,18 @@
       "source_description": "0.14.0 首次 CI 準備；Windows 待實際執行結果",
       "architecture_scope": "0.4 automated Windows validation preparation; no execution acceptance claimed",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-windows-native-ci.md",
+      "title": "架構 v0.4：Windows 原生建置與四語部分實測",
+      "diagram_sha256": "13283bc821fe96d5fbe8380fd1374c4f4d519607c0753820316cb715bb66be72",
+      "file_sha256": "200053a79d961036447f0bbb8fec4f14d4bd07756a58a43e1af214cf1b56b505",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_version": "0.14.0",
+      "source_description": "Windows CI #3 原生打包與四語自檢通過，中文搬移失敗，新 UTF-8 修正待驗",
+      "architecture_scope": "0.4 actual Windows base build and four-language self-test partial acceptance; relocation fix pending; no clean-machine/installer/GPU",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-08"

@@ -1,0 +1,25 @@
+-- Install configuration: "Release"
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/lib/libpng16.a
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/lib/libpng.a
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/include/png.h
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/include/pngconf.h
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/include/pnglibconf.h
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/include/libpng16/png.h
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/include/libpng16/pngconf.h
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/include/libpng16/pnglibconf.h
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/bin/libpng-config
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/bin/libpng16-config
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/share/man/man3/libpng.3
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/share/man/man3/libpngpf.3
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/share/man/man5/png.5
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/lib/pkgconfig/libpng.pc
+-- Up-to-date: /workspace/markitdown-win-ci-native-utf8/prefix/bin/libpng-config
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/lib/pkgconfig/libpng16.pc
+-- Up-to-date: /workspace/markitdown-win-ci-native-utf8/prefix/bin/libpng16-config
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/lib/libpng/libpng16.cmake
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/lib/libpng/libpng16-release.cmake
+-- Up-to-date: /workspace/markitdown-win-ci-native-utf8/prefix/lib/libpng16.a
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/lib/cmake/PNG/PNGTargets.cmake
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/lib/cmake/PNG/PNGTargets-release.cmake
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/lib/cmake/PNG/PNGConfig.cmake
+-- Installing: /workspace/markitdown-win-ci-native-utf8/prefix/lib/cmake/PNG/PNGConfigVersion.cmake

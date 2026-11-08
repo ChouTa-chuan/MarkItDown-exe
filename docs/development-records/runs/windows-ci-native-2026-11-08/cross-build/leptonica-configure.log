@@ -1,0 +1,58 @@
+-- The C compiler identification is Clang 23.1.5
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /workspace/markitdown-win-ci-native-utf8/source-toolchain/llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64/bin/x86_64-w64-mingw32-clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found ZLIB: /workspace/markitdown-win-ci-native-utf8/prefix/lib/libzs.a (found version "1.4")
+-- Found PNG: /workspace/markitdown-win-ci-native-utf8/prefix/lib/libpng.a (found version "1.6.59")
+-- Looking for sin in m
+-- Looking for sin in m - found
+CMAKE_BUILD_TYPE = Release
+-- Looking for include file dlfcn.h
+-- Looking for include file dlfcn.h - not found
+-- Looking for include file inttypes.h
+-- Looking for include file inttypes.h - found
+-- Looking for include file memory.h
+-- Looking for include file memory.h - found
+-- Looking for include file stdint.h
+-- Looking for include file stdint.h - found
+-- Looking for include file stdlib.h
+-- Looking for include file stdlib.h - found
+-- Looking for include file strings.h
+-- Looking for include file strings.h - found
+-- Looking for include file string.h
+-- Looking for include file string.h - found
+-- Looking for include file sys/stat.h
+-- Looking for include file sys/stat.h - found
+-- Looking for include file sys/types.h
+-- Looking for include file sys/types.h - found
+-- Looking for include file unistd.h
+-- Looking for include file unistd.h - found
+-- Looking for fmemopen
+-- Looking for fmemopen - not found
+-- Looking for fstatat
+-- Looking for fstatat - not found
+-- 
+-- General configuration for Leptonica 1.87.0
+-- --------------------------------------------------------
+-- Build type: Release
+-- Compiler: Clang
+-- C compiler options:  
+-- Linker options: -static -Wl,--no-insert-timestamp 
+-- Install directory: /workspace/markitdown-win-ci-native-utf8/prefix
+-- 
+-- Build with sw [SW_BUILD]: OFF
+-- Build utility programs [BUILD_PROG]: OFF
+-- Used ZLIB library: /workspace/markitdown-win-ci-native-utf8/prefix/lib/libzs.a
+-- Used PNG library:  /workspace/markitdown-win-ci-native-utf8/prefix/lib/libpng.a;/workspace/markitdown-win-ci-native-utf8/prefix/lib/libzs.a
+-- Used JPEG library: 
+-- Used OpenJPEG library: 
+-- Used TIFF library: 
+-- Used GIF library:  
+-- Used WebP library: 
+-- --------------------------------------------------------
+-- 
+-- Configuring done (2.7s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/markitdown-win-ci-native-utf8/build-leptonica

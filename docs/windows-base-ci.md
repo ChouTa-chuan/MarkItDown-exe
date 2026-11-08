@@ -1,6 +1,6 @@
 # Windows 基本包自動建置與驗證 CI
 
-程式 **0.14.0**、架構 **0.4**。本輪新增獨立 Windows 基本包驗證流程；這份準備紀錄不代表 Windows 已通過。C03 **3/4**、C04 **2/4**、C09 **3/4**、完整導入 **7/12**、既有 **19/25** 保留，實際遠端結果另追加保存。
+程式 **0.14.0**、架構 **0.4**。已真正建置 Windows 基本包並通過 core／四語健康及掃描自檢；中文搬移失敗，UTF-8 修正版待新 CI。C03 **3/4**、C04 **2/4**、C09 **3/4**、完整導入 **7/12**、既有 **19/25** 保留，實際遠端結果另追加保存。
 
 ## 工作流程與責任
 
@@ -43,3 +43,7 @@ GitHub Windows runner 已預裝 Python 與多種開發工具，不能算無 Pyth
 ## 尚待取得的證據
 
 推送後觀察實際 CI，不以 workflow YAML 或本地 guard 通過代替 Windows 執行。即使一般 Windows CI 通過，仍需乾淨 Windows、完整安裝／升級／解除安裝、人工桌面及顯卡驗收，才可關閉對應里程碑。
+
+## 原生建置與 UTF-8 修正
+
+CI #3 在 Windows 2022 已原生建置／四語自檢成功，中文空格搬移失敗。第一方 windows-utf8.manifest 接入 RT_MANIFEST 24／ID 1，使用 UTF-8 process code page（Windows 10 1903+），不調整系統地區，也不修改固定上游。新 CI receipt 必須對應目前 XML，歷史固定候選仍保留；本地真正重建及四語組裝通過，修正版 Windows 待驗。來源／原始失敗及 138/138、552 項回歸見[原生紀錄](development-records/runs/windows-ci-native-2026-11-08/README.md)。

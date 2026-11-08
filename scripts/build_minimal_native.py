@@ -27,6 +27,26 @@ MAX_MEMBERS = 12000
 MAX_UNPACKED = 768 * 1024**2
 
 
+def prepare_utf8_resource(work):
+    """將自有 Windows manifest 接入原生 EXE；不修改固定上游來源或依賴系統區域設定。"""
+    source = ROOT / 'packaging/native/windows-utf8.manifest'
+    payload = source.read_bytes()
+    import xml.etree.ElementTree as ET
+    document = ET.fromstring(payload)
+    codepage = document.find('.//{http://schemas.microsoft.com/SMI/2019/WindowsSettings}activeCodePage')
+    if codepage is None or codepage.text != 'UTF-8':
+        raise NativeAssetError('Windows 原生入口必須明確使用 UTF-8 code page。')
+    manifest = work / 'windows-utf8.manifest'
+    manifest.write_bytes(payload)
+    resource = work / 'windows-utf8.rc'
+    resource.write_text('1 24 "' + manifest.as_posix() + '"\n', encoding='utf-8')
+    injection = work / 'windows-utf8.cmake'
+    injection.write_text('enable_language(RC)\ncmake_language(DEFER CALL target_sources tesseract PRIVATE "'
+                         + resource.as_posix() + '")\n', encoding='utf-8')
+    return injection, dict(file=source.relative_to(ROOT).as_posix(), sha256=file_hash(source)[0],
+                           bytes=len(payload), resource_type=24, resource_id=1)
+
+
 def validate_contract(contract):
     """待驗候選不能經由資料旗標變成已完成的基本包或發行核准。"""
     if (contract.get('schema_version') != 1 or contract.get('recipe_version') != 1
@@ -169,7 +189,7 @@ def verify_configuration(work):
             for path, value in zip(paths, definitions)]
 
 
-def verify_link_inputs(log, work, tools, leptonica_version):
+def verify_link_inputs(log, work, tools, leptonica_version, *, require_utf8=False):
     """從真實 linker verbose 紀錄追蹤靜態庫；map 的 member 名稱不足以證明原 archive。"""
     work, tools = Path(work).resolve(), Path(tools).resolve()
     declared = {
@@ -193,7 +213,8 @@ def verify_link_inputs(log, work, tools, leptonica_version):
         if path.is_relative_to(tools):
             origin = 'toolchain-runtime-or-system-import'
         elif path.is_relative_to(work / 'build-tesseract/CMakeFiles/tesseract.dir'):
-            origin = 'tesseract'
+            origin = ('first-party-windows-manifest' if path.name in
+                      ('windows-utf8.rc.res', 'windows-utf8.rc.obj') else 'tesseract')
         if origin is None:
             raise NativeAssetError('linker 引用未知來源：' + str(path))
         digest, size = file_hash(path)
@@ -202,7 +223,10 @@ def verify_link_inputs(log, work, tools, leptonica_version):
                 else 'toolchain/' + str(lexical.relative_to(tools)))
         records[name] = dict(origin=origin, sha256=digest, bytes=size)
     origins = {entry['origin'] for entry in records.values()}
-    if origins != SOURCE_IDS | {'toolchain-runtime-or-system-import'}:
+    expected = SOURCE_IDS | {'toolchain-runtime-or-system-import'}
+    if require_utf8 or 'first-party-windows-manifest' in origins:
+        expected |= {'first-party-windows-manifest'}
+    if origins != expected:
         raise NativeAssetError('linker 紀錄未涵蓋全部固定來源。')
     for archive, member in members:
         matches = [name for name in records if Path(name).name == archive]
@@ -272,7 +296,10 @@ def build(inputs, work, cmake, ninja, jobs=2):
             subprocess.run(argv, cwd=work, env=environment, stdout=log, stderr=subprocess.STDOUT,
                            check=True, timeout=1200)
 
+    injection, utf8_manifest = prepare_utf8_resource(work)
     for name, flags in recipes(prefix, work / 'tesseract-link.map').items():
+        if name == 'tesseract':
+            flags = [*flags, '-DCMAKE_PROJECT_INCLUDE=' + str(injection)]
         directory = work / ('build-' + name)
         call(name + '-configure', [str(cmake), '-S', str(sources[name]), '-B', str(directory),
              '-G', 'Ninja', '-DCMAKE_MAKE_PROGRAM=' + str(ninja), '-DCMAKE_TOOLCHAIN_FILE=' + str(chain),
@@ -282,12 +309,15 @@ def build(inputs, work, cmake, ninja, jobs=2):
         call(name + '-install', [str(cmake), '--install', str(directory)])
     configuration = verify_configuration(work)
     lept = next(entry for entry in contract['source_archives'] if entry['id'] == 'leptonica')
-    link_inputs = verify_link_inputs((work / 'tesseract-build.log').read_text(), work, tools, lept['tag'])
+    link_inputs = verify_link_inputs((work / 'tesseract-build.log').read_text(), work, tools, lept['tag'], require_utf8=True)
     candidate = work / 'candidate'
     candidate.mkdir()
     entry = candidate / 'tesseract.exe'
     shutil.copyfile(work / 'build-tesseract/bin/tesseract.exe', entry)
     call('strip', [str(tools / 'bin/llvm-strip'), str(entry)])
+    call('windows-resources', [str(tools / 'bin/llvm-readobj'), '--coff-resources', str(entry)])
+    if (work/'windows-utf8.manifest').read_bytes() not in entry.read_bytes():
+        raise NativeAssetError('候選未內含實際 Windows UTF-8 manifest。')
     for record in contract['notices']:
         target = candidate / 'notices' / record['file']
         target.parent.mkdir(exist_ok=True)
@@ -296,6 +326,7 @@ def build(inputs, work, cmake, ninja, jobs=2):
     report = dict(check='C03-minimal-source', source_version=metadata.version('markitdown-desktop'),
                   recorded_at=datetime.now(timezone.utc).isoformat(), cross_build_complete=True,
                   candidate=inspect_candidate(entry), source_archives=contract['source_archives'],
+                  windows_utf8_manifest=utf8_manifest,
                   toolchain_archive=contract['toolchain_archive'], notices=contract['notices'],
                   toolchain_import_alias=dict(original=str(original.relative_to(tools)),
                                               alias=str(alias.relative_to(tools)),

@@ -4,6 +4,12 @@
 
 目前程式版本 **0.14.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
 
+**2026-11-08｜Windows 原生基本包與四語自檢通過，中文搬移待修，程式 0.14.0**
+
+- 讀到 CI #2 診斷，Windows 依賴／本地安裝成功，profile／lock 步驟失敗。換行保護後 [CI #3](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42473518203) 在 Windows 2022 真正原生打包成功，core 及四語健康／四份掃描 PDF 自檢通過；中文空格搬移後 native --list-langs 失敗，整體仍未驗收。
+- 加入第一方 Windows UTF-8 manifest，不修改固定上游或系統地區，RC 接入 EXE並保存自己來源；新 receipt 要對應目前 XML，歷史固定候選保留。Linux 重建與實際 RT_MANIFEST 24／ID 1／原文及四語組裝通過，仍待新 Windows 結果。初始工具路徑錯誤、原 resource target 分類與補充正確 attribution 都分存。
+- 公開摘要會截斷約 5 KB，改成短摘要優先失敗步驟；初始測試抓到異型 commands 處理，再補防守後通過。本輪新增總數 25、相關 138/138、完整 552（551 通過、1 既有預期失敗）；[原始 Windows／Linux 紀錄](runs/windows-ci-native-2026-11-08/README.md)與[第二十份快照](../architecture/versions/v0.4-windows-native-ci.md)另存。完整進度 7/12 保留，沒有乾淨機／安裝包／GPU 或正式發行。
+
 **2026-11-08｜修正 Windows 自動換行破壞固定來源雜湊，程式 0.14.0**
 
 - 在 Linux 實際使用 Git core.autocrlf=true checkout，重現固定 lock／來源 JSON／原始授權／舊 receipt 的原位元組被轉換；以 .gitattributes 保護 vendor、packaging、歷史證據與快照，自有文字固定 LF，原檔不重新格式化。另將屬性檔加入 CI 觸發條件。

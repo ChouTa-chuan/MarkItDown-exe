@@ -212,6 +212,18 @@ class MinimalNativeTests(unittest.TestCase):
             native.verify_link_inputs(log + '\nld.lld: Reading unlisted.a(member.o)',
                                       self.root, self.root / 'tools', '1.87.0')
 
+    def test_utf8_resource_has_separate_first_party_link_origin(self):
+        log = self.link_fixture()
+        with self.assertRaises(native.NativeAssetError):
+            native.verify_link_inputs(log,self.root,self.root/'tools','1.87.0',require_utf8=True)
+        path = self.root/'build-tesseract/CMakeFiles/tesseract.dir/windows-utf8.rc.res'
+        path.parent.mkdir(parents=True)
+        path.write_bytes(b'owned synthetic resource, never executed')
+        records = native.verify_link_inputs(log+'\nld.lld: Reading '+str(path),self.root,
+                                           self.root/'tools','1.87.0',require_utf8=True)
+        self.assertEqual(next(r for r in records if r['file'].endswith('.rc.res'))['origin'],
+                         'first-party-windows-manifest')
+
 
 if __name__ == '__main__':
     unittest.main()

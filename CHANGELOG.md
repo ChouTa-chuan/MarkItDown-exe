@@ -37,15 +37,13 @@
 
 ## 0.14.0 — 2026-11-08
 
-- 真正 Git 自動 CRLF checkout 重現固定 lock／來源／授權／歷史 receipt hash 改變，增加屬性保護與七類 byte 比較；工具 21/21、相關 134/134、完整 548（547 通過、1 既有預期失敗），未將此本地重現當作 Windows 成功或已證實的首次 CI 根因。
-- 實際 CI #1：固定來源建置成功、Windows job 失敗；底層報告需登入，補上限量且跳脫指令的診斷 annotation（新增 3 項、工具 20/20、相關 133/133；完整 547：546 通過、1 既有預期失敗），後續實際結果另存，不增加完整里程碑。
+相對 **0.13.0** 新增 Windows 基本包自動建置／驗證，架構 **0.4**。C03 3/4、C04 2/4、C09 3/4、完整 7/12、既有 19/25 保留。
 
-相對 **0.13.0** 新增 Windows 基本包自動建置／驗證 CI，架構 **0.4**。本次先保存準備與本地檢核，Windows 實際結果另追加；C03 3/4、C04 2/4、C09 3/4、完整 7/12、既有 19/25 保留。
-
-- 獨立 main push 工作流程：固定原始碼／工具／四語輸入、Linux PE 重建 receipt、同次 CI 傳遞、Windows 2022 原生基本包打包及真正四語／中文搬移／UTF-8／故障／Qt 測試；只保存報告，不建立 Setup／tag／Release，不觸發舊手動發行。
-- 新增 **17 項**來源 receipt／下載／平台拒絕，含回歸 **130/130**；完整 **544 項：543 通過、1 既有 ONNX 繁體品質預期失敗**。固定 HTTPS **10 檔**實際取得，另重新建置 PE 並以新 receipt 組裝；都是 Linux／靜態準備，不冒充 Windows 執行。
-- 平台 guard 最初因平台描述呼叫 uname 被反例攔下，改成先拒絕非 Windows 再查詳細資訊；下載工具鏈曾遇 HTTP 504，加入有限次重試／Retry-After，hash 錯誤仍不重試。新 receipt 是可信建置管線的稽核資料，不當作來源簽章或發行核准。[原始紀錄](docs/development-records/runs/windows-ci-2026-11-08/README.md)、[指引](docs/windows-base-ci.md)、[第十九份快照](docs/architecture/versions/v0.4-windows-ci-preparation.md)與進度已保存。
-- Windows hosted runner 預裝 Python，不代表乾淨機；實際執行／安裝、人工 UI、GPU、品質與 RAM 軟預算限制保留。既有開發證據、舊十八份圖、七份 lock、原 221 份授權／模型及品質樣本不變；沒有 binary 或環境憑證入庫。
+- 獨立 main push CI：固定四份來源／工具／四語模型、來源 receipt、同次輸入傳遞、Windows 2022 原生基本包建置與四語／中文路徑／故障／Qt；contents:read，不觸發舊手動安裝包，不建立 tag／Release。
+- Git 實際 CRLF checkout 抓出固定來源 hash 改變，保護七類原位元組；Windows CI #3 已原生建置並通過 core／四語健康及四份掃描自檢，搬移中文空格路徑仍失敗。加入自有 UTF-8 manifest／RC 與個別來源證據，新候選 Linux 靜態／組裝通過，Windows 修正仍待新 CI。
+- 公開診斷依真正失敗步驟限量顯示，避免約 5 KB 截斷；完整原始報告保留。新增 **25 項**、相關 **138/138**，完整 **552：551 通過、1 既有 ONNX 繁體品質預期失敗**，未將 Windows 部分通過當成整體成功。
+- [準備](docs/development-records/runs/windows-ci-2026-11-08/README.md)、[初次失敗](docs/development-records/runs/windows-ci-attempt1-2026-11-08/README.md)、[換行](docs/development-records/runs/windows-ci-eol-2026-11-08/README.md)及[原生建置／UTF-8](docs/development-records/runs/windows-ci-native-2026-11-08/README.md)原始證據分存；[CI 指引](docs/windows-base-ci.md)、[第二十份快照](docs/architecture/versions/v0.4-windows-native-ci.md)、中文封面及進度同步。
+- 乾淨機／安裝生命週期、人工 UI、GPU、ONNX 繁體品質與 RAM 軟預算限制保留。上游、舊附件、十九份舊圖、七份既有 lock、221 份授權與 233 份資料不變，沒有 binary／模型／憑證入庫。
 
 ## 0.13.0 — 2026-11-08
 

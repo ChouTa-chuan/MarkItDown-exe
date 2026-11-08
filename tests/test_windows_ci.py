@@ -19,6 +19,7 @@ from prepare_bundled_ocr import read_build_evidence, WINDOWS_EVIDENCE, prepare
 from fetch_windows_ci_inputs import fetch, fetch_with_retry
 import check_windows_base as windows
 from publish_windows_ci_summary import publish_annotation
+from build_minimal_native import prepare_utf8_resource
 
 
 class WindowsCITests(unittest.TestCase):
@@ -37,6 +38,25 @@ class WindowsCITests(unittest.TestCase):
         result = read_build_evidence(WINDOWS_EVIDENCE)
         self.assertTrue(result['cross_build_complete'])
         self.assertFalse(result['windows_executed'])
+
+    def test_utf8_resource_is_first_party_and_does_not_edit_upstream(self):
+        injection, record = prepare_utf8_resource(self.root)
+        payload = (ROOT/record['file']).read_bytes()
+        self.assertEqual((self.root/'windows-utf8.manifest').read_bytes(),payload)
+        self.assertEqual(hashlib.sha256(payload).hexdigest(),record['sha256'])
+        self.assertEqual(record['resource_type'],24)
+        self.assertIn('target_sources tesseract PRIVATE',injection.read_text())
+        self.assertIn('1 24', (self.root/'windows-utf8.rc').read_text())
+
+    def test_new_ci_receipt_requires_current_utf8_manifest_but_legacy_is_preserved(self):
+        with self.assertRaisesRegex(ValueError,'UTF-8'):
+            read_build_evidence(WINDOWS_EVIDENCE,require_utf8=True)
+        _, record = prepare_utf8_resource(self.root)
+        self.evidence['windows_utf8_manifest'] = record
+        self.assertEqual(read_build_evidence(self.evidence_file(self.evidence),require_utf8=True)['windows_utf8_manifest'],record)
+        self.evidence['windows_utf8_manifest']['sha256'] = '0'*64
+        with self.assertRaisesRegex(ValueError,'UTF-8'):
+            read_build_evidence(self.evidence_file(self.evidence),require_utf8=True)
 
     def test_different_source_contract_hash_is_rejected(self):
         self.evidence['source_contract_sha256'] = '0'*64
@@ -158,7 +178,18 @@ class WindowsCITests(unittest.TestCase):
         with patch.dict(os.environ, {'GITHUB_ACTIONS':'true'}), patch('sys.stdout', new_callable=io.StringIO) as stream:
             publish_annotation(reports,{})
         self.assertLess(len(stream.getvalue().encode()),24000)
-        self.assertIn('"accepted":false',stream.getvalue())
+        self.assertIn('"validation_accepted":false',stream.getvalue())
+
+    def test_public_annotation_prioritizes_failed_step_before_long_install_logs(self):
+        reports = {'windows-build.json': {'validation_accepted':False,
+                   'commands':[{'label':'profile-locks'}]}}
+        tails = {'local-projects.log':'x'*6000,'locked-dependencies.log':'y'*6000,
+                 'profile-locks.log':'actual fixed-byte mismatch'}
+        with patch.dict(os.environ, {'GITHUB_ACTIONS':'true'}), patch('sys.stdout', new_callable=io.StringIO) as stream:
+            publish_annotation(reports,tails)
+        self.assertLess(len(stream.getvalue().encode()),4000)
+        self.assertIn('actual fixed-byte mismatch',stream.getvalue())
+        self.assertNotIn('y'*100,stream.getvalue())
 
     def test_local_summary_does_not_emit_workflow_commands(self):
         with patch.dict(os.environ, {'GITHUB_ACTIONS':'false'}), patch('sys.stdout', new_callable=io.StringIO) as stream:

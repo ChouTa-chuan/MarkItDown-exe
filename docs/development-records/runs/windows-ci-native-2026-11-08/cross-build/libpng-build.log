@@ -1,0 +1,29 @@
+[1/29] Generating pngprefix.h
+[2/29] Generating pnglibconf.c
+[3/29] Generating scripts/pnglibconf.c
+[4/29] Generating pnglibconf.out
+[5/29] Generating scripts/symbols.out
+[6/29] Generating pnglibconf.h
+[7/29] Generating scripts/prefix.out
+[8/29] Generating scripts/sym.out
+[9/29] Generating libpng.sym
+[10/29] Generating scripts/symbols.chk
+[11/29] Generating scripts/vers.out
+[12/29] Generating libpng.vers
+[13/29] Generating scripts/intprefix.out
+[14/29] Building C object CMakeFiles/png_static.dir/pngerror.c.obj
+[15/29] Building C object CMakeFiles/png_static.dir/png.c.obj
+[16/29] Building C object CMakeFiles/png_static.dir/pngget.c.obj
+[17/29] Building C object CMakeFiles/png_static.dir/pngmem.c.obj
+[18/29] Building C object CMakeFiles/png_static.dir/pngpread.c.obj
+[19/29] Building C object CMakeFiles/png_static.dir/pngread.c.obj
+[20/29] Building C object CMakeFiles/png_static.dir/pngrio.c.obj
+[21/29] Building C object CMakeFiles/png_static.dir/pngrtran.c.obj
+[22/29] Building C object CMakeFiles/png_static.dir/pngrutil.c.obj
+[23/29] Building C object CMakeFiles/png_static.dir/pngset.c.obj
+[24/29] Building C object CMakeFiles/png_static.dir/pngtrans.c.obj
+[25/29] Building C object CMakeFiles/png_static.dir/pngwio.c.obj
+[26/29] Building C object CMakeFiles/png_static.dir/pngwrite.c.obj
+[27/29] Building C object CMakeFiles/png_static.dir/pngwtran.c.obj
+[28/29] Building C object CMakeFiles/png_static.dir/pngwutil.c.obj
+[29/29] Linking C static library libpng16.a

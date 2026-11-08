@@ -1,0 +1,86 @@
+
+File: /workspace/markitdown-win-ci-native-utf8/candidate/tesseract.exe
+Format: COFF-x86-64
+Arch: x86_64
+AddressSize: 64bit
+Resources [
+  Total Number of Resources: 1
+  Base Table Address: 0x51B400
+  
+  Number of String Entries: 0
+  Number of ID Entries: 1
+  Type: MANIFEST (ID 24) [
+    Table Offset: 0x18
+    Number of String Entries: 0
+    Number of ID Entries: 1
+    Name: (ID 1) [
+      Table Offset: 0x30
+      Number of String Entries: 0
+      Number of ID Entries: 1
+      Language: (ID 1033) [
+        Entry Offset: 0x48
+        Time/Date Stamp: 1970-01-01 00:00:00 (0x0)
+        Major Version: 0
+        Minor Version: 0
+        Characteristics: 0
+        Data [
+          DataRVA: 0x523060
+          DataSize: 769
+          Codepage: 0
+          Reserved: 0
+          Data (
+            0000: 3C3F786D 6C207665 7273696F 6E3D2231  |<?xml version="1|
+            0010: 2E302220 656E636F 64696E67 3D225554  |.0" encoding="UT|
+            0020: 462D3822 20737461 6E64616C 6F6E653D  |F-8" standalone=|
+            0030: 22796573 223F3E0A 3C617373 656D626C  |"yes"?>.<assembl|
+            0040: 7920786D 6C6E733D 2275726E 3A736368  |y xmlns="urn:sch|
+            0050: 656D6173 2D6D6963 726F736F 66742D63  |emas-microsoft-c|
+            0060: 6F6D3A61 736D2E76 3122206D 616E6966  |om:asm.v1" manif|
+            0070: 65737456 65727369 6F6E3D22 312E3022  |estVersion="1.0"|
+            0080: 3E0A2020 3C617373 656D626C 79496465  |>.  <assemblyIde|
+            0090: 6E746974 79207665 7273696F 6E3D2231  |ntity version="1|
+            00A0: 2E302E30 2E302220 70726F63 6573736F  |.0.0.0" processo|
+            00B0: 72417263 68697465 63747572 653D2261  |rArchitecture="a|
+            00C0: 6D643634 22206E61 6D653D22 4D61726B  |md64" name="Mark|
+            00D0: 4974446F 776E2E4E 61746976 654F4352  |ItDown.NativeOCR|
+            00E0: 22207479 70653D22 77696E33 32222F3E  |" type="win32"/>|
+            00F0: 0A20203C 74727573 74496E66 6F20786D  |.  <trustInfo xm|
+            0100: 6C6E733D 2275726E 3A736368 656D6173  |lns="urn:schemas|
+            0110: 2D6D6963 726F736F 66742D63 6F6D3A61  |-microsoft-com:a|
+            0120: 736D2E76 33223E0A 20202020 3C736563  |sm.v3">.    <sec|
+            0130: 75726974 793E3C72 65717565 73746564  |urity><requested|
+            0140: 50726976 696C6567 65733E3C 72657175  |Privileges><requ|
+            0150: 65737465 64457865 63757469 6F6E4C65  |estedExecutionLe|
+            0160: 76656C20 6C657665 6C3D2261 73496E76  |vel level="asInv|
+            0170: 6F6B6572 22207569 41636365 73733D22  |oker" uiAccess="|
+            0180: 66616C73 65222F3E 3C2F7265 71756573  |false"/></reques|
+            0190: 74656450 72697669 6C656765 733E3C2F  |tedPrivileges></|
+            01A0: 73656375 72697479 3E0A2020 3C2F7472  |security>.  </tr|
+            01B0: 75737449 6E666F3E 0A20203C 6170706C  |ustInfo>.  <appl|
+            01C0: 69636174 696F6E20 786D6C6E 733D2275  |ication xmlns="u|
+            01D0: 726E3A73 6368656D 61732D6D 6963726F  |rn:schemas-micro|
+            01E0: 736F6674 2D636F6D 3A61736D 2E763322  |soft-com:asm.v3"|
+            01F0: 3E3C7769 6E646F77 73536574 74696E67  |><windowsSetting|
+            0200: 733E0A20 2020203C 61637469 7665436F  |s>.    <activeCo|
+            0210: 64655061 67652078 6D6C6E73 3D226874  |dePage xmlns="ht|
+            0220: 74703A2F 2F736368 656D6173 2E6D6963  |tp://schemas.mic|
+            0230: 726F736F 66742E63 6F6D2F53 4D492F32  |rosoft.com/SMI/2|
+            0240: 3031392F 57696E64 6F777353 65747469  |019/WindowsSetti|
+            0250: 6E677322 3E555446 2D383C2F 61637469  |ngs">UTF-8</acti|
+            0260: 7665436F 64655061 67653E0A 20202020  |veCodePage>.    |
+            0270: 3C6C6F6E 67506174 68417761 72652078  |<longPathAware x|
+            0280: 6D6C6E73 3D226874 74703A2F 2F736368  |mlns="http://sch|
+            0290: 656D6173 2E6D6963 726F736F 66742E63  |emas.microsoft.c|
+            02A0: 6F6D2F53 4D492F32 3031362F 57696E64  |om/SMI/2016/Wind|
+            02B0: 6F777353 65747469 6E677322 3E747275  |owsSettings">tru|
+            02C0: 653C2F6C 6F6E6750 61746841 77617265  |e</longPathAware|
+            02D0: 3E0A2020 3C2F7769 6E646F77 73536574  |>.  </windowsSet|
+            02E0: 74696E67 733E3C2F 6170706C 69636174  |tings></applicat|
+            02F0: 696F6E3E 0A3C2F61 7373656D 626C793E  |ion>.</assembly>|
+            0300: 0A                                   |.|
+          )
+        ]
+      ]
+    ]
+  ]
+]

@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WINDOWS_EVIDENCE = ROOT / 'docs/development-records/runs/c03-minimal-source-2026-11-08/build-report.json'
 
 
-def read_build_evidence(path):
+def read_build_evidence(path, *, require_utf8=False):
     """接受同一可信建置管線產生的 receipt；它是稽核資料，不是簽章或發行許可。"""
     file_hash(path, 1024 * 1024)
     evidence = json.loads(Path(path).read_text(encoding='utf-8'))
@@ -35,6 +35,13 @@ def read_build_evidence(path):
     candidate = evidence.get('candidate', {})
     if candidate.get('file') != 'tesseract.exe' or candidate.get('machine') != 'AMD64' or candidate.get('is_dll') is not False:
         raise ValueError('建置 receipt 的固定入口不符。')
+    if require_utf8:
+        manifest = ROOT / 'packaging/native/windows-utf8.manifest'
+        digest, size = file_hash(manifest)
+        expected = dict(file='packaging/native/windows-utf8.manifest', sha256=digest,
+                        bytes=size, resource_type=24, resource_id=1)
+        if evidence.get('windows_utf8_manifest') != expected:
+            raise ValueError('新 Windows CI receipt 缺少相符的 UTF-8 manifest。')
     return evidence
 
 
@@ -55,7 +62,7 @@ def prepare(output, tessdata, *, windows_candidate=None, linux_development=False
         sources['tessdata/' + name] = tessdata / name
     if windows_candidate is not None:
         evidence_path = Path(build_evidence) if build_evidence is not None else WINDOWS_EVIDENCE
-        evidence = read_build_evidence(evidence_path)
+        evidence = read_build_evidence(evidence_path, require_utf8=build_evidence is not None)
         candidate = Path(windows_candidate)
         entry = candidate / 'tesseract.exe'
         record = evidence['candidate']
@@ -76,6 +83,8 @@ def prepare(output, tessdata, *, windows_candidate=None, linux_development=False
                       evidence_sha256=file_hash(evidence_path)[0],
                       source_contract_sha256=evidence['source_contract_sha256'],
                       upstream_version='5.5.3', windows_executed=False)
+        if build_evidence is not None:
+            source['windows_utf8_manifest'] = evidence['windows_utf8_manifest']
         target, executable = 'windows', 'bin/tesseract.exe'
     else:
         if sys.platform != 'linux':

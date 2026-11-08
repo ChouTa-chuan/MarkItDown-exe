@@ -11,20 +11,36 @@ def publish_annotation(records, tails):
         return
     result = records.get('windows-build.json', records.get('build-evidence.json', {}))
     accepted = result.get('validation_accepted', result.get('cross_build_complete'))
-    # 僅取本流程已產生的報告與最後幾行；不讀憑證或環境，不能由缺報告推定成功。
-    payload = dict(reports=records, log_tails={} if accepted else {
-        name: text[-1800:] for name, text in list(tails.items())[-12:]})
+    # 公開頁會截斷約 5 KB 的 annotation；優先放真正失敗步驟，完整 JSON 留在 summary／artifact。
+    def brief(record):
+        keys = ('check', 'source_version', 'commit', 'accepted', 'build_verified', 'validation_accepted',
+                'windows_executed', 'checks_passed', 'error', 'cross_build_complete',
+                'clean_machine_accepted', 'release_ready')
+        return {key: value[:250] if isinstance(value, str) else value
+                for key, value in record.items() if key in keys}
+    payload = dict(result=brief(result))
+    if 'acceptance/windows-acceptance.json' in records:
+        payload['acceptance'] = brief(records['acceptance/windows-acceptance.json'])
+    if not accepted:
+        commands = result.get('commands', [])
+        last = commands[-1].get('label', '') if commands and isinstance(commands[-1], dict) else ''
+        candidates = ['acceptance/driver-error.log', last+'.log']
+        selected = next((name for name in candidates if name in tails), next(reversed(tails), ''))
+        payload['failure_log'] = selected
+        payload['failure_tail'] = tails.get(selected, '')[-750:]
     body = json.dumps(payload, ensure_ascii=False, separators=(',', ':'))
-    if len(body.encode('utf-8')) > 24000:
-        payload['reports'] = {name: {key: value for key, value in record.items()
-            if key in ('check', 'source_version', 'accepted', 'build_verified', 'validation_accepted',
-                       'windows_executed', 'checks_passed', 'error', 'cross_build_complete',
-                       'clean_machine_accepted', 'release_ready')} for name, record in records.items()}
-        payload['log_tails'] = {name: text[-900:] for name, text in list(tails.items())[-8:]}
+    # 字元界線上減少尾段，確保 UTF-8 與 workflow command 跳脫後也不超過公開頁截斷門檻。
+    while len(body.replace('%', '%25').encode('utf-8')) > 3800:
+        if len(payload.get('failure_tail', '')) > 100:
+            payload['failure_tail'] = payload['failure_tail'][100:]
+        else:
+            payload = dict(result=brief(result), detail='Full details remain in the CI artifact and job summary.')
+            break
         body = json.dumps(payload, ensure_ascii=False, separators=(',', ':'))
-    if len(body.encode('utf-8')) > 24000:
-        payload = dict(accepted=accepted is True, error=str(result.get('error', ''))[:1200],
-                       detail='Oversized details remain in the CI artifact and job summary.')
+    body = json.dumps(payload, ensure_ascii=False, separators=(',', ':'))
+    if len(body.replace('%', '%25').encode('utf-8')) > 3800:
+        payload = dict(result=dict(accepted=accepted is True, error=str(result.get('error', ''))[-300:]),
+                       detail='Full details remain in the CI artifact and job summary.')
         body = json.dumps(payload, ensure_ascii=False, separators=(',', ':'))
     # GitHub workflow command 的資料必須跳脫，避免日誌換行被誤認為下一條指令。
     body = body.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')

@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-08",
-  "environment": "Linux · Python 3.12",
-  "tests_passed": 547,
-  "headline": "Windows CI 已啟動並補固定來源換行保護；實際 Windows 結果待查，完整 7/12",
-  "blocker": "GitHub 頁面暫時 503／504；已知 CI #1 Windows job 失敗，新診斷／換行修正的遠端結果待讀取。",
-  "next": "讀取新 CI 的實際 Windows 錯誤／結果，修正後再驗四語、中文搬移與 Qt；之後接乾淨機／安裝。",
+  "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
+  "tests_passed": 551,
+  "headline": "Windows 基本包建置／四語自檢通過，中文搬移修正待驗；完整導入 7/12",
+  "blocker": "Windows #3 中文空格搬移失敗；新 UTF-8 候選待 CI。乾淨機／安裝、人工 UI／GPU 與 ONNX 繁體門檻保留。",
+  "next": "在 Windows 重驗 UTF-8 候選的搬移、四語 CLI、故障與 Qt，再接乾淨機及安裝生命週期。",
   "milestones": [
     {
       "id": "m0",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 547 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 551 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -253,7 +253,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 548,
+  "tests_run": 552,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -286,7 +286,7 @@
             "id": "C03",
             "label": "Windows Tesseract 與繁中／英／日／韓 OCR",
             "done": false,
-            "acceptance": "第三項內含整包／離線自動解析與完整自檢完成 Linux 驗收，C03 3/4。185/185＋真正 Linux frozen 12/12、source Qt／首次 3/3；四語健康及掃描、搬移、缺檔／損毀／替換拒絕。Windows 固定 5.5.3 候選與四語 payload 只靜態組裝，Linux 引擎 5.5.0 不冒充 Windows 執行；整項未關閉。",
+            "acceptance": "C03 3/4：Linux 內含整包及四語流程已驗；Windows CI #3 真正原生打包／四語健康與四份掃描自檢通過，中文搬移失敗。自有 UTF-8 修正已完成 Linux 重建／靜態與組裝，仍待 Windows；乾淨機／安裝門檻保留。",
             "subchecks": [
               {
                 "label": "固定四語模型、語言選擇／設定遷移與本機離線 OCR（Linux）",
@@ -310,7 +310,7 @@
             "id": "C04",
             "label": "profile 鎖定、打包與能力自檢",
             "done": false,
-            "acceptance": "兩個子檢核完成：基本依賴沿用；Linux frozen 核心／自檢 86/86＋真正獨立程式 7/7＋公開 PDF 5/5。core 自檢四項通過；full 仍因缺 C03 原生 OCR 失敗，整項未關閉。",
+            "acceptance": "C04 2/4：基本依賴與 Linux 基本 profile／自檢已驗；Windows CI #3 原生基本包及 core／full 自檢通過，中文搬移待修。各選配原生清單／授權、完整離線與乾淨 Windows 隔離仍待，整項未關閉。",
             "subchecks": [
               {
                 "label": "基本版 Python 閉包／hash／既有授權；乾淨 Linux 格式與 Qt 驗證",
@@ -370,7 +370,7 @@
             "id": "C09",
             "label": "首次啟動與基本引擎自動設定",
             "done": false,
-            "acceptance": "流程子檢核：94/94（22 項新增）＋真實 Qt／本機 Tesseract 9/9。RAM／保留偏好／略過選配／不重複完成；基本包內含四語 OCR 尚缺 C03／C04，故整項不列完成。",
+            "acceptance": "首次流程子檢核 94/94＋本機 Qt／健康 9/9，內含四語預設解析已在 Linux frozen 驗證；Windows 新基本包已部分自檢，但中文搬移與全新乾淨機完整流程待 C03／C04，C09 仍 3/4。",
             "subchecks": [
               {
                 "label": "RAM 建議、明確套用與既有偏好保留",
@@ -464,15 +464,15 @@
         "id": "native_assets",
         "title": "內含四語與原生基本包",
         "state": "partial",
-        "detail": "Windows 最小來源＋四語 payload 靜態組裝；Linux 開發引擎內含到 frozen，預設解析、搬移與完整自檢通過，Windows 執行待驗。",
-        "evidence": "C03 第三項完成：185 項＋Linux frozen 12 項／source Qt 3 項；C03 3/4，Windows 未執行"
+        "detail": "內含固定來源四語 Windows 基本包已真正建置及部分自檢；中文搬移待 UTF-8 修正，完整 C03 未關閉。",
+        "evidence": "Linux frozen 12／source Qt 3；Windows CI #3 core／四語自檢通過，中文搬移失敗，新 UTF-8 待 CI；C03 3/4。"
       },
       {
         "id": "windows_ci",
         "title": "Windows 自動建置驗證",
         "state": "partial",
-        "detail": "已真正觸發 CI：原生來源 job 成功、首次 Windows job 失敗；補公開有界診斷與 Git 原位元組保護，待新實際結果。",
-        "evidence": "工具 21/21、相關 134/134；實際 Git CRLF checkout 修正後七類檔案 bytes 保留，非 Windows 產品驗收。"
+        "detail": "Windows 2022 原生基本包／core／四語健康與四份掃描自檢實際通過；中文搬移失敗，第一方 UTF-8 修正待新 CI。",
+        "evidence": "實際 CI #3 部分通過＋本地 138 項；四語 payload 重建與 RT_MANIFEST 靜態，仍非完整 Windows／乾淨機驗收。"
       }
     ]
   }

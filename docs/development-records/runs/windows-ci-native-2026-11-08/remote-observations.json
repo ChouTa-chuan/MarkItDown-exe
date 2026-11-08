@@ -1,0 +1,212 @@
+[
+  {
+    "attempt": 2,
+    "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42472740347",
+    "source_commit": "fda3b7cd661e3111888584d1863a0fed16d95d1e",
+    "conclusion": "failure",
+    "windows_build": {
+      "recorded_at": "2026-11-08T10:49:30.225012+00:00",
+      "check": "windows-base-build-ci",
+      "commit": "fda3b7cd661e3111888584d1863a0fed16d95d1e",
+      "runner_os": "Windows",
+      "image_version": "20261101.353.1",
+      "platform": "Windows-2022Server-10.0.20348-SP0",
+      "build_verified": false,
+      "validation_accepted": false,
+      "clean_machine_accepted": false,
+      "release_ready": false,
+      "gpu_executed": false,
+      "commands": [
+        {
+          "label": "create-venv",
+          "argv": [
+            "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+            "-m",
+            "venv",
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\build-venv"
+          ]
+        },
+        {
+          "label": "locked-dependencies",
+          "argv": [
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\build-venv\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "install",
+            "--require-hashes",
+            "-r",
+            "packaging/profiles/base-windows-build.txt"
+          ]
+        },
+        {
+          "label": "local-projects",
+          "argv": [
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\build-venv\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "install",
+            "--no-deps",
+            "--no-build-isolation",
+            "./vendor/markitdown",
+            "."
+          ]
+        },
+        {
+          "label": "profile-locks",
+          "argv": [
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\build-venv\\Scripts\\python.exe",
+            "scripts/packaging_profiles.py"
+          ]
+        }
+      ],
+      "error": "CalledProcessError: Command '['D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\build-venv\\\\Scripts\\\\python.exe', 'scripts/packaging_profiles.py']' returned non-zero exit status 1."
+    },
+    "observed_acceptance_fields": {},
+    "scope": "Complete build JSON and individually complete acceptance fields extracted from a truncated public annotation; not a fabricated full acceptance report."
+  },
+  {
+    "attempt": 3,
+    "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42473518203",
+    "source_commit": "302ae9f68145cf37c421f170bf312f9ea567db06",
+    "conclusion": "failure",
+    "windows_build": {
+      "recorded_at": "2026-11-08T10:59:08.513923+00:00",
+      "check": "windows-base-build-ci",
+      "commit": "302ae9f68145cf37c421f170bf312f9ea567db06",
+      "runner_os": "Windows",
+      "image_version": "20261101.353.1",
+      "platform": "Windows-2022Server-10.0.20348-SP0",
+      "build_verified": true,
+      "validation_accepted": false,
+      "clean_machine_accepted": false,
+      "release_ready": false,
+      "gpu_executed": false,
+      "commands": [
+        {
+          "label": "create-venv",
+          "argv": [
+            "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+            "-m",
+            "venv",
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\build-venv"
+          ]
+        },
+        {
+          "label": "locked-dependencies",
+          "argv": [
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\build-venv\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "install",
+            "--require-hashes",
+            "-r",
+            "packaging/profiles/base-windows-build.txt"
+          ]
+        },
+        {
+          "label": "local-projects",
+          "argv": [
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\build-venv\\Scripts\\python.exe",
+            "-m",
+            "pip",
+            "install",
+            "--no-deps",
+            "--no-build-isolation",
+            "./vendor/markitdown",
+            "."
+          ]
+        },
+        {
+          "label": "profile-locks",
+          "argv": [
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\build-venv\\Scripts\\python.exe",
+            "scripts/packaging_profiles.py"
+          ]
+        },
+        {
+          "label": "native-assets",
+          "argv": [
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\build-venv\\Scripts\\python.exe",
+            "scripts/prepare_bundled_ocr.py",
+            "--windows-candidate",
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\inputs\\candidate",
+            "--build-evidence",
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\inputs\\build-evidence.json",
+            "--tessdata",
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\inputs\\models",
+            "--output",
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\native-assets"
+          ]
+        },
+        {
+          "label": "base-assets",
+          "argv": [
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\build-venv\\Scripts\\python.exe",
+            "scripts/prepare_base_assets.py",
+            "--native-assets",
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\native-assets",
+            "--output",
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\base-assets"
+          ]
+        },
+        {
+          "label": "pyinstaller",
+          "argv": [
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\build-venv\\Scripts\\python.exe",
+            "-m",
+            "PyInstaller",
+            "--noconfirm",
+            "--clean",
+            "--distpath",
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\dist",
+            "--workpath",
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\work",
+            "packaging/base.spec"
+          ]
+        },
+        {
+          "label": "windows-validation",
+          "argv": [
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\build-venv\\Scripts\\python.exe",
+            "scripts/check_windows_base.py",
+            "--executable",
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\dist\\MarkItDownBase\\MarkItDownBase.exe",
+            "--output",
+            "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\reports\\acceptance"
+          ]
+        }
+      ],
+      "error": "CalledProcessError: Command '['D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\build-venv\\\\Scripts\\\\python.exe', 'scripts/check_windows_base.py', '--executable', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\dist\\\\MarkItDownBase\\\\MarkItDownBase.exe', '--output', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\reports\\\\acceptance']' returned non-zero exit status 1."
+    },
+    "observed_acceptance_fields": {
+      "accepted": false,
+      "windows_executed": true,
+      "checks": [
+        "Windows profile and all fixed native/model/notice hashes verified",
+        "Native Windows frozen core runs without external Python command",
+        "Actual Windows native four-language health and scanned PDF self-test passes"
+      ],
+      "invocations": [
+        {
+          "label": "core-self-test",
+          "returncode": 0,
+          "expected": 0
+        },
+        {
+          "label": "full-self-test",
+          "returncode": 0,
+          "expected": 0
+        },
+        {
+          "label": "relocated-native-language-list",
+          "returncode": 1,
+          "expected": 0
+        }
+      ],
+      "source_version": "0.14.0",
+      "clean_machine_accepted": false,
+      "release_ready": false
+    },
+    "scope": "Complete build JSON and individually complete acceptance fields extracted from a truncated public annotation; not a fabricated full acceptance report."
+  }
+]
