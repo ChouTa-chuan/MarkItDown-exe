@@ -14,7 +14,7 @@
 
 ## 模組架構封面
 
-綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08／C10 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；C10 已接逐頁需求、文件租約與提交重驗；C04 已驗基本依賴與 Linux frozen 核心自檢，完整原生包仍保留虛線；C03 已加入四語模型／選擇與本機辨識，基本包新增內含四語與預設解析，Linux frozen 完整 OCR 已驗；Windows 2022 CI 已真正建置並通過四語健康及掃描自檢，中文搬移仍待 UTF-8 修正版驗證；乾淨機／完整 Windows 與 GPU 另驗。
+綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08／C10 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；C10 已接逐頁需求、文件租約與提交重驗；C04 已驗基本依賴與 Linux frozen 核心自檢，完整原生包仍保留虛線；C03 已加入四語模型／選擇與本機辨識，基本包新增內含四語與預設解析，Linux frozen 完整 OCR 已驗；Windows 2022 CI 已真正建置並通過四語健康及掃描自檢，四語 CLI、中文搬移及故障處理已驗，Qt 正常關閉工具重驗中；乾淨機／完整 Windows 與 GPU 另驗。
 
 [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
@@ -31,13 +31,13 @@ flowchart TD
     end
     subgraph Planned["新架構：基本包＋選配元件管理"]
         COMPONENTUI["元件管理介面：版本／容量／授權／背景維護"]
-        FIRST["Windows 基本包：原生／四語已驗；中文搬移待修"]
+        FIRST["Windows 基本包：四語／中文／CLI已驗；Qt關閉重驗"]
         PROFILE["基本依賴已拆分：38 runtime／47 Linux、49 Windows build"]
         PROFILEBUILD["Linux 基本包：內含四語／core 與 full 自檢"]
         FIRSTFLOW["首次流程已實作：RAM／保留偏好／離線檢查／完成標記"]
         COMPONENTS["元件基礎：契約／登錄／完整性驗證"]
         CAPABILITY["能力解析：相容／依賴／健康檢查"]
-        WINCI["Windows CI：基本包／四語已驗；UTF-8 搬移修正待驗"]
+        WINCI["Windows CI：四語／中文／CLI已驗；Qt關閉重驗"]
         BUNDLED["內含 OCR：自動路徑／搬移／完整性／只讀模型"]
         MINIMALBUILD["最小原生候選：單一 EXE／來源原文已備；Windows 待驗"]
         LANGUAGES["Tesseract 四語：單語／混合選擇／固定模型"]

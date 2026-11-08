@@ -1,0 +1,10 @@
+{
+  "tests_run": 555,
+  "assertions_reported_passed": 554,
+  "expected_failures": 1,
+  "process_exit": 139,
+  "phase": "After unittest printed OK; no Python frame in faulthandler",
+  "accepted": false,
+  "cause": "Not established; second observed mixed-suite native shutdown fault",
+  "isolated_investigation": "isolated-runner.py; writes to external output before separately archived results"
+}

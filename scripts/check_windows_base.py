@@ -138,7 +138,7 @@ def check(executable, output, *, gui=True):
             assert not failed.exists()
             report['checks'].append('Unavailable optional OCR does not replace the chosen backend')
             if gui:
-                gui_check(app, root, output, env)
+                report['gui'] = gui_check(app, root, output, env)
                 report['checks'].append('Actual Qt Windows platform opens a window and closes normally; no human acceptance claim')
             files = []
             for path in sorted(relocated.rglob('*')):
@@ -158,6 +158,25 @@ def check(executable, output, *, gui=True):
     report['checks_passed'] = len(report['checks'])
     (output/'windows-acceptance.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     return report
+
+
+def close_windows_child(child, get_handles, request_close, *, timeout=25):
+    """首次檢查忙碌時先取消再關閉；在總期限內重送正常要求，不以 terminate 當成功。"""
+    deadline = time.monotonic()+timeout
+    requests = 0
+    while True:
+        result = child.poll()
+        if result is not None:
+            if result != 0: raise RuntimeError('Qt process did not close normally')
+            return requests
+        remaining = deadline-time.monotonic()
+        if remaining <= 0: raise TimeoutError('Qt normal close exceeded its total deadline')
+        # get_handles 由 caller 限定剛啟動的 child PID，每輪重新列舉已存在的視窗。
+        for handle in get_handles():
+            request_close(handle)
+            requests += 1
+        try: child.wait(timeout=min(0.2,remaining))
+        except subprocess.TimeoutExpired: pass
 
 
 def gui_check(app, root, output, environment):
@@ -189,8 +208,13 @@ def gui_check(app, root, output, environment):
             rect = wintypes.RECT()
             user32.GetWindowRect(handles[0], ctypes.byref(rect))
             ImageGrab.grab(bbox=(rect.left,rect.top,rect.right,rect.bottom)).save(output/'windows-gui.png')
-            for handle in handles: user32.PostMessageW(handle, 0x0010, 0, 0)
-            assert child.wait(timeout=25) == 0, 'Qt process did not close normally'
+            def current_handles():
+                handles.clear()
+                user32.EnumWindows(callback,0)
+                return list(handles)
+            requests = close_windows_child(child,current_handles,
+                lambda handle:user32.PostMessageW(handle,0x0010,0,0))
+            return dict(opened=True,normal_exit=True,returncode=child.returncode,close_requests=requests)
         finally:
             if child.poll() is None:
                 child.terminate()

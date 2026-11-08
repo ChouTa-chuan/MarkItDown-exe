@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "source_version": "0.14.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-08",
+  "check": "C03-windows-ci",
+  "mechanism_accepted": true,
+  "full_c03_complete": false,
+  "scope": "Windows #5 九項通過、Qt正常退出逾時；修正工具仍維持exit0與總期限，真實GUI待新CI；無乾淨機／安裝包／GPU或發行",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2132,
+      "sha256": "e9e8c5d2919f2b176d5a53c477262c25f1085f2dfb1ca55ffe0fa8fe48bb0991",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 13602,
+      "sha256": "edd8d8e7e87ec865bf6da1d58aab564ba7590949bb34629bc9a700acdccf7874",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "acceptance.log",
+      "bytes": 20381,
+      "sha256": "68cd542b031f83bc2d0aae3db412f1f9d9bdd238f9d5cd17229f0d5d31992f8e",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "ci5-public-diagnostic.json",
+      "bytes": 1912,
+      "sha256": "31a981aeb17fb0dadbb74c215a2f8bc5f928ab5ac15955715a0c92269abf18ac",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "ci5-run-page.txt",
+      "bytes": 181137,
+      "sha256": "119f78f9d441a7bf342338db59c25204e25aa92114f48acc38a3f94604f1589c",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 2260,
+      "sha256": "615e6c34ad83c68e8ca4a5e89d901a517b7cdf44d98cd05de76c8a63996ac133",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "isolated-runner.py",
+      "bytes": 3002,
+      "sha256": "a71eae0e77950a9509f43c51f3810a25866abb7d19f0b44280931f10889b7019",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "mixed-suite-exit.json",
+      "bytes": 396,
+      "sha256": "32524df81e95055b8f421e42b185ebcd4dce13ecfa955d4deee5c4d67bd13d63",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "mixed-suite-shutdown-error.log",
+      "bytes": 83675,
+      "sha256": "348b9bf49bc40b37e86df1efe319c39345fdf482c952efd5d5dc985c563aa240",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 672878,
+      "sha256": "98feb278038a4fa6bd3ead94451fd6584c87dc3e2aae6d9ea38e7139e5990eb4",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 680852,
+      "sha256": "0f9bd60c5466c4415adfe28c3f13aa0027dec77f2952d7ee4cfec0a4df6f72f4",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 283870,
+      "sha256": "370b1738fa4837d937012fbd1f49a3e9b225ca1ac26943cad42935c86f0ecb23",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 302968,
+      "sha256": "6d82e0926e27a22eb30b730e8b6bff1eb555879ef22a8ee1dde186a4ffddea83",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 453152,
+      "sha256": "f789f2d7a9c800facfdf352a383a66efbf0393c4ab749ad4a38bf1cc42ca7b9d",
+      "source": "實際 Windows #5 公開頁／完整短診斷（九項通過、Qt正常退出逾時），Linux關閉協定反例／回歸及進度畫面；無使用者文件"
+    }
+  ]
+}

@@ -511,8 +511,8 @@
   },
   "windows_base_ci": {
     "local_preparation_accepted": true,
-    "acceptance_tests": 139,
-    "new_tests": 26,
+    "acceptance_tests": 141,
+    "new_tests": 28,
     "actual_fixed_https_inputs": 10,
     "actual_linux_cross_build": true,
     "workflow_prepared": true,
@@ -759,6 +759,44 @@
         },
         "scope": "Minimal Linux frozen packaging option and exact four-language output only; not the base application or Windows acceptance."
       }
+    },
+    "attempt5": {
+      "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42476509935",
+      "source_commit": "cbb3446679fc8b5ade8fecc55bcdddb739ad979b",
+      "conclusion": "failure",
+      "diagnostic": {
+        "result": {
+          "check": "windows-base-build-ci",
+          "commit": "cbb3446679fc8b5ade8fecc55bcdddb739ad979b",
+          "build_verified": true,
+          "validation_accepted": false,
+          "clean_machine_accepted": false,
+          "release_ready": false,
+          "error": "CalledProcessError: Command '['D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\build-venv\\\\Scripts\\\\python.exe', 'scripts/check_windows_base.py', '--executable', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\dist\\\\MarkItDownBase\\\\MarkItD"
+        },
+        "acceptance": {
+          "check": "windows-base-ci",
+          "accepted": false,
+          "windows_executed": true,
+          "clean_machine_accepted": false,
+          "release_ready": false,
+          "source_version": "0.14.0",
+          "python_utf8_mode": true,
+          "error": "TimeoutExpired: Command '['C:\\\\Users\\\\RUNNER~1\\\\AppData\\\\Local\\\\Temp\\\\markitdown-win-base-l310rdhl\\\\中文 空格測試\\\\應用程式\\\\MarkItDownBase.exe']' timed out after 25 seconds",
+          "checks_passed": 9
+        },
+        "failure_log": "acceptance/driver-error.log",
+        "failure_tail": " line 141, in check\n    gui_check(app, root, output, env)\n  File \"D:\\a\\MarkItDown-exe\\MarkItDown-exe\\scripts\\check_windows_base.py\", line 193, in gui_check\n    assert child.wait(timeout=25) == 0, 'Qt process did not close normally'\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\Lib\\subprocess.py\", line 1264, in wait\n    return self._wait(timeout=timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\Lib\\subprocess.py\", line 1593, in _wait\n    raise TimeoutExpired(self.args, timeout)\nsubprocess.TimeoutExpired: Command '['C:\\\\Users\\\\RUNNER~1\\\\AppData\\\\Local\\\\Temp\\\\markitdown-win-base-l310rdhl\\\\中文 空格測試\\\\應用程式\\\\MarkItDownBase.exe']' timed out after 25 seconds"
+      },
+      "checks_passed": 9,
+      "python_utf8_mode": true,
+      "gui_window_opened": true,
+      "gui_normal_exit_accepted": false
+    },
+    "close_fix": {
+      "related_tests": 141,
+      "accepted_local_contract": true,
+      "windows_gui_retest_pending": true
     }
   },
   "windows_execution_scope": "Windows 2022 hosted runner base build/core/four-language self-test passed; relocation failed. No clean-machine/installer/human/GPU acceptance.",
@@ -779,5 +817,13 @@
     },
     "cause": "Not established; one occurrence, not claimed resolved by a passing retry",
     "scope": "Linux complete test process; no claim about a Windows product crash"
+  },
+  "latest_mixed_suite": {
+    "run": 555,
+    "assertions_reported_passed": 554,
+    "expected_failures": 1,
+    "process_exit": 139,
+    "accepted": false,
+    "cause": "native shutdown unknown, investigated per module"
   }
 }

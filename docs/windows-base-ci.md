@@ -53,3 +53,7 @@ CI #3 在 Windows 2022 已原生建置／四語自檢成功，中文空格搬移
 CI #4 的中文 native --list-langs 已過；frozen full 的 PDF 模型探針仍用 CP1252 解原生 UTF-8 中文而失敗。已明確指定診斷 UTF-8，本文嚴格 UTF-8 保留；真正 Tesseract child／CP1252 反例與 OCR 及 139 相關回歸通過，Windows 修正版待驗。[紀錄](development-records/runs/windows-ci-decode-2026-11-08/README.md)保存完整短摘要及本地證據。
 
 基本包另以 PyInstaller X utf8 固定 Python UTF-8 mode，core 報告 python_utf8_mode 並由 Windows checker 斷言。最小 Linux frozen 在 LC_ALL=C、PYTHONUTF8=0、PYTHONCOERCECLOCALE=0 的環境仍以 UTF-8 輸出四語，這只驗 packaging flag，不冒充 Windows 或完整基本包。
+
+## Qt 收尾與正常關閉
+
+CI #5 已通過前 9 項，實際 Qt 已開窗；首次背景檢查忙碌時主窗會先取消並暫緩關閉。工具改在原 25 秒總期限內重新列舉自己的 child PID 視窗並正常要求關閉，仍必須 exit 0，kill／terminate 不能算成功。141 項本地回歸非 Windows GUI 證據，新 CI 另驗。[過程](development-records/runs/windows-ci-close-2026-11-08/README.md)保存。

@@ -4,6 +4,11 @@
 
 目前程式版本 **0.14.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
 
+**2026-11-08｜Windows 前九項通過，修正 Qt 關閉測試協定，程式 0.14.0**
+
+- [CI #5](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42476509935) 已實測 Windows UTF-8 mode=true、四語健康／掃描、中文搬移／完整自檢、四語 CLI、設定保留及故障不回退，共 9 項通過；Qt 已開窗／自身截圖，但一次 WM_CLOSE 遇首次背景檢查收尾而暫緩關閉，工具等 25 秒後失敗。
+- 工具在同一總期限內重新列舉自身 child PID 視窗並重送正常關閉，仍須真實 exit 0，非零／逾時不算通過，不以 kill／terminate 代替驗收。新增 2 項收尾協定反例，相關 141/141，仍待新 Windows GUI 實測。混合 555 項斷言完成後又 native teardown exit 139，保留 faulthandler／原始日誌且不列正式成功，另以逐模組正常 child 調查。[完整過程](runs/windows-ci-close-2026-11-08/README.md)及[第二十一份圖](../architecture/versions/v0.4-windows-cli-ci.md)保存；應用程式轉換碼／基本 spec 與 CI #5 相同，進度不提前增加。
+
 **2026-11-08｜修正 Windows frozen 的中文診斷解碼，程式 0.14.0**
 
 - [CI #4](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42475049445) 中新 UTF-8 引擎已在中文搬移路徑列出四語模型；接續 full 自檢遇到應用程式以 CP1252 讀原生 UTF-8 診斷的 UnicodeDecodeError。短摘要完整保留下根因，修正 PDF OCR 探針的明確解碼；辨識本文仍嚴格 UTF-8，模型及品質目標不變。基本包同時以 PyInstaller X utf8 固定 interpreter 模式，Windows core 驗實際旗標。最小 Linux frozen 在 LC_ALL=C／PYTHONUTF8=0／PYTHONCOERCECLOCALE=0 下仍 flag=1、UTF-8 四語輸出成功；只作 packaging option 證據，非 Windows 基本包成功。

@@ -156,6 +156,32 @@ class WindowsCITests(unittest.TestCase):
         self.assertEqual(environment['PATH'],'')
         self.assertEqual(environment['TESSDATA_PREFIX'],'')
 
+    def test_normal_gui_close_waits_for_cleanup_and_retries_without_termination(self):
+        class BusyChild:
+            returncode = None
+            def poll(self): return self.returncode
+            def wait(self,timeout):
+                if len(requests)==1: raise subprocess.TimeoutExpired('owned-child',timeout)
+                self.returncode=0
+                return 0
+        requests=[]
+        child=BusyChild()
+        count=windows.close_windows_child(child,lambda:[17],requests.append,timeout=1)
+        self.assertEqual(requests,[17,17])
+        self.assertEqual(count,2)
+        self.assertEqual(child.returncode,0)
+
+    def test_gui_close_never_accepts_nonzero_exit_or_expired_cleanup(self):
+        child=unittest.mock.Mock()
+        child.poll.return_value=1
+        with self.assertRaisesRegex(RuntimeError,'normally'):
+            windows.close_windows_child(child,lambda:[],lambda _:None)
+        child.poll.return_value=None
+        with self.assertRaisesRegex(TimeoutError,'deadline'):
+            windows.close_windows_child(child,lambda:[],lambda _:None,timeout=0)
+        child.terminate.assert_not_called()
+        child.kill.assert_not_called()
+
     def test_ci_annotation_escapes_commands_and_preserves_real_failure(self):
         report = {'windows-build.json': {'validation_accepted': False, 'error': 'actual failure'}}
         with patch.dict(os.environ, {'GITHUB_ACTIONS':'true'}), patch('sys.stdout', new_callable=io.StringIO) as stream:

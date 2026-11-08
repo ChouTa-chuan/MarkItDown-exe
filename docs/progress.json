@@ -2,9 +2,9 @@
   "updated": "2026-11-08",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
   "tests_passed": 552,
-  "headline": "Windows 原生中文模型清單已通過；frozen 診斷解碼修正待驗，完整 7/12",
-  "blocker": "Windows #4 原生 UTF-8 路徑已改善，PDF 探針誤用 CP1252 造成 full 自檢失敗；明確解碼修正待新 CI。",
-  "next": "重驗 Windows 中文搬移 full、四語 CLI、故障及 Qt；其後才是乾淨機／安裝與 GPU。",
+  "headline": "Windows 四語／中文搬移／CLI等9項通過；Qt正常關閉重驗，完整7/12",
+  "blocker": "Windows #5 Qt首次檢查收尾暫緩關閉，原工具只送一次WM_CLOSE而逾時；修工具仍維持正常exit0及25秒總期限。",
+  "next": "重驗真正Qt視窗正常退出；其後接乾淨機、基本／選配安裝與GPU。",
   "milestones": [
     {
       "id": "m0",
@@ -471,8 +471,8 @@
         "id": "windows_ci",
         "title": "Windows 自動建置驗證",
         "state": "partial",
-        "detail": "Windows 原生建置／四語 core/full（原位置）通過，UTF-8 引擎已能中文列模型；frozen 診斷誤用 CP1252，修正待新 CI。",
-        "evidence": "Windows #4 完整可讀診斷＋本地139/139及真實CP1252 child反例，未把修正後Linux當Windows成功。"
+        "detail": "Windows #5 原生基本包／UTF-8模式與四語、中文搬移、CLI及故障共9項通過，Qt已開窗；關閉工具需等收尾後再正常關閉，仍待新CI。",
+        "evidence": "實際Windows9/10＋本地141/141；不以強制終止當GUI通過，完整導入仍7/12。"
       }
     ]
   }

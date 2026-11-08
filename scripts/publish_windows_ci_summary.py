@@ -14,7 +14,7 @@ def publish_annotation(records, tails):
     # 公開頁會截斷約 5 KB 的 annotation；優先放真正失敗步驟，完整 JSON 留在 summary／artifact。
     def brief(record):
         keys = ('check', 'source_version', 'commit', 'accepted', 'build_verified', 'validation_accepted',
-                'windows_executed', 'python_utf8_mode', 'checks_passed', 'error', 'cross_build_complete',
+                'windows_executed', 'python_utf8_mode', 'gui', 'checks_passed', 'error', 'cross_build_complete',
                 'clean_machine_accepted', 'release_ready')
         return {key: value[:250] if isinstance(value, str) else value
                 for key, value in record.items() if key in keys}

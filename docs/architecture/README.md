@@ -43,6 +43,8 @@
 
 第二十份：[Windows 原生建置與四語部分實測](versions/v0.4-windows-native-ci.md)，保存 CI #3 已通過範圍與中文搬移失敗／UTF-8 待驗，不倒填舊圖。
 
+第二十一份：[Windows 四語、中文與 CLI 實測](versions/v0.4-windows-cli-ci.md)，保存九項通過與 Qt 關閉重驗狀態。
+
 ## 保存規則
 
 - 已存圖檔保留固定內容；下次架構變更新增另一份版本快照，再補索引與 CHANGELOG。
