@@ -1,0 +1,6 @@
+[1/1] Linking CXX executable bin/tesseract.exe
+FAILED: bin/tesseract.exe 
+: && /workspace/markitdown-native-tools/llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64/bin/x86_64-w64-mingw32-clang++ -include string -include cstdlib -O3 -DNDEBUG -Wno-unused-command-line-argument -static -Wl,--no-insert-timestamp -Wl,-Map,/workspace/markitdown-minimal-prototype/tesseract-link.map -Wl,--trace CMakeFiles/tesseract.dir/src/tesseract.cpp.obj -o bin/tesseract.exe -Wl,--out-implib,bin/libtesseract.dll.a -Wl,--major-image-version,0,--minor-image-version,0  libtesseract55.a  -lWs2_32  /workspace/markitdown-minimal-prototype/prefix/lib/libleptonica-1.87.0.dll  /workspace/markitdown-minimal-prototype/prefix/lib/libpng.a  /workspace/markitdown-minimal-prototype/prefix/lib/libzs.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && :
+lld: error: unknown argument: --trace
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.

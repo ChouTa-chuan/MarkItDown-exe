@@ -1,0 +1,38 @@
+[1/183] Building C object src/CMakeFiles/leptonica.dir/affine.c.obj
+[2/183] Building C object src/CMakeFiles/leptonica.dir/affinecompose.c.obj
+[3/183] Building C object src/CMakeFiles/leptonica.dir/adaptmap.c.obj
+[4/183] Building C object src/CMakeFiles/leptonica.dir/arrayaccess.c.obj
+[5/183] Building C object src/CMakeFiles/leptonica.dir/baseline.c.obj
+[6/183] Building C object src/CMakeFiles/leptonica.dir/bardecode.c.obj
+[7/183] Building C object src/CMakeFiles/leptonica.dir/bbuffer.c.obj
+[8/183] Building C object src/CMakeFiles/leptonica.dir/bilateral.c.obj
+[9/183] Building C object src/CMakeFiles/leptonica.dir/bilinear.c.obj
+[10/183] Building C object src/CMakeFiles/leptonica.dir/binarize.c.obj
+[11/183] Building C object src/CMakeFiles/leptonica.dir/binexpand.c.obj
+[12/183] Building C object src/CMakeFiles/leptonica.dir/binreduce.c.obj
+[13/183] Building C object src/CMakeFiles/leptonica.dir/bmf.c.obj
+[14/183] Building C object src/CMakeFiles/leptonica.dir/blend.c.obj
+[15/183] Building C object src/CMakeFiles/leptonica.dir/bmpiostub.c.obj
+[16/183] Building C object src/CMakeFiles/leptonica.dir/bmpio.c.obj
+[17/183] Building C object src/CMakeFiles/leptonica.dir/bootnumgen1.c.obj
+[18/183] Building C object src/CMakeFiles/leptonica.dir/bootnumgen2.c.obj
+[19/183] Building C object src/CMakeFiles/leptonica.dir/bootnumgen3.c.obj
+[20/183] Building C object src/CMakeFiles/leptonica.dir/bootnumgen4.c.obj
+[21/183] Building C object src/CMakeFiles/leptonica.dir/boxbasic.c.obj
+FAILED: src/CMakeFiles/leptonica.dir/boxbasic.c.obj 
+/workspace/markitdown-native-tools/llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64/bin/x86_64-w64-mingw32-clang -DHAVE_CONFIG_H -I/workspace/markitdown-minimal-sources/leptonica/src -I/workspace/markitdown-minimal-prototype/build-leptonica/src -I/workspace/markitdown-minimal-prototype/prefix/include -O2 -DNDEBUG -std=gnu11 -MD -MT src/CMakeFiles/leptonica.dir/boxbasic.c.obj -MF src/CMakeFiles/leptonica.dir/boxbasic.c.obj.d -o src/CMakeFiles/leptonica.dir/boxbasic.c.obj -c /workspace/markitdown-minimal-sources/leptonica/src/boxbasic.c
+/workspace/markitdown-minimal-sources/leptonica/src/boxbasic.c:1952:15: error: call to undeclared function 'open_memstream'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+ 1952 |     if ((fp = open_memstream((char **)pdata, psize)) == NULL)
+      |               ^
+/workspace/markitdown-minimal-sources/leptonica/src/boxbasic.c:1952:13: error: incompatible integer to pointer conversion assigning to 'FILE *' (aka 'struct _iobuf *') from 'int' [-Wint-conversion]
+ 1952 |     if ((fp = open_memstream((char **)pdata, psize)) == NULL)
+      |             ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/markitdown-minimal-sources/leptonica/src/boxbasic.c:2233:15: error: call to undeclared function 'open_memstream'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+ 2233 |     if ((fp = open_memstream((char **)pdata, psize)) == NULL)
+      |               ^
+/workspace/markitdown-minimal-sources/leptonica/src/boxbasic.c:2233:13: error: incompatible integer to pointer conversion assigning to 'FILE *' (aka 'struct _iobuf *') from 'int' [-Wint-conversion]
+ 2233 |     if ((fp = open_memstream((char **)pdata, psize)) == NULL)
+      |             ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+4 errors generated.
+[22/183] Building C object src/CMakeFiles/leptonica.dir/boxfunc1.c.obj
+ninja: build stopped: subcommand failed.

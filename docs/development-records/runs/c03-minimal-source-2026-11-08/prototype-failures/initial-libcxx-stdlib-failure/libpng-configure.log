@@ -1,0 +1,6 @@
+-- Building for target architecture: amd64
+-- Found AWK program: /usr/bin/nawk
+-- Creating standard configuration
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/markitdown-minimal-prototype/build-libpng

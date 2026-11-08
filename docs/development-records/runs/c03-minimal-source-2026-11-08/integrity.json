@@ -1,0 +1,33 @@
+{
+  "previous_manifests_verified": {
+    "docs/development-records/manifest.json": 75,
+    "docs/development-records/runs/c01-2026-11-06/manifest.json": 13,
+    "docs/development-records/runs/c02-2026-11-06/manifest.json": 19,
+    "docs/development-records/runs/c03-languages-2026-11-08/manifest.json": 46,
+    "docs/development-records/runs/c03-native-static-2026-11-08/manifest.json": 41,
+    "docs/development-records/runs/c04-build-2026-11-08/manifest.json": 584,
+    "docs/development-records/runs/c04-locks-2026-11-08/manifest.json": 59,
+    "docs/development-records/runs/c05-2026-11-06/manifest.json": 21,
+    "docs/development-records/runs/c06-2026-11-06/manifest.json": 27,
+    "docs/development-records/runs/c07-2026-11-07/manifest.json": 44,
+    "docs/development-records/runs/c08-2026-11-07/manifest.json": 29,
+    "docs/development-records/runs/c09-flow-2026-11-07/manifest.json": 28,
+    "docs/development-records/runs/c10-2026-11-07/manifest.json": 39
+  },
+  "previous_committed_record_files_unchanged": 1043,
+  "previous_architecture_snapshots_unchanged": 16,
+  "architecture_snapshots_verified": 17,
+  "locked_requirements_unchanged": 7,
+  "original_license_asset_files_unchanged": 221,
+  "all_previous_product_data_files_unchanged": 233,
+  "traditional_quality_fixture_and_old_health_unchanged": 4,
+  "relative_markdown_links_verified": 169,
+  "baseline_commit": "34e253403a0fba76d92cb8be3e211e5fb4fa8450",
+  "source_version": "0.12.0",
+  "completed_date_taipei": "2026-11-08",
+  "check": "C03-minimal-source",
+  "full_c03_complete": false,
+  "source_preparation_subcheck_accepted": true,
+  "windows_executed": false,
+  "gpu_executed": false
+}

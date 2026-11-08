@@ -1,0 +1,41 @@
+"""真實候選的獨立靜態／來源驗證；不執行任何 Windows PE。"""
+from pathlib import Path
+import sys,json,hashlib,re,subprocess
+from datetime import datetime,timezone
+sys.path.insert(0,str(Path('/workspace/MarkItDown-exe/scripts')))
+import build_minimal_native as native
+from desktop_app.native_assets import require_bundle_permission,NativeAssetError
+work=Path('/workspace/markitdown-minimal-build-accepted');out=Path('/tmp/markitdown-minimal-actual.json');assert not out.exists()
+contract=native.validate_contract(json.loads(native.CONTRACT.read_text()));report=json.loads(Path('/tmp/markitdown-minimal-build-accepted.json').read_text());checks=[]
+assert report['source_version']=='0.12.0' and report['cross_build_complete']
+for record in [*contract['source_archives'],contract['toolchain_archive']]:native.verify_record(work/record['file'],record)
+checks.append('Four original commit archives and published-digest toolchain bytes/SHA match fixed inputs')
+pe=native.inspect_candidate(work/'candidate/tesseract.exe');assert pe==report['candidate'] and not pe['third_party_dlls']
+checks.append('Actual AMD64 PE32+ EXE imports only Windows system/UCRT API classes; no third-party DLL')
+assert native.verify_configuration(work)==report['configuration']
+checks.append('Actual generated headers confirm PNG/zlib, codec/network/legacy exclusions and no host memstream probes')
+tools=work/'source-toolchain'/contract['toolchain_archive']['archive_root'];lept=next(s for s in contract['source_archives'] if s['id']=='leptonica')
+linked=native.verify_link_inputs((work/'tesseract-build.log').read_text(),work,tools,lept['tag']);assert linked==report['link_inputs'] and len(linked)==26
+checks.append('All 26 linker file inputs and member records map to the four fixed sources or packaged toolchain')
+for record in contract['notices']:
+ native.verify_record(work/'candidate/notices'/record['file'],record)
+ origin=record['origin'];component=origin['component']
+ if component in native.SOURCE_IDS:
+  source=next(s for s in contract['source_archives'] if s['id']==component);assert origin['commit']==source['commit']
+  native.verify_record(work/('source-'+component)/source['archive_root']/origin['source_path'],record)
+ elif origin.get('archive_sha256'):
+  assert origin['archive_sha256']==contract['toolchain_archive']['sha256'];native.verify_record(tools/origin['source_path'],record)
+checks.append('All 21 original notices/source texts preserved; direct-source/package notice originals matched')
+parsed=subprocess.run(['/usr/bin/objdump','-p',str(work/'candidate/tesseract.exe')],capture_output=True,text=True,check=True)
+Path('/tmp/markitdown-minimal-objdump.log').write_text(parsed.stdout)
+imports=sorted(set(x.lower() for x in re.findall(r'DLL Name:\s+(\S+)',parsed.stdout)));assert imports==sorted(set(pe['imports']+pe['delay_imports']))
+checks.append('Independent system objdump agrees with all 14 import DLL names')
+assert native.file_hash(tools/report['toolchain_import_alias']['alias'])==native.file_hash(tools/report['toolchain_import_alias']['original'])
+checks.append('Winsock case alias preserves exact bytes of packaged system import archive')
+try:require_bundle_permission({**report,'redistribution_approved':True,'bundle_allowed':True})
+except NativeAssetError:pass
+else:raise AssertionError('Data flags must not approve bundling')
+for flag in ('windows_executed','gpu_executed','authenticode_verified','dynamic_loading_verified','native_ocr_bundled','full_c03_complete','redistribution_approved','release_ready'):assert report[flag] is False
+checks.append('Windows/OCR/bundle/release gates remain false; forged flags cannot approve bundling')
+result=dict(source_version='0.12.0',recorded_at=datetime.now(timezone.utc).isoformat(),check='C03-minimal-source-actual',accepted=True,source_preparation_subcheck_accepted=True,checks_passed=len(checks),checks=checks,candidate=pe,linker_file_inputs=len(linked),linker_member_records=sum(len(e.get('linked_members',[])) for e in linked),original_notice_and_recipe_files=len(contract['notices']),windows_executed=False,gpu_executed=False,full_c03_complete=False,native_ocr_bundled=False,redistribution_approved=False,release_ready=False,scope='Actual Linux cross-built Windows candidate and fixed source/notice preparation only; no Windows OCR or application bundle acceptance')
+out.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print('Actual static/source checks passed',len(checks),'candidate bytes',pe['bytes'],'SHA-256',pe['sha256'])

@@ -1,0 +1,9 @@
+-- Building for target architecture: amd64
+-- Found ZLIB: /workspace/markitdown-minimal-prototype/prefix/lib/libzs.a (found version "1.4")
+-- Performing Test HAVE_LD_VERSION_SCRIPT
+-- Performing Test HAVE_LD_VERSION_SCRIPT - Success
+-- Found AWK program: /usr/bin/nawk
+-- Creating standard configuration
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/markitdown-minimal-prototype/build-libpng

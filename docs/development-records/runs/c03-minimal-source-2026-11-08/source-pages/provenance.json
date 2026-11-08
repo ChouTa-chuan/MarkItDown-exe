@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-11-08T09:09:38.635470+00:00",
+  "source_version": "0.12.0",
+  "upstream_context_commit": "db0ec62f81b0737fbbe184d8fea40af5738f8eef",
+  "source_pages": {
+    "llvm-release.txt": "https://github.com/mstorsjo/llvm-mingw/releases/tag/20261104",
+    "llvm-expanded-assets.txt": "https://github.com/mstorsjo/llvm-mingw/releases/expanded_assets/20261104",
+    "leptonica-release.txt": "https://github.com/DanBloomberg/leptonica/releases/tag/1.87.0",
+    "zlib-release.txt": "https://github.com/madler/zlib/releases/tag/v1.4",
+    "libpng-tags.txt": "git ls-remote --tags https://github.com/pnggroup/libpng.git refs/tags/v1.6.*"
+  },
+  "observations": [
+    "Default sandbox curl could not connect to inherited proxy; same official destinations succeeded with approved outer execution and inherited proxy/CA. No environment policy changes.",
+    "libpng /releases/latest was unavailable; official git tag list selected fixed stable v1.6.59. These are research observations, not fabricated raw failure logs."
+  ],
+  "native_binary_in_repository": false,
+  "windows_executed": false,
+  "gpu_executed": false
+}

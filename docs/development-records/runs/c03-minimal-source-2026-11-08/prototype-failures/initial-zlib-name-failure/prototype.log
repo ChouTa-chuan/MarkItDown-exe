@@ -1,0 +1,13 @@
+zlib-configure
+zlib-build
+zlib-install
+libpng-configure
+Traceback (most recent call last):
+  File "/tmp/markitdown-minimal-build-prototype.py", line 33, in <module>
+    call(name+'-configure',[cmake,'-S',str(src),'-B',str(bld),'-G','Ninja','-DCMAKE_MAKE_PROGRAM='+ninja,'-DCMAKE_TOOLCHAIN_FILE='+str(chain),'-DCMAKE_BUILD_TYPE=Release','-DCMAKE_INSTALL_PREFIX='+str(prefix),'-DCMAKE_INSTALL_LIBDIR=lib','-DCMAKE_PREFIX_PATH='+str(prefix),*flags])
+  File "/tmp/markitdown-minimal-build-prototype.py", line 30, in call
+    with (base/(label+'.log')).open('wb') as log:subprocess.run(args,stdout=log,stderr=subprocess.STDOUT,check=True,env={**os.environ,'SOURCE_DATE_EPOCH':'1784870400'})
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/workspace/markitdown-native-build-venv/bin/cmake', '-S', '/workspace/markitdown-minimal-sources/libpng', '-B', '/workspace/markitdown-minimal-prototype/build-libpng', '-G', 'Ninja', '-DCMAKE_MAKE_PROGRAM=/workspace/markitdown-native-build-venv/bin/ninja', '-DCMAKE_TOOLCHAIN_FILE=/workspace/markitdown-minimal-prototype/toolchain.cmake', '-DCMAKE_BUILD_TYPE=Release', '-DCMAKE_INSTALL_PREFIX=/workspace/markitdown-minimal-prototype/prefix', '-DCMAKE_INSTALL_LIBDIR=lib', '-DCMAKE_PREFIX_PATH=/workspace/markitdown-minimal-prototype/prefix', '-DPNG_SHARED=OFF', '-DPNG_STATIC=ON', '-DPNG_TESTS=OFF', '-DPNG_TOOLS=OFF', '-DPNG_DEBUG=OFF', '-DPNG_HARDWARE_OPTIMIZATIONS=OFF']' returned non-zero exit status 1.

@@ -1,0 +1,17 @@
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/libzs.a
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/include/zconf.h
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/include/zlib.h
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/cmake/zlib/ZLIB-static.cmake
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/cmake/zlib/ZLIB-static-release.cmake
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/cmake/zlib/ZLIBConfig.cmake
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/cmake/zlib/ZLIBConfigVersion.cmake
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/share/man/man3/zlib.3
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/share/doc/zlib/zlib/LICENSE
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/share/doc/zlib/zlib/algorithm.txt
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/share/doc/zlib/zlib/crc-doc.1.0.pdf
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/share/doc/zlib/zlib/rfc1950.txt
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/share/doc/zlib/zlib/rfc1951.txt
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/share/doc/zlib/zlib/rfc1952.txt
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/share/doc/zlib/zlib/txtvsbin.txt
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/pkgconfig/zlib.pc

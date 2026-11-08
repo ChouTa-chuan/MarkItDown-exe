@@ -1,0 +1,906 @@
+{
+  "schema_version": 1,
+  "source_version": "0.12.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-08",
+  "check": "C03-minimal-source",
+  "mechanism_accepted": true,
+  "full_c03_complete": false,
+  "scope": "固定最小原生來源／原文準備子檢核；Linux 離線交叉建置單一 PE，未執行 Windows 或整合基本包／核准發行",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 4536,
+      "sha256": "8777092b3b2c049983059e43bf88849aebd99e2baf9daa13f63680793aed25b7",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 8526,
+      "sha256": "5de74edef23aab737d58bde21e0bc03a5bb3ae0a19f2e1e7cc5508d2796ea784",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "acceptance.log",
+      "bytes": 12338,
+      "sha256": "c350d2be6aa0428d28a63259994dc938db27e30d7baeefde06fc8303b93dbbe0",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "actual-source-check.py.txt",
+      "bytes": 4521,
+      "sha256": "9a771a64d417bb9f5e41147110d031cc16c2a37e337e371317da0e774715e789",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "actual-source.json",
+      "bytes": 2902,
+      "sha256": "eaffda0c7829849e523d9d7d7ac058bb3c3979d5f4b10044615b2cc378f80c13",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "actual-source.log",
+      "bytes": 134,
+      "sha256": "301f0f18d01e58ea49f38b13a312961f853805e8070df4f034a41b9ba94ab353",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "build-driver.log",
+      "bytes": 98,
+      "sha256": "2562e7fabaea990e05acd85169dd39aa53b63a26259ad1093080a41408cfc6a2",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "build-report.json",
+      "bytes": 42948,
+      "sha256": "2d50e622ea9eb26e78caf8a4fb42b0ca0ee8d51d90b7d148c43478611b3cebca",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/build-leptonica/CMakeCache.txt",
+      "bytes": 22095,
+      "sha256": "c6ceaa6717643969e61f49531ceb5640acb8e0344e9e54faf5a76ca4f784918f",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/build-leptonica/src/config_auto.h",
+      "bytes": 1531,
+      "sha256": "8a6a2fff06e5bde7868b2b6194f9dc223e2b55b66eef2cdc53024c418913f7c2",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/build-libpng/CMakeCache.txt",
+      "bytes": 20493,
+      "sha256": "b14f23dedef7ee8bf349102ad413fc9afed651f8a967f4cf82abdfa19d3ee751",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/build-tesseract/CMakeCache.txt",
+      "bytes": 23180,
+      "sha256": "96cbcb31d6c271c257ffc99fd63657f29fa5b446356bb758870e0690a7c97475",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/build-tesseract/config_auto.h",
+      "bytes": 336,
+      "sha256": "b722503e46aa03f5578a8598ec49011fb4c5d16b331a40869273df91546835d7",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/build-zlib/CMakeCache.txt",
+      "bytes": 22189,
+      "sha256": "85df01189884ece96ef9a4ea0c43c1d0426b30c920b11c1f9b2fb5949c28c0e6",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/commands.json",
+      "bytes": 6742,
+      "sha256": "79688c3682a46818721c0c0b55765a19bb4a6627610cfb111f1a5410a2f9c1f3",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/leptonica-build.log",
+      "bytes": 13034,
+      "sha256": "ea6c1c15aeece648f441b232edb88ac9eb708588bdd5b95fafdeb01b9739610c",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/leptonica-configure.log",
+      "bytes": 2573,
+      "sha256": "37d14e27b1f5d997b8512a42c7882e1b3137278b7c43a4742dff3c5e53dae1d8",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/leptonica-install.log",
+      "bytes": 4110,
+      "sha256": "f70b3dc08bf0de25ca7c45b3a18907a08575caa2002d1e1f4ca18c2d66f7b9a7",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/libpng-build.log",
+      "bytes": 1482,
+      "sha256": "2ce06b92795eb8adb5e2f27c8d16c62103cd1db7f94d1c22cdffdbb0db53ff58",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/libpng-configure.log",
+      "bytes": 1030,
+      "sha256": "1b4343636432a45858ba5a038bb67f20b3584a53e5aae7c3765d718d4cd191e2",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/libpng-install.log",
+      "bytes": 2214,
+      "sha256": "76bd23dd38a3d2b4e5569553dc392090ffc22ff466e824228f0819fd9981ea77",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/strip.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/tesseract-build.log",
+      "bytes": 900220,
+      "sha256": "67167b6592b6d01e619f0aaf622e67d02c91ed1cdd3332cc9cfad722dc7e8640",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/tesseract-configure.log",
+      "bytes": 3456,
+      "sha256": "821ef844de6e5e3567bd1624b8d3c2b3ce28be06f1deb715cf4591982332a165",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/tesseract-install.log",
+      "bytes": 2085,
+      "sha256": "7977410ac14c809446d2ac6fb7889ab03d913feb14d84113b57c475523177bbc",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/tesseract-link.map",
+      "bytes": 4549382,
+      "sha256": "14e99ace2612e6681adfc527a45a0f45ec730864640822712fec3ab7478c3145",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/toolchain.cmake",
+      "bytes": 1430,
+      "sha256": "7aa5133b01ecec9ba134a7510549ecab238a8e0433a795b19c392d94fd19e40d",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/zlib-build.log",
+      "bytes": 1015,
+      "sha256": "5b16cb2cb6c94ccd3d0e36d6abf387f6b5f3fd1f90d8240ab49275ccea7c21c8",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/zlib-configure.log",
+      "bytes": 1009,
+      "sha256": "c5556a944d9c546efa5bbfbfdb4f24cb6494ec2ece7f0f0535238d9d85118ace",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/zlib-install.log",
+      "bytes": 1567,
+      "sha256": "7c101110431c6e724daea0ed814f2294f88ee50fa46a21d1885cd76d89596ca4",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "full-regression.log",
+      "bytes": 73679,
+      "sha256": "0ad96dab4e256439aed27b715796f1e2d87a88b28b6735bc5c33617e0dbd1842",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "host-tools/compiler-version.log",
+      "bytes": 439,
+      "sha256": "55d730232ed3935e7a0f4f736986134737ba08a5b3a78cccd47d3e8e0e5794da",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "host-tools/download.log",
+      "bytes": 1003,
+      "sha256": "4f8b9e845910efe51fc02f8434bafe44b07a8abcd135eafc2356ecee52852c4a",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "host-tools/install.log",
+      "bytes": 419,
+      "sha256": "d331d7fd8c65638258a9c94fc51eb51cbc649506b1f3310f9166710fb542e99b",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "host-tools/project-install.log",
+      "bytes": 1269,
+      "sha256": "3b30e58943f10b5cbe83e93a47b4412f26eaeb4664114a27f105d6cc84ee5c96",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "host-tools/wheels.json",
+      "bytes": 563,
+      "sha256": "f050d78f47bc3da4b8783a2323b433edc8c6ce21e3f3cc2b6408e457f3be3219",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 1663,
+      "sha256": "ca5dd7a3001966b976b348180323328a8c6030106282c586a72c3e7f30faaab0",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/acceptance-84.json",
+      "bytes": 8316,
+      "sha256": "31bc13043422aab4da1a0bcf66c1af4c31cf41668212d89db8d48958e293463d",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/acceptance-84.log",
+      "bytes": 12006,
+      "sha256": "52e9e38421aec053495eede87a2ceb4dc4b108e1a6976e0b2b752a5bcdb1fb8a",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/full-498.log",
+      "bytes": 73346,
+      "sha256": "a0ce37695e274915d1b0eb43879e975caea07eeafbddebc3fd01ce005871287c",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/link-member-failure.json",
+      "bytes": 357,
+      "sha256": "d3bcbff75bca43ebb9229f47550c35caa36aac58c3984e7b99c9372017963c0f",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/link-member-failure.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/manual-winsock-build.json",
+      "bytes": 13096,
+      "sha256": "5ede287404cc1c47729ca24b3924659e3f42c68601a8bc5186ff9185d5fc3498",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/manual-winsock-build.log",
+      "bytes": 98,
+      "sha256": "2562e7fabaea990e05acd85169dd39aa53b63a26259ad1093080a41408cfc6a2",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/png-alias-failure.json",
+      "bytes": 275,
+      "sha256": "887553f29993a59937ad1091832f03ccfc4138875ffce05a9f82fb24023f8dee",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/png-alias-failure.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/prototype-link-success.log",
+      "bytes": 47,
+      "sha256": "8e0ac2e2f06f1043055a0e77eb2aed8ea5117a712efca3e0271ffa5a62a7f315",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/prototype-trace-unsupported.log",
+      "bytes": 1031,
+      "sha256": "a2ac2d83319494fbdfe00883f899b12f6460b726201de51de47fbd82b321d44b",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/prototype-verbose.log",
+      "bytes": 885678,
+      "sha256": "f14b0556706b4f05c5cc8ae35e8f3d4c613eac3a183f46ad5c0c03b2710eca01",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/unit-20.log",
+      "bytes": 3009,
+      "sha256": "948dd714281d0fd2db8099ee934a62017efd5d4dcf5e360683e9689b4970e673",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/unit-22-link.log",
+      "bytes": 3341,
+      "sha256": "f9072a60021ab95036a9a2def04aa23e245fd7cc68dd7f291866f078d4751240",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "license-verify.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "objdump.log",
+      "bytes": 3709632,
+      "sha256": "2a84060abf0085c18a3ef71b14566dd42816827fd3cc4ea3f933bcd632d48a44",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "profile-generate.log",
+      "bytes": 308,
+      "sha256": "60f4d04e67ddb2356cc4afea6ee669302d131723567341544a94a26097ec9171",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "profile-verify.log",
+      "bytes": 308,
+      "sha256": "60f4d04e67ddb2356cc4afea6ee669302d131723567341544a94a26097ec9171",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-cross-probe-failure/leptonica-build.log",
+      "bytes": 3505,
+      "sha256": "625a64f4f61c7dc1137e7955f420223429017d403607dc393e8676d62ab92ab3",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-cross-probe-failure/leptonica-configure.log",
+      "bytes": 2503,
+      "sha256": "cfd4389fb2557072d5a5f446449db47c5cea3c4f024b56376ac1ad5eb4eab6b8",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-cross-probe-failure/libpng-build.log",
+      "bytes": 1482,
+      "sha256": "c696ea16343e359f5c160e3641d94f397439b3bb7f07f3748a2cd3dc81e4eb8e",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-cross-probe-failure/libpng-configure.log",
+      "bytes": 447,
+      "sha256": "5769302d3dfb9842ab2dc786df697773b95224f114d3ab75e59bec79d285c49e",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-cross-probe-failure/libpng-install.log",
+      "bytes": 2094,
+      "sha256": "ac96aee733107d1786683eeb59ce868b45cd961e1ba65f3e78de67fcf049cbc0",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-cross-probe-failure/prototype.log",
+      "bytes": 1092,
+      "sha256": "67b0224833754dead07286961202147e26d035146b8a800602f9ad32f1e1d0b5",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-cross-probe-failure/prototype.py.txt",
+      "bytes": 3335,
+      "sha256": "2d9b6be8ed1529996423f4cc9e9bdb734873478cf60aa687f0f0fa20f5259952",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-cross-probe-failure/zlib-build.log",
+      "bytes": 22,
+      "sha256": "8c35b1682f73592d30612d7b0fabdb384fcfff35cb5a076cb48b85b1368aa794",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-cross-probe-failure/zlib-configure.log",
+      "bytes": 141,
+      "sha256": "479131512cb074498dd3b65b8f2c7ffb5511858da8b1bd3ac736fefe2c9377b7",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-cross-probe-failure/zlib-install.log",
+      "bytes": 1487,
+      "sha256": "605fbae82b56c183fe21103a304bf3c0048a0e5e8d2cdd3683ffe8258a65ea1d",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/leptonica-build.log",
+      "bytes": 22,
+      "sha256": "8c35b1682f73592d30612d7b0fabdb384fcfff35cb5a076cb48b85b1368aa794",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/leptonica-configure.log",
+      "bytes": 959,
+      "sha256": "543038f96b729a7278547ef9c73c9b0bf4c5524a892c38d15893eb84355d54fa",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/leptonica-install.log",
+      "bytes": 3900,
+      "sha256": "3ff7c4aa052e9e0fca1de9520246fb5e72d53c52196af93840acb7b927378550",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/libpng-build.log",
+      "bytes": 22,
+      "sha256": "8c35b1682f73592d30612d7b0fabdb384fcfff35cb5a076cb48b85b1368aa794",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/libpng-configure.log",
+      "bytes": 257,
+      "sha256": "33d0bae19c50bdba87e68affdb196392bda807aff4dbb21d27bc75b2983f7621",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/libpng-install.log",
+      "bytes": 2094,
+      "sha256": "3f3c5ccc5b63ded78b0f63fc34500167b73a2561b126ad98770938f27a8f5829",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/prototype.log",
+      "bytes": 1146,
+      "sha256": "22c6201351b53a4021f7855721dc4448c3aca320a2825a619b0c84276b98eac5",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/prototype.py.txt",
+      "bytes": 3282,
+      "sha256": "ba974742e483bcec01c67c9657243fb35a016b8be57c7923a1a0647465c79766",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/tesseract-build.log",
+      "bytes": 7021,
+      "sha256": "b6731fb895eca609d612f5348f20f9b033e3c9ec5ca7e90f9d8187703f95ea03",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/tesseract-configure.log",
+      "bytes": 2170,
+      "sha256": "92b341993d824faa00de5d890e20f9c817ac97026f4f7371b6ec72e2f9c892e3",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/zlib-build.log",
+      "bytes": 22,
+      "sha256": "8c35b1682f73592d30612d7b0fabdb384fcfff35cb5a076cb48b85b1368aa794",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/zlib-configure.log",
+      "bytes": 141,
+      "sha256": "479131512cb074498dd3b65b8f2c7ffb5511858da8b1bd3ac736fefe2c9377b7",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-include-failure/zlib-install.log",
+      "bytes": 1487,
+      "sha256": "605fbae82b56c183fe21103a304bf3c0048a0e5e8d2cdd3683ffe8258a65ea1d",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/leptonica-build.log",
+      "bytes": 22,
+      "sha256": "8c35b1682f73592d30612d7b0fabdb384fcfff35cb5a076cb48b85b1368aa794",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/leptonica-configure.log",
+      "bytes": 959,
+      "sha256": "543038f96b729a7278547ef9c73c9b0bf4c5524a892c38d15893eb84355d54fa",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/leptonica-install.log",
+      "bytes": 3900,
+      "sha256": "3ff7c4aa052e9e0fca1de9520246fb5e72d53c52196af93840acb7b927378550",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/libpng-build.log",
+      "bytes": 22,
+      "sha256": "8c35b1682f73592d30612d7b0fabdb384fcfff35cb5a076cb48b85b1368aa794",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/libpng-configure.log",
+      "bytes": 257,
+      "sha256": "33d0bae19c50bdba87e68affdb196392bda807aff4dbb21d27bc75b2983f7621",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/libpng-install.log",
+      "bytes": 2094,
+      "sha256": "3f3c5ccc5b63ded78b0f63fc34500167b73a2561b126ad98770938f27a8f5829",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/prototype.log",
+      "bytes": 1146,
+      "sha256": "22c6201351b53a4021f7855721dc4448c3aca320a2825a619b0c84276b98eac5",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/prototype.py.txt",
+      "bytes": 3318,
+      "sha256": "22ce668e77ab15885927615a74b7baf4deaaa812a0d6ce906b03ea21622d875f",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/tesseract-build.log",
+      "bytes": 15457,
+      "sha256": "c4d8b47df230231642eaa2c1a1a24f7a86d31ba67222848af3a06339f33c717a",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/tesseract-configure.log",
+      "bytes": 2185,
+      "sha256": "42cfd167b9e6ab0ac3ff8b1e7eb41d007bad5c17377c1e79991b446cbe0ba3f7",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/zlib-build.log",
+      "bytes": 22,
+      "sha256": "8c35b1682f73592d30612d7b0fabdb384fcfff35cb5a076cb48b85b1368aa794",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/zlib-configure.log",
+      "bytes": 141,
+      "sha256": "479131512cb074498dd3b65b8f2c7ffb5511858da8b1bd3ac736fefe2c9377b7",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-libcxx-stdlib-failure/zlib-install.log",
+      "bytes": 1487,
+      "sha256": "605fbae82b56c183fe21103a304bf3c0048a0e5e8d2cdd3683ffe8258a65ea1d",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-tiff-cross-run-failure/leptonica-build.log",
+      "bytes": 13034,
+      "sha256": "c07b7434117bef9879def4519ab6071f84c9bc3e6d3314d8ade8268cdcfbc13a",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-tiff-cross-run-failure/leptonica-configure.log",
+      "bytes": 2511,
+      "sha256": "572a08cb9b422d3c0aca087385c1dea3ef9c591850177349ead6fb1db12817f4",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-tiff-cross-run-failure/leptonica-install.log",
+      "bytes": 3900,
+      "sha256": "d265bc393a72fd4cc76f3274dd5b5aefc1476b1cc91a3eeeedcc0ff39055f6fe",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-tiff-cross-run-failure/libpng-build.log",
+      "bytes": 22,
+      "sha256": "8c35b1682f73592d30612d7b0fabdb384fcfff35cb5a076cb48b85b1368aa794",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-tiff-cross-run-failure/libpng-configure.log",
+      "bytes": 257,
+      "sha256": "33d0bae19c50bdba87e68affdb196392bda807aff4dbb21d27bc75b2983f7621",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-tiff-cross-run-failure/libpng-install.log",
+      "bytes": 2094,
+      "sha256": "3f3c5ccc5b63ded78b0f63fc34500167b73a2561b126ad98770938f27a8f5829",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-tiff-cross-run-failure/prototype.log",
+      "bytes": 2296,
+      "sha256": "18f8d5d25ad520a71b5ef5ccdbcb892530513d1ffb3f2e420dbe8e7cf9e9b6b7",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-tiff-cross-run-failure/prototype.py.txt",
+      "bytes": 3285,
+      "sha256": "0d14db87058a8c1e24e539752db60ec6b0900e214171a3822f66e4384b5f7a2f",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-tiff-cross-run-failure/tesseract-configure.log",
+      "bytes": 3493,
+      "sha256": "6f4e461d27492da36795d57622b49234c5bea0ec09c232445c14d1ebcd77ba6a",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-tiff-cross-run-failure/zlib-build.log",
+      "bytes": 22,
+      "sha256": "8c35b1682f73592d30612d7b0fabdb384fcfff35cb5a076cb48b85b1368aa794",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-tiff-cross-run-failure/zlib-configure.log",
+      "bytes": 141,
+      "sha256": "479131512cb074498dd3b65b8f2c7ffb5511858da8b1bd3ac736fefe2c9377b7",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-tiff-cross-run-failure/zlib-install.log",
+      "bytes": 1487,
+      "sha256": "605fbae82b56c183fe21103a304bf3c0048a0e5e8d2cdd3683ffe8258a65ea1d",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/leptonica-build.log",
+      "bytes": 22,
+      "sha256": "8c35b1682f73592d30612d7b0fabdb384fcfff35cb5a076cb48b85b1368aa794",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/leptonica-configure.log",
+      "bytes": 959,
+      "sha256": "543038f96b729a7278547ef9c73c9b0bf4c5524a892c38d15893eb84355d54fa",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/leptonica-install.log",
+      "bytes": 3900,
+      "sha256": "3ff7c4aa052e9e0fca1de9520246fb5e72d53c52196af93840acb7b927378550",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/libpng-build.log",
+      "bytes": 22,
+      "sha256": "8c35b1682f73592d30612d7b0fabdb384fcfff35cb5a076cb48b85b1368aa794",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/libpng-configure.log",
+      "bytes": 257,
+      "sha256": "33d0bae19c50bdba87e68affdb196392bda807aff4dbb21d27bc75b2983f7621",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/libpng-install.log",
+      "bytes": 2094,
+      "sha256": "3f3c5ccc5b63ded78b0f63fc34500167b73a2561b126ad98770938f27a8f5829",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/prototype.log",
+      "bytes": 1146,
+      "sha256": "22c6201351b53a4021f7855721dc4448c3aca320a2825a619b0c84276b98eac5",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/prototype.py.txt",
+      "bytes": 3335,
+      "sha256": "b923de337e62d9989b70d4874616f8cd0f311b87355c48f15a7123ffc8d6344a",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/tesseract-build.log",
+      "bytes": 14182,
+      "sha256": "474a3b4a0c8728579065291c453714c8e29f7f54761a689eec4465171ad6a6df",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/tesseract-configure.log",
+      "bytes": 2202,
+      "sha256": "4a83be48788d5d298cefc517b5301024471e2e9f0a6febcd06d2de46f4b371c5",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/zlib-build.log",
+      "bytes": 22,
+      "sha256": "8c35b1682f73592d30612d7b0fabdb384fcfff35cb5a076cb48b85b1368aa794",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/zlib-configure.log",
+      "bytes": 141,
+      "sha256": "479131512cb074498dd3b65b8f2c7ffb5511858da8b1bd3ac736fefe2c9377b7",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-winsock-name-failure/zlib-install.log",
+      "bytes": 1487,
+      "sha256": "605fbae82b56c183fe21103a304bf3c0048a0e5e8d2cdd3683ffe8258a65ea1d",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-zlib-name-failure/libpng-configure.log",
+      "bytes": 1080,
+      "sha256": "83a4bbead337e40c949cf52835f598acd2e597665084c3eee539a100eb05a033",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-zlib-name-failure/prototype.log",
+      "bytes": 1775,
+      "sha256": "c57c569fe219f5eee98e22bb8fbd28d92a5ded9574e40909f3e12020f403a294",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-zlib-name-failure/prototype.py.txt",
+      "bytes": 3159,
+      "sha256": "4addda0c4ec0facdcdbaee25e6313e24bf2bd7c75b6e878c55f29553da8ef2a0",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-zlib-name-failure/zlib-build.log",
+      "bytes": 1015,
+      "sha256": "db92aa7309e1659dd40e5be575c3318df71017215b16bb2dda7fb4c6d97255fe",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-zlib-name-failure/zlib-configure.log",
+      "bytes": 977,
+      "sha256": "12aa9976df92e54cfc2e49243c51a9ccf29acfbd22631b33f4d479bcce568bdc",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "prototype-failures/initial-zlib-name-failure/zlib-install.log",
+      "bytes": 1487,
+      "sha256": "d9628bb9ebfa49c579e3c01de864a7d56153ef8bd4645c485be40b35425ba03d",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 648882,
+      "sha256": "68d0d984d80c1c7972c66a07601f6f00fcc9d9b4e5e1e01e4a5e4da79ca69a8b",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 659854,
+      "sha256": "bf2e5de2c094a2dc01421fa02e3214ac8428815e174ddf9c52052a03d4892dff",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 284879,
+      "sha256": "f95e5f29744baa51db3c7cd18aba86774345c53096e1634a27b4e3d031a88ccf",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 303327,
+      "sha256": "4fd60d5882002bc9d5cf30f697e9f54d321947264b5f7129f692bd7b133f49ad",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 446807,
+      "sha256": "0cb0c9d3d5ec9af6ca9c48288ab19dfb22502e66bd54a8085c678b1489100fff",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/fixed-sources.json",
+      "bytes": 1820,
+      "sha256": "b767b78d312d68b1567d76bb33ed755c39b91d942b1ced360940bf20c2508ef4",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/leptonica-archive-download.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/leptonica-clone.log",
+      "bytes": 646,
+      "sha256": "b90456141ff355cacd4989ff75c28b185fbe81458545666b8ec478156d2d7bf8",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/leptonica-release.txt",
+      "bytes": 149370,
+      "sha256": "71fdfd02c31a4dc17902d6553f5beeb0bc3cc48726e2ab906294a483277c4852",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/libpng-archive-download.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/libpng-clone.log",
+      "bytes": 728,
+      "sha256": "387128300e1393fbc263a56190318b86ae97f94a8b1f8e46ca1e2a0d11296b6a",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/libpng-tags.txt",
+      "bytes": 21611,
+      "sha256": "e5cad917dcecc686586d575a3d3bdf2a6d2b273511eab41cbf016497d2d64d8f",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/llvm-archive.json",
+      "bytes": 414,
+      "sha256": "5e047c0b8df14406e0a488746fdefeb23644c139737c76a461a04bb6b504be0b",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/llvm-expanded-assets.txt",
+      "bytes": 45083,
+      "sha256": "91a82f4e04dfa7617cee85828136d0f2482c7e1640d0b6a820f1ca60617c5caf",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/llvm-mingw-clone.log",
+      "bytes": 733,
+      "sha256": "582637e0149f4c4da20a9506e39a1e66569f4790c73f5961e78ecc8ad8d84f36",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/llvm-release.txt",
+      "bytes": 145487,
+      "sha256": "2b05b445499a86fedc2fd2e2f3333ef15fc8d0a1cfba619a04684570a171c334",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/provenance.json",
+      "bytes": 1125,
+      "sha256": "cc5a8d8f3b863c4082d45c511ad0666dc66c08a7e5be8e3241c554ca97e17c5f",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/runtime-original-sources.json",
+      "bytes": 1360,
+      "sha256": "614b20f440f6435ba827d8204abdcd31fbf1890fc35d08332fbd208bbfd3b1b9",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/tesseract-archive-download.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/zlib-archive-download.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/zlib-clone.log",
+      "bytes": 723,
+      "sha256": "20b1de79de0d6e4319ce97602c5d2d7cb8f448373f88e81d01f3b8e3fd3a41bb",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "source-pages/zlib-release.txt",
+      "bytes": 160573,
+      "sha256": "78483c069d678403749953797581a0e4cf6fb5340ce6f94ed54610b4c821d42d",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "unit-22-final.log",
+      "bytes": 3341,
+      "sha256": "90b23a8198b778bb706be9cd3d63ab78ffec534b4a32a54cd65b9e36d76281db",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "upstream-context/installer-for-windows.yml.txt",
+      "bytes": 749,
+      "sha256": "8c57182fe99c2a69674067d04b0349257830aaa1594424e0fe9d1518d81d8cbe",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "upstream-context/nsis-build.sh.txt",
+      "bytes": 3184,
+      "sha256": "6317c066550454640dc88d6593facd50d024c236f9cf7328a18c3d9a5efd6feb",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    },
+    {
+      "file": "upstream-verify.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C03-minimal-source 本輪實際生成／取得的公開來源、Linux 交叉建置與來源／靜態／回歸；無 Windows 執行、發行核准或使用者文件"
+    }
+  ]
+}

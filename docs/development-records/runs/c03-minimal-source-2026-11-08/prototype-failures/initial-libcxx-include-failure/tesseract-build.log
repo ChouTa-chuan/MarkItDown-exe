@@ -1,0 +1,66 @@
+[1/154] Building CXX object CMakeFiles/libtesseract.dir/src/api/altorenderer.cpp.obj
+[2/154] Building CXX object CMakeFiles/libtesseract.dir/src/api/capi.cpp.obj
+[3/154] Building CXX object CMakeFiles/libtesseract.dir/src/api/baseapi.cpp.obj
+[4/154] Building CXX object CMakeFiles/libtesseract.dir/src/api/hocrrenderer.cpp.obj
+[5/154] Building CXX object CMakeFiles/libtesseract.dir/src/api/lstmboxrenderer.cpp.obj
+[6/154] Building CXX object CMakeFiles/libtesseract.dir/src/api/pagerenderer.cpp.obj
+[7/154] Building CXX object CMakeFiles/libtesseract.dir/src/api/pdfrenderer.cpp.obj
+[8/154] Building CXX object CMakeFiles/libtesseract.dir/src/api/renderer.cpp.obj
+[9/154] Building CXX object CMakeFiles/libtesseract.dir/src/api/wordstrboxrenderer.cpp.obj
+[10/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/applybox.cpp.obj
+[11/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/control.cpp.obj
+[12/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/linerec.cpp.obj
+[13/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/mutableiterator.cpp.obj
+[14/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/ltrresultiterator.cpp.obj
+[15/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/output.cpp.obj
+[16/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/pageiterator.cpp.obj
+[17/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/pagesegmain.cpp.obj
+[18/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/pagewalk.cpp.obj
+[19/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/paramsd.cpp.obj
+[20/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/pgedit.cpp.obj
+[21/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/paragraphs.cpp.obj
+[22/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/reject.cpp.obj
+[23/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/resultiterator.cpp.obj
+[24/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/tessedit.cpp.obj
+[25/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/tessvars.cpp.obj
+[26/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/thresholder.cpp.obj
+[27/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/werdit.cpp.obj
+[28/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccmain/tesseractclass.cpp.obj
+[29/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/blamer.cpp.obj
+[30/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/blobbox.cpp.obj
+[31/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/blobs.cpp.obj
+[32/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/blread.cpp.obj
+[33/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/boxread.cpp.obj
+[34/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/boxword.cpp.obj
+[35/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/coutln.cpp.obj
+[36/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/dppoint.cpp.obj
+[37/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/image.cpp.obj
+[38/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/detlinefit.cpp.obj
+[39/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/linlsq.cpp.obj
+[40/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/imagedata.cpp.obj
+[41/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/matrix.cpp.obj
+[42/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/mod128.cpp.obj
+[43/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/normalis.cpp.obj
+[44/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/ocrblock.cpp.obj
+[45/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/ocrpara.cpp.obj
+[46/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/ocrrow.cpp.obj
+[47/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/otsuthr.cpp.obj
+[48/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/pdblock.cpp.obj
+[49/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/points.cpp.obj
+[50/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/pageres.cpp.obj
+[51/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/polyblk.cpp.obj
+[52/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/quadlsq.cpp.obj
+[53/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/quspline.cpp.obj
+FAILED: CMakeFiles/libtesseract.dir/src/ccstruct/quspline.cpp.obj 
+/workspace/markitdown-native-tools/llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64/bin/x86_64-w64-mingw32-clang++ -DCMAKE_BUILD -DHAVE_AVX -DHAVE_AVX2 -DHAVE_AVX512F -DHAVE_CONFIG_H -DHAVE_FMA -DHAVE_SSE4_1 -DOPENMP_SIMD -D_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS=1 -I/workspace/markitdown-native-source-5.5.3/include -I/workspace/markitdown-native-source-5.5.3/src/arch -I/workspace/markitdown-native-source-5.5.3/src/ccmain -I/workspace/markitdown-native-source-5.5.3/src/ccstruct -I/workspace/markitdown-native-source-5.5.3/src/ccutil -I/workspace/markitdown-native-source-5.5.3/src/classify -I/workspace/markitdown-native-source-5.5.3/src/cutil -I/workspace/markitdown-native-source-5.5.3/src/dict -I/workspace/markitdown-native-source-5.5.3/src/lstm -I/workspace/markitdown-native-source-5.5.3/src/textord -I/workspace/markitdown-native-source-5.5.3/src/viewer -I/workspace/markitdown-native-source-5.5.3/src/wordrec -I/workspace/markitdown-native-source-5.5.3/src/training -I/workspace/markitdown-native-source-5.5.3/src -I/workspace/markitdown-minimal-prototype/prefix/include -I/workspace/markitdown-minimal-prototype/prefix/include/leptonica -I/workspace/markitdown-minimal-prototype/build-tesseract -I/workspace/markitdown-minimal-prototype/build-tesseract/include -O3 -DNDEBUG -Wno-unused-command-line-argument -std=c++20 -MD -MT CMakeFiles/libtesseract.dir/src/ccstruct/quspline.cpp.obj -MF CMakeFiles/libtesseract.dir/src/ccstruct/quspline.cpp.obj.d -o CMakeFiles/libtesseract.dir/src/ccstruct/quspline.cpp.obj -c /workspace/markitdown-native-source-5.5.3/src/ccstruct/quspline.cpp
+In file included from /workspace/markitdown-native-source-5.5.3/src/ccstruct/quspline.cpp:24:
+In file included from /workspace/markitdown-native-source-5.5.3/src/ccstruct/quspline.h:23:
+/workspace/markitdown-native-source-5.5.3/src/viewer/scrollview.h:73:15: error: implicit instantiation of undefined template 'std::basic_string<char>'
+   73 |   std::string parameter;           // Any string that might have been passed as argument.
+      |               ^
+/workspace/markitdown-native-tools/llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64/x86_64-w64-mingw32/include/c++/v1/__fwd/string.h:43:7: note: template is declared here
+   43 | class basic_string;
+      |       ^
+1 error generated.
+[54/154] Building CXX object CMakeFiles/libtesseract.dir/src/ccstruct/ratngs.cpp.obj
+ninja: build stopped: subcommand failed.

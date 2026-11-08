@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-08T08:18:00.086959+00:00",
+  "recorded_at": "2026-11-08T09:07:04.430147+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 478,
-    "passed": 477,
+    "run": 500,
+    "passed": 499,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -151,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.11.0",
+  "source_version": "0.12.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -179,7 +179,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C10 requires exact active component/version/capability on OCR pages and revalidates leased health; original C01 report retained"
   },
-  "current_run_scope": "0.11.0 installed full regression; fixed official Windows candidate installer hash, 56 AMD64 PE payloads and entry import closure statically inspected on Linux without executing EXE/DLL. Native intake mechanism accepted; 32 reachable DLL source/license evidence gaps block bundling. No frozen/Windows rebuild, Authenticode, GPU or redistribution approval.",
+  "current_run_scope": "0.12.0 fixed minimal Windows candidate cross-built offline on Linux from four pinned source archives and a published-digest toolchain; source/notice preparation and PE/config/linker evidence accepted. No Windows PE execution, OCR, application profile integration, installer, GPU or redistribution acceptance.",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -451,6 +451,33 @@
     "windows_executed": false,
     "gpu_executed": false,
     "frozen_rebuilt": false,
-    "evidence": "development-records/runs/c03-native-static-2026-11-08/README.md"
+    "evidence": "development-records/runs/c03-native-static-2026-11-08/README.md",
+    "historical_source_version": "0.11.0"
+  },
+  "minimal_native_source": {
+    "check": "C03-minimal-source",
+    "source_preparation_subcheck_accepted": true,
+    "acceptance_tests": 86,
+    "new_tests": 22,
+    "actual_static_source_checks": 8,
+    "cross_build_complete": true,
+    "target": "AMD64 PE32+",
+    "source_components": 4,
+    "toolchain_release": "20261104",
+    "notice_and_recipe_files": 21,
+    "linker_file_inputs": 26,
+    "third_party_static_import_dlls": 0,
+    "c03_subchecks_passed": 2,
+    "c03_subchecks_total": 4,
+    "full_c03_complete": false,
+    "redistribution_approved": false,
+    "release_ready": false,
+    "native_ocr_bundled": false,
+    "authenticode_verified": false,
+    "dynamic_loading_verified": false,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "frozen_rebuilt": false,
+    "evidence": "development-records/runs/c03-minimal-source-2026-11-08/README.md"
   }
 }

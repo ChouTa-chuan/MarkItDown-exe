@@ -1,0 +1,25 @@
+-- Install configuration: "Release"
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/libpng16.a
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/libpng.a
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/include/png.h
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/include/pngconf.h
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/include/pnglibconf.h
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/include/libpng16/png.h
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/include/libpng16/pngconf.h
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/include/libpng16/pnglibconf.h
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/bin/libpng-config
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/bin/libpng16-config
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/share/man/man3/libpng.3
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/share/man/man3/libpngpf.3
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/share/man/man5/png.5
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/pkgconfig/libpng.pc
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/bin/libpng-config
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/pkgconfig/libpng16.pc
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/bin/libpng16-config
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/libpng/libpng16.cmake
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/libpng/libpng16-release.cmake
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/libpng16.a
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/cmake/PNG/PNGTargets.cmake
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/cmake/PNG/PNGTargets-release.cmake
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/cmake/PNG/PNGConfig.cmake
+-- Up-to-date: /workspace/markitdown-minimal-prototype/prefix/lib/cmake/PNG/PNGConfigVersion.cmake

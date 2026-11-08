@@ -1,0 +1,19 @@
+Cloning into '/workspace/markitdown-minimal-sources/llvm-mingw'...
+warning: refs/tags/20261104 faadbb30c41a4137d3f29b558a876cf2d048967a is not a commit!
+Note: switching to '70bc9a60eec2410124a9e3fe1611929705cb6574'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+

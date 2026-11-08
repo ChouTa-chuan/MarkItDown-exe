@@ -1,0 +1,350 @@
+{
+  "check": "C03-minimal-source",
+  "source_version": "0.12.0",
+  "recorded_at": "2026-11-08T08:58:16.319422+00:00",
+  "cross_build_complete": true,
+  "candidate": {
+    "file": "tesseract.exe",
+    "sha256": "2342dc6099492714843fb8558daf72fe613f44956e7e8e83613333907004baa3",
+    "bytes": 5365760,
+    "machine": "AMD64",
+    "format": "PE32+",
+    "is_dll": false,
+    "imports": [
+      "api-ms-win-crt-convert-l1-1-0.dll",
+      "api-ms-win-crt-environment-l1-1-0.dll",
+      "api-ms-win-crt-filesystem-l1-1-0.dll",
+      "api-ms-win-crt-heap-l1-1-0.dll",
+      "api-ms-win-crt-locale-l1-1-0.dll",
+      "api-ms-win-crt-math-l1-1-0.dll",
+      "api-ms-win-crt-multibyte-l1-1-0.dll",
+      "api-ms-win-crt-private-l1-1-0.dll",
+      "api-ms-win-crt-runtime-l1-1-0.dll",
+      "api-ms-win-crt-stdio-l1-1-0.dll",
+      "api-ms-win-crt-string-l1-1-0.dll",
+      "api-ms-win-crt-time-l1-1-0.dll",
+      "api-ms-win-crt-utility-l1-1-0.dll",
+      "kernel32.dll"
+    ],
+    "delay_imports": [],
+    "third_party_dlls": [],
+    "windows_system_imports": [
+      "api-ms-win-crt-convert-l1-1-0.dll",
+      "api-ms-win-crt-environment-l1-1-0.dll",
+      "api-ms-win-crt-filesystem-l1-1-0.dll",
+      "api-ms-win-crt-heap-l1-1-0.dll",
+      "api-ms-win-crt-locale-l1-1-0.dll",
+      "api-ms-win-crt-math-l1-1-0.dll",
+      "api-ms-win-crt-multibyte-l1-1-0.dll",
+      "api-ms-win-crt-private-l1-1-0.dll",
+      "api-ms-win-crt-runtime-l1-1-0.dll",
+      "api-ms-win-crt-stdio-l1-1-0.dll",
+      "api-ms-win-crt-string-l1-1-0.dll",
+      "api-ms-win-crt-time-l1-1-0.dll",
+      "api-ms-win-crt-utility-l1-1-0.dll",
+      "kernel32.dll"
+    ]
+  },
+  "source_archives": [
+    {
+      "id": "leptonica",
+      "repository": "https://github.com/DanBloomberg/leptonica.git",
+      "tag": "1.87.0",
+      "commit": "13275a278eb55b5746e33f95fbf5a2c8f604b3ab",
+      "url": "https://codeload.github.com/DanBloomberg/leptonica/tar.gz/13275a278eb55b5746e33f95fbf5a2c8f604b3ab",
+      "file": "leptonica-13275a278eb55b5746e33f95fbf5a2c8f604b3ab.tar.gz",
+      "sha256": "e72242133adf678e8584081a506ca3a665c8f6f6de8c3fe7b47d1d5fcf9a4ce4",
+      "bytes": 13725547,
+      "archive_root": "leptonica-13275a278eb55b5746e33f95fbf5a2c8f604b3ab"
+    },
+    {
+      "id": "libpng",
+      "repository": "https://github.com/pnggroup/libpng.git",
+      "tag": "v1.6.59",
+      "commit": "cd952f49f95bb27154ae77dbb103032d95f6e580",
+      "url": "https://codeload.github.com/pnggroup/libpng/tar.gz/cd952f49f95bb27154ae77dbb103032d95f6e580",
+      "file": "libpng-cd952f49f95bb27154ae77dbb103032d95f6e580.tar.gz",
+      "sha256": "ef1bccad2b2a58eb3c09e06ffe3b72b8604abda8b5011e4c4bb5391989040f26",
+      "bytes": 1601579,
+      "archive_root": "libpng-cd952f49f95bb27154ae77dbb103032d95f6e580"
+    },
+    {
+      "id": "zlib",
+      "repository": "https://github.com/madler/zlib.git",
+      "tag": "v1.4",
+      "commit": "99623ef7097352da7993ba614161fd6a311e046e",
+      "url": "https://codeload.github.com/madler/zlib/tar.gz/99623ef7097352da7993ba614161fd6a311e046e",
+      "file": "zlib-99623ef7097352da7993ba614161fd6a311e046e.tar.gz",
+      "sha256": "f0d590dd90243a12f551ee13359bf6c634249c55b316fa2b7dbecabe7ae9a904",
+      "bytes": 1569285,
+      "archive_root": "zlib-99623ef7097352da7993ba614161fd6a311e046e"
+    },
+    {
+      "id": "tesseract",
+      "repository": "https://github.com/tesseract-ocr/tesseract.git",
+      "commit": "db0ec62f81b0737fbbe184d8fea40af5738f8eef",
+      "tag": "5.5.3",
+      "url": "https://codeload.github.com/tesseract-ocr/tesseract/tar.gz/db0ec62f81b0737fbbe184d8fea40af5738f8eef",
+      "file": "tesseract-db0ec62f81b0737fbbe184d8fea40af5738f8eef.tar.gz",
+      "sha256": "21dbaff9867d937c156d0b898e90b726aa339129cfebd7e1365cd5fee5046d67",
+      "bytes": 1918077,
+      "archive_root": "tesseract-db0ec62f81b0737fbbe184d8fea40af5738f8eef"
+    }
+  ],
+  "toolchain_archive": {
+    "id": "toolchain",
+    "file": "llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64.tar.xz",
+    "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20261104/llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64.tar.xz",
+    "sha256": "919380403de87dca3c581c2053230cd298af5e891286628ba0613b7fed370926",
+    "bytes": 84104244,
+    "archive_root": "llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64"
+  },
+  "notices": [
+    {
+      "file": "leptonica-LICENSE.txt",
+      "sha256": "87829abb5bbb00b55a107365da89e9a33f86c4250169e5a1e5588505be7d5806",
+      "bytes": 1521,
+      "origin": {
+        "component": "leptonica",
+        "commit": "13275a278eb55b5746e33f95fbf5a2c8f604b3ab",
+        "source_path": "leptonica-license.txt"
+      }
+    },
+    {
+      "file": "libpng-LICENSE.txt",
+      "sha256": "bdb0a645ea18c60507d0368379b1ac5474b92255fcc2d115e07486a7672ba526",
+      "bytes": 5345,
+      "origin": {
+        "component": "libpng",
+        "commit": "cd952f49f95bb27154ae77dbb103032d95f6e580",
+        "source_path": "LICENSE"
+      }
+    },
+    {
+      "file": "zlib-LICENSE.txt",
+      "sha256": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2",
+      "bytes": 1002,
+      "origin": {
+        "component": "zlib",
+        "commit": "99623ef7097352da7993ba614161fd6a311e046e",
+        "source_path": "LICENSE"
+      }
+    },
+    {
+      "file": "tesseract-LICENSE.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358,
+      "origin": {
+        "component": "tesseract",
+        "commit": "db0ec62f81b0737fbbe184d8fea40af5738f8eef",
+        "source_path": "LICENSE"
+      }
+    },
+    {
+      "file": "tesseract-AUTHORS.txt",
+      "sha256": "720862b7253993b348fe15f37ed6e0d4feb0fc8df8324284d75975d54dd29923",
+      "bytes": 787,
+      "origin": {
+        "component": "tesseract",
+        "commit": "db0ec62f81b0737fbbe184d8fea40af5738f8eef",
+        "source_path": "AUTHORS"
+      }
+    },
+    {
+      "file": "toolchain-COPYING",
+      "sha256": "99a69660981156c21336fdb5661f89341b013c94e4bf9e1c7467b4745718397f",
+      "bytes": 2326,
+      "origin": {
+        "component": "llvm-mingw-runtime",
+        "archive_sha256": "919380403de87dca3c581c2053230cd298af5e891286628ba0613b7fed370926",
+        "source_path": "x86_64-w64-mingw32/share/mingw32/COPYING"
+      }
+    },
+    {
+      "file": "toolchain-COPYING.MinGW-w64.txt",
+      "sha256": "f38e6194bd3bfa1b654f118e5acefe0aead437bbe669eee43957ccc65a7127f1",
+      "bytes": 5905,
+      "origin": {
+        "component": "llvm-mingw-runtime",
+        "archive_sha256": "919380403de87dca3c581c2053230cd298af5e891286628ba0613b7fed370926",
+        "source_path": "x86_64-w64-mingw32/share/mingw32/COPYING.MinGW-w64.txt"
+      }
+    },
+    {
+      "file": "toolchain-COPYING.MinGW-w64-runtime.txt",
+      "sha256": "1db8da07b436c68833c0673ffee3d9fcb2526047f3820b81661865dfedc79a1f",
+      "bytes": 12155,
+      "origin": {
+        "component": "llvm-mingw-runtime",
+        "archive_sha256": "919380403de87dca3c581c2053230cd298af5e891286628ba0613b7fed370926",
+        "source_path": "x86_64-w64-mingw32/share/mingw32/COPYING.MinGW-w64-runtime.txt"
+      }
+    },
+    {
+      "file": "toolchain-COPYING.winpthreads.txt",
+      "sha256": "63263614cdd29f2f93cba85e992f041b31f9fc7b4033692f31269489a8a1b177",
+      "bytes": 2883,
+      "origin": {
+        "component": "llvm-mingw-runtime",
+        "archive_sha256": "919380403de87dca3c581c2053230cd298af5e891286628ba0613b7fed370926",
+        "source_path": "x86_64-w64-mingw32/share/mingw32/COPYING.winpthreads.txt"
+      }
+    },
+    {
+      "file": "toolchain-COPYING.winstorecompat.txt",
+      "sha256": "fa7368d1f93d890c173177475d8ec7aff265a7d08f1f364d66f74d138978ce36",
+      "bytes": 1099,
+      "origin": {
+        "component": "llvm-mingw-runtime",
+        "archive_sha256": "919380403de87dca3c581c2053230cd298af5e891286628ba0613b7fed370926",
+        "source_path": "x86_64-w64-mingw32/share/mingw32/COPYING.winstorecompat.txt"
+      }
+    },
+    {
+      "file": "toolchain-LLVM-LICENSE.TXT",
+      "sha256": "8d85c1057d742e597985c7d4e6320b015a9139385cff4cbae06ffc0ebe89afee",
+      "bytes": 15141,
+      "origin": {
+        "component": "llvm-mingw-runtime",
+        "archive_sha256": "919380403de87dca3c581c2053230cd298af5e891286628ba0613b7fed370926",
+        "source_path": "LICENSE.TXT"
+      }
+    },
+    {
+      "file": "libcxx-LICENSE.TXT",
+      "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b",
+      "bytes": 16703,
+      "origin": {
+        "component": "llvm-mingw-runtime",
+        "url": "https://raw.githubusercontent.com/llvm/llvm-project/392dfff97d29b59d77e5cac6d4b6ef2585fe7117/libcxx/LICENSE.TXT"
+      }
+    },
+    {
+      "file": "libcxxabi-LICENSE.TXT",
+      "sha256": "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c",
+      "bytes": 16706,
+      "origin": {
+        "component": "llvm-mingw-runtime",
+        "url": "https://raw.githubusercontent.com/llvm/llvm-project/392dfff97d29b59d77e5cac6d4b6ef2585fe7117/libcxxabi/LICENSE.TXT"
+      }
+    },
+    {
+      "file": "compiler-rt-LICENSE.TXT",
+      "sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d",
+      "bytes": 16708,
+      "origin": {
+        "component": "llvm-mingw-runtime",
+        "url": "https://raw.githubusercontent.com/llvm/llvm-project/392dfff97d29b59d77e5cac6d4b6ef2585fe7117/compiler-rt/LICENSE.TXT"
+      }
+    },
+    {
+      "file": "libunwind-LICENSE.TXT",
+      "sha256": "b5efebcaca80879234098e52d1725e6d9eb8fb96a19fce625d39184b705f7b6d",
+      "bytes": 16706,
+      "origin": {
+        "component": "llvm-mingw-runtime",
+        "url": "https://raw.githubusercontent.com/llvm/llvm-project/392dfff97d29b59d77e5cac6d4b6ef2585fe7117/libunwind/LICENSE.TXT"
+      }
+    },
+    {
+      "file": "mingw-COPYING",
+      "sha256": "99a69660981156c21336fdb5661f89341b013c94e4bf9e1c7467b4745718397f",
+      "bytes": 2326,
+      "origin": {
+        "component": "llvm-mingw-runtime",
+        "url": "https://raw.githubusercontent.com/mingw-w64/mingw-w64/ee9bd87644156c41072a11ad957d1e11831a72df/COPYING"
+      }
+    },
+    {
+      "file": "recipe-build-llvm.sh.txt",
+      "sha256": "1ea92bd008ccff60f1b14167bfdd1635461e0e3619897734f57df204821fc487",
+      "bytes": 14833,
+      "origin": {
+        "component": "toolchain-recipe",
+        "commit": "70bc9a60eec2410124a9e3fe1611929705cb6574",
+        "source_path": "build-llvm.sh"
+      }
+    },
+    {
+      "file": "recipe-build-mingw-w64.sh.txt",
+      "sha256": "cfd4cd14c833c4d0f7a9b5bf646cb828d6f0a948530ea3b064979fe6b34360c3",
+      "bytes": 4691,
+      "origin": {
+        "component": "toolchain-recipe",
+        "commit": "70bc9a60eec2410124a9e3fe1611929705cb6574",
+        "source_path": "build-mingw-w64.sh"
+      }
+    },
+    {
+      "file": "recipe-build-libcxx.sh.txt",
+      "sha256": "8af09b1afb92659a976f38897e5cee7ee202428153b6dfc510da88b09079bf7c",
+      "bytes": 4334,
+      "origin": {
+        "component": "toolchain-recipe",
+        "commit": "70bc9a60eec2410124a9e3fe1611929705cb6574",
+        "source_path": "build-libcxx.sh"
+      }
+    },
+    {
+      "file": "recipe-build-compiler-rt.sh.txt",
+      "sha256": "090356aef7ddadaa597f5f8be51b3d3bec9aa0dc6846f55eb5d296653d945055",
+      "bytes": 6922,
+      "origin": {
+        "component": "toolchain-recipe",
+        "commit": "70bc9a60eec2410124a9e3fe1611929705cb6574",
+        "source_path": "build-compiler-rt.sh"
+      }
+    },
+    {
+      "file": "recipe-LICENSE.txt.txt",
+      "sha256": "8e5db0129069005be2a07be3297e198888fd72fad62a13a611504660c6b7e3c7",
+      "bytes": 1092,
+      "origin": {
+        "component": "toolchain-recipe",
+        "commit": "70bc9a60eec2410124a9e3fe1611929705cb6574",
+        "source_path": "LICENSE.txt"
+      }
+    }
+  ],
+  "configuration": [
+    {
+      "file": "build-leptonica/src/config_auto.h",
+      "sha256": "8a6a2fff06e5bde7868b2b6194f9dc223e2b55b66eef2cdc53024c418913f7c2",
+      "definitions": {
+        "HAVE_INTTYPES_H": "1",
+        "HAVE_MEMORY_H": "1",
+        "HAVE_STDINT_H": "1",
+        "HAVE_STDLIB_H": "1",
+        "HAVE_STRINGS_H": "1",
+        "HAVE_STRING_H": "1",
+        "HAVE_SYS_STAT_H": "1",
+        "HAVE_SYS_TYPES_H": "1",
+        "HAVE_UNISTD_H": "1",
+        "HAVE_LIBPNG": "1",
+        "HAVE_LIBZ": "1"
+      }
+    },
+    {
+      "file": "build-tesseract/config_auto.h",
+      "sha256": "b722503e46aa03f5578a8598ec49011fb4c5d16b331a40869273df91546835d7",
+      "definitions": {
+        "HAVE_FEENABLEEXCEPT": "1",
+        "PACKAGE_VERSION": "\"5.5.3\"",
+        "GRAPHICS_DISABLED": "ON",
+        "FAST_FLOAT": "ON",
+        "DISABLED_LEGACY_ENGINE": "ON"
+      }
+    }
+  ],
+  "source_contract_sha256": "76d21f28442a2cb0e72e54928e976f110c0c3386661ef5700cf78d3fc6ed45da",
+  "source_evidence_prepared": true,
+  "windows_executed": false,
+  "gpu_executed": false,
+  "authenticode_verified": false,
+  "dynamic_loading_verified": false,
+  "native_ocr_bundled": false,
+  "full_c03_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "scope": "Linux cross build and static/source evidence only; no Windows OCR or application bundle acceptance"
+}

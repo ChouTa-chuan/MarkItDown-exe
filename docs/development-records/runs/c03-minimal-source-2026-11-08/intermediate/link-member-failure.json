@@ -1,0 +1,9 @@
+{
+  "check": "C03-minimal-source",
+  "cross_build_complete": false,
+  "release_ready": false,
+  "native_ocr_bundled": false,
+  "windows_executed": false,
+  "full_c03_complete": false,
+  "error": "FileNotFoundError: [Errno 2] No such file or directory: '/workspace/markitdown-minimal-build-unattended/build-tesseract/libtesseract55.a(simddetect.cpp.obj)'"
+}

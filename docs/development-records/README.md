@@ -2,7 +2,17 @@
 
 記錄專案從規劃、實作、測試到調整方向的過程。之後每次開發在最上方追加日期、版本、做了什麼、遇到的問題與接下來要處理的事項，舊紀錄持續保留。
 
-目前程式版本 **0.11.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
+目前程式版本 **0.12.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
+
+**2026-11-08｜完成 C03 最小原生來源準備，程式 0.11.0 → 0.12.0**
+
+- 追查固定官方 `nsis/build.sh`，確認原 installer 依賴即時 MSYS2 套件，無法以現行最新原文推定那批 DLL 的確切來源。保留 32 DLL 缺口與舊候選阻擋，改為從四項固定官方原始碼建立最小原生候選；因既有 PDF OCR 先渲染 PNG，關閉其他外部編碼器、網路／封存、訓練、ScrollView 及 legacy engine。
+- 固定 Tesseract 5.5.3、Leptonica 1.87.0、libpng 1.6.59、zlib 1.4 commit 封存 SHA／bytes；LLVM-MinGW 20261104 工具下載與官方發布 digest 一致。CMake 3.31.6／Ninja wheel 1.11.1.4 在獨立開發 venv，不增產品依賴。runtime 原文、作者及工具鏈來源 21 檔保存，沒有修改原 vendor／授權資產。
+- 原型先遇 zlib 靜態庫新名稱、只編 archive 造成 `open_memstream` 誤判、Tesseract Windows TIFF try_run、libc++ 不再間接包含 string／cstdlib、Linux Winsock 大小寫等問題；依序寫入 recipe，保留真實失敗。TIFF 明確停用，交叉探針預置失敗值，不當成 Windows 執行成功；Winsock 只補相同 bytes 的 import archive 別名。Leptonica 名為 .dll 的輸出實際是 ar 靜態庫，最後連入 EXE。
+- 第一份真實 PE 成功後，另做來源／linker 追蹤；GNU --trace 在該 driver 不支援，改用 -verbose。實際 member 名稱及 libpng 別名又揭露解析缺口，新增兩項回歸並修正；相關中間失敗與原型不列為最終無人介入成功。最終由新目錄離線自動建置，靜態 PE／設定／原文／26 linker 輸入及 objdump 獨立來源檢查 **8/8**。
+- 新增 **22 項**，含 native／profile／診斷／授權回歸 **86/86**；完整 **500 項：499 通過、1 既有 ONNX 繁體品質預期失敗、0 跳過**。早期 20 項／84 項與 498 全回歸、最終結果分存於[本輪紀錄](runs/c03-minimal-source-2026-11-08/README.md)，不混成同一次。
+- **C03 來源／原文準備為第二項，1/4 → 2/4；完整導入維持 7/12，既有 19/25，C04 2/4、C09 3/4。** 新增[第十七份快照](../architecture/versions/v0.4-c03-minimal-source.md)、指引與進度；前十六份、舊紀錄、七份 lock、原 221 份授權及原繁體樣本固定。候選及工具／來源大型 archive 不放 Git。 保存前發現建置紀錄目錄被既有 build/ ignore 規則略過，改名 cross-build/ 後重建清單並逐檔核對暫存區；未提交缺少證據的版本。
+- 這是 Linux 交叉建置與來源準備，沒有執行任何 Windows PE、掃描／中文路徑驗收、主 profile 內含整合、frozen／安裝包重建、GPU 或產品再散布核准；沒有 tag／Release 或手動發行。下一步接四語基本包與離線完整自檢，再於 Windows 實際建置及乾淨機驗收；ONNX 繁體品質與 RAM 軟預算限制保留。
 
 **2026-11-08｜完成 C03 原生來源／DLL 靜態檢查機制，程式 0.10.0 → 0.11.0**
 

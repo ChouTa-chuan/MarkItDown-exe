@@ -1,0 +1,24 @@
+CMAKE_BUILD_TYPE = Release
+-- 
+-- General configuration for Leptonica 1.87.0
+-- --------------------------------------------------------
+-- Build type: Release
+-- Compiler: Clang
+-- C compiler options:  
+-- Linker options: -static -Wl,--no-insert-timestamp 
+-- Install directory: /workspace/markitdown-minimal-prototype/prefix
+-- 
+-- Build with sw [SW_BUILD]: OFF
+-- Build utility programs [BUILD_PROG]: OFF
+-- Used ZLIB library: /workspace/markitdown-minimal-prototype/prefix/lib/libzs.a
+-- Used PNG library:  /workspace/markitdown-minimal-prototype/prefix/lib/libpng.a;/workspace/markitdown-minimal-prototype/prefix/lib/libzs.a
+-- Used JPEG library: 
+-- Used OpenJPEG library: 
+-- Used TIFF library: 
+-- Used GIF library:  
+-- Used WebP library: 
+-- --------------------------------------------------------
+-- 
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/markitdown-minimal-prototype/build-leptonica

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "leptonica",
+    "repository": "https://github.com/DanBloomberg/leptonica.git",
+    "tag": "1.87.0",
+    "commit": "13275a278eb55b5746e33f95fbf5a2c8f604b3ab",
+    "url": "https://codeload.github.com/DanBloomberg/leptonica/tar.gz/13275a278eb55b5746e33f95fbf5a2c8f604b3ab",
+    "file": "leptonica-13275a278eb55b5746e33f95fbf5a2c8f604b3ab.tar.gz",
+    "sha256": "e72242133adf678e8584081a506ca3a665c8f6f6de8c3fe7b47d1d5fcf9a4ce4",
+    "bytes": 13725547
+  },
+  {
+    "id": "libpng",
+    "repository": "https://github.com/pnggroup/libpng.git",
+    "tag": "v1.6.59",
+    "commit": "cd952f49f95bb27154ae77dbb103032d95f6e580",
+    "url": "https://codeload.github.com/pnggroup/libpng/tar.gz/cd952f49f95bb27154ae77dbb103032d95f6e580",
+    "file": "libpng-cd952f49f95bb27154ae77dbb103032d95f6e580.tar.gz",
+    "sha256": "ef1bccad2b2a58eb3c09e06ffe3b72b8604abda8b5011e4c4bb5391989040f26",
+    "bytes": 1601579
+  },
+  {
+    "id": "zlib",
+    "repository": "https://github.com/madler/zlib.git",
+    "tag": "v1.4",
+    "commit": "99623ef7097352da7993ba614161fd6a311e046e",
+    "url": "https://codeload.github.com/madler/zlib/tar.gz/99623ef7097352da7993ba614161fd6a311e046e",
+    "file": "zlib-99623ef7097352da7993ba614161fd6a311e046e.tar.gz",
+    "sha256": "f0d590dd90243a12f551ee13359bf6c634249c55b316fa2b7dbecabe7ae9a904",
+    "bytes": 1569285
+  },
+  {
+    "id": "tesseract",
+    "repository": "https://github.com/tesseract-ocr/tesseract.git",
+    "commit": "db0ec62f81b0737fbbe184d8fea40af5738f8eef",
+    "tag": "5.5.3",
+    "url": "https://codeload.github.com/tesseract-ocr/tesseract/tar.gz/db0ec62f81b0737fbbe184d8fea40af5738f8eef",
+    "file": "tesseract-db0ec62f81b0737fbbe184d8fea40af5738f8eef.tar.gz",
+    "sha256": "21dbaff9867d937c156d0b898e90b726aa339129cfebd7e1365cd5fee5046d67",
+    "bytes": 1918077
+  }
+]

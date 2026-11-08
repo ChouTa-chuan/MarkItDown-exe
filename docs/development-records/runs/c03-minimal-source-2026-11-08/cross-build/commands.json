@@ -1,0 +1,196 @@
+[
+  {
+    "label": "zlib-configure",
+    "argv": [
+      "/workspace/markitdown-native-build-venv/bin/cmake",
+      "-S",
+      "/workspace/markitdown-minimal-build-accepted/source-zlib/zlib-99623ef7097352da7993ba614161fd6a311e046e",
+      "-B",
+      "/workspace/markitdown-minimal-build-accepted/build-zlib",
+      "-G",
+      "Ninja",
+      "-DCMAKE_MAKE_PROGRAM=/workspace/markitdown-native-build-venv/bin/ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=/workspace/markitdown-minimal-build-accepted/toolchain.cmake",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DCMAKE_INSTALL_PREFIX=/workspace/markitdown-minimal-build-accepted/prefix",
+      "-DCMAKE_INSTALL_LIBDIR=lib",
+      "-DCMAKE_PREFIX_PATH=/workspace/markitdown-minimal-build-accepted/prefix",
+      "-DZLIB_BUILD_SHARED=OFF",
+      "-DZLIB_BUILD_STATIC=ON",
+      "-DZLIB_BUILD_TESTING=OFF"
+    ]
+  },
+  {
+    "label": "zlib-build",
+    "argv": [
+      "/workspace/markitdown-native-build-venv/bin/cmake",
+      "--build",
+      "/workspace/markitdown-minimal-build-accepted/build-zlib",
+      "--parallel",
+      "2"
+    ]
+  },
+  {
+    "label": "zlib-install",
+    "argv": [
+      "/workspace/markitdown-native-build-venv/bin/cmake",
+      "--install",
+      "/workspace/markitdown-minimal-build-accepted/build-zlib"
+    ]
+  },
+  {
+    "label": "libpng-configure",
+    "argv": [
+      "/workspace/markitdown-native-build-venv/bin/cmake",
+      "-S",
+      "/workspace/markitdown-minimal-build-accepted/source-libpng/libpng-cd952f49f95bb27154ae77dbb103032d95f6e580",
+      "-B",
+      "/workspace/markitdown-minimal-build-accepted/build-libpng",
+      "-G",
+      "Ninja",
+      "-DCMAKE_MAKE_PROGRAM=/workspace/markitdown-native-build-venv/bin/ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=/workspace/markitdown-minimal-build-accepted/toolchain.cmake",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DCMAKE_INSTALL_PREFIX=/workspace/markitdown-minimal-build-accepted/prefix",
+      "-DCMAKE_INSTALL_LIBDIR=lib",
+      "-DCMAKE_PREFIX_PATH=/workspace/markitdown-minimal-build-accepted/prefix",
+      "-DZLIB_LIBRARY=/workspace/markitdown-minimal-build-accepted/prefix/lib/libzs.a",
+      "-DZLIB_INCLUDE_DIR=/workspace/markitdown-minimal-build-accepted/prefix/include",
+      "-DPNG_SHARED=OFF",
+      "-DPNG_STATIC=ON",
+      "-DPNG_TESTS=OFF",
+      "-DPNG_TOOLS=OFF",
+      "-DPNG_DEBUG=OFF",
+      "-DPNG_HARDWARE_OPTIMIZATIONS=OFF"
+    ]
+  },
+  {
+    "label": "libpng-build",
+    "argv": [
+      "/workspace/markitdown-native-build-venv/bin/cmake",
+      "--build",
+      "/workspace/markitdown-minimal-build-accepted/build-libpng",
+      "--parallel",
+      "2"
+    ]
+  },
+  {
+    "label": "libpng-install",
+    "argv": [
+      "/workspace/markitdown-native-build-venv/bin/cmake",
+      "--install",
+      "/workspace/markitdown-minimal-build-accepted/build-libpng"
+    ]
+  },
+  {
+    "label": "leptonica-configure",
+    "argv": [
+      "/workspace/markitdown-native-build-venv/bin/cmake",
+      "-S",
+      "/workspace/markitdown-minimal-build-accepted/source-leptonica/leptonica-13275a278eb55b5746e33f95fbf5a2c8f604b3ab",
+      "-B",
+      "/workspace/markitdown-minimal-build-accepted/build-leptonica",
+      "-G",
+      "Ninja",
+      "-DCMAKE_MAKE_PROGRAM=/workspace/markitdown-native-build-venv/bin/ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=/workspace/markitdown-minimal-build-accepted/toolchain.cmake",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DCMAKE_INSTALL_PREFIX=/workspace/markitdown-minimal-build-accepted/prefix",
+      "-DCMAKE_INSTALL_LIBDIR=lib",
+      "-DCMAKE_PREFIX_PATH=/workspace/markitdown-minimal-build-accepted/prefix",
+      "-DZLIB_LIBRARY=/workspace/markitdown-minimal-build-accepted/prefix/lib/libzs.a",
+      "-DZLIB_INCLUDE_DIR=/workspace/markitdown-minimal-build-accepted/prefix/include",
+      "-DBUILD_SHARED_LIBS=OFF",
+      "-DBUILD_PROG=OFF",
+      "-DSW_BUILD=OFF",
+      "-DSTRICT_CONF=ON",
+      "-DENABLE_ZLIB=ON",
+      "-DENABLE_PNG=ON",
+      "-DENABLE_GIF=OFF",
+      "-DENABLE_JPEG=OFF",
+      "-DENABLE_TIFF=OFF",
+      "-DENABLE_WEBP=OFF",
+      "-DENABLE_OPENJPEG=OFF"
+    ]
+  },
+  {
+    "label": "leptonica-build",
+    "argv": [
+      "/workspace/markitdown-native-build-venv/bin/cmake",
+      "--build",
+      "/workspace/markitdown-minimal-build-accepted/build-leptonica",
+      "--parallel",
+      "2"
+    ]
+  },
+  {
+    "label": "leptonica-install",
+    "argv": [
+      "/workspace/markitdown-native-build-venv/bin/cmake",
+      "--install",
+      "/workspace/markitdown-minimal-build-accepted/build-leptonica"
+    ]
+  },
+  {
+    "label": "tesseract-configure",
+    "argv": [
+      "/workspace/markitdown-native-build-venv/bin/cmake",
+      "-S",
+      "/workspace/markitdown-minimal-build-accepted/source-tesseract/tesseract-db0ec62f81b0737fbbe184d8fea40af5738f8eef",
+      "-B",
+      "/workspace/markitdown-minimal-build-accepted/build-tesseract",
+      "-G",
+      "Ninja",
+      "-DCMAKE_MAKE_PROGRAM=/workspace/markitdown-native-build-venv/bin/ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=/workspace/markitdown-minimal-build-accepted/toolchain.cmake",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DCMAKE_INSTALL_PREFIX=/workspace/markitdown-minimal-build-accepted/prefix",
+      "-DCMAKE_INSTALL_LIBDIR=lib",
+      "-DCMAKE_PREFIX_PATH=/workspace/markitdown-minimal-build-accepted/prefix",
+      "-DCMAKE_CXX_FLAGS=-include string -include cstdlib",
+      "-DLEPT_TIFF_RESULT=1",
+      "-DBUILD_SHARED_LIBS=OFF",
+      "-DBUILD_TRAINING_TOOLS=OFF",
+      "-DBUILD_TESTS=OFF",
+      "-DOPENMP_BUILD=OFF",
+      "-DGRAPHICS_DISABLED=ON",
+      "-DDISABLED_LEGACY_ENGINE=ON",
+      "-DENABLE_NATIVE=OFF",
+      "-DENABLE_LTO=OFF",
+      "-DENABLE_CCACHE=OFF",
+      "-DENABLE_PRECOMPILED_HEADERS=OFF",
+      "-DINSTALL_CONFIGS=OFF",
+      "-DDISABLE_TIFF=ON",
+      "-DDISABLE_ARCHIVE=ON",
+      "-DDISABLE_CURL=ON",
+      "-DUSE_SYSTEM_ICU=OFF",
+      "-DCMAKE_DISABLE_FIND_PACKAGE_PkgConfig=TRUE",
+      "-DCMAKE_EXE_LINKER_FLAGS_RELEASE=-Wl,-Map,/workspace/markitdown-minimal-build-accepted/tesseract-link.map -Wl,-verbose"
+    ]
+  },
+  {
+    "label": "tesseract-build",
+    "argv": [
+      "/workspace/markitdown-native-build-venv/bin/cmake",
+      "--build",
+      "/workspace/markitdown-minimal-build-accepted/build-tesseract",
+      "--parallel",
+      "2"
+    ]
+  },
+  {
+    "label": "tesseract-install",
+    "argv": [
+      "/workspace/markitdown-native-build-venv/bin/cmake",
+      "--install",
+      "/workspace/markitdown-minimal-build-accepted/build-tesseract"
+    ]
+  },
+  {
+    "label": "strip",
+    "argv": [
+      "/workspace/markitdown-minimal-build-accepted/source-toolchain/llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64/bin/llvm-strip",
+      "/workspace/markitdown-minimal-build-accepted/candidate/tesseract.exe"
+    ]
+  }
+]

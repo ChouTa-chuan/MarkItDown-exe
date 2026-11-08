@@ -1,0 +1,17 @@
+zlib-configure
+zlib-build
+zlib-install
+libpng-configure
+libpng-build
+libpng-install
+leptonica-configure
+leptonica-build
+Traceback (most recent call last):
+  File "/tmp/markitdown-minimal-build-prototype.py", line 34, in <module>
+    call(name+'-build',[cmake,'--build',str(bld),'--parallel','2'])
+  File "/tmp/markitdown-minimal-build-prototype.py", line 30, in call
+    with (base/(label+'.log')).open('wb') as log:subprocess.run(args,stdout=log,stderr=subprocess.STDOUT,check=True,env={**os.environ,'SOURCE_DATE_EPOCH':'1784870400'})
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/workspace/markitdown-native-build-venv/bin/cmake', '--build', '/workspace/markitdown-minimal-prototype/build-leptonica', '--parallel', '2']' returned non-zero exit status 1.

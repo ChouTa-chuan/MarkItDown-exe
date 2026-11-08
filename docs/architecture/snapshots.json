@@ -193,6 +193,18 @@
       "source_version": "0.11.0",
       "architecture_scope": "0.4 static native intake mechanism accepted; source/license, bundle and Windows gates pending",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-c03-minimal-source.md",
+      "title": "架構 v0.4：C03 最小原生來源準備",
+      "diagram_sha256": "fd2bc5ce6b1509b36e463b048f8a7ddd5a1e6a0b5dbc1b7ceb3e4f6ff19ca06d",
+      "file_sha256": "6d1e8cca12641984b88b0db01b9f9dadad579c8d0a1564308851f117e66c40d2",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_description": "程式 0.12.0 與首頁圖一併提交；C03 來源準備 2/4，Windows／整包未驗",
+      "source_version": "0.12.0",
+      "architecture_scope": "0.4 fixed minimal cross-built native source/notice preparation accepted; Windows execution and application bundle pending",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-08"

@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-08",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 477,
-  "headline": "C03 原生來源／DLL 靜態檢查機制完成；授權待補，導入維持 7/12",
-  "blocker": "候選原生閉包 32 個 DLL 尚缺逐檔來源／授權證據；Windows／GPU 未執行，ONNX 繁體品質未達標。",
-  "next": "補齊原生 DLL 來源／授權，或評估最小原生建置；再接四語基本包與 Windows 驗收。",
+  "tests_passed": 499,
+  "headline": "C03 最小原生來源準備完成 2/4；Windows／四語整包待驗，維持 7/12",
+  "blocker": "缺 Windows／GPU 執行器；最小 Windows 候選尚未執行 OCR，完整四語基本包未整合。ONNX 繁體品質未達標。",
+  "next": "將最小原生候選接入四語基本包 profile／離線設定與完整自檢，再完成 Windows 建置及乾淨機驗收。",
   "milestones": [
     {
       "id": "m0",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 477 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 499 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -246,19 +246,19 @@
     }
   ],
   "limits": [
-    "C01／C02／C05–C08／C10 已驗收，7/12；C03 四語 1/4、C04 2/4、C09 3/4 子檢核，完整原生基本包與 Windows 未驗。既有 19/25 分開追蹤。",
+    "C01／C02／C05–C08／C10 已驗收，7/12；C03 來源準備 2/4、C04 2/4、C09 3/4 子檢核，完整原生基本包與 Windows 未驗。既有 19/25 分開追蹤。",
     "Tesseract 日韓／四語合成樣本通過，不代表任意混排／直排／低品質文件準確率；ONNX 繁體缺口與日韓未驗保留，GPU 未實機。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 478,
+  "tests_run": 500,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收 7/12。C03 四語 1/4；原生靜態機制完成但 32 DLL 證據待補。C04 2/4、C09 3/4；完整原生基本包與 Windows 待驗。",
+    "description": "已驗收 7/12。C03 四語與最小原生來源準備 2/4，四語內含整包／Windows 待驗；C04 2/4、C09 3/4，完整項仍待後續。",
     "phases": [
       {
         "id": "a",
@@ -286,7 +286,7 @@
             "id": "C03",
             "label": "Windows Tesseract 與繁中／英／日／韓 OCR",
             "done": false,
-            "acceptance": "四語子檢核沿用 138/138＋本機 10/10，仍 1/4。新增原生靜態檢查機制 64/64＋真實來源 7/7；56 個 PE、入口閉包 34 個，32 DLL 逐檔來源／授權證據待補，阻擋封裝。Windows 原生整包／實機未驗，固定來源／授權子檢核不列完成。",
+            "acceptance": "四語本機子檢核沿用；第二項最小 Windows 原生來源／原文準備完成，C03 2/4。86/86＋真實離線交叉建置／來源靜態 8/8，單一 x64 EXE、無第三方 DLL 靜態相依，26 linker 輸入與原文可追溯。舊 installer 的 32 DLL 證據仍待補並阻擋；新候選未執行 Windows、未整合四語基本包或核准發行。",
             "subchecks": [
               {
                 "label": "固定四語模型、語言選擇／設定遷移與本機離線 OCR（Linux）",
@@ -294,7 +294,7 @@
               },
               {
                 "label": "Windows 固定原生引擎／DLL、來源與授權",
-                "done": false
+                "done": true
               },
               {
                 "label": "基本包內含四語模型與離線自動設定／完整自檢",
@@ -462,10 +462,10 @@
       },
       {
         "id": "native_assets",
-        "title": "Windows 原生來源與 DLL 檢查",
+        "title": "Windows 原生來源與最小建置",
         "state": "partial",
-        "detail": "固定官方 SHA／AMD64 PE／入口閉包與原文核對；32 個可達 DLL 來源／授權證據待補，候選檔阻擋封裝，C03 維持 1/4。",
-        "evidence": "靜態機制 64 項＋真實來源 7 項；56 PE／34 閉包，未執行 Windows 或核准再散布"
+        "detail": "舊 installer 的 32 DLL 證據缺口保留；另完成四項固定來源與靜態單一 EXE 候選、原文及 linker 對應，Windows／基本包未驗。",
+        "evidence": "C03 第二項來源準備完成：86 項＋真實靜態／來源 8 項；無第三方 DLL 靜態相依，完整 C03 仍 2/4"
       }
     ]
   }

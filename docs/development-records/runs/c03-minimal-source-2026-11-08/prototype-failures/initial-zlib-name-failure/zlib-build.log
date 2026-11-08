@@ -1,0 +1,16 @@
+[1/16] Building C object CMakeFiles/zlibstatic.dir/adler32.c.obj
+[2/16] Building C object CMakeFiles/zlibstatic.dir/compress.c.obj
+[3/16] Building C object CMakeFiles/zlibstatic.dir/crc32.c.obj
+[4/16] Building C object CMakeFiles/zlibstatic.dir/gzclose.c.obj
+[5/16] Building C object CMakeFiles/zlibstatic.dir/gzlib.c.obj
+[6/16] Building C object CMakeFiles/zlibstatic.dir/gzread.c.obj
+[7/16] Building C object CMakeFiles/zlibstatic.dir/gzwrite.c.obj
+[8/16] Building C object CMakeFiles/zlibstatic.dir/inflate.c.obj
+[9/16] Building C object CMakeFiles/zlibstatic.dir/infback.c.obj
+[10/16] Building C object CMakeFiles/zlibstatic.dir/deflate.c.obj
+[11/16] Building C object CMakeFiles/zlibstatic.dir/inftrees.c.obj
+[12/16] Building C object CMakeFiles/zlibstatic.dir/trees.c.obj
+[13/16] Building C object CMakeFiles/zlibstatic.dir/uncompr.c.obj
+[14/16] Building C object CMakeFiles/zlibstatic.dir/zutil.c.obj
+[15/16] Building C object CMakeFiles/zlibstatic.dir/inffast.c.obj
+[16/16] Linking C static library libzs.a

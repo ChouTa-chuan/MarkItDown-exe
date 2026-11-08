@@ -1,0 +1,8 @@
+{
+  "version": "20261104",
+  "file": "llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64.tar.xz",
+  "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20261104/llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64.tar.xz",
+  "published_sha256": "919380403de87dca3c581c2053230cd298af5e891286628ba0613b7fed370926",
+  "sha256": "919380403de87dca3c581c2053230cd298af5e891286628ba0613b7fed370926",
+  "bytes": 84104244
+}

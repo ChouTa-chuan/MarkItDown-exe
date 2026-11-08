@@ -24,7 +24,7 @@ class RecordedResult(unittest.TextTestResult):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--report', type=Path, required=True)
-    parser.add_argument('--check', choices=('C01', 'C02', 'C03-languages', 'C03-native-static', 'C04-locks', 'C04-build', 'C05', 'C06', 'C07', 'C08', 'C09-flow', 'C10'), default='C01')
+    parser.add_argument('--check', choices=('C01', 'C02', 'C03-languages', 'C03-native-static', 'C03-minimal-source', 'C04-locks', 'C04-build', 'C05', 'C06', 'C07', 'C08', 'C09-flow', 'C10'), default='C01')
     args = parser.parse_args()
     # 使用已安裝的套件，避免把原始碼路徑插入 sys.path 而掩蓋漏打包的新模組。
     sys.path.insert(0, str(ROOT / 'tests'))
@@ -32,6 +32,7 @@ def main():
                'C02':['test_component_migration', 'test_settings', 'test_models', 'test_desktop'],
                'C03-languages':['test_languages','test_onboarding','test_settings','test_component_migration',
                                 'test_models','test_desktop','test_help_ui','test_core','test_pdf_pipeline'],
+               'C03-minimal-source':['test_minimal_native','test_native_assets','test_build_profile','test_diagnostics','test_packaging_profiles','test_license_inventory'],
                'C03-native-static':['test_native_assets','test_build_profile','test_diagnostics','test_packaging_profiles','test_license_inventory'],
                'C04-locks':['test_packaging_profiles','test_license_inventory','test_formats','test_core','test_devices'],
                'C04-build':['test_build_profile','test_diagnostics','test_packaging_profiles','test_license_inventory',
@@ -62,6 +63,7 @@ def main():
                       'C01':'Synthetic payloads, actual filesystem and SQLite; no downloads or engine inference',
                       'C02':'v1-v5 settings, SQLite schema migration, synthetic downloads, desktop text conversion, pinned local models and explicit OCR path checks',
                       'C03-languages':'Four-language model/preference contracts, v1-v6 settings migration, Qt, local native health and PDF/core regression. New JA/KO model inference and full GUI/CLI acceptance reported separately; no bundled Windows native OCR.',
+                      'C03-minimal-source':'Fixed minimal native sources/notices, bounded extraction and candidate/config checks; 64 native/profile/license regressions. Actual Linux cross-built PE and link/source evidence reported separately. No Windows execution, OCR, application bundle or redistribution approval.',
                       'C03-native-static':'Synthetic PE boundaries/imports and actual file/hash policy plus profile/diagnostic/license regressions. Actual pinned Windows payload static inspection reported separately; does not complete the C03 source/license or Windows execution gates.',
                       'C04-locks':'Offline Python runtime/build closure for Linux and Windows target markers, original Windows notices and actual core/format/device regressions. Clean isolated base venv acceptance reported separately; not native/frozen/Windows acceptance.',
                       'C04-build':'Embedded base profile, selected asset integrity and core/full self-test semantics; C04 closure, diagnostics, formats/core/device/Qt regressions. Actual frozen acceptance reported separately; full C04/native/Windows gates remain pending.',
@@ -80,7 +82,7 @@ def main():
     if args.check in ('C04-locks','C04-build'):
         report['full_c04_complete']=False
         report['native_ocr_bundled']=False
-    if args.check in ('C03-languages','C03-native-static'):
+    if args.check in ('C03-languages','C03-native-static','C03-minimal-source'):
         report['full_c03_complete']=False
         report['native_ocr_bundled']=False
     if args.check in ('C06', 'C07', 'C08', 'C10'):

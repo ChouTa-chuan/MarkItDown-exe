@@ -1,0 +1,5 @@
+Looking in links: /workspace/markitdown-native-tools/build-wheels
+Processing /workspace/markitdown-native-tools/build-wheels/cmake-3.31.6-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+Processing /workspace/markitdown-native-tools/build-wheels/ninja-1.11.1.4-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl
+Installing collected packages: ninja, cmake
+Successfully installed cmake-3.31.6 ninja-1.11.1.4
