@@ -3,8 +3,8 @@
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 547,
-    "passed": 546,
+    "run": 548,
+    "passed": 547,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -546,6 +546,22 @@
       "run": 20,
       "accepted": true,
       "related_regressions": 133
+    },
+    "checkout_byte_protection": {
+      "actual_git_checkout": true,
+      "host": "Linux",
+      "core_autocrlf": true,
+      "protected_classes": 7,
+      "unit_tests": 21,
+      "related_regressions": 134,
+      "windows_root_cause_confirmed": false
+    },
+    "attempt2": {
+      "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42472740347",
+      "source_commit": "fda3b7cd661e3111888584d1863a0fed16d95d1e",
+      "conclusion": "failure",
+      "underlying_diagnostic_received": false,
+      "windows_application_executed": null
     }
   }
 }

@@ -1,3 +1,5 @@
+# 自有文字跨平台固定 LF；下方來源／雜湊證據必須完全保留 Git 內的原位元組。
+* text=auto eol=lf
 # Preserve PDF fixtures byte-for-byte; their hashes and xref offsets matter.
 *.pdf binary
 # Preserve upstream legal texts exactly, including original line endings.
@@ -10,3 +12,9 @@ docs/development-records/examples/sparse-fixed.md -whitespace
 docs/development-records/examples/upstream-borderless-result.md -whitespace
 docs/development-records/logs/*.log -text -whitespace
 docs/development-records/observations/*.json -text
+vendor/** -text
+packaging/** -text
+docs/development-records/** -text
+docs/architecture/versions/** -text
+LICENSE -text
+THIRD_PARTY_NOTICES -text

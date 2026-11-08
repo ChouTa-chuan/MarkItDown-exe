@@ -36,6 +36,10 @@ GitHub Windows runner 已預裝 Python 與多種開發工具，不能算無 Pyth
 
 [CI #1](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42471909742) 的原生來源 job 已成功，Windows job 失敗；完整日誌與附件需要登入，尚無足夠根因證據。診斷補強後工具 20/20、相關 133/133、完整 547（546 通過、1 既有預期失敗）。追加有界且跳脫指令的 annotation，保存 CI 自身實際結果以利下一次定位。這不降低驗收門檻；完整紀錄見[第一次執行](development-records/runs/windows-ci-attempt1-2026-11-08/README.md)。
 
+## 跨平台原位元組
+
+已用真正 Git core.autocrlf=true checkout 重現固定 lock／來源契約／原文／receipt 的自動 CRLF 變更；.gitattributes 保護固定來源與歷史證據，不重新格式化舊檔。新增暫存 Git repo 的七類檔案完整 byte 比較，工具 21/21、相關 134/134。這仍是 Linux Git 行為驗證，尚未證實是第一次 CI 根因；[前後紀錄](development-records/runs/windows-ci-eol-2026-11-08/README.md)保存。
+
 ## 尚待取得的證據
 
 推送後觀察實際 CI，不以 workflow YAML 或本地 guard 通過代替 Windows 執行。即使一般 Windows CI 通過，仍需乾淨 Windows、完整安裝／升級／解除安裝、人工桌面及顯卡驗收，才可關閉對應里程碑。

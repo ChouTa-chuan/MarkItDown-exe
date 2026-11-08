@@ -1,0 +1,15 @@
+{
+  "observed": "2026-11-08",
+  "host": "github.com",
+  "scope": "Public Actions HTML reads through the unchanged session proxy/CA",
+  "observed_statuses": [
+    503,
+    504
+  ],
+  "sample_body": "github-503-response.txt",
+  "git_transport_available": true,
+  "source_commit_confirmed": "fda3b7cd661e3111888584d1863a0fed16d95d1e",
+  "later_workflow_result": "failure: https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42472740347; underlying diagnostics not yet received",
+  "authentication_or_network_policy_changed": false,
+  "release_ready": false
+}

@@ -5,6 +5,8 @@ import io
 import json
 import os
 from pathlib import Path
+import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -162,6 +164,28 @@ class WindowsCITests(unittest.TestCase):
         with patch.dict(os.environ, {'GITHUB_ACTIONS':'false'}), patch('sys.stdout', new_callable=io.StringIO) as stream:
             publish_annotation({}, {})
         self.assertEqual(stream.getvalue(),'')
+
+    def test_windows_style_checkout_preserves_fixed_input_bytes(self):
+        # 真正執行 Git 的換行轉換，但只在暫存 repository；不依賴主工作區 .git。
+        repository = self.root/'repository'
+        repository.mkdir()
+        paths = ['packaging/profiles/base-windows-build.txt', 'packaging/native/minimal-windows.json',
+                 'packaging/native/minimal-notices/tesseract-LICENSE.txt',
+                 'docs/development-records/runs/c03-minimal-source-2026-11-08/build-report.json',
+                 'docs/architecture/versions/v0.4-windows-ci-preparation.md',
+                 'src/desktop_app/data/licenses/windows/pypdfium2/METADATA',
+                 'vendor/markitdown/src/markitdown/__init__.py']
+        shutil.copyfile(ROOT/'.gitattributes', repository/'.gitattributes')
+        for name in paths:
+            target = repository/name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(ROOT/name, target)
+        for argv in [['git','init','-q'], ['git','-c','core.autocrlf=false','add','.'],
+                     ['git','-c','core.autocrlf=true','checkout-index','--all',
+                      '--prefix='+str(self.root/'checkout')+'/']]:
+            subprocess.run(argv,cwd=repository,check=True,capture_output=True,timeout=20)
+        for name in paths:
+            self.assertEqual((self.root/'checkout'/name).read_bytes(),(ROOT/name).read_bytes(),name)
 
     @unittest.skipIf(sys.platform=='win32','This test verifies the Linux refusal guard')
     def test_linux_cannot_claim_windows_execution_or_start_any_child(self):

@@ -4,6 +4,11 @@
 
 目前程式版本 **0.14.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
 
+**2026-11-08｜修正 Windows 自動換行破壞固定來源雜湊，程式 0.14.0**
+
+- 在 Linux 實際使用 Git core.autocrlf=true checkout，重現固定 lock／來源 JSON／原始授權／舊 receipt 的原位元組被轉換；以 .gitattributes 保護 vendor、packaging、歷史證據與快照，自有文字固定 LF，原檔不重新格式化。另將屬性檔加入 CI 觸發條件。
+- 新增暫存 Git repository 的真正 checkout 回歸，七類固定檔案全數 byte-identical；工具 21/21、相關 134/134。這是已重現的跨平台完整性問題，尚不宣稱就是首次 Windows job 的根因。[換行保護紀錄](runs/windows-ci-eol-2026-11-08/README.md)保存前後證據；GitHub 頁面持續 503／504，稍後讀到 CI #2 亦失敗，底層摘要仍待讀取，換行修正另待新 CI，進度不增加。
+
 **2026-11-08｜首次 Windows CI 執行失敗，補足可讀取的診斷，程式 0.14.0**
 
 - 正常推送 7815277 後，[CI #1](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42471909742) 真正啟動：Ubuntu 固定來源 native job 成功，Windows job 失敗。只能確認 Windows runner 已啟動，未取得應用程式建置／執行證據，不增加進度。

@@ -1,0 +1,33 @@
+{
+  "scope": "Actual Git checkout-index on Linux with core.autocrlf=true; tests byte transformation only, not Windows execution or proven CI root cause.",
+  "results": [
+    {
+      "file": "packaging/profiles/base-windows-build.txt",
+      "hash_preserved": false,
+      "before_bytes": 76221,
+      "after_bytes": 77156,
+      "checkout_crlf": 935
+    },
+    {
+      "file": "packaging/native/minimal-windows.json",
+      "hash_preserved": false,
+      "before_bytes": 10870,
+      "after_bytes": 11151,
+      "checkout_crlf": 281
+    },
+    {
+      "file": "packaging/native/minimal-notices/tesseract-LICENSE.txt",
+      "hash_preserved": false,
+      "before_bytes": 11358,
+      "after_bytes": 11560,
+      "checkout_crlf": 202
+    },
+    {
+      "file": "docs/development-records/runs/c03-minimal-source-2026-11-08/build-report.json",
+      "hash_preserved": false,
+      "before_bytes": 42948,
+      "after_bytes": 44146,
+      "checkout_crlf": 1198
+    }
+  ]
+}
