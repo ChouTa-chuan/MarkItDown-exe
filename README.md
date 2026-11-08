@@ -6,11 +6,11 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.13.0**，基本包接入內含四語 OCR、自動路徑與完整離線自檢；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.14.0**，新增 Windows 基本包自動建置／驗證 CI，實際結果待查核；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
 | 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C03 四語／原生來源／Linux 內含整包三項、C04 兩項、C09 三項子檢核完成，完整項仍待基本包 |
-| 功能測試基線 | **526 通過、1 項 ONNX 繁體品質預期失敗** |
+| 功能測試基線 | **543 通過、1 項 ONNX 繁體品質預期失敗** |
 
 ## 模組架構封面
 
@@ -37,6 +37,7 @@ flowchart TD
         FIRSTFLOW["首次流程已實作：RAM／保留偏好／離線檢查／完成標記"]
         COMPONENTS["元件基礎：契約／登錄／完整性驗證"]
         CAPABILITY["能力解析：相容／依賴／健康檢查"]
+        WINCI["Windows CI：原生基本包／四語／中文路徑；待實際結果"]
         BUNDLED["內含 OCR：自動路徑／搬移／完整性／只讀模型"]
         MINIMALBUILD["最小原生候選：單一 EXE／來源原文已備；Windows 待驗"]
         LANGUAGES["Tesseract 四語：單語／混合選擇／固定模型"]
@@ -70,6 +71,8 @@ flowchart TD
     UI --> FIRSTFLOW
     FIRSTFLOW --> PREFS
     PROFILE --> PROFILEBUILD
+    MINIMALBUILD --> WINCI
+    WINCI -.-> FIRST
     MINIMALBUILD -.-> FIRST
     UI --> BUNDLED
     BUNDLED --> OCR
@@ -81,7 +84,7 @@ flowchart TD
     OPTIONAL -.-> QUALITY
     classDef existing fill:#e8f7f3,stroke:#21856d,color:#153c31;
     classDef foundation fill:#e8efff,stroke:#4c6fb8,color:#203c77;
-    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI,FIRSTFLOW,ROUTE,PROFILE,PROFILEBUILD,LANGUAGES,BUNDLED,MINIMALBUILD foundation;
+    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI,FIRSTFLOW,ROUTE,PROFILE,PROFILEBUILD,LANGUAGES,BUNDLED,MINIMALBUILD,WINCI foundation;
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
     class FIRST,OPTIONAL planned;
@@ -123,6 +126,7 @@ flowchart TD
 - [開發進度與驗證範圍](docs/development-status.md)
 - [互動進度頁：里程碑／模組／元件導入](docs/progress.html)（下載後可離線開啟）
 - [基本包與選配元件決策](docs/decisions/0002-base-and-optional-components.md)
+- [Windows 基本包自動建置／驗證 CI](docs/windows-base-ci.md)
 - [C03 內含四語基本包、自動路徑與離線自檢](docs/bundled-base.md)
 - [C03 最小 Windows 候選、離線建置與來源準備](docs/minimal-native-build.md)
 - [C03 Windows 原生來源、DLL 與授權門檻](docs/windows-native-intake.md)

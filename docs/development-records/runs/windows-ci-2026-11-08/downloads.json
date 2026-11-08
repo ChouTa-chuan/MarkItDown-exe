@@ -1,0 +1,64 @@
+{
+  "records": [
+    {
+      "url": "https://codeload.github.com/DanBloomberg/leptonica/tar.gz/13275a278eb55b5746e33f95fbf5a2c8f604b3ab",
+      "file": "leptonica-13275a278eb55b5746e33f95fbf5a2c8f604b3ab.tar.gz",
+      "sha256": "e72242133adf678e8584081a506ca3a665c8f6f6de8c3fe7b47d1d5fcf9a4ce4",
+      "bytes": 13725547
+    },
+    {
+      "url": "https://codeload.github.com/pnggroup/libpng/tar.gz/cd952f49f95bb27154ae77dbb103032d95f6e580",
+      "file": "libpng-cd952f49f95bb27154ae77dbb103032d95f6e580.tar.gz",
+      "sha256": "ef1bccad2b2a58eb3c09e06ffe3b72b8604abda8b5011e4c4bb5391989040f26",
+      "bytes": 1601579
+    },
+    {
+      "url": "https://codeload.github.com/madler/zlib/tar.gz/99623ef7097352da7993ba614161fd6a311e046e",
+      "file": "zlib-99623ef7097352da7993ba614161fd6a311e046e.tar.gz",
+      "sha256": "f0d590dd90243a12f551ee13359bf6c634249c55b316fa2b7dbecabe7ae9a904",
+      "bytes": 1569285
+    },
+    {
+      "url": "https://codeload.github.com/tesseract-ocr/tesseract/tar.gz/db0ec62f81b0737fbbe184d8fea40af5738f8eef",
+      "file": "tesseract-db0ec62f81b0737fbbe184d8fea40af5738f8eef.tar.gz",
+      "sha256": "21dbaff9867d937c156d0b898e90b726aa339129cfebd7e1365cd5fee5046d67",
+      "bytes": 1918077
+    },
+    {
+      "url": "https://github.com/mstorsjo/llvm-mingw/releases/download/20261104/llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64.tar.xz",
+      "file": "llvm-mingw-20261104-ucrt-ubuntu-22.04-x86_64.tar.xz",
+      "sha256": "919380403de87dca3c581c2053230cd298af5e891286628ba0613b7fed370926",
+      "bytes": 84104244
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/87416418657359cb625c412a48b6e1d6d41c29bd/chi_tra.traineddata",
+      "file": "chi_tra.traineddata",
+      "sha256": "529c5b5797d64b126065cd55f2bb4c7fd7b15790798091b1ff259941a829330b",
+      "bytes": 2366642
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/87416418657359cb625c412a48b6e1d6d41c29bd/eng.traineddata",
+      "file": "eng.traineddata",
+      "sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+      "bytes": 4113088
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/87416418657359cb625c412a48b6e1d6d41c29bd/jpn.traineddata",
+      "file": "jpn.traineddata",
+      "sha256": "1f5de9236d2e85f5fdf4b3c500f2d4926f8d9449f28f5394472d9e8d83b91b4d",
+      "bytes": 2471260
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/87416418657359cb625c412a48b6e1d6d41c29bd/kor.traineddata",
+      "file": "kor.traineddata",
+      "sha256": "6b85e11d9bbf07863b97b3523b1b112844c43e713df8b66418a081fd1060b3b2",
+      "bytes": 1677415
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/87416418657359cb625c412a48b6e1d6d41c29bd/LICENSE",
+      "file": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+name: Windows base validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/windows-base-validation.yml'
+      - 'packaging/**'
+      - 'scripts/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'vendor/**'
+      - 'pyproject.toml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-base-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUTF8: '1'
+
+jobs:
+  native-inputs:
+    name: Fixed Windows OCR inputs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install isolated Linux build dependencies
+        run: |
+          python -m venv .venv-ci
+          .venv-ci/bin/python -m pip install --require-hashes -r packaging/profiles/base-linux-build.txt
+          .venv-ci/bin/python -m pip install --no-deps --no-build-isolation ./vendor/markitdown .
+          python -m venv .venv-native-tools
+          .venv-native-tools/bin/python -m pip install --require-hashes -r packaging/native/ci-tools-linux.txt
+      - name: Fetch and verify fixed public inputs
+        run: .venv-ci/bin/python scripts/fetch_windows_ci_inputs.py --output out/native-inputs
+      - name: Cross-build fixed Windows native candidate
+        run: |
+          .venv-ci/bin/python scripts/build_minimal_native.py --inputs out/native-inputs --work out/native-build --cmake "$PWD/.venv-native-tools/bin/cmake" --ninja "$PWD/.venv-native-tools/bin/ninja" --jobs 2 --report out/build-evidence.json
+      - name: Prepare transfer for the Windows job
+        run: |
+          mkdir -p out/transfer
+          cp -R out/native-build/candidate out/transfer/candidate
+          cp -R out/native-inputs/models out/transfer/models
+          cp out/build-evidence.json out/transfer/build-evidence.json
+      # 僅同一次 CI 的測試輸入；不建立 Release 或安裝包，隔日到期。
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-ocr-ci-inputs
+          path: out/transfer/
+          retention-days: 1
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-native-build-reports
+          path: |
+            out/build-evidence.json
+            out/native-inputs/downloads.json
+            out/native-build/*.log
+            out/native-build/commands.json
+          retention-days: 7
+          if-no-files-found: warn
+      - name: Publish actual native preparation summary
+        if: always()
+        run: python scripts/publish_windows_ci_summary.py --reports out --summary "$GITHUB_STEP_SUMMARY"
+
+  windows-base:
+    name: Windows 2022 base build and OCR
+    needs: native-inputs
+    runs-on: windows-2022
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: windows-ocr-ci-inputs
+          path: out/inputs
+      - name: Build and validate the native Windows application
+        shell: pwsh
+        run: |
+          python scripts/run_windows_base_ci.py --inputs "$PWD/out/inputs" --output "$PWD/out/windows"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Publish actual validation summary
+        if: always()
+        shell: pwsh
+        run: |
+          python scripts/publish_windows_ci_summary.py --reports "$PWD/out/windows/reports" --summary "$env:GITHUB_STEP_SUMMARY"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-base-validation-reports
+          path: out/windows/reports/
+          retention-days: 7
+          if-no-files-found: warn

@@ -172,6 +172,10 @@ RAM 與 GPU arena 為軟性預算，不保證瞬間不超量或其他作業完�
 
 C03 第三項已在 Linux frozen 真正驗內含四語健康／掃描、搬移、缺／損檔與替換拒絕，C03 3/4。Windows 5.5.3 固定候選與四語資料包僅靜態組裝，Linux 複製的 5.5.0 引擎不當成 Windows 成功。core 自檢與 full 真實 OCR、產品發行各自區分，C04 2/4、C09 3/4、完整 7/12 不變。詳見[內含基本包契約](bundled-base.md)。
 
+### Windows 自動驗證管線（0.14.0 準備）
+
+新增獨立 main push CI，Ubuntu 固定來源重建 Windows OCR、同次 artifact 交給 Windows 2022 原生 PyInstaller 建置與四語／中文路徑／故障／Qt 驗收，報告與日誌另存。此管線不建立 Setup／Release，也不觸發舊手動發行工作流程；只有實際結果才能列 Windows 執行通過。hosted runner 預裝 Python，不算乾淨機。詳見[Windows CI 指引](windows-base-ci.md)，目前 C03 3/4、C04 2/4、C09 3/4、完整 7/12 保留。
+
 ## 八、元件安裝、修復與更新生命週期
 
 ```text

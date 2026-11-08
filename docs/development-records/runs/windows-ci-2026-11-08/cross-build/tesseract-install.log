@@ -1,0 +1,22 @@
+-- Install configuration: "Release"
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/lib/pkgconfig/tesseract.pc
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/bin/tesseract.exe
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/lib/libtesseract55.a
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/lib/cmake/tesseract/TesseractTargets.cmake
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/lib/cmake/tesseract/TesseractTargets-release.cmake
+-- Up-to-date: /workspace/markitdown-win-ci-native-local/prefix/lib/cmake
+-- Up-to-date: /workspace/markitdown-win-ci-native-local/prefix/lib/cmake/tesseract
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/lib/cmake/tesseract/TesseractConfigVersion.cmake
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/lib/cmake/tesseract/TesseractConfig.cmake
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/tesseract/baseapi.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/tesseract/capi.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/tesseract/renderer.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/tesseract/version.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/tesseract/ltrresultiterator.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/tesseract/pageiterator.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/tesseract/resultiterator.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/tesseract/osdetect.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/tesseract/publictypes.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/tesseract/ocrclass.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/tesseract/export.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/tesseract/unichar.h

@@ -2,7 +2,15 @@
 
 記錄專案從規劃、實作、測試到調整方向的過程。之後每次開發在最上方追加日期、版本、做了什麼、遇到的問題與接下來要處理的事項，舊紀錄持續保留。
 
-目前程式版本 **0.13.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
+目前程式版本 **0.14.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
+
+**2026-11-08｜準備 Windows 基本包自動建置與驗證，程式 0.13.0 → 0.14.0**
+
+- 使用者確認先採 Windows 虛擬機測試，目前 Linux 雲端沒有 Windows 執行器；既有 workflow 仍是手動舊 ONNX 開發／安裝流程。新增獨立 main push CI：Ubuntu 固定輸入重建 Windows 原生候選，再由 Windows 2022 原生建置基本包並驗四語、中文搬移／UTF-8、故障與 Qt；不觸發舊手動發行，不建立 Setup／Release。最小 contents:read，測試輸入 artifact 一天到期，報告七天。
+- 新增有界固定來源下載、有限網路重試、可信建置管線 receipt 對應、Windows stdlib 控制端／驗收與公開 job summary。CI 會預備可用外部引擎／模型，確認故障時沒有誤回退；只有真正 Windows 才能執行驗收，Linux guard 不當作 Windows 成功。
+- 初始 guard 抓出 platform.platform 會呼叫 uname，移到平台拒絕之後；最初全回歸因此一項失敗，原始日誌與更正後分存。工具鏈 HTTPS 首次遇 504，有限重試後固定十檔全部 hash／bytes 通過，完整性錯誤不重試。另以固定來源真正重建新 PE，因工作位置不同 hash 不強求逐位元一致，使用同次 receipt 逐項核對來源／工具／原文與新候選。
+- 新增 **17 項**、相關 **130/130**；完整 **544 項：543 通過、1 既有 ONNX 繁體品質預期失敗**。[本輪準備紀錄](runs/windows-ci-2026-11-08/README.md)與[第十九份快照](../architecture/versions/v0.4-windows-ci-preparation.md)保存。此時 Windows 尚待實際 CI 結果；C03 3/4、C04 2/4、C09 3/4、完整 7/12、既有 19/25 保留。
+- GitHub CLI 所帶 GH_TOKEN 回報不可用，沒有讀取或更改憑證；改用一般 git 推送觸發與公開 Actions 頁／job summary 查核。hosted runner 已有 Python，不當作乾淨機；安裝、人工 UI、GPU 與最終發行仍待後續，沒有把 workflow YAML／模擬當成通過。
 
 **2026-11-08｜完成 C03 內含四語基本包 Linux 子檢核，程式 0.12.0 → 0.13.0**
 

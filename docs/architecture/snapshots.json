@@ -217,6 +217,18 @@
       "source_version": "0.13.0",
       "architecture_scope": "0.4 embedded native/four-model Linux frozen subcheck accepted; Windows payload static and execution/installer pending",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-windows-ci-preparation.md",
+      "title": "架構 v0.4：Windows 基本包 CI 準備",
+      "diagram_sha256": "02570df0dfb484dfb6fd5e90f6c53b90a87014bcede9c5c6e26139ec62e772d0",
+      "file_sha256": "a16fa1d793876a33400784bc294076eda9de2e40ef931d1f700cb18400621c9a",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_version": "0.14.0",
+      "source_description": "0.14.0 首次 CI 準備；Windows 待實際執行結果",
+      "architecture_scope": "0.4 automated Windows validation preparation; no execution acceptance claimed",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-08"

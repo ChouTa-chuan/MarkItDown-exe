@@ -1,0 +1,17 @@
+-- Install configuration: "Release"
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/lib/libzs.a
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/zconf.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/include/zlib.h
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/lib/cmake/zlib/ZLIB-static.cmake
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/lib/cmake/zlib/ZLIB-static-release.cmake
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/lib/cmake/zlib/ZLIBConfig.cmake
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/lib/cmake/zlib/ZLIBConfigVersion.cmake
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/share/man/man3/zlib.3
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/share/doc/zlib/zlib/LICENSE
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/share/doc/zlib/zlib/algorithm.txt
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/share/doc/zlib/zlib/crc-doc.1.0.pdf
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/share/doc/zlib/zlib/rfc1950.txt
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/share/doc/zlib/zlib/rfc1951.txt
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/share/doc/zlib/zlib/rfc1952.txt
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/share/doc/zlib/zlib/txtvsbin.txt
+-- Installing: /workspace/markitdown-win-ci-native-local/prefix/lib/pkgconfig/zlib.pc
