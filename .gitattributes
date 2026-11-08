@@ -15,6 +15,8 @@ docs/development-records/observations/*.json -text
 vendor/** -text
 packaging/** -text
 docs/development-records/** -text
+docs/development-records/runs/**/*.log -whitespace
+docs/development-records/runs/**/*.txt -whitespace
 docs/architecture/versions/** -text
 LICENSE -text
 THIRD_PARTY_NOTICES -text
