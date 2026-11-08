@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-08",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
-  "tests_passed": 551,
-  "headline": "Windows 基本包建置／四語自檢通過，中文搬移修正待驗；完整導入 7/12",
-  "blocker": "Windows #3 中文空格搬移失敗；新 UTF-8 候選待 CI。乾淨機／安裝、人工 UI／GPU 與 ONNX 繁體門檻保留。",
-  "next": "在 Windows 重驗 UTF-8 候選的搬移、四語 CLI、故障與 Qt，再接乾淨機及安裝生命週期。",
+  "tests_passed": 552,
+  "headline": "Windows 原生中文模型清單已通過；frozen 診斷解碼修正待驗，完整 7/12",
+  "blocker": "Windows #4 原生 UTF-8 路徑已改善，PDF 探針誤用 CP1252 造成 full 自檢失敗；明確解碼修正待新 CI。",
+  "next": "重驗 Windows 中文搬移 full、四語 CLI、故障及 Qt；其後才是乾淨機／安裝與 GPU。",
   "milestones": [
     {
       "id": "m0",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 551 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 552 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -253,7 +253,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 552,
+  "tests_run": 553,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -471,8 +471,8 @@
         "id": "windows_ci",
         "title": "Windows 自動建置驗證",
         "state": "partial",
-        "detail": "Windows 2022 原生基本包／core／四語健康與四份掃描自檢實際通過；中文搬移失敗，第一方 UTF-8 修正待新 CI。",
-        "evidence": "實際 CI #3 部分通過＋本地 138 項；四語 payload 重建與 RT_MANIFEST 靜態，仍非完整 Windows／乾淨機驗收。"
+        "detail": "Windows 原生建置／四語 core/full（原位置）通過，UTF-8 引擎已能中文列模型；frozen 診斷誤用 CP1252，修正待新 CI。",
+        "evidence": "Windows #4 完整可讀診斷＋本地139/139及真實CP1252 child反例，未把修正後Linux當Windows成功。"
       }
     ]
   }

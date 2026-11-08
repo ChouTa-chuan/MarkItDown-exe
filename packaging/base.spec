@@ -43,5 +43,6 @@ analysis.datas += [('desktop_app/data/'+p.relative_to(assets).as_posix(),str(p),
                   for p in native_root.rglob('*') if p.is_file()]
 pyz = PYZ(analysis.pure)
 name = 'MarkItDownBase' if profile['native_ocr_integrated'] else 'MarkItDownBaseCore'
-exe = EXE(pyz, analysis.scripts, [], exclude_binaries=True, name=name, console=True, upx=False)
+# frozen 會隔離外部 Python 環境；直接固定 UTF-8 mode，讓四語 CLI／子程序診斷不依賴系統 locale。
+exe = EXE(pyz, analysis.scripts, [('X utf8', None, 'OPTION')], exclude_binaries=True, name=name, console=True, upx=False)
 bundle = COLLECT(exe, analysis.binaries, analysis.datas, name=name, upx=False)

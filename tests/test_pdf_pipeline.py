@@ -132,6 +132,31 @@ class PdfPipelineTests(unittest.TestCase):
             convert_document(request, lambda: None)
         self.assertIn("DOCUMENT SCAN TEST", self.destination.read_text(encoding="utf-8"))
 
+    @unittest.skipUnless(shutil.which('tesseract'), 'Tesseract not installed')
+    def test_utf8_language_probe_and_real_ocr_with_cp1252_default(self):
+        # 用真正 child 輸出中文路徑，強制重現 Windows locale，而非只比對 subprocess 參數。
+        import json
+        import subprocess
+        from importlib.resources import files
+        from PIL import Image
+        from desktop_app.pdf_pipeline import _run_ocr
+        source = Path(os.environ.get('TESSDATA_PREFIX', ''))/'eng.traineddata'
+        if not source.is_file(): self.skipTest('Verified English model directory not configured')
+        models = self.root/'中文程式 模型'
+        models.mkdir()
+        shutil.copyfile(source, models/'eng.traineddata')
+        executable = shutil.which('tesseract')
+        assets = files('desktop_app').joinpath('data')
+        with patch('subprocess._text_encoding', return_value='cp1252'):
+            with self.assertRaises(UnicodeDecodeError):
+                subprocess.run([executable,'--list-langs','--tessdata-dir',str(models)],
+                               capture_output=True,text=True,check=True,timeout=10)
+            with Image.open(assets/'worker-health.png') as image:
+                content,_ = _run_ocr(image,lambda:None,lambda _:None,200,
+                    executable=executable,data_dir=str(models),languages=('eng',))
+        reference = json.loads((assets/'worker-health.json').read_text(encoding='utf-8'))
+        self.assertIn(''.join(reference['expected'].split()),''.join(content.split()))
+
     def test_missing_ocr_engine_fails_without_partial_output(self):
         self.make_scan()
         with patch("desktop_app.pdf_pipeline.shutil.which", return_value=None):

@@ -40,8 +40,10 @@ def _run_ocr(image, checkpoint, progress, dpi, executable=None, data_dir=None, *
     if not executable:
         raise RuntimeError("本頁需要 OCR，但找不到 Tesseract；請安裝 OCR 元件後重試。")
     data_args = ["--tessdata-dir", data_dir] if data_dir else []
+    # Windows frozen 的預設診斷編碼可能是 CP1252；模型清單標頭含中文路徑，須明確解碼。
+    # 容錯只限診斷標頭／錯誤，真正 OCR 本文仍以 UTF-8 嚴格讀取。
     available = subprocess.run([executable, "--list-langs", *data_args], capture_output=True,
-                               text=True, timeout=10, check=True).stdout.splitlines()[1:]
+                               text=True, encoding='utf-8', errors='replace', timeout=10, check=True).stdout.splitlines()[1:]
     available = {name.strip() for name in available}
     if languages is not None and not set(languages)<=available:
         raise RuntimeError('缺少所選 OCR 語言模型：'+'、'.join(name for name in languages if name not in available)+'；未改用其他語言。')

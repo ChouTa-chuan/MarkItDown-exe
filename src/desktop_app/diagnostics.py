@@ -97,6 +97,7 @@ def collect_report(scope='full'):
     report={'schema_version':1,'recorded_at':datetime.now(timezone.utc).isoformat(),
             'platform':platform.system(),'architecture':platform.machine(),
             'python':platform.python_version(),'frozen':bool(getattr(sys,'frozen',False)),
+            'python_utf8_mode':bool(sys.flags.utf8_mode),
             'external_python_required':not bool(getattr(sys,'frozen',False)),
             'checks':[],'scope':'Generated samples, CPU only; no general quality, GPU or human desktop acceptance',
             'tesseract_bundled':bool(profile and profile['native_ocr_integrated']),

@@ -41,8 +41,10 @@
 
 - 獨立 main push CI：固定四份來源／工具／四語模型、來源 receipt、同次輸入傳遞、Windows 2022 原生基本包建置與四語／中文路徑／故障／Qt；contents:read，不觸發舊手動安裝包，不建立 tag／Release。
 - Git 實際 CRLF checkout 抓出固定來源 hash 改變，保護七類原位元組；Windows CI #3 已原生建置並通過 core／四語健康及四份掃描自檢，搬移中文空格路徑仍失敗。加入自有 UTF-8 manifest／RC 與個別來源證據，新候選 Linux 靜態／組裝通過，Windows 修正仍待新 CI。
-- 公開診斷依真正失敗步驟限量顯示，避免約 5 KB 截斷；完整原始報告保留。新增 **25 項**、相關 **138/138**，完整 **552：551 通過、1 既有 ONNX 繁體品質預期失敗**，未將 Windows 部分通過當成整體成功。
-- [準備](docs/development-records/runs/windows-ci-2026-11-08/README.md)、[初次失敗](docs/development-records/runs/windows-ci-attempt1-2026-11-08/README.md)、[換行](docs/development-records/runs/windows-ci-eol-2026-11-08/README.md)及[原生建置／UTF-8](docs/development-records/runs/windows-ci-native-2026-11-08/README.md)原始證據分存；[CI 指引](docs/windows-base-ci.md)、[第二十份快照](docs/architecture/versions/v0.4-windows-native-ci.md)、中文封面及進度同步。
+- Windows CI #4 已通過中文原生模型清單，接續 frozen full 自檢發現 CP1252 診斷解碼錯誤；明確使用 UTF-8，基本包固定 Python UTF-8 mode 並由 Windows core 驗旗標，只容錯診斷文字，OCR 本文嚴格解碼不變。真實 child／中文路徑及實際 OCR 的 CP1252 反例已通過，修正版仍待 Windows。
+- 公開診斷依真正失敗步驟限量顯示，避免約 5 KB 截斷；完整原始報告保留。新增 **26 項**、相關 **139/139**，完整 **553：552 通過、1 既有 ONNX 繁體品質預期失敗**，未將 Windows 部分通過當成整體成功。
+- [準備](docs/development-records/runs/windows-ci-2026-11-08/README.md)、[初次失敗](docs/development-records/runs/windows-ci-attempt1-2026-11-08/README.md)、[換行](docs/development-records/runs/windows-ci-eol-2026-11-08/README.md)及[原生建置／UTF-8](docs/development-records/runs/windows-ci-native-2026-11-08/README.md)及[診斷解碼](docs/development-records/runs/windows-ci-decode-2026-11-08/README.md)原始證據分存；[CI 指引](docs/windows-base-ci.md)、[第二十份快照](docs/architecture/versions/v0.4-windows-native-ci.md)、中文封面及進度同步。
+- Linux 完整測試曾在 unittest 印 OK 後 native teardown exit 139；最新 faulthandler 隔離重跑 exit 0，原始與更正後證據皆保存，根因未定位，不把重跑當修好。
 - 乾淨機／安裝生命週期、人工 UI、GPU、ONNX 繁體品質與 RAM 軟預算限制保留。上游、舊附件、十九份舊圖、七份既有 lock、221 份授權與 233 份資料不變，沒有 binary／模型／憑證入庫。
 
 ## 0.13.0 — 2026-11-08

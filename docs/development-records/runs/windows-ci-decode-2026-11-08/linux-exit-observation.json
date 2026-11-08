@@ -1,0 +1,18 @@
+{
+  "initial": {
+    "tests_reported_ok": true,
+    "tests_run": 553,
+    "expected_failures": 1,
+    "process_exit": 139,
+    "observed_phase": "After unittest printed OK; native interpreter shutdown segfault; no faulthandler stack available"
+  },
+  "latest": {
+    "tests_run": 553,
+    "passed": 552,
+    "expected_failures": 1,
+    "process_exit": 0,
+    "faulthandler_enabled": true
+  },
+  "cause": "Not established; one occurrence, not claimed resolved by a passing retry",
+  "scope": "Linux complete test process; no claim about a Windows product crash"
+}

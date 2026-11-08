@@ -59,6 +59,8 @@ def check(executable, output, *, gui=True):
             run('core-self-test', executable, ['--self-test', '--scope', 'core', '--report', core])
             value = json.loads(core.read_text(encoding='utf-8'))
             assert value['frozen'] and value['complete'] and not value['external_python_required']
+            assert value['python_utf8_mode'], 'Frozen Python must use UTF-8 independently of the host locale'
+            report['python_utf8_mode'] = value['python_utf8_mode']
             assert not value['native_ocr_verified']
             report['checks'].append('Native Windows frozen core runs without external Python command')
             run('full-self-test', executable, ['--self-test', '--report', full])

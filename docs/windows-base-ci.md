@@ -47,3 +47,9 @@ GitHub Windows runner 已預裝 Python 與多種開發工具，不能算無 Pyth
 ## 原生建置與 UTF-8 修正
 
 CI #3 在 Windows 2022 已原生建置／四語自檢成功，中文空格搬移失敗。第一方 windows-utf8.manifest 接入 RT_MANIFEST 24／ID 1，使用 UTF-8 process code page（Windows 10 1903+），不調整系統地區，也不修改固定上游。新 CI receipt 必須對應目前 XML，歷史固定候選仍保留；本地真正重建及四語組裝通過，修正版 Windows 待驗。來源／原始失敗及 138/138、552 項回歸見[原生紀錄](development-records/runs/windows-ci-native-2026-11-08/README.md)。
+
+## Frozen 診斷解碼
+
+CI #4 的中文 native --list-langs 已過；frozen full 的 PDF 模型探針仍用 CP1252 解原生 UTF-8 中文而失敗。已明確指定診斷 UTF-8，本文嚴格 UTF-8 保留；真正 Tesseract child／CP1252 反例與 OCR 及 139 相關回歸通過，Windows 修正版待驗。[紀錄](development-records/runs/windows-ci-decode-2026-11-08/README.md)保存完整短摘要及本地證據。
+
+基本包另以 PyInstaller X utf8 固定 Python UTF-8 mode，core 報告 python_utf8_mode 並由 Windows checker 斷言。最小 Linux frozen 在 LC_ALL=C、PYTHONUTF8=0、PYTHONCOERCECLOCALE=0 的環境仍以 UTF-8 輸出四語，這只驗 packaging flag，不冒充 Windows 或完整基本包。

@@ -4,6 +4,11 @@
 
 目前程式版本 **0.14.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
 
+**2026-11-08｜修正 Windows frozen 的中文診斷解碼，程式 0.14.0**
+
+- [CI #4](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42475049445) 中新 UTF-8 引擎已在中文搬移路徑列出四語模型；接續 full 自檢遇到應用程式以 CP1252 讀原生 UTF-8 診斷的 UnicodeDecodeError。短摘要完整保留下根因，修正 PDF OCR 探針的明確解碼；辨識本文仍嚴格 UTF-8，模型及品質目標不變。基本包同時以 PyInstaller X utf8 固定 interpreter 模式，Windows core 驗實際旗標。最小 Linux frozen 在 LC_ALL=C／PYTHONUTF8=0／PYTHONCOERCECLOCALE=0 下仍 flag=1、UTF-8 四語輸出成功；只作 packaging option 證據，非 Windows 基本包成功。
+- 真正 Tesseract＋固定影像／eng 模型＋中文路徑，強制預設 CP1252：先重現舊 child 解碼錯誤，再驗新探針與真實 OCR。舊已安裝套件先失敗，更正來源重裝後相關 139/139、最新完整 553（552 通過、1 既有預期失敗）且 exit 0；另一次 unittest 印 OK 後 native teardown exit 139，原始紀錄分存、根因待查，不把該次當正式成功。新增總數 26。[原始開發紀錄](runs/windows-ci-decode-2026-11-08/README.md)另存，修正版 Windows 結果仍待新 CI；完整 7/12 保留。
+
 **2026-11-08｜Windows 原生基本包與四語自檢通過，中文搬移待修，程式 0.14.0**
 
 - 讀到 CI #2 診斷，Windows 依賴／本地安裝成功，profile／lock 步驟失敗。換行保護後 [CI #3](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42473518203) 在 Windows 2022 真正原生打包成功，core 及四語健康／四份掃描 PDF 自檢通過；中文空格搬移後 native --list-langs 失敗，整體仍未驗收。

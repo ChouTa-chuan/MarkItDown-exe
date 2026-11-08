@@ -3,8 +3,8 @@
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 552,
-    "passed": 551,
+    "run": 553,
+    "passed": 552,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -511,13 +511,13 @@
   },
   "windows_base_ci": {
     "local_preparation_accepted": true,
-    "acceptance_tests": 130,
-    "new_tests": 17,
+    "acceptance_tests": 139,
+    "new_tests": 26,
     "actual_fixed_https_inputs": 10,
     "actual_linux_cross_build": true,
     "workflow_prepared": true,
     "workflow": ".github/workflows/windows-base-validation.yml",
-    "windows_executed": false,
+    "windows_executed": true,
     "clean_machine_accepted": false,
     "release_ready": false,
     "full_c03_complete": false,
@@ -715,7 +715,69 @@
       "sha256": "49364e03fa55fe013abacc7529011ca9a98148778b7c5852a12265a20c4675b7",
       "windows_executed": false,
       "new_candidate_validation_accepted": false
+    },
+    "attempt4": {
+      "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42475049445",
+      "source_commit": "d18e78b0a5769aa05cdfa6e3949b0ba485c0107f",
+      "conclusion": "failure",
+      "public_diagnostic": {
+        "result": {
+          "check": "windows-base-build-ci",
+          "commit": "d18e78b0a5769aa05cdfa6e3949b0ba485c0107f",
+          "build_verified": true,
+          "validation_accepted": false,
+          "clean_machine_accepted": false,
+          "release_ready": false,
+          "error": "CalledProcessError: Command '['D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\build-venv\\\\Scripts\\\\python.exe', 'scripts/check_windows_base.py', '--executable', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\dist\\\\MarkItDownBase\\\\MarkItD"
+        },
+        "acceptance": {
+          "check": "windows-base-ci",
+          "accepted": false,
+          "windows_executed": true,
+          "clean_machine_accepted": false,
+          "release_ready": false,
+          "source_version": "0.14.0",
+          "error": "AssertionError: ('relocated-four-languages', 1, '', 'Exception in thread Thread-1 (_readerthread):\\nTraceback (most recent call last):\\n  File \"threading.py\", line 1075, in _bootstrap_inner\\n  File \"threading.py\", line 1012, in run\\n  File \"subproces",
+          "checks_passed": 3
+        },
+        "failure_log": "acceptance/driver-error.log",
+        "failure_tail": "-four-languages', app, ['--self-test', '--report', relocated_report])\n  File \"D:\\a\\MarkItDown-exe\\MarkItDown-exe\\scripts\\check_windows_base.py\", line 55, in run\n    assert result.returncode == expected, (label, result.returncode, result.stdout, result.stderr)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('relocated-four-languages', 1, '', 'Exception in thread Thread-1 (_readerthread):\\nTraceback (most recent call last):\\n  File \"threading.py\", line 1075, in _bootstrap_inner\\n  File \"threading.py\", line 1012, in run\\n  File \"subprocess.py\", line 1599, in _readerthread\\n  File \"encodings\\\\cp1252.py\", line 23, in decode\\nUnicodeDecodeError: \\'charmap\\' codec can\\'t decode byte 0x8f in position 129: character maps to <undefined>\\n')"
+      },
+      "native_chinese_language_list_passed": true,
+      "complete_acceptance": false
+    },
+    "decode_fix": {
+      "actual_linux_child_negative_control": "CP1252 decoding of UTF-8 Chinese language-list header raises UnicodeDecodeError",
+      "fixed_actual_linux_ocr_passed": true,
+      "windows_executed": false,
+      "linux_minimal_frozen_utf8_mode": {
+        "accepted": true,
+        "env": {
+          "LC_ALL": "C",
+          "PYTHONUTF8": "0",
+          "PYTHONCOERCECLOCALE": "0"
+        },
+        "scope": "Minimal Linux frozen packaging option and exact four-language output only; not the base application or Windows acceptance."
+      }
     }
   },
-  "windows_execution_scope": "Windows 2022 hosted runner base build/core/four-language self-test passed; relocation failed. No clean-machine/installer/human/GPU acceptance."
+  "windows_execution_scope": "Windows 2022 hosted runner base build/core/four-language self-test passed; relocation failed. No clean-machine/installer/human/GPU acceptance.",
+  "linux_test_process_exit_observation": {
+    "initial": {
+      "tests_reported_ok": true,
+      "tests_run": 553,
+      "expected_failures": 1,
+      "process_exit": 139,
+      "observed_phase": "After unittest printed OK; native interpreter shutdown segfault; no faulthandler stack available"
+    },
+    "latest": {
+      "tests_run": 553,
+      "passed": 552,
+      "expected_failures": 1,
+      "process_exit": 0,
+      "faulthandler_enabled": true
+    },
+    "cause": "Not established; one occurrence, not claimed resolved by a passing retry",
+    "scope": "Linux complete test process; no claim about a Windows product crash"
+  }
 }

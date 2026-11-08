@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "source_version": "0.14.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-08",
+  "check": "C03-windows-ci",
+  "mechanism_accepted": true,
+  "full_c03_complete": false,
+  "scope": "實際 Windows #4 原生中文模型清單通過、frozen 解碼失敗；新明確 UTF-8 探針與 Python mode 以 Linux 真實 child／最小 frozen 驗證，仍待新 Windows CI；無安裝包／發行",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2549,
+      "sha256": "1ae01028634857406eeda8c11e83751b9e6ef389d0010961a5758dec692900b9",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "acceptance-final.json",
+      "bytes": 13393,
+      "sha256": "dad20a39aa359e728b83a1337377726732499c2b0e80f040366ba4d1813ba9eb",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "acceptance-final.log",
+      "bytes": 20035,
+      "sha256": "bf832d3d88425727015f543cee73652d7d03bf55cc9a3ae7595a01f74e35bb16",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 13393,
+      "sha256": "b0b095cd74899e0d20772ebd9dfb539e5625b278beffb50a52ddec0fa742b60a",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "acceptance.log",
+      "bytes": 20035,
+      "sha256": "859b8638676e8ad76995e5a15c4c900d8ccd16b9788c098db8ad991431f82c21",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "ci4-public-diagnostic.json",
+      "bytes": 1898,
+      "sha256": "496e666939c57734d8cb276e0730098cf5cd1f8484ef4cf855620d0b8637e531",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "ci4-run-page.txt",
+      "bytes": 181073,
+      "sha256": "878d179d6d920c23bc27078612910c431b69e8108aea107ebc800a0ddeebc255",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "full-regression-final.log",
+      "bytes": 81374,
+      "sha256": "c1f407e06a29e39a2adf6edc3f01bf1733821e7a5ce239a09804721c09b445c4",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "full-regression-shutdown-error.log",
+      "bytes": 81374,
+      "sha256": "07bd921f46a40b2604db64a5ab5a9759dc8091e46beda8e3946fb0c50304d087",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "full-regression.log",
+      "bytes": 81374,
+      "sha256": "26bced208a1b70326fe3203cfa6a8f99c2c086c70def761b0b42add2192d0eef",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "install-current-source-final.log",
+      "bytes": 1269,
+      "sha256": "33b1e6f9d967711a40326ff160dd3d9e608d5ba0ca6dfb798875f503de0a5f9b",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "install-current-source.log",
+      "bytes": 1269,
+      "sha256": "566e8a7af5364035a4ee6f1e4b06ed38ab84e4551f97594a654c456cd6629780",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 2176,
+      "sha256": "3b81de9f7057a0f97f5d41e76b5fe9be43903bd30bf796ce5065b2254a5e9b87",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "linux-exit-observation.json",
+      "bytes": 563,
+      "sha256": "1fb7aa2b6898d3aea9a03d18698c1eb5299fa845f5c78b8a486003ea4ec28910",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "minimal-frozen-build.log",
+      "bytes": 3949,
+      "sha256": "c4ff1f2f21ae5a05979c861617f5147050d349a21bfc16e88ee46ee88c2a207d",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "minimal-frozen-probe.py",
+      "bytes": 198,
+      "sha256": "9f70a8555cbb109676740a3ea1bf17f29a667a72db366c58083a384590ba6238",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "minimal-frozen-probe.spec",
+      "bytes": 762,
+      "sha256": "f251f1fa95ce1b4ce844934ecf1d2525a41d5906db85e4d2e5576ff9bc163bb9",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "minimal-frozen-result.json",
+      "bytes": 93,
+      "sha256": "1d367a43e873ec1338e8a0acad5b4815a1f192c49ba83a6521cab37d6e72a3b5",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "regression-before-reinstall.log",
+      "bytes": 4944,
+      "sha256": "45a22736baf4c1094938f547558cd4ca865cfc9084d552c09c0b5f135368174b",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 672388,
+      "sha256": "d1961330c2925d70ce4861395cce8e11938f5ef47b8db3b2e6e2195f1a1676a9",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 680130,
+      "sha256": "eaaca18a9115c0d0e0bd14f0ede0e1a0b6f6fd6264cb497830bd077f1dd52a75",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 283992,
+      "sha256": "5c8a961d85552d38d5835afc4da7d2376f02fe86d684f02dc662e55dda0f599c",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 302927,
+      "sha256": "d445a026974e57227eea2329b78fec3594c05081efb0c6a58f2350dc1d8e87ce",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 453264,
+      "sha256": "33fdc876115222eea5b6651e656276ad1163d3fd2fe102fb1e0b9771f969c16d",
+      "source": "實際 Windows #4 公開頁／完整短診斷，以及 Linux 真實 CP1252 child 反例與 OCR 回歸；修正版 Windows 尚待新 CI，無使用者文件"
+    }
+  ]
+}

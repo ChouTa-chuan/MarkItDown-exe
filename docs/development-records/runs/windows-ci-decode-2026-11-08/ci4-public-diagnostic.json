@@ -1,0 +1,23 @@
+{
+  "result": {
+    "check": "windows-base-build-ci",
+    "commit": "d18e78b0a5769aa05cdfa6e3949b0ba485c0107f",
+    "build_verified": true,
+    "validation_accepted": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "error": "CalledProcessError: Command '['D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\build-venv\\\\Scripts\\\\python.exe', 'scripts/check_windows_base.py', '--executable', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\dist\\\\MarkItDownBase\\\\MarkItD"
+  },
+  "acceptance": {
+    "check": "windows-base-ci",
+    "accepted": false,
+    "windows_executed": true,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "source_version": "0.14.0",
+    "error": "AssertionError: ('relocated-four-languages', 1, '', 'Exception in thread Thread-1 (_readerthread):\\nTraceback (most recent call last):\\n  File \"threading.py\", line 1075, in _bootstrap_inner\\n  File \"threading.py\", line 1012, in run\\n  File \"subproces",
+    "checks_passed": 3
+  },
+  "failure_log": "acceptance/driver-error.log",
+  "failure_tail": "-four-languages', app, ['--self-test', '--report', relocated_report])\n  File \"D:\\a\\MarkItDown-exe\\MarkItDown-exe\\scripts\\check_windows_base.py\", line 55, in run\n    assert result.returncode == expected, (label, result.returncode, result.stdout, result.stderr)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('relocated-four-languages', 1, '', 'Exception in thread Thread-1 (_readerthread):\\nTraceback (most recent call last):\\n  File \"threading.py\", line 1075, in _bootstrap_inner\\n  File \"threading.py\", line 1012, in run\\n  File \"subprocess.py\", line 1599, in _readerthread\\n  File \"encodings\\\\cp1252.py\", line 23, in decode\\nUnicodeDecodeError: \\'charmap\\' codec can\\'t decode byte 0x8f in position 129: character maps to <undefined>\\n')"
+}

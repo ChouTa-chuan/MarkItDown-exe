@@ -1,0 +1,57 @@
+151 INFO: PyInstaller: 6.22.3, contrib hooks: 2026.9
+151 INFO: Python: 3.12.14
+154 INFO: Platform: Linux-6.18.57-x86_64-with-glibc2.41
+154 INFO: Python environment: /workspace/markitdown-clean-venv
+155 INFO: wrote /workspace/markitdown-utf8-frozen-probe/probe.spec
+156 INFO: Removing temporary files and cleaning cache in /home/agent/.cache/pyinstaller
+157 INFO: Module search paths (PYTHONPATH):
+['/workspace/markitdown-utf8-frozen-probe',
+ '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python312.zip',
+ '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12',
+ '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/lib-dynload',
+ '/workspace/markitdown-clean-venv/lib/python3.12/site-packages',
+ '/workspace/markitdown-utf8-frozen-probe']
+402 INFO: checking Analysis
+402 INFO: Building Analysis because Analysis-00.toc is non existent
+402 INFO: Looking for Python shared library...
+410 INFO: Using Python shared library: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/libpython3.12.so.1.0
+410 INFO: Running Analysis Analysis-00.toc
+410 INFO: Target bytecode optimization level: 0
+410 INFO: Initializing module dependency graph...
+411 INFO: Initializing module graph hook caches...
+424 INFO: Analyzing modules for base_library.zip ...
+1113 INFO: Processing standard module hook 'hook-heapq.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+1267 INFO: Processing standard module hook 'hook-encodings.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+3112 INFO: Processing standard module hook 'hook-math.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+3503 INFO: Processing standard module hook 'hook-pickle.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+5634 INFO: Caching module dependency graph...
+5671 INFO: Analyzing /workspace/markitdown-utf8-frozen-probe/probe.py
+5700 INFO: Processing module hooks (post-graph stage)...
+5707 INFO: Performing binary vs. data reclassification (1 entries)
+5713 INFO: Looking for ctypes DLLs
+5720 INFO: Analyzing run-time hooks ...
+5721 INFO: Including run-time hook 'pyi_rth_inspect.py' from '/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/hooks/rthooks'
+5727 INFO: Creating base_library.zip...
+5749 INFO: Looking for dynamic libraries
+5764 INFO: Warnings written to /workspace/markitdown-utf8-frozen-probe/work/probe/warn-probe.txt
+5772 INFO: Graph cross-reference written to /workspace/markitdown-utf8-frozen-probe/work/probe/xref-probe.html
+5789 INFO: checking PYZ
+5789 INFO: Building PYZ because PYZ-00.toc is non existent
+5789 INFO: Building PYZ (ZlibArchive) /workspace/markitdown-utf8-frozen-probe/work/probe/PYZ-00.pyz
+5937 INFO: Building PYZ (ZlibArchive) /workspace/markitdown-utf8-frozen-probe/work/probe/PYZ-00.pyz completed successfully.
+5947 INFO: checking PKG
+5948 INFO: Building PKG because PKG-00.toc is non existent
+5948 INFO: Building PKG (CArchive) probe.pkg
+5960 INFO: Building PKG (CArchive) probe.pkg completed successfully.
+5961 INFO: Bootloader /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PyInstaller/bootloader/Linux-64bit-intel/run
+5961 INFO: checking EXE
+5961 INFO: Building EXE because EXE-00.toc is non existent
+5961 INFO: Building EXE from EXE-00.toc
+5961 INFO: Copying bootloader EXE to /workspace/markitdown-utf8-frozen-probe/work/probe/probe
+5962 INFO: Appending PKG archive to custom ELF section in EXE
+5971 INFO: Building EXE from EXE-00.toc completed successfully.
+5972 INFO: checking COLLECT
+5972 INFO: Building COLLECT because COLLECT-00.toc is non existent
+5972 INFO: Building COLLECT COLLECT-00.toc
+6093 INFO: Building COLLECT COLLECT-00.toc completed successfully.
+6093 INFO: Build complete! The results are available in: /workspace/markitdown-utf8-frozen-probe/dist
