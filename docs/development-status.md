@@ -167,3 +167,5 @@
 - 原生函式期間無法立即暫停，RAM／GPU arena 都不是整機硬性上限。
 
 本輪為 0.10.0 C03 四語模型／選擇子檢核；完整 native profile／Windows 未驗收，完整 C09 仍待基本包，正式來源與 Windows／GPU 尚待後續。依使用者要求同步 GitHub main，實際同步以遠端提交查核；不自動啟動手動 Windows CI、建立 tag 或發布 Release。
+
+Windows CI #1 已實際執行：固定來源重建成功，Windows job 失敗。完整錯誤待有界 annotation 取得，暫不認定 Windows 應用程式已建置或執行；紀錄見 [第一次實測](development-records/runs/windows-ci-attempt1-2026-11-08/README.md)。

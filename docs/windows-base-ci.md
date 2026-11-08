@@ -32,6 +32,10 @@ GitHub Windows runner 已預裝 Python 與多種開發工具，不能算無 Pyth
 
 初始 guard 測試發現平台描述會呼叫 uname，改為先做真正 Windows 門檻才蒐集詳細平台；工具鏈下載曾遇暫時 504，有限重試後成功。原始失敗與最終結果分開保存在[本輪紀錄](development-records/runs/windows-ci-2026-11-08/README.md)。
 
+## 第一次實際執行
+
+[CI #1](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42471909742) 的原生來源 job 已成功，Windows job 失敗；完整日誌與附件需要登入，尚無足夠根因證據。診斷補強後工具 20/20、相關 133/133、完整 547（546 通過、1 既有預期失敗）。追加有界且跳脫指令的 annotation，保存 CI 自身實際結果以利下一次定位。這不降低驗收門檻；完整紀錄見[第一次執行](development-records/runs/windows-ci-attempt1-2026-11-08/README.md)。
+
 ## 尚待取得的證據
 
 推送後觀察實際 CI，不以 workflow YAML 或本地 guard 通過代替 Windows 執行。即使一般 Windows CI 通過，仍需乾淨 Windows、完整安裝／升級／解除安裝、人工桌面及顯卡驗收，才可關閉對應里程碑。

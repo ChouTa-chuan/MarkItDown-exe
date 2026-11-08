@@ -1,7 +1,35 @@
 """把已產生的 CI 報告附上 job summary；不推定未執行測試，也不發布安裝包。"""
 import argparse
 import json
+import os
 from pathlib import Path
+
+
+def publish_annotation(records, tails):
+    """公開摘要不一定可匿名讀取；另以有界 annotation 保存自身 CI 的實際結果。"""
+    if os.environ.get('GITHUB_ACTIONS') != 'true':
+        return
+    result = records.get('windows-build.json', records.get('build-evidence.json', {}))
+    accepted = result.get('validation_accepted', result.get('cross_build_complete'))
+    # 僅取本流程已產生的報告與最後幾行；不讀憑證或環境，不能由缺報告推定成功。
+    payload = dict(reports=records, log_tails={} if accepted else {
+        name: text[-1800:] for name, text in list(tails.items())[-12:]})
+    body = json.dumps(payload, ensure_ascii=False, separators=(',', ':'))
+    if len(body.encode('utf-8')) > 24000:
+        payload['reports'] = {name: {key: value for key, value in record.items()
+            if key in ('check', 'source_version', 'accepted', 'build_verified', 'validation_accepted',
+                       'windows_executed', 'checks_passed', 'error', 'cross_build_complete',
+                       'clean_machine_accepted', 'release_ready')} for name, record in records.items()}
+        payload['log_tails'] = {name: text[-900:] for name, text in list(tails.items())[-8:]}
+        body = json.dumps(payload, ensure_ascii=False, separators=(',', ':'))
+    if len(body.encode('utf-8')) > 24000:
+        payload = dict(accepted=accepted is True, error=str(result.get('error', ''))[:1200],
+                       detail='Oversized details remain in the CI artifact and job summary.')
+        body = json.dumps(payload, ensure_ascii=False, separators=(',', ':'))
+    # GitHub workflow command 的資料必須跳脫，避免日誌換行被誤認為下一條指令。
+    body = body.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
+    severity = 'notice' if accepted else 'error'
+    print(f'::{severity} title=Windows CI actual report::{body}')
 
 
 def main():
@@ -31,6 +59,7 @@ def main():
         output.write('\n## Windows 基本包驗證報告\n\n')
         output.write('僅為 CI 開發驗證；乾淨機、人工操作、安裝包與 GPU 尚未驗收。\n\n')
         output.write('<!-- MARKITDOWN_WINDOWS_CI_REPORT -->\n```json\n'+content+'\n```\n')
+    publish_annotation(records, tails)
 
 
 if __name__ == '__main__':

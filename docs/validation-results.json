@@ -3,8 +3,8 @@
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 544,
-    "passed": 543,
+    "run": 547,
+    "passed": 546,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -524,6 +524,28 @@
     "full_c04_complete": false,
     "full_c09_complete": false,
     "gpu_executed": false,
-    "evidence": "development-records/runs/windows-ci-2026-11-08/README.md"
+    "evidence": "development-records/runs/windows-ci-2026-11-08/README.md",
+    "attempt1": {
+      "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42471909742",
+      "source_commit": "78152779df22c5c7b7b911ae62c17719b162aa43",
+      "source_version": "0.14.0",
+      "workflow_conclusion": "failure",
+      "native_inputs_job": "success",
+      "windows_job": "failure",
+      "windows_runner_started": true,
+      "windows_application_executed": null,
+      "windows_build_verified": null,
+      "windows_validation_accepted": false,
+      "full_c03_complete": false,
+      "clean_machine_accepted": false,
+      "gpu_executed": false,
+      "release_ready": false,
+      "evidence_scope": "Public Actions run page and native job step metadata. Windows logs/artifacts require login; underlying error not yet available. No inference of application execution from runner startup."
+    },
+    "local_annotation_guards": {
+      "run": 20,
+      "accepted": true,
+      "related_regressions": 133
+    }
   }
 }

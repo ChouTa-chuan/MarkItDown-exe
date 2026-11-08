@@ -4,6 +4,11 @@
 
 目前程式版本 **0.14.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
 
+**2026-11-08｜首次 Windows CI 執行失敗，補足可讀取的診斷，程式 0.14.0**
+
+- 正常推送 7815277 後，[CI #1](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42471909742) 真正啟動：Ubuntu 固定來源 native job 成功，Windows job 失敗。只能確認 Windows runner 已啟動，未取得應用程式建置／執行證據，不增加進度。
+- GitHub 公開頁暫時 503，重試後保存狀態；Windows 日誌／附件及 summary 需要登入，現有 gh 憑證不可用。增加限量診斷 annotation，保留真實錯誤與尾段並跳脫指令字元，工具 20/20、相關 133/133、完整 547 項（546 通過、1 既有預期失敗），準備下一次執行以定位根因；沒有猜測成功或用 Linux 代替 Windows。[第一次執行紀錄](runs/windows-ci-attempt1-2026-11-08/README.md)另存。
+
 **2026-11-08｜準備 Windows 基本包自動建置與驗證，程式 0.13.0 → 0.14.0**
 
 - 使用者確認先採 Windows 虛擬機測試，目前 Linux 雲端沒有 Windows 執行器；既有 workflow 仍是手動舊 ONNX 開發／安裝流程。新增獨立 main push CI：Ubuntu 固定輸入重建 Windows 原生候選，再由 Windows 2022 原生建置基本包並驗四語、中文搬移／UTF-8、故障與 Qt；不觸發舊手動發行，不建立 Setup／Release。最小 contents:read，測試輸入 artifact 一天到期，報告七天。

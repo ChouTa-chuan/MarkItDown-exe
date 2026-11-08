@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "source_version": "0.14.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-08",
+  "check": "C03-windows-ci",
+  "mechanism_accepted": true,
+  "full_c03_complete": false,
+  "scope": "Windows CI 本地準備子檢核；Windows 固定 payload 僅靜態，遠端 native job 成功、Windows job 失敗且根因待診斷／無安裝包或發行",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1383,
+      "sha256": "650943919901216da09c8d0fc37f5301eec94a71195e9f31667dfd56f9008e3b",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 12710,
+      "sha256": "7db1d0e5e4f7fc848f76323024b81c5d6ccc1ceb6ad90e477d280e6e48f52feb",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "acceptance.log",
+      "bytes": 19027,
+      "sha256": "97fdd6ea8c21547fb0e226c3082599213990c4463297549c0a5e45605f33a135",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "annotation-unit.log",
+      "bytes": 3051,
+      "sha256": "935603c26cce2be0d102a69e38a2e8cab95037c059204a7357bf97a4f620b17e",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "full-regression.log",
+      "bytes": 80366,
+      "sha256": "07e168e16f93ab1da218bd1601dc8c1ff715bc4716619d06ccd9080689727186",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 1925,
+      "sha256": "ecb64309c6dae7362b95674cefacb372fbed5a48f150db29e5a08a0475acdc52",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "native-job-page.txt",
+      "bytes": 161845,
+      "sha256": "c341ee60fe33912476c6a97b1f09153c79526f8894183428a430f8c393fdd895",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "observation.json",
+      "bytes": 756,
+      "sha256": "1e0197bbe86db66572b8ac4d23aafc6c0334f31f307505c94cab8d9bab34fff4",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "run-page.txt",
+      "bytes": 175095,
+      "sha256": "67317e498776891c2f29cc6e22ea747492046f655fdcaa8e91be6d3dbc29869f",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 673202,
+      "sha256": "3b7669c49cf3df58dbf1d2d387d21931325a7a66f71ce92a96ec4502b41a75d2",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 681082,
+      "sha256": "54502b8b1847a2d6185a3241c583e7d5d2e59219d038406037c78fef199e0c92",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 284426,
+      "sha256": "47ded3ca3a9648190ec42cf732b2ce44498a808d7b4a74dec3d95c0c35790ba6",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 302288,
+      "sha256": "b65931c1956cd3e27045f51c3c76c9cc9a2f62eb3b692901defb088c8c158e3b",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 453777,
+      "sha256": "ae6263c67374cb17fc6ae3290c563ca3f6a3be1b5871e45640966c48c31afd06",
+      "source": "本輪真實 Linux CI guard／HTTPS／固定來源 cross-build 及公開 Actions 初始狀態；Windows 靜態而未執行，無使用者文件"
+    }
+  ]
+}

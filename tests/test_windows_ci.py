@@ -16,6 +16,7 @@ sys.path.insert(0, str(ROOT/'scripts'))
 from prepare_bundled_ocr import read_build_evidence, WINDOWS_EVIDENCE, prepare
 from fetch_windows_ci_inputs import fetch, fetch_with_retry
 import check_windows_base as windows
+from publish_windows_ci_summary import publish_annotation
 
 
 class WindowsCITests(unittest.TestCase):
@@ -132,6 +133,35 @@ class WindowsCITests(unittest.TestCase):
         self.assertEqual(environment['SystemRoot'],'C:/Windows')
         self.assertEqual(environment['PATH'],'')
         self.assertEqual(environment['TESSDATA_PREFIX'],'')
+
+    def test_ci_annotation_escapes_commands_and_preserves_real_failure(self):
+        report = {'windows-build.json': {'validation_accepted': False, 'error': 'actual failure'}}
+        with patch.dict(os.environ, {'GITHUB_ACTIONS':'true'}), patch('sys.stdout', new_callable=io.StringIO) as stream:
+            publish_annotation(report, {'driver.log':'100%\n::notice::untrusted\r'})
+        line = stream.getvalue()
+        self.assertTrue(line.startswith('::error title=Windows CI actual report::'))
+        self.assertEqual(len(line.splitlines()), 1)
+        self.assertIn('actual failure', line)
+        self.assertIn('100%25', line)
+        self.assertNotIn('\n::notice', line)
+
+    def test_large_ci_report_is_bounded_and_does_not_claim_success(self):
+        reports = {'windows-build.json': {'validation_accepted':False,'commands':['x'*50000]}}
+        with patch.dict(os.environ, {'GITHUB_ACTIONS':'true'}), patch('sys.stdout', new_callable=io.StringIO) as stream:
+            publish_annotation(reports, {str(i):'x'*6000 for i in range(50)})
+        self.assertLess(len(stream.getvalue().encode()), 24000)
+        self.assertTrue(stream.getvalue().startswith('::error'))
+        self.assertIn('"validation_accepted":false',stream.getvalue())
+        reports['windows-build.json']['error'] = '真'*50000
+        with patch.dict(os.environ, {'GITHUB_ACTIONS':'true'}), patch('sys.stdout', new_callable=io.StringIO) as stream:
+            publish_annotation(reports,{})
+        self.assertLess(len(stream.getvalue().encode()),24000)
+        self.assertIn('"accepted":false',stream.getvalue())
+
+    def test_local_summary_does_not_emit_workflow_commands(self):
+        with patch.dict(os.environ, {'GITHUB_ACTIONS':'false'}), patch('sys.stdout', new_callable=io.StringIO) as stream:
+            publish_annotation({}, {})
+        self.assertEqual(stream.getvalue(),'')
 
     @unittest.skipIf(sys.platform=='win32','This test verifies the Linux refusal guard')
     def test_linux_cannot_claim_windows_execution_or_start_any_child(self):

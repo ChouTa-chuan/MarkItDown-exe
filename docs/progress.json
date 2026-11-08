@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-08",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 543,
-  "headline": "Windows 基本包 CI 已配置，待實際結果；C03 維持 3/4、導入 7/12",
-  "blocker": "Windows CI 尚待實際執行／結果；乾淨機、安裝、人工 UI／GPU 與 ONNX 繁體品質門檻保留。",
-  "next": "推送後觀察 Windows hosted runner 的建置、四語 OCR、中文搬移與 Qt 結果；其後接乾淨機及安裝生命週期。",
+  "tests_passed": 546,
+  "headline": "Windows CI 已實際啟動：原生來源通過、Windows job 待修；完整導入 7/12",
+  "blocker": "第一次 Windows job 失敗，正補實際診斷定位；乾淨機、安裝、人工 UI／GPU 與 ONNX 繁體門檻保留。",
+  "next": "以新診斷 annotation 取得 Windows job 真正錯誤，再修正及重跑；不由 runner 啟動推定應用程式成功。",
   "milestones": [
     {
       "id": "m0",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 543 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 546 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -253,7 +253,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 544,
+  "tests_run": 547,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
