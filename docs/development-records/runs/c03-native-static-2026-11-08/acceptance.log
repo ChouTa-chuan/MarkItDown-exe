@@ -1,0 +1,73 @@
+test_case_collisions_and_symlinks_rejected (test_native_assets.NativePinTests.test_case_collisions_and_symlinks_rejected) ... ok
+test_data_flags_cannot_approve_unreviewed_package (test_native_assets.NativePinTests.test_data_flags_cannot_approve_unreviewed_package) ... ok
+test_dependency_cycles_resolve_without_executing_and_gaps_remain (test_native_assets.NativePinTests.test_dependency_cycles_resolve_without_executing_and_gaps_remain) ... ok
+test_dll_type_and_declared_entry_are_checked (test_native_assets.NativePinTests.test_dll_type_and_declared_entry_are_checked) ... ok
+test_file_byte_limit_is_enforced (test_native_assets.NativePinTests.test_file_byte_limit_is_enforced) ... ok
+test_fixed_notice_reference_must_exist (test_native_assets.NativePinTests.test_fixed_notice_reference_must_exist) ... ok
+test_missing_local_dependency_cannot_use_path_fallback (test_native_assets.NativePinTests.test_missing_local_dependency_cannot_use_path_fallback) ... ok
+test_modified_installer_rejected (test_native_assets.NativePinTests.test_modified_installer_rejected) ... ok
+test_modified_runtime_rejected (test_native_assets.NativePinTests.test_modified_runtime_rejected) ... ok
+test_notice_tampering_rejected (test_native_assets.NativePinTests.test_notice_tampering_rejected) ... ok
+test_real_pin_stays_unapproved_and_has_expected_entry (test_native_assets.NativePinTests.test_real_pin_stays_unapproved_and_has_expected_entry) ... ok
+test_bad_rva_cannot_read_unrelated_file_bytes (test_native_assets.PEInspectionTests.test_bad_rva_cannot_read_unrelated_file_bytes) ... ok
+test_bad_signature_and_truncated_header_rejected (test_native_assets.PEInspectionTests.test_bad_signature_and_truncated_header_rejected) ... ok
+test_dll_flag_and_no_import_data_dll (test_native_assets.PEInspectionTests.test_dll_flag_and_no_import_data_dll) ... ok
+test_invalid_delay_attribute_is_rejected (test_native_assets.PEInspectionTests.test_invalid_delay_attribute_is_rejected) ... ok
+test_invalid_name_and_path_are_rejected (test_native_assets.PEInspectionTests.test_invalid_name_and_path_are_rejected) ... ok
+test_normal_and_delayed_imports_include_mingw_cpp_name (test_native_assets.PEInspectionTests.test_normal_and_delayed_imports_include_mingw_cpp_name) ... ok
+test_section_beyond_file_and_ambiguous_mapping_rejected (test_native_assets.PEInspectionTests.test_section_beyond_file_and_ambiguous_mapping_rejected) ... ok
+test_unterminated_descriptor_is_rejected (test_native_assets.PEInspectionTests.test_unterminated_descriptor_is_rejected) ... ok
+test_x86_and_arm_are_rejected (test_native_assets.PEInspectionTests.test_x86_and_arm_are_rejected) ... ok
+test_asset_link_is_rejected (test_build_profile.BuildProfileTests.test_asset_link_is_rejected) ... ok
+test_changed_license_fails (test_build_profile.BuildProfileTests.test_changed_license_fails) ... ok
+test_core_diagnostics_pass_without_claiming_full_base (test_build_profile.BuildProfileTests.test_core_diagnostics_pass_without_claiming_full_base) ... ok
+test_core_failure_stays_failed (test_build_profile.BuildProfileTests.test_core_failure_stays_failed) ... ok
+test_core_scope_requires_explicit_embedded_profile (test_build_profile.BuildProfileTests.test_core_scope_requires_explicit_embedded_profile) ... ok
+test_full_diagnostics_fail_missing_native_without_external_probe (test_build_profile.BuildProfileTests.test_full_diagnostics_fail_missing_native_without_external_probe) ... ok
+test_malformed_profile_saves_failure_report (test_build_profile.BuildProfileTests.test_malformed_profile_saves_failure_report) ... ok
+test_missing_asset_fails (test_build_profile.BuildProfileTests.test_missing_asset_fails) ... ok
+test_missing_required_asset_reference_is_rejected (test_build_profile.BuildProfileTests.test_missing_required_asset_reference_is_rejected) ... ok
+test_no_embedded_profile_keeps_legacy_behavior (test_build_profile.BuildProfileTests.test_no_embedded_profile_keeps_legacy_behavior) ... ok
+test_notice_count_must_match_selected_packages (test_build_profile.BuildProfileTests.test_notice_count_must_match_selected_packages) ... ok
+test_notice_directory_does_not_collect_python_or_cache (test_build_profile.BuildProfileTests.test_notice_directory_does_not_collect_python_or_cache) ... ok
+test_paths_and_hashes_are_validated (test_build_profile.BuildProfileTests.test_paths_and_hashes_are_validated) ... ok
+test_profile_assets_match_and_help_uses_selected_inventory (test_build_profile.BuildProfileTests.test_profile_assets_match_and_help_uses_selected_inventory) ... ok
+test_readiness_and_native_ocr_cannot_be_claimed (test_build_profile.BuildProfileTests.test_readiness_and_native_ocr_cannot_be_claimed) ... ok
+test_runtime_versions_and_forbidden_modules (test_build_profile.BuildProfileTests.test_runtime_versions_and_forbidden_modules) ... ok
+test_embedded_pdf_fixture_parses_with_correct_content (test_diagnostics.DiagnosticsTests.test_embedded_pdf_fixture_parses_with_correct_content) ... ok
+test_existing_report_prevents_starting_any_checks (test_diagnostics.DiagnosticsTests.test_existing_report_prevents_starting_any_checks) ... usage: check_component_acceptance.py [-h] --report REPORT
+                                     [--scope {full,core}]
+check_component_acceptance.py: error: Report already exists; select a new report path
+ok
+test_failure_report_does_not_claim_complete_or_stop_remaining_checks (test_diagnostics.DiagnosticsTests.test_failure_report_does_not_claim_complete_or_stop_remaining_checks) ... [0;93m2026-11-08 08:10:21.078729051 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+ok
+test_report_is_utf8_and_does_not_replace_existing_evidence (test_diagnostics.DiagnosticsTests.test_report_is_utf8_and_does_not_replace_existing_evidence) ... ok
+test_cycles_terminate_without_duplicate_edges (test_packaging_profiles.ClosureTests.test_cycles_terminate_without_duplicate_edges) ... ok
+test_missing_transitive_dependency_is_fatal (test_packaging_profiles.ClosureTests.test_missing_transitive_dependency_is_fatal) ... ok
+test_parent_extra_not_reinterpreted_on_child (test_packaging_profiles.ClosureTests.test_parent_extra_not_reinterpreted_on_child) ... ok
+test_platform_markers_are_evaluated_for_target (test_packaging_profiles.ClosureTests.test_platform_markers_are_evaluated_for_target) ... ok
+test_python_requires_python_and_direct_urls_rejected (test_packaging_profiles.ClosureTests.test_python_requires_python_and_direct_urls_rejected) ... ok
+test_transitive_extra_arrives_after_first_visit (test_packaging_profiles.ClosureTests.test_transitive_extra_arrives_after_first_visit) ... ok
+test_version_conflict_does_not_reselect (test_packaging_profiles.ClosureTests.test_version_conflict_does_not_reselect) ... ok
+test_added_onnx_ocr_extra_fails_base_exclusion (test_packaging_profiles.ProfileTests.test_added_onnx_ocr_extra_fails_base_exclusion) ... ok
+test_changed_generated_hash_rejected (test_packaging_profiles.ProfileTests.test_changed_generated_hash_rejected) ... ok
+test_changed_windows_wheel_metadata_rejected (test_packaging_profiles.ProfileTests.test_changed_windows_wheel_metadata_rejected) ... ok
+test_missing_or_unpinned_or_duplicate_hashes_rejected (test_packaging_profiles.ProfileTests.test_missing_or_unpinned_or_duplicate_hashes_rejected) ... ok
+test_original_notice_tampering_rejected (test_packaging_profiles.ProfileTests.test_original_notice_tampering_rejected) ... ok
+test_parent_lock_change_requires_metadata_refresh (test_packaging_profiles.ProfileTests.test_parent_lock_change_requires_metadata_refresh) ... ok
+test_real_profiles_keep_magika_runtime_and_omit_ocr_and_test_tools (test_packaging_profiles.ProfileTests.test_real_profiles_keep_magika_runtime_and_omit_ocr_and_test_tools) ... ok
+test_release_ready_cannot_be_claimed_by_changing_config (test_packaging_profiles.ProfileTests.test_release_ready_cannot_be_claimed_by_changing_config) ... ok
+test_archive_traversal_rejected (test_license_inventory.InventoryTests.test_archive_traversal_rejected) ... ok
+test_complete_inventory_and_nested_metadata (test_license_inventory.InventoryTests.test_complete_inventory_and_nested_metadata) ... ok
+test_existing_user_directory_preserved (test_license_inventory.InventoryTests.test_existing_user_directory_preserved) ... ok
+test_locked_hash_mismatch_cleans_staging (test_license_inventory.InventoryTests.test_locked_hash_mismatch_cleans_staging) ... ok
+test_missing_notice_rejected (test_license_inventory.InventoryTests.test_missing_notice_rejected) ... ok
+test_missing_package_is_not_silently_omitted (test_license_inventory.InventoryTests.test_missing_package_is_not_silently_omitted) ... ok
+test_notice_tampering_rejected (test_license_inventory.InventoryTests.test_notice_tampering_rejected) ... ok
+test_real_windows_catalog_covers_lock (test_license_inventory.InventoryTests.test_real_windows_catalog_covers_lock) ... ok
+test_stale_lock_rejected (test_license_inventory.InventoryTests.test_stale_lock_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 64 tests in 1.477s
+
+OK

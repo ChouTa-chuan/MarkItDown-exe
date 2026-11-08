@@ -1,0 +1,1108 @@
+{
+  "check": "C03-native-static",
+  "inspection_complete": true,
+  "version": "5.5.3.20260724",
+  "installer_sha256": "bee9e3434bd94fd65387d9be28cd467a41f61b1275383b55b0f59a1331270ae4",
+  "runtime_file_count": 56,
+  "runtime_bytes": 97632889,
+  "files": {
+    "tesseract.exe": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": false,
+      "imports": [
+        "kernel32.dll",
+        "libarchive-13.dll",
+        "libcurl-4.dll",
+        "libgcc_s_seh-1.dll",
+        "libleptonica-6.dll",
+        "libstdc++-6.dll",
+        "libtesseract-5.dll",
+        "libtiff-6.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libLerc.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libgcc_s_seh-1.dll",
+        "libstdc++-6.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libarchive-13.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "bcrypt.dll",
+        "kernel32.dll",
+        "libb2-1.dll",
+        "libbz2-1.dll",
+        "libexpat-1.dll",
+        "libiconv-2.dll",
+        "liblz4.dll",
+        "liblzma-5.dll",
+        "libzstd.dll",
+        "msvcrt.dll",
+        "zlib1.dll"
+      ],
+      "delay_imports": []
+    },
+    "libb2-1.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libbrotlicommon.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libbrotlidec.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libbrotlicommon.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libbz2-1.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libcairo-2.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "gdi32.dll",
+        "kernel32.dll",
+        "libfontconfig-1.dll",
+        "libfreetype-6.dll",
+        "libgcc_s_seh-1.dll",
+        "libpixman-1-0.dll",
+        "libpng16-16.dll",
+        "libstdc++-6.dll",
+        "msimg32.dll",
+        "msvcrt.dll",
+        "ole32.dll",
+        "user32.dll",
+        "zlib1.dll"
+      ],
+      "delay_imports": []
+    },
+    "libcurl-4.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "advapi32.dll",
+        "bcrypt.dll",
+        "crypt32.dll",
+        "iphlpapi.dll",
+        "kernel32.dll",
+        "libbrotlidec.dll",
+        "libidn2-0.dll",
+        "libpsl-5.dll",
+        "libssh2-1.dll",
+        "libzstd.dll",
+        "msvcrt.dll",
+        "secur32.dll",
+        "wldap32.dll",
+        "ws2_32.dll",
+        "zlib1.dll"
+      ],
+      "delay_imports": []
+    },
+    "libdatrie-1.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libdeflate.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libexpat-1.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libffi-8.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libfontconfig-1.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libexpat-1.dll",
+        "libfreetype-6.dll",
+        "libgcc_s_seh-1.dll",
+        "libintl-8.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libfreetype-6.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libbrotlidec.dll",
+        "libbz2-1.dll",
+        "libharfbuzz-0.dll",
+        "libpng16-16.dll",
+        "msvcrt.dll",
+        "zlib1.dll"
+      ],
+      "delay_imports": []
+    },
+    "libfribidi-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libgcc_s_seh-1.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libwinpthread-1.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libgif-7.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libgio-2.0-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "advapi32.dll",
+        "dnsapi.dll",
+        "iphlpapi.dll",
+        "kernel32.dll",
+        "libglib-2.0-0.dll",
+        "libgmodule-2.0-0.dll",
+        "libgobject-2.0-0.dll",
+        "libintl-8.dll",
+        "msvcrt.dll",
+        "ole32.dll",
+        "shell32.dll",
+        "shlwapi.dll",
+        "user32.dll",
+        "ws2_32.dll",
+        "zlib1.dll"
+      ],
+      "delay_imports": []
+    },
+    "libglib-2.0-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "advapi32.dll",
+        "kernel32.dll",
+        "libintl-8.dll",
+        "libpcre2-8-0.dll",
+        "msvcrt.dll",
+        "ole32.dll",
+        "shell32.dll",
+        "user32.dll",
+        "ws2_32.dll"
+      ],
+      "delay_imports": []
+    },
+    "libgmodule-2.0-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libglib-2.0-0.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libgobject-2.0-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libffi-8.dll",
+        "libglib-2.0-0.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libgraphite2.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libgcc_s_seh-1.dll",
+        "libstdc++-6.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libharfbuzz-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "dwrite.dll",
+        "gdi32.dll",
+        "kernel32.dll",
+        "libfreetype-6.dll",
+        "libgcc_s_seh-1.dll",
+        "libglib-2.0-0.dll",
+        "libgraphite2.dll",
+        "libstdc++-6.dll",
+        "msvcrt.dll",
+        "rpcrt4.dll",
+        "user32.dll",
+        "usp10.dll"
+      ],
+      "delay_imports": []
+    },
+    "libiconv-2.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libicudt78.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libicuin78.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libgcc_s_seh-1.dll",
+        "libicuuc78.dll",
+        "libstdc++-6.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libicuuc78.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "advapi32.dll",
+        "kernel32.dll",
+        "libgcc_s_seh-1.dll",
+        "libicudt78.dll",
+        "libstdc++-6.dll",
+        "libwinpthread-1.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libidn2-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libiconv-2.dll",
+        "libintl-8.dll",
+        "libunistring-5.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libintl-8.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "advapi32.dll",
+        "kernel32.dll",
+        "libiconv-2.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libjbig-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libjpeg-8.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libleptonica-6.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "gdi32.dll",
+        "kernel32.dll",
+        "libgif-7.dll",
+        "libjpeg-8.dll",
+        "libopenjp2-7.dll",
+        "libpng16-16.dll",
+        "libtiff-6.dll",
+        "libwebp-7.dll",
+        "libwebpmux-3.dll",
+        "msvcrt.dll",
+        "user32.dll",
+        "zlib1.dll"
+      ],
+      "delay_imports": []
+    },
+    "liblz4.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "liblzma-5.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libopenjp2-7.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libgcc_s_seh-1.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libpango-1.0-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libfribidi-0.dll",
+        "libgio-2.0-0.dll",
+        "libglib-2.0-0.dll",
+        "libgobject-2.0-0.dll",
+        "libharfbuzz-0.dll",
+        "libthai-0.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libpangocairo-1.0-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libcairo-2.dll",
+        "libfontconfig-1.dll",
+        "libglib-2.0-0.dll",
+        "libgobject-2.0-0.dll",
+        "libharfbuzz-0.dll",
+        "libpango-1.0-0.dll",
+        "libpangoft2-1.0-0.dll",
+        "libpangowin32-1.0-0.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libpangoft2-1.0-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libfontconfig-1.dll",
+        "libfreetype-6.dll",
+        "libgio-2.0-0.dll",
+        "libglib-2.0-0.dll",
+        "libgobject-2.0-0.dll",
+        "libharfbuzz-0.dll",
+        "libpango-1.0-0.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libpangowin32-1.0-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "advapi32.dll",
+        "dwrite.dll",
+        "gdi32.dll",
+        "kernel32.dll",
+        "libgio-2.0-0.dll",
+        "libglib-2.0-0.dll",
+        "libgobject-2.0-0.dll",
+        "libharfbuzz-0.dll",
+        "libpango-1.0-0.dll",
+        "msvcrt.dll",
+        "user32.dll"
+      ],
+      "delay_imports": []
+    },
+    "libpcre2-8-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libpixman-1-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libpng16-16.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll",
+        "zlib1.dll"
+      ],
+      "delay_imports": []
+    },
+    "libpsl-5.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libiconv-2.dll",
+        "libidn2-0.dll",
+        "libunistring-5.dll",
+        "msvcrt.dll",
+        "ws2_32.dll"
+      ],
+      "delay_imports": []
+    },
+    "libsharpyuv-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libssh2-1.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "bcrypt.dll",
+        "crypt32.dll",
+        "kernel32.dll",
+        "msvcrt.dll",
+        "user32.dll",
+        "ws2_32.dll",
+        "zlib1.dll"
+      ],
+      "delay_imports": []
+    },
+    "libstdc++-6.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libgcc_s_seh-1.dll",
+        "libwinpthread-1.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libtesseract-5.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libarchive-13.dll",
+        "libcurl-4.dll",
+        "libgcc_s_seh-1.dll",
+        "libleptonica-6.dll",
+        "libstdc++-6.dll",
+        "libwinpthread-1.dll",
+        "msvcrt.dll",
+        "ws2_32.dll"
+      ],
+      "delay_imports": []
+    },
+    "libthai-0.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libdatrie-1.dll",
+        "msvcrt.dll",
+        "shlwapi.dll"
+      ],
+      "delay_imports": []
+    },
+    "libtiff-6.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libdeflate.dll",
+        "libjbig-0.dll",
+        "libjpeg-8.dll",
+        "liblerc.dll",
+        "liblzma-5.dll",
+        "libwebp-7.dll",
+        "libzstd.dll",
+        "msvcrt.dll",
+        "zlib1.dll"
+      ],
+      "delay_imports": []
+    },
+    "libunistring-5.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libiconv-2.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libwebp-7.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libsharpyuv-0.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libwebpmux-3.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "libwebp-7.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libwinpthread-1.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "libzstd.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    },
+    "zlib1.dll": {
+      "machine": "AMD64",
+      "format": "PE32+",
+      "is_dll": true,
+      "imports": [
+        "kernel32.dll",
+        "msvcrt.dll"
+      ],
+      "delay_imports": []
+    }
+  },
+  "reachable_files": [
+    "libLerc.dll",
+    "libarchive-13.dll",
+    "libb2-1.dll",
+    "libbrotlicommon.dll",
+    "libbrotlidec.dll",
+    "libbz2-1.dll",
+    "libcurl-4.dll",
+    "libdeflate.dll",
+    "libexpat-1.dll",
+    "libgcc_s_seh-1.dll",
+    "libgif-7.dll",
+    "libiconv-2.dll",
+    "libidn2-0.dll",
+    "libintl-8.dll",
+    "libjbig-0.dll",
+    "libjpeg-8.dll",
+    "libleptonica-6.dll",
+    "liblz4.dll",
+    "liblzma-5.dll",
+    "libopenjp2-7.dll",
+    "libpng16-16.dll",
+    "libpsl-5.dll",
+    "libsharpyuv-0.dll",
+    "libssh2-1.dll",
+    "libstdc++-6.dll",
+    "libtesseract-5.dll",
+    "libtiff-6.dll",
+    "libunistring-5.dll",
+    "libwebp-7.dll",
+    "libwebpmux-3.dll",
+    "libwinpthread-1.dll",
+    "libzstd.dll",
+    "tesseract.exe",
+    "zlib1.dll"
+  ],
+  "unused_candidates": [
+    "libcairo-2.dll",
+    "libdatrie-1.dll",
+    "libffi-8.dll",
+    "libfontconfig-1.dll",
+    "libfreetype-6.dll",
+    "libfribidi-0.dll",
+    "libgio-2.0-0.dll",
+    "libglib-2.0-0.dll",
+    "libgmodule-2.0-0.dll",
+    "libgobject-2.0-0.dll",
+    "libgraphite2.dll",
+    "libharfbuzz-0.dll",
+    "libicudt78.dll",
+    "libicuin78.dll",
+    "libicuuc78.dll",
+    "libpango-1.0-0.dll",
+    "libpangocairo-1.0-0.dll",
+    "libpangoft2-1.0-0.dll",
+    "libpangowin32-1.0-0.dll",
+    "libpcre2-8-0.dll",
+    "libpixman-1-0.dll",
+    "libthai-0.dll"
+  ],
+  "dependency_edges": [
+    [
+      "libLerc.dll",
+      "libgcc_s_seh-1.dll"
+    ],
+    [
+      "libLerc.dll",
+      "libstdc++-6.dll"
+    ],
+    [
+      "libarchive-13.dll",
+      "libb2-1.dll"
+    ],
+    [
+      "libarchive-13.dll",
+      "libbz2-1.dll"
+    ],
+    [
+      "libarchive-13.dll",
+      "libexpat-1.dll"
+    ],
+    [
+      "libarchive-13.dll",
+      "libiconv-2.dll"
+    ],
+    [
+      "libarchive-13.dll",
+      "liblz4.dll"
+    ],
+    [
+      "libarchive-13.dll",
+      "liblzma-5.dll"
+    ],
+    [
+      "libarchive-13.dll",
+      "libzstd.dll"
+    ],
+    [
+      "libarchive-13.dll",
+      "zlib1.dll"
+    ],
+    [
+      "libbrotlidec.dll",
+      "libbrotlicommon.dll"
+    ],
+    [
+      "libcurl-4.dll",
+      "libbrotlidec.dll"
+    ],
+    [
+      "libcurl-4.dll",
+      "libidn2-0.dll"
+    ],
+    [
+      "libcurl-4.dll",
+      "libpsl-5.dll"
+    ],
+    [
+      "libcurl-4.dll",
+      "libssh2-1.dll"
+    ],
+    [
+      "libcurl-4.dll",
+      "libzstd.dll"
+    ],
+    [
+      "libcurl-4.dll",
+      "zlib1.dll"
+    ],
+    [
+      "libgcc_s_seh-1.dll",
+      "libwinpthread-1.dll"
+    ],
+    [
+      "libidn2-0.dll",
+      "libiconv-2.dll"
+    ],
+    [
+      "libidn2-0.dll",
+      "libintl-8.dll"
+    ],
+    [
+      "libidn2-0.dll",
+      "libunistring-5.dll"
+    ],
+    [
+      "libintl-8.dll",
+      "libiconv-2.dll"
+    ],
+    [
+      "libleptonica-6.dll",
+      "libgif-7.dll"
+    ],
+    [
+      "libleptonica-6.dll",
+      "libjpeg-8.dll"
+    ],
+    [
+      "libleptonica-6.dll",
+      "libopenjp2-7.dll"
+    ],
+    [
+      "libleptonica-6.dll",
+      "libpng16-16.dll"
+    ],
+    [
+      "libleptonica-6.dll",
+      "libtiff-6.dll"
+    ],
+    [
+      "libleptonica-6.dll",
+      "libwebp-7.dll"
+    ],
+    [
+      "libleptonica-6.dll",
+      "libwebpmux-3.dll"
+    ],
+    [
+      "libleptonica-6.dll",
+      "zlib1.dll"
+    ],
+    [
+      "libopenjp2-7.dll",
+      "libgcc_s_seh-1.dll"
+    ],
+    [
+      "libpng16-16.dll",
+      "zlib1.dll"
+    ],
+    [
+      "libpsl-5.dll",
+      "libiconv-2.dll"
+    ],
+    [
+      "libpsl-5.dll",
+      "libidn2-0.dll"
+    ],
+    [
+      "libpsl-5.dll",
+      "libunistring-5.dll"
+    ],
+    [
+      "libssh2-1.dll",
+      "zlib1.dll"
+    ],
+    [
+      "libstdc++-6.dll",
+      "libgcc_s_seh-1.dll"
+    ],
+    [
+      "libstdc++-6.dll",
+      "libwinpthread-1.dll"
+    ],
+    [
+      "libtesseract-5.dll",
+      "libarchive-13.dll"
+    ],
+    [
+      "libtesseract-5.dll",
+      "libcurl-4.dll"
+    ],
+    [
+      "libtesseract-5.dll",
+      "libgcc_s_seh-1.dll"
+    ],
+    [
+      "libtesseract-5.dll",
+      "libleptonica-6.dll"
+    ],
+    [
+      "libtesseract-5.dll",
+      "libstdc++-6.dll"
+    ],
+    [
+      "libtesseract-5.dll",
+      "libwinpthread-1.dll"
+    ],
+    [
+      "libtiff-6.dll",
+      "libLerc.dll"
+    ],
+    [
+      "libtiff-6.dll",
+      "libdeflate.dll"
+    ],
+    [
+      "libtiff-6.dll",
+      "libjbig-0.dll"
+    ],
+    [
+      "libtiff-6.dll",
+      "libjpeg-8.dll"
+    ],
+    [
+      "libtiff-6.dll",
+      "liblzma-5.dll"
+    ],
+    [
+      "libtiff-6.dll",
+      "libwebp-7.dll"
+    ],
+    [
+      "libtiff-6.dll",
+      "libzstd.dll"
+    ],
+    [
+      "libtiff-6.dll",
+      "zlib1.dll"
+    ],
+    [
+      "libunistring-5.dll",
+      "libiconv-2.dll"
+    ],
+    [
+      "libwebp-7.dll",
+      "libsharpyuv-0.dll"
+    ],
+    [
+      "libwebpmux-3.dll",
+      "libwebp-7.dll"
+    ],
+    [
+      "tesseract.exe",
+      "libarchive-13.dll"
+    ],
+    [
+      "tesseract.exe",
+      "libcurl-4.dll"
+    ],
+    [
+      "tesseract.exe",
+      "libgcc_s_seh-1.dll"
+    ],
+    [
+      "tesseract.exe",
+      "libleptonica-6.dll"
+    ],
+    [
+      "tesseract.exe",
+      "libstdc++-6.dll"
+    ],
+    [
+      "tesseract.exe",
+      "libtesseract-5.dll"
+    ],
+    [
+      "tesseract.exe",
+      "libtiff-6.dll"
+    ]
+  ],
+  "windows_system_imports": [
+    "advapi32.dll",
+    "bcrypt.dll",
+    "crypt32.dll",
+    "gdi32.dll",
+    "iphlpapi.dll",
+    "kernel32.dll",
+    "msvcrt.dll",
+    "secur32.dll",
+    "user32.dll",
+    "wldap32.dll",
+    "ws2_32.dll"
+  ],
+  "missing_license_evidence": [
+    "libLerc.dll",
+    "libarchive-13.dll",
+    "libb2-1.dll",
+    "libbrotlicommon.dll",
+    "libbrotlidec.dll",
+    "libbz2-1.dll",
+    "libcurl-4.dll",
+    "libdeflate.dll",
+    "libexpat-1.dll",
+    "libgcc_s_seh-1.dll",
+    "libgif-7.dll",
+    "libiconv-2.dll",
+    "libidn2-0.dll",
+    "libintl-8.dll",
+    "libjbig-0.dll",
+    "libjpeg-8.dll",
+    "libleptonica-6.dll",
+    "liblz4.dll",
+    "liblzma-5.dll",
+    "libopenjp2-7.dll",
+    "libpng16-16.dll",
+    "libpsl-5.dll",
+    "libsharpyuv-0.dll",
+    "libssh2-1.dll",
+    "libstdc++-6.dll",
+    "libtiff-6.dll",
+    "libunistring-5.dll",
+    "libwebp-7.dll",
+    "libwebpmux-3.dll",
+    "libwinpthread-1.dll",
+    "libzstd.dll",
+    "zlib1.dll"
+  ],
+  "redistribution_approved": false,
+  "bundle_allowed": false,
+  "authenticode_verified": false,
+  "dynamic_loading_verified": false,
+  "windows_executed": false,
+  "native_ocr_bundled": false,
+  "full_c03_complete": false
+}

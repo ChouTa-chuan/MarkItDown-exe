@@ -6,15 +6,15 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.10.0**，新增繁中／英／日／韓模型與語言選擇；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.11.0**，新增 Windows 原生來源／DLL 靜態檢查與封裝阻擋；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
 | 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C03 四語一項、C04 兩項、C09 三項子檢核完成，完整項仍待基本包 |
-| 功能測試基線 | **457 通過、1 項 ONNX 繁體品質預期失敗** |
+| 功能測試基線 | **477 通過、1 項 ONNX 繁體品質預期失敗** |
 
 ## 模組架構封面
 
-綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08／C10 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；C10 已接逐頁需求、文件租約與提交重驗；C04 已驗基本依賴與 Linux frozen 核心自檢，完整原生包仍保留虛線；C03 已加入四語模型／選擇與本機辨識，Windows／GPU 仍須各自驗證。
+綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08／C10 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；C10 已接逐頁需求、文件租約與提交重驗；C04 已驗基本依賴與 Linux frozen 核心自檢，完整原生包仍保留虛線；C03 已加入四語模型／選擇與本機辨識，新增原生來源靜態檢查；32 個可達 DLL 仍待逐檔來源／授權證據，候選檔會阻擋封裝。Windows／GPU 仍須各自驗證。
 
 [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
@@ -37,6 +37,7 @@ flowchart TD
         FIRSTFLOW["首次流程已實作：RAM／保留偏好／離線檢查／完成標記"]
         COMPONENTS["元件基礎：契約／登錄／完整性驗證"]
         CAPABILITY["能力解析：相容／依賴／健康檢查"]
+        NATIVEASSETS["原生來源檢查：SHA／PE／DLL 閉包；授權未齊阻擋封裝"]
         LANGUAGES["Tesseract 四語：單語／混合選擇／固定模型"]
         ROUTE["精準 PDF 按頁需求：原生／空白／受管 OCR"]
         CPUWORKER["獨立 CPU worker：版本化 IPC／RAM／逾時與取消"]
@@ -68,6 +69,7 @@ flowchart TD
     UI --> FIRSTFLOW
     FIRSTFLOW --> PREFS
     PROFILE --> PROFILEBUILD
+    NATIVEASSETS -.-> FIRST
     PROFILEBUILD -.-> FIRST
     FIRST -.-> FIRSTFLOW
     PREFS --> ROUTE
@@ -75,7 +77,7 @@ flowchart TD
     OPTIONAL -.-> QUALITY
     classDef existing fill:#e8f7f3,stroke:#21856d,color:#153c31;
     classDef foundation fill:#e8efff,stroke:#4c6fb8,color:#203c77;
-    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI,FIRSTFLOW,ROUTE,PROFILE,PROFILEBUILD,LANGUAGES foundation;
+    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI,FIRSTFLOW,ROUTE,PROFILE,PROFILEBUILD,LANGUAGES,NATIVEASSETS foundation;
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
     class FIRST,OPTIONAL planned;
@@ -91,6 +93,7 @@ flowchart TD
 | 能力解析 | 重新核對元件相容性、依賴、實檔及可信健康探針 | C01 已驗收；C07／C10 在 OCR 頁重新驗證、固定版本與能力，原生／空白頁不要求 OCR 元件 |
 | 設定與遷移 | v1–v6 讀取、v7 語言／偏好、原文備份及未來設定保護 | C02 基礎沿用；C03 新增語言順序，舊預設／路徑保留 |
 | 四語模型與選擇 | 固定繁中／英／日／韓模型、明確語言與混合解碼 | C03 子檢核 138/138＋本機 10 項，完整 Windows 原生包待驗 |
+| 原生來源與 DLL 檢查 | 固定官方 hash、AMD64 PE 閉包、逐檔原文及封裝阻擋 | 機制 64/64＋真實靜態 7 項；56 檔／34 閉包，32 DLL 證據待補，C03 未關閉 |
 | 首次精靈 | 基本引擎檢查、RAM 建議與完成紀錄 | C09 流程／RAM 子檢核完成；基本包自帶 OCR 待 C03／C04，C09 全項未關閉 |
 | 元件與更新服務 | 描述、登錄、下載、驗證、修復、移除及回復 | C01／C02 沿用，C05 下載、C06 安裝維護 API 完成；C08 背景管理完成；正式目錄與 Windows 仍待後續 |
 | 基本版依賴 profile | 執行／建置閉包、平台 marker、原版 hash 與既有授權引用 | 依賴子檢核沿用；基本 frozen／自檢 86/86＋獨立程式 7 項／公開 PDF 5 項，完整 native／Windows 待驗 |
@@ -115,6 +118,7 @@ flowchart TD
 - [開發進度與驗證範圍](docs/development-status.md)
 - [互動進度頁：里程碑／模組／元件導入](docs/progress.html)（下載後可離線開啟）
 - [基本包與選配元件決策](docs/decisions/0002-base-and-optional-components.md)
+- [C03 Windows 原生來源、DLL 與授權門檻](docs/windows-native-intake.md)
 - [C03 四語模型、語言選擇與驗收範圍](docs/four-language-ocr.md)
 - [C04 基本版依賴拆分與驗收範圍](docs/packaging-profiles.md)
 - [C10 自動分析與受管元件協作](docs/managed-conversion.md)

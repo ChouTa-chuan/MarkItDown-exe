@@ -181,7 +181,19 @@
       "source_version": "0.10.0",
       "architecture_scope": "0.4 four-language model/preference/local Tesseract subcheck accepted; Windows native packaging pending",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-c03-native-static.md",
+      "title": "架構 v0.4：C03 原生來源與 DLL 靜態檢查",
+      "diagram_sha256": "df3a8b6e07cc97610f28ae52799212ec33deca5152c7dbc8c6cb7f118ebf8a72",
+      "file_sha256": "eeba9053e4bed57b9d70174a3b3f83f40f9c5255f907ebc9c839dd1fbe45626e",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_description": "程式 0.11.0 與首頁圖一併提交；靜態檢查機制完成，32 DLL 證據待補，C03 不提高完成率",
+      "source_version": "0.11.0",
+      "architecture_scope": "0.4 static native intake mechanism accepted; source/license, bundle and Windows gates pending",
+      "derived": false
     }
   ],
-  "updated_at": "2026-11-07"
+  "updated_at": "2026-11-08"
 }

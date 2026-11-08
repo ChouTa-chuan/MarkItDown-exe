@@ -1,0 +1,1325 @@
+
+7-Zip (z) 26.06 (x64) : Copyright (c) 1999-2026 Igor Pavlov : 2026-11-06
+ 64-bit locale=C.UTF-8 Threads:5 OPEN_MAX:16384, ASM
+
+Scanning the drive for archives:
+1 file, 26573224 bytes (26 MiB)
+
+Listing archive: /workspace/markitdown-tesseract-windows/tesseract-ocr-w64-setup-5.5.3.20260724.exe
+
+--
+Path = /workspace/markitdown-tesseract-windows/tesseract-ocr-w64-setup-5.5.3.20260724.exe
+Type = PE
+Physical Size = 26573224
+CPU = x86
+Characteristics = Executable 32-bit NoRelocs NoLineNums NoLocalSyms NoDebugInfo
+Created = 2025-04-02 06:31:17
+Headers Size = 1024
+Checksum = 26590518
+Name = tesseract-ocr-w64-setup-5.5.3.20260724.exe
+Image Size = 499712
+Section Alignment = 4096
+File Alignment = 512
+Code Size = 37888
+Initialized Data Size = 63488
+Uninitialized Data Size = 129024
+Linker Version = 2.44
+OS Version = 4.0
+Image Version = 6.0
+Subsystem Version = 4.0
+Subsystem = Windows GUI
+DLL Characteristics = Relocated NX-Compatible NoSEH TerminalServerAware
+Stack Reserve = 2097152
+Stack Commit = 4096
+Heap Reserve = 1048576
+Heap Commit = 4096
+Virtual Address = 0x400000
+Comment = 
+{
+FileVersion: 5.5.3.10100
+FileVersion: 2026-07-24-22-07-15
+ProductVersion: 5.5.3.10100
+ProductVersion: 5.5.3.20260724
+Comments: GitHub CI build
+CompanyName: Open Source Community
+FileDescription: Tesseract OCR
+InternalName: Tesseract
+LegalCopyright: Apache-2.0
+OriginalFilename: tesseract-ocr-w64-setup-5.5.3.20260724.exe
+ProductName: Tesseract-OCR
+Data Directories: 16
+{
+index=1 name=IMPORT VA=0x39000 Size=5040
+index=2 name=RESOURCE VA=0x72000 Size=32016
+index=4 name=SECURITY VA=0x19543E8 Size=13760
+}
+}
+----
+Path = [0]
+Size = 26429416
+Packed Size = 26429416
+Virtual Size = 26429416
+Offset = 130048
+--
+Path = [0]
+Type = Nsis
+Physical Size = 26429413
+Tail Size = 3
+Method = LZMA:25
+Solid = +
+Headers Size = 641504
+Embedded Stub Size = 0
+SubType = NSIS-3 Unicode
+
+----------
+Path = $PLUGINSDIR/modern-wizard.bmp
+Size = 26494
+Packed Size = 26429409
+Modified = 2025-03-29 15:32:48.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 0
+
+Path = $PLUGINSDIR/nsDialogs.dll
+Size = 14336
+Packed Size = 
+Modified = 
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 26498
+
+Path = $PLUGINSDIR/System.dll
+Size = 28672
+Packed Size = 
+Modified = 
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 40838
+
+Path = $PLUGINSDIR/StartMenu.dll
+Size = 12288
+Packed Size = 
+Modified = 
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 69514
+
+Path = $PLUGINSDIR/modern-header.bmp
+Size = 9744
+Packed Size = 
+Modified = 2025-03-29 15:32:48.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 81806
+
+Path = tesseract.exe
+Size = 1867784
+Packed Size = 
+Modified = 2026-07-24 19:18:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 91554
+
+Path = libtesseract-5.dll
+Size = 3501048
+Packed Size = 
+Modified = 2026-07-24 19:18:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 1959342
+
+Path = libLerc.dll
+Size = 804265
+Packed Size = 
+Modified = 2026-07-07 07:05:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 5460394
+
+Path = libarchive-13.dll
+Size = 972210
+Packed Size = 
+Modified = 2026-06-28 07:30:22.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 6264663
+
+Path = libb2-1.dll
+Size = 34653
+Packed Size = 
+Modified = 2025-09-01 12:12:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 7236877
+
+Path = libbrotlicommon.dll
+Size = 143429
+Packed Size = 
+Modified = 2025-11-06 03:57:08.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 7271534
+
+Path = libbrotlidec.dll
+Size = 62461
+Packed Size = 
+Modified = 2025-11-06 03:57:08.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 7414967
+
+Path = libbz2-1.dll
+Size = 100964
+Packed Size = 
+Modified = 2023-09-27 06:57:16.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 7477432
+
+Path = libcairo-2.dll
+Size = 1247164
+Packed Size = 
+Modified = 2025-10-04 19:20:58.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 7578400
+
+Path = libcurl-4.dll
+Size = 1226963
+Packed Size = 
+Modified = 2026-07-06 07:39:50.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 8825568
+
+Path = libdatrie-1.dll
+Size = 35033
+Packed Size = 
+Modified = 2025-11-28 18:10:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 10052535
+
+Path = libdeflate.dll
+Size = 99228
+Packed Size = 
+Modified = 2025-11-03 19:00:36.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 10087572
+
+Path = libexpat-1.dll
+Size = 237603
+Packed Size = 
+Modified = 2026-06-26 08:54:16.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 10186804
+
+Path = libffi-8.dll
+Size = 40945
+Packed Size = 
+Modified = 2026-07-11 06:42:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 10424411
+
+Path = libfontconfig-1.dll
+Size = 502866
+Packed Size = 
+Modified = 2026-07-10 16:27:14.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 10465360
+
+Path = libfreetype-6.dll
+Size = 790651
+Packed Size = 
+Modified = 2026-03-26 16:20:58.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 10968230
+
+Path = libfribidi-0.dll
+Size = 156403
+Packed Size = 
+Modified = 2024-09-27 08:21:32.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 11758885
+
+Path = libgcc_s_seh-1.dll
+Size = 954773
+Packed Size = 
+Modified = 2025-03-28 22:21:30.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 11915292
+
+Path = libgif-7.dll
+Size = 45777
+Packed Size = 
+Modified = 2026-04-17 14:32:52.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 12870069
+
+Path = libgio-2.0-0.dll
+Size = 1915159
+Packed Size = 
+Modified = 2026-06-27 07:24:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 12915850
+
+Path = libglib-2.0-0.dll
+Size = 1566649
+Packed Size = 
+Modified = 2026-06-27 07:24:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 14831013
+
+Path = libgmodule-2.0-0.dll
+Size = 26748
+Packed Size = 
+Modified = 2026-06-27 07:24:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 16397666
+
+Path = libgobject-2.0-0.dll
+Size = 359475
+Packed Size = 
+Modified = 2026-06-27 07:24:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 16424418
+
+Path = libgraphite2.dll
+Size = 167155
+Packed Size = 
+Modified = 2026-06-03 22:18:40.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 16783897
+
+Path = libharfbuzz-0.dll
+Size = 1541957
+Packed Size = 
+Modified = 2026-06-03 08:24:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 16951056
+
+Path = libiconv-2.dll
+Size = 1143148
+Packed Size = 
+Modified = 2026-03-14 08:45:32.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 18493017
+
+Path = libicudt78.dll
+Size = 33120806
+Packed Size = 
+Modified = 2026-06-21 20:44:46.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 19636169
+
+Path = libicuin78.dll
+Size = 3186867
+Packed Size = 
+Modified = 2026-06-21 20:44:46.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 52756979
+
+Path = libicuuc78.dll
+Size = 1999466
+Packed Size = 
+Modified = 2026-06-21 20:44:46.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 55943850
+
+Path = libidn2-0.dll
+Size = 247081
+Packed Size = 
+Modified = 2025-10-04 16:55:54.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 57943320
+
+Path = libintl-8.dll
+Size = 298731
+Packed Size = 
+Modified = 2026-01-31 12:16:48.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 58190405
+
+Path = libjbig-0.dll
+Size = 62083
+Packed Size = 
+Modified = 2023-08-18 09:47:40.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 58489140
+
+Path = libjpeg-8.dll
+Size = 967968
+Packed Size = 
+Modified = 2026-07-01 11:59:20.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 58551227
+
+Path = libleptonica-6.dll
+Size = 2850600
+Packed Size = 
+Modified = 2025-12-30 09:14:26.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 59519199
+
+Path = liblz4.dll
+Size = 158649
+Packed Size = 
+Modified = 2024-07-23 00:08:24.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 62369803
+
+Path = liblzma-5.dll
+Size = 191836
+Packed Size = 
+Modified = 2026-04-01 04:25:50.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 62528456
+
+Path = libopenjp2-7.dll
+Size = 519082
+Packed Size = 
+Modified = 2025-09-26 13:27:16.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 62720296
+
+Path = libpango-1.0-0.dll
+Size = 437317
+Packed Size = 
+Modified = 2026-06-26 21:44:08.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 63239382
+
+Path = libpangocairo-1.0-0.dll
+Size = 84876
+Packed Size = 
+Modified = 2026-06-26 21:44:08.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 63676703
+
+Path = libpangoft2-1.0-0.dll
+Size = 112015
+Packed Size = 
+Modified = 2026-06-26 21:44:08.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 63761583
+
+Path = libpangowin32-1.0-0.dll
+Size = 112948
+Packed Size = 
+Modified = 2026-06-26 21:44:08.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 63873602
+
+Path = libpcre2-8-0.dll
+Size = 717955
+Packed Size = 
+Modified = 2025-10-22 16:42:50.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 63986554
+
+Path = libpixman-1-0.dll
+Size = 740378
+Packed Size = 
+Modified = 2026-05-09 16:07:08.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 64704513
+
+Path = libpng16-16.dll
+Size = 264269
+Packed Size = 
+Modified = 2026-04-17 14:35:16.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 65444895
+
+Path = libpsl-5.dll
+Size = 105304
+Packed Size = 
+Modified = 2024-11-28 19:01:46.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 65709168
+
+Path = libsharpyuv-0.dll
+Size = 53757
+Packed Size = 
+Modified = 2025-07-10 19:07:46.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 65814476
+
+Path = libssh2-1.dll
+Size = 271318
+Packed Size = 
+Modified = 2026-01-29 13:27:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 65868237
+
+Path = libstdc++-6.dll
+Size = 26390974
+Packed Size = 
+Modified = 2025-03-28 22:21:30.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 66139559
+
+Path = libthai-0.dll
+Size = 72294
+Packed Size = 
+Modified = 2026-01-11 21:08:00.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 92530537
+
+Path = libtiff-6.dll
+Size = 625178
+Packed Size = 
+Modified = 2026-07-03 12:56:10.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 92602835
+
+Path = libunistring-5.dll
+Size = 2251328
+Packed Size = 
+Modified = 2026-04-19 18:45:18.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 93228017
+
+Path = libwebp-7.dll
+Size = 749724
+Packed Size = 
+Modified = 2025-07-10 19:07:46.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 95479349
+
+Path = libwebpmux-3.dll
+Size = 82858
+Packed Size = 
+Modified = 2025-07-10 19:07:46.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 96229077
+
+Path = libwinpthread-1.dll
+Size = 65955
+Packed Size = 
+Modified = 2026-07-21 08:50:12.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 96311939
+
+Path = libzstd.dll
+Size = 1218273
+Packed Size = 
+Modified = 2026-05-01 19:15:36.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 96377898
+
+Path = zlib1.dll
+Size = 128488
+Packed Size = 
+Modified = 2026-03-05 09:07:24.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 97596175
+
+Path = winpath.exe
+Size = 15994
+Packed Size = 
+Modified = 2026-07-24 19:18:46.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 97724667
+
+Path = ambiguous_words.1.html
+Size = 31233
+Packed Size = 
+Modified = 2026-07-24 19:18:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 97740665
+
+Path = classifier_tester.1.html
+Size = 32780
+Packed Size = 
+Modified = 2026-07-24 19:18:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 97771902
+
+Path = cntraining.1.html
+Size = 31562
+Packed Size = 
+Modified = 2026-07-24 19:18:40.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 97804686
+
+Path = combine_lang_model.1.html
+Size = 34325
+Packed Size = 
+Modified = 2026-07-24 19:18:36.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 97836252
+
+Path = combine_tessdata.1.html
+Size = 40141
+Packed Size = 
+Modified = 2026-07-24 19:18:36.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 97870581
+
+Path = dawg2wordlist.1.html
+Size = 31727
+Packed Size = 
+Modified = 2026-07-24 19:18:36.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 97910726
+
+Path = lstmeval.1.html
+Size = 32874
+Packed Size = 
+Modified = 2026-07-24 19:18:36.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 97942457
+
+Path = lstmtraining.1.html
+Size = 35751
+Packed Size = 
+Modified = 2026-07-24 19:18:36.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 97975335
+
+Path = merge_unicharsets.1.html
+Size = 32313
+Packed Size = 
+Modified = 2026-07-24 19:18:36.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98011090
+
+Path = mftraining.1.html
+Size = 32724
+Packed Size = 
+Modified = 2026-07-24 19:18:40.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98043407
+
+Path = set_unicharset_properties.1.html
+Size = 32474
+Packed Size = 
+Modified = 2026-07-24 19:18:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98076135
+
+Path = shapeclustering.1.html
+Size = 32742
+Packed Size = 
+Modified = 2026-07-24 19:18:40.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98108613
+
+Path = tesseract.1.html
+Size = 73066
+Packed Size = 
+Modified = 2026-07-24 19:18:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98141359
+
+Path = text2image.1.html
+Size = 38687
+Packed Size = 
+Modified = 2026-07-24 19:18:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98214429
+
+Path = unicharambigs.5.html
+Size = 34398
+Packed Size = 
+Modified = 2026-07-24 19:18:40.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98253120
+
+Path = unicharset.5.html
+Size = 36976
+Packed Size = 
+Modified = 2026-07-24 19:18:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98287522
+
+Path = unicharset_extractor.1.html
+Size = 32224
+Packed Size = 
+Modified = 2026-07-24 19:18:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98324502
+
+Path = wordlist2dawg.1.html
+Size = 32853
+Packed Size = 
+Modified = 2026-07-24 19:18:38.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98356730
+
+Path = tessdata/pdf.ttf
+Size = 572
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98389587
+
+Path = tessdata/configs/alto
+Size = 23
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98390163
+
+Path = tessdata/configs/ambigs.train
+Size = 146
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98390190
+
+Path = tessdata/configs/api_config
+Size = 26
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98390340
+
+Path = tessdata/configs/bigram
+Size = 129
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98390370
+
+Path = tessdata/configs/box.train
+Size = 311
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98390503
+
+Path = tessdata/configs/box.train.stderr
+Size = 311
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98390818
+
+Path = tessdata/configs/digits
+Size = 37
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98391133
+
+Path = tessdata/configs/get.images
+Size = 24
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98391174
+
+Path = tessdata/configs/hocr
+Size = 40
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98391202
+
+Path = tessdata/configs/inter
+Size = 59
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98391246
+
+Path = tessdata/configs/kannada
+Size = 101
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98391309
+
+Path = tessdata/configs/linebox
+Size = 70
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98391414
+
+Path = tessdata/configs/logfile
+Size = 25
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98391488
+
+Path = tessdata/configs/lstm.train
+Size = 282
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98391517
+
+Path = tessdata/configs/lstmbox
+Size = 26
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98391803
+
+Path = tessdata/configs/lstmdebug
+Size = 98
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98391833
+
+Path = tessdata/configs/makebox
+Size = 26
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98391935
+
+Path = tessdata/configs/page
+Size = 67
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98391965
+
+Path = tessdata/configs/pdf
+Size = 22
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98392036
+
+Path = tessdata/configs/quiet
+Size = 21
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98392062
+
+Path = tessdata/configs/rebox
+Size = 65
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98392087
+
+Path = tessdata/configs/strokewidth
+Size = 377
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98392156
+
+Path = tessdata/configs/tsv
+Size = 22
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98392537
+
+Path = tessdata/configs/txt
+Size = 166
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98392563
+
+Path = tessdata/configs/unlv
+Size = 45
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98392733
+
+Path = tessdata/configs/wordstrbox
+Size = 29
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98392782
+
+Path = tessdata/tessconfigs/batch
+Size = 49
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98392815
+
+Path = tessdata/tessconfigs/batch.nochop
+Size = 37
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98392868
+
+Path = tessdata/tessconfigs/matdemo
+Size = 243
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98392909
+
+Path = tessdata/tessconfigs/msdemo
+Size = 368
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98393156
+
+Path = tessdata/tessconfigs/nobatch
+Size = 1
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98393528
+
+Path = tessdata/tessconfigs/segdemo
+Size = 295
+Packed Size = 
+Modified = 2026-07-24 19:14:28.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98393533
+
+Path = doc/AUTHORS
+Size = 787
+Packed Size = 
+Modified = 2021-12-06 13:40:00.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98393832
+
+Path = doc/LICENSE
+Size = 11358
+Packed Size = 
+Modified = 2019-09-28 20:27:14.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98394623
+
+Path = doc/README.md
+Size = 8152
+Packed Size = 
+Modified = 2026-07-24 18:38:10.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98405985
+
+Path = tessdata/ScrollView.jar
+Size = 26436
+Packed Size = 
+Modified = 2026-07-24 18:49:24.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98414141
+
+Path = tessdata/jaxb-api-2.3.1.jar
+Size = 128076
+Packed Size = 
+Modified = 2026-07-24 18:49:24.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98440581
+
+Path = tessdata/piccolo2d-core-3.0.1.jar
+Size = 125187
+Packed Size = 
+Modified = 2026-07-24 18:49:24.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98568661
+
+Path = tessdata/piccolo2d-extras-3.0.1.jar
+Size = 149558
+Packed Size = 
+Modified = 2026-07-24 18:49:24.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98693852
+
+Path = ambiguous_words.exe
+Size = 57792
+Packed Size = 
+Modified = 2026-07-24 19:18:40.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98843414
+
+Path = classifier_tester.exe
+Size = 208320
+Packed Size = 
+Modified = 2026-07-24 19:18:40.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 98901210
+
+Path = cntraining.exe
+Size = 208832
+Packed Size = 
+Modified = 2026-07-24 19:18:40.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 99109534
+
+Path = combine_lang_model.exe
+Size = 151488
+Packed Size = 
+Modified = 2026-07-24 19:18:40.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 99318370
+
+Path = combine_tessdata.exe
+Size = 63936
+Packed Size = 
+Modified = 2026-07-24 19:18:40.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 99469862
+
+Path = dawg2wordlist.exe
+Size = 57792
+Packed Size = 
+Modified = 2026-07-24 19:18:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 99533802
+
+Path = lstmeval.exe
+Size = 317888
+Packed Size = 
+Modified = 2026-07-24 19:18:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 99591598
+
+Path = lstmtraining.exe
+Size = 329664
+Packed Size = 
+Modified = 2026-07-24 19:18:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 99909490
+
+Path = merge_unicharsets.exe
+Size = 55232
+Packed Size = 
+Modified = 2026-07-24 19:18:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 100239158
+
+Path = mftraining.exe
+Size = 220096
+Packed Size = 
+Modified = 2026-07-24 19:18:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 100294394
+
+Path = set_unicharset_properties.exe
+Size = 267712
+Packed Size = 
+Modified = 2026-07-24 19:18:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 100514494
+
+Path = shapeclustering.exe
+Size = 207808
+Packed Size = 
+Modified = 2026-07-24 19:18:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 100782210
+
+Path = text2image.exe
+Size = 391616
+Packed Size = 
+Modified = 2026-07-24 19:18:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 100990022
+
+Path = unicharset_extractor.exe
+Size = 158656
+Packed Size = 
+Modified = 2026-07-24 19:18:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 101381642
+
+Path = wordlist2dawg.exe
+Size = 93120
+Packed Size = 
+Modified = 2026-07-24 19:18:42.0000000
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 101540302
+
+Path = $PLUGINSDIR/INetC.dll
+Size = 25600
+Packed Size = 
+Modified = 
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 101633426
+
+Path = $PLUGINSDIR/LangDLL.dll
+Size = 8704
+Packed Size = 
+Modified = 
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 101659030
+
+Path = $PLUGINSDIR/UserInfo.dll
+Size = 7168
+Packed Size = 
+Modified = 
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 101667738
+
+Path = tesseract-uninstall.exe
+Size = 
+Packed Size = 
+Modified = 
+Attributes = 
+Method = LZMA:25
+Solid = +
+Offset = 101674910
+

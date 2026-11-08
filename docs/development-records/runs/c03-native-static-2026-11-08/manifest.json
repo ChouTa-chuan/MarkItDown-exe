@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "source_version": "0.11.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-08",
+  "check": "C03-native-static",
+  "mechanism_accepted": true,
+  "full_c03_complete": false,
+  "scope": "原生候選來源／PE／DLL 靜態檢查機制；32 DLL 來源／授權證據待補，禁止封裝；未執行 Windows",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 3176,
+      "sha256": "5bd5816bc9ea0b9c89c272bc3d5cf185fbef5565f4dab36149aa67cf83fcd25b",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 6390,
+      "sha256": "2e2b543258703c28ee254aee93df5ee3d6d83eb6b8efa1ecfc31180ff03cde56",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "acceptance.log",
+      "bytes": 9096,
+      "sha256": "42e45635e211d73031cfa6051096ad011f563d1fc4e5652fa1cb7b403749a3ce",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "full-regression.log",
+      "bytes": 70436,
+      "sha256": "88c4e79076d89a2fc76ebb6b3511381f1545bb351b8118f18c38a0a65d2d4b8b",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "initial-acceptance-error.json",
+      "bytes": 6307,
+      "sha256": "ae1a097d99e41c68e0fd6ecdec199c06bed93b8b5c25fc1d31bcfd83d0dae17b",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "initial-acceptance-error.log",
+      "bytes": 10796,
+      "sha256": "47646230529dca8959e4155e4c4b9de3a9e85f1e1143d51e2b06dfbdaeec2b64",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "initial-dll-name-scan.log",
+      "bytes": 445,
+      "sha256": "1205e20d51b9f9549bb2678a02465ac94e72d3dc413913ccabeb78c665a4f1db",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "initial-tests-error.log",
+      "bytes": 4434,
+      "sha256": "325cdfbd427e0236ee2e4d816ff69a7b72c75eae4eee2a86c037ba2c45b4485c",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "inspection.json",
+      "bytes": 23940,
+      "sha256": "d884c1c4ca4bdfc65efef375a9b239a2908edde631258be4970ba23e3cdaf35e",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "inspection.log",
+      "bytes": 84,
+      "sha256": "3d5196de2568c676d4c648c722a79e27dbf699a8d3828e65711f0630342dbf40",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "installer-extract.log",
+      "bytes": 1923,
+      "sha256": "9d2c97fc397f6252d3a10a0d634aa920575ae747d76dda6de3ab7639962ee6ec",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "installer-list.log",
+      "bytes": 23105,
+      "sha256": "f3498aeadba17c1b4f6c296f46816438a62a7ba8d90b21a7ec8796c7d7ecbb47",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 1575,
+      "sha256": "75d0221170fc33fcf14344222e9d7c878d21744656b77dd9057f32bb31eb8122",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "intermediate-api-report.json",
+      "bytes": 22609,
+      "sha256": "d75f36c5b633387cb7ecb8cf39752437e6cf3c54ae25a8fbddda3f52e86edea2",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "intermediate-cli-report.json",
+      "bytes": 23940,
+      "sha256": "f83edfefd61473947c192673e1bd69134a7dc7f5aefebceaf4d7229fdcd60725",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "intermediate-cli.log",
+      "bytes": 84,
+      "sha256": "3d5196de2568c676d4c648c722a79e27dbf699a8d3828e65711f0630342dbf40",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "libtesseract-5.dll.objdump.log",
+      "bytes": 2494397,
+      "sha256": "82dbf4ba47468c12635d687fe46a81877c59386f1d140f1674268f907ef84f90",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "license-verify.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "profile-verify.log",
+      "bytes": 308,
+      "sha256": "60f4d04e67ddb2356cc4afea6ee669302d131723567341544a94a26097ec9171",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "progress-browser-initial.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "provenance.json",
+      "bytes": 2179,
+      "sha256": "0236b2f6037062b2a5b73911b11845a50746649c61424cec154191fb185b6659",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "required-redistribution.json",
+      "bytes": 23186,
+      "sha256": "ba892d1f5fcb7c8febb9efead07f391cbfddfc2aacb2f5eb75a1207aa5814765",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "required-redistribution.log",
+      "bytes": 84,
+      "sha256": "3b09f2ed60174967a48a6b44ee59dd901d8e5a3fc320a355027f3e800be4f5ae",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 635850,
+      "sha256": "2bb22ada2a866189b2ec57fa9ac23b28794a5841ffec36339232440c8b2e1fb0",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 646874,
+      "sha256": "aceaae9a0def042fa03dc0627b1ad5cf4ee3e50cd625a730d1f7cb05fc0543da",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 281838,
+      "sha256": "390c6d49578fbc01f00413e357f4f485c4ee1a848755dfe69c40e7f30459297a",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 299130,
+      "sha256": "5c5e09c1b1b4fba0f0a8df9a7c3a353f37fcf574deda0f75afeaa70276bfec83",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 443588,
+      "sha256": "f4768d23ec71dbd4f22b361f6e9dac648afb634eb7838073003936e623c5ab02",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "source-notices/AUTHORS",
+      "bytes": 787,
+      "sha256": "720862b7253993b348fe15f37ed6e0d4feb0fc8df8324284d75975d54dd29923",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "source-notices/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "source-notices/README.md",
+      "bytes": 8152,
+      "sha256": "35ca53a67a2895ebdc2cf6777fc5808c1b0c5df650b896b79c82b2c4a004bd76",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "source-pages/7zip-expanded-assets.txt",
+      "bytes": 71927,
+      "sha256": "432bd92854a26c114607c3177c41353af06972fafc12de19911d331d82cebcdc",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "source-pages/7zip-release.txt",
+      "bytes": 154357,
+      "sha256": "0b7efdd29ee2dc7174511f382a671f48af9b1d9673f9ca895ebda356fd6d0a67",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "source-pages/7zip-source.json",
+      "bytes": 200,
+      "sha256": "17ee2aa544197567b1b9c8bc8a004858d3a2350cc0dd4a1edb9146aa4575ceac",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "source-pages/tesseract-expanded-assets.txt",
+      "bytes": 8610,
+      "sha256": "d50c476ab307c79922acd34680566086da3575e1301d6d1b974f45f1c1c34297",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "source-pages/tesseract-release-tag.txt",
+      "bytes": 192561,
+      "sha256": "ffdea67bbf0b530968ae84bce8c64e0132372197cdfcdf71efa4a2abca3bc737",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "source-pages/ub-mannheim-releases.txt",
+      "bytes": 241007,
+      "sha256": "35c886adda82bedd6715c8e8821b867789264870b6b33bd1f640afce20c8ae06",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "source-pages/ub-mannheim-wiki.txt",
+      "bytes": 7835,
+      "sha256": "8fbb8fabed0a53fd97d53d4ad8c14106629fb00cfe9b42b853573f5f7ece7fad",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "tesseract.exe.objdump.log",
+      "bytes": 60052,
+      "sha256": "7d49f12020d7d454f1975679c048d0a6b0ab73be271f0051fb756cf238b7e45a",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    },
+    {
+      "file": "upstream-verify.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C03-native-static 本輪實際生成／取得的公開官方來源原文、Linux 靜態檢查與回歸；無 EXE／DLL 執行、封裝核准或使用者文件"
+    }
+  ]
+}

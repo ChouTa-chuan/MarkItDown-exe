@@ -1,0 +1,8 @@
+tesseract.exe DLL 名稱不合法：'libstdc++-6.dll'
+libtesseract-5.dll DLL 名稱不合法：'libstdc++-6.dll'
+libicuuc78.dll DLL 名稱不合法：'libstdc++-6.dll'
+libLerc.dll DLL 名稱不合法：'libstdc++-6.dll'
+libicuin78.dll DLL 名稱不合法：'libstdc++-6.dll'
+libgraphite2.dll DLL 名稱不合法：'libstdc++-6.dll'
+libharfbuzz-0.dll DLL 名稱不合法：'libstdc++-6.dll'
+libcairo-2.dll DLL 名稱不合法：'libstdc++-6.dll'
