@@ -1,0 +1,7 @@
+{
+  "kind": "fixed-windows-minimal",
+  "evidence_sha256": "2d50e622ea9eb26e78caf8a4fb42b0ca0ee8d51d90b7d148c43478611b3cebca",
+  "source_contract_sha256": "76d21f28442a2cb0e72e54928e976f110c0c3386661ef5700cf78d3fc6ed45da",
+  "upstream_version": "5.5.3",
+  "windows_executed": false
+}

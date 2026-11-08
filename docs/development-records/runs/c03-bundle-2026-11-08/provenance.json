@@ -1,0 +1,32 @@
+{
+  "recorded_at": "2026-11-08T09:49:44.872830+00:00",
+  "source_version": "0.13.0",
+  "baseline_commit": "f256524e7cfecafd67f2a8e9041cbe847cd93b21",
+  "source_files": {
+    "src/desktop_app/bundled_ocr.py": "3e821c8405e13e33cc68c210caa20725188f33a7833236baba59494bb7feefa7",
+    "src/desktop_app/build_profile.py": "3f0196e8b1148bc8fd5deafc37ea4447c8d8eeeec8a84bb34f4b4b96dcac8837",
+    "src/desktop_app/diagnostics.py": "cd94b49b2ef83cad2e5a49880e65e68041133c11e474434719615cae752f68d2",
+    "src/desktop_app/desktop.py": "47ed62890241901d8f6afe82dec6057fa790a63ed063140b55c5abd116e9f57d",
+    "src/desktop_app/model_dialog.py": "7d80be2cf6b2677be1e12b25ddc4c94868458c7c4d8c802159a5b8b7c850e57a",
+    "src/desktop_app/onboarding/service.py": "477749c04bfd2843f93b627dc4886106eb43a6526570f4980cf1391f5d83744c",
+    "src/desktop_app/pdf_pipeline.py": "e67af5fea41f54edb0eca057bbfe64ef02043c3fdba228cfb449f5ac24c1bab0",
+    "src/desktop_app/data/user-guide.md": "cd19f47a6872e660672a14ad3ce21541dc0e32943cab7786ce4d793f0a329220",
+    "scripts/prepare_bundled_ocr.py": "13a331bf905837941864b4ee0280126a1e52d6af37a7e8a55844a1c30d454799",
+    "scripts/prepare_base_assets.py": "a84135d5103d940a8fa0758af69de22689d0a41adafd351405c20ba0c4707fcb",
+    "scripts/check_bundled_base.py": "02ff5f023cbc1aca07cb2c31f280355d51d5a14c5c20cffb930e97864110af4f",
+    "packaging/base.spec": "6bde750f91dbf3a15fa375028333293b4d1f1458f9cbbda6fb6e64847d7b9afc"
+  },
+  "source_kind": "same_commit",
+  "excluded_prepared_binary_files": [
+    "native/bin/tesseract",
+    "native/tessdata/chi_tra.traineddata",
+    "native/tessdata/eng.traineddata",
+    "native/tessdata/jpn.traineddata",
+    "native/tessdata/kor.traineddata"
+  ],
+  "excluded_bundle_binary": true,
+  "original_fixed_models_unchanged": true,
+  "windows_executed": false,
+  "gpu_executed": false,
+  "scope": "Actual Linux frozen development engine 5.5.0 plus fixed four models; Windows 5.5.3 payload static only; Qt source test uses explicit asset-root override"
+}

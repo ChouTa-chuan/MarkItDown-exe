@@ -6,15 +6,15 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.12.0**，完成最小 Windows OCR 候選與來源／原文準備；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.13.0**，基本包接入內含四語 OCR、自動路徑與完整離線自檢；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
-| 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C03 四語／最小原生來源兩項、C04 兩項、C09 三項子檢核完成，完整項仍待基本包 |
-| 功能測試基線 | **499 通過、1 項 ONNX 繁體品質預期失敗** |
+| 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C03 四語／原生來源／Linux 內含整包三項、C04 兩項、C09 三項子檢核完成，完整項仍待基本包 |
+| 功能測試基線 | **526 通過、1 項 ONNX 繁體品質預期失敗** |
 
 ## 模組架構封面
 
-綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08／C10 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；C10 已接逐頁需求、文件租約與提交重驗；C04 已驗基本依賴與 Linux frozen 核心自檢，完整原生包仍保留虛線；C03 已加入四語模型／選擇與本機辨識，舊 installer 的 32 DLL 證據缺口保留；另完成單一 EXE 的最小靜態候選與原文來源，Windows 執行及基本包仍待驗。Windows／GPU 仍須各自驗證。
+綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08／C10 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；C10 已接逐頁需求、文件租約與提交重驗；C04 已驗基本依賴與 Linux frozen 核心自檢，完整原生包仍保留虛線；C03 已加入四語模型／選擇與本機辨識，基本包新增內含四語與預設解析，Linux frozen 完整 OCR 已驗；Windows 固定最小候選與四語資料包僅完成靜態組裝，實機仍待驗。Windows／GPU 仍須各自驗證。
 
 [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
@@ -31,13 +31,13 @@ flowchart TD
     end
     subgraph Planned["新架構：基本包＋選配元件管理"]
         COMPONENTUI["元件管理介面：版本／容量／授權／背景維護"]
-        FIRST["四語基本包自帶引擎：待 C03／C04"]
+        FIRST["Windows 四語完整基本包：待原生建置與實機"]
         PROFILE["基本依賴已拆分：38 runtime／47 Linux、49 Windows build"]
-        PROFILEBUILD["Linux 基本核心：獨立程式／依 profile 自檢"]
+        PROFILEBUILD["Linux 基本包：內含四語／core 與 full 自檢"]
         FIRSTFLOW["首次流程已實作：RAM／保留偏好／離線檢查／完成標記"]
         COMPONENTS["元件基礎：契約／登錄／完整性驗證"]
         CAPABILITY["能力解析：相容／依賴／健康檢查"]
-        NATIVEASSETS["舊候選來源檢查：32 DLL 證據未齊，保留阻擋"]
+        BUNDLED["內含 OCR：自動路徑／搬移／完整性／只讀模型"]
         MINIMALBUILD["最小原生候選：單一 EXE／來源原文已備；Windows 待驗"]
         LANGUAGES["Tesseract 四語：單語／混合選擇／固定模型"]
         ROUTE["精準 PDF 按頁需求：原生／空白／受管 OCR"]
@@ -71,7 +71,9 @@ flowchart TD
     FIRSTFLOW --> PREFS
     PROFILE --> PROFILEBUILD
     MINIMALBUILD -.-> FIRST
-    NATIVEASSETS -.-> FIRST
+    UI --> BUNDLED
+    BUNDLED --> OCR
+    BUNDLED -.-> FIRST
     PROFILEBUILD -.-> FIRST
     FIRST -.-> FIRSTFLOW
     PREFS --> ROUTE
@@ -79,7 +81,7 @@ flowchart TD
     OPTIONAL -.-> QUALITY
     classDef existing fill:#e8f7f3,stroke:#21856d,color:#153c31;
     classDef foundation fill:#e8efff,stroke:#4c6fb8,color:#203c77;
-    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI,FIRSTFLOW,ROUTE,PROFILE,PROFILEBUILD,LANGUAGES,NATIVEASSETS,MINIMALBUILD foundation;
+    class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI,FIRSTFLOW,ROUTE,PROFILE,PROFILEBUILD,LANGUAGES,BUNDLED,MINIMALBUILD foundation;
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
     class FIRST,OPTIONAL planned;
@@ -95,8 +97,8 @@ flowchart TD
 | 能力解析 | 重新核對元件相容性、依賴、實檔及可信健康探針 | C01 已驗收；C07／C10 在 OCR 頁重新驗證、固定版本與能力，原生／空白頁不要求 OCR 元件 |
 | 設定與遷移 | v1–v6 讀取、v7 語言／偏好、原文備份及未來設定保護 | C02 基礎沿用；C03 新增語言順序，舊預設／路徑保留 |
 | 四語模型與選擇 | 固定繁中／英／日／韓模型、明確語言與混合解碼 | C03 子檢核 138/138＋本機 10 項，完整 Windows 原生包待驗 |
-| 舊 installer 來源檢查 | 固定官方 hash、AMD64 PE 閉包、逐檔原文及封裝阻擋 | 機制 64/64＋真實靜態 7 項；56 檔／34 閉包，32 DLL 證據待補，C03 未關閉 |
 | 最小原生來源建置 | 四項固定原始碼、靜態連結、runtime 原文與來源 receipt | C03 第二項：86/86＋真實來源 8 項；單一 Windows x64 EXE 無第三方 DLL 靜態相依，未執行 Windows |
+| 內含四語與自動路徑 | 離線驗固定模型／引擎、搬移後解析、只讀模型管理與真正完整自檢 | C03 第三項：185/185＋Linux frozen 12 項、source Qt 3 項；Windows 僅資料包靜態 |
 | 首次精靈 | 基本引擎檢查、RAM 建議與完成紀錄 | C09 流程／RAM 子檢核完成；基本包自帶 OCR 待 C03／C04，C09 全項未關閉 |
 | 元件與更新服務 | 描述、登錄、下載、驗證、修復、移除及回復 | C01／C02 沿用，C05 下載、C06 安裝維護 API 完成；C08 背景管理完成；正式目錄與 Windows 仍待後續 |
 | 基本版依賴 profile | 執行／建置閉包、平台 marker、原版 hash 與既有授權引用 | 依賴子檢核沿用；基本 frozen／自檢 86/86＋獨立程式 7 項／公開 PDF 5 項，完整 native／Windows 待驗 |
@@ -109,7 +111,7 @@ flowchart TD
 - RAM 自動／手動預算、系統保留量與 CPU 執行緒設定，降低與其他工作競爭；屬軟性預算。
 - 模型版本與完整性驗證、離線手冊及第三方授權清單。
 
-**新版發行目標**：基本包內含 Python、必要依賴、Windows Tesseract 與繁中／英／日／韓模型，安裝後離線可用；額外語言、ONNX／GPU 與進階模型由程式內按需管理。C07 已證明 Linux CPU 選配可在沒有 OCR 套件的控制端運作；完整開發包仍含 ONNX，C04 已完成 Python 依賴拆分與 Linux frozen 核心／自檢，基本環境仍因 Magika 保留 ONNX Runtime；完整自檢會指出缺少原生 OCR。最小 Windows 原生候選已交叉建置及備妥來源／原文；基本包內含整合、完整 profile 與 Windows 執行驗收尚未完成。
+**新版發行目標**：基本包內含 Python、必要依賴、Windows Tesseract 與繁中／英／日／韓模型，安裝後離線可用；額外語言、ONNX／GPU 與進階模型由程式內按需管理。C07 已證明 Linux CPU 選配可在沒有 OCR 套件的控制端運作；完整開發包仍含 ONNX，C04 已完成 Python 依賴拆分與 Linux frozen 核心／自檢，基本環境仍因 Magika 保留 ONNX Runtime；完整自檢會指出缺少原生 OCR。最小 Windows 原生候選與四語 payload 已靜態組裝；Linux 基本包已內含引擎／四語與完整自檢，Windows 原生建置／執行及各 profile 完整驗收仍待完成。
 
 預設仍是 Tesseract。ONNX OCR 為實驗性選配，繁體樣本有已知漏字／字形問題；GPU 偵測不等於可用，也不保證提高準確度。表格與閱讀順序有驗收範圍，圖表、公式及任意混排仍需後續擴充。
 
@@ -121,6 +123,7 @@ flowchart TD
 - [開發進度與驗證範圍](docs/development-status.md)
 - [互動進度頁：里程碑／模組／元件導入](docs/progress.html)（下載後可離線開啟）
 - [基本包與選配元件決策](docs/decisions/0002-base-and-optional-components.md)
+- [C03 內含四語基本包、自動路徑與離線自檢](docs/bundled-base.md)
 - [C03 最小 Windows 候選、離線建置與來源準備](docs/minimal-native-build.md)
 - [C03 Windows 原生來源、DLL 與授權門檻](docs/windows-native-intake.md)
 - [C03 四語模型、語言選擇與驗收範圍](docs/four-language-ocr.md)

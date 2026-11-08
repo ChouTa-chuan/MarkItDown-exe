@@ -166,6 +166,12 @@ RAM 與 GPU arena 為軟性預算，不保證瞬間不超量或其他作業完�
 
 保留舊 installer 的 32 DLL 證據缺口及封裝阻擋，另以固定 Tesseract／Leptonica／libpng／zlib 來源和具發布 digest 的 LLVM-MinGW 工具鏈，完成 Linux 離線交叉建置、單一 x64 EXE、無第三方 DLL 靜態相依的候選。建置工具驗實際設定標頭、linker 26 項輸入與 runtime 原文／來源，沒有修改上游、執行 PE 或切換主程式 profile。來源／原文準備子檢核已驗，C03 為 2/4；最終再散布、四語整包與 Windows 執行仍待後續。詳見[最小原生建置契約](minimal-native-build.md)，C04 2/4、C09 3/4、完整 7/12 不變。
 
+### 內含四語與離線自檢（0.13.0）
+
+新增固定 payload 組裝與 `bundled_ocr.py` 唯讀解析，build profile schema 2 明列內含模型／入口／原文 hash。OCR 頁及首次設定自動使用同平台內含引擎，明確自備引擎／目錄保留；保存自動設定不寫絕對安裝路徑，內含模型只讀。舊 schema 1 core 缺引擎拒絕及無 profile 的來源行為保持。
+
+C03 第三項已在 Linux frozen 真正驗內含四語健康／掃描、搬移、缺／損檔與替換拒絕，C03 3/4。Windows 5.5.3 固定候選與四語資料包僅靜態組裝，Linux 複製的 5.5.0 引擎不當成 Windows 成功。core 自檢與 full 真實 OCR、產品發行各自區分，C04 2/4、C09 3/4、完整 7/12 不變。詳見[內含基本包契約](bundled-base.md)。
+
 ## 八、元件安裝、修復與更新生命週期
 
 ```text
@@ -249,7 +255,7 @@ Linux 可先完成契約、元件事務、下載與協定測試；PowerShell Lin
 | --- | --- | --- | --- |
 | A 基礎 | C01 元件／能力／版本契約與登錄（已完成） | Linux 43/43：相容性、狀態、依賴、能力解析與持久化，下載完成不等於 ready | 0、1、4 |
 | A 基礎 | C02 舊模型 adapter 與設定遷移（已完成） | Linux 61/61：設定 v6／備份、登錄 schema 2、外部只讀、原下載／桌面／轉換回歸，未接管資料不移除 | 1、2、4 |
-| B 基本包 | C03 Windows 基本 Tesseract 與四語離線 OCR（部分完成） | 四語模型／選擇本機子檢核已驗；四語＋最小原生來源準備 2/4：86/86＋實際來源 8/8；舊候選 32 DLL 缺口保留，四語整包與 Windows 待驗 | 0、3、5 |
+| B 基本包 | C03 Windows 基本 Tesseract 與四語離線 OCR（部分完成） | 四語模型／選擇本機子檢核已驗；四語＋來源＋Linux 內含整包 3/4：185/185＋frozen 12／source Qt 3 項；Windows 四語 payload 僅靜態，原生建置／實機待驗 | 0、3、5 |
 | B 基本包 | C04 profile 鎖定、打包與自我檢查（部分完成） | 基本依賴與 Linux frozen 核心／自檢 2/4 子檢核；86/86＋真正程式 7／公開 PDF 5，完整 native／Windows 待驗 | 0、5 |
 | C 元件服務 | C05 可信目錄與可恢復下載（已完成） | Linux 41/41＋HTTPS 6/6：簽章／來源、取消、限次重試、Range／ETag、離線匯入與損毀拒絕 | 4 |
 | C 元件服務 | C06 交易安裝、鎖、修復與移除（已完成） | Linux 92/92：staging、原子啟用、真實程序退出恢復、版本回復、使用租約與快取配額；C07 已接真實 CPU／guard，C10 已接整份文件租約與提交重驗 | 1、4、5 |

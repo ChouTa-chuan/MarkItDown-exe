@@ -1,0 +1,48 @@
+"""真實 Qt 與內含資產接線；asset root 測試覆寫只供 source Qt，非 frozen／Windows GUI 驗收。"""
+from pathlib import Path
+import json,tempfile
+from dataclasses import replace
+from unittest.mock import patch
+from threading import Event
+from PySide6.QtWidgets import QApplication
+from PySide6.QtCore import QTimer
+from desktop_app import build_profile
+from desktop_app.desktop import Window as MainWindow
+from desktop_app.model_dialog import ModelDialog
+from desktop_app.onboarding.service import SetupSession
+from desktop_app.settings import Settings,save_settings,load_settings
+from desktop_app.bundled_ocr import ORIGIN
+out=Path('/workspace/markitdown-c03-bundle-qt-ui');out.mkdir(exist_ok=False)
+root=Path('/workspace/markitdown-c03-bundle-dist-ui/MarkItDownBase/_internal/desktop_app/data')
+app=QApplication([]);checks=[];errors=[]
+with tempfile.TemporaryDirectory(prefix='markitdown-bundle-ui-') as temporary,patch.object(build_profile,'data_root',return_value=root):
+ path=Path(temporary)/'settings.json';save_settings(Settings(onboarding_version=1),path)
+ window=MainWindow(settings_path=path);window.show();app.processEvents()
+ def inspect_dialog():
+  dialogs=[widget for widget in app.topLevelWidgets() if isinstance(widget,ModelDialog)]
+  try:
+   assert len(dialogs)==1
+   dialog=dialogs[0];assert dialog.directory==root/'native/tessdata'
+   observation=dialog.adapter.observe();assert all(state=='valid' for _,state in observation.states)
+   assert not dialog.download.isEnabled() and not dialog.remove_button.isEnabled()
+   dialog.grab().save(str(out/'bundled-models.png'));checks.append('Actual Qt model manager displays all bundled model hashes as read-only; download/removal disabled')
+  except BaseException as exc:errors.append(repr(exc))
+  finally:
+   for dialog in dialogs:dialog.close()
+ QTimer.singleShot(100,inspect_dialog);window.manage_models();assert not errors,errors
+ window.grab().save(str(out/'desktop-auto-paths.png'));window.close();app.processEvents()
+ first=Path(temporary)/'new/settings.json';session=SetupSession(first)
+ report=session.inspect(Event());assert report.engine.ready,report.engine.message
+ assert report.engine.origin==ORIGIN and len(report.engine.samples)==4
+ checks.append('Actual source setup probes all four bundled native health samples without explicit paths or downloads')
+ result=session.complete(report,apply_engine=True,apply_ram=True)
+ assert result.ocr_executable is None and result.ocr_data_dir is None
+ assert load_settings(first)==result and not SetupSession(first).due
+ checks.append('Actual first-run save keeps relocatable automatic paths and does not repeat onboarding')
+ (out/'setup-observation.json').write_text(json.dumps(dict(ready=report.engine.ready,origin=report.engine.origin,
+   version=report.engine.version,languages=report.engine.languages,samples=report.engine.samples,
+   saved_settings=json.loads(first.read_text())),ensure_ascii=False,indent=2)+'\n')
+(out/'acceptance.json').write_text(json.dumps(dict(source_version='0.13.0',accepted=True,checks_passed=len(checks),checks=checks,
+  scope='Installed source Qt with actual frozen asset root override for this test; native Linux engine; not frozen GUI or Windows execution',
+  windows_executed=False,gpu_executed=False),ensure_ascii=False,indent=2)+'\n')
+print('Source Qt/first-run checks passed',len(checks))

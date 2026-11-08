@@ -88,6 +88,10 @@ def probe_engine(settings, directory, cancel, check=lambda:None, *, which=shutil
     version=''; languages=(); samples=[]
     try:
         check()
+        from ..bundled_ocr import bindings, ORIGIN, LANGUAGES
+        executable, data, bundled_origin = bindings(executable, data)
+        if bundled_origin is not None:
+            origin = bundled_origin
         if executable is not None:
             candidate=Path(executable)
             executable=str(candidate.absolute()) if candidate.is_file() else which(executable)
@@ -109,7 +113,7 @@ def probe_engine(settings, directory, cancel, check=lambda:None, *, which=shutil
         check()
         language_text=native_command([executable,'--list-langs',*data_args],cancel,timeout=5)
         languages=tuple(sorted(set(line.strip() for line in language_text.splitlines()[1:] if line.strip())))
-        required=settings.ocr_languages or ('chi_tra','eng')
+        required=LANGUAGES if bundled_origin and settings.ocr_data_dir is None else settings.ocr_languages or ('chi_tra','eng')
         if not set(required)<=set(languages): raise RuntimeError('缺少所選 OCR 語言：'+'、'.join(name for name in required if name not in languages)+'；未自動下載或改成其他引擎。')
         from PIL import Image
         from ..pdf_pipeline import _normalize_ocr_image
@@ -128,7 +132,7 @@ def probe_engine(settings, directory, cancel, check=lambda:None, *, which=shutil
                     prepared,dpi=_normalize_ocr_image(image,144)
                     try: prepared.save(source)
                     finally: prepared.close()
-                selected=language if settings.ocr_languages is not None else '+'.join(required)
+                selected=language if bundled_origin or settings.ocr_languages is not None else '+'.join(required)
                 text=native_command([executable,str(source),'stdout','-l',selected,'--dpi',str(dpi),'--psm','11',*data_args],cancel)
             if ''.join(expected.split()) not in ''.join(text.split()): raise RuntimeError('基本 OCR 合成健康樣本未達目標，請稍後重新檢查。')
             samples.append((name,text))
@@ -176,7 +180,8 @@ class SetupSession:
         if not isinstance(report,SetupReport): raise ValueError('請先完成本機檢查。')
         result=replace(self.settings,onboarding_version=max(ONBOARDING_VERSION,self.settings.onboarding_version))
         if apply_ram: result=replace(result,ram_budget_mib=None,reserve_mib=report.ram.reserve_mib)
-        if apply_engine and report.engine.ready:
+        from ..bundled_ocr import ORIGIN
+        if apply_engine and report.engine.ready and report.engine.origin != ORIGIN:
             # 即使勾選自動填入，也不取代已明確指定的引擎／目錄或 OCR 後端。
             result=replace(result,ocr_executable=result.ocr_executable if result.ocr_executable is not None else report.engine.executable,
                            ocr_data_dir=result.ocr_data_dir if result.ocr_data_dir is not None else report.engine.data_dir)

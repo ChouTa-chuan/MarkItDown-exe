@@ -1,0 +1,47 @@
+{
+  "ready": true,
+  "origin": "程式內含基本引擎",
+  "version": "tesseract 5.5.0",
+  "languages": [
+    "chi_tra",
+    "eng",
+    "jpn",
+    "kor"
+  ],
+  "samples": [
+    [
+      "worker-health.png",
+      "WORKER HEALTH CHECK 12345\n"
+    ],
+    [
+      "setup-chinese.png",
+      "繁體中文文件測試\n\n會議紀錄與資料轉換\n"
+    ],
+    [
+      "setup-japanese.png",
+      "日本語の文書変換\n\n会議の記録と資料\n\n確認番号 12345\n"
+    ],
+    [
+      "setup-korean.png",
+      "한국어 문서 변환\n\n회의 기록과 자료\n\n확인 번호 12345\n"
+    ]
+  ],
+  "saved_settings": {
+    "schema_version": 7,
+    "ram_budget_mib": null,
+    "reserve_mib": 2048,
+    "resource_wait_seconds": 30.0,
+    "ocr_executable": null,
+    "ocr_data_dir": null,
+    "device": "auto",
+    "cpu_threads": 1,
+    "ocr_backend": "tesseract",
+    "vram_budget_mib": 768,
+    "quality": "precise",
+    "onboarding_version": 1,
+    "component_preferences": [],
+    "update_channel": "stable",
+    "allow_optional_downloads": false,
+    "ocr_languages": null
+  }
+}

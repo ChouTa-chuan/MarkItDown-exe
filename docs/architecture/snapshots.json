@@ -205,6 +205,18 @@
       "source_version": "0.12.0",
       "architecture_scope": "0.4 fixed minimal cross-built native source/notice preparation accepted; Windows execution and application bundle pending",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-c03-bundled-ocr.md",
+      "title": "架構 v0.4：C03 內含四語 OCR 與離線自檢",
+      "diagram_sha256": "ff67c266cb5a845c53d6f23aa49cae8fca522f45686de89c577a489d205f817f",
+      "file_sha256": "69432236bfcafc28d7088e85e38ee46dd0bb3eb9348c846ba23c5060633dd003",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_description": "程式 0.13.0 與首頁圖一併提交；C03 Linux 內含整包 3/4，Windows 靜態 payload 已備、未執行",
+      "source_version": "0.13.0",
+      "architecture_scope": "0.4 embedded native/four-model Linux frozen subcheck accepted; Windows payload static and execution/installer pending",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-08"

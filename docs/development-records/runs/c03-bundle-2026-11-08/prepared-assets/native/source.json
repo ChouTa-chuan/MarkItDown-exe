@@ -1,0 +1,6 @@
+{
+  "kind": "linux-development-system",
+  "version": "tesseract 5.5.0",
+  "engine_sha256": "74b76a5b994adcc18be362bf64ed5118082b2401d5d9a35242e92fc4c62e2b4b",
+  "scope": "Existing Linux engine copied into development bundle; dependent library origins collected by PyInstaller Analysis. Not the Windows candidate."
+}

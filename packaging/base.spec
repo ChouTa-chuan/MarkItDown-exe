@@ -1,4 +1,4 @@
-# C04 基本核心開發包；Windows 必須原生建置，尚缺 C03，不是完整基本版發行。
+# C04 基本開發包；可帶同平台四語 OCR，Windows 仍須原生建置與驗收。
 from pathlib import Path
 import os
 import sys
@@ -20,7 +20,17 @@ datas, binaries, hiddenimports = collect_all('magika')
 hiddenimports += collect_submodules('markitdown')
 for name in [*profile['runtime_packages'], 'markitdown-desktop', 'markitdown']:
     datas += copy_metadata(name)
-datas += [(str(assets), 'desktop_app/data'), (str(root/'THIRD_PARTY_NOTICES'), '.')]
+if profile['native_ocr_integrated']:
+    from desktop_app.bundled_ocr import validate_payload
+    native = validate_payload(assets/'native', expected_platform=profile['platform'], assets=profile['assets'])
+    engine = assets/'native'/native['entrypoint']
+    # 原生入口交由 BINARY dependency analysis；不要再以 DATA 重複收集。
+    binaries += [(str(engine), 'desktop_app/data/native/bin')]
+    datas += [(str(p), 'desktop_app/data/'+p.parent.relative_to(assets).as_posix())
+              for p in assets.rglob('*') if p.is_file() and p != engine]
+else:
+    datas += [(str(assets), 'desktop_app/data')]
+datas += [(str(root/'THIRD_PARTY_NOTICES'), '.')]
 analysis = Analysis([str(root/'packaging/desktop_entry.py')], pathex=[str(root/'src')],
     binaries=binaries, datas=datas, hiddenimports=hiddenimports,
     excludes=['rapidocr_onnxruntime','cv2','pyclipper','shapely','yaml','docx','reportlab',
@@ -32,5 +42,6 @@ refresh_manifest(assets)
 analysis.datas += [('desktop_app/data/'+p.relative_to(assets).as_posix(),str(p),'DATA')
                   for p in native_root.rglob('*') if p.is_file()]
 pyz = PYZ(analysis.pure)
-exe = EXE(pyz, analysis.scripts, [], exclude_binaries=True, name='MarkItDownBaseCore', console=True, upx=False)
-bundle = COLLECT(exe, analysis.binaries, analysis.datas, name='MarkItDownBaseCore', upx=False)
+name = 'MarkItDownBase' if profile['native_ocr_integrated'] else 'MarkItDownBaseCore'
+exe = EXE(pyz, analysis.scripts, [], exclude_binaries=True, name=name, console=True, upx=False)
+bundle = COLLECT(exe, analysis.binaries, analysis.datas, name=name, upx=False)

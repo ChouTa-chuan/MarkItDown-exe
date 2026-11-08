@@ -1,10 +1,10 @@
 {
-  "recorded_at": "2026-11-08T09:07:04.430147+00:00",
+  "recorded_at": "2026-11-08T09:40:49.201518+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 500,
-    "passed": 499,
+    "run": 527,
+    "passed": 526,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0
@@ -151,7 +151,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.12.0",
+  "source_version": "0.13.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -179,7 +179,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C10 requires exact active component/version/capability on OCR pages and revalidates leased health; original C01 report retained"
   },
-  "current_run_scope": "0.12.0 fixed minimal Windows candidate cross-built offline on Linux from four pinned source archives and a published-digest toolchain; source/notice preparation and PE/config/linker evidence accepted. No Windows PE execution, OCR, application profile integration, installer, GPU or redistribution acceptance.",
+  "current_run_scope": "0.13.0 embedded same-platform native OCR/four models, automatic path resolution, relocation and source settings preservation. Actual Linux frozen full self-test/CLI and separate source Qt checks; Windows fixed minimal candidate assembled statically only. No Windows execution, installer, GPU or release acceptance.",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -478,6 +478,34 @@
     "windows_executed": false,
     "gpu_executed": false,
     "frozen_rebuilt": false,
-    "evidence": "development-records/runs/c03-minimal-source-2026-11-08/README.md"
+    "evidence": "development-records/runs/c03-minimal-source-2026-11-08/README.md",
+    "historical_source_version": "0.12.0"
+  },
+  "bundled_base": {
+    "check": "C03-bundle",
+    "linux_bundle_subcheck_accepted": true,
+    "acceptance_tests": 185,
+    "new_tests": 27,
+    "actual_linux_frozen_checks": 12,
+    "actual_source_qt_checks": 3,
+    "settings_schema": 7,
+    "build_profile_schema": 2,
+    "linux_native_version": "5.5.0",
+    "windows_native_version": "5.5.3",
+    "windows_payload_static": true,
+    "windows_executed": false,
+    "gpu_executed": false,
+    "linux_native_ocr_bundled": true,
+    "linux_full_self_test_passed": true,
+    "automatic_paths_and_relocation": true,
+    "explicit_engine_and_model_preferences_preserved": true,
+    "read_only_bundled_model_management": true,
+    "c03_subchecks_passed": 3,
+    "c03_subchecks_total": 4,
+    "full_c03_complete": false,
+    "full_c04_complete": false,
+    "full_c09_complete": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/c03-bundle-2026-11-08/README.md"
   }
 }

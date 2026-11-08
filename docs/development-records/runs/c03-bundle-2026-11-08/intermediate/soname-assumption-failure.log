@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/MarkItDown-exe/scripts/check_bundled_base.py", line 163, in <module>
+    check(args.executable, args.fixtures, args.windows_payload, args.output)
+  File "/workspace/MarkItDown-exe/scripts/check_bundled_base.py", line 126, in check
+    assert re.search(r'calling init:\s+' + re.escape(str(relocated/'_internal'/library)), loader.stderr), library
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: liblept.so.5

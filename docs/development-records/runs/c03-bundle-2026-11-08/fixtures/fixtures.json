@@ -1,0 +1,60 @@
+[
+  {
+    "file": "中文.txt",
+    "expected": [
+      "# 繁體中文基本版",
+      "原文保留 12345"
+    ],
+    "sha256": "b4775f238e2a0f9073e16985aae3476d17575215e34c50116c0b345bd771aeb0"
+  },
+  {
+    "file": "網頁.html",
+    "expected": [
+      "# 基本版標題",
+      "測試內文 12345"
+    ],
+    "sha256": "431f74e4715d63176fcdc5755aec2a95cd278298d6cd87e6246d3fbb02ad5319"
+  },
+  {
+    "file": "文件.docx",
+    "expected": [
+      "# 基本版文件",
+      "繁體內容 12345",
+      "項目",
+      "金額",
+      "123"
+    ],
+    "sha256": "807b1dbc26d265fe4bfdcb34d344bb032f025a32637750fd17814735c6f16e17"
+  },
+  {
+    "file": "資料.xlsx",
+    "expected": [
+      "工作表",
+      "名稱",
+      "產品",
+      "42"
+    ],
+    "sha256": "a9335564264747ee56a79d950f71fcb2841bbc0c21a5f5e220c3cc14800b95f6"
+  },
+  {
+    "file": "簡報.pptx",
+    "expected": [
+      "基本版簡報",
+      "簡報內容 12345"
+    ],
+    "sha256": "0e4fea70ba619b9206a74965942b44d36956ed3dd948c41695ff436a81fbef17"
+  },
+  {
+    "file": "原生.pdf",
+    "expected": [
+      "INSTALLATION PDF CHECK 12345",
+      "route: native"
+    ],
+    "sha256": "f2cb2d51513bbab1740beb333f394db0bf242d1a9e56f64f1d49c50c8e1a9b99"
+  },
+  {
+    "file": "掃描.pdf",
+    "expected": [],
+    "sha256": "aac34267aae18246382d5e5d9c63d71c60c28d43ba261c371bfc5fc6ab2d109a"
+  }
+]

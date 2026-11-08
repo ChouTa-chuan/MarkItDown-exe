@@ -34,6 +34,8 @@ def decide_page(number, text, image_coverage):
 def _run_ocr(image, checkpoint, progress, dpi, executable=None, data_dir=None, *, languages=None):
     from .languages import validate_languages
     validate_languages(languages)
+    from .bundled_ocr import bindings
+    executable, data_dir, _ = bindings(executable, data_dir)
     executable = executable or shutil.which("tesseract")
     if not executable:
         raise RuntimeError("本頁需要 OCR，但找不到 Tesseract；請安裝 OCR 元件後重試。")

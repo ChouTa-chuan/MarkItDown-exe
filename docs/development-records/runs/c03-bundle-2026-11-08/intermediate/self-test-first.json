@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-08T09:28:55.744549+00:00",
+  "platform": "Linux",
+  "architecture": "x86_64",
+  "python": "3.12.14",
+  "frozen": true,
+  "external_python_required": false,
+  "checks": [
+    {
+      "name": "offline_help_and_licenses",
+      "outcome": "passed",
+      "detail": "基本版資產 283 份、實際安裝授權 40 個套件"
+    },
+    {
+      "name": "base_runtime_integrity",
+      "outcome": "passed",
+      "detail": "38 個固定 runtime；未帶 RapidOCR／OpenCV／測試產生工具"
+    },
+    {
+      "name": "unicode_text_spawn",
+      "outcome": "passed",
+      "detail": "Unicode path, exact UTF-8 bytes, spawned worker"
+    },
+    {
+      "name": "native_pdf_spawn",
+      "outcome": "passed",
+      "detail": "PDF native parser and spawned worker"
+    },
+    {
+      "name": "bundled_tesseract_four_language",
+      "outcome": "passed",
+      "detail": {
+        "version": "tesseract 5.5.0",
+        "languages": [
+          "chi_tra",
+          "eng",
+          "jpn",
+          "kor"
+        ],
+        "health_samples": 4,
+        "scanned_pdfs": 4,
+        "scope": "Bundled native CPU, fixed generated samples only; no general accuracy or GPU claim"
+      }
+    }
+  ],
+  "scope": "Generated samples, CPU only; no general quality, GPU or human desktop acceptance",
+  "tesseract_bundled": true,
+  "profile": "base",
+  "requested_scope": "full",
+  "release_ready": false,
+  "full_c04_complete": false,
+  "complete": true,
+  "core_complete": true,
+  "native_ocr_required": true,
+  "native_ocr_integrated": true,
+  "native_ocr_verified": true
+}

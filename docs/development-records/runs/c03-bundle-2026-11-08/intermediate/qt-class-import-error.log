@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/tmp/markitdown-bundle-qt.py", line 10, in <module>
+    from desktop_app.desktop import MainWindow
+ImportError: cannot import name 'MainWindow' from 'desktop_app.desktop' (/workspace/markitdown-clean-venv/lib/python3.12/site-packages/desktop_app/desktop.py). Did you mean: 'QMainWindow'?

@@ -1,0 +1,147 @@
+{
+  "recorded_at": "2026-11-08T09:39:13.326261+00:00",
+  "source_version": "0.13.0",
+  "check": "C03-bundle-actual",
+  "accepted": true,
+  "checks_passed": 12,
+  "checks": [
+    "Native schema-v2 profile and complete four-language payload verified after relocation",
+    "Frozen core passes without external Python and does not claim OCR execution",
+    "Full frozen self-test executes all four native health samples and scanned PDFs",
+    "All original core fixtures plus scanned PDF convert with empty PATH and model environment",
+    "Japanese/Korean CLI use automatically relocated native paths and preserve user settings bytes",
+    "Entire application copied to a Chinese directory and used from an unrelated working directory",
+    "Missing required model refuses OCR without output or fallback while plain text still converts",
+    "Changed model hash is rejected before native OCR; no partial output",
+    "A substituted host-engine symlink cannot bypass the embedded native contract",
+    "Absent optional ONNX remains explicit failure without automatic backend replacement",
+    "Native loader resolves Tesseract and Leptonica libraries inside the relocated bundle",
+    "Fixed Windows minimal EXE, all four models and original notices statically assembled; no PE execution"
+  ],
+  "invocations": [
+    {
+      "label": "core-self-test",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "full-self-test",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "中文.txt",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "網頁.html",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "文件.docx",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "資料.xlsx",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "簡報.pptx",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "原生.pdf",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "掃描.pdf",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "jpn-cli",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "kor-cli",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "missing-model",
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "label": "text-with-missing-model",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "corrupt-model",
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "label": "linked-engine",
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "label": "optional-missing",
+      "returncode": 1,
+      "expected": 1
+    }
+  ],
+  "results": [
+    {
+      "file": "中文.txt",
+      "converted": true
+    },
+    {
+      "file": "網頁.html",
+      "converted": true
+    },
+    {
+      "file": "文件.docx",
+      "converted": true
+    },
+    {
+      "file": "資料.xlsx",
+      "converted": true
+    },
+    {
+      "file": "簡報.pptx",
+      "converted": true
+    },
+    {
+      "file": "原生.pdf",
+      "converted": true
+    },
+    {
+      "file": "掃描.pdf",
+      "converted": true
+    }
+  ],
+  "frozen": true,
+  "path_empty": true,
+  "model_environment_empty": true,
+  "linux_native_ocr_verified": true,
+  "windows_payload_static": true,
+  "windows_executed": false,
+  "gpu_executed": false,
+  "full_c03_complete": false,
+  "full_c04_complete": false,
+  "full_c09_complete": false,
+  "release_ready": false,
+  "bundle_files": 1260,
+  "bundle_bytes": 386862290,
+  "scope": "Actual Linux frozen development engine/4 models; Windows candidate static only. No Windows installation, GPU or general accuracy acceptance"
+}

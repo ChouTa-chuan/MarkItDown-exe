@@ -129,7 +129,7 @@ class Window(QMainWindow):
         self.cpu_threads.setToolTip("限制支援 OpenMP／BLAS 的工作程序；不是整個系統的 CPU 百分比上限。")
         form.addRow("CPU 執行緒上限", self.cpu_threads)
         self.backend = QComboBox()
-        self.backend.addItem("Tesseract（外部引擎）", "tesseract")
+        self.backend.addItem("Tesseract（基本／自備引擎）", "tesseract")
         self.backend.addItem("ONNX OCR（實驗性，繁體品質未達標）", "onnx")
         self.backend.addItem("雙引擎交叉核對（較慢，保留差異）", "onnx_verify")
         self.backend.addItem('受管 CPU OCR（選配、繁體品質未達標）','managed_cpu')
@@ -285,6 +285,11 @@ class Window(QMainWindow):
         directory = (Path(self.model_path.text()) if self.model_path.text().strip() else
                      legacy_directory if legacy_directory.exists() else managed_directory)
         try:
+            if not self.model_path.text().strip() and not self.ocr_engine.text().strip():
+                from .bundled_ocr import bindings
+                _, bundled_data, origin = bindings()
+                if origin is not None:
+                    directory = Path(bundled_data)  # 內含模型只讀展示，不由使用者模型服務移除。
             registry = ComponentRegistry(self.settings_path.parent / 'component-state')
             dialog = ModelDialog(directory, self, registry=registry, managed_directory=managed_directory,four_languages=True)
         except (OSError, RuntimeError, ValueError) as exc:

@@ -1,0 +1,2274 @@
+{
+  "schema_version": 1,
+  "source_version": "0.13.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-08",
+  "check": "C03-bundle",
+  "mechanism_accepted": true,
+  "full_c03_complete": false,
+  "scope": "Linux 內含四語 frozen／離線自檢子檢核；Windows 固定 payload 僅靜態，未執行 Windows／安裝包或核准發行",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 4114,
+      "sha256": "01128069ea0b6903440f126fabfd325e78ed06a38d5385f3af5577ef75aec0aa",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 16959,
+      "sha256": "1d71e27f4916b11023dc0d453afe19872d7dd6aaaaeb2f7074f1521f4127032e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "acceptance.log",
+      "bytes": 25747,
+      "sha256": "c8878eb336586369dca871ac422302863c96c1154898dcecd38f37e92f1d6cd8",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/install-base-project.log",
+      "bytes": 1269,
+      "sha256": "6b3a6ff48041b805434643e948d82d504f5a1281f1b8d19be7a76865f459e6f6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/install-project.log",
+      "bytes": 1269,
+      "sha256": "49944f1bea54fda6b7e8a6170c2137fcfe1cc0e58d251d3fca46e75e8ec0b8eb",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/linux-stage.log",
+      "bytes": 78,
+      "sha256": "6e1ed2ac798df114d4fddb74daaae9833276a67496f80ad5ef6b216a882cdd45",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/prepare-assets.log",
+      "bytes": 54,
+      "sha256": "18e8a5eac0abc60f61505ea6d72d6f666f5c0d2634e8ecbc9930eda013ef2066",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/profile-generate.log",
+      "bytes": 308,
+      "sha256": "60f4d04e67ddb2356cc4afea6ee669302d131723567341544a94a26097ec9171",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/pyinstaller.log",
+      "bytes": 16131,
+      "sha256": "e81c50c7388bad15545e3b0d0ff32847c002b735121351c75f066f41ce2716a2",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "cross-build/windows-stage.log",
+      "bytes": 81,
+      "sha256": "8e13338077d4c823eadd6c6ca767e6f67f66a63c0cbfea44acba3495b0e7cea7",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "fixtures/fixtures.json",
+      "bytes": 1376,
+      "sha256": "bc5fcead1daa5e2436632d50b3faff959fc4f4704a7024ea23f83dee9225ba59",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "fixtures/中文.txt",
+      "bytes": 44,
+      "sha256": "b4775f238e2a0f9073e16985aae3476d17575215e34c50116c0b345bd771aeb0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "fixtures/原生.pdf",
+      "bytes": 603,
+      "sha256": "f2cb2d51513bbab1740beb333f394db0bf242d1a9e56f64f1d49c50c8e1a9b99",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "fixtures/掃描.pdf",
+      "bytes": 23515,
+      "sha256": "aac34267aae18246382d5e5d9c63d71c60c28d43ba261c371bfc5fc6ab2d109a",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "fixtures/文件.docx",
+      "bytes": 36830,
+      "sha256": "807b1dbc26d265fe4bfdcb34d344bb032f025a32637750fd17814735c6f16e17",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "fixtures/簡報.pptx",
+      "bytes": 28279,
+      "sha256": "0e4fea70ba619b9206a74965942b44d36956ed3dd948c41695ff436a81fbef17",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "fixtures/網頁.html",
+      "bytes": 84,
+      "sha256": "431f74e4715d63176fcdc5755aec2a95cd278298d6cd87e6246d3fbb02ad5319",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "fixtures/資料.xlsx",
+      "bytes": 4905,
+      "sha256": "a9335564264747ee56a79d950f71fcb2841bbc0c21a5f5e220c3cc14800b95f6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/auto-settings.json",
+      "bytes": 79,
+      "sha256": "31ef08b717b0f72a2b624a2ac04998ececf17d77116f1953d9b7a32a04c803b8",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/build-profile.json",
+      "bytes": 38891,
+      "sha256": "87df4e5a77526b4e7329fde3a190890d8b37e02c6313e6ff542e95b77d10e455",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/bundle-files.json",
+      "bytes": 237715,
+      "sha256": "21fe771c16a3226f28bc53168ac1c37275d9fbfd591ca90f311d01cebda1248e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/core-self-test.json",
+      "bytes": 1194,
+      "sha256": "4a50f7b85b0fbc2c53a604396dab4177e442fd3096883f9b1c278f1be940a64f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/core-self-test.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/corrupt-model.log",
+      "bytes": 421,
+      "sha256": "473dae648191ac4e8ee5668676ecce35df913e03a57356762bf5f81288feb084",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/frozen-acceptance.json",
+      "bytes": 3710,
+      "sha256": "dc7c0d54d7f5da32cadd1bdb53a7158d0d05fba969815eaa84bb12531cbae22b",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/full-self-test.json",
+      "bytes": 1609,
+      "sha256": "8b42dde5c1d7ba1f0a4ef0c89a479ad66976a7feefe711169608e7a0516e890e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/full-self-test.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/installed-notices-manifest.json",
+      "bytes": 18179,
+      "sha256": "9715a68f44ffcd95f1ffc783ba5a59ebff86e2b2c8d6abc8786156389afa0c66",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/jpn-cli.log",
+      "bytes": 435,
+      "sha256": "35394faed889ffb7c4318cef5a202411263a313933e9b79982048c0fa2aa8400",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/jpn.md",
+      "bytes": 238,
+      "sha256": "d72ac9da3f5064078fc778f7ada9d11ee8460bb68ab25d7959b7812adb2c36ae",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/jpn.pdf",
+      "bytes": 49482,
+      "sha256": "c73f19906ba953d72587fc0083bd901a0cd66310da735df0026b45e22b7bd777",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/kor-cli.log",
+      "bytes": 435,
+      "sha256": "35394faed889ffb7c4318cef5a202411263a313933e9b79982048c0fa2aa8400",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/kor.md",
+      "bytes": 237,
+      "sha256": "a86aecac56e86b5551d41e56b965f6be94f18a375161c607bb22242f4630916a",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/kor.pdf",
+      "bytes": 39859,
+      "sha256": "4e7e4bcfe48a20832fbc33ba4f26f1cd69246026b4d9d6fbac11745dac038f00",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/linked-engine.log",
+      "bytes": 416,
+      "sha256": "676b1cb989f6adb7ca1a5a219036409a61a77349eed4ddb2f2f1418f9791d1f1",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/linux-payload.json",
+      "bytes": 1482,
+      "sha256": "bebb7e596d164be671e499cf4f804f11e3ace59d71844c717f5e640cd70a74bc",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/missing-model.log",
+      "bytes": 416,
+      "sha256": "c1915d2ac3e8722ff5bd43e7592a007114eaf4a77322bd469d043456a47d0b46",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/native-binaries-manifest.json",
+      "bytes": 71794,
+      "sha256": "8d4dbaf4c6ebfcd73c966a0f48a42c6a4246e8dce6abba42cbfc8429cebea83d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/native-loader.log",
+      "bytes": 34951,
+      "sha256": "417a4623417e4631bcb5e6482ea9074ab6bf6bf17bcf1f4385911ff1340dbadb",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/optional-missing.log",
+      "bytes": 424,
+      "sha256": "c38e533ec7c84b19ebdf66b5dc163bfd0acfcefabd0e106a05214269e865e377",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/text-with-missing-model.log",
+      "bytes": 268,
+      "sha256": "8bd32a3e685cb7595f03900f591c21c2afc303f9a681f78250a19044a7319e64",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/windows-payload.json",
+      "bytes": 4558,
+      "sha256": "01c68ead1c02e8d5e3e07cb445875ef35b269b1d4bfc6e5e9700529fd05140f3",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/中文.txt.log",
+      "bytes": 268,
+      "sha256": "8bd32a3e685cb7595f03900f591c21c2afc303f9a681f78250a19044a7319e64",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/中文.txt.md",
+      "bytes": 44,
+      "sha256": "b4775f238e2a0f9073e16985aae3476d17575215e34c50116c0b345bd771aeb0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/原生.pdf.log",
+      "bytes": 403,
+      "sha256": "7778d90ab6cfbdcb41a8469d0abff31009b084cf25018c73c691d51e6226367a",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/原生.pdf.md",
+      "bytes": 70,
+      "sha256": "234c6defe1ab5f8b10fc050f272702f5abb5505435e1bf7f8428ef822882fe6a",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/掃描.pdf.log",
+      "bytes": 394,
+      "sha256": "cee2d8134a415d8ea1c100c8284ca892782afff879789e8a011b8704085907c8",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/掃描.pdf.md",
+      "bytes": 157,
+      "sha256": "d63c57f0494a19c9613b626ca029a0a5d6c4e879c2238b6f00e354c2cbfd7d64",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/文件.docx.log",
+      "bytes": 534,
+      "sha256": "bbd79718ef0100a2a598ef1372b99215e48d8f732df47253a62186af3b29c4af",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/文件.docx.md",
+      "bytes": 97,
+      "sha256": "fe99b51fc156e2bd5d88d7b8e45dddf23f45fc6bb3cb2a88fb51ae35dd13c2c5",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/簡報.pptx.log",
+      "bytes": 534,
+      "sha256": "b2935fc029a895dbf339e1dd55393eb8d49cc9ff3a9374c68c18200de2e14972",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/簡報.pptx.md",
+      "bytes": 61,
+      "sha256": "7785061882d0df0e76f3a6c4ec180f96bd6d1f46e90d244f204a5befe85bcafa",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/純文字.md",
+      "bytes": 39,
+      "sha256": "ac213cca5748969c606e41bc79c1c2471c69b21d1db41b9d1a7eaa42068de60d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/純文字.txt",
+      "bytes": 39,
+      "sha256": "ac213cca5748969c606e41bc79c1c2471c69b21d1db41b9d1a7eaa42068de60d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/網頁.html.log",
+      "bytes": 534,
+      "sha256": "8e42d41238e0674887907506b8410b2bba41c657262812df038c767cea442510",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/網頁.html.md",
+      "bytes": 37,
+      "sha256": "84f27ae5db2d2ae49b0e7baec386f69efe9e80a140081fbc5d63436aec71e6a0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/資料.xlsx.log",
+      "bytes": 534,
+      "sha256": "74978ea209fd88496d53aaffd5264fab2c3d4bfd22a0e370c47cab46ed1ddd4f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen/資料.xlsx.md",
+      "bytes": 62,
+      "sha256": "b6e9bde9d5f94ed3c6b6dea5153e02d450b5e7285f1a2e0dd03546297bbfa354",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "frozen-driver.log",
+      "bytes": 71,
+      "sha256": "3bfe4a261e1641172014633074ea08c623fcfc8c4cf41f7815743c29e18799f0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "full-regression.log",
+      "bytes": 77414,
+      "sha256": "10bef02c935460d0df1857f47913e470a48c46dd007858ed0ca6c34950afd7ae",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 1805,
+      "sha256": "70679d5f24689ba2ef2c7ab2abc36b954c2c9a10d57a55efb6fa6f1e227d3ac1",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/core-build-first.log",
+      "bytes": 16122,
+      "sha256": "0d1a0f4daa2212ebd79597e2387689d27fbc88dd32cb60559846d04d407dd8c0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/core-build-second.log",
+      "bytes": 16151,
+      "sha256": "147aab2d033e8054b48c049ab382e2aa7b1dcd10c2a31260801296b8a8e249fb",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/frozen-12-before-custom-model-fix.json",
+      "bytes": 3710,
+      "sha256": "d77d4a5363a30d9c142d4329967d3ec6c0df8d07e678f5b55f56a4f4ca4a5a7e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/frozen-12-before-ui-resize.json",
+      "bytes": 3710,
+      "sha256": "f033cfdb6118aac24dec6db8eba9276625143f730e5a21d9179f52285c79e532",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/full-526.log",
+      "bytes": 77240,
+      "sha256": "5fd434931ec70ea4431cb621cfeca98a6628f7c3d180094e01dd7296a5ffaab7",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/initial-import-failure.json",
+      "bytes": 14579,
+      "sha256": "0056b6501187d6f622c304a880ce97b538abbc75ec58087751ef871547f1ac80",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/initial-import-failure.log",
+      "bytes": 22870,
+      "sha256": "ab7b35158e1d02a5dbf5189fc22b1a48c8a997200a62a59294afb465bced526e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/model-dialog-before-resize.png",
+      "bytes": 55109,
+      "sha256": "896e286e0b5f4acdd2903c0d56925d9cac39d2506a62f639b8bad3867d58a182",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/qt-class-import-error.log",
+      "bytes": 331,
+      "sha256": "9f55526e8424a16aa1631f5f7f5a2a599cfda89e9d6e7b119d1f689323c3d0d5",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/regression-184.json",
+      "bytes": 16853,
+      "sha256": "2dc172b1e10c1c58af351511b7854314bc1e3e76065e17c0ae7f1b25eb559eb7",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/regression-184.log",
+      "bytes": 25573,
+      "sha256": "6ac4862498eec3fb0a32d30d396a5233a7bce9154c727ee8503ede8681a6f3e2",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/self-test-first.json",
+      "bytes": 1609,
+      "sha256": "40396eec8b99616f55f858d314380c9a133c7d1cadb87a17fe387e0176f21196",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/self-test-first.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/soname-assumption-failure.log",
+      "bytes": 533,
+      "sha256": "a81ad551288ad3c31cdf69d3fdc11bada3db06bc5a3cd41f0850646c1629d2ed",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/soname-loader.log",
+      "bytes": 34951,
+      "sha256": "7f9c1b2c5cbe56d27f10c76509216abcdfa53ee9762e7421dfa251fa2c736700",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/source-qt-before-custom-model-fix.json",
+      "bytes": 600,
+      "sha256": "7c88668c70e0a05eac60385871e8f86604cfc87128c3b24559d9e44ce67c50d0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "intermediate/unit-26.log",
+      "bytes": 3661,
+      "sha256": "a8cbb6e9aa82125a30068f4b6844c0f2a81e3854454bf8901e12afe2d03ae07e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "license-verify.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "payloads/linux/manifest.json",
+      "bytes": 1482,
+      "sha256": "bebb7e596d164be671e499cf4f804f11e3ace59d71844c717f5e640cd70a74bc",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "payloads/linux/source.json",
+      "bytes": 316,
+      "sha256": "d1bb509ee71136f747441b916b9ab0585040858506ea1eb11488fdb223183a9e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "payloads/windows/manifest.json",
+      "bytes": 4558,
+      "sha256": "01c68ead1c02e8d5e3e07cb445875ef35b269b1d4bfc6e5e9700529fd05140f3",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "payloads/windows/source.json",
+      "bytes": 283,
+      "sha256": "1feb536cab9d8ddd07f14d2f74c14d7d79b3bf64be5de86e8a4bd26c9f6c06f6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/base-runtime-lock.txt",
+      "bytes": 73275,
+      "sha256": "46ae2cd301c8607a58cdface6aaa8c57565da38de6a4f5f5be7050ca1a2d453b",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/build-profile.json",
+      "bytes": 38891,
+      "sha256": "87df4e5a77526b4e7329fde3a190890d8b37e02c6313e6ff542e95b77d10e455",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/beautifulsoup4/METADATA",
+      "bytes": 3812,
+      "sha256": "b2f888103259f1607c85f3b1163be1bc49fc9941a3243c3b89a21075bfc6d4fb",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/AUTHORS",
+      "bytes": 2201,
+      "sha256": "b989238918e1fdac1e46717cb405b63e92497a272413af0d989c1df6c8abcb6f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE",
+      "bytes": 1441,
+      "sha256": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/certifi/METADATA",
+      "bytes": 2526,
+      "sha256": "e463e38f7fe7da36a11e6d3fecc5dfa5b97be8c8022620400750d79ae7d842bc",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/certifi/original/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "bytes": 989,
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/cffi/METADATA",
+      "bytes": 2527,
+      "sha256": "558bafb9093a8e790175d9ecff9688382981d744877dad86fd6770db0f4dc918",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/cffi/original/cffi-2.1.1.dist-info/licenses/LICENSE",
+      "bytes": 1123,
+      "sha256": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/charset-normalizer/METADATA",
+      "bytes": 46395,
+      "sha256": "89ce6362bb7be88558f4be99a98f5d1b4da93d19cd0323e5ee0bac05cf883dfb",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/charset-normalizer/original/charset_normalizer-3.5.2.dist-info/licenses/LICENSE",
+      "bytes": 1071,
+      "sha256": "6d0d41bfe170ac6c7dc248c9a63e254d0fb45a60d50a8257d0af92c6e249b887",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/click/METADATA",
+      "bytes": 2567,
+      "sha256": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/click/original/click-8.5.0.dist-info/licenses/LICENSE.txt",
+      "bytes": 1475,
+      "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/cobble/METADATA",
+      "bytes": 2698,
+      "sha256": "6eb2cf88cfb39b884adde1eff7d8f89f80b256572eb0c6c164d6f99943dbd49f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/cryptography/METADATA",
+      "bytes": 4394,
+      "sha256": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE",
+      "bytes": 197,
+      "sha256": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+      "bytes": 11360,
+      "sha256": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD",
+      "bytes": 1532,
+      "sha256": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/defusedxml/METADATA",
+      "bytes": 32518,
+      "sha256": "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/defusedxml/original/defusedxml-0.7.1.dist-info/LICENSE",
+      "bytes": 2409,
+      "sha256": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/et-xmlfile/METADATA",
+      "bytes": 2711,
+      "sha256": "0e97d7ea909ed0fbe03d88bc8b6f58677cee1b07bd3353ce361cd2405915204e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.python",
+      "bytes": 14688,
+      "sha256": "4ccdaaebc0f44b83720ec0399bb7ab329adce067dd62f73c5535a2dc05628ab2",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.rst",
+      "bytes": 1131,
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/flatbuffers/METADATA",
+      "bytes": 1004,
+      "sha256": "9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/idna/METADATA",
+      "bytes": 7207,
+      "sha256": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/idna/original/idna-3.20.dist-info/licenses/LICENSE.md",
+      "bytes": 1541,
+      "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/lxml/METADATA",
+      "bytes": 3279,
+      "sha256": "aad89f8107bc74045b86c9b7f7c0984196102520dd7faed5e4e45693b7c315ef",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/lxml/original/lxml-6.1.3.dist-info/licenses/LICENSE.txt",
+      "bytes": 1507,
+      "sha256": "8fc2b568133516e46845d2147917adeee1648e70ae9ab5ed6c5417afef4ce855",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/lxml/original/lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+      "bytes": 6221,
+      "sha256": "388fa99f3bde4447cd5a4cbb114037be026854db6cfe89e112691c1d8abdcf3c",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/magika/METADATA",
+      "bytes": 10647,
+      "sha256": "b54a3585962103cacdd8782eb5c72751dbdc202a300469b54782a4824e5b7143",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/mammoth/METADATA",
+      "bytes": 26193,
+      "sha256": "aa45c59d8352de6aebe3c85b991045ffdf0acbedb76237dcf48d5e8cee0d8b6d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/mammoth/original/mammoth-1.13.0.dist-info/licenses/LICENSE",
+      "bytes": 1307,
+      "sha256": "6663bbd049205d38a496ccacb412a151980b444627d38de218b3b809aef330f1",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/manifest.json",
+      "bytes": 18179,
+      "sha256": "9715a68f44ffcd95f1ffc783ba5a59ebff86e2b2c8d6abc8786156389afa0c66",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/markdownify/METADATA",
+      "bytes": 9922,
+      "sha256": "4b457b9a3b3c6e7c87277a5157f9f99588b6cf89ee16ae20c8a019c6a66f6e2b",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/markdownify/original/markdownify-1.2.3.dist-info/LICENSE",
+      "bytes": 1083,
+      "sha256": "fae8b42db142dabf03b0c5c495831a5d11b9649ead0cf0bd4ab4f52294b263be",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/markitdown/METADATA",
+      "bytes": 4982,
+      "sha256": "c3bb731d953a39542a306aff1876fbfb2220a7cad032d71cc948daadbb2efc43",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/markitdown/original/markitdown-0.1.9.dist-info/licenses/LICENSE",
+      "bytes": 1141,
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/markitdown-desktop/METADATA",
+      "bytes": 662,
+      "sha256": "4555fae207dfa29f27dde02c1409a9365f1b8d048b5aeed52456890564be87b7",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/METADATA",
+      "bytes": 6635,
+      "sha256": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy/_core/include/numpy/random/LICENSE.txt",
+      "bytes": 1018,
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy/ma/LICENSE",
+      "bytes": 1593,
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy/random/LICENSE.md",
+      "bytes": 3511,
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+      "bytes": 46794,
+      "sha256": "4860083caa0de2ac3292ca98bd074bd8f45d8b32624e37b1e70a240bff61e488",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+      "bytes": 1018,
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+      "bytes": 690,
+      "sha256": "3f2c1ffa76383a55ae0aac01c9737cd70050dff63e1f026694fbe9d662573c98",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+      "bytes": 20785,
+      "sha256": "e340270d4f64384569a91d546acb5b094d69ce47f0c015db77abb74dc6f815af",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+      "bytes": 1414,
+      "sha256": "f7b14309e5f54e5022b26448eefd419988ada2aec01d3c1162d84a0ea8f21f2c",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+      "bytes": 1514,
+      "sha256": "211e7d737d6179a08f791ebb0a99897ce7cd2457410c542876d125576edfe910",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+      "bytes": 1543,
+      "sha256": "c17011467b4fe6e20fbfbeda4df09e58c2bca5480a063e55735a4000a379aad9",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+      "bytes": 1498,
+      "sha256": "a85ca13fdf90160b64a0698215868c13b74d835ad0a4e2ba44713b8c5058a056",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+      "bytes": 2266,
+      "sha256": "a14cc25e10d40a3aa705b7de2fb764a6535d8ee9b2db4e1724900585457dfd55",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+      "bytes": 1593,
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+      "bytes": 3511,
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+      "bytes": 2745,
+      "sha256": "469778be8f33d54e1bcaab28c281cc472916d2d273f835e55bc487d30503face",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+      "bytes": 2926,
+      "sha256": "0e111337b25494a773106695f0e799f642b8567aaacca4f116a74a8177179156",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+      "bytes": 1154,
+      "sha256": "e7d4f4fb20358f314210a892ae17351e04993813646f697ec387385ca2a36918",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+      "bytes": 1509,
+      "sha256": "6f5828a57223d4cc7f8ea505a2623e7b978b242752c1515e355f46ba2cec1800",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+      "bytes": 1226,
+      "sha256": "9d4098846018319cd68e228ee6220361787f73bccbf00237a85e4fc9621b998f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/numpy/original/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+      "bytes": 332,
+      "sha256": "268b0ca06759d31ea3ca68dd35f20e877916e927b1c2a835e4592a3c4354b1f9",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/onnxruntime/METADATA",
+      "bytes": 5839,
+      "sha256": "82f146c3aad08fd55eadf57e410022535697a858bd6bf760320b2328301d41cf",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/onnxruntime/original/onnxruntime/LICENSE",
+      "bytes": 1073,
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/onnxruntime/original/onnxruntime/ThirdPartyNotices.txt",
+      "bytes": 338088,
+      "sha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/openpyxl/METADATA",
+      "bytes": 2510,
+      "sha256": "23f80ca9830dd89435da1710f26deda8f81e5409287e74540210c72627a4ad96",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/openpyxl/original/openpyxl-3.1.5.dist-info/LICENCE.rst",
+      "bytes": 1131,
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/packaging/METADATA",
+      "bytes": 3544,
+      "sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE",
+      "bytes": 197,
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "bytes": 1344,
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/METADATA",
+      "bytes": 18156,
+      "sha256": "b2b43910a5ef734a08be961df9c484f4664ad9ec2fa5a08294d0edfa08bcdd4b",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSE",
+      "bytes": 1634,
+      "sha256": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+      "bytes": 1360,
+      "sha256": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+      "bytes": 2889,
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+      "bytes": 1099,
+      "sha256": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT",
+      "bytes": 1264,
+      "sha256": "87217d0a79195441ab615a3abb3ab6777502e57804ea83f973df975a67ebd720",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+      "bytes": 1104,
+      "sha256": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+      "bytes": 6203,
+      "sha256": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+      "bytes": 1542,
+      "sha256": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+      "bytes": 11519,
+      "sha256": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+      "bytes": 1486,
+      "sha256": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+      "bytes": 1058,
+      "sha256": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+      "bytes": 1059,
+      "sha256": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+      "bytes": 1249,
+      "sha256": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+      "bytes": 5974,
+      "sha256": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+      "bytes": 1606,
+      "sha256": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+      "bytes": 10767,
+      "sha256": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+      "bytes": 1337,
+      "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+      "bytes": 1079,
+      "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pdfminer-six/METADATA",
+      "bytes": 4289,
+      "sha256": "77a7aa49c45244383288e8b98cb567f19a9083ad0d74716e3011c831df801d44",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pdfminer-six/original/pdfminer_six-20251230.dist-info/licenses/LICENSE",
+      "bytes": 1093,
+      "sha256": "f01e5d699a33766b5caf4a5099f2856aba4f3f75ea1df05dc0572b34b4bea8f2",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pdfplumber/METADATA",
+      "bytes": 43599,
+      "sha256": "24f9118940ac3810a6bf0dd1970094e29cc659c71c334a6fc2e65d7120a74b62",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pdfplumber/original/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt",
+      "bytes": 1086,
+      "sha256": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pillow/METADATA",
+      "bytes": 9118,
+      "sha256": "dba7fdfe24e302f46bae562f55d66cc367c0618abae9894a1ebec93dc8f0e511",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pillow/original/pillow-13.0.0.dist-info/licenses/LICENSE",
+      "bytes": 70307,
+      "sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/protobuf/METADATA",
+      "bytes": 595,
+      "sha256": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/protobuf/original/protobuf-7.36.2.dist-info/LICENSE",
+      "bytes": 1732,
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/psutil/METADATA",
+      "bytes": 22187,
+      "sha256": "525f8ba78523cf7bc3759d62a105e7c57fd679ea702402b9449fb0746aa0217f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/psutil/original/psutil-7.2.2.dist-info/LICENSE",
+      "bytes": 1548,
+      "sha256": "b89c063b3786e28e0c0a38f1931db61fed35e69dd2a2966fbecffee0f46c8d10",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pycparser/METADATA",
+      "bytes": 9709,
+      "sha256": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pycparser/original/pycparser-3.12.dist-info/licenses/LICENSE",
+      "bytes": 1543,
+      "sha256": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/METADATA",
+      "bytes": 62414,
+      "sha256": "3e1628ac6c4cf1dc173e9441f972d9324f8f9ff92d6930c340efceb8175e37e8",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/LICENSES/Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/LICENSES/BSD-3-Clause.txt",
+      "bytes": 1459,
+      "sha256": "a6d11f0694c0137e9b02924b9d33a159f6c72f220fa4655bb2e1ea3654377d39",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/LICENSES/CC-BY-4.0.txt",
+      "bytes": 14527,
+      "sha256": "419896aea50c15d6e40c5b4baf4bd346f78223b9a354c7357ad00262afdc08ec",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/abseil.txt",
+      "bytes": 11361,
+      "sha256": "c79a7fea0e3cac04cd43f20e7b648e5a0ff8fa5344e644b0ee09ca1162b62747",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/agg23.txt",
+      "bytes": 725,
+      "sha256": "c110d3ea2ad77467ce0dcff7d3337e6c8be8049a5103f4b9bd5fd911a77972e5",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/fast_float.txt",
+      "bytes": 1079,
+      "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/freetype.txt",
+      "bytes": 6741,
+      "sha256": "f4b133e25df1f86ad3ffea453aa0e613f0474f34778dbbb3e437e7b2724937d8",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/icu.txt",
+      "bytes": 27718,
+      "sha256": "e55522d81edc687a341a4411e0776e54ca654e90147f354a90458aaced4116af",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/lcms.txt",
+      "bytes": 1353,
+      "sha256": "7312b68c5b25e9bf2b828706fb4e29588f22705112f411fd42e1f7d84c3d139a",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libjpeg_turbo.ijg",
+      "bytes": 12799,
+      "sha256": "75815e3bf6484201a3c3d17a1bbf10f2e8e3237f84df10a2357ea896db2a81d6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libjpeg_turbo.md",
+      "bytes": 5620,
+      "sha256": "96f5b328adbb78eeaaec6980d73fd558cb1e4d62560ed615646bc3cf5e532430",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libopenjpeg.txt",
+      "bytes": 1794,
+      "sha256": "c5ab0890a737c2dfa7ba675036554f6d17741d98629b0c2a145354d00617e6b2",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libpng.txt",
+      "bytes": 5345,
+      "sha256": "bdb0a645ea18c60507d0368379b1ac5474b92255fcc2d115e07486a7672ba526",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/llvm-libc.txt",
+      "bytes": 15140,
+      "sha256": "ebcd9bbf783a73d05c53ba4d586b8d5813dcdf3bbec50265860ccc885e606f47",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/pdfium-binaries.txt",
+      "bytes": 1177,
+      "sha256": "ba26c1263131696b86c10496b5066b918a20b7161822a80c274d0080105f6c93",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/pdfium.txt",
+      "bytes": 12818,
+      "sha256": "961eacd9633fff6d051db7208b755e9210e30efac7adec3e6a6d52798f0ccf0e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/simdutf.txt",
+      "bytes": 1059,
+      "sha256": "fc8dbc04e03ad4efc08a647ffe7f995b811a95bc04c0e85a56d5277c6593fa5f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/zlib.txt",
+      "bytes": 1332,
+      "sha256": "33fd641c9f3b0e0be64bc78fea9e94807674cdd70c48477599226cb8956565fe",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/pyside6-essentials/METADATA",
+      "bytes": 3721,
+      "sha256": "68a36226bc8fdd63b54c51f35e8f52226e2e263881a102b23400056e2e689e60",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/python-dateutil/METADATA",
+      "bytes": 7341,
+      "sha256": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md",
+      "bytes": 7031,
+      "sha256": "56004c45a95e9ee5582ea60f9a7ee42179c8594c7b9c245bbfb4a3445b4af640",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+      "bytes": 2889,
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/python-pptx/METADATA",
+      "bytes": 2503,
+      "sha256": "d38c6af5f1817cc528706264d8343cd1c95dbdec5672f29b944f54f79134a3a2",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/python-pptx/original/python_pptx-1.0.2.dist-info/LICENSE",
+      "bytes": 1104,
+      "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/requests/METADATA",
+      "bytes": 4806,
+      "sha256": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/LICENSE",
+      "bytes": 10142,
+      "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/NOTICE",
+      "bytes": 38,
+      "sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/shiboken6/METADATA",
+      "bytes": 2473,
+      "sha256": "586ac5f74d295853db808e93852887297b813f133ce13df319c8f3ee0ffaa417",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/six/METADATA",
+      "bytes": 1658,
+      "sha256": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/six/original/six-1.17.0.dist-info/LICENSE",
+      "bytes": 1066,
+      "sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/soupsieve/METADATA",
+      "bytes": 4387,
+      "sha256": "c1d4799cbf1c070586fa86f922f621c33845a5977886fcb6431c763dc083f838",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/soupsieve/original/soupsieve-4.0.dist-info/licenses/LICENSE.md",
+      "bytes": 1096,
+      "sha256": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/typing-extensions/METADATA",
+      "bytes": 3310,
+      "sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/typing-extensions/original/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/tzdata/METADATA",
+      "bytes": 1358,
+      "sha256": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/LICENSE",
+      "bytes": 625,
+      "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/urllib3/METADATA",
+      "bytes": 7389,
+      "sha256": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/urllib3/original/urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+      "bytes": 1093,
+      "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/xlsxwriter/METADATA",
+      "bytes": 2908,
+      "sha256": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/installed/xlsxwriter/original/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt",
+      "bytes": 1349,
+      "sha256": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/markitdown/LICENSE",
+      "bytes": 1141,
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/models/SOURCE.json",
+      "bytes": 434,
+      "sha256": "b5b441741787fefbfbe4381baadcc7f1b25dd8f3f1ea2baf01d756c4d02620a0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/models/tessdata-fast-Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libacl1-copyright.txt",
+      "bytes": 2048,
+      "sha256": "9a2dfb4a5abc7e84be2cc41f1089be665519c9409549296f6c19de57ab1d37c2",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libarchive13t64-copyright.txt",
+      "bytes": 22412,
+      "sha256": "4110a6408770289c577a09ed70cf732a4483f12a7187f4d838f8fdc5f92da7bf",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libatk-bridge2.0-0t64-copyright.txt",
+      "bytes": 11841,
+      "sha256": "72fbc9d2c44016dd061f3f63f75253e57089bcd23a4f9023039de4631e7cf918",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libatk1.0-0t64-copyright.txt",
+      "bytes": 11841,
+      "sha256": "72fbc9d2c44016dd061f3f63f75253e57089bcd23a4f9023039de4631e7cf918",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libatomic1-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libatspi2.0-0t64-copyright.txt",
+      "bytes": 11841,
+      "sha256": "72fbc9d2c44016dd061f3f63f75253e57089bcd23a4f9023039de4631e7cf918",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libblkid1-copyright.txt",
+      "bytes": 30341,
+      "sha256": "56b67e2eb8bac5a15d91e261d558d73f1f029113cced229753138194997366b6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libbrotli1-copyright.txt",
+      "bytes": 1354,
+      "sha256": "24a64e5bb83d0960d1835696a1e23c0896ad6055b0ca47c66ab0eb9a766324b1",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libbz2-1.0-copyright.txt",
+      "bytes": 2228,
+      "sha256": "832ed535ff3c3d025a8d2348eb1b697b89addcf2eaadbc17650262040b9145e2",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libcairo-gobject2-copyright.txt",
+      "bytes": 28461,
+      "sha256": "408fb9e704e875cd42d432e7c9b3b378f568e3c89db2b5c5ef3d11c025319574",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libcairo2-copyright.txt",
+      "bytes": 28461,
+      "sha256": "408fb9e704e875cd42d432e7c9b3b378f568e3c89db2b5c5ef3d11c025319574",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libcap2-copyright.txt",
+      "bytes": 4496,
+      "sha256": "04f9fb974e10f6ca0cd226811f72b3855f8383daad0e5de7adac8d5b0b7796c3",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libcloudproviders0-copyright.txt",
+      "bytes": 1090,
+      "sha256": "950a9f9c5d081d138f29643696619b9a8d2134386555e244774faa2d9a464e00",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libcom-err2-copyright.txt",
+      "bytes": 20459,
+      "sha256": "2041b5febdc110151ca3372d01b16b85dda1888e33f3f60fce0f59940eed7d19",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libcurl4t64-copyright.txt",
+      "bytes": 22132,
+      "sha256": "e1b7678c8443b4f8ac69350e1eefd6132339b010cc3b870675fec0c0c29779a5",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libdatrie1-copyright.txt",
+      "bytes": 2129,
+      "sha256": "7c994f175cb0da0bbe158f729ca43bc6193bb99d3c8bc82b41c46d93904b584d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libdbus-1-3-copyright.txt",
+      "bytes": 20076,
+      "sha256": "f5fd0bfcceb21f4c23a517368abcbfe8a4c1cfb3b521757b50fae4898840fe35",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libdeflate0-copyright.txt",
+      "bytes": 1666,
+      "sha256": "b08d3438a0eadaee3103fba087a3e0f639506388ed71e7e2dfbb3e3484e9742c",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libepoxy0-copyright.txt",
+      "bytes": 1352,
+      "sha256": "a8be83fe8a66a6ecc1a9fbcec9cf1b43aacca69d38220a94fb37632f090b611e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libexpat1-copyright.txt",
+      "bytes": 1756,
+      "sha256": "60919fe1a156395ff14511bb6ff79756c50ade2fff59ac60c9bae1d8a7fe6292",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libffi8-copyright.txt",
+      "bytes": 10164,
+      "sha256": "25ee86cfccc2b7eb9a156a127f1e1b38c46c231f516ff201912223eaf62ee186",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libfontconfig1-copyright.txt",
+      "bytes": 1301,
+      "sha256": "b215a61cdd3e62b5b17cc28b1852c78acb3dd38be0fb30706f7efc050dba91db",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libfreetype6-copyright.txt",
+      "bytes": 31206,
+      "sha256": "acdab1506824347784d2cc0a634cfa17dbf525c0d5b4902b4ac9d0d4e1fed6c7",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libfribidi0-copyright.txt",
+      "bytes": 1460,
+      "sha256": "a9b76593ba12d42b47000f8779d0b631432147980e71464e8ba88238becbc038",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libgcc-s1-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libgdk-pixbuf-2.0-0-copyright.txt",
+      "bytes": 5415,
+      "sha256": "2b914b2304e7474aaa8108307b9e95c3f8345e0a4153c7bfa0ca9c48813cb406",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libgif7-copyright.txt",
+      "bytes": 2371,
+      "sha256": "479e834b17e61f0afe5f4a62e1794a4543208dea955820399e2d9589a1938fb0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libglib2.0-0t64-copyright.txt",
+      "bytes": 55072,
+      "sha256": "b9fe78c8a0720c051c9ac8e8c6f25663b54f228e501d24fc0ba89c66cec7f7c1",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libgmp10-copyright.txt",
+      "bytes": 4153,
+      "sha256": "7d366aef5ba325150246de1d7820c4c9926cd27ca61a69948492b26cd3b61601",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libgnutls30t64-copyright.txt",
+      "bytes": 57443,
+      "sha256": "a07e99815cf1998f1dabbc21fe199460bfa09b85ead0d56b49a32cac3d1791b5",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libgomp1-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libgraphite2-3-copyright.txt",
+      "bytes": 9348,
+      "sha256": "a33017ba0308c41bdbde4751bff349ab7b26af45fadbb1e3e7ac67c372985572",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libgssapi-krb5-2-copyright.txt",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libgtk-3-0t64-copyright.txt",
+      "bytes": 60524,
+      "sha256": "ededd0b07c091f82888eacad33ecd01018d0ccdf85e91f0f5d85de58529f6842",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libharfbuzz0b-copyright.txt",
+      "bytes": 31772,
+      "sha256": "9295e101a07824e8ae77c448884bd357a64b831cd4c47f125bf4ac7ea0d8f911",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libhogweed6t64-copyright.txt",
+      "bytes": 24407,
+      "sha256": "344396197142cd506468b20029ea5722d507c980129bb3db4af02424ed6f39c6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libidn2-0-copyright.txt",
+      "bytes": 6566,
+      "sha256": "32df8170a3c5e55c553f684576a2911e6a0611320ccd7fd65f7dceae26be61ee",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libjbig0-copyright.txt",
+      "bytes": 1849,
+      "sha256": "89ab20c324a191652e94598f2144a65442faed4f14f77bbd10516130ee20f05a",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libjpeg62-turbo-copyright.txt",
+      "bytes": 38846,
+      "sha256": "3821184e23385bf2cdc01f56bd999b34036fc3aa03d5135d41680374eb81bf8a",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libk5crypto3-copyright.txt",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libkeyutils1-copyright.txt",
+      "bytes": 2148,
+      "sha256": "73f5682b0466f41cea2b9b7f1ff8a8052464f6c09fb29eeac4490512af09bd50",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libkrb5-3-copyright.txt",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libkrb5support0-copyright.txt",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libldap2-copyright.txt",
+      "bytes": 62859,
+      "sha256": "2656a8ac4f2fda614be8fe6fd7f649665a6ca3abcf19f6ac125e2ff165b60939",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libleptonica6-copyright.txt",
+      "bytes": 1766,
+      "sha256": "cff4f0cb5db14528a8b84f4a3389012d5c6e0f5a75a882509367b2147c05a83e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/liblerc4-copyright.txt",
+      "bytes": 1242,
+      "sha256": "6e694f6e6063e7b1ffb5f723ce4e696aa015944cf1b4d15e8f3ea7e90417a71d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/liblz4-1-copyright.txt",
+      "bytes": 3737,
+      "sha256": "8dce0cb8c5a4486e4aac00466e4dd4b0b5b28d70efe3b3256ea4594099a8509c",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/liblzma5-copyright.txt",
+      "bytes": 11875,
+      "sha256": "d755588e2d89d7845d0d4e718ac45d49ae9fc53cec4540af105963c20598f9d7",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libmount1-copyright.txt",
+      "bytes": 30341,
+      "sha256": "56b67e2eb8bac5a15d91e261d558d73f1f029113cced229753138194997366b6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libnettle8t64-copyright.txt",
+      "bytes": 24407,
+      "sha256": "344396197142cd506468b20029ea5722d507c980129bb3db4af02424ed6f39c6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libnghttp2-14-copyright.txt",
+      "bytes": 6535,
+      "sha256": "a34ae32a5eba61e535835a8de7c398f47e420247d339bc400a3b9c618ba29a3d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libnghttp3-9-copyright.txt",
+      "bytes": 8614,
+      "sha256": "e66d68610e086493b2dcf19539793786017922591dee5d0795b57e4219e5cc91",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libopenjp2-7-copyright.txt",
+      "bytes": 34923,
+      "sha256": "ba3ae385ad2337d6cfc862e280a9f155bb421b43f6ee47e77ebcaaf24e992151",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libp11-kit0-copyright.txt",
+      "bytes": 15605,
+      "sha256": "008107de203c9f89a6c71b625fb47e10074c6b7ccb0e310694014d4551f67b2b",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libpango-1.0-0-copyright.txt",
+      "bytes": 20017,
+      "sha256": "8d9dd932bc836ab2ea02e0b13c7cc1e9e5472a71008f0caa2a8793eb5780ee94",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libpangocairo-1.0-0-copyright.txt",
+      "bytes": 20017,
+      "sha256": "8d9dd932bc836ab2ea02e0b13c7cc1e9e5472a71008f0caa2a8793eb5780ee94",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libpangoft2-1.0-0-copyright.txt",
+      "bytes": 20017,
+      "sha256": "8d9dd932bc836ab2ea02e0b13c7cc1e9e5472a71008f0caa2a8793eb5780ee94",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libpcre2-8-0-copyright.txt",
+      "bytes": 6627,
+      "sha256": "e915cde4251f96ec6af107ecd2e194440a4e69440893b0c982802f8a1e4ae40a",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libpixman-1-0-copyright.txt",
+      "bytes": 2247,
+      "sha256": "1b3fb5690861e15ca4fd6640fd4def4b2576617942eec04b6fcb7d8bc6c4c9da",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libpng16-16t64-copyright.txt",
+      "bytes": 13217,
+      "sha256": "7e729164c60950b2b57f1712d82a051c9ba54f421c9b69815d9e4686ddc5709b",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libpsl5t64-copyright.txt",
+      "bytes": 3310,
+      "sha256": "bbafb0cf52d34465fc69f5ffd22d724224f6a2f28402c88b045c69d88af06aaf",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/librtmp1-copyright.txt",
+      "bytes": 2726,
+      "sha256": "4302abcc1ea1b6cbe8d19c79b892acf78878030220210707c19006828866207c",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libsasl2-2-copyright.txt",
+      "bytes": 24643,
+      "sha256": "ddb128a81d3a140ef5b3574ae000a1a50d0cb9a2ec59917121a155f91b670166",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libselinux1-copyright.txt",
+      "bytes": 1957,
+      "sha256": "864f1bb189f609075d580b8c4aada16d85a44546884f1687989e1cacc8c56751",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libsharpyuv0-copyright.txt",
+      "bytes": 6490,
+      "sha256": "725344c9200f6e6dad88d1ea88add2d673cdf1d8fbc3961bcd2693ab0c26d30d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libssh2-1t64-copyright.txt",
+      "bytes": 2975,
+      "sha256": "fb5d6b7a53710b6ba04e412a016d222a3e56b9d6e1a2572a8ffc2eae05e6acfb",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libssl3t64-copyright.txt",
+      "bytes": 2543,
+      "sha256": "6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libstdc++6-copyright.txt",
+      "bytes": 69004,
+      "sha256": "20390f8a6f3b1e4d7cb45dd8652dabb259bbef688cbad839bcdb0b9ba7252f79",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libsystemd0-copyright.txt",
+      "bytes": 12521,
+      "sha256": "a79e4b379cabbd960bb44f6cc1a069081a3778c59a25ee529b68df5a2cb7d27d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libtasn1-6-copyright.txt",
+      "bytes": 3359,
+      "sha256": "5f9f7b538d221104bdb561ae80fd794ec5f813eb8fd04650293bddcc0f856e7d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libtesseract5-copyright.txt",
+      "bytes": 2473,
+      "sha256": "88a60e74ee421a24f89b5a33ede6300bf51fc12f0144f41cd311909f9445d346",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libthai0-copyright.txt",
+      "bytes": 2458,
+      "sha256": "62d2835587b92a6abdbe62fe4524a7b6a59ac478df2c591eb98c3fbce6c3fa08",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libtiff6-copyright.txt",
+      "bytes": 1935,
+      "sha256": "d73e31b03a0d7a515851601c19fee5792c7db03a312efacae146ddf9c91f86f1",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libunistring5-copyright.txt",
+      "bytes": 103761,
+      "sha256": "a585cd2cc2a5fcb8e58f12c7a710a35e06e5b897c59cd5ae4a7d835f0b49eae3",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libwebp7-copyright.txt",
+      "bytes": 6490,
+      "sha256": "725344c9200f6e6dad88d1ea88add2d673cdf1d8fbc3961bcd2693ab0c26d30d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libwebpmux3-copyright.txt",
+      "bytes": 6490,
+      "sha256": "725344c9200f6e6dad88d1ea88add2d673cdf1d8fbc3961bcd2693ab0c26d30d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libx11-6-copyright.txt",
+      "bytes": 47102,
+      "sha256": "0b380a7fd5b2228f26e9585e56f14812efd3350f3df307507d2bc055dfd8de3e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libx11-xcb1-copyright.txt",
+      "bytes": 47102,
+      "sha256": "0b380a7fd5b2228f26e9585e56f14812efd3350f3df307507d2bc055dfd8de3e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxau6-copyright.txt",
+      "bytes": 1224,
+      "sha256": "118dd263a7b91c8f21c489f949bf13281dff9e766deea92b829dac4dce66601a",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-cursor0-copyright.txt",
+      "bytes": 1851,
+      "sha256": "8ee3b982784137d7e651d37c8c0978983984b0fe93ce2760013b0abbf6652bed",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-glx0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-icccm4-copyright.txt",
+      "bytes": 2683,
+      "sha256": "b5b83faabe190515e7a5938aa00441204cd163e24191ef7bcf5e4ac690acd376",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-image0-copyright.txt",
+      "bytes": 2707,
+      "sha256": "daf2d51e978ec64fc21f59b12d850c2efc907c15eae5c4ba2f3237ce946476de",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-keysyms1-copyright.txt",
+      "bytes": 2758,
+      "sha256": "cb93f3be4559362c1b8c9484a4a669677f155333456757b9be406dd7d6fa2b01",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-randr0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-render-util0-copyright.txt",
+      "bytes": 2705,
+      "sha256": "fc1a08132096d37decac98a8a82e21ee8104e43c434daa2c620d19b55d8b8367",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-render0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-shape0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-shm0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-sync1-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-util1-copyright.txt",
+      "bytes": 2741,
+      "sha256": "1142dc404c2f6845a5e9a39ee569e670fd629b3a974a03bcd64f84e57e5acd90",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-xfixes0-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcb-xkb1-copyright.txt",
+      "bytes": 1781,
+      "sha256": "4f7cb9db6bf6542f5417e3d674c780d3a5fd12291a54d63054fb576ee0cfae80",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcomposite1-copyright.txt",
+      "bytes": 2324,
+      "sha256": "e37c7a7e4026343c3e5c13990a6d9a8879194ae3ab26bfe420b34f6f206bf35f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxcursor1-copyright.txt",
+      "bytes": 2774,
+      "sha256": "817abc0ccc9e2591057be256b0f6d80edb134221ced29dd545a9eafaf40b423c",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxdamage1-copyright.txt",
+      "bytes": 1221,
+      "sha256": "09182bc7805ff77a41251e450cebd0d33c48a74ba8ec4b734855a22c86f50417",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxdmcp6-copyright.txt",
+      "bytes": 1265,
+      "sha256": "1bcbb50f8603fe8b86d330bfa460b772ea04fbd3c70e4499f0768b5340b9fd6e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxext6-copyright.txt",
+      "bytes": 10421,
+      "sha256": "bc57e445ca1d9fe082c8d54189dd411ff26caa8552c9c63d44ea06a982f32124",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxfixes3-copyright.txt",
+      "bytes": 2320,
+      "sha256": "051ffe073ab38244c504bb379903b4ecda6081fb3d97d0d3dce44bc11712eef2",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxi6-copyright.txt",
+      "bytes": 4435,
+      "sha256": "c812f9c54513ae593aab9580b54a4b18219648df7068d49ca1daa47f522ba3fa",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxinerama1-copyright.txt",
+      "bytes": 3670,
+      "sha256": "e49d9732f261b3ffcb50c40914bd9d144de5557dad9b2ae20dbe8e3c5b3d17fb",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxkbcommon-x11-0-copyright.txt",
+      "bytes": 3566,
+      "sha256": "5eeaeb1b6e029a0274e1573765bb0bae2926ef96a3679203faa4fd00fdaeaa88",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxkbcommon0-copyright.txt",
+      "bytes": 3566,
+      "sha256": "5eeaeb1b6e029a0274e1573765bb0bae2926ef96a3679203faa4fd00fdaeaa88",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxml2-copyright.txt",
+      "bytes": 3067,
+      "sha256": "ee746b96cfa5be73c3ea3e4cfb1285e9b315d4c9267f99b2ee9c5d911d9fe3f4",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxrandr2-copyright.txt",
+      "bytes": 3733,
+      "sha256": "6d8e6239cfe9dd25bbeef06dcf0610d802ebbdc8968db87cf5adf00ff98927d4",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxrender1-copyright.txt",
+      "bytes": 2252,
+      "sha256": "ed2a78123a5076b4f11da38cb1ffb85b5cb9fdc26b5746c517b1d7e7a9029704",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libxxhash0-copyright.txt",
+      "bytes": 3213,
+      "sha256": "81affefe3047c8a88a9e4c94c8c698f51a7e0787e75b58e901bf1f8fcd433f58",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/libzstd1-copyright.txt",
+      "bytes": 5332,
+      "sha256": "5cec9fef4d3fa7e0371fbef4ec3fc416e0105dc2a9922117f84e825cb11f50f8",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/manifest.json",
+      "bytes": 71794,
+      "sha256": "8d4dbaf4c6ebfcd73c966a0f48a42c6a4246e8dce6abba42cbfc8429cebea83d",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/native/zlib1g-copyright.txt",
+      "bytes": 2927,
+      "sha256": "9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/python-runtime/LICENSE.txt",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/standards/BSD-2-Clause.txt",
+      "bytes": 1267,
+      "sha256": "f32fb3b417a194167cfad068223fc975ba96c5960513a10f66a3c28720aec1df",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/standards/SOURCE.json",
+      "bytes": 354,
+      "sha256": "aee93a231453078d13c7f69f169308bd3abc88b1904cfe5e12ca7ef4b4b6a1ab",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/supplemental/cobble.txt",
+      "bytes": 1770,
+      "sha256": "d6d46202db973b560d2f521dced9110b3e0a46d9a75e1428dade8b7608dd0cca",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/supplemental/flatbuffers.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/supplemental/magika.txt",
+      "bytes": 11357,
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/supplemental/qt-gpl3.txt",
+      "bytes": 35147,
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/licenses/supplemental/qt-lgpl3.txt",
+      "bytes": 7651,
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/native/manifest.json",
+      "bytes": 1482,
+      "sha256": "bebb7e596d164be671e499cf4f804f11e3ace59d71844c717f5e640cd70a74bc",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/native/notices/tesseract-system-copyright.txt",
+      "bytes": 2473,
+      "sha256": "88a60e74ee421a24f89b5a33ede6300bf51fc12f0144f41cd311909f9445d346",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/native/source.json",
+      "bytes": 316,
+      "sha256": "d1bb509ee71136f747441b916b9ab0585040858506ea1eb11488fdb223183a9e",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/native/tessdata/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/ocr-four-languages.json",
+      "bytes": 616,
+      "sha256": "e9aa2d459a39bf564310b4b7a24695dd6545087bcf9ae12b77eba6ef1faaac47",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/ocr-models.json",
+      "bytes": 434,
+      "sha256": "b5b441741787fefbfbe4381baadcc7f1b25dd8f3f1ea2baf01d756c4d02620a0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/setup-chinese.json",
+      "bytes": 379,
+      "sha256": "5ac74cac9aae6928f5d54420b3a9274a4dd75cdbee947b01dfd13544894e5658",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/setup-chinese.png",
+      "bytes": 38983,
+      "sha256": "e339f9f6bfbefc7c648112f92da52f64eaf946d715b3566eee0bb9242dc457cb",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/setup-japanese.json",
+      "bytes": 379,
+      "sha256": "6350ef08b1d4e7bf922dd3f10079cfc51253f30a064885de6176c9ada2fc5f0f",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/setup-japanese.png",
+      "bytes": 45054,
+      "sha256": "ce288314c7b6394b86a10fe6ccbc834df499f2895cf5228a84f7c053b8fc4849",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/setup-korean.json",
+      "bytes": 378,
+      "sha256": "b1b5923bfeec2a21a9f2da99b0157c38b77c3dbd430ac6583e16e44d79ce3028",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/setup-korean.png",
+      "bytes": 25515,
+      "sha256": "d273e0d4d5dd81933e660c3648c61ccfaf76d2d7102b7fcd929f3349711ffaf0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/third-party.md",
+      "bytes": 1652,
+      "sha256": "da5698e03a1578bbbe47592b56ba29367b4ae83b99d0286ca9c27c677be1d8ee",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/user-guide.md",
+      "bytes": 12293,
+      "sha256": "cd19f47a6872e660672a14ad3ce21541dc0e32943cab7786ce4d793f0a329220",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/worker-health.json",
+      "bytes": 337,
+      "sha256": "c83811e237fc9bf74bec595ec7372f852a357a23e465c0f03d5e256f5f8fbbe8",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "prepared-assets/worker-health.png",
+      "bytes": 15208,
+      "sha256": "2dcad1eb6d69de30de61f74b3d95349275b17e8a90f286df4778b360e478b8b3",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "profile-verify.log",
+      "bytes": 308,
+      "sha256": "60f4d04e67ddb2356cc4afea6ee669302d131723567341544a94a26097ec9171",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "provenance.json",
+      "bytes": 2006,
+      "sha256": "2886837a92dd02a28149f637ab173574632751485c6af7b4c379286009acf1b1",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "qt/acceptance.json",
+      "bytes": 600,
+      "sha256": "7c88668c70e0a05eac60385871e8f86604cfc87128c3b24559d9e44ce67c50d0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "qt/bundled-models.png",
+      "bytes": 61767,
+      "sha256": "f00dc2ebefb62d97c6ef878f033bd0e29a4f7477e95729f6eacb7e538f3fa8d5",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "qt/desktop-auto-paths.png",
+      "bytes": 110504,
+      "sha256": "63f3d9e0b71a94755b19a0233f933bd223ed89a3be45bf393eecdc5e40f1d2f1",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "qt/setup-observation.json",
+      "bytes": 1094,
+      "sha256": "cffa8e06a2fd39f4d8e95cf1906acfdc5d73e6147202b156851838ad3df8cd9c",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "qt-check.py.txt",
+      "bytes": 3360,
+      "sha256": "91f73665e4c96c9eb0376b5dcc89815c998245f882c59eac1aa816f8f3cf2537",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "qt-driver.log",
+      "bytes": 136,
+      "sha256": "aac5855c14f3d04665053dc1e0614e3720aa7cffbe59856e20265f5b7bc41537",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 648960,
+      "sha256": "e70fe6f481a06022355e8e1bc9b5f6d249c4d38cb6277f58903ca304218ca9f0",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 659276,
+      "sha256": "c5679519a5727442abe4b2f8d7802487a385785c6a66f9c37878337bc8101fd7",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 287361,
+      "sha256": "a5a594a9895cc5f798ffad0021eb85dbdad4d4e2f0bccb7a05f0606399929f58",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 306581,
+      "sha256": "7a5313617ba0ca370d6378780e736fefd6adccb21a5df2ff67ae1e9ca9d03d59",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 456874,
+      "sha256": "0526d9324f8d7a920d2fcbd375a40915830f0e71d3261c6de316e1bafaa5bdd9",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    },
+    {
+      "file": "upstream-verify.log",
+      "bytes": 138,
+      "sha256": "b7d50da974a97627a38b30447ae86a9f98465decef78f48bff43ec3e134a4d31",
+      "source": "C03-bundle 本輪公開合成來源、真實 Linux frozen／source Qt／離線檢查；Windows payload 靜態而未執行，無發行核准或使用者文件"
+    }
+  ]
+}

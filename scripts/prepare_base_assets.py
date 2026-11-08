@@ -35,7 +35,15 @@ def refresh_manifest(directory):
     save_json(path, profile)
 
 
-def prepare(output, root=ROOT):
+def attach_native(staged, native_assets, target):
+    """原生 payload 必須符合真正建置平台；Windows 檔不能混進 Linux frozen 驗收。"""
+    from desktop_app.bundled_ocr import validate_payload
+    validate_payload(native_assets, expected_platform=target)
+    shutil.copytree(native_assets, staged / 'native')
+    validate_payload(staged / 'native', expected_platform=target)
+
+
+def prepare(output, root=ROOT, *, native_assets=None):
     if output.exists(): raise FileExistsError(output)
     target = {'Linux':'linux', 'Windows':'windows'}.get(platform.system())
     if target is None or sys.version_info[:2] != (3, 12):
@@ -63,6 +71,8 @@ def prepare(output, root=ROOT):
             shutil.copyfile(source/name, staged/name)
         for name in ['models','standards','markitdown']:
             shutil.copytree(source/'licenses'/name, staged/'licenses'/name)
+        if native_assets is not None:
+            attach_native(staged, Path(native_assets), target)
         python_license = next((p for p in [Path(sys.base_prefix)/'LICENSE.txt',Path(sysconfig.get_path('stdlib'))/'LICENSE.txt'] if p.is_file()), None)
         if python_license is None: raise ValueError('缺少實際 Python runtime 原授權。')
         destination = staged/'licenses/python-runtime/LICENSE.txt'; destination.parent.mkdir(parents=True)
@@ -101,9 +111,13 @@ def prepare(output, root=ROOT):
                  '', 'Magika 仍使用 CPU ONNX Runtime；沒有 RapidOCR OCR 模型。原生 Tesseract 尚未整合，本包只驗核心功能，未達完整基本版離線 OCR／Windows 發行門檻。',
                  '', '實際原文與 binary 來源證據不取代完整再散布／Qt 義務或最終 SBOM 審核。部分套件無 wheel 內原文，仍可對照原 Windows 上位授權資料，不宣稱已全部審查。', '', '| 套件 | 版本 |', '| --- | --- |']
         guide += [f'| {p["name"]} | {p["version"]} |' for p in notices]
+        if native_assets is not None:
+            guide = [line.replace('原生 Tesseract 尚未整合，本包只驗核心功能，未達完整基本版離線 OCR／Windows 發行門檻。',
+                                 '已內含 Tesseract 與四語模型，原文／來源位於 native/；Linux 開發包與 Windows 候選分開，完整 Windows 發行仍待驗。') for line in guide]
         (staged/'third-party.md').write_text('\n'.join(guide)+'\n', encoding='utf-8')
-        save_json(staged/'build-profile.json', dict(schema_version=1,id='base',source_version=installed['markitdown-desktop'],
-            platform=target,python=platform.python_version(),native_ocr_required=True,native_ocr_integrated=False,release_ready=False,
+        save_json(staged/'build-profile.json', dict(schema_version=2 if native_assets is not None else 1,id='base',source_version=installed['markitdown-desktop'],
+            platform=target,python=platform.python_version(),native_ocr_required=True,native_ocr_integrated=native_assets is not None,
+            native_ocr_manifest='native/manifest.json' if native_assets is not None else None,release_ready=False,
             runtime_packages={name:record['version'] for name,record in runtime.items()},
             local_packages={name:installed[name] for name in ['markitdown-desktop','markitdown']},
             notice_packages=len(notices), assets={}))
@@ -114,5 +128,6 @@ def prepare(output, root=ROOT):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__); parser.add_argument('--output', type=Path, required=True)
-    args = parser.parse_args(); result = prepare(args.output)
+    parser.add_argument('--native-assets', type=Path, help='已離線驗證且與建置平台相符的四語 OCR payload')
+    args = parser.parse_args(); result = prepare(args.output, native_assets=args.native_assets)
     print('Prepared base assets:', len(result['runtime_packages']), 'runtime packages;', len(result['assets']), 'assets')

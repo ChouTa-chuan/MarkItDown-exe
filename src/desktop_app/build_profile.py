@@ -21,16 +21,21 @@ def load_profile(root=None):
     if path.is_symlink() or path.stat().st_size > 1024*1024:
         raise ValueError('建置 profile 不合法。')
     profile = json.loads(path.read_text(encoding='utf-8'))
-    if (profile.get('schema_version') != 1 or profile.get('id') != 'base'
-            or profile.get('native_ocr_integrated') is not False
+    if (profile.get('schema_version') not in (1, 2) or profile.get('id') != 'base'
             or profile.get('native_ocr_required') is not True or profile.get('release_ready') is not False):
-        raise ValueError('尚未整合原生 OCR 的 profile 不得宣告完整基本版。')
+        raise ValueError('建置 profile 契約不符，不得宣告發行就緒。')
+    integrated = profile.get('native_ocr_integrated')
+    if (type(integrated) is not bool or (profile['schema_version'] == 1 and integrated)
+            or (integrated and profile.get('native_ocr_manifest') != 'native/manifest.json')):
+        raise ValueError('內含 OCR 必須使用新版明確資產契約。')
     if not isinstance(profile.get('runtime_packages'), dict) or not profile['runtime_packages']:
         raise ValueError('缺少固定相依清單。')
     if not isinstance(profile.get('assets'), dict) or not profile['assets']:
         raise ValueError('缺少資產雜湊清單。')
     required = {'user-guide.md','third-party.md','base-runtime-lock.txt',
                 'licenses/python-runtime/LICENSE.txt','licenses/installed/manifest.json'}
+    if integrated:
+        required |= {'native/manifest.json', 'ocr-four-languages.json'}
     if not required <= profile['assets'].keys():
         raise ValueError('profile 必要手冊／鎖定／授權資產不完整。')
     if (set(profile.get('local_packages', {})) != {'markitdown-desktop','markitdown'}

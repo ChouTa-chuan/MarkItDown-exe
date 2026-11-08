@@ -1,0 +1,13 @@
+{
+  "source_version": "0.13.0",
+  "accepted": true,
+  "checks_passed": 3,
+  "checks": [
+    "Actual Qt model manager displays all bundled model hashes as read-only; download/removal disabled",
+    "Actual source setup probes all four bundled native health samples without explicit paths or downloads",
+    "Actual first-run save keeps relocatable automatic paths and does not repeat onboarding"
+  ],
+  "scope": "Installed source Qt with actual frozen asset root override for this test; native Linux engine; not frozen GUI or Windows execution",
+  "windows_executed": false,
+  "gpu_executed": false
+}

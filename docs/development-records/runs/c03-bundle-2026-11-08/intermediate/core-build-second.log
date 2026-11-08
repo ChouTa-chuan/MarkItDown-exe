@@ -1,0 +1,136 @@
+82 INFO: PyInstaller: 6.22.3, contrib hooks: 2026.9
+82 INFO: Python: 3.12.14
+85 INFO: Platform: Linux-6.18.57-x86_64-with-glibc2.41
+85 INFO: Python environment: /workspace/markitdown-base-build-venv
+86 INFO: Removing temporary files and cleaning cache in /home/agent/.cache/pyinstaller
+[0;93m2026-11-08 09:30:34.441143380 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+[0;93m2026-11-08 09:30:34.988815555 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+1850 INFO: Module search paths (PYTHONPATH):
+['/workspace/MarkItDown-exe/scripts',
+ '/workspace/MarkItDown-exe',
+ '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python312.zip',
+ '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12',
+ '/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/lib-dynload',
+ '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages',
+ '/workspace/MarkItDown-exe/packaging',
+ '/workspace/MarkItDown-exe/src']
+2109 INFO: Appending 'binaries' from .spec
+2109 INFO: Appending 'datas' from .spec
+2120 INFO: checking Analysis
+2120 INFO: Building Analysis because Analysis-00.toc is non existent
+2120 INFO: Looking for Python shared library...
+2128 INFO: Using Python shared library: /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/libpython3.12.so.1.0
+2128 INFO: Running Analysis Analysis-00.toc
+2128 INFO: Target bytecode optimization level: 0
+2128 INFO: Initializing module dependency graph...
+2129 INFO: Initializing module graph hook caches...
+2135 INFO: Analyzing modules for base_library.zip ...
+3092 INFO: Processing standard module hook 'hook-encodings.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+3339 INFO: Processing standard module hook 'hook-math.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+4970 INFO: Processing standard module hook 'hook-pickle.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+6035 INFO: Processing standard module hook 'hook-heapq.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+6345 INFO: Caching module dependency graph...
+6379 INFO: Analyzing /workspace/MarkItDown-exe/packaging/desktop_entry.py
+6415 INFO: Processing standard module hook 'hook-multiprocessing.util.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+6590 INFO: Processing standard module hook 'hook-xml.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+6804 INFO: Processing standard module hook 'hook-_ctypes.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+6875 INFO: Processing standard module hook 'hook-platform.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+6938 INFO: Processing standard module hook 'hook-psutil.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+7135 INFO: Processing standard module hook 'hook-onnxruntime.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+7200 INFO: Processing standard module hook 'hook-numpy.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+7513 INFO: Processing pre-safe-import-module hook 'hook-typing_extensions.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/pre_safe_import_module'
+7513 INFO: SetuptoolsInfo: initializing cached setuptools info...
+8960 INFO: Processing standard module hook 'hook-sysconfig.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+9189 INFO: Processing standard module hook 'hook-webbrowser.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+10326 INFO: Processing standard module hook 'hook-difflib.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+10888 INFO: Processing standard module hook 'hook-charset_normalizer.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+11619 INFO: Processing pre-safe-import-module hook 'hook-tensorflow.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/pre_safe_import_module'
+11689 INFO: Processing standard module hook 'hook-sqlite3.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+11930 INFO: Processing standard module hook 'hook-PIL.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+12151 INFO: Processing standard module hook 'hook-PIL.Image.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+12429 INFO: Processing standard module hook 'hook-xml.etree.cElementTree.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+12580 INFO: Processing standard module hook 'hook-PIL.ImageFilter.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+12814 INFO: Processing standard module hook 'hook-xml.dom.domreg.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+13074 INFO: Processing standard module hook 'hook-pdfminer.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+13782 INFO: Processing standard module hook 'hook-cryptography.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+14258 INFO: hook-cryptography: cryptography does not seem to be using dynamically linked OpenSSL.
+14438 INFO: Processing standard module hook 'hook-pandas.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+15564 INFO: Processing standard module hook 'hook-zoneinfo.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+17123 INFO: Processing standard module hook 'hook-pandas.io.formats.style.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+19959 INFO: Processing standard module hook 'hook-pandas.plotting.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+20400 INFO: Processing standard module hook 'hook-dateutil.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+21817 INFO: Processing standard module hook 'hook-openpyxl.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+21885 INFO: Processing standard module hook 'hook-lxml.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+22137 INFO: Processing standard module hook 'hook-lxml.etree.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+24289 INFO: Processing standard module hook 'hook-pandas.io.clipboard.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+25166 INFO: Processing standard module hook 'hook-pypdfium2.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+25176 INFO: Processing standard module hook 'hook-pypdfium2_raw.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+25835 INFO: Processing standard module hook 'hook-urllib3.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+25934 INFO: Processing pre-safe-import-module hook 'hook-backports.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/pre_safe_import_module'
+25934 INFO: Setuptools: 'backports' appears to be a full setuptools-vendored copy - creating alias to 'setuptools._vendor.backports'!
+25940 INFO: Processing standard module hook 'hook-setuptools.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+25952 INFO: Processing pre-safe-import-module hook 'hook-distutils.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/pre_safe_import_module'
+25978 INFO: Processing pre-safe-import-module hook 'hook-jaraco.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/pre_safe_import_module'
+25978 INFO: Setuptools: 'jaraco' appears to be a full setuptools-vendored copy - creating alias to 'setuptools._vendor.jaraco'!
+25988 INFO: Processing pre-safe-import-module hook 'hook-more_itertools.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/pre_safe_import_module'
+25988 INFO: Setuptools: 'more_itertools' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.more_itertools'!
+26106 INFO: Processing standard module hook 'hook-_osx_support.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+26121 INFO: Processing pre-safe-import-module hook 'hook-packaging.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/pre_safe_import_module'
+26344 INFO: Processing standard module hook 'hook-setuptools._vendor.jaraco.text.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+26345 INFO: Processing pre-safe-import-module hook 'hook-importlib_resources.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/pre_safe_import_module'
+26799 INFO: Processing pre-safe-import-module hook 'hook-tomli.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/pre_safe_import_module'
+26799 INFO: Setuptools: 'tomli' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.tomli'!
+27335 INFO: Processing pre-safe-import-module hook 'hook-wheel.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/pre_safe_import_module'
+27336 INFO: Setuptools: 'wheel' appears to be a setuptools-vendored copy - creating alias to 'setuptools._vendor.wheel'!
+27933 INFO: Processing standard module hook 'hook-certifi.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+28595 INFO: Processing standard module hook 'hook-pptx.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+29690 INFO: Processing standard module hook 'hook-PySide6.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+29934 INFO: Processing standard module hook 'hook-shiboken6.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+30104 INFO: Processing standard module hook 'hook-PySide6.QtNetwork.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+31025 INFO: Processing standard module hook 'hook-PySide6.QtCore.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+32166 INFO: Processing standard module hook 'hook-PySide6.QtGui.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+33860 INFO: Processing standard module hook 'hook-PySide6.QtWidgets.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+34069 INFO: Analyzing hidden import 'markitdown.__main__'
+34078 INFO: Processing module hooks (post-graph stage)...
+34275 INFO: Processing standard module hook 'hook-lxml.isoschematron.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+34569 INFO: Processing standard module hook 'hook-PIL.SpiderImagePlugin.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+34676 INFO: Processing standard module hook 'hook-PySide6.QtDBus.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+34871 WARNING: Hidden import "jinja2" not found!
+34874 INFO: Processing standard module hook 'hook-lxml.objectify.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/stdhooks'
+34898 INFO: Performing binary vs. data reclassification (874 entries)
+35052 INFO: Looking for ctypes DLLs
+35133 WARNING: Library user32 required via ctypes not found
+35173 WARNING: Library msvcrt required via ctypes not found
+35234 INFO: Analyzing run-time hooks ...
+35245 INFO: Including run-time hook 'pyi_rth_inspect.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/rthooks'
+35247 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/rthooks'
+35249 INFO: Including run-time hook 'pyi_rth_cryptography_openssl.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/_pyinstaller_hooks_contrib/rthooks'
+35250 INFO: Including run-time hook 'pyi_rth_setuptools.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/rthooks'
+35251 INFO: Including run-time hook 'pyi_rth_pyside6.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/rthooks'
+35252 INFO: Processing pre-find-module-path hook 'hook-_pyi_rth_utils.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/pre_find_module_path'
+35253 INFO: Processing standard module hook 'hook-_pyi_rth_utils.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks'
+35255 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from '/workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/hooks/rthooks'
+35302 INFO: Creating base_library.zip...
+35320 INFO: Looking for dynamic libraries
+37955 INFO: Warnings written to /workspace/markitdown-c03-bundle-pyinstaller-final/base/warn-base.txt
+38133 INFO: Graph cross-reference written to /workspace/markitdown-c03-bundle-pyinstaller-final/base/xref-base.html
+51895 INFO: checking PYZ
+51895 INFO: Building PYZ because PYZ-00.toc is non existent
+51895 INFO: Building PYZ (ZlibArchive) /workspace/markitdown-c03-bundle-pyinstaller-final/base/PYZ-00.pyz
+53402 INFO: Building PYZ (ZlibArchive) /workspace/markitdown-c03-bundle-pyinstaller-final/base/PYZ-00.pyz completed successfully.
+53437 INFO: checking PKG
+53437 INFO: Building PKG because PKG-00.toc is non existent
+53437 INFO: Building PKG (CArchive) MarkItDownBase.pkg
+53467 INFO: Building PKG (CArchive) MarkItDownBase.pkg completed successfully.
+53468 INFO: Bootloader /workspace/markitdown-base-build-venv/lib/python3.12/site-packages/PyInstaller/bootloader/Linux-64bit-intel/run
+53468 INFO: checking EXE
+53468 INFO: Building EXE because EXE-00.toc is non existent
+53468 INFO: Building EXE from EXE-00.toc
+53468 INFO: Copying bootloader EXE to /workspace/markitdown-c03-bundle-pyinstaller-final/base/MarkItDownBase
+53468 INFO: Appending PKG archive to custom ELF section in EXE
+53519 INFO: Building EXE from EXE-00.toc completed successfully.
+53530 INFO: checking COLLECT
+53530 INFO: Building COLLECT because COLLECT-00.toc is non existent
+53530 INFO: Building COLLECT COLLECT-00.toc
+54656 INFO: Building COLLECT COLLECT-00.toc completed successfully.
+54676 INFO: Build complete! The results are available in: /workspace/markitdown-c03-bundle-dist-final

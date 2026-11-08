@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-08",
   "environment": "Linux · Python 3.12",
-  "tests_passed": 499,
-  "headline": "C03 最小原生來源準備完成 2/4；Windows／四語整包待驗，維持 7/12",
-  "blocker": "缺 Windows／GPU 執行器；最小 Windows 候選尚未執行 OCR，完整四語基本包未整合。ONNX 繁體品質未達標。",
-  "next": "將最小原生候選接入四語基本包 profile／離線設定與完整自檢，再完成 Windows 建置及乾淨機驗收。",
+  "tests_passed": 526,
+  "headline": "C03 內含四語基本包 Linux 驗證完成 3/4；Windows 待驗，維持 7/12",
+  "blocker": "缺 Windows／GPU 執行器；Windows 四語 payload 只靜態組裝，未原生建置／OCR／乾淨機驗收。ONNX 繁體品質未達標。",
+  "next": "完成 Windows 原生基本包與四語實際 OCR／中文路徑，再接各 profile、完整首次流程及安裝生命週期驗收。",
   "milestones": [
     {
       "id": "m0",
@@ -209,8 +209,8 @@
       "title": "背景程序",
       "layer": "支援",
       "state": "partial",
-      "detail": "基本 frozen profile 自檢按內含能力執行；core 與 full 分開，缺原生 OCR 不借用外部引擎，完整基本版仍未就緒。",
-      "evidence": "Linux 基本獨立程式：7 項＋公開 PDF 5 項；Windows 未驗"
+      "detail": "新基本 profile 內含同平台引擎與固定四語；Linux frozen core／full 已驗，舊 core 缺 OCR 拒絕仍保留。Windows 只驗靜態 payload。",
+      "evidence": "Linux frozen 12 項，空 PATH／搬移／缺檔／損毀／實際 library loader；非 Windows 或發行驗收"
     },
     {
       "id": "settings",
@@ -225,8 +225,8 @@
       "title": "模型與 GPU",
       "layer": "處理",
       "state": "partial",
-      "detail": "Tesseract 四語固定模型／單語與混合選擇已測；ONNX 繁體缺口保留，日韓／GPU 未驗，不自行更換後端。",
-      "evidence": "四語本機 Tesseract／CLI／Qt 10 項；非 Windows 內含引擎或一般準確率"
+      "detail": "Tesseract 內含四語已接上預設解析，Linux 完整自檢真實辨識；明確自備引擎／模型偏好保留。ONNX 日韓／繁體品質與 GPU 未驗。",
+      "evidence": "185 項含回歸＋Linux frozen 四語 12 項；固定樣本非一般準確率，Windows PE 未執行"
     },
     {
       "id": "quality",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 499 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 526 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -246,19 +246,19 @@
     }
   ],
   "limits": [
-    "C01／C02／C05–C08／C10 已驗收，7/12；C03 來源準備 2/4、C04 2/4、C09 3/4 子檢核，完整原生基本包與 Windows 未驗。既有 19/25 分開追蹤。",
+    "C01／C02／C05–C08／C10 已驗收，7/12；C03 Linux 內含整包 3/4、C04 2/4、C09 3/4 子檢核，完整原生基本包與 Windows 未驗。既有 19/25 分開追蹤。",
     "Tesseract 日韓／四語合成樣本通過，不代表任意混排／直排／低品質文件準確率；ONNX 繁體缺口與日韓未驗保留，GPU 未實機。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 500,
+  "tests_run": 527,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收 7/12。C03 四語與最小原生來源準備 2/4，四語內含整包／Windows 待驗；C04 2/4、C09 3/4，完整項仍待後續。",
+    "description": "已驗收 7/12。C03 四語、來源與 Linux 內含整包 3/4；Windows 靜態 payload 已備，實機未驗。C04 2/4、C09 3/4，完整項仍待後續。",
     "phases": [
       {
         "id": "a",
@@ -286,7 +286,7 @@
             "id": "C03",
             "label": "Windows Tesseract 與繁中／英／日／韓 OCR",
             "done": false,
-            "acceptance": "四語本機子檢核沿用；第二項最小 Windows 原生來源／原文準備完成，C03 2/4。86/86＋真實離線交叉建置／來源靜態 8/8，單一 x64 EXE、無第三方 DLL 靜態相依，26 linker 輸入與原文可追溯。舊 installer 的 32 DLL 證據仍待補並阻擋；新候選未執行 Windows、未整合四語基本包或核准發行。",
+            "acceptance": "第三項內含整包／離線自動解析與完整自檢完成 Linux 驗收，C03 3/4。185/185＋真正 Linux frozen 12/12、source Qt／首次 3/3；四語健康及掃描、搬移、缺檔／損毀／替換拒絕。Windows 固定 5.5.3 候選與四語 payload 只靜態組裝，Linux 引擎 5.5.0 不冒充 Windows 執行；整項未關閉。",
             "subchecks": [
               {
                 "label": "固定四語模型、語言選擇／設定遷移與本機離線 OCR（Linux）",
@@ -298,7 +298,7 @@
               },
               {
                 "label": "基本包內含四語模型與離線自動設定／完整自檢",
-                "done": false
+                "done": true
               },
               {
                 "label": "乾淨 Windows 四語掃描、中文路徑及安裝驗收",
@@ -421,9 +421,9 @@
       {
         "id": "onboarding",
         "title": "首次啟動精靈",
-        "detail": "C09 首次介面、RAM、唯讀雙語檢查、略過與完成標記已實作；Windows 基本包自帶 OCR 仍待 C03／C04。",
+        "detail": "內含基本引擎／四語自動解析與只讀健康已接；保存完成保留自動路徑及明確偏好，完整 C09 仍待 Windows 基本包。",
         "state": "partial",
-        "evidence": "22 項新檢查，94 項含回歸＋真實本機流程 9 項；C09 全項保持未完成"
+        "evidence": "source Qt／首次 3 項與原回歸；Linux frozen 四語自檢通過，C09 仍 3/4"
       },
       {
         "id": "components",
@@ -462,10 +462,10 @@
       },
       {
         "id": "native_assets",
-        "title": "Windows 原生來源與最小建置",
+        "title": "內含四語與原生基本包",
         "state": "partial",
-        "detail": "舊 installer 的 32 DLL 證據缺口保留；另完成四項固定來源與靜態單一 EXE 候選、原文及 linker 對應，Windows／基本包未驗。",
-        "evidence": "C03 第二項來源準備完成：86 項＋真實靜態／來源 8 項；無第三方 DLL 靜態相依，完整 C03 仍 2/4"
+        "detail": "Windows 最小來源＋四語 payload 靜態組裝；Linux 開發引擎內含到 frozen，預設解析、搬移與完整自檢通過，Windows 執行待驗。",
+        "evidence": "C03 第三項完成：185 項＋Linux frozen 12 項／source Qt 3 項；C03 3/4，Windows 未執行"
       }
     ]
   }

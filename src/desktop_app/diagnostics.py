@@ -48,14 +48,45 @@ def verify_help():
     return f"Offline guide; {inventory['package_count']} packages; {len(inventory['files'])} notice files"
 
 
-def _convert(source,destination,backend='tesseract'):
+def _convert(source,destination,backend='tesseract', *, languages=None):
     from .application import Runner
     from .core import Request,State
     from .resources import Policy,MIB
     result=Runner(Policy(budget=2048*MIB,reserve=0),max_resource_wait=10).run(
-        Request(source,destination,device='cpu',cpu_threads=1,ocr_backend=backend))
+        Request(source,destination,device='cpu',cpu_threads=1,ocr_backend=backend,ocr_languages=languages))
     if result.state!=State.COMPLETED:raise RuntimeError(result.message)
     return destination.read_text(encoding='utf-8')
+
+
+def bundled_native_check(directory):
+    """實際探針與四個掃描 PDF 皆使用內含資產；只核對固定合成目標。"""
+    from dataclasses import replace
+    from threading import Event
+    from PIL import Image
+    from .bundled_ocr import LANGUAGES, ORIGIN
+    from .onboarding.service import probe_engine
+    from .settings import Settings
+    observation = probe_engine(replace(Settings(), ocr_languages=LANGUAGES), directory, Event())
+    if not observation.ready or observation.origin != ORIGIN:
+        raise RuntimeError('內含四語引擎健康檢查未通過：' + observation.message)
+    assets = Path(resources.files('desktop_app').joinpath('data'))
+    for language, stem in [('eng', 'worker-health'), ('chi_tra', 'setup-chinese'),
+                            ('jpn', 'setup-japanese'), ('kor', 'setup-korean')]:
+        source, destination = directory / (language + '.pdf'), directory / (language + '.md')
+        reference = json.loads((assets / (stem + '.json')).read_text(encoding='utf-8'))
+        with Image.open(assets / (stem + '.png')) as image:
+            converted = image.convert('RGB')
+            try:
+                converted.save(source, 'PDF', resolution=144)
+            finally:
+                converted.close()
+        content = _convert(source, destination, languages=(language,))
+        expected = reference.get('expected', reference.get('reference'))
+        if ''.join(expected.split()) not in ''.join(content.split()) or 'route: ocr' not in content:
+            raise RuntimeError('內含四語掃描 PDF 固定目標不符：' + language)
+    return {'version': observation.version, 'languages': list(LANGUAGES),
+            'health_samples': len(observation.samples), 'scanned_pdfs': 4,
+            'scope': 'Bundled native CPU, fixed generated samples only; no general accuracy or GPU claim'}
 
 
 def collect_report(scope='full'):
@@ -68,7 +99,8 @@ def collect_report(scope='full'):
             'python':platform.python_version(),'frozen':bool(getattr(sys,'frozen',False)),
             'external_python_required':not bool(getattr(sys,'frozen',False)),
             'checks':[],'scope':'Generated samples, CPU only; no general quality, GPU or human desktop acceptance',
-            'tesseract_bundled':False,'profile':profile['id'] if profile else 'legacy-development',
+            'tesseract_bundled':bool(profile and profile['native_ocr_integrated']),
+            'profile':profile['id'] if profile else 'legacy-development',
             'requested_scope':scope,'release_ready':False,'full_c04_complete':False}
     def check(name,operation):
         try:
@@ -118,15 +150,20 @@ def collect_report(scope='full'):
         if profile is None:
             check('onnx_scanned_pdf_spawn',scanned)
         elif scope == 'full':
-            # C03 尚未提供內含引擎；不得借用 PATH／本機安裝冒充基本包已備妥。
-            def missing_native():
-                raise RuntimeError('基本包原生 Tesseract／四語模型尚未整合；C03 待完成。')
-            check('bundled_tesseract_bilingual',missing_native)
+            if profile['native_ocr_integrated']:
+                check('bundled_tesseract_four_language', lambda: bundled_native_check(root))
+            else:
+                # 舊 core profile 的缺引擎行為保留，不能借用本機 PATH 冒充內含。
+                def missing_native():
+                    raise RuntimeError('基本包原生 Tesseract／四語模型尚未整合；C03 待完成。')
+                check('bundled_tesseract_bilingual',missing_native)
     report['complete']=all(item['outcome']=='passed' for item in report['checks'])
     report['core_complete']=all(item['outcome']=='passed' for item in report['checks']
-                                if item['name']!='bundled_tesseract_bilingual')
+                                if not item['name'].startswith('bundled_tesseract_'))
     report['native_ocr_required']=bool(profile)
-    report['native_ocr_integrated']=False
+    report['native_ocr_integrated']=bool(profile and profile['native_ocr_integrated'])
+    report['native_ocr_verified']=any(item['name']=='bundled_tesseract_four_language' and item['outcome']=='passed'
+                                      for item in report['checks'])
     return report
 
 

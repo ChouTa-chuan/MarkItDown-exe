@@ -2,7 +2,17 @@
 
 記錄專案從規劃、實作、測試到調整方向的過程。之後每次開發在最上方追加日期、版本、做了什麼、遇到的問題與接下來要處理的事項，舊紀錄持續保留。
 
-目前程式版本 **0.12.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
+目前程式版本 **0.13.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
+
+**2026-11-08｜完成 C03 內含四語基本包 Linux 子檢核，程式 0.12.0 → 0.13.0**
+
+- 接續固定 Windows 最小來源，離線組裝 5.5.3 EXE／四語模型／原文 28 檔＋manifest；同時明確以現有 Linux Tesseract 5.5.0 複本建立開發 payload。兩者平台與來源分開，不執行 PE，也不將 Linux 辨識當成 Windows 成功。新 schema 2 profile 只接受同平台 native assets，原生入口交由 PyInstaller 收相依與系統 copyright。
+- 新增內含路徑唯讀解析，逐檔 hash／平台／PE 或 ELF／固定模型／未知檔案與連結檢查。桌面、CLI、首次流程共用；兩個路徑皆自動時檢查全部四語，明確自備引擎／目錄與選語保留。首次完成不保存內含絕對位置，搬移程式仍可用。模型視窗只讀顯示內含資料，不交由受管模型服務下載或移除。schema 7、舊三檔／四語目錄及品質目標保持。 視覺檢查發現長安裝路徑會裁切模型視窗文字，擴大顯示空間後重驗來源版 Qt 並重建最終 frozen。
+- core 自檢只驗核心，full 真正跑四語健康及四份掃描 PDF；Linux 獨立程式從空 PATH／空模型環境、中文搬移路徑完成原格式與日韓 CLI。缺／損模型及替換主機引擎連結明確失敗、無部分輸出；缺 OCR 仍能轉文字。loader 的 calling init 路徑核對 Tesseract／Leptonica 從 bundle 載入，不只是同名檔案存在。
+- 初始相關測試與 pip 重裝並行，造成 onboarding 模組暫時缺少；改為等重裝結束後再測。實際 frozen 驗收工具先誤猜 liblept.so.5，查看真實 loader 後改從 Analysis 取得 libleptonica.so.6；source Qt harness 又用錯 Window 類名，修正工具重跑。這些初始失敗分存，不列為產品 OCR 失敗或成功。另檢視發現自備模型目錄應保留所選單語，補反例與修正，再依序重裝／重建／回歸。
+- 最終新增 **27 項**、相關 **185/185**；真正 Linux frozen **12/12**，source Qt／首次 **3/3**，完整 **527 項：526 通過、1 既有 ONNX 繁體品質預期失敗、0 跳過**。source Qt 以測試覆寫指向真正 bundle 資產，未宣稱 frozen GUI 或 Windows UI；[原始日誌、清單、範例／輸出與畫面](runs/c03-bundle-2026-11-08/README.md)另存。
+- **C03 2/4 → 3/4**，第三項範圍為 Linux 內含整包／離線流程；完整導入仍 **7/12**、既有 **19/25**，C04 2/4、C09 3/4 保留 Windows／各 profile 門檻。新增[第十八份快照](../architecture/versions/v0.4-c03-bundled-ocr.md)，前十七份與舊附件／七份 lock／原 221 份授權固定；更新的產品資料僅離線手冊，其餘既有資料／原品質影像目標不變。
+- 未建立 Windows 安裝包、執行 Windows／GPU、一般品質驗收或核准再散布；沒有 tag／Release 或觸發手動 Windows 發行。引擎／模型／bundle binary、wheel、venv 不放 Git。下一步 Windows 原生基本包、四語實際 OCR／中文路徑與乾淨機，再完成 C04、完整 C09／C11；ONNX 繁體品質與 RAM 軟預算限制保留。
 
 **2026-11-08｜完成 C03 最小原生來源準備，程式 0.11.0 → 0.12.0**
 

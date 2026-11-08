@@ -40,7 +40,8 @@ class ModelDialog(QDialog):
                                            managed=self.directory == self.managed_directory,spec=spec)
         self.job = None
         self.setWindowTitle("OCR 模型管理")
-        self.resize(620, 320)
+        # 內含模型的安裝路徑較長，保留來源說明與四語狀態的顯示空間。
+        self.resize(760, 520)
         layout = QVBoxLayout(self)
         label='繁體中文＋英文＋日文＋韓文 CPU OCR' if four_languages else '繁體中文＋英文 CPU OCR · 約 6.4 MB'
         info = QLabel(f"{label}\n來源：{spec['source']}\n"

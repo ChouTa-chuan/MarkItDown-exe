@@ -1,0 +1,8 @@
+{
+  "language": "kor",
+  "expected": "한국어 문서 변환\n회의 기록과 자료\n확인 번호 12345",
+  "sha256": "d273e0d4d5dd81933e660c3648c61ccfaf76d2d7102b7fcd929f3349711ffaf0",
+  "source": "Locally generated synthetic OCR health text; Noto Sans CJK Bold TTC",
+  "font_index": 1,
+  "font_sha256": "faa5f3656a78b2e2d450d27fe8382c778bc2b6bb5ea29c986664a6a435056ceb"
+}

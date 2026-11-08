@@ -1,0 +1,8 @@
+{
+  "language": "jpn",
+  "expected": "日本語の文書変換\n会議の記録と資料\n確認番号 12345",
+  "sha256": "ce288314c7b6394b86a10fe6ccbc834df499f2895cf5228a84f7c053b8fc4849",
+  "source": "Locally generated synthetic OCR health text; Noto Sans CJK Bold TTC",
+  "font_index": 0,
+  "font_sha256": "faa5f3656a78b2e2d450d27fe8382c778bc2b6bb5ea29c986664a6a435056ceb"
+}
