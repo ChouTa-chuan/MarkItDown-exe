@@ -1,0 +1,18 @@
+test_empty_old_distribution_can_shadow_new_runtime_version_until_removed (test_base_upgrade.BaseUpgradeTests.test_empty_old_distribution_can_shadow_new_runtime_version_until_removed) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/importlib/metadata/__init__.py:467: DeprecationWarning: Implicit None on return values is deprecated and will raise KeyErrors.
+  return self.metadata['Version']
+ok
+test_failure_annotation_does_not_mask_upgrade_with_installer_success (test_base_upgrade.BaseUpgradeTests.test_failure_annotation_does_not_mask_upgrade_with_installer_success) ... ok
+test_generator_preserves_unicode_escapes_literals_and_never_overwrites (test_base_upgrade.BaseUpgradeTests.test_generator_preserves_unicode_escapes_literals_and_never_overwrites) ... ok
+test_obsolete_directories_are_deepest_first_and_exclude_shared_target_parents (test_base_upgrade.BaseUpgradeTests.test_obsolete_directories_are_deepest_first_and_exclude_shared_target_parents) ... ok
+test_platform_guard_precedes_every_registry_child_and_filesystem_change (test_base_upgrade.BaseUpgradeTests.test_platform_guard_precedes_every_registry_child_and_filesystem_change) ... ok
+test_previous_catalog_and_source_directory_must_be_paired (test_base_upgrade.BaseUpgradeTests.test_previous_catalog_and_source_directory_must_be_paired) ... ok
+test_removed_files_use_only_trusted_previous_ownership_and_hashes (test_base_upgrade.BaseUpgradeTests.test_removed_files_use_only_trusted_previous_ownership_and_hashes) ... ok
+test_same_version_and_case_only_rename_are_rejected (test_base_upgrade.BaseUpgradeTests.test_same_version_and_case_only_rename_are_rejected) ... ok
+test_success_summary_retains_partial_acceptance_and_actual_versions (test_base_upgrade.BaseUpgradeTests.test_success_summary_retains_partial_acceptance_and_actual_versions) ... ok
+test_tampered_build_or_catalog_cannot_generate_deletion_rules (test_base_upgrade.BaseUpgradeTests.test_tampered_build_or_catalog_cannot_generate_deletion_rules) ... ok
+test_windows_version_precision_and_initial_install_without_previous (test_base_upgrade.BaseUpgradeTests.test_windows_version_precision_and_initial_install_without_previous) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.061s
+
+OK

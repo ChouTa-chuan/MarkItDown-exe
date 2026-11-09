@@ -3,6 +3,7 @@ from copy import deepcopy
 import io
 import json
 import os
+from importlib import metadata
 from pathlib import Path
 import sys
 import tempfile
@@ -88,6 +89,13 @@ class BaseUpgradeTests(unittest.TestCase):
         self.assertTrue(stream.getvalue().startswith('::error'))
         self.assertIn('actual Pascal compiler failure',stream.getvalue())
         self.assertIn('"upgrade_accepted":false',stream.getvalue())
+        records['upgrade/upgrade-lifecycle.json'].update(failed_step='upgraded-acceptance',
+            commands=[dict(label='upgraded-acceptance'),dict(label='failed-upgrade-uninstall')])
+        with patch.dict(os.environ,{'GITHUB_ACTIONS':'true'}),patch('sys.stdout',new_callable=io.StringIO) as stream:
+            publish_annotation(records,{'upgrade/failed-upgrade-uninstall.log':'',
+                'upgrade/upgraded-acceptance/driver-error.log':'actual upgraded runtime failure'})
+        self.assertIn('actual upgraded runtime failure',stream.getvalue())
+        self.assertNotIn('"failure_log":"upgrade/failed-upgrade-uninstall.log"',stream.getvalue())
 
     def test_success_summary_retains_partial_acceptance_and_actual_versions(self):
         records={'windows-build.json':dict(validation_accepted=True,installer_accepted=True,upgrade_accepted=True,overall_accepted=True),
@@ -100,6 +108,27 @@ class BaseUpgradeTests(unittest.TestCase):
         self.assertEqual(payload['upgrade']['previous_version'],'0.15.0')
         self.assertFalse(payload['upgrade']['all_profiles_accepted'])
         self.assertFalse(payload['upgrade']['automatic_failure_rollback'])
+
+    def test_obsolete_directories_are_deepest_first_and_exclude_shared_target_parents(self):
+        old=deepcopy(self.old);new=deepcopy(self.new)
+        item=deepcopy(old['files'][0]);item['path']='_internal/old.dist-info/licenses/LICENSE';old['files'].append(item)
+        rules=plan(new,old)
+        self.assertEqual(rules['obsolete_directories'],['_internal/old.dist-info/licenses','_internal/old.dist-info'])
+        self.assertNotIn('_internal',rules['obsolete_directories'])
+        self.assertNotIn('_internal/desktop_app/data',rules['obsolete_directories'])
+
+    def test_empty_old_distribution_can_shadow_new_runtime_version_until_removed(self):
+        # 真正 importlib.metadata，固定舊版先列舉的順序；不是模擬 Windows 安裝成功。
+        root=self.root/'metadata';root.mkdir()
+        old=root/'sample_pkg-1.0.0.dist-info';old.mkdir()
+        new=root/'sample_pkg-2.0.0.dist-info';new.mkdir()
+        (new/'METADATA').write_text('Name: sample-pkg\nVersion: 2.0.0\n')
+        original=os.listdir
+        with patch.object(sys,'path',[str(root),*sys.path]),patch('os.listdir',side_effect=lambda path:sorted(original(path))):
+            metadata.MetadataPathFinder.invalidate_caches()
+            self.assertIsNone(metadata.version('sample-pkg'))
+            old.rmdir();metadata.MetadataPathFinder.invalidate_caches()
+            self.assertEqual(metadata.version('sample-pkg'),'2.0.0')
 
 
 if __name__=='__main__':unittest.main()

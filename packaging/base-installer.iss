@@ -54,7 +54,7 @@ Name: "{userprograms}\MarkItDown Base Preview"; Filename: "{app}\MarkItDownBase.
 
 [Code]
 var
-  ObsoleteNames, ObsoleteHashes, AddedNames, TargetNames: TStringList;
+  ObsoleteNames, ObsoleteHashes, AddedNames, TargetNames, ObsoleteDirectories: TStringList;
   IsTransition: Boolean;
 
 #include TransitionRules
@@ -79,9 +79,10 @@ end;
 
 function PrepareToInstall(var NeedsRestart: Boolean): String;
 var
-  InstalledVersion, InstalledDir, CatalogPath, Name: String;
+  InstalledVersion, InstalledDir, CatalogPath, Name, RelativeName: String;
   InstalledPacked, TargetPacked: Int64;
   I: Integer;
+  Found: TFindRec;
 begin
   Result := '';
   IsTransition := False;
@@ -143,13 +144,35 @@ begin
       Result := 'Obsolete owned file changed. Back it up before upgrading.'; exit;
     end;
   end;
+  // 空 dist-info 也會干擾 Python 版本解析；只移除已知舊目錄，若有未知內容則先拒絕升級。
+  for I := 0 to ObsoleteDirectories.Count - 1 do begin
+    Name := AddBackslash(WizardDirValue) + ObsoleteDirectories[I];
+    if not SafeAncestors(Name) or FileExists(Name) then begin
+      Result := 'An obsolete directory was linked or replaced with a file.'; exit;
+    end;
+    if FindFirst(AddBackslash(Name) + '*', Found) then begin
+      try
+        repeat
+          if (Found.Name <> '.') and (Found.Name <> '..') then begin
+            RelativeName := AddBackslash(ObsoleteDirectories[I]) + Found.Name;
+            if ((Found.Attributes and $400) <> 0) or
+               ((ObsoleteNames.IndexOf(RelativeName) < 0) and (ObsoleteDirectories.IndexOf(RelativeName) < 0)) then begin
+              Result := 'An obsolete application directory contains untracked data. Back it up before upgrading.'; exit;
+            end;
+          end;
+        until not FindNext(Found);
+      finally
+        FindClose(Found);
+      end;
+    end;
+  end;
   IsTransition := True;
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
 var I: Integer; Name: String;
 begin
-  if (CurStep = ssPostInstall) and IsTransition then
+  if (CurStep = ssPostInstall) and IsTransition then begin
     for I := 0 to ObsoleteNames.Count - 1 do begin
       Name := AddBackslash(WizardDirValue) + ObsoleteNames[I];
       if FileExists(Name) then begin
@@ -158,6 +181,15 @@ begin
         if not DeleteFile(Name) then RaiseException('Cannot remove obsolete owned file.');
       end;
     end;
+    // RemoveDir 只刪空目錄；不得用遞迴刪除清掉可能出現的使用者檔案。
+    for I := 0 to ObsoleteDirectories.Count - 1 do begin
+      Name := AddBackslash(WizardDirValue) + ObsoleteDirectories[I];
+      if DirExists(Name) then begin
+        if not SafeAncestors(Name) or not RemoveDir(Name) then
+          RaiseException('Cannot remove an obsolete empty directory; preserved for manual recovery.');
+      end;
+    end;
+  end;
 end;
 
 procedure InitializeWizard;
@@ -166,5 +198,6 @@ begin
   ObsoleteHashes := TStringList.Create;
   AddedNames := TStringList.Create;
   TargetNames := TStringList.Create;
+  ObsoleteDirectories := TStringList.Create;
   PopulateObsolete;
 end;

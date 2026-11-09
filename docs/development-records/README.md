@@ -4,6 +4,11 @@
 
 目前程式版本 **0.16.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
 
+**2026-11-09｜修正跨版自檢的空舊目錄與診斷保留，程式0.16.0**
+
+- 第二輪Windows基本包／安裝後app各10項、安裝／同版修復／移除6段通過；跨版前6段含原版app、衝突／真junction／位置等控制通過，升級後app自檢失敗。公開診斷被cleanup空log蓋過，已固定failed_step優先保留原錯誤；不假稱已讀到Windows原例外。[第二次原始紀錄](runs/c11-upgrade-attempt2-2026-11-09/README.md)。
+- 真importlib.metadata本地可重現空前版dist-info先列舉時遮蔽新版Version為None；新增已知空目錄移除、未知內容先拒絕及app前全hash／舊目錄檢查。這是候選原因與修正，Windows後續實跑另記；C11仍1/4、完整7/12，舊圖與日誌不倒填。
+
 **2026-11-09｜修正跨版CI第一次Inno編譯失敗，程式0.16.0**
 
 - Windows程式建置與基本包10/10通過；新安裝器在Inno編譯時指出ExcludeTrailingBackslash不支援，Setup與跨版安裝尚未開始。已改官方RemoveBackslashUnlessRoot，後續重新實跑；C11仍1/4、完整7/12。[第一次原始失敗](runs/c11-upgrade-attempt1-2026-11-09/README.md)及固定官方宣告保存，既有圖與raw日誌不倒填。

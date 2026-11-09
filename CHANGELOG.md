@@ -37,13 +37,15 @@
 
 ## 0.16.0 — 2026-11-09
 
+第二輪安裝6段／app10項通過，跨版前6段通過但升級自檢失敗；補已知空dist-info移除／未知目錄內容拒絕與failed_step診斷，真正Windows待重驗。[原始第二次失敗](docs/development-records/runs/c11-upgrade-attempt2-2026-11-09/README.md)。
+
 第一次Windows實測基本資料夾10/10；新Inno編譯遇不支援的ExcludeTrailingBackslash，已改官方RemoveBackslashUnlessRoot後待重驗。[原始失敗](docs/development-records/runs/c11-upgrade-attempt1-2026-11-09/README.md)，尚不計新安裝／跨版接受。
 
 相對0.15.0新增基本包真跨版本升級／明確回復CI，架構0.4；先保存準備，Windows結果另追加，C11仍1/4、完整7/12／歷史19/25。
 
 - 固定前版43cf811原source／controller獨立建置；原0.15 Setup初裝，再以新安裝政策驗真正兩版payload的升級／明確回復，未以改標籤假造歷史版本。相容回復Setup與原版Setup分別留hash，不提供正式安裝品。
 - 新增可信catalog編譯規則、原安裝位置與reparse保護、未指定降版拒絕及精確過期檔hash刪除；自檢新增執行中app_version。中斷自動回滾與未知版本、各profile仍不宣稱支援。
-- 新增9項，相關163/163；33模組577隔離正常退出（576通過、1既有ONNX繁體品質預期失敗）。[原始準備紀錄](docs/development-records/runs/c11-upgrade-prep-2026-11-09/README.md)、[模組指引](docs/base-upgrade-ci.md)及架構／進度同步；既有圖／紀錄／鎖定／原文／品質目標不改，Linux混合teardown未定位。
+- 新增11項，相關165/165；33模組579隔離正常退出（578通過、1既有ONNX繁體品質預期失敗）。[原始準備紀錄](docs/development-records/runs/c11-upgrade-prep-2026-11-09/README.md)、[模組指引](docs/base-upgrade-ci.md)及架構／進度同步；既有圖／紀錄／鎖定／原文／品質目標不改，Linux混合teardown未定位。
 
 ## 0.15.0 — 2026-11-09
 

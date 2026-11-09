@@ -22,6 +22,7 @@ def publish_annotation(records, tails):
         keys += ('upgrade_accepted','previous_version','upgrade_verified','rollback_verified','downgrade_blocked',
                  'obsolete_files_removed','all_profiles_accepted','automatic_failure_rollback',
                  'upgraded_app_checks','rolled_back_app_checks','previous_commit')
+        keys += ('failed_step',)
         return {key: value[:250] if isinstance(value, str) else value
                 for key, value in record.items() if key in keys}
     payload = dict(result=brief(result))
@@ -42,9 +43,11 @@ def publish_annotation(records, tails):
         upgrade=records.get('upgrade/upgrade-lifecycle.json',{})
         if upgrade and not upgrade.get('accepted'):
             steps=upgrade.get('commands',[])
-            inner_upgrade=steps[-1].get('label','') if steps else ''
+            inner_upgrade=upgrade.get('failed_step') or (steps[-1].get('label','') if steps else '')
             # 優先最深層實際 app／編譯日誌，避免 wrapper traceback 蓋過真正原因。
             candidates=['upgrade/'+inner_upgrade+'/driver-error.log']
+            # 舊報告未固定 failed_step 時，也能優先找到真正 app 自檢，不能選到空的卸載 log。
+            candidates += sorted(name for name in tails if name.startswith('upgrade/') and name.endswith('-acceptance/driver-error.log'))
             if str(upgrade.get('error','')).startswith(('CalledProcessError','TimeoutExpired')):
                 candidates.append('upgrade/'+inner_upgrade+'.log')
             candidates.append('upgrade/driver-error.log')

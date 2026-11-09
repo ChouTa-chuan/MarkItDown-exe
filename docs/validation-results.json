@@ -3,14 +3,14 @@
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 577,
-    "passed": 576,
+    "run": 579,
+    "passed": 578,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0,
     "method": "33 isolated module subprocesses, all normal exit0; mixed teardown remains open"
   },
-  "command": "python scripts/check_isolated_tests.py --expected-count 577 --output <fresh-directory>",
+  "command": "python scripts/check_isolated_tests.py --expected-count 579 --output <fresh-directory>",
   "native_prerequisites": [
     "Tesseract 5.5.0",
     "verified chi_tra + eng data",
@@ -896,8 +896,8 @@
     "scope": "Actual per-module normal subprocess exits; mixed native shutdown remains a separate open issue",
     "source_version": "0.16.0",
     "modules": 33,
-    "run": 577,
-    "passed": 576,
+    "run": 579,
+    "passed": 578,
     "expected_failures": [
       "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
     ],
@@ -917,7 +917,7 @@
       },
       {
         "module": "test_base_upgrade",
-        "run": 9,
+        "run": 11,
         "failures": 0,
         "errors": 0,
         "skipped": 0,
@@ -1374,8 +1374,8 @@
     "source_version": "0.16.0",
     "previous_version": "0.15.0",
     "previous_commit": "43cf811356a7616b784cba09191afdfcb52e16a7",
-    "local_tests": 163,
-    "new_tests": 9,
+    "local_tests": 165,
+    "new_tests": 11,
     "local_contract_accepted": true,
     "windows_executed": false,
     "validation_accepted": false,
@@ -1391,7 +1391,18 @@
         "base_folder_checks": 10,
         "reason": "Inno Script unknown identifier ExcludeTrailingBackslash",
         "evidence": "development-records/runs/c11-upgrade-attempt1-2026-11-09/README.md"
+      },
+      {
+        "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42555556126",
+        "source_commit": "d0050ed29e6a6847741fad87db844422d4c58b41",
+        "accepted": false,
+        "base_folder_checks": 10,
+        "installer_checks": 6,
+        "cross_version_checks_passed": 6,
+        "reason": "Upgraded app acceptance failed; public diagnostic selected empty cleanup log, actual inner error unavailable",
+        "evidence": "development-records/runs/c11-upgrade-attempt2-2026-11-09/README.md"
       }
-    ]
+    ],
+    "latest_local_evidence": "development-records/runs/c11-upgrade-attempt2-2026-11-09/README.md"
   }
 }

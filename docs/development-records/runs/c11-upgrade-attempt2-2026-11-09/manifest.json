@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "source_version": "0.16.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-09",
+  "check": "C11-base-upgrade-directory-fix",
+  "mechanism_accepted": false,
+  "full_c11_complete": false,
+  "scope": "Linux新增11／相關165與33模組579隔離已驗，第二輪Windows安裝6段已驗、跨版前6段後失敗，候選修正待實跑；C11仍1/4，非中斷自動回滾／全profile／乾淨機／人工UI／GPU或發行",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1699,
+      "sha256": "cd1c44e096b429798ff2897f06dd9a5a0a168f2dced2d501a0cc60fc35bce58f",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-acceptance.json",
+      "bytes": 16178,
+      "sha256": "c195a4b6aa63d4eea26133afe6651c256b2f22e97d406513fba20c42cda02b90",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-acceptance.log",
+      "bytes": 24393,
+      "sha256": "f068cb92e80225530a54f6502fa6c2e875fe00de1b5dd82a78e43d3ad8aeab23",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/summary.json",
+      "bytes": 8809,
+      "sha256": "68416b1111ddb83cc9179c8cb7a4613c8897513580263d2a16b32df45afacd7c",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_base_installer.json",
+      "bytes": 189,
+      "sha256": "c373c0e29a9cc8c8ed0de2d8d49282529221267c3e8514ae0766bd2fe1eff0b2",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_base_installer.log",
+      "bytes": 2153,
+      "sha256": "4c7773bbf23a83334d7622db3ad3c8243e8c0c6cad1352667ec2d5345dedbf49",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_base_upgrade.json",
+      "bytes": 187,
+      "sha256": "861deb83b51d4b8fdf8804d3a7891e75d5335c374571963c56873453263b7be1",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_base_upgrade.log",
+      "bytes": 2057,
+      "sha256": "59a28afa5f3baabc01a5bec6d094506fb3d5216f0b821d7374498d93872af482",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_borderless.json",
+      "bytes": 185,
+      "sha256": "6b9be17e89ca6db4a135a99a96bd8110564cc60529452fbe74ffe2d144366c93",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_borderless.log",
+      "bytes": 2053,
+      "sha256": "8610e886ab30eef08b7bc05aa06a7b1f99a76f5182ae7625b6bc067bd46f0552",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_build_profile.json",
+      "bytes": 188,
+      "sha256": "11c00d1448720f97abbc5d298323b78fdeccee8b33d74e548d1ba38a2a1c17ff",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_build_profile.log",
+      "bytes": 2257,
+      "sha256": "b94bf4381f975171f76efbac85c7ca69996984e17d50f83829f51f5b3c396ef0",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_bundled_ocr.json",
+      "bytes": 186,
+      "sha256": "680b9c1c91c6d74883a09b0a127205a9dee78bbb76e7a9529c80469981b4f204",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_bundled_ocr.log",
+      "bytes": 3835,
+      "sha256": "26d741a350f056f58078af4397c28bf5edd7ee4e1f276aab7d81ddd571462c47",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_component_downloads.json",
+      "bytes": 194,
+      "sha256": "d12b09adf4c28c16e88669f8771c8629843970a030bdf902a10dea753d0fdf57",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_component_downloads.log",
+      "bytes": 6645,
+      "sha256": "49892181b4cb2f6b74efabfe0e8f217aa1a652a1626cf1cbc18f9482753a72c0",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_component_lifecycle.json",
+      "bytes": 194,
+      "sha256": "bd764b822063ebe25f8bdd1217af2aa9849015ff5c564c6b3e1812c88aa5d8f8",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_component_lifecycle.log",
+      "bytes": 8564,
+      "sha256": "26f9668f9d2637bd3fe384e805c0bf98b8910b2ef04dcb4bdfd643c11c4406f2",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_component_management.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_component_management.log",
+      "bytes": 4000,
+      "sha256": "56d3713ab848168e3e6f107099b9ba2a94fda61aa3d74a17b5958a1e73eb220d",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_component_migration.json",
+      "bytes": 194,
+      "sha256": "13a39638064053a789eaeda453cfdc9b19de10ad885a82aed0c97cabce80e3db",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_component_migration.log",
+      "bytes": 5094,
+      "sha256": "75646f2974a2b5887c6b346ffcac546253de50ee491026a95b18e605da7ed55e",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_component_workers.json",
+      "bytes": 192,
+      "sha256": "56cb2b7d43be4e4d49c89fb22df03b7d7f822a3098131907530c23952f21aadf",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_component_workers.log",
+      "bytes": 3537,
+      "sha256": "a7439496bc02438040794a0db95436c40234b9ee1b65155b3499cc1828617294",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_components.json",
+      "bytes": 185,
+      "sha256": "c85c5b436760aef9bfaa5e5c1adb5c4ff9a1ec547713caa57e5235e00a02ef1f",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_components.log",
+      "bytes": 6943,
+      "sha256": "8072906b299740813890e532c1d3a76594b8f113df8394a9409a84f384cdb230",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_core.json",
+      "bytes": 179,
+      "sha256": "a93d8007bf356996f386d0fdd566a8dbafdedf75de9f17a77a102f6f84df3aff",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_core.log",
+      "bytes": 1743,
+      "sha256": "7caf20773140703b343f9e4d6275833ee2a4c58a96026d20d7ef05d9f1dc884f",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_desktop.json",
+      "bytes": 182,
+      "sha256": "e8a2827f9ff901fe5c1fe902d287c9a963d2a73c47068bb24ee5dda4c5030d2d",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_desktop.log",
+      "bytes": 1494,
+      "sha256": "41cdbebc326a6f66637db6fff5fee880933254000033e5e9e99fdff6070359fc",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_devices.json",
+      "bytes": 181,
+      "sha256": "ff3fd557fc6150e23395a0398240e500795dcd8d436246fbbc373f23d509b135",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_devices.log",
+      "bytes": 1000,
+      "sha256": "ca61c80a24db88fb64cb3a2bc3ef6b773c2f2c0091fcbef4f440f1b25917bfca",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_diagnostics.json",
+      "bytes": 185,
+      "sha256": "b2861c84efecd4ad7910775db50667c210cb5cb2a3eeaf25f2138cfca8e369b5",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_diagnostics.log",
+      "bytes": 1054,
+      "sha256": "0806601f2ebe278942f50676a3d0c0466cea210a8a16956de0526da841f3760b",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_formats.json",
+      "bytes": 181,
+      "sha256": "9515426c7ccac2d340b1c5dac050cdbfd1e9847f9aaf22d7c5e92073dce58b2f",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_formats.log",
+      "bytes": 1166,
+      "sha256": "ef8dc923d3d11fb126f1ade6aa0f07a9b104d823a95aeb2f0d50386b57aaa883",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_help_ui.json",
+      "bytes": 181,
+      "sha256": "13dfa63fe7cbacc513fc70a12a960b59fb35e453bc92715e1a35387e822bdb0c",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_help_ui.log",
+      "bytes": 382,
+      "sha256": "e6b76f813f8efbc2fc3a26c3f2829c8d161b06717eb140d5168c03c40469da6a",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_languages.json",
+      "bytes": 184,
+      "sha256": "e3fd996b21ff058c7c59ea07c20a61a6a5bf587c7c3f6c66ae4095526e7e1aa1",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_languages.log",
+      "bytes": 2774,
+      "sha256": "e8a8b677fcef4914404db2101ed8ad981385a54689dca4359e198c0043299dc1",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_license_inventory.json",
+      "bytes": 191,
+      "sha256": "b1a9356652eb8e0023ef53080e145388f88d6b91935f2b0e6af53e001967ca50",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_license_inventory.log",
+      "bytes": 1169,
+      "sha256": "919ca4ea41ff55c82b63510c7109c5d569ca06f59a0ad9bb734b1e458afd03f4",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_managed_conversion.json",
+      "bytes": 193,
+      "sha256": "9ae2a6a0d0b6e05082293be94b3ae18ddd74167822f4de2a27152755f0e4cab7",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_managed_conversion.log",
+      "bytes": 3431,
+      "sha256": "46a4f1bd7d60f013f92d06fd6396087354f498fbd419354f6d3abb8592b87317",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_minimal_native.json",
+      "bytes": 189,
+      "sha256": "e8e00accf3cc3f0734f53eb29e2743b087d75711a2b94c94bf7968c87633c3bf",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_minimal_native.log",
+      "bytes": 3501,
+      "sha256": "08a49f9e66865ab1a4b294edb25f3d31f852153eee35fc9dae54c582ce363bcb",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_models.json",
+      "bytes": 180,
+      "sha256": "5ea2901d74bcf159d9aec9c2f46258a8b471dee4e18dfa6cf598c26aa696df90",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_models.log",
+      "bytes": 942,
+      "sha256": "0bf06cfcfa870d08a86947a1dd4c8c91d2e6559bffc0ec2df2f7b433c73362d8",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_native_assets.json",
+      "bytes": 188,
+      "sha256": "cdda65f9c7b92c362f6a653f345b05a348c4f93fe4e8c9bbef2d2334efb1520b",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_native_assets.log",
+      "bytes": 2734,
+      "sha256": "73b479a6204f308149cca90be35a93ec51f8f7e428c88d86a8233b25e512e957",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_onboarding.json",
+      "bytes": 185,
+      "sha256": "135c04d454c22c30bc5298d4d71d9a6dae994a3b2e179b584389e83550a71076",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_onboarding.log",
+      "bytes": 3436,
+      "sha256": "c55c99f320349fa9520aa0b7b3833a1d2547a79be12751123b56fb744d58022c",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_onnx_ocr.json",
+      "bytes": 270,
+      "sha256": "5473748ad45f88fe92de41c8afe686dcf8f6be10ffca08cde4199a369ab3147c",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_onnx_ocr.log",
+      "bytes": 1765,
+      "sha256": "87e73bfd2bf0218f58d84264f0d59e4532b28553da6869ee1cb839b2d8830b95",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_packaging_profiles.json",
+      "bytes": 193,
+      "sha256": "9a12514d89a19c4509ada37eb816bc371212b83160e35e1993de09ec684d777a",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_packaging_profiles.log",
+      "bytes": 2227,
+      "sha256": "563927dd423248eb87b9214588e39d104cf035411a90af147d8432addfe5a2f4",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_pdf_acceptance.json",
+      "bytes": 188,
+      "sha256": "14153a32f1234b4ba0d99a57e0be06449d6241bfa555f301a63fe13a6119144c",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_pdf_acceptance.log",
+      "bytes": 918,
+      "sha256": "eaf9e7208431ab990c9381ffbed649f5c20b2e3e8d08babf21b01f4dfc88b748",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_pdf_pipeline.json",
+      "bytes": 187,
+      "sha256": "17635e630af495493d6167553bd28f55fb8c788c6fa481cc67526f70f36fd946",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_pdf_pipeline.log",
+      "bytes": 2690,
+      "sha256": "9d34c3c426b5d880b0caecc24ca00ab713fa4a62253ae97ce93bf9a267c6cc01",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_quality.json",
+      "bytes": 181,
+      "sha256": "272db2627acbad3414e199b77a81d36f62b6e6f761312de1777eb6bf47312e83",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_quality.log",
+      "bytes": 764,
+      "sha256": "4639e441fbb18ea579a4f77c3eed8c9cca337d04c7d9254a8f2a1c4060cc02b1",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_settings.json",
+      "bytes": 183,
+      "sha256": "9da3a4a911fefbec1b221b6a8ee1c7fec4674929c0f66aace7a100b715dbc51d",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_settings.log",
+      "bytes": 1408,
+      "sha256": "c3e3ccc0ab90b19628b3b638358232ee907e1e6ffd2c60ec97cd3f58e2af5e4e",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_table_continuation.json",
+      "bytes": 193,
+      "sha256": "ed43e12cfdb956325de422e4ed4bb11bdd73cf1abd16bae01104e1900e237213",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_table_continuation.log",
+      "bytes": 2703,
+      "sha256": "c32963b18a4c8ae2f970056d5a98786e36ede7482e8d4a176a85f0eb5d4ae94e",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_tables.json",
+      "bytes": 180,
+      "sha256": "5f020394fbbfa32326a3c3cf52fe2add764b14a13c47f0ed675d5d4c1592673a",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_tables.log",
+      "bytes": 875,
+      "sha256": "1d19f5cac93dcf0628f877ce4ff41a88b2a37be0fae6d0827f27cd79efe000ed",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_windows_ci.json",
+      "bytes": 185,
+      "sha256": "76413b62e9ab37e86829061d7dec3b940ff34e5145a3678a8d967c882bc47d3f",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression/test_windows_ci.log",
+      "bytes": 4085,
+      "sha256": "c955bc60afccec5b5b7b3e46347c913460b3aff983410a6bd87b036890674767",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-isolated-regression.log",
+      "bytes": 330,
+      "sha256": "2e557dfb6d7a5db9ffc19b6a366226b7d75b548dabab6ca2b9615b7ae3f1ae7f",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "followup-new-tests.log",
+      "bytes": 2295,
+      "sha256": "fa3cc2efc3f2634251a77d7d5ec09e9b1de991a952bd29bde7dac1bf763641e2",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 2826,
+      "sha256": "02980c5d46f814319bebe65e608d25eba97609ec687b3a20f75af39863bfc2f8",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "provenance.json",
+      "bytes": 662,
+      "sha256": "2439294f6628821def2f9b7865b8826f48d268dfc1b63d607f4059593e539577",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "public-diagnostic.json",
+      "bytes": 2994,
+      "sha256": "d278afe241bd9a6db826f4f40cdf3a2574e644dca705e2ea66c8dfa8a4310489",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 182002,
+      "sha256": "0137e15ff5b53205562f39c5df063e248274fd8bb9da32c73e1540d6c9137301",
+      "source": "本輪Linux合成版本／source catalog與實際檔案回歸、離線瀏覽器截圖及已知混合退出限制；無使用者文件"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42555556126",
+  "source_commit": "d0050ed29e6a6847741fad87db844422d4c58b41",
+  "source_version": "0.16.0",
+  "date_taipei": "2026-11-09",
+  "workflow_conclusion": "failure",
+  "base_folder_checks": 10,
+  "installed_app_checks": 10,
+  "installer_checks": 6,
+  "cross_version_checks_passed": 6,
+  "cross_version_accepted": false,
+  "actual_inner_exception_available": false,
+  "public_failure_tail_scope": "cleanup log only; actual app exception not publicly captured",
+  "full_c11_complete": false,
+  "complete_report_artifact_downloaded": false,
+  "report_artifact_retention_days": 7
+}

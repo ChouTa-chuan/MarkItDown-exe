@@ -1,0 +1,11 @@
+test_does_not_repair_or_convert_characters (test_quality.CrossCheckTests.test_does_not_repair_or_convert_characters) ... ok
+test_empty_output_not_called_verified (test_quality.CrossCheckTests.test_empty_output_not_called_verified) ... ok
+test_html_escaped_in_evidence (test_quality.CrossCheckTests.test_html_escaped_in_evidence) ... ok
+test_ignores_whitespace_only (test_quality.CrossCheckTests.test_ignores_whitespace_only) ... ok
+test_long_page_alignment_bounded (test_quality.CrossCheckTests.test_long_page_alignment_bounded) ... ok
+test_preserves_traditional_variant_difference (test_quality.CrossCheckTests.test_preserves_traditional_variant_difference) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK

@@ -67,6 +67,10 @@ def check(bundle, previous_bundle, previous_source, setup, work, reports, *, isc
         assert_user()
 
     def full_acceptance(label, expected):
+        assert_installed(expected)
+        other = old if expected is new else new
+        for name in plan(expected, other)['obsolete_directories']:
+            if (install/name).exists(): raise RuntimeError('Obsolete package directory remains: '+name)
         call(label, [sys.executable, ROOT/'scripts/check_windows_base.py', '--executable', install/ENTRY,
                      '--output', reports/label])
         acceptance = json.loads((reports/label/'windows-acceptance.json').read_text(encoding='utf-8'))
@@ -128,7 +132,18 @@ def check(bundle, previous_bundle, previous_source, setup, work, reports, *, isc
             finally:
                 path.write_bytes(saved)
             assert_installed(old)
-        result['checks'].append('Changed obsolete file or previous catalog blocks upgrade and leaves the old app intact')
+        old_directories = plan(new, old)['obsolete_directories']
+        if not old_directories: raise RuntimeError('Fixture must include actual versioned package directories')
+        unknown = install/old_directories[0]/'不可刪除的使用者文件.txt'
+        unknown.write_bytes(b'KEEP UNKNOWN FILE IN OLD PACKAGE DIRECTORY'); before_unknown = file_hash(unknown)
+        try:
+            if call('reject-old-directory-data', [setup, *flags, '/LOG='+str(reports/'old-directory-data-inno.log')], allow_failure=True) == 0:
+                raise RuntimeError('Upgrade removed an old directory containing unknown data')
+            if file_hash(unknown) != before_unknown: raise RuntimeError('Unknown old-directory data was changed')
+        finally:
+            if unknown.is_file() and file_hash(unknown) == before_unknown: unknown.unlink()
+        assert_installed(old)
+        result['checks'].append('Changed obsolete file/catalog or unknown old-directory data blocks upgrade with old app intact')
         added = plan(new, old)['added_paths']
         if not added: raise RuntimeError('Fixture must include a real added owned file')
         conflict = install/added[0]; conflict.parent.mkdir(parents=True, exist_ok=True)
@@ -200,6 +215,8 @@ def check(bundle, previous_bundle, previous_source, setup, work, reports, *, isc
         result['accepted'] = True
     except Exception as exc:
         result['error'] = f'{type(exc).__name__}: {exc}'
+        # cleanup 會再呼叫子程序；先固定主要失敗步驟，診斷不得被清理動作蓋過。
+        result['failed_step'] = result['commands'][-1]['label'] if result['commands'] else ''
         (reports/'driver-error.log').write_text(traceback.format_exc(), encoding='utf-8')
     finally:
         if installed and (install/'unins000.exe').is_file():

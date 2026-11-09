@@ -1,0 +1,23 @@
+test_four_model_dialog_keeps_external_directory_read_only (test_languages.LanguageDesktopTests.test_four_model_dialog_keeps_external_directory_read_only) ... ok
+test_language_controls_follow_backend_and_batch_state (test_languages.LanguageDesktopTests.test_language_controls_follow_backend_and_batch_state) ... ok
+test_language_preferences_and_custom_order_survive_other_saves (test_languages.LanguageDesktopTests.test_language_preferences_and_custom_order_survive_other_saves) ... ok
+test_external_models_cannot_be_downloaded_or_removed (test_languages.LanguageTests.test_external_models_cannot_be_downloaded_or_removed) ... ok
+test_four_model_adapter_install_reuse_and_unknown_file_preservation (test_languages.LanguageTests.test_four_model_adapter_install_reuse_and_unknown_file_preservation) ... ok
+test_invalid_duplicate_or_argument_injection_rejected (test_languages.LanguageTests.test_invalid_duplicate_or_argument_injection_rejected) ... ok
+test_invalid_json_languages_never_overwrite_original (test_languages.LanguageTests.test_invalid_json_languages_never_overwrite_original) ... ok
+test_language_metadata_and_backend_gate_are_lazy_for_native_pdf (test_languages.LanguageTests.test_language_metadata_and_backend_gate_are_lazy_for_native_pdf) ... ok
+test_new_four_model_manifest_keeps_legacy_original (test_languages.LanguageTests.test_new_four_model_manifest_keeps_legacy_original) ... ok
+test_new_health_assets_are_fixed_and_keep_reference_language (test_languages.LanguageTests.test_new_health_assets_are_fixed_and_keep_reference_language) ... ok
+test_non_tesseract_japanese_scan_does_not_load_other_engine (test_languages.LanguageTests.test_non_tesseract_japanese_scan_does_not_load_other_engine) ... ok
+test_old_owned_model_directory_is_not_claimed_by_new_manifest (test_languages.LanguageTests.test_old_owned_model_directory_is_not_claimed_by_new_manifest) ... ok
+test_selected_missing_language_is_fatal_before_inference (test_languages.LanguageTests.test_selected_missing_language_is_fatal_before_inference) ... ok
+test_selected_order_survives_roundtrip (test_languages.LanguageTests.test_selected_order_survives_roundtrip) ... ok
+test_setup_checks_only_selected_models (test_languages.LanguageTests.test_setup_checks_only_selected_models) ... ok
+test_setup_missing_language_does_not_claim_ready (test_languages.LanguageTests.test_setup_missing_language_does_not_claim_ready) ... ok
+test_v6_migrates_without_changing_old_paths_or_default (test_languages.LanguageTests.test_v6_migrates_without_changing_old_paths_or_default) ... ok
+test_valid_selection_and_legacy_are_distinct (test_languages.LanguageTests.test_valid_selection_and_legacy_are_distinct) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.421s
+
+OK

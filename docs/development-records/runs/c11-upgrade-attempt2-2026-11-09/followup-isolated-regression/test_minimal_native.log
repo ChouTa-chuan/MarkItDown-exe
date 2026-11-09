@@ -1,0 +1,28 @@
+test_altered_file_and_link_cannot_match_fixed_record (test_minimal_native.MinimalNativeTests.test_altered_file_and_link_cannot_match_fixed_record) ... ok
+test_archive_byte_and_member_limits_are_enforced (test_minimal_native.MinimalNativeTests.test_archive_byte_and_member_limits_are_enforced) ... ok
+test_archive_parent_and_absolute_paths_are_rejected (test_minimal_native.MinimalNativeTests.test_archive_parent_and_absolute_paths_are_rejected) ... ok
+test_archive_special_device_is_rejected (test_minimal_native.MinimalNativeTests.test_archive_special_device_is_rejected) ... ok
+test_candidate_accepts_only_static_system_import_classification (test_minimal_native.MinimalNativeTests.test_candidate_accepts_only_static_system_import_classification) ... ok
+test_candidate_cannot_hide_third_party_delay_import (test_minimal_native.MinimalNativeTests.test_candidate_cannot_hide_third_party_delay_import) ... ok
+test_candidate_must_be_exe_not_dll (test_minimal_native.MinimalNativeTests.test_candidate_must_be_exe_not_dll) ... ok
+test_escape_symlink_is_rejected (test_minimal_native.MinimalNativeTests.test_escape_symlink_is_rejected) ... ok
+test_existing_archive_destination_preserves_user_file (test_minimal_native.MinimalNativeTests.test_existing_archive_destination_preserves_user_file) ... ok
+test_existing_work_is_rejected_before_invoking_tools (test_minimal_native.MinimalNativeTests.test_existing_work_is_rejected_before_invoking_tools) ... ok
+test_fixed_contract_does_not_approve_windows_or_release (test_minimal_native.MinimalNativeTests.test_fixed_contract_does_not_approve_windows_or_release) ... ok
+test_forged_data_flags_are_rejected (test_minimal_native.MinimalNativeTests.test_forged_data_flags_are_rejected) ... ok
+test_generated_headers_prove_png_and_disabled_capabilities (test_minimal_native.MinimalNativeTests.test_generated_headers_prove_png_and_disabled_capabilities) ... ok
+test_host_probe_and_extra_codecs_or_network_are_rejected (test_minimal_native.MinimalNativeTests.test_host_probe_and_extra_codecs_or_network_are_rejected) ... ok
+test_invalid_jobs_are_rejected_before_any_io (test_minimal_native.MinimalNativeTests.test_invalid_jobs_are_rejected_before_any_io) ... ok
+test_linker_missing_source_and_unknown_host_library_are_rejected (test_minimal_native.MinimalNativeTests.test_linker_missing_source_and_unknown_host_library_are_rejected) ... ok
+test_linker_origins_cover_four_sources_and_toolchain (test_minimal_native.MinimalNativeTests.test_linker_origins_cover_four_sources_and_toolchain) ... ok
+test_missing_component_or_runtime_notice_is_rejected (test_minimal_native.MinimalNativeTests.test_missing_component_or_runtime_notice_is_rejected) ... ok
+test_missing_png_is_rejected_even_with_valid_pe (test_minimal_native.MinimalNativeTests.test_missing_png_is_rejected_even_with_valid_pe) ... ok
+test_real_original_notices_match_all_fixed_hashes (test_minimal_native.MinimalNativeTests.test_real_original_notices_match_all_fixed_hashes) ... ok
+test_regular_archive_extracts_inside_new_directory (test_minimal_native.MinimalNativeTests.test_regular_archive_extracts_inside_new_directory) ... ok
+test_utf8_resource_has_separate_first_party_link_origin (test_minimal_native.MinimalNativeTests.test_utf8_resource_has_separate_first_party_link_origin) ... ok
+test_wrong_archive_root_is_rejected (test_minimal_native.MinimalNativeTests.test_wrong_archive_root_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.045s
+
+OK
