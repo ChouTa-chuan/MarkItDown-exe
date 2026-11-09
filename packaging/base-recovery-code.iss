@@ -1,4 +1,4 @@
-﻿; 此檔於 [Code] 內引入；只操作固定來源清單，不把 marker 當任意路徑或刪除權限。
+﻿// 此檔於 [Code] 內引入；只操作固定來源清單，不把 marker 當任意路徑或刪除權限。
 function PendingPath: String;
 begin
   Result := AddBackslash(WizardDirValue) + '.markitdown-install.pending';

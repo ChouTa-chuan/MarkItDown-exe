@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "source_version": "0.17.0",
+  "date_taipei": "2026-11-09",
+  "accepted": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 804,
+      "sha256": "04a607646471012c3c632ebfc5610dd6fc096a10a8458ccb1c9f8efcde6159c8",
+      "source": "實際Windows第一輪公開失敗頁／完整短診斷與修正說明，無使用者文件"
+    },
+    {
+      "file": "provenance.json",
+      "bytes": 493,
+      "sha256": "3aae84862e098e0db769efd57a4d2f15e6fee5290bb2c234dc106b856b2ea023",
+      "source": "實際Windows第一輪公開失敗頁／完整短診斷與修正說明，無使用者文件"
+    },
+    {
+      "file": "public-diagnostic.json",
+      "bytes": 3001,
+      "sha256": "47d18964e530ab1049f3932e3d86866632af8029f74261129b44c360eab6a2b2",
+      "source": "實際Windows第一輪公開失敗頁／完整短診斷與修正說明，無使用者文件"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 182045,
+      "sha256": "a48bd9530282e4359ff2cde676cfb261889deae2c699a6bf0554f0a2692dc987",
+      "source": "實際Windows第一輪公開失敗頁／完整短診斷與修正說明，無使用者文件"
+    }
+  ]
+}

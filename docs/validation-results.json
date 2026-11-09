@@ -1558,6 +1558,16 @@
     "automatic_failure_rollback": false,
     "all_profiles_accepted": false,
     "full_c11_complete": false,
-    "evidence": "development-records/runs/c11-recovery-prep-2026-11-09/README.md"
+    "evidence": "development-records/runs/c11-recovery-prep-2026-11-09/README.md",
+    "attempts": [
+      {
+        "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42573320811",
+        "source_commit": "89fe5df9fdf96e9d9ab02e8b6b492fce48366645",
+        "accepted": false,
+        "base_checks": 10,
+        "reason": "Inno Code include first-line semicolon comment caused BEGIN expected",
+        "evidence": "development-records/runs/c11-recovery-attempt1-2026-11-09/README.md"
+      }
+    ]
   }
 }

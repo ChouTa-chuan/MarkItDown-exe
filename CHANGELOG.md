@@ -37,6 +37,8 @@
 
 ## 0.17.0 — 2026-11-09
 
+第一次Windows基本包10項通過，Inno引入檔註解誤用分號造成BEGIN expected；已改Pascal //待重驗。[原始失敗](docs/development-records/runs/c11-recovery-attempt1-2026-11-09/README.md)保存，未先計中斷接受。
+
 相對0.16.0新增安裝程序中斷後明確續修，架構0.4；Windows真實結果待CI，C11仍2/5、完整7/12／歷史19/25。
 
 - 固定payload hash intent／完整暫存rename、原位置與匹配安裝器／明確續修、最終全部hash驗證後清標記；未完成時frozen入口退出3，不進入診斷或轉換。過期舊目錄清理與未知資料保護沿用，不自動失敗回滾。

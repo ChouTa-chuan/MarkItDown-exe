@@ -1,0 +1,55 @@
+{
+  "result": {
+    "check": "windows-base-build-ci",
+    "commit": "89fe5df9fdf96e9d9ab02e8b6b492fce48366645",
+    "build_verified": true,
+    "validation_accepted": true,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "installer_accepted": false,
+    "upgrade_accepted": false,
+    "overall_accepted": false,
+    "recovery_accepted": false,
+    "error": "CalledProcessError: Command '['D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\build-venv\\\\Scripts\\\\python.exe', 'scripts/check_windows_base_installer.py', '--bundle', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\dist\\\\MarkItDownBase', "
+  },
+  "acceptance": {
+    "check": "windows-base-ci",
+    "accepted": true,
+    "windows_executed": true,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "source_version": "0.17.0",
+    "python_utf8_mode": true,
+    "gui": {
+      "opened": true,
+      "normal_exit": true,
+      "returncode": 0,
+      "close_requests": 3
+    },
+    "checks_passed": 10
+  },
+  "installer": {
+    "check": "C11-base-installer-smoke",
+    "accepted": false,
+    "windows_executed": true,
+    "install_verified": false,
+    "repair_verified": false,
+    "uninstall_verified": false,
+    "user_data_preserved": false,
+    "shortcut_verified": false,
+    "clean_machine_accepted": false,
+    "upgrade_verified": false,
+    "rollback_verified": false,
+    "full_c11_complete": false,
+    "release_ready": false,
+    "source_version": "0.17.0",
+    "bundle_catalog_sha256": "b3f8f69256bbf57fb58375c508d5f096a36fbaf14582489757729d3e6e325e8a",
+    "catalog_files": 1652,
+    "compiler_sha256": "eb6f4410c8db367a5f74127e8025ad2ccacc0afabbe783959d237df3050f97fb",
+    "compiler_license_sha256": "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c",
+    "error": "CalledProcessError: Command '['C:\\\\Program Files (x86)\\\\Inno Setup 6\\\\ISCC.exe', '/DBundleDir=D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\dist\\\\MarkItDownBase', '/DOutputDir=D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows\\\\installer-work",
+    "checks_passed": 1
+  },
+  "failure_log": "installer/compile-installer.log",
+  "failure_tail": "m executable\n   Verification successful\n   Updating icons (Setup.e32)\n   Updating version info (Setup.e32)\nDetermining language code pages\nParsing [Languages] section, line 46\n   Reading file: C:\\Program Files (x86)\\Inno Setup 6\\Default.isl\n   Messages in script file\nReading default messages from Default.isl\nParsing [Languages] section, line 46\n   Reading file: C:\\Program Files (x86)\\Inno Setup 6\\Default.isl\nParsing [LangOptions], [Messages], and [CustomMessages] sections\n   Messages in script file\nReading [Code] section\nParsing [Icons] section, line 52\nParsing [Files] section, line 49\nCompiling [Code] section\nError on line 1 in D:\\a\\MarkItDown-exe\\MarkItDown-exe\\packaging\\base-recovery-code.iss: Column 1:\n'BEGIN' expected.\nCompile aborted."
+}
