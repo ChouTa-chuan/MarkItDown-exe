@@ -4,6 +4,12 @@
 
 目前程式版本 **0.15.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
 
+**2026-11-09｜完成 C11 hosted 安裝／同版修復／移除子檢核，程式0.15.0**
+
+- [實際Windows CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42542464205)（43cf811）已接受：基本資料夾10項、安裝後app10項及安裝生命週期6段。Inno真編譯／中文路徑安裝、1652檔catalog／registry／捷徑核對，刪入口及損模型後同版修復與四語自檢恢復；移除受管檔案／註冊／捷徑，未知文件及外部唯一合成哨兵保持原bytes。
+- **C11 0/4 → 1/4**，整體仍7/12；跨版升級回復、無Python乾淨機／離線、人工UI與標準帳戶仍待，沒有把同版修復當升級。沒有Setup發行或tag／Release。[原頁／完整短診斷／hash與原文](runs/c11-installer-2026-11-09/README.md)、[第二十四份圖](../architecture/versions/v0.4-base-installer-ci.md)及視覺進度保存；完整artifact／截圖需登入、七天到期，未假稱已下載。
+- compiler license從官方固定source取得，原SHA與runner完全相同；只標記授權原文來源，不假定compiler binary同一commit，也不取代再散布核准。Linux154／568隔離回歸及原品質／混合teardown限制保留。
+
 **2026-11-09｜新增 C11 基本包安裝／修復／移除驗證，程式 0.14.0 → 0.15.0**
 
 - 沿用0.14的 Windows 基本包10項驗證，新增獨立 per-user Inno基本包預覽安裝器與不同AppId，避免碰舊Desktop安裝；不使用遞迴刪除，catalog逐檔／版本驗證，修復只覆寫受管檔案。新CI會真安裝、刪入口／損模型、同版修復、重驗OCR、解除安裝並核對外部哨兵與未知文件保留，不冒充跨版升級／回復或乾淨機。

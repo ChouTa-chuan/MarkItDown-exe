@@ -1,5 +1,7 @@
 # Windows 安裝包與驗收流程
 
+2026-11-09：0.15基本包的hosted安裝／同版修復／移除已通過，C11 1/4；[實測](development-records/runs/c11-installer-2026-11-09/README.md)。此非真升級／回復、無Python乾淨機／離線、人工UI或標準帳戶完成，並未提供正式Setup下載。
+
 2026-11-09：獨立 Windows 基本包 CI **10/10 已通過**，見[實測紀錄](development-records/runs/windows-base-ci-2026-11-09/README.md)。此結果為 hosted runner／基本資料夾 app，並非本文件列出的無Python乾淨機／完整安裝生命週期／人工 UI／GPU完成，也不觸發既有手動發行 workflow。
 
 > 0.14.0 新增[獨立 Windows 基本包 CI](windows-base-ci.md)，由 main 原始碼更新觸發；實際結果另記。下列舊手動開發／安裝包流程保持原樣，未觸發，不能與新基本包驗證混算。

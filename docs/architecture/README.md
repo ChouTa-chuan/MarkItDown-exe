@@ -49,6 +49,8 @@
 
 第二十三份：[基本包安裝生命週期準備](versions/v0.4-base-installer-preparation.md)，程式0.15.0，真實Windows安裝待CI。
 
+第二十四份：[基本包安裝／修復／移除CI完成](versions/v0.4-base-installer-ci.md)，保存C11首項與完整驗收差距。
+
 ## 保存規則
 
 - 已存圖檔保留固定內容；下次架構變更新增另一份版本快照，再補索引與 CHANGELOG。

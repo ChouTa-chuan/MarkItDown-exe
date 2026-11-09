@@ -37,12 +37,13 @@
 
 ## 0.15.0 — 2026-11-09
 
-相對0.14.0，新增 **C11 基本包 hosted 安裝／同版修復／移除子檢核**，架構仍0.4；本次先提交準備，Windows真實結果另追加，不提高完整7/12。
+相對0.14.0，完成 **C11 hosted基本包安裝／同版修復／移除子檢核（1/4）**，架構0.4；完整導入仍7/12，歷史19/25。
 
-- 獨立per-user Inno基本包安裝器，不同AppId，Win10 1903+，不遞迴刪除使用者資料；來源catalog以同次建置expected逐檔驗證，拒絕版本漂移／路徑別名／連結／未知檔案。舊手動 installer workflow不動，Setup只在CI測試、不建立Release。
-- 新Windows流程真裝入中文路徑、核對registry／Start Menu存在、跑完整基本包10項；刪入口／損模型後同版修復並驗四語，再移除受管檔案／註冊／捷徑，保留外部合成資料與未追蹤文件。升級／回復、乾淨機、人工UI及C11全項保留。
-- 新增13項、本地154/154，隔離568項（567通過、1既有 ONNX繁體品質預期失敗），32個child均正常exit0。新增可重用隔離runner、UTF-16 Inno日誌讀取與overall／installer接受旗標，不能讓基本資料夾成功掩蓋安裝失敗。
-- [準備紀錄](docs/development-records/runs/c11-installer-prep-2026-11-09/README.md)、[指引](docs/base-installer-ci.md)、[第二十三份圖](docs/architecture/versions/v0.4-base-installer-preparation.md)與進度同步。既有22份圖、原文／lock／資料與原品質目標固定，Linux混合teardown、ONNX品質、GPU／RAM軟預算及最終發行限制保留。
+- 獨立per-user Inno基本包預覽安裝器／不同AppId與版本化catalog，拒絕既有安裝、路徑別名／連結／未知檔案，信任同次建置來源而非可更改的安裝catalog；不遞迴刪除使用者資料，舊手動發行流程不動。
+- [Windows CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42542464205)真實通過：基本資料夾10項、安裝後app10項，以及安裝生命週期6段。中文路徑、1652受管檔／註冊／捷徑、刪入口與損模型後同版修復／四語自檢、移除及資料哨兵／未知文件保留皆驗證。
+- 新增13項、本地154/154；32模組568隔離回歸（567通過、1既有ONNX繁體品質預期失敗）均正常exit0。可重用隔離runner、UTF-16 Inno日誌與分離的base／installer／overall旗標，防止基礎成功掩蓋安裝失敗。
+- [準備](docs/development-records/runs/c11-installer-prep-2026-11-09/README.md)、[實測原始紀錄](docs/development-records/runs/c11-installer-2026-11-09/README.md)、[指引](docs/base-installer-ci.md)、[第二十四份圖](docs/architecture/versions/v0.4-base-installer-ci.md)及進度同步。Inno授權原文從官方固定source取得且SHA與runner一致，compiler／Setup／catalog hash保留；binary不入庫，不提供Setup發行／tag／Release。
+- 仍待真升級／回復、各profile、無Python乾淨機離線、標準帳戶與人工UI；完整C11、C03／C04／C09未關閉。原23份圖、7份lock、221份授權與233份資料固定；Linux混合teardown、ONNX品質、GPU／RAM軟預算及最終再散布限制保留。
 
 ## 0.14.0 — 2026-11-08／2026-11-09
 

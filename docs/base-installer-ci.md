@@ -1,5 +1,7 @@
 # 基本包安裝、同版修復與移除 CI
 
+程式 **0.15.0**、架構0.4。**C11 hosted子檢核已通過，1/4**：[Windows CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42542464205)。基本資料夾／安裝後app各10項、安裝生命週期6段通過，1652受管檔案；真升級／回復、乾淨機與人工UI仍待。以下保留設計與當時準備過程。
+
 程式0.15.0、架構0.4。此為 C11 的 hosted Windows 子檢核，不等於無Python乾淨機或完整Windows生命週期。0.14基本資料夾已通過10項；本版新增安裝器需由新CI真正驗證。
 
 ## 模組與流程
@@ -19,3 +21,7 @@
 編譯工具使用runner現有Inno，保存實際工具／license與Setup hash；不更改官方來源或核准再散布。Setup只在工作目錄使用，不上傳正式安裝品，僅保存報告。原文／hash和實測不取代最終授權／SBOM／簽章與發行審查。
 
 本地13項新增、154相關、568完整（567通過、1既有預期失敗），僅Linux合成／真正檔案與原生CPU回歸；新Windows結果另追加。[準備紀錄](development-records/runs/c11-installer-prep-2026-11-09/README.md)。
+
+## 實際結果
+
+[本輪原頁／完整短摘要／hash](development-records/runs/c11-installer-2026-11-09/README.md)已保存。Inno授權原文由官方固定source取得，原SHA與runner一致；不是compiler binary source歸屬或再散布核准。Setup只在CI工作目錄測試，不提供正式下載；需登入的完整artifact／截圖僅七天保留，未假稱已永久下載。

@@ -279,3 +279,5 @@ C01／C02／C05／C06／C07／C08／C10 已完成。C03／C04 的完整門檻仍
 2026-11-09 實測更新：Windows 2022 hosted runner 基本包 CI 已 10/10（四語、中文搬移、CLI、故障與 Qt 正常退出）。原階段0的打包可行性已有實測，19/25仍保留作歷史基線、不倒填。完整 C03／C04／C09 及 C11仍待乾淨機與安裝／各profile，GPU另驗；Linux混合teardown未定位。
 
 0.15.0：新增獨立基本包per-user安裝器與來源catalog，C11拆為hosted安裝／同版修復／移除、跨版升級回復、乾淨離線首次流程、人工UI四個子檢核；目前只完成前者工具與Linux契約，Windows真實結果待CI，不關閉完整C11。舊手動發行workflow不動。
+
+0.15.0 實測更新：hosted Windows 基本資料夾及安裝後app各10項，per-user安裝／同版修復／移除與資料哨兵6段通過，C11 1/4。真升級／回復、無Python乾淨機、各profile、人工UI／標準帳戶仍待；整體7/12、歷史19/25不提高，沒有Release或GPU驗收。

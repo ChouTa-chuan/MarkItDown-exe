@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "source_version": "0.15.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-09",
+  "check": "C11-installer",
+  "mechanism_accepted": true,
+  "full_c11_complete": false,
+  "scope": "Windows hosted安裝／同版修復／移除與資料哨兵已接受，C11 1/4；非乾淨機／跨版／人工UI／標準帳戶／GPU或發行，完整登入artifact未下載",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1878,
+      "sha256": "15d3ac580ddff7ffa36299988aebb480db4deb7e2c8a48639b9b14b1e505366c",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "derived-check-ledger.json",
+      "bytes": 1223,
+      "sha256": "9196ced97ecf548577eac94fde02f072d34ebe8d638c668c58f3e213b7b0ebe1",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "inno-setup-license.txt",
+      "bytes": 1521,
+      "sha256": "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 2592,
+      "sha256": "8baee95f118e7bf1cb3e2a2e7c8c82fb52a5252d5b2331a011664430a5c79bd0",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "license-source.json",
+      "bytes": 537,
+      "sha256": "090fd93316f3e18a9ff05926586066a2010ef8e08c775cac66fd68f62a97c608",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "provenance.json",
+      "bytes": 940,
+      "sha256": "b0a293533bd8c4ee90fdf4267edc68f8cd9b07354334fb7502f08bcd48ed5245",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "public-diagnostic.json",
+      "bytes": 1541,
+      "sha256": "2de2394264b5328619ff9c3976f75559990bbbb524f80517c42418dd312a3a9b",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 739418,
+      "sha256": "3475b07201ddc7a503305230977766f1e0e3bd637ed1e5d0c882b79c7835aff4",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 735267,
+      "sha256": "15573eb23769685c21590b27ab40db9f54139d8d4602dafa4ce2172c5c670c3a",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 295206,
+      "sha256": "808c81f34d9c505e254a6f610d045262fa08ec3218e7a855f5116e9ce839916d",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 313668,
+      "sha256": "0a5686811b0baf3fb2ca0e2a95635e5bc3f450510debc654c87599d403f5e4f0",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 464665,
+      "sha256": "f18bd094b4bc661e922b6f0d06d31594d4937b895bc7c8d60e265505e4b4734d",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "validated-source-comparison.json",
+      "bytes": 345,
+      "sha256": "87f772e615e844ebef20d1ae7a21d5d95c659c4164d157d5f66fe4eebf40f012",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 178083,
+      "sha256": "6e021740ced484b3f6bf6453cd7af2602c038b20cc74154d6c1deeae8b222120",
+      "source": "實際Windows hosted安裝／同版修復／移除公開頁與完整短診斷、明確推導索引及精確匹配的官方授權原文；無使用者文件"
+    }
+  ]
+}

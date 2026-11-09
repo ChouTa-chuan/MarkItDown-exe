@@ -277,6 +277,18 @@
       "source_description": "新基本安裝器／catalog與C11 hosted工具，Windows實測待驗",
       "architecture_scope": "0.4 base installer lifecycle preparation; no actual installer acceptance claimed",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-base-installer-ci.md",
+      "title": "架構 v0.4：基本包安裝／修復／移除CI完成",
+      "diagram_sha256": "16a946c5fd12c68ce9d480ba276053f8a7174303c1e43d4208b2bfdb8602a703",
+      "file_sha256": "b093661fe620deb9ea11fd9808d01af3114f860e11d770f746f61fe4baf47504",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_version": "0.15.0",
+      "source_description": "Windows真安裝／同版修復／移除與資料保留已接受，C11 1/4",
+      "architecture_scope": "0.4 hosted base installer smoke accepted; no clean-machine/cross-version/human/GPU or release acceptance",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-09"

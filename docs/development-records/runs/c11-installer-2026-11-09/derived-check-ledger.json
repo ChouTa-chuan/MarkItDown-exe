@@ -1,0 +1,30 @@
+{
+  "derivation": "Step labels extracted from exact validated source and inferred from accepted=true/checks_passed=6; not a fabricated full artifact",
+  "source_commit": "43cf811356a7616b784cba09191afdfcb52e16a7",
+  "steps": [
+    {
+      "label": "Source base bundle catalog and embedded version verified",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Actual Inno per-user base installer compiled; no Release created",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Installed source hashes, per-user registry, Unicode path and Start menu verified",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Actually installed application passes all ten Windows base checks",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Same-version reinstall restores missing EXE/corrupt model and four-language self-test",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Uninstall removes owned files/registry/shortcut and preserves external data plus untracked note",
+      "status": "passed_inferred_from_completed_validator"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "validated_commit": "43cf811356a7616b784cba09191afdfcb52e16a7",
+  "compared_paths": [
+    "src",
+    "scripts",
+    "packaging",
+    ".github/workflows",
+    "tests",
+    "vendor",
+    "pyproject.toml"
+  ],
+  "changed_files": [],
+  "scope": "Final documentation/evidence only; actual application/build/test code is the accepted CI source"
+}

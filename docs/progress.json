@@ -2,9 +2,9 @@
   "updated": "2026-11-09",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
   "tests_passed": 567,
-  "headline": "0.15基本包安裝／同版修復／移除CI準備，Windows真實結果待驗；完整7/12",
-  "blocker": "新安裝器尚待Windows真正編譯／安裝／修復／移除；乾淨機、跨版升級回復／人工UI與GPU保留。",
-  "next": "重跑Windows基本包與真安裝生命週期，依實際結果關閉C11子檢核，仍不當作完整C11或Release。",
+  "headline": "C11 hosted安裝／修復／移除已驗 1/4；完整導入7/12",
+  "blocker": "真跨版本升級／回復、各profile、無Python乾淨機離線與人工UI／標準帳戶仍待；Linux混合teardown／ONNX品質及GPU另追。",
+  "next": "接C11真升級／回復及乾淨Windows離線首次流程；保留原資料與C04各profile驗收。",
   "milestones": [
     {
       "id": "m0",
@@ -287,7 +287,7 @@
             "id": "C03",
             "label": "Windows Tesseract 與繁中／英／日／韓 OCR",
             "done": false,
-            "acceptance": "C03 3/4：固定來源與內含四語已驗，Windows CI #7 基本包四語／中文／CLI／故障／Qt 10/10，仍待無Python乾淨 Windows 掃描與安裝驗收。",
+            "acceptance": "C03 3/4：固定來源與內含四語，0.15 Windows基本資料夾及安裝後app各10項通過；仍待無Python乾淨機／離線完整流程，不關閉整項。",
             "subchecks": [
               {
                 "label": "固定四語模型、語言選擇／設定遷移與本機離線 OCR（Linux）",
@@ -311,7 +311,7 @@
             "id": "C04",
             "label": "profile 鎖定、打包與能力自檢",
             "done": false,
-            "acceptance": "C04 2/4：依賴閉包及 Linux 基本 profile 已驗，Windows 基本包 CI 10/10通過；各選配 bundle／授權／離線與乾淨 Windows 隔離驗收仍待，整項未關閉。",
+            "acceptance": "C04 2/4：基本依賴／Linuxprofile保留；0.15 Windows基本包及受管1652檔安裝／修復／離線自檢已驗，仍待各選配bundle／授權與乾淨Windows隔離。",
             "subchecks": [
               {
                 "label": "基本版 Python 閉包／hash／既有授權；乾淨 Linux 格式與 Qt 驗證",
@@ -407,11 +407,11 @@
             "id": "C11",
             "label": "Windows 完整安裝生命週期",
             "done": false,
-            "acceptance": "新增hosted安裝／同版修復／移除工具與資料哨兵契約，尚待Windows實際執行；完整C11不關閉。",
+            "acceptance": "C11 1/4：Windows hosted真安裝／同版修復／移除與資料哨兵6段，安裝後app10項皆通過。不是跨版升級／回復、乾淨機、人工UI或標準帳戶驗收。",
             "subchecks": [
               {
                 "label": "Hosted Windows：真安裝／同版修復／移除及資料哨兵保留",
-                "done": false
+                "done": true
               },
               {
                 "label": "真實跨版本升級／回復與各profile相容",
@@ -490,15 +490,15 @@
         "id": "windows_ci",
         "title": "Windows 自動建置驗證",
         "state": "verified",
-        "detail": "Windows 2022 實際原生基本包／四語／中文搬移／CLI／故障保護與 Qt正常退出 10/10 通過；範圍僅 hosted runner。",
-        "evidence": "CI #7（3384167）接受；Python UTF-8=true，Qt正常exit0／4次正常關閉要求。乾淨機／安裝／GPU不計完成。"
+        "detail": "0.15 Windows2022基本資料夾與實際安裝後app各10項通過，原生／四語／中文／CLI／故障與Qt正常退出。",
+        "evidence": "CI 42542464205，base／installer／overall均接受；C11僅hosted子檢核，完整7/12。"
       },
       {
         "id": "base_installer",
-        "title": "基本包安裝生命週期",
-        "state": "partial",
-        "detail": "獨立per-user開發安裝器與catalog；真安裝／破壞後同版修復／移除及資料保留已接，待Windows CI。",
-        "evidence": "Linux新增13／相關154，32模組568隔離正常退出；不是Windows安裝證據。"
+        "title": "基本包安裝／修復／移除CI",
+        "state": "verified",
+        "detail": "Windows hosted真安裝、刪入口／損模型後同版修復、四語自檢、移除及資料保留6段通過，C11仍1/4。",
+        "evidence": "0.15 CI已接受：安裝後app10項，1652檔catalog、registry／捷徑及未知文件／外部哨兵；非乾淨機或升級回復。"
       }
     ]
   }

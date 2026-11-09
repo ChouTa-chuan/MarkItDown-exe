@@ -6,7 +6,7 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.15.0**，新增基本包安裝／同版修復／移除 CI；0.14基本包 **10/10 已通過**，0.15安裝驗收待執行；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.15.0**，基本包與安裝後app各 **10/10**；安裝／同版修復／移除CI已通過，C11 **1/4**；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
 | 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C03 四語／原生來源／Linux 內含整包三項、C04 兩項、C09 三項子檢核完成，完整項仍待乾淨機／安裝及各 profile |
@@ -16,7 +16,7 @@
 
 綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08／C10 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；C10 已接逐頁需求、文件租約與提交重驗；C04 已驗基本依賴與 Linux frozen 核心自檢，完整原生包仍保留虛線；C03 已加入四語模型／選擇與本機辨識，基本包新增內含四語與預設解析，Linux frozen 完整 OCR 已驗；Windows 2022 CI 已真正建置並通過四語健康及掃描自檢，四語 CLI、中文搬移及故障處理已驗，Qt 正常開啟／退出也已通過 hosted runner 驗證；乾淨機／完整 Windows 與 GPU 另驗。
 
-[Windows 實際 10 項驗證](docs/windows-base-ci.md) · [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
+[基本包安裝CI](docs/base-installer-ci.md) · [Windows 實際 10 項驗證](docs/windows-base-ci.md) · [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
 ```mermaid
 flowchart TD
@@ -31,13 +31,13 @@ flowchart TD
     end
     subgraph Planned["新架構：基本包＋選配元件管理"]
         COMPONENTUI["元件管理介面：版本／容量／授權／背景維護"]
-        FIRST["Windows 基本包：CI 10/10；乾淨機與安裝待驗"]
+        FIRST["Windows 基本包：CI安裝已驗；乾淨機／升級待驗"]
         PROFILE["基本依賴已拆分：38 runtime／47 Linux、49 Windows build"]
         PROFILEBUILD["Linux 基本包：內含四語／core 與 full 自檢"]
         FIRSTFLOW["首次流程已實作：RAM／保留偏好／離線檢查／完成標記"]
         COMPONENTS["元件基礎：契約／登錄／完整性驗證"]
         CAPABILITY["能力解析：相容／依賴／健康檢查"]
-        INSTALLERCI["基本包安裝／修復／移除：新CI待驗"]
+        INSTALLERCI["基本包：真安裝／同版修復／移除／資料保留已驗"]
         WINCI["Windows CI：原生／四語／中文／CLI／Qt 10/10"]
         BUNDLED["內含 OCR：自動路徑／搬移／完整性／只讀模型"]
         MINIMALBUILD["最小原生候選：單一 EXE／來源原文已備；Windows 待驗"]
@@ -87,7 +87,7 @@ flowchart TD
     classDef existing fill:#e8f7f3,stroke:#21856d,color:#153c31;
     classDef foundation fill:#e8efff,stroke:#4c6fb8,color:#203c77;
     class COMPONENTS,CAPABILITY,LEGACY,PREFS,CATALOG,DOWNLOAD,INSTALL,LEASE,CPUWORKER,COMPONENTUI,FIRSTFLOW,ROUTE,PROFILE,PROFILEBUILD,LANGUAGES,BUNDLED,MINIMALBUILD,WINCI foundation;
-    class INSTALLERCI planned;
+    class INSTALLERCI foundation;
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
     class FIRST,OPTIONAL planned;
