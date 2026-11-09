@@ -1,0 +1,51 @@
+{
+  "source_commit": "990e600aed9e26011b77d46dfe5f9e5bb13ecc7a",
+  "source_path": "scripts/check_windows_base_upgrade.py",
+  "scope": "Derived from source sequence and actual accepted/count public report; not a substitute for undownloaded raw CI artifacts",
+  "checks": [
+    {
+      "line": 112,
+      "label": "Two actual source versions and distinct original/compatibility installers verified"
+    },
+    {
+      "line": 123,
+      "label": "Original 0.15 installer and actual old application pass ten installed checks"
+    },
+    {
+      "line": 146,
+      "label": "Changed obsolete file/catalog or unknown old-directory data blocks upgrade with old app intact"
+    },
+    {
+      "line": 159,
+      "label": "New owned path colliding with an unknown user file blocks upgrade without overwriting it"
+    },
+    {
+      "line": 177,
+      "label": "Actual Windows junction target is rejected without writing through it"
+    },
+    {
+      "line": 184,
+      "label": "Different-directory upgrade is rejected before replacing the previous application"
+    },
+    {
+      "line": 191,
+      "label": "Real upgrade passes target hashes, runtime version and all ten installed app checks"
+    },
+    {
+      "line": 195,
+      "label": "Unrequested downgrade is blocked with the new installation intact"
+    },
+    {
+      "line": 199,
+      "label": "Explicit compatibility reinstall restores the genuine previous app and all ten checks"
+    },
+    {
+      "line": 207,
+      "label": "Repeat upgrade removes only exact known obsolete files and preserves all synthetic data"
+    },
+    {
+      "line": 214,
+      "label": "Final uninstall removes both versions owned files and keeps external data and unknown note"
+    }
+  ]
+}

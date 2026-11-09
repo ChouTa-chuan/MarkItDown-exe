@@ -2,9 +2,9 @@
   "updated": "2026-11-09",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
   "tests_passed": 578,
-  "headline": "修正空前版套件目錄與主要錯誤保留；跨版Windows待重驗，完整7/12",
-  "blocker": "真跨版本升級／回復、各profile、無Python乾淨機離線與人工UI／標準帳戶仍待；Linux混合teardown／ONNX品質及GPU另追。",
-  "next": "真正Windows獨立建置0.15與0.16，驗升級／拒降版／明確回復與資料保留，不提高全profile驗收。",
+  "headline": "基本包真跨版升級／明確回復11/11已驗；完整7/12",
+  "blocker": "各profile相容、中斷恢復、無Python乾淨機離線與人工UI／標準帳戶仍待；Linux混合teardown／ONNX品質及GPU另追。",
+  "next": "驗各profile及安裝中斷恢復，接乾淨Windows離線首次流程與人工UI。",
   "milestones": [
     {
       "id": "m0",
@@ -287,7 +287,7 @@
             "id": "C03",
             "label": "Windows Tesseract 與繁中／英／日／韓 OCR",
             "done": false,
-            "acceptance": "C03 3/4：固定來源與內含四語，0.15 Windows基本資料夾及安裝後app各10項通過；仍待無Python乾淨機／離線完整流程，不關閉整項。",
+            "acceptance": "C03 3/4：固定來源與內含四語，0.16 Windows基本資料夾及安裝後app各10項通過；仍待無Python乾淨機／離線完整流程，不關閉整項。",
             "subchecks": [
               {
                 "label": "固定四語模型、語言選擇／設定遷移與本機離線 OCR（Linux）",
@@ -311,7 +311,7 @@
             "id": "C04",
             "label": "profile 鎖定、打包與能力自檢",
             "done": false,
-            "acceptance": "C04 2/4：基本依賴／Linuxprofile保留；0.15 Windows基本包及受管1652檔安裝／修復／離線自檢已驗，仍待各選配bundle／授權與乾淨Windows隔離。",
+            "acceptance": "C04 2/4：基本依賴／Linuxprofile保留；0.16 Windows基本包及受管1652檔安裝／修復／離線自檢已驗，仍待各選配bundle／授權與乾淨Windows隔離。",
             "subchecks": [
               {
                 "label": "基本版 Python 閉包／hash／既有授權；乾淨 Linux 格式與 Qt 驗證",
@@ -407,14 +407,18 @@
             "id": "C11",
             "label": "Windows 完整安裝生命週期",
             "done": false,
-            "acceptance": "C11 1/4：Windows hosted真安裝／同版修復／移除與資料哨兵6段，安裝後app10項皆通過。不是跨版升級／回復、乾淨機、人工UI或標準帳戶驗收。",
+            "acceptance": "C11 2/5：原跨版／profile合併項拆為兩項，基本包真升級／明確回復11段已驗；各profile／中斷恢復、乾淨機、人工UI仍待，不宣稱完整C11。",
             "subchecks": [
               {
                 "label": "Hosted Windows：真安裝／同版修復／移除及資料哨兵保留",
                 "done": true
               },
               {
-                "label": "真實跨版本升級／回復與各profile相容",
+                "label": "基本包真跨版本升級／明確回復與資料保留",
+                "done": true
+              },
+              {
+                "label": "各profile跨版本相容與安裝中斷恢復",
                 "done": false
               },
               {
@@ -440,9 +444,9 @@
       {
         "id": "onboarding",
         "title": "首次啟動精靈",
-        "detail": "內含基本引擎／四語自動解析與只讀健康已接；保存完成保留自動路徑及明確偏好，完整 C09 仍待 Windows 基本包。",
+        "detail": "內含四語／保留偏好已接；Windows hosted基本包與安裝後自檢已驗，完整C09仍待無Python乾淨機離線首次流程。",
         "state": "partial",
-        "evidence": "source Qt／首次 3 項與原回歸；Linux frozen 四語自檢通過，C09 仍 3/4"
+        "evidence": "首次流程Linux／Qt回歸與Windows app各10項；C09仍3/4，乾淨機另驗。"
       },
       {
         "id": "components",
@@ -490,22 +494,22 @@
         "id": "windows_ci",
         "title": "Windows 自動建置驗證",
         "state": "verified",
-        "detail": "0.15 Windows2022基本資料夾與實際安裝後app各10項通過，原生／四語／中文／CLI／故障與Qt正常退出。",
-        "evidence": "CI 42542464205，base／installer／overall均接受；C11僅hosted子檢核，完整7/12。"
+        "detail": "0.16 Windows2022基本包／安裝後app各10項，跨版升級／明確回復另11段通過。",
+        "evidence": "CI 42557368030；hosted基本profile，非乾淨機／全部profile。"
       },
       {
         "id": "base_installer",
         "title": "基本包安裝／修復／移除CI",
         "state": "verified",
-        "detail": "Windows hosted真安裝、刪入口／損模型後同版修復、四語自檢、移除及資料保留6段通過，C11仍1/4。",
-        "evidence": "0.15 CI已接受：安裝後app10項，1652檔catalog、registry／捷徑及未知文件／外部哨兵；非乾淨機或升級回復。"
+        "detail": "0.16 Windows hosted安裝、破壞後同版修復、四語自檢、移除與資料保留6段通過；C11完整項仍待。",
+        "evidence": "CI 42557368030：安裝後app10項、1652受管檔／registry／捷徑與資料哨兵；跨版另11段、乾淨機與各profile另驗。"
       },
       {
         "id": "base_upgrade",
         "title": "基本包跨版本升級／明確回復",
-        "state": "partial",
-        "detail": "原位置／降版／catalog與精確過期檔保護已接，兩份真source獨立build；待Windows。",
-        "evidence": "本地新增11／相關165，33模組579隔離；第二輪Windows升級前6段、基本安裝6段已驗，跨版仍待重驗。"
+        "state": "verified",
+        "detail": "基本profile真跨版升級／明確回復11段通過，含拒降版／衝突／junction與移除保留；不是中斷自動回滾。",
+        "evidence": "CI 42557368030；原版／升級／回復app各10項，各profile與乾淨機另驗。"
       }
     ]
   }

@@ -300,6 +300,18 @@
       "archived_at": "2026-11-09",
       "architecture_scope": "0.4 C11 base cross-version preparation; real Windows pending",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-base-upgrade-ci.md",
+      "title": "基本包真跨版本升級／明確回復實測",
+      "diagram_sha256": "8afa721b5bc52abba8ed1776767efdbccd10de6ee7e8742846234bdd0126df2d",
+      "file_sha256": "a9b47a9aea99e481ef9d8becd1e381eae453761b86e3138191cf289552f37fb8",
+      "source_kind": "current_development",
+      "source_version": "0.16.0",
+      "source_commit": "990e600aed9e26011b77d46dfe5f9e5bb13ecc7a",
+      "archived_at": "2026-11-09",
+      "architecture_scope": "0.4 C11 actual hosted basic-profile cross-version; all profiles pending",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-09"

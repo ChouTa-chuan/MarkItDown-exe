@@ -4,6 +4,12 @@
 
 目前程式版本 **0.16.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
 
+**2026-11-09｜完成基本包跨版本升級／明確回復實測，程式0.16.0**
+
+- [真正Windows CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42557368030)（990e600）接受，獨立原0.15 source／installer初裝，升級0.16、拒未指定降版、相容installer回復真正前版、再升級與移除；跨版11/11，原版／升級後／回復後app各10項。改catalog／過期檔、未知新增檔衝突、真junction與改位置皆寫入前拒絕；全hash、過期空套件目錄移除、未知舊目錄內容拒絕、執行中app_version及合成資料／未知文件保留已驗。
+- [原頁／完整短診斷與工具原文](runs/c11-upgrade-2026-11-09/README.md)、[第二十六份圖](../architecture/versions/v0.4-base-upgrade-ci.md)與進度保存，既有25份圖與原raw紀錄不動。完整需登入artifact七天保留、未下載不假稱已封存；Setup不發行。
+- 完成的是基本profile之已知兩版跨版重裝／明確回復，原0.15 installer不具新保護，須用新相容installer回復。各profile、中斷自動回滾／乾淨機／人工UI及標準帳戶仍待，原C11第二項拆為基本包與各profile兩項（4→5），基本包完成、各profile待驗，現為2/5／完整7/12，Linux混合teardown、ONNX品質與GPU／RAM門檻保留。
+
 **2026-11-09｜修正跨版自檢的空舊目錄與診斷保留，程式0.16.0**
 
 - 第二輪Windows基本包／安裝後app各10項、安裝／同版修復／移除6段通過；跨版前6段含原版app、衝突／真junction／位置等控制通過，升級後app自檢失敗。公開診斷被cleanup空log蓋過，已固定failed_step優先保留原錯誤；不假稱已讀到Windows原例外。[第二次原始紀錄](runs/c11-upgrade-attempt2-2026-11-09/README.md)。

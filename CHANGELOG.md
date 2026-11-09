@@ -37,15 +37,14 @@
 
 ## 0.16.0 — 2026-11-09
 
-第二輪安裝6段／app10項通過，跨版前6段通過但升級自檢失敗；補已知空dist-info移除／未知目錄內容拒絕與failed_step診斷，真正Windows待重驗。[原始第二次失敗](docs/development-records/runs/c11-upgrade-attempt2-2026-11-09/README.md)。
+相對0.15.0完成基本包真跨版本升級／明確回復CI，架構0.4；C11將跨版／profile合併項拆分，為2/5，完整7/12／歷史19/25。
 
-第一次Windows實測基本資料夾10/10；新Inno編譯遇不支援的ExcludeTrailingBackslash，已改官方RemoveBackslashUnlessRoot後待重驗。[原始失敗](docs/development-records/runs/c11-upgrade-attempt1-2026-11-09/README.md)，尚不計新安裝／跨版接受。
-
-相對0.15.0新增基本包真跨版本升級／明確回復CI，架構0.4；先保存準備，Windows結果另追加，C11仍1/4、完整7/12／歷史19/25。
-
-- 固定前版43cf811原source／controller獨立建置；原0.15 Setup初裝，再以新安裝政策驗真正兩版payload的升級／明確回復，未以改標籤假造歷史版本。相容回復Setup與原版Setup分別留hash，不提供正式安裝品。
-- 新增可信catalog編譯規則、原安裝位置與reparse保護、未指定降版拒絕及精確過期檔hash刪除；自檢新增執行中app_version。中斷自動回滾與未知版本、各profile仍不宣稱支援。
-- 新增11項，相關165/165；33模組579隔離正常退出（578通過、1既有ONNX繁體品質預期失敗）。[原始準備紀錄](docs/development-records/runs/c11-upgrade-prep-2026-11-09/README.md)、[模組指引](docs/base-upgrade-ci.md)及架構／進度同步；既有圖／紀錄／鎖定／原文／品質目標不改，Linux混合teardown未定位。
+- [Windows CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42557368030)完成獨立前版43cf811原source／controller建置與原installer初裝 → 真升級0.16 → 明確回復真正0.15 payload → 再升級／移除，跨版 **11/11**；原版、升級後與回復後installed app各10項，基本包與同版安裝6段亦通過。
+- 過期空dist-info目錄也精確移除，避免Python版本解析被遮蔽；若舊目錄內有未知內容先拒絕，並固定主要failed_step避免cleanup蓋過錯誤。[第二輪失敗及真實metadata負向控制](docs/development-records/runs/c11-upgrade-attempt2-2026-11-09/README.md)保存。
+- 可信source catalog靜態規則、原位置／逐目標父鏈reparse保護、未指定降版／改catalog／改過期檔／新路徑未知檔衝突拒絕，真Windows junction不穿透；只刪精確hash未變的前版過期檔。實際app_version、全catalog／registry／捷徑與合成資料／未知文件保留已驗。
+- 初次Inno編譯曾因ExcludeTrailingBackslash非公開函式失敗，已改官方RemoveBackslashUnlessRoot並重驗；[原始失敗](docs/development-records/runs/c11-upgrade-attempt1-2026-11-09/README.md)保留，不倒填為通過。
+- 新增11項、相關165/165；33模組579隔離（578通過、1既有ONNX繁體品質預期失敗），最終165相關及579全隔離再驗。相容回復installer與原0.15 installer分開；這是明確跨版重裝，不是中斷自動回滾、全profile／乾淨機／人工UI或標準帳戶完成。
+- [準備與回歸](docs/development-records/runs/c11-upgrade-prep-2026-11-09/README.md)、[Windows實測](docs/development-records/runs/c11-upgrade-2026-11-09/README.md)、[指引](docs/base-upgrade-ci.md)、第二十六份圖與視覺進度同步。前25份圖、既有紀錄／7鎖／221授權／233資料／vendor保持原bytes；完整artifact七天保留未下載，Setup不入Git／不發行，Linux混合teardown、品質／GPU／RAM限制保留。
 
 ## 0.15.0 — 2026-11-09
 

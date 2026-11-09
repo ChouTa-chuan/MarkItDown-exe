@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "source_version": "0.16.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-09",
+  "check": "C11-base-cross-version",
+  "mechanism_accepted": true,
+  "full_c11_complete": false,
+  "scope": "實際hosted Windows基本profile跨版升級／明確前版重裝及保留已驗，C11細分後2/5；非中斷自動回滾／全profile／乾淨機／人工UI／標準帳戶／GPU或發行，完整artifact未下載",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 3162,
+      "sha256": "2112d73edf86c8dbaa7e58f0ddec9dba65d11cfb8316ca57a951ebcc2de254d2",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "derived-check-ledger.json",
+      "bytes": 1727,
+      "sha256": "f26eaf950d5c1df93be63c3a977ea456d18608f6f3f2e1c9d4a984f3c9ca9236",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "inno-setup-license.txt",
+      "bytes": 1521,
+      "sha256": "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 2904,
+      "sha256": "8d41be14431da65e899505a39daf8eb4d78459e76b3cce4544c42fc67b6af49d",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "license-source.json",
+      "bytes": 703,
+      "sha256": "4ee78f8f555625b565ac622c04ae2e3986a460293e1235fb9e3397f554ed41fe",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "native-job-page.txt",
+      "bytes": 164491,
+      "sha256": "5827775ee8dfe04e21db8020a936cb6eecd4fd435d874b8b614ae3a159cda10e",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "provenance.json",
+      "bytes": 1219,
+      "sha256": "34bf99dd10033fc34da53f37e800edfadf8880173a00d23d3db2bb1ff9258910",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "public-diagnostic.json",
+      "bytes": 2393,
+      "sha256": "cbb2ce23efac1688a1026aba1118473ac6f469e2c344c8302496cfa0c0311eab",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 767418,
+      "sha256": "b40db5f01db9a164848567d38158d20471ea77400d4f74aaf67a1ff4b71496b7",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 767262,
+      "sha256": "c6eead7671142491fc46d21d86e95f6c4af481dae56b7200e58fd17035a32569",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 291750,
+      "sha256": "7cc78160618129a5a8d1161e54ee5d2a4100ca86e472b87ae36047e238cf89eb",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 310527,
+      "sha256": "b79b847fda060f38ddc26f5f440ea1579252b0c2499adc63f2b9e8d16e119be6",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 461631,
+      "sha256": "1388a304234fa6c6a43d7d2551d409c24148198596999b4e2c35250b2f323693",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "validated-source-comparison.json",
+      "bytes": 348,
+      "sha256": "39ddad0774a21c4708ffa39f0a4027975843d4dc9c444d132a9cf9a79b738a97",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "windows-job-page.txt",
+      "bytes": 165749,
+      "sha256": "bfba6a9d88d360aec14d23f598142ce5920493428245cfe2274c6626366fc867",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 178803,
+      "sha256": "15e2a0630dacf551fed113ba7e9c5e9ae676780f781450e9ab2458b2f793dc55",
+      "source": "實際hosted Windows基本包跨版公開原頁／完整短診斷／明確推導檢核及同hash官方授權原文；無使用者文件"
+    }
+  ]
+}
