@@ -51,6 +51,8 @@
 
 第二十四份：[基本包安裝／修復／移除CI完成](versions/v0.4-base-installer-ci.md)，保存C11首項與完整驗收差距。
 
+第二十五份：[基本包跨版本升級／明確回復準備](versions/v0.4-base-upgrade-preparation.md)，保存真實前版獨立build、可信過期檔規則與Windows待驗範圍。
+
 ## 保存規則
 
 - 已存圖檔保留固定內容；下次架構變更新增另一份版本快照，再補索引與 CHANGELOG。

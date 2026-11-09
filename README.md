@@ -2,21 +2,21 @@
 
 把 **Word、Excel、PowerPoint、HTML、文字與 PDF** 轉成可閱讀、可查核的 Markdown。以 Microsoft MarkItDown 為基礎，加入桌面操作、自動 PDF 分析、OCR、表格處理及 RAM 資源管理。
 
-> **開發中**：已有 Linux 核心與桌面原型驗證。Windows 安裝包與 GPU 尚未實機驗收；目前沒有已驗證的 Windows 正式版下載。
+> **開發中**：已有 Linux 核心與桌面原型驗證。Windows 已通過 hosted 基本包安裝驗證；乾淨機、完整生命週期與 GPU 仍待驗收，目前沒有 Windows 正式版下載。
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.15.0**，基本包與安裝後app各 **10/10**；安裝／同版修復／移除CI已通過，C11 **1/4**；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.16.0**，新增真跨版本升級／明確回復CI，Windows結果待驗；0.15安裝驗收已通過，C11 **1/4**；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
 | 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C03 四語／原生來源／Linux 內含整包三項、C04 兩項、C09 三項子檢核完成，完整項仍待乾淨機／安裝及各 profile |
-| 功能測試基線 | **567 通過、1 項 ONNX 繁體品質預期失敗**（32 模組隔離正常退出；混合程序退出異常另查） |
+| 功能測試基線 | **576 通過、1 項 ONNX 繁體品質預期失敗**（33 模組隔離正常退出；混合程序退出異常另查） |
 
 ## 模組架構封面
 
 綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08／C10 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；C10 已接逐頁需求、文件租約與提交重驗；C04 已驗基本依賴與 Linux frozen 核心自檢，完整原生包仍保留虛線；C03 已加入四語模型／選擇與本機辨識，基本包新增內含四語與預設解析，Linux frozen 完整 OCR 已驗；Windows 2022 CI 已真正建置並通過四語健康及掃描自檢，四語 CLI、中文搬移及故障處理已驗，Qt 正常開啟／退出也已通過 hosted runner 驗證；乾淨機／完整 Windows 與 GPU 另驗。
 
-[基本包安裝CI](docs/base-installer-ci.md) · [Windows 實際 10 項驗證](docs/windows-base-ci.md) · [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
+[跨版升級CI](docs/base-upgrade-ci.md) · [基本包安裝CI](docs/base-installer-ci.md) · [Windows 實際 10 項驗證](docs/windows-base-ci.md) · [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
 ```mermaid
 flowchart TD
@@ -38,6 +38,7 @@ flowchart TD
         COMPONENTS["元件基礎：契約／登錄／完整性驗證"]
         CAPABILITY["能力解析：相容／依賴／健康檢查"]
         INSTALLERCI["基本包：真安裝／同版修復／移除／資料保留已驗"]
+        UPGRADECI["基本包跨版升級／明確回復：新CI待驗"]
         WINCI["Windows CI：原生／四語／中文／CLI／Qt 10/10"]
         BUNDLED["內含 OCR：自動路徑／搬移／完整性／只讀模型"]
         MINIMALBUILD["最小原生候選：單一 EXE／來源原文已備；Windows 待驗"]
@@ -73,6 +74,8 @@ flowchart TD
     FIRSTFLOW --> PREFS
     PROFILE --> PROFILEBUILD
     MINIMALBUILD --> WINCI
+    INSTALLERCI --> UPGRADECI
+    UPGRADECI -.-> FIRST
     WINCI --> INSTALLERCI
     INSTALLERCI -.-> FIRST
     MINIMALBUILD -.-> FIRST
@@ -90,7 +93,7 @@ flowchart TD
     class INSTALLERCI foundation;
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
-    class FIRST,OPTIONAL planned;
+    class FIRST,OPTIONAL,UPGRADECI planned;
 ```
 
 | 模組 | 中文責任說明 | 實作範圍 |

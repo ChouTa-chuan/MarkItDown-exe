@@ -1,0 +1,16 @@
+WARNING: The directory '/home/agent/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Processing /workspace/MarkItDown-exe
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: markitdown-desktop
+  Building wheel for markitdown-desktop (pyproject.toml): started
+  Building wheel for markitdown-desktop (pyproject.toml): finished with status 'done'
+  Created wheel for markitdown-desktop: filename=markitdown_desktop-0.16.0-py3-none-any.whl size=1021078 sha256=586b6908a12a4f986842276adbcbba3979cf15f4eddea7aaff889ac4c59cbaf8
+  Stored in directory: /tmp/pip-ephem-wheel-cache-yw2492i5/wheels/d7/ad/60/c524083f0a5e8d8bf18de410619466f4df85f430329d5fa9f6
+Successfully built markitdown-desktop
+Installing collected packages: markitdown-desktop
+  Attempting uninstall: markitdown-desktop
+    Found existing installation: markitdown-desktop 0.15.0
+    Uninstalling markitdown-desktop-0.15.0:
+      Successfully uninstalled markitdown-desktop-0.15.0
+Successfully installed markitdown-desktop-0.16.0

@@ -1,0 +1,16 @@
+test_device_and_cpu_controls_saved (test_desktop.DesktopTests.test_device_and_cpu_controls_saved) ... ok
+test_experimental_backend_does_not_change_default (test_desktop.DesktopTests.test_experimental_backend_does_not_change_default) ... ok
+test_external_model_dialog_is_read_only_and_does_not_start_download (test_desktop.DesktopTests.test_external_model_dialog_is_read_only_and_does_not_start_download) ... ok
+test_full_desktop_text_flow (test_desktop.DesktopTests.test_full_desktop_text_flow) ... ok
+test_migrated_external_path_and_backend_survive_unrelated_ui_save (test_desktop.DesktopTests.test_migrated_external_path_and_backend_survive_unrelated_ui_save) ... ok
+test_missing_input_does_not_start_worker (test_desktop.DesktopTests.test_missing_input_does_not_start_worker) ... ok
+test_model_dialog_cached_install (test_desktop.DesktopTests.test_model_dialog_cached_install) ... ok
+test_ocr_configuration_saved (test_desktop.DesktopTests.test_ocr_configuration_saved) ... ok
+test_preferences_round_trip (test_desktop.DesktopTests.test_preferences_round_trip) ... ok
+test_unreadable_future_settings_are_not_overwritten_by_save_button (test_desktop.DesktopTests.test_unreadable_future_settings_are_not_overwritten_by_save_button) ... ok
+test_v6_hidden_preferences_and_quality_survive_desktop_save (test_desktop.DesktopTests.test_v6_hidden_preferences_and_quality_survive_desktop_save) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.616s
+
+OK

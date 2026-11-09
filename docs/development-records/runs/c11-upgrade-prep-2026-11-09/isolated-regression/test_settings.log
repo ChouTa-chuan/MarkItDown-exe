@@ -1,0 +1,18 @@
+test_bad_values (test_settings.SettingsTests.test_bad_values) ... ok
+test_failed_save_preserves_existing (test_settings.SettingsTests.test_failed_save_preserves_existing) ... ok
+test_future_version_not_overwritten (test_settings.SettingsTests.test_future_version_not_overwritten) ... ok
+test_invalid_file_not_silently_reset (test_settings.SettingsTests.test_invalid_file_not_silently_reset) ... ok
+test_missing_explicit_file_is_error (test_settings.SettingsTests.test_missing_explicit_file_is_error) ... ok
+test_ocr_paths_round_trip (test_settings.SettingsTests.test_ocr_paths_round_trip) ... ok
+test_onnx_settings_round_trip (test_settings.SettingsTests.test_onnx_settings_round_trip) ... ok
+test_oversized_file (test_settings.SettingsTests.test_oversized_file) ... ok
+test_round_trip (test_settings.SettingsTests.test_round_trip) ... ok
+test_v1_migrates_without_modifying_original (test_settings.SettingsTests.test_v1_migrates_without_modifying_original) ... ok
+test_v2_migration_preserves_paths (test_settings.SettingsTests.test_v2_migration_preserves_paths) ... ok
+test_v3_migration_preserves_cpu_settings (test_settings.SettingsTests.test_v3_migration_preserves_cpu_settings) ... ok
+test_v4_migrates_without_changing_backend (test_settings.SettingsTests.test_v4_migrates_without_changing_backend) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.018s
+
+OK

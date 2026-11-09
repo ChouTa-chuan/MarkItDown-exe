@@ -4,7 +4,7 @@
 import argparse
 from datetime import datetime, timezone
 import hashlib
-from importlib import resources
+from importlib import resources, metadata
 import json
 import multiprocessing
 import os
@@ -95,6 +95,8 @@ def collect_report(scope='full'):
     if scope not in ('core', 'full') or (profile is None and scope != 'full'):
         raise ValueError('core 範圍只適用於內含明確 profile 的建置。')
     report={'schema_version':1,'recorded_at':datetime.now(timezone.utc).isoformat(),
+            # 升級／回復驗收需讀真正執行中的套件版本，不只看外部 registry 或 Setup 標籤。
+            'app_version':metadata.version('markitdown-desktop'),
             'platform':platform.system(),'architecture':platform.machine(),
             'python':platform.python_version(),'frozen':bool(getattr(sys,'frozen',False)),
             'python_utf8_mode':bool(sys.flags.utf8_mode),

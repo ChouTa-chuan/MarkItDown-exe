@@ -86,6 +86,12 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - name: Checkout genuine previous base source
+        uses: actions/checkout@v4
+        with:
+          ref: 43cf811356a7616b784cba09191afdfcb52e16a7
+          path: out/previous-source
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -96,7 +102,7 @@ jobs:
       - name: Build and validate the native Windows application
         shell: pwsh
         run: |
-          python scripts/run_windows_base_ci.py --inputs "$PWD/out/inputs" --output "$PWD/out/windows" --installer
+          python scripts/run_windows_base_ci.py --inputs "$PWD/out/inputs" --output "$PWD/out/windows" --installer --previous-source "$PWD/out/previous-source"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Publish actual validation summary
         if: always()

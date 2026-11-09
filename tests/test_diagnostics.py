@@ -1,4 +1,5 @@
 import importlib.util
+from importlib import metadata
 import json
 from pathlib import Path
 import tempfile
@@ -32,6 +33,7 @@ class DiagnosticsTests(unittest.TestCase):
              patch('desktop_app.diagnostics._convert',side_effect=RuntimeError('broken worker')):
             report=collect_report()
         self.assertFalse(report['complete'])
+        self.assertEqual(report['app_version'],metadata.version('markitdown-desktop'))
         self.assertEqual(len(report['checks']),5)
         self.assertEqual(report['checks'][0]['outcome'],'failed')
         self.assertEqual(report['checks'][-1]['outcome'],'failed')

@@ -281,3 +281,5 @@ C01／C02／C05／C06／C07／C08／C10 已完成。C03／C04 的完整門檻仍
 0.15.0：新增獨立基本包per-user安裝器與來源catalog，C11拆為hosted安裝／同版修復／移除、跨版升級回復、乾淨離線首次流程、人工UI四個子檢核；目前只完成前者工具與Linux契約，Windows真實結果待CI，不關閉完整C11。舊手動發行workflow不動。
 
 0.15.0 實測更新：hosted Windows 基本資料夾及安裝後app各10項，per-user安裝／同版修復／移除與資料哨兵6段通過，C11 1/4。真升級／回復、無Python乾淨機、各profile、人工UI／標準帳戶仍待；整體7/12、歷史19/25不提高，沒有Release或GPU驗收。
+
+0.16.0：新增可信source差異規則與基本包跨版升級／明確回復CI；固定0.15原source獨立建置，未知build／catalog、改位置與未指定降版拒絕，僅刪hash未變的過期受管檔。Windows真實結果待CI，不當作自動失敗回滾／全profile或完整C11。

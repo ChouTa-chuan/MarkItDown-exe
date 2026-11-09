@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-09",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
-  "tests_passed": 567,
-  "headline": "C11 hosted安裝／修復／移除已驗 1/4；完整導入7/12",
+  "tests_passed": 576,
+  "headline": "0.16基本包跨版升級／明確回復CI準備；完整7/12",
   "blocker": "真跨版本升級／回復、各profile、無Python乾淨機離線與人工UI／標準帳戶仍待；Linux混合teardown／ONNX品質及GPU另追。",
-  "next": "接C11真升級／回復及乾淨Windows離線首次流程；保留原資料與C04各profile驗收。",
+  "next": "真正Windows獨立建置0.15與0.16，驗升級／拒降版／明確回復與資料保留，不提高全profile驗收。",
   "milestones": [
     {
       "id": "m0",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 567 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 576 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -254,7 +254,7 @@
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
     "Linux 555 項採31模組正常退出；混合程序完成斷言後曾native teardown exit139，根因未定位。"
   ],
-  "tests_run": 568,
+  "tests_run": 577,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -499,6 +499,13 @@
         "state": "verified",
         "detail": "Windows hosted真安裝、刪入口／損模型後同版修復、四語自檢、移除及資料保留6段通過，C11仍1/4。",
         "evidence": "0.15 CI已接受：安裝後app10項，1652檔catalog、registry／捷徑及未知文件／外部哨兵；非乾淨機或升級回復。"
+      },
+      {
+        "id": "base_upgrade",
+        "title": "基本包跨版本升級／明確回復",
+        "state": "partial",
+        "detail": "原位置／降版／catalog與精確過期檔保護已接，兩份真source獨立build；待Windows。",
+        "evidence": "本地新增9／相關163，33模組577隔離；非中斷自動回滾或各profile。"
       }
     ]
   }

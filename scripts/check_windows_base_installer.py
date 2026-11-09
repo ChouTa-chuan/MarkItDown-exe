@@ -13,6 +13,7 @@ import traceback
 import uuid
 
 from base_install_catalog import APP_ID,CATALOG,ENTRY,create,verify,assert_managed_removed
+from base_install_transition import write_rules
 from desktop_app.components.registry import _chain
 from desktop_app.native_assets import file_hash
 from check_windows_base import native_environment
@@ -57,7 +58,7 @@ def wait_until(operation,*,timeout=30):
         time.sleep(0.2)
 
 
-def check(bundle,work,reports,*,iscc=None):
+def check(bundle,work,reports,*,iscc=None,previous_bundle=None):
     # 必須先拒絕錯平台；Linux 單元測試不可產生假 Windows 安裝報告。
     if sys.platform!='win32':raise RuntimeError('Requires actual Windows')
     if os.environ.get('GITHUB_ACTIONS')!='true' or os.environ.get('RUNNER_OS')!='Windows':
@@ -100,8 +101,15 @@ def check(bundle,work,reports,*,iscc=None):
             shutil.copyfile(license_path,reports/'inno-setup-license.txt')
             result['compiler_license_sha256']=file_hash(license_path)[0]
         setup_dir=work/'setup'
+        previous=None
+        if previous_bundle is not None:
+            previous_bundle=Path(previous_bundle)
+            old_version=json.loads((previous_bundle/'_internal/desktop_app/data/build-profile.json').read_text(encoding='utf-8'))['source_version']
+            previous=create(previous_bundle,old_version)
+        rules=work/'transition-rules.iss'
+        result['transition_rules']=write_rules(rules,bundle,source,previous_bundle,previous)
         call('compile-installer',[compiler,'/DBundleDir='+str(bundle),'/DOutputDir='+str(setup_dir),
-            '/DAppVersion='+version,ROOT/'packaging/base-installer.iss'])
+            '/DAppVersion='+version,'/DTransitionRules='+str(rules),ROOT/'packaging/base-installer.iss'])
         setup=setup_dir/f'MarkItDownBase-Setup-{version}-windows-x64.exe'
         result['installer_sha256'],result['installer_bytes']=file_hash(setup,512*1024**2)
         result['checks'].append('Actual Inno per-user base installer compiled; no Release created')
@@ -195,7 +203,8 @@ if __name__=='__main__':
     parser.add_argument('--bundle',type=Path,required=True)
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--reports',type=Path,required=True)
+    parser.add_argument('--previous-bundle',type=Path)
     args=parser.parse_args()
-    outcome=check(args.bundle,args.output,args.reports)
+    outcome=check(args.bundle,args.output,args.reports,previous_bundle=args.previous_bundle)
     print('Installer lifecycle accepted:',outcome['accepted'],'checks:',outcome['checks_passed'])
     raise SystemExit(0 if outcome['accepted'] else 1)

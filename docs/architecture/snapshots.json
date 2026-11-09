@@ -289,6 +289,17 @@
       "source_description": "Windows真安裝／同版修復／移除與資料保留已接受，C11 1/4",
       "architecture_scope": "0.4 hosted base installer smoke accepted; no clean-machine/cross-version/human/GPU or release acceptance",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-base-upgrade-preparation.md",
+      "title": "基本包跨版本升級／明確回復準備",
+      "diagram_sha256": "7779016748adb90cdef5b7db4d70b244173a36cd9d56fcfba682b210cdc4b5a7",
+      "file_sha256": "2b13d45ea0edc47a2ec8d4a5f1b065885aaef9da0a854d39eca07086c5aeff79",
+      "source_kind": "current_development",
+      "source_version": "0.16.0",
+      "archived_at": "2026-11-09",
+      "architecture_scope": "0.4 C11 base cross-version preparation; real Windows pending",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-09"

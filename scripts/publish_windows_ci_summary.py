@@ -19,6 +19,9 @@ def publish_annotation(records, tails):
                 'install_verified','repair_verified','uninstall_verified','user_data_preserved',
                 'shortcut_verified','installed_app_checks','full_c11_complete','installer_sha256',
                 'compiler_sha256','compiler_license_sha256','bundle_catalog_sha256','catalog_files')
+        keys += ('upgrade_accepted','previous_version','upgrade_verified','rollback_verified','downgrade_blocked',
+                 'obsolete_files_removed','all_profiles_accepted','automatic_failure_rollback',
+                 'upgraded_app_checks','rolled_back_app_checks','previous_commit')
         return {key: value[:250] if isinstance(value, str) else value
                 for key, value in record.items() if key in keys}
     payload = dict(result=brief(result))
@@ -26,6 +29,8 @@ def publish_annotation(records, tails):
         payload['acceptance'] = brief(records['acceptance/windows-acceptance.json'])
     if 'installer/installer-lifecycle.json' in records:
         payload['installer'] = brief(records['installer/installer-lifecycle.json'])
+    if 'upgrade/upgrade-lifecycle.json' in records:
+        payload['upgrade'] = brief(records['upgrade/upgrade-lifecycle.json'])
     if not accepted:
         commands = result.get('commands', [])
         last = commands[-1].get('label', '') if commands and isinstance(commands[-1], dict) else ''
@@ -34,6 +39,15 @@ def publish_annotation(records, tails):
         inner=commands[-1].get('label','') if commands and isinstance(commands[-1],dict) else ''
         command_failure=str(installer.get('error','')).startswith(('CalledProcessError','TimeoutExpired'))
         candidates = ['installer/installed-acceptance/driver-error.log']
+        upgrade=records.get('upgrade/upgrade-lifecycle.json',{})
+        if upgrade and not upgrade.get('accepted'):
+            steps=upgrade.get('commands',[])
+            inner_upgrade=steps[-1].get('label','') if steps else ''
+            # 優先最深層實際 app／編譯日誌，避免 wrapper traceback 蓋過真正原因。
+            candidates=['upgrade/'+inner_upgrade+'/driver-error.log']
+            if str(upgrade.get('error','')).startswith(('CalledProcessError','TimeoutExpired')):
+                candidates.append('upgrade/'+inner_upgrade+'.log')
+            candidates.append('upgrade/driver-error.log')
         if command_failure:candidates.append('installer/'+inner+'.log')
         candidates += ['installer/driver-error.log','acceptance/driver-error.log', last+'.log']
         selected = next((name for name in candidates if name in tails), next(reversed(tails), ''))
@@ -67,10 +81,12 @@ def main():
     records = {}
     for name in ['build-evidence.json', 'native-inputs/downloads.json', 'windows-build.json', 'acceptance/windows-acceptance.json',
                  'acceptance/core-self-test.json','acceptance/full-self-test.json',
-                 'acceptance/relocated-self-test.json','installer/installer-lifecycle.json']:
+                 'acceptance/relocated-self-test.json','installer/installer-lifecycle.json',
+                 'upgrade/upgrade-lifecycle.json','previous-build/windows-build.json',
+                 'previous-build/acceptance/windows-acceptance.json']:
         path = args.reports/name
         if path.is_file():
-            if path.stat().st_size > 128*1024:
+            if path.stat().st_size > 512*1024:
                 raise ValueError('CI summary 報告超過限制。')
             records[name] = json.loads(path.read_text(encoding='utf-8'))
     tails = {}

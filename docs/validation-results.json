@@ -1,16 +1,16 @@
 {
-  "recorded_at": "2026-11-09T00:23:58.270531+00:00",
+  "recorded_at": "2026-11-09T03:02:17.711577+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 568,
-    "passed": 567,
+    "run": 577,
+    "passed": 576,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0,
-    "method": "32 isolated module subprocesses, all normal exit0; mixed teardown remains open"
+    "method": "33 isolated module subprocesses, all normal exit0; mixed teardown remains open"
   },
-  "command": "TESSDATA_PREFIX=<verified model directory> QT_QPA_PLATFORM=offscreen python -m unittest discover -s tests -v",
+  "command": "python scripts/check_isolated_tests.py --expected-count 577 --output <fresh-directory>",
   "native_prerequisites": [
     "Tesseract 5.5.0",
     "verified chi_tra + eng data",
@@ -894,10 +894,10 @@
   },
   "isolated_regression": {
     "scope": "Actual per-module normal subprocess exits; mixed native shutdown remains a separate open issue",
-    "source_version": "0.15.0",
-    "modules": 32,
-    "run": 568,
-    "passed": 567,
+    "source_version": "0.16.0",
+    "modules": 33,
+    "run": 577,
+    "passed": 576,
     "expected_failures": [
       "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
     ],
@@ -907,6 +907,17 @@
       {
         "module": "test_base_installer",
         "run": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_base_upgrade",
+        "run": 9,
         "failures": 0,
         "errors": 0,
         "skipped": 0,
@@ -1358,5 +1369,19 @@
       "report_artifact_retention_days": 7,
       "scope": "Actual per-user install/same-version repair/uninstall and synthetic data retention on hosted Windows; no clean machine, real user data migration or cross-version acceptance"
     }
+  },
+  "base_upgrade_ci": {
+    "source_version": "0.16.0",
+    "previous_version": "0.15.0",
+    "previous_commit": "43cf811356a7616b784cba09191afdfcb52e16a7",
+    "local_tests": 163,
+    "new_tests": 9,
+    "local_contract_accepted": true,
+    "windows_executed": false,
+    "validation_accepted": false,
+    "all_profiles_accepted": false,
+    "automatic_failure_rollback": false,
+    "full_c11_complete": false,
+    "evidence": "development-records/runs/c11-upgrade-prep-2026-11-09/README.md"
   }
 }

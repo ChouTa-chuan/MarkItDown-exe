@@ -1,0 +1,29 @@
+test_actual_cpu_bilingual_probe_offline (test_onboarding.NativeSetupTests.test_actual_cpu_bilingual_probe_offline) ... ok
+test_completed_startup_does_not_reopen_or_run_probe (test_onboarding.SetupDialogTests.test_completed_startup_does_not_reopen_or_run_probe) ... ok
+test_existing_defaults_preserve_preferences (test_onboarding.SetupDialogTests.test_existing_defaults_preserve_preferences) ... ok
+test_failed_save_retains_dialog_and_external_preferences (test_onboarding.SetupDialogTests.test_failed_save_retains_dialog_and_external_preferences) ... ok
+test_later_and_close_cancel_without_marker (test_onboarding.SetupDialogTests.test_later_and_close_cancel_without_marker) ... ok
+test_new_defaults_ram_details_finish_and_no_repeat (test_onboarding.SetupDialogTests.test_new_defaults_ram_details_finish_and_no_repeat) ... ok
+test_window_schedules_and_reopens_explicitly_with_saved_preferences (test_onboarding.SetupDialogTests.test_window_schedules_and_reopens_explicitly_with_saved_preferences) ... This plugin does not support propagateSizeHints()
+This plugin does not support propagateSizeHints()
+ok
+test_apply_engine_never_replaces_explicit_paths_or_backend (test_onboarding.SetupServiceTests.test_apply_engine_never_replaces_explicit_paths_or_backend) ... ok
+test_cancelled_probe_writes_no_settings (test_onboarding.SetupServiceTests.test_cancelled_probe_writes_no_settings) ... ok
+test_existing_preferences_preserved_and_legacy_backup_exact (test_onboarding.SetupServiceTests.test_existing_preferences_preserved_and_legacy_backup_exact) ... ok
+test_explicit_missing_executable_does_not_fall_back (test_onboarding.SetupServiceTests.test_explicit_missing_executable_does_not_fall_back) ... ok
+test_explicit_missing_models_do_not_fall_back (test_onboarding.SetupServiceTests.test_explicit_missing_models_do_not_fall_back) ... ok
+test_fingerprint_rejects_changes_during_probe_and_new_file_appearing (test_onboarding.SetupServiceTests.test_fingerprint_rejects_changes_during_probe_and_new_file_appearing) ... ok
+test_invalid_future_and_symlink_settings_never_reset (test_onboarding.SetupServiceTests.test_invalid_future_and_symlink_settings_never_reset) ... ok
+test_low_ram_does_not_start_native_probe (test_onboarding.SetupServiceTests.test_low_ram_does_not_start_native_probe) ... ok
+test_missing_engine_still_allows_marking_flow_complete (test_onboarding.SetupServiceTests.test_missing_engine_still_allows_marking_flow_complete) ... ok
+test_model_reference_is_read_only_and_pinned_before_autoselection (test_onboarding.SetupServiceTests.test_model_reference_is_read_only_and_pinned_before_autoselection) ... ok
+test_native_time_limit_output_bound_and_exit_failure (test_onboarding.SetupServiceTests.test_native_time_limit_output_bound_and_exit_failure) ... ok
+test_new_session_is_read_only_until_explicit_completion (test_onboarding.SetupServiceTests.test_new_session_is_read_only_until_explicit_completion) ... ok
+test_ram_recommendations_small_normal_large_and_invalid (test_onboarding.SetupServiceTests.test_ram_recommendations_small_normal_large_and_invalid) ... ok
+test_running_native_cancel_reaps_child (test_onboarding.SetupServiceTests.test_running_native_cancel_reaps_child) ... ok
+test_stale_window_baseline_rejected_before_setup (test_onboarding.SetupServiceTests.test_stale_window_baseline_rejected_before_setup) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.520s
+
+OK
