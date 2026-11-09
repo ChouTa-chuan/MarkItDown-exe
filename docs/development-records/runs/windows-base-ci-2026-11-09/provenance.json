@@ -1,0 +1,22 @@
+{
+  "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42539123115",
+  "source_commit": "3384167e7a23b63e58e673f2520bfdf92cfd821a",
+  "conclusion": "success",
+  "recorded_at": "2026-11-09T00:23:58.260737+00:00",
+  "date_taipei": "2026-11-09",
+  "source_version": "0.14.0",
+  "native_build_job": "success",
+  "windows_job": "success",
+  "checks_passed": 10,
+  "windows_executed": true,
+  "full_c03_complete": false,
+  "full_c04_complete": false,
+  "full_c09_complete": false,
+  "clean_machine_accepted": false,
+  "human_ui_accepted": false,
+  "gpu_executed": false,
+  "release_ready": false,
+  "report_artifact_retention_days": 7,
+  "report_artifact_downloaded": false,
+  "archived_scope": "Public run HTML and complete concise annotation; detailed authenticated artifact and screenshot not downloaded"
+}

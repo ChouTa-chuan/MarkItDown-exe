@@ -4,6 +4,13 @@
 
 目前程式版本 **0.14.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
 
+**2026-11-09｜完成 Windows 基本包自動驗證，程式 0.14.0**
+
+- [CI #7](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42539123115) 在固定 source 3384167 真正完成原生重建、Windows 基本包與 **10/10**：四語健康／掃描、中文搬移、UTF-8／CLI／偏好與故障保護、Qt 開窗及正常 exit 0（4 次正常關閉要求）。沒有略過 GUI 或用強制終止當成功。
+- [實測原頁／完整短診斷／來源紀錄](runs/windows-base-ci-2026-11-09/README.md)、[第二十二份圖](../architecture/versions/v0.4-windows-base-ci.md)、中文封面與視覺進度同步；完整 authenticated artifact 及 Windows 截圖仍需登入、七天到期，此處不冒充已下載。
+- Linux 31 模組隔離 555 項正常退出（554 通過、1 既有繁體品質預期失敗），原混合 teardown exit139 仍未定位；LLDB 下本次 target 正常 exit0、未重現而無 C stack，debugger exit1 是事後 backtrace 查詢已退出的 target。原始紀錄保留，不把未重現當修好。
+- 完成的是基本包 hosted Windows CI 子檢核；乾淨機／安裝、人工 UI、各選配 profile 與 GPU 門檻保留。C03 3/4、C04 2/4、C09 3/4、完整 7/12、歷史 19/25，不建立 Setup／tag／Release。
+
 **2026-11-09｜補下載早期診斷，保存隔離回歸，程式 0.14.0**
 
 - 讀到 [CI #6](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42477745858)：下載固定來源失敗，原生編譯／Windows 均未執行，原早期日誌未保存而無法判定具體錯誤。增加 pip／fetch tee 日誌與 always 保存，明確 bash pipefail；實際合成失敗命令經 tee 仍 exit 1，不放寬 SHA／來源或驗收。

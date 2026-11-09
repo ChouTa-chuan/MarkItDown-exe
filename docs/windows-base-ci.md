@@ -1,6 +1,6 @@
 # Windows 基本包自動建置與驗證 CI
 
-程式 **0.14.0**、架構 **0.4**。已真正建置 Windows 基本包並通過 core／四語健康及掃描自檢；中文搬移失敗，UTF-8 修正版待新 CI。C03 **3/4**、C04 **2/4**、C09 **3/4**、完整導入 **7/12**、既有 **19/25** 保留，實際遠端結果另追加保存。
+程式 **0.14.0**、架構 **0.4**。**2026-11-09 Windows CI 10/10 已實測通過**（[CI #7](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42539123115)，source 3384167）。包含原生基本包、四語／中文搬移／CLI／完整性故障與真正 Qt 正常退出；runner 非無 Python 乾淨機，C03 3/4、C04 2/4、C09 3/4、整體 7/12 保留。以下階段過程與原始失敗按當時狀態記錄。
 
 ## 工作流程與責任
 
@@ -59,3 +59,7 @@ CI #4 的中文 native --list-langs 已過；frozen full 的 PDF 模型探針仍
 CI #5 已通過前 9 項，實際 Qt 已開窗；首次背景檢查忙碌時主窗會先取消並暫緩關閉。工具改在原 25 秒總期限內重新列舉自己的 child PID 視窗並正常要求關閉，仍必須 exit 0，kill／terminate 不能算成功。141 項本地回歸非 Windows GUI 證據，新 CI 另驗。[過程](development-records/runs/windows-ci-close-2026-11-08/README.md)保存。
 
 2026-11-09 補充：CI #6 在下載固定來源失敗，Windows 未執行。早期 pip／fetch 日誌經 tee 保存，job 明確使用 bash pipefail，always 上傳並可摘要；原始完整性與正常退出標準不變。31 模組隔離正常退出及原下載狀態[分存](development-records/runs/windows-ci-retry-2026-11-09/README.md)，混合 native teardown 不當作已修好。
+
+## 最終本輪結果
+
+Windows 10/10、Python UTF-8 mode=true，Qt 自身視窗正常 exit0，正常關閉要求4次。永久保存[公開原頁／完整短摘要及來源](development-records/runs/windows-base-ci-2026-11-09/README.md)；完整需登入的 artifacts／Windows截圖未下載、不宣稱已永久封存。下一步是乾淨 Windows 與各 profile／安裝生命週期，仍未建立安裝包或核准發行。

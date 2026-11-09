@@ -35,19 +35,16 @@
 - 各份快照附中文說明、保存日期、來源及 SHA-256；後續更新新增快照，不覆寫既有紀錄。
 - 驗證範圍為來源圖一致性、文件雜湊、相對連結與程式版本未變；轉換程式未修改，未重跑功能測試或變更既有驗收進度。
 
-## 0.14.0 — 2026-11-08
+## 0.14.0 — 2026-11-08／2026-11-09
 
-相對 **0.13.0** 新增 Windows 基本包自動建置／驗證，架構 **0.4**。C03 3/4、C04 2/4、C09 3/4、完整 7/12、既有 19/25 保留。
+相對 **0.13.0** 新增可重跑的 Windows 基本包建置／驗證，架構 **0.4**。**2026-11-09 真正 Windows CI 10/10 通過**；完整導入仍 7/12（C03 3/4、C04 2/4、C09 3/4），歷史基線 19/25。
 
-- 獨立 main push CI：固定四份來源／工具／四語模型、來源 receipt、同次輸入傳遞、Windows 2022 原生基本包建置與四語／中文路徑／故障／Qt；contents:read，不觸發舊手動安裝包，不建立 tag／Release。
-- Git 實際 CRLF checkout 抓出固定來源 hash 改變，保護七類原位元組；Windows CI #3 已原生建置並通過 core／四語健康及四份掃描自檢，搬移中文空格路徑仍失敗。加入自有 UTF-8 manifest／RC 與個別來源證據，新候選 Linux 靜態／組裝通過，Windows 修正仍待新 CI。
-- Windows CI #4 已通過中文原生模型清單，接續 frozen full 自檢發現 CP1252 診斷解碼錯誤；明確使用 UTF-8，基本包固定 Python UTF-8 mode 並由 Windows core 驗旗標，只容錯診斷文字，OCR 本文嚴格解碼不變。真實 child／中文路徑及實際 OCR 的 CP1252 反例已通過，修正版仍待 Windows。
-- Windows CI #5 前 9 項（四語／中文／CLI／故障）通過，Qt 開窗後因一次關閉要求遇背景收尾而逾時。驗收工具在同一總期限重送正常關閉，仍須 exit 0，不以強制終止代替；新增 2 項關閉協定測試、相關 141/141，真正 GUI 重驗待新 CI。混合 555 項斷言完成後 native exit 139，另存原始診斷並逐模組正常退出調查；未當作完整通過。
-- 公開診斷依真正失敗步驟限量顯示，避免約 5 KB 截斷；完整原始報告保留。新增 **28 項**、相關 **141/141**；逐模組 **555：554 通過、1 既有 ONNX 繁體品質預期失敗**（31 個 child 正常 exit 0；混合 teardown 仍待查），未將 Windows 部分通過當成整體成功。
-- [準備](docs/development-records/runs/windows-ci-2026-11-08/README.md)、[初次失敗](docs/development-records/runs/windows-ci-attempt1-2026-11-08/README.md)、[換行](docs/development-records/runs/windows-ci-eol-2026-11-08/README.md)及[原生建置／UTF-8](docs/development-records/runs/windows-ci-native-2026-11-08/README.md)及[診斷解碼](docs/development-records/runs/windows-ci-decode-2026-11-08/README.md)原始證據分存；[CI 指引](docs/windows-base-ci.md)、[第二十份快照](docs/architecture/versions/v0.4-windows-native-ci.md)、中文封面及進度同步。
-- 2026-11-09 補存隔離回歸；CI #6 在固定來源下載失敗、Windows 未執行，新增早期 pip／fetch 日誌與明確 pipefail，沒有放寬雜湊或用 tee 吞掉錯誤。[紀錄](docs/development-records/runs/windows-ci-retry-2026-11-09/README.md)。
-- Linux 完整測試曾在 unittest 印 OK 後 native teardown exit 139；最新 faulthandler 隔離重跑 exit 0，原始與更正後證據皆保存，根因未定位，不把重跑當修好。
-- 乾淨機／安裝生命週期、人工 UI、GPU、ONNX 繁體品質與 RAM 軟預算限制保留。上游、舊附件、十九份舊圖、七份既有 lock、221 份授權與 233 份資料不變，沒有 binary／模型／憑證入庫。
+- 新獨立 main push CI，以固定來源／工具／四語模型、hash 與來源 receipt 重建原生候選，再由 Windows 2022 打包基本 app；contents:read，不觸發舊手動安裝包或建立 Release。
+- 固定 Git checkout 原位元組、自有 Windows UTF-8 manifest／RC、Python frozen UTF-8 mode、PDF 原生診斷明確解碼；OCR 本文仍嚴格 UTF-8。Qt 驗收在背景收尾後重送正常關閉，25 秒總期限與 exit0 條件不放寬。
+- [CI #7](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42539123115) 真正驗過四語健康／掃描、中文空格搬移、UTF-8 路徑／CLI／偏好、缺損模型／EXE 不回退及缺選配、Qt 視窗開啟及正常退出。下載曾於 #6 失敗、未進 Windows；補存早期日誌與 pipefail，本輪下載重建成功，不虛構舊失敗根因。
+- 相對前版新增 **28 項**，相關 **141/141**；Linux 31 模組 **555 項：554 通過、1 既有 ONNX 繁體品質預期失敗**，各 child 正常 exit0。混合測試曾在斷言完成後 native teardown exit139；LLDB 下本輪正常退出、未重現，原因仍待查，不列已修復。
+- 原始成功／失敗分存於[開發紀錄](docs/development-records/README.md)，補[第二十二份圖](docs/architecture/versions/v0.4-windows-base-ci.md)及視覺進度；[Windows 實測紀錄](docs/development-records/runs/windows-base-ci-2026-11-09/README.md)僅永久保存已取得的公開證據，未宣稱下載需登入的 artifact。
+- hosted runner 已有 Python，不是乾淨機；完整安裝生命週期、人工 UI、各選配 profile、GPU、ONNX 繁體品質及 RAM 軟預算限制保留。沒有 Setup／tag／Release；既有來源、附件、21 份舊圖、7 份 lock、221 份授權及 233 份資料保持，binary／模型／憑證不入庫。
 
 ## 0.13.0 — 2026-11-08
 

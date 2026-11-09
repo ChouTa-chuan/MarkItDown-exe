@@ -1,0 +1,11 @@
+{
+  "test_target_exit": 0,
+  "tests_run": 555,
+  "passed": 554,
+  "expected_failures": 1,
+  "debugger_exit": 1,
+  "debugger_exit_reason": "Backtrace requested after the target had exited normally; no stopped process",
+  "fault_reproduced": false,
+  "mixed_teardown_issue_resolved": false,
+  "scope": "Native LLDB observation of the mixed Linux test process; no C stack captured because fault did not recur; does not prove issue fixed"
+}

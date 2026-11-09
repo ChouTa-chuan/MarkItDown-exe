@@ -1,0 +1,5 @@
+settings set target.disable-aslr false
+settings set frame-format "frame #${frame.index}: ${frame.pc} ${module.file.basename}`${function.name}\n"
+process handle -p true -s false -n false SIGPIPE SIGCHLD SIGINT SIGUSR1 SIGUSR2
+run
+thread backtrace -c 18

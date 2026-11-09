@@ -1,0 +1,26 @@
+{
+  "result": {
+    "check": "windows-base-build-ci",
+    "commit": "3384167e7a23b63e58e673f2520bfdf92cfd821a",
+    "build_verified": true,
+    "validation_accepted": true,
+    "clean_machine_accepted": false,
+    "release_ready": false
+  },
+  "acceptance": {
+    "check": "windows-base-ci",
+    "accepted": true,
+    "windows_executed": true,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "source_version": "0.14.0",
+    "python_utf8_mode": true,
+    "gui": {
+      "opened": true,
+      "normal_exit": true,
+      "returncode": 0,
+      "close_requests": 4
+    },
+    "checks_passed": 10
+  }
+}

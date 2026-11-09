@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "source_version": "0.14.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-09",
+  "check": "C03-windows-ci",
+  "mechanism_accepted": true,
+  "full_c03_complete": false,
+  "scope": "Windows hosted基本包10/10與正常Qt退出已接受；無乾淨機／安裝／人工UI／GPU或發行。僅封存已取得的公開證據，完整登入artifact未下載",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2206,
+      "sha256": "c9907b5187c8c258ec81f8205c6e08e06ca73f7f364ee31141d1b4e4d0c1d509",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "ci7-public-diagnostic.json",
+      "bytes": 619,
+      "sha256": "a0a587aa42a3cd28f03c956d2fd80be0ecf43b95d025390cee95ab271ba4eadb",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "ci7-run-page.txt",
+      "bytes": 176883,
+      "sha256": "60b1e33e5b4771b1d31c15133b0dc64f80cf370fad4be30e391aaab6a29c9e9c",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "derived-check-ledger.json",
+      "bytes": 1950,
+      "sha256": "66d7a37768ccd92136d3f062601965886c0ba2f643335930a067e9090c02b54f",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 2426,
+      "sha256": "2963fe663d527a418b423a9d9e75a03252aa651b59e7ed5a5bff95e9af27da5f",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "linux-debug-observation.json",
+      "bytes": 437,
+      "sha256": "c1933f00a8cb1f1a41766509d59563b9cae29249d5c7bb2a887181dfbdef749a",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "lldb-commands.lldb",
+      "bytes": 252,
+      "sha256": "1b9872023938244105975c333de86cb3b1ab9d6c1bdc9d72639676e430513262",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "lldb-initial-handshake.log",
+      "bytes": 931,
+      "sha256": "39ef427e1a704f42d96a14ca1ca106ede3df9a0f5144fa7d3830826a779a2bd6",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "lldb-mixed-suite.log",
+      "bytes": 82568,
+      "sha256": "03df3f690cd89e5b1ed0c294a03ea53a5b518ee5f173041bd43a3056f13cac49",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "provenance.json",
+      "bytes": 825,
+      "sha256": "194ba6d07f31f72ad2a3335dc49c56f01714e6c0dc2ef905b1395f8bd6264d45",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 675985,
+      "sha256": "835d5a6b7d21a5813253ab2a5a14d7155052f737ba9e14b1ed45240285d910aa",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 681352,
+      "sha256": "6e4babadd1cfc8d52e1c3bec127421c2e19de6b7c7653bab6e0943b5946a6321",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 299151,
+      "sha256": "8f34247f3341df9ca2083c192b645d455363f91741b24037fec6912616802adc",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 318863,
+      "sha256": "66c83ac0af273fad6c8143cbaaa28b260da7d2d29a6160119452bc06d2166b63",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 468615,
+      "sha256": "fb7cec0bd71f850a1acacea054f554a9ed9b762ce153eb67f5c86d365334d45a",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    },
+    {
+      "file": "validated-source-comparison.json",
+      "bytes": 368,
+      "sha256": "51a9b88bfafc4927430b8aaf4511596f8362e75114d4c792f7a9474306924416",
+      "source": "實際Windows #7公開頁／完整短診斷與明確推導檢核索引；Linux偵錯target正常退出、未重現；本輪進度畫面；無使用者文件"
+    }
+  ]
+}

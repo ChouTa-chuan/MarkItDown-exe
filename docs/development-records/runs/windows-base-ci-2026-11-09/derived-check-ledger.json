@@ -1,0 +1,47 @@
+{
+  "derivation": "Labels extracted from the exact validator source; individual pass inferred from accepted=true and checks_passed=10. Not a fabricated full raw acceptance report.",
+  "source_commit": "3384167e7a23b63e58e673f2520bfdf92cfd821a",
+  "source_file": "scripts/check_windows_base.py",
+  "checks": [
+    {
+      "label": "Windows profile and all fixed native/model/notice hashes verified",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Native Windows frozen core runs without external Python command",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Actual Windows native four-language health and scanned PDF self-test passes",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Four-language native OCR works after relocating into a Chinese/spaced path",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Chinese input/output filenames preserve exact UTF-8 bytes",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Four real Windows CLI scans preserve selected language targets and settings bytes",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Missing/changed model rejects OCR despite usable external fallback; text remains usable",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Changed native EXE hash is rejected without silently borrowing a host engine",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Unavailable optional OCR does not replace the chosen backend",
+      "status": "passed_inferred_from_completed_validator"
+    },
+    {
+      "label": "Actual Qt Windows platform opens a window and closes normally; no human acceptance claim",
+      "status": "passed_inferred_from_completed_validator"
+    }
+  ]
+}

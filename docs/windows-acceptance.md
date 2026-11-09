@@ -1,5 +1,7 @@
 # Windows 安裝包與驗收流程
 
+2026-11-09：獨立 Windows 基本包 CI **10/10 已通過**，見[實測紀錄](development-records/runs/windows-base-ci-2026-11-09/README.md)。此結果為 hosted runner／基本資料夾 app，並非本文件列出的無Python乾淨機／完整安裝生命週期／人工 UI／GPU完成，也不觸發既有手動發行 workflow。
+
 > 0.14.0 新增[獨立 Windows 基本包 CI](windows-base-ci.md)，由 main 原始碼更新觸發；實際結果另記。下列舊手動開發／安裝包流程保持原樣，未觸發，不能與新基本包驗證混算。
 
 規劃已更新為 [v0.4 基本安裝包＋選配元件管理](architecture-guide.md)。本頁描述現有開發預覽腳本：仍綁定 ONNX、未內建 Tesseract native；後續必須增加發行 profile 與能力相依自檢，才能符合新版基本包門檻。新增 C01–C12 導入另計，不包含於本頁既有 19/25 基線。

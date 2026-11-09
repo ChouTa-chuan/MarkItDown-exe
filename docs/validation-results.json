@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-11-08T11:15:23.888852+00:00",
+  "recorded_at": "2026-11-09T00:23:58.270531+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
@@ -525,7 +525,7 @@
     "full_c04_complete": false,
     "full_c09_complete": false,
     "gpu_executed": false,
-    "evidence": "development-records/runs/windows-ci-2026-11-08/README.md",
+    "evidence": "development-records/runs/windows-base-ci-2026-11-09/README.md",
     "attempt1": {
       "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42471909742",
       "source_commit": "78152779df22c5c7b7b911ae62c17719b162aa43",
@@ -715,7 +715,8 @@
       "resource_id": 1,
       "sha256": "49364e03fa55fe013abacc7529011ca9a98148778b7c5852a12265a20c4675b7",
       "windows_executed": false,
-      "new_candidate_validation_accepted": false
+      "new_candidate_validation_accepted": false,
+      "scope": "Exact locally cross-built candidate with this SHA remains unexecuted on Windows; accepted CI #7 rebuilt the same source separately, whose full artifact was not downloaded."
     },
     "attempt4": {
       "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42475049445",
@@ -750,7 +751,7 @@
     "decode_fix": {
       "actual_linux_child_negative_control": "CP1252 decoding of UTF-8 Chinese language-list header raises UnicodeDecodeError",
       "fixed_actual_linux_ocr_passed": true,
-      "windows_executed": false,
+      "windows_executed": true,
       "linux_minimal_frozen_utf8_mode": {
         "accepted": true,
         "env": {
@@ -759,7 +760,8 @@
           "PYTHONCOERCECLOCALE": "0"
         },
         "scope": "Minimal Linux frozen packaging option and exact four-language output only; not the base application or Windows acceptance."
-      }
+      },
+      "windows_validation_run": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42539123115"
     },
     "attempt5": {
       "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42476509935",
@@ -797,7 +799,8 @@
     "close_fix": {
       "related_tests": 141,
       "accepted_local_contract": true,
-      "windows_gui_retest_pending": true
+      "windows_gui_retest_pending": false,
+      "windows_gui_accepted": true
     },
     "attempt6": {
       "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42477745858",
@@ -807,9 +810,59 @@
       "native_cross_build_executed": false,
       "windows_job_executed": false,
       "underlying_error_available": false
+    },
+    "validation_accepted": true,
+    "checks_passed": 10,
+    "attempt7": {
+      "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42539123115",
+      "source_commit": "3384167e7a23b63e58e673f2520bfdf92cfd821a",
+      "conclusion": "success",
+      "recorded_at": "2026-11-09T00:23:58.260737+00:00",
+      "date_taipei": "2026-11-09",
+      "source_version": "0.14.0",
+      "native_build_job": "success",
+      "windows_job": "success",
+      "checks_passed": 10,
+      "windows_executed": true,
+      "full_c03_complete": false,
+      "full_c04_complete": false,
+      "full_c09_complete": false,
+      "clean_machine_accepted": false,
+      "human_ui_accepted": false,
+      "gpu_executed": false,
+      "release_ready": false,
+      "report_artifact_retention_days": 7,
+      "report_artifact_downloaded": false,
+      "archived_scope": "Public run HTML and complete concise annotation; detailed authenticated artifact and screenshot not downloaded",
+      "diagnostic": {
+        "result": {
+          "check": "windows-base-build-ci",
+          "commit": "3384167e7a23b63e58e673f2520bfdf92cfd821a",
+          "build_verified": true,
+          "validation_accepted": true,
+          "clean_machine_accepted": false,
+          "release_ready": false
+        },
+        "acceptance": {
+          "check": "windows-base-ci",
+          "accepted": true,
+          "windows_executed": true,
+          "clean_machine_accepted": false,
+          "release_ready": false,
+          "source_version": "0.14.0",
+          "python_utf8_mode": true,
+          "gui": {
+            "opened": true,
+            "normal_exit": true,
+            "returncode": 0,
+            "close_requests": 4
+          },
+          "checks_passed": 10
+        }
+      }
     }
   },
-  "windows_execution_scope": "Windows 2022 hosted runner base build/core/four-language self-test passed; relocation failed. No clean-machine/installer/human/GPU acceptance.",
+  "windows_execution_scope": "Windows 2022 hosted-runner base build and all 10 checks accepted, including four-language OCR, Chinese relocation, CLI, integrity faults and native Qt normal exit; no clean-machine, installer, human or GPU acceptance.",
   "linux_test_process_exit_observation": {
     "initial": {
       "tests_reported_ok": true,
@@ -1191,5 +1244,16 @@
         "process_exit": 0
       }
     ]
+  },
+  "linux_debug_observation": {
+    "test_target_exit": 0,
+    "tests_run": 555,
+    "passed": 554,
+    "expected_failures": 1,
+    "debugger_exit": 1,
+    "debugger_exit_reason": "Backtrace requested after the target had exited normally; no stopped process",
+    "fault_reproduced": false,
+    "mixed_teardown_issue_resolved": false,
+    "scope": "Native LLDB observation of the mixed Linux test process; no C stack captured because fault did not recur; does not prove issue fixed"
   }
 }

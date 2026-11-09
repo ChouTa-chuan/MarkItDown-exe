@@ -1,0 +1,17 @@
+(lldb) target create "/workspace/markitdown-clean-venv/bin/python"
+Current executable set to '/workspace/markitdown-clean-venv/bin/python' (x86_64).
+(lldb) settings set -- target.run-args  "-m" "unittest" "discover" "-s" "tests" "-v"
+(lldb) command source -s 0 '/tmp/markitdown-native-shutdown.lldb'
+Executing commands in '/tmp/markitdown-native-shutdown.lldb'.
+(lldb) settings set target.disable-aslr false
+(lldb) settings set frame-format "frame #${frame.index}: ${frame.pc} ${module.file.basename}`${function.name}\n"
+(lldb) process handle -p true -s false -n false SIGPIPE SIGCHLD SIGINT SIGUSR1 SIGUSR2
+NAME         PASS     STOP     NOTIFY
+===========  =======  =======  =======
+SIGCHLD      true     false    false  
+SIGPIPE      true     false    false  
+SIGUSR1      true     false    false  
+SIGUSR2      true     false    false  
+SIGINT       true     false    false  
+(lldb) run
+error: failed to send the handshake ack

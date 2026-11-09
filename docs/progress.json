@@ -2,9 +2,9 @@
   "updated": "2026-11-09",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
   "tests_passed": 554,
-  "headline": "Windows九項通過／Qt重驗；來源下載診斷補強，完整7/12",
-  "blocker": "CI #6 固定來源下載失敗、Windows未執行；新日誌重跑。Linux 555 項隔離正常退出，混合teardown仍待查。",
-  "next": "取得新CI下載與Windows Qt正常退出結果，再接乾淨機／安裝與GPU。",
+  "headline": "Windows 基本包 CI 10/10 通過；完整導入 7/12，接乾淨機與安裝",
+  "blocker": "完整乾淨 Windows／安裝生命週期、人工 UI、各選配 profile／GPU 待驗；Linux混合native teardown與ONNX繁體品質仍開放。",
+  "next": "以已驗證的 Windows 基本包接乾淨機、首次完整流程與安裝／升級／修復／移除，另追 Linux 混合 teardown。",
   "milestones": [
     {
       "id": "m0",
@@ -287,7 +287,7 @@
             "id": "C03",
             "label": "Windows Tesseract 與繁中／英／日／韓 OCR",
             "done": false,
-            "acceptance": "C03 3/4：Linux 內含整包及四語流程已驗；Windows CI #3 真正原生打包／四語健康與四份掃描自檢通過，中文搬移失敗。自有 UTF-8 修正已完成 Linux 重建／靜態與組裝，仍待 Windows；乾淨機／安裝門檻保留。",
+            "acceptance": "C03 3/4：固定來源與內含四語已驗，Windows CI #7 基本包四語／中文／CLI／故障／Qt 10/10，仍待無Python乾淨 Windows 掃描與安裝驗收。",
             "subchecks": [
               {
                 "label": "固定四語模型、語言選擇／設定遷移與本機離線 OCR（Linux）",
@@ -311,7 +311,7 @@
             "id": "C04",
             "label": "profile 鎖定、打包與能力自檢",
             "done": false,
-            "acceptance": "C04 2/4：基本依賴與 Linux 基本 profile／自檢已驗；Windows CI #3 原生基本包及 core／full 自檢通過，中文搬移待修。各選配原生清單／授權、完整離線與乾淨 Windows 隔離仍待，整項未關閉。",
+            "acceptance": "C04 2/4：依賴閉包及 Linux 基本 profile 已驗，Windows 基本包 CI 10/10通過；各選配 bundle／授權／離線與乾淨 Windows 隔離驗收仍待，整項未關閉。",
             "subchecks": [
               {
                 "label": "基本版 Python 閉包／hash／既有授權；乾淨 Linux 格式與 Qt 驗證",
@@ -371,7 +371,7 @@
             "id": "C09",
             "label": "首次啟動與基本引擎自動設定",
             "done": false,
-            "acceptance": "首次流程子檢核 94/94＋本機 Qt／健康 9/9，內含四語預設解析已在 Linux frozen 驗證；Windows 新基本包已部分自檢，但中文搬移與全新乾淨機完整流程待 C03／C04，C09 仍 3/4。",
+            "acceptance": "首次流程3/4：RAM／偏好與略過選配已驗，內含四語預設解析及 Windows GUI 自檢可執行；無Python乾淨安裝後完整離線首次流程仍待 C03／C04／C11。",
             "subchecks": [
               {
                 "label": "RAM 建議、明確套用與既有偏好保留",
@@ -465,15 +465,15 @@
         "id": "native_assets",
         "title": "內含四語與原生基本包",
         "state": "partial",
-        "detail": "內含固定來源四語 Windows 基本包已真正建置及部分自檢；中文搬移待 UTF-8 修正，完整 C03 未關閉。",
-        "evidence": "Linux frozen 12／source Qt 3；Windows CI #3 core／四語自檢通過，中文搬移失敗，新 UTF-8 待 CI；C03 3/4。"
+        "detail": "固定來源四語 Windows 基本包已真正打包、辨識、中文搬移、CLI與Qt自檢通過；乾淨機與安裝仍待，C03 3/4。",
+        "evidence": "Windows CI 10/10；Linux frozen 12／source Qt3。hosted runner非乾淨機，C03不關閉。"
       },
       {
         "id": "windows_ci",
         "title": "Windows 自動建置驗證",
-        "state": "partial",
-        "detail": "Windows #5 原生基本包／UTF-8模式與四語、中文搬移、CLI及故障共9項通過，Qt已開窗；關閉工具需等收尾後再正常關閉，仍待新CI。",
-        "evidence": "實際Windows9/10＋本地141/141；不以強制終止當GUI通過，完整導入仍7/12。"
+        "state": "verified",
+        "detail": "Windows 2022 實際原生基本包／四語／中文搬移／CLI／故障保護與 Qt正常退出 10/10 通過；範圍僅 hosted runner。",
+        "evidence": "CI #7（3384167）接受；Python UTF-8=true，Qt正常exit0／4次正常關閉要求。乾淨機／安裝／GPU不計完成。"
       }
     ]
   }

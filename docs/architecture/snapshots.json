@@ -253,7 +253,19 @@
       "source_description": "Windows CI #5 九項通過，Qt 正常關閉工具待重驗",
       "architecture_scope": "0.4 actual Windows nine subchecks passed; real GUI opened but normal-exit checker pending",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-windows-base-ci.md",
+      "title": "架構 v0.4：Windows 基本包 CI 驗證完成",
+      "diagram_sha256": "46f37f6de4e1cd20b81db3579c037a25d548cbc870a52a661d9976b2b25ae9b2",
+      "file_sha256": "c5638ff6b17266f0eebd83ff0d45670aac69add73af9ccacfd873a3f470b1ca5",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_version": "0.14.0",
+      "source_description": "Windows CI #7 基本包10/10已接受；乾淨機與安裝／GPU仍待",
+      "architecture_scope": "0.4 actual Windows hosted base validation accepted; no clean-machine/installer/human/GPU completion",
+      "derived": false
     }
   ],
-  "updated_at": "2026-11-08"
+  "updated_at": "2026-11-09"
 }

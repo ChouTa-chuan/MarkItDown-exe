@@ -45,6 +45,8 @@
 
 第二十一份：[Windows 四語、中文與 CLI 實測](versions/v0.4-windows-cli-ci.md)，保存九項通過與 Qt 關閉重驗狀態。
 
+第二十二份：[Windows 基本包 CI 驗證完成](versions/v0.4-windows-base-ci.md)，保存10/10與乾淨機／安裝、GPU待驗範圍。
+
 ## 保存規則
 
 - 已存圖檔保留固定內容；下次架構變更新增另一份版本快照，再補索引與 CHANGELOG。
