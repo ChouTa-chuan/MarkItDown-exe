@@ -2,9 +2,9 @@
   "updated": "2026-11-09",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
   "tests_passed": 593,
-  "headline": "中斷1案已驗，第二案Inno暫存收據已補、待Windows重驗；完整7/12",
-  "blocker": "Windows中斷續修待三停點；各profile／乾淨機／人工另驗。Linux Qt管理23項全過後exit -11、單獨補驗exit0，整輪未接受；ONNX品質／GPU／RAM限制保留。",
-  "next": "真正Windows在三停點終止自己Setup程序樹，匹配一般Setup明確續修及各10項app／資料保留。",
+  "headline": "Windows程序中斷三停點續修3/3已驗；C11仍2/5／完整7/12",
+  "blocker": "各profile／更完整故障恢復、無Python乾淨機與人工／GPU仍待；Linux594含Qt退出-11未接受，單獨補驗exit0不代表修復。",
+  "next": "接各profile相容、更完整中斷恢復與乾淨Windows離線首次流程；並定位Linux Qt退出問題。",
   "milestones": [
     {
       "id": "m0",
@@ -287,7 +287,7 @@
             "id": "C03",
             "label": "Windows Tesseract 與繁中／英／日／韓 OCR",
             "done": false,
-            "acceptance": "C03 3/4：固定來源與內含四語，0.16 Windows基本資料夾及安裝後app各10項通過；仍待無Python乾淨機／離線完整流程，不關閉整項。",
+            "acceptance": "C03 3/4：固定來源與內含四語，0.17 Windows基本資料夾及安裝後app各10項通過；仍待無Python乾淨機／離線完整流程，不關閉整項。",
             "subchecks": [
               {
                 "label": "固定四語模型、語言選擇／設定遷移與本機離線 OCR（Linux）",
@@ -311,7 +311,7 @@
             "id": "C04",
             "label": "profile 鎖定、打包與能力自檢",
             "done": false,
-            "acceptance": "C04 2/4：基本依賴／Linuxprofile保留；0.16 Windows基本包及受管1652檔安裝／修復／離線自檢已驗，仍待各選配bundle／授權與乾淨Windows隔離。",
+            "acceptance": "C04 2/4：基本依賴／Linuxprofile保留；0.17 Windows基本包及受管1652檔安裝／修復／離線自檢已驗，仍待各選配bundle／授權與乾淨Windows隔離。",
             "subchecks": [
               {
                 "label": "基本版 Python 閉包／hash／既有授權；乾淨 Linux 格式與 Qt 驗證",
@@ -407,7 +407,7 @@
             "id": "C11",
             "label": "Windows 完整安裝生命週期",
             "done": false,
-            "acceptance": "C11 2/5：原跨版／profile合併項拆為兩項，基本包真升級／明確回復11段已驗；各profile／中斷恢復、乾淨機、人工UI仍待，不宣稱完整C11。",
+            "acceptance": "C11 2/5：基本包安裝6段／跨版11段已驗，新增三個程序終止停點普通Setup續修3/3、每案app10項；Inno產物精確收據保留、清理未完成；第三項仍待各profile與更完整故障恢復，不視為斷電／自動回滾或乾淨機。",
             "subchecks": [
               {
                 "label": "Hosted Windows：真安裝／同版修復／移除及資料哨兵保留",
@@ -418,7 +418,7 @@
                 "done": true
               },
               {
-                "label": "各profile跨版本相容與安裝中斷恢復",
+                "label": "各profile跨版本相容與安裝中斷恢復（基本包三停點續修已驗）",
                 "done": false
               },
               {
@@ -494,29 +494,29 @@
         "id": "windows_ci",
         "title": "Windows 自動建置驗證",
         "state": "verified",
-        "detail": "0.16 Windows2022基本包／安裝後app各10項，跨版升級／明確回復另11段通過。",
-        "evidence": "CI 42557368030；hosted基本profile，非乾淨機／全部profile。"
+        "detail": "0.17基本包／安裝後app各10項，安裝6段／跨版11段及程序中斷續修3案通過。",
+        "evidence": "CI 42578549106；hosted基本profile，非乾淨機／全部profile／人工UI。"
       },
       {
         "id": "base_installer",
         "title": "基本包安裝／修復／移除CI",
         "state": "verified",
-        "detail": "0.16 Windows hosted安裝、破壞後同版修復、四語自檢、移除與資料保留6段通過；C11完整項仍待。",
-        "evidence": "CI 42557368030：安裝後app10項、1652受管檔／registry／捷徑與資料哨兵；跨版另11段、乾淨機與各profile另驗。"
+        "detail": "0.17 Windows安裝／同版修復／移除6段、1652受管檔與合成資料保留已驗；完整C11仍待。",
+        "evidence": "CI 42578549106：安裝後app10項、跨版11段與中斷續修3案分別接受。"
       },
       {
         "id": "base_upgrade",
         "title": "基本包跨版本升級／明確回復",
         "state": "verified",
-        "detail": "基本profile真跨版升級／明確回復11段通過，含拒降版／衝突／junction與移除保留；不是中斷自動回滾。",
-        "evidence": "CI 42557368030；原版／升級／回復app各10項，各profile與乾淨機另驗。"
+        "detail": "真正0.16→0.17跨版升級／明確回復11段通過，原版／升級／回復app各10；中斷續修另驗3案。",
+        "evidence": "CI 42578549106；原版spec／generator獨立建置，各profile與斷電另驗。"
       },
       {
         "id": "base_recovery",
         "title": "安裝程序中斷續修",
-        "state": "partial",
-        "detail": "固定hash intent／匹配一般Setup明確續修／全hash後清標記及frozen啟動阻擋；待Windows三停點。",
-        "evidence": "新增15／相關180接受；594斷言但Qt退出-11整輪未接受。Windows中斷1/3，精確產物收據待重驗。"
+        "state": "verified",
+        "detail": "hosted Windows三停點真正終止自己程序樹，一般Setup明確續修，各10項app／全hash與資料保留通過；Inno產物僅精確收據認列並保留，清理仍待。",
+        "evidence": "CI 42578549106，intent／first-file／payload-written 3/3；各profile仍待。"
       }
     ]
   },

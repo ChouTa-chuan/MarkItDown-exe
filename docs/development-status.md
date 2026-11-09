@@ -1,5 +1,7 @@
 # 開發進度
 
+2026-11-09 最新：0.17 Windows程序中斷續修3/3，各恢復app10項；[原始紀錄](development-records/runs/c11-recovery-2026-11-09/README.md)。C11保持2/5／完整7/12，各profile／斷電／人工另驗；Linux最新594含Qt退出-11仍不接受，補驗不抹除。
+
 2026-11-09：0.17新增[安裝程序中斷續修](base-recovery-ci.md)，本地177／591已驗，Windows三停點待跑；C11仍2/5／完整7/12，非斷電或自動回滾。
 
 2026-11-09 最新：0.16基本包跨版升級／明確回復Windows 11/11通過，原版／升級／回復app各10項；各profile與中斷恢復仍待，C11為2/5、完整7/12。[原始紀錄](development-records/runs/c11-upgrade-2026-11-09/README.md)。

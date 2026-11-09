@@ -6,7 +6,7 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.17.0**，新增程序中斷後續修，Windows待驗；0.16跨版11/11已驗，C11 **2/5**；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.17.0**，Windows程序中斷續修 **3/3**、恢復後app各 **10/10**；C11 **2/5**；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
 | 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C03 四語／原生來源／Linux 內含整包三項、C04 兩項、C09 三項子檢核完成，完整項仍待乾淨機／安裝及各 profile |
@@ -38,7 +38,7 @@ flowchart TD
         COMPONENTS["元件基礎：契約／登錄／完整性驗證"]
         CAPABILITY["能力解析：相容／依賴／健康檢查"]
         INSTALLERCI["基本包：真安裝／同版修復／移除／資料保留已驗"]
-        RECOVERYCI["程序中斷續修：intent／原包重跑；Windows待驗"]
+        RECOVERYCI["程序中斷續修：Windows三停點／一般Setup已驗"]
         UPGRADECI["基本包真跨版升級／明確回復：11段已驗"]
         WINCI["Windows CI：原生／四語／中文／CLI／Qt 10/10"]
         BUNDLED["內含 OCR：自動路徑／搬移／完整性／只讀模型"]
@@ -97,7 +97,8 @@ flowchart TD
     classDef planned fill:#fff4dc,stroke:#be8519,color:#694500,stroke-dasharray:5 5;
     class UI,APP,PLAN,RES,NATIVE,OCR,QUALITY existing;
     class UPGRADECI foundation;
-    class FIRST,OPTIONAL,RECOVERYCI planned;
+    class RECOVERYCI foundation;
+    class FIRST,OPTIONAL planned;
 ```
 
 | 模組 | 中文責任說明 | 實作範圍 |

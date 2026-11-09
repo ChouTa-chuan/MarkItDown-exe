@@ -57,6 +57,8 @@
 
 第二十七份：[基本包安裝程序中斷續修準備](versions/v0.4-base-recovery-preparation.md)，保存intent／三停點與一般Setup續修待驗範圍。
 
+第二十八份：[Windows程序中斷後續修實測](versions/v0.4-base-recovery-ci.md)，保存三停點3/3、一般Setup恢復與各profile／斷電／Linux Qt退出仍待範圍。
+
 ## 保存規則
 
 - 已存圖檔保留固定內容；下次架構變更新增另一份版本快照，再補索引與 CHANGELOG。

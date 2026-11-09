@@ -4,6 +4,12 @@
 
 目前程式版本 **0.17.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
 
+**2026-11-09｜完成Windows程序中斷後續修實測，程式0.17.0**
+
+- [真實Windows CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42578549106)（e3c0273）三停點3/3接受，taskkill自己握手後的PID樹，以一般匹配Setup明確續修，各10項app與全hash／舊metadata清理／移除及合成資料保留通過；未完成app入口退出3、不寫診斷，無確認及不同metadata拒絕。
+- 原版0.16／990e600的controller／spec／generator獨立建置，另驗基本包與安裝後app各10、安裝6段、跨版11段。[原頁／完整短診斷／原文](runs/c11-recovery-2026-11-09/README.md)／[第二十八份圖](../architecture/versions/v0.4-base-recovery-ci.md)與進度保存，舊27圖與raw固定。完整登入artifact僅七天未下載，不假稱永久備份；無Setup發行。
+- C11仍2/5／完整7/12，第三項各profile與更完整故障恢復尚待；非斷電／OS重啟或自動失敗回滾。Linux最新594回歸含Qt管理exit -11仍不接受，單獨23項exit0不代表修復，品質／GPU／RAM門檻保留。
+
 **2026-11-09｜修正中斷後Inno暫存物收據，程式0.17.0**
 
 - Windows基本包／安裝後app各10、安裝6段／跨版11段與第一個中斷續修案接受（1/3），第二案遇額外Inno暫存檔被完整性檢查拒絕。新增「既有已驗程式／Inno metadata精確hash」及「操作前不存在、自己停點已觀察、終止後續修前綁定path／hash／PID」收據；未知或變更檔不能憑.tmp名稱放行，檔案只保留、不直接刪除。完整暫存清理仍未驗收。[第二次原始紀錄與180相關／594斷言](runs/c11-recovery-attempt2-2026-11-09/README.md)保存，Windows待重驗，C11仍2/5／完整7/12；LinuxQt退出問題仍未修復。

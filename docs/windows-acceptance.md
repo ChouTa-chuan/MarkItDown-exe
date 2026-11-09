@@ -1,5 +1,7 @@
 # Windows 安裝包與驗收流程
 
+2026-11-09 實測更新：0.17 Windows三個程序中斷停點＋一般匹配Setup明確續修3/3，各app10項及資料保留已驗。[原始紀錄](development-records/runs/c11-recovery-2026-11-09/README.md)。不視為斷電／OS重啟／任意故障時刻或全profile／乾淨機完成。
+
 2026-11-09：0.17新增CI-only三停點程序中斷＋一般Setup明確續修，Windows結果待實跑。[指引](base-recovery-ci.md)。各profile與斷電／乾淨機／人工UI另驗，不發布Setup。
 
 2026-11-09 實測更新：0.16基本包跨版11段通過，含明確回復、拒降版／未知衝突／真junction等；[原始紀錄](development-records/runs/c11-upgrade-2026-11-09/README.md)。完整profile、中斷失敗回滾、乾淨機／人工／標準帳戶仍待，不提供正式Setup。

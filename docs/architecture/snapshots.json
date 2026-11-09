@@ -323,6 +323,18 @@
       "archived_at": "2026-11-09",
       "architecture_scope": "0.4 C11 interrupted process explicit resume preparation; Windows pending",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-base-recovery-ci.md",
+      "title": "Windows程序中斷後續修實測",
+      "diagram_sha256": "f9ea631a7035169b0294b996e1f5efa53087a87ab166c45710557c9a61e99c80",
+      "file_sha256": "12432573384a003528d6ad4765d649df172cd89585eb88ede36d0464cd6be71d",
+      "source_kind": "current_development",
+      "source_version": "0.17.0",
+      "source_commit": "e3c02730dc26f6b609991c113ba5bcf97d2f480a",
+      "archived_at": "2026-11-09",
+      "architecture_scope": "0.4 C11 actual three-process-stop explicit resume; no power-loss or all-profile acceptance",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-09"

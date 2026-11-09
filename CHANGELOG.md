@@ -37,15 +37,14 @@
 
 ## 0.17.0 — 2026-11-09
 
-第二輪安裝6／跨版11及中斷1案通過，第二案因額外Inno.tmp被拒；補精確hash與自己程序建立的新名稱收據，不用通配排除或刪除未知文件，保留產物並明列清理未完成。[原始失敗與180相關／594斷言](docs/development-records/runs/c11-recovery-attempt2-2026-11-09/README.md)。
+相對0.16.0完成基本包程序中斷後明確續修，架構0.4；C11第三項仍待各profile，維持2/5／完整7/12／歷史19/25。
 
-第一次Windows基本包10項通過，Inno引入檔註解誤用分號造成BEGIN expected；已改Pascal //待重驗。[原始失敗](docs/development-records/runs/c11-recovery-attempt1-2026-11-09/README.md)保存，未先計中斷接受。
-
-相對0.16.0新增安裝程序中斷後明確續修，架構0.4；Windows真實結果待CI，C11仍2/5、完整7/12／歷史19/25。
-
-- 固定payload hash intent／完整暫存rename、原位置與匹配安裝器／明確續修、最終全部hash驗證後清標記；未完成時frozen入口退出3，不進入診斷或轉換。過期舊目錄清理與未知資料保護沿用，不自動失敗回滾。
-- CI-only三停點變體、握手後終止自己程序樹，以一般Setup續修各跑10項app與移除／資料保留；沒有把Linux合成當Windows或斷電驗收。前版改固定真0.16／990e600，原spec／generator獨立編譯，非舊版改標籤。
-- 新增12項，相關177/177；34模組591斷言（590通過、1既有ONNX繁體品質預期失敗）；Qt管理23項全過後原生exit -11，整輪accepted=false。[準備與raw](docs/development-records/runs/c11-recovery-prep-2026-11-09/README.md)、[模組指引](docs/base-recovery-ci.md)與第二十七份架構圖／視覺進度同步。26舊圖、既有紀錄／鎖檔／原文／品質基線固定；斷電／OS重啟／壞metadata／各profile／乾淨機／人工UI及完整C11仍待，無Setup發行。
+- [Windows CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42578549106)真正終止自己Setup PID樹，在intent／第一檔／payload寫完但舊metadata未清三停點 **3/3**；以普通匹配Setup明確續修，各app **10/10**、受管hash／registry／移除與合成資料／未知文件保留通過。CI-only停點變體與一般恢復Setup分開，不是只改檔案假裝中斷。
+- 固定source hash intent／完整暫存rename、原位置／匹配payload與明確續修、最終全hash後清標記、frozen入口未完成時退出3。拒靜默未確認續修及不同metadata；原版0.16固定990e600／原controller／spec／generator獨立建置，基本資料夾／安裝後app各10項、安裝6段與跨版11段也通過。
+- 第一次Inno引入檔誤用主設定分號註解，已改Pascal //並以Windows重驗；[原始失敗](docs/development-records/runs/c11-recovery-attempt1-2026-11-09/README.md)保留，不改成通過。
+- 第二輪中斷1案接受，第二案被Inno暫存物攔下；改精確hash及操作前／停點／自己PID建立收據，只保留，不通配忽略或刪除。最終仍保留1份，完整暫存清理未完成；[第二輪失敗及收據回歸](docs/development-records/runs/c11-recovery-attempt2-2026-11-09/README.md)保存。
+- 新增15、相關180/180；全594斷言593＋1既有ONNX品質預期失敗，但Qt管理23項全過後exit -11，原整輪不接受；單獨補驗23正常exit0，根因仍待查。[180相關與594原始紀錄](docs/development-records/runs/c11-recovery-attempt2-2026-11-09/README.md)／[首次591與23項補驗](docs/development-records/runs/c11-recovery-prep-2026-11-09/README.md)／[Windows實測](docs/development-records/runs/c11-recovery-2026-11-09/README.md)／[指引](docs/base-recovery-ci.md)保存。
+- 第二十八份架構圖與視覺進度同步，前27圖／歷史紀錄／7鎖／221授權／233資料固定。不是斷電／OS重啟、壞metadata、任意故障時點、自動回滾、全profile／乾淨機／人工UI或標準帳戶完成；完整artifact七天保留未下載，無Setup／tag／Release發行。
 
 ## 0.16.0 — 2026-11-09
 

@@ -1,0 +1,21 @@
+{
+  "source_commit": "e3c02730dc26f6b609991c113ba5bcf97d2f480a",
+  "source_path": "scripts/check_windows_base_recovery.py",
+  "scope": "Source-derived index plus actual accepted three-case/count summary, not raw downloaded CI artifacts",
+  "checks": [
+    {
+      "line": 131,
+      "label": "Normal and CI-only stop-point installers share the same verified payload catalogs"
+    },
+    {
+      "line": 221,
+      "label": "For each intent / first-file / payload-written: actual termination and ordinary Setup resume, ten app checks"
+    }
+  ],
+  "stages": [
+    "intent",
+    "first-file",
+    "payload-written"
+  ],
+  "actual_checks_passed": 4
+}

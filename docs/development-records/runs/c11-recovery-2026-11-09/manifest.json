@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "source_version": "0.17.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-09",
+  "check": "C11-actual-process-resume",
+  "mechanism_accepted": true,
+  "full_c11_complete": false,
+  "scope": "Windows三個程序終止停點與一般Setup明確續修已接受，各app10項；非斷電／OS重啟／自動回滾／全profile／乾淨機或發行。Linux原591及594退出-11仍不接受，單獨23項exit0未宣稱修復",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 3125,
+      "sha256": "db1172b884224df024a718e7381e5cd847b3d419f4d522e3d32fb399cddd0422",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "derived-check-ledger.json",
+      "bytes": 648,
+      "sha256": "0ac56cb8260f8535bdc10082f7725ec328aa88d46fffab9857d4c6bc5b7d83cb",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "inno-setup-license.txt",
+      "bytes": 1521,
+      "sha256": "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 3428,
+      "sha256": "c6f8ed2994fe49cb74a8514fcd0589e4b624c965152743e3428d40bcbf6f0b2d",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "license-source.json",
+      "bytes": 701,
+      "sha256": "37b277589fb679d3b480a2c387809ee386a418be20397fd12dbb02c4942adb2b",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "native-job-page.txt",
+      "bytes": 165024,
+      "sha256": "ff5a3e46e006241e8d892974879e3bdd8d5237c6b5fb68d19ddac44fea8648cf",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "provenance.json",
+      "bytes": 1473,
+      "sha256": "89163276afa79f967d315a5c5e9f3d07f57b55f052909682a04ca9247aedb6bd",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "public-diagnostic.json",
+      "bytes": 3194,
+      "sha256": "e6c78774e4fa311ca7f7979467661f87430dabee5c7454c3e1c02d168e399545",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 809061,
+      "sha256": "1396292e35f1d5b24063e49d6ee68c1df46f8525fefec7e20fd1735ddbb69fbf",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 808819,
+      "sha256": "62e5832f6ed5db4b16fb332b432472d48f3c949fcef64dea5fcdb7632c66f9d0",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 296461,
+      "sha256": "c0e526c063125d295bef07e1cd24b66eb87863ce262b99b202555649d3cd306e",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 316029,
+      "sha256": "ab0c5a5ff224a53950a7c3e100e40fbd35c7b2ad76b6c29f6475b9e0bac9cfc4",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 466060,
+      "sha256": "98213181abdcd8d285eec59402a920cfd2a61dda1e1562db32ac81bdd5b07d7e",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "validated-source-comparison.json",
+      "bytes": 337,
+      "sha256": "1e51bac5499cf42e8eced073f5ed5afa8355305ed703afc85af6106a608f26e1",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "windows-job-page.txt",
+      "bytes": 166477,
+      "sha256": "4e93be570b2dfa0b862d0db7dc57f0f598817437977f369340b3b59eb5a0d1de",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 179552,
+      "sha256": "4a0ba295cef9411a54497f52f525ef0ec582e06f05be2a10f7ab91a43fd4cf26",
+      "source": "實際hosted Windows三程序停點公開原頁／完整短診斷／明確推導索引與同hash官方授權原文及離線進度截圖；無使用者文件"
+    }
+  ]
+}

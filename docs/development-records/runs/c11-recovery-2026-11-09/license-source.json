@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/jrsoftware/issrc",
+  "commit": "31ee6e35383c530cca8f047216045d3f61ca8be1",
+  "path": "license.txt",
+  "url": "https://raw.githubusercontent.com/jrsoftware/issrc/31ee6e35383c530cca8f047216045d3f61ca8be1/license.txt",
+  "bytes": 1521,
+  "sha256": "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c",
+  "matches_actual_runner_license": true,
+  "scope": "Exact original text matches runner hash; not a claim of identifying the compiler binary source commit or approving redistribution",
+  "reused_from": "../c11-upgrade-2026-11-09/inno-setup-license.txt",
+  "current_runner_sha256": "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c"
+}
