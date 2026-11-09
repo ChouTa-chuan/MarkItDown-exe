@@ -160,6 +160,8 @@ class SetupDialogTests(unittest.TestCase):
     def setUpClass(cls):
         from PySide6.QtWidgets import QApplication
         cls.app=QApplication.instance() or QApplication([])
+        from qt_support import release_test_widgets
+        cls.addClassCleanup(release_test_widgets, cls.app)
 
     def setUp(self):
         temporary=tempfile.TemporaryDirectory(); self.addCleanup(temporary.cleanup)

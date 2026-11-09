@@ -1,0 +1,1 @@
+{"scope": "Actual per-module normal subprocess exits; mixed native shutdown remains a separate open issue", "source_version": "0.17.1", "modules": 35, "run": 597, "passed": 589, "expected_failures": ["test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"], "accepted": false, "all_child_exits_zero": false}

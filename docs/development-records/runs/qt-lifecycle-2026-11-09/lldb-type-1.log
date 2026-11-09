@@ -1,0 +1,693 @@
+(lldb) target create "/workspace/markitdown-clean-venv/bin/python"
+Current executable set to '/workspace/markitdown-clean-venv/bin/python' (x86_64).
+(lldb) settings set -- target.run-args  "scripts/check_isolated_tests.py" "--module" "test_component_management" "--expected-count" "23" "--output" "/tmp/markitdown-qt-diagnosis/lldb-type.json"
+(lldb) settings set target.disable-aslr false
+(lldb) run
+test_cancel_escape_and_close_wait_for_background_cleanup (test_component_management.ManagementDialogTests.test_cancel_escape_and_close_wait_for_background_cleanup) ... ok
+test_capacity_license_version_plain_metadata_and_owned_controls (test_component_management.ManagementDialogTests.test_capacity_license_version_plain_metadata_and_owned_controls) ... ok
+test_desktop_opens_dialog_with_current_resource_preferences (test_component_management.ManagementDialogTests.test_desktop_opens_dialog_with_current_resource_preferences) ... ok
+test_failed_optional_operation_does_not_disable_main_text_conversion (test_component_management.ManagementDialogTests.test_failed_optional_operation_does_not_disable_main_text_conversion) ... ok
+test_gui_offline_import_health_license_and_confirmed_remove (test_component_management.ManagementDialogTests.test_gui_offline_import_health_license_and_confirmed_remove) ... ok
+test_unconfigured_dialog_no_network_and_actions_disabled (test_component_management.ManagementDialogTests.test_unconfigured_dialog_no_network_and_actions_disabled) ... ok
+test_default_unconfigured_source_does_not_connect_or_change_settings (test_component_management.ManagementTests.test_default_unconfigured_source_does_not_connect_or_change_settings) ... ok
+test_expired_catalog_retains_owned_rows_and_allows_safe_removal (test_component_management.ManagementTests.test_expired_catalog_retains_owned_rows_and_allows_safe_removal) ... ok
+test_explicit_download_install_reports_progress_and_uses_cache (test_component_management.ManagementTests.test_explicit_download_install_reports_progress_and_uses_cache) ... ok
+test_health_failure_leaves_current_active_unchanged (test_component_management.ManagementTests.test_health_failure_leaves_current_active_unchanged) ... ok
+test_health_of_inactive_version_does_not_switch_active_and_rollback_works (test_component_management.ManagementTests.test_health_of_inactive_version_does_not_switch_active_and_rollback_works) ... ok
+test_invalid_signatures_and_oversize_or_linked_catalog_preserve_old (test_component_management.ManagementTests.test_invalid_signatures_and_oversize_or_linked_catalog_preserve_old) ... ok
+test_license_tampering_is_not_displayed (test_component_management.ManagementTests.test_license_tampering_is_not_displayed) ... ok
+test_offline_transaction_and_license_plain_original (test_component_management.ManagementTests.test_offline_transaction_and_license_plain_original) ... ok
+test_online_catalog_is_only_fetched_by_explicit_action (test_component_management.ManagementTests.test_online_catalog_is_only_fetched_by_explicit_action) ... ok
+test_other_window_lock_is_not_stolen (test_component_management.ManagementTests.test_other_window_lock_is_not_stolen) ... ok
+test_pre_cancel_and_shared_worker_guard_preserve_active (test_component_management.ManagementTests.test_pre_cancel_and_shared_worker_guard_preserve_active) ... ok
+test_repair_modified_payload_and_recheck_health (test_component_management.ManagementTests.test_repair_modified_payload_and_recheck_health) ... ok
+test_required_removal_and_unknown_operations_are_rejected (test_component_management.ManagementTests.test_required_removal_and_unknown_operations_are_rejected) ... ok
+test_seen_revision_downgrade_is_rejected (test_component_management.ManagementTests.test_seen_revision_downgrade_is_rejected) ... ok
+test_signed_catalog_saved_and_reloaded_without_health_or_network (test_component_management.ManagementTests.test_signed_catalog_saved_and_reloaded_without_health_or_network) ... ok
+test_unsupported_platform_or_health_binding_rejected_before_download (test_component_management.ManagementTests.test_unsupported_platform_or_health_binding_rejected_before_download) ... ok
+test_withdrawn_catalog_disables_execution_but_owned_removal_allowed (test_component_management.ManagementTests.test_withdrawn_catalog_disables_execution_but_owned_removal_allowed) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 3.470s
+
+OK
+Process 349805 launched: '/workspace/markitdown-clean-venv/bin/python' (x86_64)
+Process 349805 stopped and restarted: thread 2 received signal: SIGCHLD
+Process 349805 stopped
+* thread #1, name = 'python', stop reason = signal SIGSEGV: address not mapped to object (fault address=0x28)
+       frame #0: 0x00007fb3d9bf2b24 libQt6Core.so.6`QObject::~QObject() + 724
+libQt6Core.so.6`QObject::~QObject:
+->  0x7fb3d9bf2b24 <+724>: movq   0x8(%rax), %rax
+    0x7fb3d9bf2b28 <+728>: cmpq   %rdx, %rax
+    0x7fb3d9bf2b2b <+731>: jne    0x7fb3d9bf2f0a            ; <+1722>
+    0x7fb3d9bf2b31 <+737>: movq   %rbp, %rdi
+(lldb) thread backtrace -c 8
+* thread #1, name = 'python', stop reason = signal SIGSEGV: address not mapped to object (fault address=0x28)
+   * frame #0: 0x00007fb3d9bf2b24 libQt6Core.so.6`QObject::~QObject() + 724
+     frame #1: 0x00007fb3db76d852 QtWidgets.abi3.so`___lldb_unnamed_symbol_256844 + 14
+     frame #2: 0x00007fb3db50086c libpyside6.abi3.so.6.12`___lldb_unnamed_symbol_337ff + 109
+     frame #3: 0x00007fb3dbe94bb0 libshiboken6.abi3.so.6.12`Shiboken::BindingManager::visitAllPyObjects(void (*)(SbkObject*, void*), void*) + 368
+     frame #4: 0x00007fb3db500d7a libpyside6.abi3.so.6.12`PySide::destroyQCoreApplication() + 98
+     frame #5: 0x00007fb3db503eb9 libpyside6.abi3.so.6.12`PySide::runCleanupFunctions() + 43
+     frame #6: 0x00007fb3d6462ba0 QtCore.abi3.so`___lldb_unnamed_symbol_d1b89 + 23
+     frame #7: 0x000000000180fe43 python`cfunction_vectorcall_NOARGS.llvm.2305966719422422379 + 131
+(lldb) disassemble -f
+libQt6Core.so.6`QObject::~QObject:
+    0x7fb3d9bf2850 <+0>:    endbr64 
+    0x7fb3d9bf2854 <+4>:    pushq  %r15
+    0x7fb3d9bf2856 <+6>:    pushq  %r14
+    0x7fb3d9bf2858 <+8>:    pushq  %r13
+    0x7fb3d9bf285a <+10>:   pushq  %r12
+    0x7fb3d9bf285c <+12>:   pushq  %rbp
+    0x7fb3d9bf285d <+13>:   pushq  %rbx
+    0x7fb3d9bf285e <+14>:   movq   %rdi, %rbx
+    0x7fb3d9bf2861 <+17>:   subq   $0x68, %rsp
+    0x7fb3d9bf2865 <+21>:   movq   0x8(%rdi), %rbp
+    0x7fb3d9bf2869 <+25>:   movq   %fs:0x28, %rax
+    0x7fb3d9bf2872 <+34>:   movq   %rax, 0x58(%rsp)
+    0x7fb3d9bf2877 <+39>:   leaq   0x55118a(%rip), %rax      ; vtable for QObject
+    0x7fb3d9bf287e <+46>:   addq   $0x10, %rax
+    0x7fb3d9bf2882 <+50>:   movq   %rax, (%rdi)
+    0x7fb3d9bf2885 <+53>:   movzbl 0x30(%rbp), %eax
+    0x7fb3d9bf2889 <+57>:   andl   $-0x7, %eax
+    0x7fb3d9bf288c <+60>:   orl    $0x4, %eax
+    0x7fb3d9bf288f <+63>:   cmpq   $0x0, 0x48(%rbp)
+    0x7fb3d9bf2894 <+68>:   movb   %al, 0x30(%rbp)
+    0x7fb3d9bf2897 <+71>:   je     0x7fb3d9bf2d80            ; <+1328>
+    0x7fb3d9bf289d <+77>:   movq   %rbp, %rdi
+    0x7fb3d9bf28a0 <+80>:   callq  0x7fb3d9be78d0            ; QObjectPrivate::clearBindingStorage()
+    0x7fb3d9bf28a5 <+85>:   movq   0x70(%rbp), %r12
+    0x7fb3d9bf28a9 <+89>:   testq  %r12, %r12
+    0x7fb3d9bf28ac <+92>:   je     0x7fb3d9bf28d0            ; <+128>
+    0x7fb3d9bf28ae <+94>:   movl   0x4(%r12), %eax
+    0x7fb3d9bf28b3 <+99>:   testl  %eax, %eax
+    0x7fb3d9bf28b5 <+101>:  jg     0x7fb3d9ad14f2            ; ___lldb_unnamed_symbol_d24f2
+    0x7fb3d9bf28bb <+107>:  movl   $0x0, 0x4(%r12)
+    0x7fb3d9bf28c4 <+116>:  lock   
+    0x7fb3d9bf28c5 <+117>:  subl   $0x1, (%r12)
+    0x7fb3d9bf28ca <+122>:  je     0x7fb3d9bf2b70            ; <+800>
+    0x7fb3d9bf28d0 <+128>:  testb  $0x4, 0x31(%rbp)
+    0x7fb3d9bf28d4 <+132>:  je     0x7fb3d9bf2a90            ; <+576>
+    0x7fb3d9bf28da <+138>:  testb  $0x8, 0x30(%rbp)
+    0x7fb3d9bf28de <+142>:  jne    0x7fb3d9bf28fd            ; <+173>
+    0x7fb3d9bf28e0 <+144>:  movq   0x68(%rbp), %rdi
+    0x7fb3d9bf28e4 <+148>:  testq  %rdi, %rdi
+    0x7fb3d9bf28e7 <+151>:  je     0x7fb3d9bf28fd            ; <+173>
+    0x7fb3d9bf28e9 <+153>:  leaq   0x565410(%rip), %rax      ; QAbstractDeclarativeData::destroyed
+    0x7fb3d9bf28f0 <+160>:  movq   (%rax), %rax
+    0x7fb3d9bf28f3 <+163>:  testq  %rax, %rax
+    0x7fb3d9bf28f6 <+166>:  je     0x7fb3d9bf28fd            ; <+173>
+    0x7fb3d9bf28f8 <+168>:  movq   %rbx, %rsi
+    0x7fb3d9bf28fb <+171>:  callq  *%rax
+    0x7fb3d9bf28fd <+173>:  movq   0x60(%rbp), %r12
+    0x7fb3d9bf2901 <+177>:  testq  %r12, %r12
+    0x7fb3d9bf2904 <+180>:  je     0x7fb3d9bf2ad4            ; <+644>
+    0x7fb3d9bf290a <+186>:  movq   0x18(%r12), %rax
+    0x7fb3d9bf290f <+191>:  testq  %rax, %rax
+    0x7fb3d9bf2912 <+194>:  je     0x7fb3d9bf2931            ; <+225>
+    0x7fb3d9bf2914 <+196>:  nopl   (%rax)
+    0x7fb3d9bf2918 <+200>:  movq   $0x0, 0x8(%rax)
+    0x7fb3d9bf2920 <+208>:  movq   (%rax), %rax
+    0x7fb3d9bf2923 <+211>:  testq  %rax, %rax
+    0x7fb3d9bf2926 <+214>:  jne    0x7fb3d9bf2918            ; <+200>
+    0x7fb3d9bf2928 <+216>:  movq   $0x0, 0x18(%r12)
+    0x7fb3d9bf2931 <+225>:  movq   %rbx, %rax
+    0x7fb3d9bf2934 <+228>:  leaq   0x5653e5(%rip), %r13
+    0x7fb3d9bf293b <+235>:  movabsq $0x3e88cb3c9484e2b, %r14  ; imm = 0x3E88CB3C9484E2B 
+    0x7fb3d9bf2945 <+245>:  mulq   %r14
+    0x7fb3d9bf2948 <+248>:  shrq   %rdx
+    0x7fb3d9bf294b <+251>:  movq   %rdx, %rax
+    0x7fb3d9bf294e <+254>:  shlq   $0x6, %rax
+    0x7fb3d9bf2952 <+258>:  addq   %rdx, %rax
+    0x7fb3d9bf2955 <+261>:  leaq   (%rdx,%rax,2), %rdx
+    0x7fb3d9bf2959 <+265>:  movq   %rbx, %rax
+    0x7fb3d9bf295c <+268>:  subq   %rdx, %rax
+    0x7fb3d9bf295f <+271>:  leaq   (%r13,%rax,8), %r15
+    0x7fb3d9bf2964 <+276>:  movq   %r15, %rdi
+    0x7fb3d9bf2967 <+279>:  callq  0x7fb3d9b2b030            ; ___lldb_unnamed_symbol_12c030
+    0x7fb3d9bf296c <+284>:  movq   0x8(%r12), %rax
+    0x7fb3d9bf2971 <+289>:  leaq   0x8(%r12), %rcx
+    0x7fb3d9bf2976 <+294>:  testq  %rax, %rax
+    0x7fb3d9bf2979 <+297>:  je     0x7fb3d9bf2ca0            ; <+1104>
+    0x7fb3d9bf297f <+303>:  movq   0x8(%rax), %rax
+    0x7fb3d9bf2983 <+307>:  testl  %eax, %eax
+    0x7fb3d9bf2985 <+309>:  js     0x7fb3d9bf2ca0            ; <+1104>
+    0x7fb3d9bf298b <+315>:  movl   %eax, %eax
+    0x7fb3d9bf298d <+317>:  movl   $0x10, %r11d
+    0x7fb3d9bf2993 <+323>:  addq   $0x2, %rax
+    0x7fb3d9bf2997 <+327>:  shlq   $0x4, %rax
+    0x7fb3d9bf299b <+331>:  movq   %rax, %r9
+    0x7fb3d9bf299e <+334>:  movq   (%rcx), %r8
+    0x7fb3d9bf29a1 <+337>:  addq   %r11, %r8
+    0x7fb3d9bf29a4 <+340>:  movq   (%r8), %r10
+    0x7fb3d9bf29a7 <+343>:  testq  %r10, %r10
+    0x7fb3d9bf29aa <+346>:  je     0x7fb3d9bf2f31            ; <+1761>
+    0x7fb3d9bf29b0 <+352>:  movq   0x28(%r10), %rsi
+    0x7fb3d9bf29b4 <+356>:  movq   %rsi, %rax
+    0x7fb3d9bf29b7 <+359>:  mulq   %r14
+    0x7fb3d9bf29ba <+362>:  shrq   %rdx
+    0x7fb3d9bf29bd <+365>:  movq   %rdx, %rax
+    0x7fb3d9bf29c0 <+368>:  shlq   $0x6, %rax
+    0x7fb3d9bf29c4 <+372>:  addq   %rdx, %rax
+    0x7fb3d9bf29c7 <+375>:  leaq   (%rdx,%rax,2), %rax
+    0x7fb3d9bf29cb <+379>:  subq   %rax, %rsi
+    0x7fb3d9bf29ce <+382>:  leaq   (%r13,%rsi,8), %rdx
+    0x7fb3d9bf29d3 <+387>:  cmpq   %rdx, %r15
+    0x7fb3d9bf29d6 <+390>:  je     0x7fb3d9bf2e28            ; <+1496>
+    0x7fb3d9bf29dc <+396>:  movq   (%rdx), %rax
+    0x7fb3d9bf29df <+399>:  jb     0x7fb3d9bf2b80            ; <+816>
+    0x7fb3d9bf29e5 <+405>:  testq  %rax, %rax
+    0x7fb3d9bf29e8 <+408>:  jne    0x7fb3d9bf2e80            ; <+1584>
+    0x7fb3d9bf29ee <+414>:  movl   $0x1, %esi
+    0x7fb3d9bf29f3 <+419>:  lock   
+    0x7fb3d9bf29f4 <+420>:  cmpxchgq %rsi, (%rdx)
+    0x7fb3d9bf29f8 <+424>:  jne    0x7fb3d9bf2e80            ; <+1584>
+    0x7fb3d9bf29fe <+430>:  movq   (%r8), %rax
+    0x7fb3d9bf2a01 <+433>:  cmpq   %rax, %r10
+    0x7fb3d9bf2a04 <+436>:  jne    0x7fb3d9bf2a4a            ; <+506>
+    0x7fb3d9bf2a06 <+438>:  movq   0x28(%r10), %rax
+    0x7fb3d9bf2a0a <+442>:  testq  %rax, %rax
+    0x7fb3d9bf2a0d <+445>:  je     0x7fb3d9bf2a4a            ; <+506>
+    0x7fb3d9bf2a0f <+447>:  movq   %r10, %rsi
+    0x7fb3d9bf2a12 <+450>:  movq   %r12, %rdi
+    0x7fb3d9bf2a15 <+453>:  movq   %r9, 0x20(%rsp)
+    0x7fb3d9bf2a1a <+458>:  movq   %rcx, 0x18(%rsp)
+    0x7fb3d9bf2a1f <+463>:  movq   %r11, 0x10(%rsp)
+    0x7fb3d9bf2a24 <+468>:  movq   %rdx, 0x8(%rsp)
+    0x7fb3d9bf2a29 <+473>:  movq   %r8, (%rsp)
+    0x7fb3d9bf2a2d <+477>:  callq  0x7fb3d9be6b80            ; QObjectPrivate::ConnectionData::removeConnection(QObjectPrivate::Connection*)
+    0x7fb3d9bf2a32 <+482>:  movq   0x20(%rsp), %r9
+    0x7fb3d9bf2a37 <+487>:  movq   0x18(%rsp), %rcx
+    0x7fb3d9bf2a3c <+492>:  movq   0x10(%rsp), %r11
+    0x7fb3d9bf2a41 <+497>:  movq   0x8(%rsp), %rdx
+    0x7fb3d9bf2a46 <+502>:  movq   (%rsp), %r8
+    0x7fb3d9bf2a4a <+506>:  xorl   %esi, %esi
+    0x7fb3d9bf2a4c <+508>:  xchgq  %rsi, (%rdx)
+    0x7fb3d9bf2a4f <+511>:  cmpq   $0x1, %rsi
+    0x7fb3d9bf2a53 <+515>:  je     0x7fb3d9bf29a4            ; <+340>
+    0x7fb3d9bf2a59 <+521>:  movq   %rdx, %rdi
+    0x7fb3d9bf2a5c <+524>:  movq   %r9, 0x18(%rsp)
+    0x7fb3d9bf2a61 <+529>:  movq   %rcx, 0x10(%rsp)
+    0x7fb3d9bf2a66 <+534>:  movq   %r11, 0x8(%rsp)
+    0x7fb3d9bf2a6b <+539>:  movq   %r8, (%rsp)
+    0x7fb3d9bf2a6f <+543>:  callq  0x7fb3d9d62680            ; QBasicMutex::unlockInternalFutex(void*)
+    0x7fb3d9bf2a74 <+548>:  movq   (%rsp), %r8
+    0x7fb3d9bf2a78 <+552>:  movq   0x8(%rsp), %r11
+    0x7fb3d9bf2a7d <+557>:  movq   0x10(%rsp), %rcx
+    0x7fb3d9bf2a82 <+562>:  movq   0x18(%rsp), %r9
+    0x7fb3d9bf2a87 <+567>:  jmp    0x7fb3d9bf29a4            ; <+340>
+    0x7fb3d9bf2a8c <+572>:  nopl   (%rax)
+    0x7fb3d9bf2a90 <+576>:  xorl   %esi, %esi
+    0x7fb3d9bf2a92 <+578>:  movl   $0x1, %edx
+    0x7fb3d9bf2a97 <+583>:  movq   %rbp, %rdi
+    0x7fb3d9bf2a9a <+586>:  callq  0x7fb3d9be6ec0            ; QObjectPrivate::isSignalConnected(unsigned int, bool) const
+    0x7fb3d9bf2a9f <+591>:  testb  %al, %al
+    0x7fb3d9bf2aa1 <+593>:  je     0x7fb3d9bf28da            ; <+138>
+    0x7fb3d9bf2aa7 <+599>:  movq   %rbx, %rsi
+    0x7fb3d9bf2aaa <+602>:  movq   %rbx, %rdi
+    0x7fb3d9bf2aad <+605>:  callq  0x7fb3d9beeea0            ; QObject::destroyed(QObject*)
+    0x7fb3d9bf2ab2 <+610>:  jmp    0x7fb3d9bf28da            ; <+138>
+    0x7fb3d9bf2ab7 <+615>:  movl   $0x0, (%r12)
+    0x7fb3d9bf2abf <+623>:  movq   %r15, %rdi
+    0x7fb3d9bf2ac2 <+626>:  callq  0x7fb3d9b115a0            ; ___lldb_unnamed_symbol_1125a0
+    0x7fb3d9bf2ac7 <+631>:  lock   
+    0x7fb3d9bf2ac8 <+632>:  subl   $0x1, 0x4(%r12)
+    0x7fb3d9bf2ace <+638>:  je     0x7fb3d9bf2de2            ; <+1426>
+    0x7fb3d9bf2ad4 <+644>:  movq   $0x0, 0x60(%rbp)
+    0x7fb3d9bf2adc <+652>:  cmpq   $0x0, 0x28(%rbp)
+    0x7fb3d9bf2ae1 <+657>:  jne    0x7fb3d9bf2da0            ; <+1360>
+    0x7fb3d9bf2ae7 <+663>:  leaq   0x55c812(%rip), %rax      ; qtHookData
+    0x7fb3d9bf2aee <+670>:  movq   0x20(%rax), %rax
+    0x7fb3d9bf2af2 <+674>:  testq  %rax, %rax
+    0x7fb3d9bf2af5 <+677>:  jne    0x7fb3d9bf2f56            ; <+1798>
+    0x7fb3d9bf2afb <+683>:  cmpq   $0x0, 0x10(%rbp)
+    0x7fb3d9bf2b00 <+688>:  je     0x7fb3d9bf2b0c            ; <+700>
+    0x7fb3d9bf2b02 <+690>:  xorl   %esi, %esi
+    0x7fb3d9bf2b04 <+692>:  movq   %rbp, %rdi
+    0x7fb3d9bf2b07 <+695>:  callq  0x7fb3d9bf2580            ; QObjectPrivate::setParent_helper(QObject*)
+    0x7fb3d9bf2b0c <+700>:  movq   0x8(%rbx), %rbp
+    0x7fb3d9bf2b10 <+704>:  testq  %rbp, %rbp
+    0x7fb3d9bf2b13 <+707>:  je     0x7fb3d9bf2e00            ; <+1456>
+    0x7fb3d9bf2b19 <+713>:  movq   (%rbp), %rax
+    0x7fb3d9bf2b1d <+717>:  leaq   -0xc034(%rip), %rdx       ; QObjectPrivate::~QObjectPrivate()
+->  0x7fb3d9bf2b24 <+724>:  movq   0x8(%rax), %rax
+    0x7fb3d9bf2b28 <+728>:  cmpq   %rdx, %rax
+    0x7fb3d9bf2b2b <+731>:  jne    0x7fb3d9bf2f0a            ; <+1722>
+    0x7fb3d9bf2b31 <+737>:  movq   %rbp, %rdi
+    0x7fb3d9bf2b34 <+740>:  callq  0x7fb3d9be6770            ; QObjectPrivate::~QObjectPrivate()
+    0x7fb3d9bf2b39 <+745>:  movq   0x58(%rsp), %rax
+    0x7fb3d9bf2b3e <+750>:  subq   %fs:0x28, %rax
+    0x7fb3d9bf2b47 <+759>:  jne    0x7fb3d9bf3142            ; <+2290>
+    0x7fb3d9bf2b4d <+765>:  addq   $0x68, %rsp
+    0x7fb3d9bf2b51 <+769>:  movq   %rbp, %rdi
+    0x7fb3d9bf2b54 <+772>:  movl   $0x78, %esi
+    0x7fb3d9bf2b59 <+777>:  popq   %rbx
+    0x7fb3d9bf2b5a <+778>:  popq   %rbp
+    0x7fb3d9bf2b5b <+779>:  popq   %r12
+    0x7fb3d9bf2b5d <+781>:  popq   %r13
+    0x7fb3d9bf2b5f <+783>:  popq   %r14
+    0x7fb3d9bf2b61 <+785>:  popq   %r15
+    0x7fb3d9bf2b63 <+787>:  jmp    0x7fb3d9ac37a0            ; ___lldb_unnamed_symbol_c4670 + 304
+    0x7fb3d9bf2b68 <+792>:  nopl   (%rax,%rax)
+    0x7fb3d9bf2b70 <+800>:  movq   %r12, %rdi
+    0x7fb3d9bf2b73 <+803>:  callq  0x7fb3d9ac3f50            ; ___lldb_unnamed_symbol_c4670 + 2272
+    0x7fb3d9bf2b78 <+808>:  jmp    0x7fb3d9bf28d0            ; <+128>
+    0x7fb3d9bf2b7d <+813>:  nopl   (%rax)
+    0x7fb3d9bf2b80 <+816>:  testq  %rax, %rax
+    0x7fb3d9bf2b83 <+819>:  jne    0x7fb3d9bf2b95            ; <+837>
+    0x7fb3d9bf2b85 <+821>:  movl   $0x1, %esi
+    0x7fb3d9bf2b8a <+826>:  lock   
+    0x7fb3d9bf2b8b <+827>:  cmpxchgq %rsi, (%rdx)
+    0x7fb3d9bf2b8f <+831>:  je     0x7fb3d9bf29fe            ; <+430>
+    0x7fb3d9bf2b95 <+837>:  movq   %rdx, %rdi
+    0x7fb3d9bf2b98 <+840>:  movq   %r9, 0x28(%rsp)
+    0x7fb3d9bf2b9d <+845>:  movq   %r10, 0x20(%rsp)
+    0x7fb3d9bf2ba2 <+850>:  movq   %rcx, 0x18(%rsp)
+    0x7fb3d9bf2ba7 <+855>:  movq   %r11, 0x10(%rsp)
+    0x7fb3d9bf2bac <+860>:  movq   %r8, 0x8(%rsp)
+    0x7fb3d9bf2bb1 <+865>:  movq   %rdx, (%rsp)
+    0x7fb3d9bf2bb5 <+869>:  callq  0x7fb3d9d623b0            ; QBasicMutex::lockInternal()
+    0x7fb3d9bf2bba <+874>:  movq   (%rsp), %rdx
+    0x7fb3d9bf2bbe <+878>:  movq   0x8(%rsp), %r8
+    0x7fb3d9bf2bc3 <+883>:  movq   0x10(%rsp), %r11
+    0x7fb3d9bf2bc8 <+888>:  movq   0x18(%rsp), %rcx
+    0x7fb3d9bf2bcd <+893>:  movq   0x20(%rsp), %r10
+    0x7fb3d9bf2bd2 <+898>:  movq   0x28(%rsp), %r9
+    0x7fb3d9bf2bd7 <+903>:  jmp    0x7fb3d9bf29fe            ; <+430>
+    0x7fb3d9bf2bdc <+908>:  movq   0x8(%r10), %rdx
+    0x7fb3d9bf2be0 <+912>:  xorl   %r9d, %r9d
+    0x7fb3d9bf2be3 <+915>:  movq   0x60(%rdx), %r8
+    0x7fb3d9bf2be7 <+919>:  movzbl 0x57(%r14), %edx
+    0x7fb3d9bf2bec <+924>:  testb  $0x20, %dl
+    0x7fb3d9bf2bef <+927>:  je     0x7fb3d9bf2bfc            ; <+940>
+    0x7fb3d9bf2bf1 <+929>:  andl   $-0x21, %edx
+    0x7fb3d9bf2bf4 <+932>:  movq   0x38(%r14), %r9
+    0x7fb3d9bf2bf8 <+936>:  movb   %dl, 0x57(%r14)
+    0x7fb3d9bf2bfc <+940>:  movq   %r8, %rdi
+    0x7fb3d9bf2bff <+943>:  movq   %r14, %rsi
+    0x7fb3d9bf2c02 <+946>:  movb   %al, 0x20(%rsp)
+    0x7fb3d9bf2c06 <+950>:  movq   %r11, 0x18(%rsp)
+    0x7fb3d9bf2c0b <+955>:  movq   %r10, 0x10(%rsp)
+    0x7fb3d9bf2c10 <+960>:  movq   %r9, 0x8(%rsp)
+    0x7fb3d9bf2c15 <+965>:  movq   %r8, (%rsp)
+    0x7fb3d9bf2c19 <+969>:  callq  0x7fb3d9be6b80            ; QObjectPrivate::ConnectionData::removeConnection(QObjectPrivate::Connection*)
+    0x7fb3d9bf2c1e <+974>:  movq   0x18(%rsp), %r11
+    0x7fb3d9bf2c23 <+979>:  movq   (%rsp), %r8
+    0x7fb3d9bf2c27 <+983>:  movq   0x8(%rsp), %r9
+    0x7fb3d9bf2c2c <+988>:  movq   0x10(%rsp), %r10
+    0x7fb3d9bf2c31 <+993>:  cmpq   %r11, %r15
+    0x7fb3d9bf2c34 <+996>:  movzbl 0x20(%rsp), %eax
+    0x7fb3d9bf2c39 <+1001>: je     0x7fb3d9bf2c4a            ; <+1018>
+    0x7fb3d9bf2c3b <+1003>: xorl   %esi, %esi
+    0x7fb3d9bf2c3d <+1005>: xchgq  %rsi, (%r15)
+    0x7fb3d9bf2c40 <+1008>: cmpq   $0x1, %rsi
+    0x7fb3d9bf2c44 <+1012>: jne    0x7fb3d9bf3106            ; <+2230>
+    0x7fb3d9bf2c4a <+1018>: movq   0x20(%r8), %rdx
+    0x7fb3d9bf2c4e <+1022>: testq  %rdx, %rdx
+    0x7fb3d9bf2c51 <+1025>: jne    0x7fb3d9bf3034            ; <+2020>
+    0x7fb3d9bf2c57 <+1031>: testb  %al, %al
+    0x7fb3d9bf2c59 <+1033>: jne    0x7fb3d9bf3015            ; <+1989>
+    0x7fb3d9bf2c5f <+1039>: cmpq   %r11, %r15
+    0x7fb3d9bf2c62 <+1042>: je     0x7fb3d9bf306c            ; <+2076>
+    0x7fb3d9bf2c68 <+1048>: testq  %r9, %r9
+    0x7fb3d9bf2c6b <+1051>: je     0x7fb3d9bf2c84            ; <+1076>
+    0x7fb3d9bf2c6d <+1053>: lock   
+    0x7fb3d9bf2c6e <+1054>: subl   $0x1, (%r9)
+    0x7fb3d9bf2c72 <+1058>: jne    0x7fb3d9bf2c84            ; <+1076>
+    0x7fb3d9bf2c74 <+1060>: xorl   %r8d, %r8d
+    0x7fb3d9bf2c77 <+1063>: xorl   %ecx, %ecx
+    0x7fb3d9bf2c79 <+1065>: xorl   %edx, %edx
+    0x7fb3d9bf2c7b <+1067>: movq   %r9, %rsi
+    0x7fb3d9bf2c7e <+1070>: xorl   %edi, %edi
+    0x7fb3d9bf2c80 <+1072>: callq  *0x8(%r9)
+    0x7fb3d9bf2c84 <+1076>: movq   (%r15), %rax
+    0x7fb3d9bf2c87 <+1079>: testq  %rax, %rax
+    0x7fb3d9bf2c8a <+1082>: jne    0x7fb3d9bf2c98            ; <+1096>
+    0x7fb3d9bf2c8c <+1084>: movl   $0x1, %edx
+    0x7fb3d9bf2c91 <+1089>: lock   
+    0x7fb3d9bf2c92 <+1090>: cmpxchgq %rdx, (%r15)
+    0x7fb3d9bf2c96 <+1094>: je     0x7fb3d9bf2ca0            ; <+1104>
+    0x7fb3d9bf2c98 <+1096>: movq   %r15, %rdi
+    0x7fb3d9bf2c9b <+1099>: callq  0x7fb3d9d623b0            ; QBasicMutex::lockInternal()
+    0x7fb3d9bf2ca0 <+1104>: movq   0x10(%r12), %r14
+    0x7fb3d9bf2ca5 <+1109>: testq  %r14, %r14
+    0x7fb3d9bf2ca8 <+1112>: je     0x7fb3d9bf2ab7            ; <+615>
+    0x7fb3d9bf2cae <+1118>: movq   0x20(%r14), %r10
+    0x7fb3d9bf2cb2 <+1122>: movl   0x54(%r14), %esi
+    0x7fb3d9bf2cb6 <+1126>: movq   (%r10), %rax
+    0x7fb3d9bf2cb9 <+1129>: shll   $0x5, %esi
+    0x7fb3d9bf2cbc <+1132>: movq   %r10, %rdi
+    0x7fb3d9bf2cbf <+1135>: movq   %r10, (%rsp)
+    0x7fb3d9bf2cc3 <+1139>: sarl   $0x5, %esi
+    0x7fb3d9bf2cc6 <+1142>: movq   0x58(%rax), %rcx
+    0x7fb3d9bf2cca <+1146>: movl   %esi, 0x8(%rsp)
+    0x7fb3d9bf2cce <+1150>: movq   %rcx, 0x10(%rsp)
+    0x7fb3d9bf2cd3 <+1155>: callq  *(%rax)
+    0x7fb3d9bf2cd5 <+1157>: movl   0x8(%rsp), %esi
+    0x7fb3d9bf2cd9 <+1161>: movq   %rax, %rdi
+    0x7fb3d9bf2cdc <+1164>: callq  0x7fb3d9b9d080            ; QMetaObjectPrivate::signal(QMetaObject const*, int)
+    0x7fb3d9bf2ce1 <+1169>: movq   0x10(%rsp), %rcx
+    0x7fb3d9bf2ce6 <+1174>: movq   (%rsp), %r10
+    0x7fb3d9bf2cea <+1178>: movq   %rax, 0x30(%rsp)
+    0x7fb3d9bf2cef <+1183>: leaq   -0xd156(%rip), %rax       ; QObject::childEvent(QChildEvent*)
+    0x7fb3d9bf2cf6 <+1190>: cmpq   %rax, %rcx
+    0x7fb3d9bf2cf9 <+1193>: movq   %rdx, 0x38(%rsp)
+    0x7fb3d9bf2cfe <+1198>: jne    0x7fb3d9bf2f43            ; <+1779>
+    0x7fb3d9bf2d04 <+1204>: movabsq $0x3e88cb3c9484e2b, %rax  ; imm = 0x3E88CB3C9484E2B 
+    0x7fb3d9bf2d0e <+1214>: mulq   %r10
+    0x7fb3d9bf2d11 <+1217>: shrq   %rdx
+    0x7fb3d9bf2d14 <+1220>: movq   %rdx, %rax
+    0x7fb3d9bf2d17 <+1223>: shlq   $0x6, %rax
+    0x7fb3d9bf2d1b <+1227>: addq   %rdx, %rax
+    0x7fb3d9bf2d1e <+1230>: leaq   (%rdx,%rax,2), %rdx
+    0x7fb3d9bf2d22 <+1234>: movq   %r10, %rax
+    0x7fb3d9bf2d25 <+1237>: subq   %rdx, %rax
+    0x7fb3d9bf2d28 <+1240>: leaq   (%r13,%rax,8), %r11
+    0x7fb3d9bf2d2d <+1245>: cmpq   %r11, %r15
+    0x7fb3d9bf2d30 <+1248>: je     0x7fb3d9bf2f60            ; <+1808>
+    0x7fb3d9bf2d36 <+1254>: movq   (%r11), %rax
+    0x7fb3d9bf2d39 <+1257>: jb     0x7fb3d9bf2dad            ; <+1373>
+    0x7fb3d9bf2d3b <+1259>: testq  %rax, %rax
+    0x7fb3d9bf2d3e <+1262>: jne    0x7fb3d9bf2f67            ; <+1815>
+    0x7fb3d9bf2d44 <+1268>: movl   $0x1, %edx
+    0x7fb3d9bf2d49 <+1273>: lock   
+    0x7fb3d9bf2d4a <+1274>: cmpxchgq %rdx, (%r11)
+    0x7fb3d9bf2d4e <+1278>: jne    0x7fb3d9bf2f67            ; <+1815>
+    0x7fb3d9bf2d54 <+1284>: movl   $0x1, %eax
+    0x7fb3d9bf2d59 <+1289>: cmpq   %r14, 0x10(%r12)
+    0x7fb3d9bf2d5e <+1294>: je     0x7fb3d9bf2bdc            ; <+908>
+    0x7fb3d9bf2d64 <+1300>: xorl   %esi, %esi
+    0x7fb3d9bf2d66 <+1302>: xchgq  %rsi, (%r11)
+    0x7fb3d9bf2d69 <+1305>: cmpq   $0x1, %rsi
+    0x7fb3d9bf2d6d <+1309>: je     0x7fb3d9bf2ca0            ; <+1104>
+    0x7fb3d9bf2d73 <+1315>: movq   %r11, %rdi
+    0x7fb3d9bf2d76 <+1318>: callq  0x7fb3d9d62680            ; QBasicMutex::unlockInternalFutex(void*)
+    0x7fb3d9bf2d7b <+1323>: jmp    0x7fb3d9bf2ca0            ; <+1104>
+    0x7fb3d9bf2d80 <+1328>: callq  0x7fb3d9be7bc0            ; QObject::thread() const
+    0x7fb3d9bf2d85 <+1333>: testq  %rax, %rax
+    0x7fb3d9bf2d88 <+1336>: je     0x7fb3d9bf289d            ; <+77>
+    0x7fb3d9bf2d8e <+1342>: movq   0x8(%rax), %rdi
+    0x7fb3d9bf2d92 <+1346>: movq   %rbx, %rsi
+    0x7fb3d9bf2d95 <+1349>: callq  0x7fb3d9ca8e60            ; ___lldb_unnamed_symbol_2a9e60
+    0x7fb3d9bf2d9a <+1354>: jmp    0x7fb3d9bf289d            ; <+77>
+    0x7fb3d9bf2d9f <+1359>: nop    
+    0x7fb3d9bf2da0 <+1360>: movq   %rbp, %rdi
+    0x7fb3d9bf2da3 <+1363>: callq  0x7fb3d9bef2c0            ; QObjectPrivate::deleteChildren()
+    0x7fb3d9bf2da8 <+1368>: jmp    0x7fb3d9bf2ae7            ; <+663>
+    0x7fb3d9bf2dad <+1373>: testq  %rax, %rax
+    0x7fb3d9bf2db0 <+1376>: jne    0x7fb3d9bf2dbe            ; <+1390>
+    0x7fb3d9bf2db2 <+1378>: movl   $0x1, %edx
+    0x7fb3d9bf2db7 <+1383>: lock   
+    0x7fb3d9bf2db8 <+1384>: cmpxchgq %rdx, (%r11)
+    0x7fb3d9bf2dbc <+1388>: je     0x7fb3d9bf2d54            ; <+1284>
+    0x7fb3d9bf2dbe <+1390>: movq   %r11, %rdi
+    0x7fb3d9bf2dc1 <+1393>: movq   %r10, 0x8(%rsp)
+    0x7fb3d9bf2dc6 <+1398>: movq   %r11, (%rsp)
+    0x7fb3d9bf2dca <+1402>: callq  0x7fb3d9d623b0            ; QBasicMutex::lockInternal()
+    0x7fb3d9bf2dcf <+1407>: movq   (%rsp), %r11
+    0x7fb3d9bf2dd3 <+1411>: movq   0x8(%rsp), %r10
+    0x7fb3d9bf2dd8 <+1416>: movl   $0x1, %eax
+    0x7fb3d9bf2ddd <+1421>: jmp    0x7fb3d9bf2d59            ; <+1289>
+    0x7fb3d9bf2de2 <+1426>: movq   %r12, %rdi
+    0x7fb3d9bf2de5 <+1429>: callq  0x7fb3d9bf3cf0            ; ___lldb_unnamed_symbol_1f4cf0
+    0x7fb3d9bf2dea <+1434>: movl   $0x28, %esi
+    0x7fb3d9bf2def <+1439>: movq   %r12, %rdi
+    0x7fb3d9bf2df2 <+1442>: callq  0x7fb3d9ac37a0            ; ___lldb_unnamed_symbol_c4670 + 304
+    0x7fb3d9bf2df7 <+1447>: jmp    0x7fb3d9bf2ad4            ; <+644>
+    0x7fb3d9bf2dfc <+1452>: nopl   (%rax)
+    0x7fb3d9bf2e00 <+1456>: movq   0x58(%rsp), %rax
+    0x7fb3d9bf2e05 <+1461>: subq   %fs:0x28, %rax
+    0x7fb3d9bf2e0e <+1470>: jne    0x7fb3d9bf3142            ; <+2290>
+    0x7fb3d9bf2e14 <+1476>: addq   $0x68, %rsp
+    0x7fb3d9bf2e18 <+1480>: popq   %rbx
+    0x7fb3d9bf2e19 <+1481>: popq   %rbp
+    0x7fb3d9bf2e1a <+1482>: popq   %r12
+    0x7fb3d9bf2e1c <+1484>: popq   %r13
+    0x7fb3d9bf2e1e <+1486>: popq   %r14
+    0x7fb3d9bf2e20 <+1488>: popq   %r15
+    0x7fb3d9bf2e22 <+1490>: retq   
+    0x7fb3d9bf2e23 <+1491>: nopl   (%rax,%rax)
+    0x7fb3d9bf2e28 <+1496>: movq   (%r8), %rax
+    0x7fb3d9bf2e2b <+1499>: cmpq   %rax, %r10
+    0x7fb3d9bf2e2e <+1502>: jne    0x7fb3d9bf29a4            ; <+340>
+    0x7fb3d9bf2e34 <+1508>: movq   0x28(%r10), %rax
+    0x7fb3d9bf2e38 <+1512>: testq  %rax, %rax
+    0x7fb3d9bf2e3b <+1515>: je     0x7fb3d9bf29a4            ; <+340>
+    0x7fb3d9bf2e41 <+1521>: movq   %r10, %rsi
+    0x7fb3d9bf2e44 <+1524>: movq   %r12, %rdi
+    0x7fb3d9bf2e47 <+1527>: movq   %r9, 0x18(%rsp)
+    0x7fb3d9bf2e4c <+1532>: movq   %rcx, 0x10(%rsp)
+    0x7fb3d9bf2e51 <+1537>: movq   %r11, 0x8(%rsp)
+    0x7fb3d9bf2e56 <+1542>: movq   %r8, (%rsp)
+    0x7fb3d9bf2e5a <+1546>: callq  0x7fb3d9be6b80            ; QObjectPrivate::ConnectionData::removeConnection(QObjectPrivate::Connection*)
+    0x7fb3d9bf2e5f <+1551>: movq   (%rsp), %r8
+    0x7fb3d9bf2e63 <+1555>: movq   0x8(%rsp), %r11
+    0x7fb3d9bf2e68 <+1560>: movq   0x10(%rsp), %rcx
+    0x7fb3d9bf2e6d <+1565>: movq   0x18(%rsp), %r9
+    0x7fb3d9bf2e72 <+1570>: jmp    0x7fb3d9bf29a4            ; <+340>
+    0x7fb3d9bf2e77 <+1575>: nopw   (%rax,%rax)
+    0x7fb3d9bf2e80 <+1584>: xorl   %esi, %esi
+    0x7fb3d9bf2e82 <+1586>: xchgq  %rsi, (%r15)
+    0x7fb3d9bf2e85 <+1589>: cmpq   $0x1, %rsi
+    0x7fb3d9bf2e89 <+1593>: jne    0x7fb3d9bf3081            ; <+2097>
+    0x7fb3d9bf2e8f <+1599>: movq   (%rdx), %rax
+    0x7fb3d9bf2e92 <+1602>: testq  %rax, %rax
+    0x7fb3d9bf2e95 <+1605>: jne    0x7fb3d9bf2fce            ; <+1918>
+    0x7fb3d9bf2e9b <+1611>: movl   $0x1, %esi
+    0x7fb3d9bf2ea0 <+1616>: lock   
+    0x7fb3d9bf2ea1 <+1617>: cmpxchgq %rsi, (%rdx)
+    0x7fb3d9bf2ea5 <+1621>: jne    0x7fb3d9bf2fce            ; <+1918>
+    0x7fb3d9bf2eab <+1627>: movq   (%r15), %rax
+    0x7fb3d9bf2eae <+1630>: testq  %rax, %rax
+    0x7fb3d9bf2eb1 <+1633>: jne    0x7fb3d9bf2ec3            ; <+1651>
+    0x7fb3d9bf2eb3 <+1635>: movl   $0x1, %esi
+    0x7fb3d9bf2eb8 <+1640>: lock   
+    0x7fb3d9bf2eb9 <+1641>: cmpxchgq %rsi, (%r15)
+    0x7fb3d9bf2ebd <+1645>: je     0x7fb3d9bf29fe            ; <+430>
+    0x7fb3d9bf2ec3 <+1651>: movq   %r15, %rdi
+    0x7fb3d9bf2ec6 <+1654>: movq   %r9, 0x28(%rsp)
+    0x7fb3d9bf2ecb <+1659>: movq   %r10, 0x20(%rsp)
+    0x7fb3d9bf2ed0 <+1664>: movq   %rcx, 0x18(%rsp)
+    0x7fb3d9bf2ed5 <+1669>: movq   %r11, 0x10(%rsp)
+    0x7fb3d9bf2eda <+1674>: movq   %rdx, 0x8(%rsp)
+    0x7fb3d9bf2edf <+1679>: movq   %r8, (%rsp)
+    0x7fb3d9bf2ee3 <+1683>: callq  0x7fb3d9d623b0            ; QBasicMutex::lockInternal()
+    0x7fb3d9bf2ee8 <+1688>: movq   (%rsp), %r8
+    0x7fb3d9bf2eec <+1692>: movq   0x8(%rsp), %rdx
+    0x7fb3d9bf2ef1 <+1697>: movq   0x10(%rsp), %r11
+    0x7fb3d9bf2ef6 <+1702>: movq   0x18(%rsp), %rcx
+    0x7fb3d9bf2efb <+1707>: movq   0x20(%rsp), %r10
+    0x7fb3d9bf2f00 <+1712>: movq   0x28(%rsp), %r9
+    0x7fb3d9bf2f05 <+1717>: jmp    0x7fb3d9bf29fe            ; <+430>
+    0x7fb3d9bf2f0a <+1722>: movq   0x58(%rsp), %rdx
+    0x7fb3d9bf2f0f <+1727>: subq   %fs:0x28, %rdx
+    0x7fb3d9bf2f18 <+1736>: jne    0x7fb3d9bf3142            ; <+2290>
+    0x7fb3d9bf2f1e <+1742>: addq   $0x68, %rsp
+    0x7fb3d9bf2f22 <+1746>: movq   %rbp, %rdi
+    0x7fb3d9bf2f25 <+1749>: popq   %rbx
+    0x7fb3d9bf2f26 <+1750>: popq   %rbp
+    0x7fb3d9bf2f27 <+1751>: popq   %r12
+    0x7fb3d9bf2f29 <+1753>: popq   %r13
+    0x7fb3d9bf2f2b <+1755>: popq   %r14
+    0x7fb3d9bf2f2d <+1757>: popq   %r15
+    0x7fb3d9bf2f2f <+1759>: jmpq   *%rax
+    0x7fb3d9bf2f31 <+1761>: addq   $0x10, %r11
+    0x7fb3d9bf2f35 <+1765>: cmpq   %r9, %r11
+    0x7fb3d9bf2f38 <+1768>: jne    0x7fb3d9bf299e            ; <+334>
+    0x7fb3d9bf2f3e <+1774>: jmp    0x7fb3d9bf2ca0            ; <+1104>
+    0x7fb3d9bf2f43 <+1779>: movq   %r10, %rdi
+    0x7fb3d9bf2f46 <+1782>: leaq   0x30(%rsp), %rsi
+    0x7fb3d9bf2f4b <+1787>: callq  *%rcx
+    0x7fb3d9bf2f4d <+1789>: movq   (%rsp), %r10
+    0x7fb3d9bf2f51 <+1793>: jmp    0x7fb3d9bf2d04            ; <+1204>
+    0x7fb3d9bf2f56 <+1798>: movq   %rbx, %rdi
+    0x7fb3d9bf2f59 <+1801>: callq  *%rax
+    0x7fb3d9bf2f5b <+1803>: jmp    0x7fb3d9bf2afb            ; <+683>
+    0x7fb3d9bf2f60 <+1808>: xorl   %eax, %eax
+    0x7fb3d9bf2f62 <+1810>: jmp    0x7fb3d9bf2d59            ; <+1289>
+    0x7fb3d9bf2f67 <+1815>: xorl   %esi, %esi
+    0x7fb3d9bf2f69 <+1817>: xchgq  %rsi, (%r15)
+    0x7fb3d9bf2f6c <+1820>: cmpq   $0x1, %rsi
+    0x7fb3d9bf2f70 <+1824>: jne    0x7fb3d9bf30e7            ; <+2199>
+    0x7fb3d9bf2f76 <+1830>: movq   (%r11), %rax
+    0x7fb3d9bf2f79 <+1833>: testq  %rax, %rax
+    0x7fb3d9bf2f7c <+1836>: jne    0x7fb3d9bf30c8            ; <+2168>
+    0x7fb3d9bf2f82 <+1842>: movl   $0x1, %edx
+    0x7fb3d9bf2f87 <+1847>: lock   
+    0x7fb3d9bf2f88 <+1848>: cmpxchgq %rdx, (%r11)
+    0x7fb3d9bf2f8c <+1852>: jne    0x7fb3d9bf30c8            ; <+2168>
+    0x7fb3d9bf2f92 <+1858>: movq   (%r15), %rax
+    0x7fb3d9bf2f95 <+1861>: testq  %rax, %rax
+    0x7fb3d9bf2f98 <+1864>: jne    0x7fb3d9bf2faa            ; <+1882>
+    0x7fb3d9bf2f9a <+1866>: movl   $0x1, %edx
+    0x7fb3d9bf2f9f <+1871>: lock   
+    0x7fb3d9bf2fa0 <+1872>: cmpxchgq %rdx, (%r15)
+    0x7fb3d9bf2fa4 <+1876>: je     0x7fb3d9bf2d54            ; <+1284>
+    0x7fb3d9bf2faa <+1882>: movq   %r15, %rdi
+    0x7fb3d9bf2fad <+1885>: movq   %r11, 0x8(%rsp)
+    0x7fb3d9bf2fb2 <+1890>: movq   %r10, (%rsp)
+    0x7fb3d9bf2fb6 <+1894>: callq  0x7fb3d9d623b0            ; QBasicMutex::lockInternal()
+    0x7fb3d9bf2fbb <+1899>: movq   (%rsp), %r10
+    0x7fb3d9bf2fbf <+1903>: movq   0x8(%rsp), %r11
+    0x7fb3d9bf2fc4 <+1908>: movl   $0x1, %eax
+    0x7fb3d9bf2fc9 <+1913>: jmp    0x7fb3d9bf2d59            ; <+1289>
+    0x7fb3d9bf2fce <+1918>: movq   %rdx, %rdi
+    0x7fb3d9bf2fd1 <+1921>: movq   %r9, 0x28(%rsp)
+    0x7fb3d9bf2fd6 <+1926>: movq   %r10, 0x20(%rsp)
+    0x7fb3d9bf2fdb <+1931>: movq   %rcx, 0x18(%rsp)
+    0x7fb3d9bf2fe0 <+1936>: movq   %r11, 0x10(%rsp)
+    0x7fb3d9bf2fe5 <+1941>: movq   %r8, 0x8(%rsp)
+    0x7fb3d9bf2fea <+1946>: movq   %rdx, (%rsp)
+    0x7fb3d9bf2fee <+1950>: callq  0x7fb3d9d623b0            ; QBasicMutex::lockInternal()
+    0x7fb3d9bf2ff3 <+1955>: movq   (%rsp), %rdx
+    0x7fb3d9bf2ff7 <+1959>: movq   0x8(%rsp), %r8
+    0x7fb3d9bf2ffc <+1964>: movq   0x10(%rsp), %r11
+    0x7fb3d9bf3001 <+1969>: movq   0x18(%rsp), %rcx
+    0x7fb3d9bf3006 <+1974>: movq   0x20(%rsp), %r10
+    0x7fb3d9bf300b <+1979>: movq   0x28(%rsp), %r9
+    0x7fb3d9bf3010 <+1984>: jmp    0x7fb3d9bf2eab            ; <+1627>
+    0x7fb3d9bf3015 <+1989>: movq   %r11, %rdi
+    0x7fb3d9bf3018 <+1992>: movq   %r9, 0x8(%rsp)
+    0x7fb3d9bf301d <+1997>: movq   %r11, (%rsp)
+    0x7fb3d9bf3021 <+2001>: callq  0x7fb3d9b115a0            ; ___lldb_unnamed_symbol_1125a0
+    0x7fb3d9bf3026 <+2006>: movq   0x8(%rsp), %r9
+    0x7fb3d9bf302b <+2011>: movq   (%rsp), %r11
+    0x7fb3d9bf302f <+2015>: jmp    0x7fb3d9bf2c5f            ; <+1039>
+    0x7fb3d9bf3034 <+2020>: movl   0x4(%r8), %edx
+    0x7fb3d9bf3038 <+2024>: cmpl   $0x1, %edx
+    0x7fb3d9bf303b <+2027>: jne    0x7fb3d9bf2c57            ; <+1031>
+    0x7fb3d9bf3041 <+2033>: movq   %r10, %rsi
+    0x7fb3d9bf3044 <+2036>: movq   %r8, %rdi
+    0x7fb3d9bf3047 <+2039>: movb   %al, 0x10(%rsp)
+    0x7fb3d9bf304b <+2043>: movq   %r11, 0x8(%rsp)
+    0x7fb3d9bf3050 <+2048>: movq   %r9, (%rsp)
+    0x7fb3d9bf3054 <+2052>: callq  0x7fb3d9be6ce0            ; QObjectPrivate::ConnectionData::cleanOrphanedConnectionsImpl(QObject*, QObjectPrivate::ConnectionData::LockPolicy)
+    0x7fb3d9bf3059 <+2057>: movzbl 0x10(%rsp), %eax
+    0x7fb3d9bf305e <+2062>: movq   0x8(%rsp), %r11
+    0x7fb3d9bf3063 <+2067>: movq   (%rsp), %r9
+    0x7fb3d9bf3067 <+2071>: jmp    0x7fb3d9bf2c57            ; <+1031>
+    0x7fb3d9bf306c <+2076>: movq   %r15, %rdi
+    0x7fb3d9bf306f <+2079>: movq   %r9, (%rsp)
+    0x7fb3d9bf3073 <+2083>: callq  0x7fb3d9b115a0            ; ___lldb_unnamed_symbol_1125a0
+    0x7fb3d9bf3078 <+2088>: movq   (%rsp), %r9
+    0x7fb3d9bf307c <+2092>: jmp    0x7fb3d9bf2c68            ; <+1048>
+    0x7fb3d9bf3081 <+2097>: movq   %r15, %rdi
+    0x7fb3d9bf3084 <+2100>: movq   %r9, 0x28(%rsp)
+    0x7fb3d9bf3089 <+2105>: movq   %r10, 0x20(%rsp)
+    0x7fb3d9bf308e <+2110>: movq   %rcx, 0x18(%rsp)
+    0x7fb3d9bf3093 <+2115>: movq   %r11, 0x10(%rsp)
+    0x7fb3d9bf3098 <+2120>: movq   %rdx, 0x8(%rsp)
+    0x7fb3d9bf309d <+2125>: movq   %r8, (%rsp)
+    0x7fb3d9bf30a1 <+2129>: callq  0x7fb3d9d62680            ; QBasicMutex::unlockInternalFutex(void*)
+    0x7fb3d9bf30a6 <+2134>: movq   0x28(%rsp), %r9
+    0x7fb3d9bf30ab <+2139>: movq   0x20(%rsp), %r10
+    0x7fb3d9bf30b0 <+2144>: movq   0x18(%rsp), %rcx
+    0x7fb3d9bf30b5 <+2149>: movq   0x10(%rsp), %r11
+    0x7fb3d9bf30ba <+2154>: movq   0x8(%rsp), %rdx
+    0x7fb3d9bf30bf <+2159>: movq   (%rsp), %r8
+    0x7fb3d9bf30c3 <+2163>: jmp    0x7fb3d9bf2e8f            ; <+1599>
+    0x7fb3d9bf30c8 <+2168>: movq   %r11, %rdi
+    0x7fb3d9bf30cb <+2171>: movq   %r10, 0x8(%rsp)
+    0x7fb3d9bf30d0 <+2176>: movq   %r11, (%rsp)
+    0x7fb3d9bf30d4 <+2180>: callq  0x7fb3d9d623b0            ; QBasicMutex::lockInternal()
+    0x7fb3d9bf30d9 <+2185>: movq   (%rsp), %r11
+    0x7fb3d9bf30dd <+2189>: movq   0x8(%rsp), %r10
+    0x7fb3d9bf30e2 <+2194>: jmp    0x7fb3d9bf2f92            ; <+1858>
+    0x7fb3d9bf30e7 <+2199>: movq   %r15, %rdi
+    0x7fb3d9bf30ea <+2202>: movq   %r11, 0x8(%rsp)
+    0x7fb3d9bf30ef <+2207>: movq   %r10, (%rsp)
+    0x7fb3d9bf30f3 <+2211>: callq  0x7fb3d9d62680            ; QBasicMutex::unlockInternalFutex(void*)
+    0x7fb3d9bf30f8 <+2216>: movq   0x8(%rsp), %r11
+    0x7fb3d9bf30fd <+2221>: movq   (%rsp), %r10
+    0x7fb3d9bf3101 <+2225>: jmp    0x7fb3d9bf2f76            ; <+1830>
+    0x7fb3d9bf3106 <+2230>: movq   %r15, %rdi
+    0x7fb3d9bf3109 <+2233>: movq   %r8, 0x20(%rsp)
+    0x7fb3d9bf310e <+2238>: movb   %al, 0x18(%rsp)
+    0x7fb3d9bf3112 <+2242>: movq   %r11, 0x10(%rsp)
+    0x7fb3d9bf3117 <+2247>: movq   %r10, 0x8(%rsp)
+    0x7fb3d9bf311c <+2252>: movq   %r9, (%rsp)
+    0x7fb3d9bf3120 <+2256>: callq  0x7fb3d9d62680            ; QBasicMutex::unlockInternalFutex(void*)
+    0x7fb3d9bf3125 <+2261>: movq   0x20(%rsp), %r8
+    0x7fb3d9bf312a <+2266>: movzbl 0x18(%rsp), %eax
+    0x7fb3d9bf312f <+2271>: movq   0x10(%rsp), %r11
+    0x7fb3d9bf3134 <+2276>: movq   0x8(%rsp), %r10
+    0x7fb3d9bf3139 <+2281>: movq   (%rsp), %r9
+    0x7fb3d9bf313d <+2285>: jmp    0x7fb3d9bf2c4a            ; <+1018>
+    0x7fb3d9bf3142 <+2290>: callq  0x7fb3d9ac3ad0            ; ___lldb_unnamed_symbol_c4670 + 1120
+(lldb) register read rbx rbp r12 r13 r14 r15
+  rbx = 0x000000002644a400
+  rbp = 0x0000000026444730
+  r12 = 0x000000002644f0b0
+  r13 = 0x00007fb3da157d20  
+  r14 = 0x0000000000000000
+  r15 = 0x00007fb3da157f40  
+(lldb) frame select 1
+frame #1: 0x00007fb3db76d852 QtWidgets.abi3.so`___lldb_unnamed_symbol_256844 + 14
+QtWidgets.abi3.so`___lldb_unnamed_symbol_256844:
+->  0x7fb3db76d852 <+14>: movq   0x8(%rsp), %rdi
+    0x7fb3db76d857 <+19>: movl   $0x1c0, %esi              ; imm = 0x1C0 
+    0x7fb3db76d85c <+24>: addq   $0x18, %rsp
+    0x7fb3db76d860 <+28>: jmp    0x7fb3db62fc50            ; symbol stub for: operator delete(void*, unsigned long)
+(lldb) disassemble -f
+QtWidgets.abi3.so`___lldb_unnamed_symbol_256844:
+    0x7fb3db76d844 <+0>:  subq   $0x18, %rsp
+    0x7fb3db76d848 <+4>:  movq   %rdi, 0x8(%rsp)
+    0x7fb3db76d84d <+9>:  callq  0x7fb3db76d7ee            ; ___lldb_unnamed_symbol_2567ee
+->  0x7fb3db76d852 <+14>: movq   0x8(%rsp), %rdi
+    0x7fb3db76d857 <+19>: movl   $0x1c0, %esi              ; imm = 0x1C0 
+    0x7fb3db76d85c <+24>: addq   $0x18, %rsp
+    0x7fb3db76d860 <+28>: jmp    0x7fb3db62fc50            ; symbol stub for: operator delete(void*, unsigned long)
+(lldb) image list -o -f
+[  0] 0x0000000000000000 /workspace/markitdown-clean-venv/bin/python
+[  1] 0x00007fb3dda77000 /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+[  2] 0x00007fb3dda75000 [vdso](0x7fb3dda75000)
+[  3] 0x00007fb3dda40000 /lib/x86_64-linux-gnu/libdl.so.2
+[  4] 0x00007fb3dda45000 /lib/x86_64-linux-gnu/libpthread.so.0
+[  5] 0x00007fb3dd944000 /lib/x86_64-linux-gnu/librt.so.1
+[  6] 0x00007fb3dd750000 /lib/x86_64-linux-gnu/libc.so.6
+[  7] 0x00007fb3dd94b000 /lib/x86_64-linux-gnu/libm.so.6
+[  8] 0x00007fb3dda3b000 /lib/x86_64-linux-gnu/libutil.so.1
+[  9] 0x00007fb3dc24f000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/cryptography/hazmat/bindings/_rust.abi3.so
+[ 10] 0x00007fb3dc222000 /lib/x86_64-linux-gnu/libgcc_s.so.1
+[ 11] 0x00007fb3dc1d6000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/_cffi_backend.cpython-312-x86_64-linux-gnu.so
+[ 12] 0x00007fb3dda57000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/psutil/_psutil_linux.abi3.so
+[ 13] 0x00007fb3dda50000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/shiboken6/Shiboken.abi3.so
+[ 14] 0x00007fb3dbe67000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/shiboken6/libshiboken6.abi3.so.6.12
+[ 15] 0x00007fb3dbc01000 /lib/x86_64-linux-gnu/libstdc++.so.6
+[ 16] 0x00007fb3db4cd000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/libpyside6.abi3.so.6.12
+[ 17] 0x00007fb3da1e1000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/Qt/lib/libQt6Gui.so.6
+[ 18] 0x00007fb3dad00000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/Qt/lib/libQt6Widgets.so.6
+[ 19] 0x00007fb3d999e000 /lib/x86_64-linux-gnu/libEGL.so.1
+[ 20] 0x00007fb3da15a000 /lib/x86_64-linux-gnu/libGL.so.1
+[ 21] 0x00007fb3d9856000 /lib/x86_64-linux-gnu/libX11.so.6
+[ 22] 0x00007fb3d99ff000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/Qt/lib/libQt6Core.so.6
+[ 23] 0x00007fb3d99b4000 /lib/x86_64-linux-gnu/libxkbcommon.so.0
+[ 24] 0x00007fb3db517000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/QtWidgets.abi3.so
+[ 25] 0x00007fb3d9622000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/Qt/lib/libQt6DBus.so.6
+[ 26] 0x00007fb3d96fd000 /lib/x86_64-linux-gnu/libglib-2.0.so.0
+[ 27] 0x00007fb3d9602000 /lib/x86_64-linux-gnu/libz.so.1
+[ 28] 0x00007fb3d9532000 /lib/x86_64-linux-gnu/libfreetype.so.6
+[ 29] 0x00007fb3d94e4000 /lib/x86_64-linux-gnu/libfontconfig.so.1
+[ 30] 0x00007fb3dda4b000 /lib/x86_64-linux-gnu/libgthread-2.0.so.0
+[ 31] 0x00007fb3d7002000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/Qt/lib/libicudata.so.73
+[ 32] 0x00007fb3d6f38000 /lib/x86_64-linux-gnu/libzstd.so.1
+[ 33] 0x00007fb3d93f7000 /lib/x86_64-linux-gnu/libGLX.so.0
+[ 34] 0x00007fb3d90a8000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/Qt/lib/libicui18n.so.73
+[ 35] 0x00007fb3d8e90000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/Qt/lib/libicuuc.so.73
+[ 36] 0x00007fb3d6e07000 /lib/x86_64-linux-gnu/libdbus-1.so.3
+[ 37] 0x00007fb3d6f0d000 /lib/x86_64-linux-gnu/libxcb.so.1
+[ 38] 0x00007fb3dd264000 /lib/x86_64-linux-gnu/libatomic.so.1
+[ 39] 0x00007fb3d6e5e000 /lib/x86_64-linux-gnu/libpcre2-8.so.0
+[ 40] 0x00007fb3d942b000 /lib/x86_64-linux-gnu/libGLdispatch.so.0
+[ 41] 0x00007fb3d6df4000 /lib/x86_64-linux-gnu/libbz2.so.1.0
+[ 42] 0x00007fb3d6dbb000 /lib/x86_64-linux-gnu/libpng16.so.16
+[ 43] 0x00007fb3d6dad000 /lib/x86_64-linux-gnu/libbrotlidec.so.1
+[ 44] 0x00007fb3d6d7f000 /lib/x86_64-linux-gnu/libexpat.so.1
+[ 45] 0x00007fb3d6c32000 /lib/x86_64-linux-gnu/libcap.so.2
+[ 46] 0x00007fb3dd25f000 /lib/x86_64-linux-gnu/libXau.so.6
+[ 47] 0x00007fb3d6d77000 /lib/x86_64-linux-gnu/libXdmcp.so.6
+[ 48] 0x00007fb3d6c61000 /lib/x86_64-linux-gnu/libsystemd.so.0
+[ 49] 0x00007fb3d6c3e000 /lib/x86_64-linux-gnu/libbrotlicommon.so.1
+[ 50] 0x00007fb3d679b000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/QtGui.abi3.so
+[ 51] 0x00007fb3d6391000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/QtCore.abi3.so
+[ 52] 0x00007fb3d6373000 /workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/Qt/plugins/platforms/libqoffscreen.so

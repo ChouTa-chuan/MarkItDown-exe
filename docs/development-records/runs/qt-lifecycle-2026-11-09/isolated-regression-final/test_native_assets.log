@@ -1,0 +1,25 @@
+test_case_collisions_and_symlinks_rejected (test_native_assets.NativePinTests.test_case_collisions_and_symlinks_rejected) ... ok
+test_data_flags_cannot_approve_unreviewed_package (test_native_assets.NativePinTests.test_data_flags_cannot_approve_unreviewed_package) ... ok
+test_dependency_cycles_resolve_without_executing_and_gaps_remain (test_native_assets.NativePinTests.test_dependency_cycles_resolve_without_executing_and_gaps_remain) ... ok
+test_dll_type_and_declared_entry_are_checked (test_native_assets.NativePinTests.test_dll_type_and_declared_entry_are_checked) ... ok
+test_file_byte_limit_is_enforced (test_native_assets.NativePinTests.test_file_byte_limit_is_enforced) ... ok
+test_fixed_notice_reference_must_exist (test_native_assets.NativePinTests.test_fixed_notice_reference_must_exist) ... ok
+test_missing_local_dependency_cannot_use_path_fallback (test_native_assets.NativePinTests.test_missing_local_dependency_cannot_use_path_fallback) ... ok
+test_modified_installer_rejected (test_native_assets.NativePinTests.test_modified_installer_rejected) ... ok
+test_modified_runtime_rejected (test_native_assets.NativePinTests.test_modified_runtime_rejected) ... ok
+test_notice_tampering_rejected (test_native_assets.NativePinTests.test_notice_tampering_rejected) ... ok
+test_real_pin_stays_unapproved_and_has_expected_entry (test_native_assets.NativePinTests.test_real_pin_stays_unapproved_and_has_expected_entry) ... ok
+test_bad_rva_cannot_read_unrelated_file_bytes (test_native_assets.PEInspectionTests.test_bad_rva_cannot_read_unrelated_file_bytes) ... ok
+test_bad_signature_and_truncated_header_rejected (test_native_assets.PEInspectionTests.test_bad_signature_and_truncated_header_rejected) ... ok
+test_dll_flag_and_no_import_data_dll (test_native_assets.PEInspectionTests.test_dll_flag_and_no_import_data_dll) ... ok
+test_invalid_delay_attribute_is_rejected (test_native_assets.PEInspectionTests.test_invalid_delay_attribute_is_rejected) ... ok
+test_invalid_name_and_path_are_rejected (test_native_assets.PEInspectionTests.test_invalid_name_and_path_are_rejected) ... ok
+test_normal_and_delayed_imports_include_mingw_cpp_name (test_native_assets.PEInspectionTests.test_normal_and_delayed_imports_include_mingw_cpp_name) ... ok
+test_section_beyond_file_and_ambiguous_mapping_rejected (test_native_assets.PEInspectionTests.test_section_beyond_file_and_ambiguous_mapping_rejected) ... ok
+test_unterminated_descriptor_is_rejected (test_native_assets.PEInspectionTests.test_unterminated_descriptor_is_rejected) ... ok
+test_x86_and_arm_are_rejected (test_native_assets.PEInspectionTests.test_x86_and_arm_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.051s
+
+OK

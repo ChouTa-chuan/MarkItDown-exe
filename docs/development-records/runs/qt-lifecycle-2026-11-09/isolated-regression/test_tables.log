@@ -1,0 +1,12 @@
+test_cancel_during_geometry_processing (test_tables.TableGeometryTests.test_cancel_during_geometry_processing) ... ok
+test_invalid_coordinates_keep_source_text (test_tables.TableGeometryTests.test_invalid_coordinates_keep_source_text) ... ok
+test_large_sparse_grid_is_bounded (test_tables.TableGeometryTests.test_large_sparse_grid_is_bounded) ... ok
+test_overlap_does_not_discard_source (test_tables.TableGeometryTests.test_overlap_does_not_discard_source) ... ok
+test_html_content_is_escaped (test_tables.TablePDFTests.test_html_content_is_escaped) ... ok
+test_row_and_column_spans_and_order (test_tables.TablePDFTests.test_row_and_column_spans_and_order) ... ok
+test_text_in_non_cell_gap_is_preserved (test_tables.TablePDFTests.test_text_in_non_cell_gap_is_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.184s
+
+OK

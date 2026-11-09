@@ -4,7 +4,7 @@ from dataclasses import replace
 from pathlib import Path
 from threading import Event
 
-from PySide6.QtCore import QThread, Signal, QStandardPaths, QTimer
+from PySide6.QtCore import QThread, Signal, QStandardPaths, QTimer, Qt
 from PySide6.QtGui import QAction, QCloseEvent, QDragEnterEvent, QDropEvent
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFileDialog, QFormLayout,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow, QMessageBox, QPushButton,
@@ -452,6 +452,10 @@ def main():
     app.setOrganizationName("MarkItDownDesktop")
     app.setApplicationName("MarkItDownDesktop")
     window = Window()
+    # close() 預設只隱藏視窗。入口持有的主視窗須在 Qt event loop 內按父子
+    # 順序釋放，避免留到 PySide 全域 wrapper cleanup 才無序銷毀。
+    # 忙碌時 closeEvent 仍會拒絕關閉並要求取消；不銷毀執行中的 QThread。
+    window.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose)
     window.show()
     QTimer.singleShot(0,window.offer_setup)
     return app.exec()

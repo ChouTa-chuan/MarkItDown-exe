@@ -1,16 +1,16 @@
 {
-  "recorded_at": "2026-11-09T07:36:20.526185+00:00",
+  "recorded_at": "2026-11-09T09:31:25.173898+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 594,
-    "passed": 593,
+    "run": 597,
+    "passed": 596,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0,
-    "method": "34 module subprocesses; all assertions completed but Qt management exited -11 after 23 passing assertions, so overall accepted=false"
+    "method": "35 module subprocesses all exit0; separate full mixed597 also exit0. Known ONNX quality expected failure retained."
   },
-  "command": "python scripts/check_isolated_tests.py --expected-count 594 --output <fresh-directory>",
+  "command": "TESSDATA_PREFIX=<verified-models> PYTHONPATH=src QT_QPA_PLATFORM=offscreen python scripts/check_isolated_tests.py --expected-count 597 --output <fresh-directory>",
   "native_prerequisites": [
     "Tesseract 5.5.0",
     "verified chi_tra + eng data",
@@ -152,7 +152,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.15.0",
+  "source_version": "0.17.1",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -180,7 +180,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C10 requires exact active component/version/capability on OCR pages and revalidates leased health; original C01 report retained"
   },
-  "current_run_scope": "0.14.0 local CI input/receipt/platform guards and native/payload regressions; actual fixed HTTPS inputs downloaded and fresh Windows PE cross-built on Linux. New push Windows workflow prepared; no Windows execution acceptance yet.",
+  "current_run_scope": "Linux 0.17.1 Qt owned-window cleanup: full mixed597 exit0, 35 isolated module processes exit0, 12 management repeats exit0; Windows new revision pending.",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -275,7 +275,7 @@
     "actual_frozen_report": "development-records/runs/c07-2026-11-07/frozen-acceptance.json",
     "c08_native_health_cancellation_preserved": true
   },
-  "completed_date_taipei": "2026-11-08",
+  "completed_date_taipei": "2026-11-09",
   "component_management": {
     "check": "C08",
     "accepted": true,
@@ -865,7 +865,7 @@
     "current_source_version": "0.17.0",
     "latest_run": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42578549106"
   },
-  "windows_execution_scope": "Hosted Windows 0.17 basic profile: folder/installed app each10, installer6, genuine 0.16->0.17 cross-version11, three actual owned process-tree interruptions with ordinary matching Setup explicit resume and each app10. No power-loss, arbitrary-time durability, automatic rollback, all-profile, clean-machine, human or release acceptance. Linux full 594 retains Qt native-exit failure independently.",
+  "windows_execution_scope": "Historical hosted Windows0.17 basic folder/installed app10 each, installer6, cross-version11, interruption/resume3 each app10. New0.17.1 Linux verified; Windows new revision pending. No clean-machine, all-profile, human, GPU or release acceptance.",
   "linux_test_process_exit_observation": {
     "initial": {
       "tests_reported_ok": true,
@@ -881,7 +881,7 @@
       "process_exit": 0,
       "faulthandler_enabled": true
     },
-    "cause": "Not established; one occurrence, not claimed resolved by a passing retry",
+    "cause": "Native stack captured at Qt global wrapper cleanup; own GUI and test windows now destroyed before that phase. Historical failures retained; this revision passed documented processes.",
     "scope": "Linux complete test process; no claim about a Windows product crash",
     "latest_module_failure": {
       "module": "test_component_management",
@@ -897,27 +897,38 @@
       "root_cause_fixed": false,
       "full_regression_accepted": false,
       "evidence": "development-records/runs/c11-recovery-prep-2026-11-09/management-retry.log"
+    },
+    "post_fix": {
+      "source_version": "0.17.1",
+      "run": 597,
+      "passed": 596,
+      "expected_failures": 1,
+      "process_exit": 0,
+      "full_regression_accepted": true,
+      "evidence": "development-records/runs/qt-lifecycle-2026-11-09/verification.json"
     }
   },
   "latest_mixed_suite": {
-    "run": 555,
-    "assertions_reported_passed": 554,
+    "source_version": "0.17.1",
+    "run": 597,
+    "passed": 596,
     "expected_failures": 1,
-    "process_exit": 139,
-    "accepted": false,
-    "cause": "native shutdown unknown, investigated per module"
+    "skipped": 0,
+    "process_exit": 0,
+    "accepted": true,
+    "evidence": "development-records/runs/qt-lifecycle-2026-11-09/full-mixed-final.log"
   },
   "isolated_regression": {
-    "scope": "Actual per-module normal subprocess exits; mixed native shutdown remains a separate open issue",
-    "source_version": "0.17.0",
-    "modules": 34,
-    "run": 594,
-    "passed": 593,
+    "scope": "Actual per-module normal subprocess exits; mixed-process acceptance is recorded separately",
+    "source_version": "0.17.1",
+    "modules": 35,
+    "run": 597,
+    "passed": 596,
     "expected_failures": [
       "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
     ],
-    "accepted": false,
-    "all_child_exits_zero": false,
+    "accepted": true,
+    "all_child_exits_zero": true,
     "records": [
       {
         "module": "test_base_installer",
@@ -1016,7 +1027,7 @@
         "expected_failures": [],
         "unexpected_successes": 0,
         "tests_reported_success": true,
-        "process_exit": -11
+        "process_exit": 0
       },
       {
         "module": "test_component_migration",
@@ -1241,6 +1252,17 @@
         "process_exit": 0
       },
       {
+        "module": "test_qt_lifecycle",
+        "run": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
         "module": "test_quality",
         "run": 6,
         "failures": 0,
@@ -1298,15 +1320,15 @@
     ]
   },
   "linux_debug_observation": {
-    "test_target_exit": 0,
-    "tests_run": 555,
-    "passed": 554,
-    "expected_failures": 1,
-    "debugger_exit": 1,
-    "debugger_exit_reason": "Backtrace requested after the target had exited normally; no stopped process",
-    "fault_reproduced": false,
-    "mixed_teardown_issue_resolved": false,
-    "scope": "Native LLDB observation of the mixed Linux test process; no C stack captured because fault did not recur; does not prove issue fixed"
+    "source_version_before_fix": "0.17.0",
+    "fault_reproduced": true,
+    "observed_signal": "SIGSEGV",
+    "native_stack": "PySide global application cleanup -> QPushButton wrapper -> QObject destructor",
+    "evidence": "development-records/runs/qt-lifecycle-2026-11-09/lldb-type-1.log",
+    "debugger_exit_not_used_as_test_acceptance": true,
+    "post_fix_management_repeats": 12,
+    "post_fix_all_exits_zero": true,
+    "scope": "Owned-window destruction and fixture lifecycle corrected; no claim to fix all upstream Qt internals."
   },
   "base_installer_ci": {
     "local_tests": 154,
@@ -1733,5 +1755,58 @@
       "temporary_cleanup_complete": false,
       "scope": "Actual owned Windows installer process-tree termination at three deterministic stop points; matching ordinary installer explicit resume and synthetic data retention. No power-loss, arbitrary interruption-time durability, all-profile or clean-machine acceptance"
     }
+  },
+  "previous_mixed_suite_observation": {
+    "run": 555,
+    "assertions_reported_passed": 554,
+    "expected_failures": 1,
+    "process_exit": 139,
+    "accepted": false,
+    "cause": "native shutdown unknown, investigated per module"
+  },
+  "qt_lifecycle": {
+    "source_version": "0.17.1",
+    "architecture_version": "0.4",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.12",
+    "qt": "PySide6 6.12.0",
+    "known_expected_failure": "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap",
+    "mixed_process_exit": 0,
+    "isolated_accepted": true,
+    "modules": 35,
+    "run": 597,
+    "passed": 596,
+    "skipped": 0,
+    "management_repeats": 12,
+    "management_all_exits_zero": true,
+    "gui_entrypoint_checks": 3,
+    "windows_executed_this_revision": false,
+    "gpu_executed": false,
+    "release_ready": false,
+    "commands": [
+      "python -m pip install --no-index --no-deps --no-build-isolation .",
+      "python scripts/packaging_profiles.py --generate",
+      "python -m unittest discover -s tests -v",
+      "python scripts/check_isolated_tests.py --expected-count 597 --output <fresh-directory>"
+    ],
+    "source_hashes": {
+      "src/desktop_app/desktop.py": "250e4bcec19b51f20490c90ed26799693ec5b3d3514b686bc6e195eabfccce73",
+      "tests/qt_support.py": "a5feb31cde1de7ca9b80a325ff9ac49bad3a6357ba18265cb662d7001e3ae8e9",
+      "tests/test_qt_lifecycle.py": "32076beec144b56aeea15e3a3956e15498eacdfec6846cda1c048a1ceea62412",
+      "scripts/check_isolated_tests.py": "3b28014c644b24cd039985ca49471f12531607b1bbe965c7f475569986e49e59",
+      "pyproject.toml": "09cb07bc0a4c758ca51c9499a804dc252628fe22d2959a46ac16dad2933282bf",
+      "packaging/profiles/base-closure.json": "763510d527dae27fd67bbab4fa31c3aafe0182d499b73e8a2369dbaf7a89f4ac"
+    }
+  },
+  "linux_debug_observation_previous": {
+    "test_target_exit": 0,
+    "tests_run": 555,
+    "passed": 554,
+    "expected_failures": 1,
+    "debugger_exit": 1,
+    "debugger_exit_reason": "Backtrace requested after the target had exited normally; no stopped process",
+    "fault_reproduced": false,
+    "mixed_teardown_issue_resolved": false,
+    "scope": "Native LLDB observation of the mixed Linux test process; no C stack captured because fault did not recur; does not prove issue fixed"
   }
 }

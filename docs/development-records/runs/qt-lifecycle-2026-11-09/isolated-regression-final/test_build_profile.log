@@ -1,0 +1,21 @@
+test_asset_link_is_rejected (test_build_profile.BuildProfileTests.test_asset_link_is_rejected) ... ok
+test_changed_license_fails (test_build_profile.BuildProfileTests.test_changed_license_fails) ... ok
+test_core_diagnostics_pass_without_claiming_full_base (test_build_profile.BuildProfileTests.test_core_diagnostics_pass_without_claiming_full_base) ... ok
+test_core_failure_stays_failed (test_build_profile.BuildProfileTests.test_core_failure_stays_failed) ... ok
+test_core_scope_requires_explicit_embedded_profile (test_build_profile.BuildProfileTests.test_core_scope_requires_explicit_embedded_profile) ... ok
+test_full_diagnostics_fail_missing_native_without_external_probe (test_build_profile.BuildProfileTests.test_full_diagnostics_fail_missing_native_without_external_probe) ... ok
+test_malformed_profile_saves_failure_report (test_build_profile.BuildProfileTests.test_malformed_profile_saves_failure_report) ... ok
+test_missing_asset_fails (test_build_profile.BuildProfileTests.test_missing_asset_fails) ... ok
+test_missing_required_asset_reference_is_rejected (test_build_profile.BuildProfileTests.test_missing_required_asset_reference_is_rejected) ... ok
+test_no_embedded_profile_keeps_legacy_behavior (test_build_profile.BuildProfileTests.test_no_embedded_profile_keeps_legacy_behavior) ... ok
+test_notice_count_must_match_selected_packages (test_build_profile.BuildProfileTests.test_notice_count_must_match_selected_packages) ... ok
+test_notice_directory_does_not_collect_python_or_cache (test_build_profile.BuildProfileTests.test_notice_directory_does_not_collect_python_or_cache) ... ok
+test_paths_and_hashes_are_validated (test_build_profile.BuildProfileTests.test_paths_and_hashes_are_validated) ... ok
+test_profile_assets_match_and_help_uses_selected_inventory (test_build_profile.BuildProfileTests.test_profile_assets_match_and_help_uses_selected_inventory) ... ok
+test_readiness_and_native_ocr_cannot_be_claimed (test_build_profile.BuildProfileTests.test_readiness_and_native_ocr_cannot_be_claimed) ... ok
+test_runtime_versions_and_forbidden_modules (test_build_profile.BuildProfileTests.test_runtime_versions_and_forbidden_modules) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.080s
+
+OK

@@ -237,6 +237,8 @@ class ManagedDesktopTests(unittest.TestCase):
     def setUpClass(cls):
         from PySide6.QtWidgets import QApplication
         cls.app=QApplication.instance() or QApplication([])
+        from qt_support import release_test_widgets
+        cls.addClassCleanup(release_test_widgets, cls.app)
 
     def test_managed_preference_roundtrip_preserves_order_and_other_choices(self):
         from desktop_app.desktop import Window

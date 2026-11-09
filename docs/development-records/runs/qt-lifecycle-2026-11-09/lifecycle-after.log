@@ -1,0 +1,7 @@
+test_entrypoint_destroys_closed_component_dialog_with_parent (test_qt_lifecycle.QtLifecycleTests.test_entrypoint_destroys_closed_component_dialog_with_parent) ... ok
+test_entrypoint_destroys_closed_main_window (test_qt_lifecycle.QtLifecycleTests.test_entrypoint_destroys_closed_main_window) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.420s
+
+OK

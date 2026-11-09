@@ -1,0 +1,18 @@
+test_auto_inference_retries_once_on_cpu (test_onnx_ocr.BackendPolicyTests.test_auto_inference_retries_once_on_cpu) ... ok
+test_auto_init_fallback_requires_checkpoint (test_onnx_ocr.BackendPolicyTests.test_auto_init_fallback_requires_checkpoint) ... ok
+test_cancel_never_falls_back (test_onnx_ocr.BackendPolicyTests.test_cancel_never_falls_back) ... ok
+test_explicit_gpu_not_silently_downgraded (test_onnx_ocr.BackendPolicyTests.test_explicit_gpu_not_silently_downgraded) ... ok
+test_gpu_memory_reserve (test_onnx_ocr.BackendPolicyTests.test_gpu_memory_reserve) ... ok
+test_no_provider_is_not_gpu_ready (test_onnx_ocr.BackendPolicyTests.test_no_provider_is_not_gpu_ready) ... ok
+test_provider_alone_is_insufficient (test_onnx_ocr.BackendPolicyTests.test_provider_alone_is_insufficient) ... ok
+test_registered_cuda_sessions_checked (test_onnx_ocr.BackendPolicyTests.test_registered_cuda_sessions_checked) ... ok
+test_known_gap_uses_the_same_raster_and_reference_on_all_platforms (test_onnx_ocr.FixedQualityRasterTests.test_known_gap_uses_the_same_raster_and_reference_on_all_platforms) ... ok
+test_crosscheck_keeps_primary_and_candidate (test_onnx_ocr.OnnxIntegrationTests.test_crosscheck_keeps_primary_and_candidate) ... skipped 'Traditional Chinese model unavailable'
+test_pdf_onnx_needs_no_tesseract (test_onnx_ocr.OnnxIntegrationTests.test_pdf_onnx_needs_no_tesseract) ... [0;93m2026-11-09 09:27:23.770987996 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+ok
+test_traditional_chinese_quality_known_gap (test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap) ... expected failure
+
+----------------------------------------------------------------------
+Ran 12 tests in 8.554s
+
+OK (skipped=1, expected failures=1)

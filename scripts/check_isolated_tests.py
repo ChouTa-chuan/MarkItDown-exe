@@ -1,4 +1,4 @@
-"""逐模組執行全回歸，要求所有原生 child 正常結束；不隱藏混合程序 teardown 問題。"""
+"""逐模組執行全回歸，要求所有原生 child 正常結束；混合程序驗證另記。"""
 import argparse
 from importlib import metadata
 import json
@@ -47,7 +47,7 @@ def main():
     failed=sum(item.get('failures',0)+item.get('errors',0)+item.get('skipped',0)+item.get('unexpected_successes',0) for item in records)
     accepted=(count==args.expected_count and expected==[KNOWN_EXPECTED_FAILURE] and all(item['process_exit']==0
               and item.get('tests_reported_success') and not item.get('skipped') for item in records))
-    value=dict(scope='Actual per-module normal subprocess exits; mixed native shutdown remains a separate open issue',
+    value=dict(scope='Actual per-module normal subprocess exits; mixed-process acceptance is recorded separately',
         source_version=metadata.version('markitdown-desktop'),modules=len(records),run=count,
         passed=count-len(expected)-failed,expected_failures=expected,accepted=accepted,
         all_child_exits_zero=all(item['process_exit']==0 for item in records),records=records)

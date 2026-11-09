@@ -1,5 +1,8 @@
 # 開發進度
 
+2026-11-09 最新：**0.17.1完成Qt視窗生命週期修正**。混合597與35模組全exit0（596通過、1既有ONNX品質預期失敗、0跳過），管理23項12輪正常退出；[原始紀錄](development-records/runs/qt-lifecycle-2026-11-09/README.md)／[設計](qt-lifecycle.md)。Windows0.17.1另驗；C11仍2/5、完整7/12、歷史19/25，Inno暫存清理／乾淨機／全profile／人工／GPU保留。下方保留當時狀態。
+
+
 2026-11-09 最新：0.17 Windows程序中斷續修3/3，各恢復app10項；[原始紀錄](development-records/runs/c11-recovery-2026-11-09/README.md)。C11保持2/5／完整7/12，各profile／斷電／人工另驗；Linux最新594含Qt退出-11仍不接受，補驗不抹除。
 
 2026-11-09：0.17新增[安裝程序中斷續修](base-recovery-ci.md)，本地177／591已驗，Windows三停點待跑；C11仍2/5／完整7/12，非斷電或自動回滾。

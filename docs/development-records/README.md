@@ -1,5 +1,12 @@
 # 開發紀錄
 
+**2026-11-09｜修正Qt視窗生命週期，程式0.17.0 → 0.17.1**
+
+- 原23項管理測試12輪中1輪exit-11；LLDB真正抓到PySide全域cleanup內QPushButton／QObject destructor SIGSEGV。入口設WA_DeleteOnClose、六組Qt測試負責關閉／等待／deferred delete，不跳過cleanup或強制殺程序。
+- 新3案涵蓋主窗、元件子窗及忙碌QThread拒關／取消／收尾；前2案修前失敗、修後3案通過。管理23項12輪正常退出；全混合597 exit0、35模組全exit0，596通過＋1既有ONNX品質預期失敗、0跳過。[日誌／堆疊／前後對照](runs/qt-lifecycle-2026-11-09/README.md)／[設計](../qt-lifecycle.md)。首輪模型環境／closure未齊的失敗與跳過保留，補齊後完整重跑接受。
+- 更新視覺進度與版本差異；本輪圖的結構未改，28份原架構快照不動。C11仍2/5、完整7/12、歷史19/25；Windows0.17.1、全profile、乾淨機／人工／GPU與Inno暫存清理另驗，沒有Setup／tag／Release發行。
+
+
 記錄專案從規劃、實作、測試到調整方向的過程。之後每次開發在最上方追加日期、版本、做了什麼、遇到的問題與接下來要處理的事項，舊紀錄持續保留。
 
 目前程式版本 **0.17.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。

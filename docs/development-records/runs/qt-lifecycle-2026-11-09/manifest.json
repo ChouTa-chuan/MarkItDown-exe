@@ -1,0 +1,1392 @@
+{
+  "schema_version": 1,
+  "source_version": "0.17.1",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-09",
+  "check": "Qt-owned-window-lifecycle",
+  "mechanism_accepted": true,
+  "full_c11_complete": false,
+  "scope": "Linux混合597及35模組全exit0；管理23項12輪正常退出、入口3案；保留ONNX品質預期失敗。新Windows、乾淨機／人工／GPU與Inno清理另驗。",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2757,
+      "sha256": "e6b10170fc0b0076b6172b34c7fc4a0936c48293dc7a7d1e14e8af0fa2070fcb",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-0.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-0.log",
+      "bytes": 4000,
+      "sha256": "72cb50bc908e3cd22778683b575fcb9eeda2e5aad8840ecded647fe8391714ec",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-1.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-1.log",
+      "bytes": 4000,
+      "sha256": "00d3ccc14e747142dc6e2fcb166c66081f9af950caf11c46783b1be24ba41b95",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-10.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-10.log",
+      "bytes": 4000,
+      "sha256": "f77aaa8a16202c097043ad1566af2d331432ddf89f16fcff08e24d5ef44d8c18",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-11.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-11.log",
+      "bytes": 4000,
+      "sha256": "6aedfa6499fc20ed9b342ded228ca86e97531243861c6d941d73a006a7a2724b",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-2.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-2.log",
+      "bytes": 4000,
+      "sha256": "9b846b0f6e003c6284a052689664624728396cc02f37bd940a234018df88d557",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-3.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-3.log",
+      "bytes": 4000,
+      "sha256": "734a4762ec2d8622d9d33ebe89db0c131a3a1cd46fcf7101e6b4178d21e337e9",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-4.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-4.log",
+      "bytes": 4000,
+      "sha256": "3f55fe258114d7bfa0d03288484d6f332078a062e380fe8611d07f538a63031b",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-5.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-5.log",
+      "bytes": 4000,
+      "sha256": "813b04e890ecebec4bbab140234aaf85fa3b76eac12dbfbe3213d4c438556876",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-6.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-6.log",
+      "bytes": 4000,
+      "sha256": "dd42c269192eeb308e712cea0a93b6c81af2b78fe344a7277094bd31d699fae8",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-7.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-7.log",
+      "bytes": 4000,
+      "sha256": "137c197c4156415580ea30cefb2d4cd0badb4d33dd99a2f6f1a535a8943d9b5e",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-8.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-8.log",
+      "bytes": 4000,
+      "sha256": "5c3e81ebb5d7818b7c86310a8d4d0d5dc703c1507d4f4e8c13baa39a0e22081c",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-9.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-9.log",
+      "bytes": 4000,
+      "sha256": "49110de2d3382cd9f344031846d3e93092f27ac7890f5722d7b8818e74225d52",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "after-summary.json",
+      "bytes": 496,
+      "sha256": "8b6ceea0de3eabd36a5a8d75e68dd37289e1c671c13d1745df2ea1f6233a2563",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-0.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-0.log",
+      "bytes": 4000,
+      "sha256": "fad50a1780637bf9937df13f42159f4b411beaf17e738b1d274f92f280d42b53",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-1.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-1.log",
+      "bytes": 4000,
+      "sha256": "23f0ec66decd908128daf8f1c233b3a1c3d16e95ae16eeda9cee479a1d58fe3c",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-10.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-10.log",
+      "bytes": 4000,
+      "sha256": "a990c278080195f38f40876933ed7a767733f4f7f177bab3def9831680d07f70",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-11.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-11.log",
+      "bytes": 4000,
+      "sha256": "98c1241ddf78438582b10f9991ec0a8bf964bf3feae05698662c84c0aba84317",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-2.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-2.log",
+      "bytes": 4257,
+      "sha256": "ba0ab112453029c110229fc35b07e652f742db6b0a254f8ea5380f550ab874e7",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-3.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-3.log",
+      "bytes": 4000,
+      "sha256": "93086bfefc9a59609b8dc8e2120ab19ee5f736d728680637e18225a891317a04",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-4.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-4.log",
+      "bytes": 4000,
+      "sha256": "724030935a2ec5b1679c94b4350dd46d0b1889953b01b949d95a84a6ccc50cd0",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-5.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-5.log",
+      "bytes": 4000,
+      "sha256": "25d971eec515cc8f751c0fcfdf6caa3bc2304eee3233d1103e27b4aa8e8944c3",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-6.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-6.log",
+      "bytes": 4000,
+      "sha256": "bfcb404b52f0ef0ce5e1918e1827f06c0128881e1457143d581ef8be511a3afd",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-7.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-7.log",
+      "bytes": 4000,
+      "sha256": "b7b6c08cb500f3a93a3887e7f95193da801252bbb3324018da29e1fd8c6a58b3",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-8.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-8.log",
+      "bytes": 4000,
+      "sha256": "ae4c929c61cc98c15cae8cf1126a42de651f35d0acc842ecb307d0a888d31dfc",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-9.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-9.log",
+      "bytes": 4000,
+      "sha256": "bd190a4390352b2abbd36cbfee264132fd8ac616fa54e892585eb0185ce684fe",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "before-summary.json",
+      "bytes": 498,
+      "sha256": "c19c13fa576fd78641be37ebb73002855269bb153ec2436c4a32dad8d1d44ba3",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "debug.py",
+      "bytes": 916,
+      "sha256": "23a2eea74a7a6b4fb043cf6aabc5e525bb8e72aaa4a778fb66e6e879670c7a88",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "full-mixed-exit.json",
+      "bytes": 24,
+      "sha256": "9720dde73488488efabc56b262fa8d4818bc05ca1c25049e9ce07fe13fd30f52",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "full-mixed-final-exit.json",
+      "bytes": 24,
+      "sha256": "3b21820be1a7c4b84c298c2a550a72edfd9c1c38014cfa160903faf142a5063f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "full-mixed-final.log",
+      "bytes": 89054,
+      "sha256": "0ab042f8393d0448397bdd327d054856630e6a926931e664ee0b858cd75e5175",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "full-mixed.log",
+      "bytes": 90866,
+      "sha256": "8c93b2dcfe34339b657e2c036c20be83b862e54350c878e6bcf7fee554aa2d14",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "install-source.log",
+      "bytes": 1269,
+      "sha256": "af7a8b43b431d0d3378709c5992d03c4b10458bb78099e566cb36a0fe3a15dce",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 3341,
+      "sha256": "e996e875149029699e9fc64703ad932fb6c73bb8cf11bf99a5b60f51c5584bc0",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "integrity.log",
+      "bytes": 709,
+      "sha256": "46a48fa85065880a96212eda180cc12791bd0ae03da030010b9e88009e2f0551",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/summary.json",
+      "bytes": 9318,
+      "sha256": "1df22d0abd75167bd66a262af9bedaffec1ae82b2ed953ef2c9c4e8c42d18287",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_installer.json",
+      "bytes": 189,
+      "sha256": "c373c0e29a9cc8c8ed0de2d8d49282529221267c3e8514ae0766bd2fe1eff0b2",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_installer.log",
+      "bytes": 2153,
+      "sha256": "3626826be34508d6dc853a32e2c1a7d2750776e1bce6b4bbc6d543cf4bdf2b05",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_recovery.json",
+      "bytes": 188,
+      "sha256": "0fa86fa3e949401cbe2d257be32f9f3e522d937369737338dcf51cc37f8f0814",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_recovery.log",
+      "bytes": 2721,
+      "sha256": "537e6b999d22283c31ab5eabf1074ca82de7e2fc88755898f6b61bcceaf1d635",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_upgrade.json",
+      "bytes": 187,
+      "sha256": "861deb83b51d4b8fdf8804d3a7891e75d5335c374571963c56873453263b7be1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_upgrade.log",
+      "bytes": 2057,
+      "sha256": "fbc62b24bc222e7e29f4aa2289603a8b1c51e81eba520c4092814b5b7b1489b1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_borderless.json",
+      "bytes": 185,
+      "sha256": "6b9be17e89ca6db4a135a99a96bd8110564cc60529452fbe74ffe2d144366c93",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_borderless.log",
+      "bytes": 2053,
+      "sha256": "3dc4a537788686c97188d2dabc2110a208e20498ac5a5dcd83d49ab7ceeb725f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_build_profile.json",
+      "bytes": 188,
+      "sha256": "11c00d1448720f97abbc5d298323b78fdeccee8b33d74e548d1ba38a2a1c17ff",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_build_profile.log",
+      "bytes": 2257,
+      "sha256": "4fe5cf5a18660218f356843c1e8701e6e9d927e4c5f805be66d136ddc538596c",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_bundled_ocr.json",
+      "bytes": 186,
+      "sha256": "680b9c1c91c6d74883a09b0a127205a9dee78bbb76e7a9529c80469981b4f204",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_bundled_ocr.log",
+      "bytes": 3835,
+      "sha256": "e9ed202c95c56407823e5962661a31e00c2a5c232f55fabd0e6a296bfd159d73",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_downloads.json",
+      "bytes": 194,
+      "sha256": "d12b09adf4c28c16e88669f8771c8629843970a030bdf902a10dea753d0fdf57",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_downloads.log",
+      "bytes": 6645,
+      "sha256": "9314efc349c43b9db60512d4dbcad02737cb4a343a706c8296211d8b808739db",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_lifecycle.json",
+      "bytes": 194,
+      "sha256": "bd764b822063ebe25f8bdd1217af2aa9849015ff5c564c6b3e1812c88aa5d8f8",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_lifecycle.log",
+      "bytes": 8564,
+      "sha256": "352775798b4687346273a226e29b26f93f374a18a86ed90a6cfac25544c15780",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_management.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_management.log",
+      "bytes": 4000,
+      "sha256": "49231e997a8860f057a0fd12768fc79343d0f8e4133856767366d1c8e6cea5e2",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_migration.json",
+      "bytes": 194,
+      "sha256": "a899229147a470619eb188ad4157691be4f12c1d84e1debf31be323df155fcb2",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_migration.log",
+      "bytes": 5154,
+      "sha256": "27559fef06a1f394197c6b38bf9491f134d2a0bfb0766c836893c4769adaa3c8",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_workers.json",
+      "bytes": 192,
+      "sha256": "56cb2b7d43be4e4d49c89fb22df03b7d7f822a3098131907530c23952f21aadf",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_workers.log",
+      "bytes": 3537,
+      "sha256": "2fe2d3fe45fb76539308f257b11a2a5e9be7e307d37caa02fcf2624811129843",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_components.json",
+      "bytes": 185,
+      "sha256": "c85c5b436760aef9bfaa5e5c1adb5c4ff9a1ec547713caa57e5235e00a02ef1f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_components.log",
+      "bytes": 6943,
+      "sha256": "bbd0fa58c00fabd8173196d7c9be441e457deda33ec358fe1103e0367f66a27b",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_core.json",
+      "bytes": 179,
+      "sha256": "a93d8007bf356996f386d0fdd566a8dbafdedf75de9f17a77a102f6f84df3aff",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_core.log",
+      "bytes": 1743,
+      "sha256": "6553e5642f6eee701d52496d56da97b13021f1ad2aa0deeca361b5ed7fab0ba9",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_desktop.json",
+      "bytes": 182,
+      "sha256": "e8a2827f9ff901fe5c1fe902d287c9a963d2a73c47068bb24ee5dda4c5030d2d",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_desktop.log",
+      "bytes": 1494,
+      "sha256": "8868084c302897ec958854806f6c58b69a05ee879eb3299403cb826c371aa678",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_devices.json",
+      "bytes": 181,
+      "sha256": "ff3fd557fc6150e23395a0398240e500795dcd8d436246fbbc373f23d509b135",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_devices.log",
+      "bytes": 1000,
+      "sha256": "c245d0348199da497d9a68925aa39664dadae78ab5a64247177a400af34d049d",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_diagnostics.json",
+      "bytes": 185,
+      "sha256": "b2861c84efecd4ad7910775db50667c210cb5cb2a3eeaf25f2138cfca8e369b5",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_diagnostics.log",
+      "bytes": 1054,
+      "sha256": "5241a53b582b493230ba723fb0693ded2a6b43812c0dcf11b1d26eb9426182dd",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_formats.json",
+      "bytes": 181,
+      "sha256": "9515426c7ccac2d340b1c5dac050cdbfd1e9847f9aaf22d7c5e92073dce58b2f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_formats.log",
+      "bytes": 1166,
+      "sha256": "858470414e4e5bc3f29453299c95b1d3afc6644f4314a07c468bba1558b9259f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_help_ui.json",
+      "bytes": 181,
+      "sha256": "13dfa63fe7cbacc513fc70a12a960b59fb35e453bc92715e1a35387e822bdb0c",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_help_ui.log",
+      "bytes": 382,
+      "sha256": "d5970d988e5ea7b41892a77748b4bf13e65769a572fdac543b133162fa9af65c",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_languages.json",
+      "bytes": 184,
+      "sha256": "e3fd996b21ff058c7c59ea07c20a61a6a5bf587c7c3f6c66ae4095526e7e1aa1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_languages.log",
+      "bytes": 2774,
+      "sha256": "ece39d743c284180aa2106ceeb7ae4c3affae758b116ad0b91455a0604668fd5",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_license_inventory.json",
+      "bytes": 191,
+      "sha256": "b1a9356652eb8e0023ef53080e145388f88d6b91935f2b0e6af53e001967ca50",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_license_inventory.log",
+      "bytes": 1169,
+      "sha256": "2e51fa337f6eed0fa95ba292382f5853e55bd63a4c1fd518fc39172511e7a90a",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_managed_conversion.json",
+      "bytes": 193,
+      "sha256": "9ae2a6a0d0b6e05082293be94b3ae18ddd74167822f4de2a27152755f0e4cab7",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_managed_conversion.log",
+      "bytes": 3431,
+      "sha256": "551979fda9aa29cf12ae8d08866b8fa28f79fc04f64bb80a1b15561814367367",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_minimal_native.json",
+      "bytes": 189,
+      "sha256": "e8e00accf3cc3f0734f53eb29e2743b087d75711a2b94c94bf7968c87633c3bf",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_minimal_native.log",
+      "bytes": 3501,
+      "sha256": "b285fb3d1b4421f9ec38bc2d88fd09e3b4d8ff5cfb2883952a21251481cd3e05",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_models.json",
+      "bytes": 180,
+      "sha256": "5ea2901d74bcf159d9aec9c2f46258a8b471dee4e18dfa6cf598c26aa696df90",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_models.log",
+      "bytes": 942,
+      "sha256": "60e94bd03c316e3ac1f92b0ab95e62a41de67ca665c1a2e4d5013cff7c7d26d7",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_native_assets.json",
+      "bytes": 188,
+      "sha256": "cdda65f9c7b92c362f6a653f345b05a348c4f93fe4e8c9bbef2d2334efb1520b",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_native_assets.log",
+      "bytes": 2734,
+      "sha256": "b648b22933813d1d19645f085befaf117d7033943616eecb4153750ba5d4298e",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onboarding.json",
+      "bytes": 186,
+      "sha256": "7b5b77d491c1e35aa9017e0e539027161b75ffbd9bda3a13ffa43f4e03d97649",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onboarding.log",
+      "bytes": 4057,
+      "sha256": "0909d424697a71c3ee4744212fc6b4b26fa2d8a2e69967d57c1c3c90b2bfac8f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onnx_ocr.json",
+      "bytes": 270,
+      "sha256": "aaf6f621b0711a2a58525faf7259a16ea2d2b614458f27d0cb428206088dbded",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onnx_ocr.log",
+      "bytes": 1820,
+      "sha256": "e0eb06246dc60cfd641ed42587cf4fd0b824981eb2fbd8934e6693a48585ce42",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_packaging_profiles.json",
+      "bytes": 193,
+      "sha256": "9a12514d89a19c4509ada37eb816bc371212b83160e35e1993de09ec684d777a",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_packaging_profiles.log",
+      "bytes": 2227,
+      "sha256": "2bc56898e1bb29d00a852c66fa3594fd0e247fdc1be5be8d229902060b148fc8",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_acceptance.json",
+      "bytes": 188,
+      "sha256": "14153a32f1234b4ba0d99a57e0be06449d6241bfa555f301a63fe13a6119144c",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_acceptance.log",
+      "bytes": 918,
+      "sha256": "b51f2be6068002bc84d495af45f04fd909a4f51768efcbc158f638cc4c3d66a0",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_pipeline.json",
+      "bytes": 187,
+      "sha256": "24f851d758ccbfcf85fbad6c46273d1e49123aec60cb08966f5a0f8c61782e41",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_pipeline.log",
+      "bytes": 2921,
+      "sha256": "f60f8c1fd385a07321875ae4eaa7f6494be461ebba81e50fbc548ffdccef8b05",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_qt_lifecycle.json",
+      "bytes": 186,
+      "sha256": "cdab8f48a03fcf7c2fa5a3e89d71e93513ca9e252ad45f5f128f735e529ac2a4",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_qt_lifecycle.log",
+      "bytes": 560,
+      "sha256": "c8e93e9c26d1d080ff2ce2c9aec3b06b72f1a200df49602f185d29b168d17160",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_quality.json",
+      "bytes": 181,
+      "sha256": "272db2627acbad3414e199b77a81d36f62b6e6f761312de1777eb6bf47312e83",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_quality.log",
+      "bytes": 764,
+      "sha256": "4639e441fbb18ea579a4f77c3eed8c9cca337d04c7d9254a8f2a1c4060cc02b1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_settings.json",
+      "bytes": 183,
+      "sha256": "9da3a4a911fefbec1b221b6a8ee1c7fec4674929c0f66aace7a100b715dbc51d",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_settings.log",
+      "bytes": 1408,
+      "sha256": "21b380b4587cf7da2b521cb2226d7967a6fc1a5c38dcbb0e27f71bffb26aa12a",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_table_continuation.json",
+      "bytes": 193,
+      "sha256": "ed43e12cfdb956325de422e4ed4bb11bdd73cf1abd16bae01104e1900e237213",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_table_continuation.log",
+      "bytes": 2703,
+      "sha256": "fccadfa1a3be2dca5bb6d00f153a83493dd36581d15afd7b8aedc848f0ac5417",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_tables.json",
+      "bytes": 180,
+      "sha256": "5f020394fbbfa32326a3c3cf52fe2add764b14a13c47f0ed675d5d4c1592673a",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_tables.log",
+      "bytes": 875,
+      "sha256": "4e17f9d80caa7e7e5c113b14b3cd49e4ca2015a15baf9cf5c5b2921ae6fc0627",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_windows_ci.json",
+      "bytes": 185,
+      "sha256": "76413b62e9ab37e86829061d7dec3b940ff34e5145a3678a8d967c882bc47d3f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_windows_ci.log",
+      "bytes": 4085,
+      "sha256": "0812a8a8baad144ac52984b762813a09f55ca6c9c43e23d26cb2032f117403f4",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/summary.json",
+      "bytes": 9311,
+      "sha256": "a870a98d08424a07de902172be3ee884cadfcc104cc5417497e10465c3237152",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_base_installer.json",
+      "bytes": 189,
+      "sha256": "c373c0e29a9cc8c8ed0de2d8d49282529221267c3e8514ae0766bd2fe1eff0b2",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_base_installer.log",
+      "bytes": 2153,
+      "sha256": "550371a3ff42a7a66267c0b42d4c9349c537efebf34ee571aaf068442543f210",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_base_recovery.json",
+      "bytes": 188,
+      "sha256": "0fa86fa3e949401cbe2d257be32f9f3e522d937369737338dcf51cc37f8f0814",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_base_recovery.log",
+      "bytes": 2721,
+      "sha256": "c2024a0438e8681e4e3c2c3513ffd4cc101369df6bfe661180c7315dd2d6a73a",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_base_upgrade.json",
+      "bytes": 187,
+      "sha256": "861deb83b51d4b8fdf8804d3a7891e75d5335c374571963c56873453263b7be1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_base_upgrade.log",
+      "bytes": 2057,
+      "sha256": "cdeb4c1097f62d5c2dc592c4a0fa8545673f7052e84755424c4b6fea53e1d846",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_borderless.json",
+      "bytes": 185,
+      "sha256": "6b9be17e89ca6db4a135a99a96bd8110564cc60529452fbe74ffe2d144366c93",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_borderless.log",
+      "bytes": 2053,
+      "sha256": "fcfc497dbeb45daa91df89232b9d0d79dc07ecb15cfeb067d4e8deb4332eea25",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_build_profile.json",
+      "bytes": 188,
+      "sha256": "11c00d1448720f97abbc5d298323b78fdeccee8b33d74e548d1ba38a2a1c17ff",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_build_profile.log",
+      "bytes": 2257,
+      "sha256": "06bffcbacd7b15ef4cfa053f304ec9552ca62b98fe9c66deaa304b31eae483c9",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_bundled_ocr.json",
+      "bytes": 186,
+      "sha256": "680b9c1c91c6d74883a09b0a127205a9dee78bbb76e7a9529c80469981b4f204",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_bundled_ocr.log",
+      "bytes": 3835,
+      "sha256": "8eeccae50b257014a1dbe19b103554d62b52b5ecbdcd523745652aeee16ec20d",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_component_downloads.json",
+      "bytes": 194,
+      "sha256": "d12b09adf4c28c16e88669f8771c8629843970a030bdf902a10dea753d0fdf57",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_component_downloads.log",
+      "bytes": 6645,
+      "sha256": "87785913385c6b315b8f61cbb1974243289af5072a12bbed0eb49891ba662400",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_component_lifecycle.json",
+      "bytes": 194,
+      "sha256": "bd764b822063ebe25f8bdd1217af2aa9849015ff5c564c6b3e1812c88aa5d8f8",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_component_lifecycle.log",
+      "bytes": 8564,
+      "sha256": "9b7b080a636e09f34bad938d72a25d75f6d7819004472aeb5892f786b94246e8",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_component_management.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_component_management.log",
+      "bytes": 4000,
+      "sha256": "7df567bb23d3b075845525be178227940dc1a20e52896ea6fb517ed19c3a696e",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_component_migration.json",
+      "bytes": 194,
+      "sha256": "13a39638064053a789eaeda453cfdc9b19de10ad885a82aed0c97cabce80e3db",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_component_migration.log",
+      "bytes": 5094,
+      "sha256": "bc8809bdf15af533a0db78e2734812f9e4d5deeb3ca44bff4ed7e5ab33cd1a56",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_component_workers.json",
+      "bytes": 192,
+      "sha256": "56cb2b7d43be4e4d49c89fb22df03b7d7f822a3098131907530c23952f21aadf",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_component_workers.log",
+      "bytes": 3537,
+      "sha256": "189a76e130350f10e6773401ff03f64e0dd16553ca8446f17f948d6acc1d4233",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_components.json",
+      "bytes": 185,
+      "sha256": "c85c5b436760aef9bfaa5e5c1adb5c4ff9a1ec547713caa57e5235e00a02ef1f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_components.log",
+      "bytes": 6943,
+      "sha256": "8c207ef65e42334fc5031071a1da3e11e16c51ccd5e5a32f86b767e163866af5",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_core.json",
+      "bytes": 179,
+      "sha256": "a93d8007bf356996f386d0fdd566a8dbafdedf75de9f17a77a102f6f84df3aff",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_core.log",
+      "bytes": 1743,
+      "sha256": "7ce839d4076faaeef65364efd6922d88eea6c950b99275d4a3e7a4ef23eaa8a5",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_desktop.json",
+      "bytes": 182,
+      "sha256": "e8a2827f9ff901fe5c1fe902d287c9a963d2a73c47068bb24ee5dda4c5030d2d",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_desktop.log",
+      "bytes": 1494,
+      "sha256": "169f7cb5d5e75f398371489beb513386f0e9f31e790a6979f6d6dbc7621489d2",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_devices.json",
+      "bytes": 181,
+      "sha256": "ff3fd557fc6150e23395a0398240e500795dcd8d436246fbbc373f23d509b135",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_devices.log",
+      "bytes": 1000,
+      "sha256": "d67049ad9b26799ad6f35bc052cdc65942f16c00cd3d07d93a983fd216c3529f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_diagnostics.json",
+      "bytes": 185,
+      "sha256": "b2861c84efecd4ad7910775db50667c210cb5cb2a3eeaf25f2138cfca8e369b5",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_diagnostics.log",
+      "bytes": 1054,
+      "sha256": "9f519c1029bd5176a02685933696267d799c0da6c7565c755058a32a6da55c5b",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_formats.json",
+      "bytes": 181,
+      "sha256": "9515426c7ccac2d340b1c5dac050cdbfd1e9847f9aaf22d7c5e92073dce58b2f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_formats.log",
+      "bytes": 1166,
+      "sha256": "f1e32d5e7788ec377914a9204ab3a9a3e6b56ec07db729cb5bbe0955547bd9aa",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_help_ui.json",
+      "bytes": 181,
+      "sha256": "13dfa63fe7cbacc513fc70a12a960b59fb35e453bc92715e1a35387e822bdb0c",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_help_ui.log",
+      "bytes": 382,
+      "sha256": "007fa14319f3785213abde37912d137e59261ce244a3b51c5b7b003836d833fc",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_languages.json",
+      "bytes": 184,
+      "sha256": "e3fd996b21ff058c7c59ea07c20a61a6a5bf587c7c3f6c66ae4095526e7e1aa1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_languages.log",
+      "bytes": 2774,
+      "sha256": "8455b0c137e812a5c113aee125b256fa1a10b16e5f0558baee92959ea41d35b1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_license_inventory.json",
+      "bytes": 191,
+      "sha256": "b1a9356652eb8e0023ef53080e145388f88d6b91935f2b0e6af53e001967ca50",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_license_inventory.log",
+      "bytes": 1169,
+      "sha256": "f9af8517df2f06757cb8ebf81a063ed5cb0704192404253f36f123cbce795197",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_managed_conversion.json",
+      "bytes": 193,
+      "sha256": "9ae2a6a0d0b6e05082293be94b3ae18ddd74167822f4de2a27152755f0e4cab7",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_managed_conversion.log",
+      "bytes": 3431,
+      "sha256": "4ee514594e9264049304c34e0ca9ab7d04d73304bc441c9f950ffe4b177df5f1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_minimal_native.json",
+      "bytes": 189,
+      "sha256": "e8e00accf3cc3f0734f53eb29e2743b087d75711a2b94c94bf7968c87633c3bf",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_minimal_native.log",
+      "bytes": 3501,
+      "sha256": "bb1db18dcd3965124a47e6b391e8d267954c2936406123ec942c64e3c259bf30",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_models.json",
+      "bytes": 180,
+      "sha256": "5ea2901d74bcf159d9aec9c2f46258a8b471dee4e18dfa6cf598c26aa696df90",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_models.log",
+      "bytes": 942,
+      "sha256": "f20a3f4d2769698a9f7c5bbdd663a123fdb80233351aa384f65a11737c7fbd7f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_native_assets.json",
+      "bytes": 188,
+      "sha256": "cdda65f9c7b92c362f6a653f345b05a348c4f93fe4e8c9bbef2d2334efb1520b",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_native_assets.log",
+      "bytes": 2734,
+      "sha256": "407f1e9ef52ccb133c6cd0550c5f62b96d3bb03172356a0fec35e1e4fec2074c",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_onboarding.json",
+      "bytes": 185,
+      "sha256": "135c04d454c22c30bc5298d4d71d9a6dae994a3b2e179b584389e83550a71076",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_onboarding.log",
+      "bytes": 3436,
+      "sha256": "9b3165c8f9f9047f0c50da74c5d63008708baeba321d9173fa4ca9de1229289f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_onnx_ocr.json",
+      "bytes": 270,
+      "sha256": "5473748ad45f88fe92de41c8afe686dcf8f6be10ffca08cde4199a369ab3147c",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_onnx_ocr.log",
+      "bytes": 1765,
+      "sha256": "95ed7435de0715981e019296e57010b43f4e1ea9972a92ab2eeba1a28978ddc8",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_packaging_profiles.json",
+      "bytes": 193,
+      "sha256": "9a12514d89a19c4509ada37eb816bc371212b83160e35e1993de09ec684d777a",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_packaging_profiles.log",
+      "bytes": 2227,
+      "sha256": "d2ac048df990375f4575681de68e553aac42e83f17bc43a94544a87b09378ca7",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_pdf_acceptance.json",
+      "bytes": 188,
+      "sha256": "14153a32f1234b4ba0d99a57e0be06449d6241bfa555f301a63fe13a6119144c",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_pdf_acceptance.log",
+      "bytes": 918,
+      "sha256": "e76317962cc047d0173b8986888ed91a72085a3b4572b8c0934cb892c7199b9d",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_pdf_pipeline.json",
+      "bytes": 187,
+      "sha256": "17635e630af495493d6167553bd28f55fb8c788c6fa481cc67526f70f36fd946",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_pdf_pipeline.log",
+      "bytes": 2690,
+      "sha256": "d253a5e23124782b53259097b174e47a0d4b72553c5ead16ef8e506ab038ec6e",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_qt_lifecycle.json",
+      "bytes": 186,
+      "sha256": "cdab8f48a03fcf7c2fa5a3e89d71e93513ca9e252ad45f5f128f735e529ac2a4",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_qt_lifecycle.log",
+      "bytes": 560,
+      "sha256": "6f336f67f8801b9eab904fc5a09102f388f9f33369411dbcd6f9f131c32976ee",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_quality.json",
+      "bytes": 181,
+      "sha256": "272db2627acbad3414e199b77a81d36f62b6e6f761312de1777eb6bf47312e83",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_quality.log",
+      "bytes": 764,
+      "sha256": "4639e441fbb18ea579a4f77c3eed8c9cca337d04c7d9254a8f2a1c4060cc02b1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_settings.json",
+      "bytes": 183,
+      "sha256": "9da3a4a911fefbec1b221b6a8ee1c7fec4674929c0f66aace7a100b715dbc51d",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_settings.log",
+      "bytes": 1408,
+      "sha256": "a3a264f7fe6c5d3398efd4588e016c86e7f4821d398c8e68aab8e0c565a7487c",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_table_continuation.json",
+      "bytes": 193,
+      "sha256": "ed43e12cfdb956325de422e4ed4bb11bdd73cf1abd16bae01104e1900e237213",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_table_continuation.log",
+      "bytes": 2703,
+      "sha256": "80d728203645036d325355cf51eebf62c67a76be262b7de113a865479dbd4eae",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_tables.json",
+      "bytes": 180,
+      "sha256": "5f020394fbbfa32326a3c3cf52fe2add764b14a13c47f0ed675d5d4c1592673a",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_tables.log",
+      "bytes": 875,
+      "sha256": "cd57cfcbed35a3b45e3001780e107631fb8c8a2bacc4a83cdd4d38813647f2b4",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_windows_ci.json",
+      "bytes": 185,
+      "sha256": "76413b62e9ab37e86829061d7dec3b940ff34e5145a3678a8d967c882bc47d3f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final/test_windows_ci.log",
+      "bytes": 4085,
+      "sha256": "12153c7f3800ac0fc206e6ecef864e774aa3c9822f6cc045c203490d6012ab61",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression-final.log",
+      "bytes": 326,
+      "sha256": "8f934508cbc2b9bde18ca477acef61a00351b85b66d419eea95a1716e33b8231",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression.log",
+      "bytes": 332,
+      "sha256": "f48bbb0ee4ff09241c232f43bbf8190bf6ac1dd58859de9064e666ca917264a3",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "lifecycle-after.log",
+      "bytes": 396,
+      "sha256": "aa66b845a9224994afbf265073ac79149191c8d77db979f48db98d0da6ad83b0",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "lifecycle-before.log",
+      "bytes": 2197,
+      "sha256": "78ebf8c84ffcd1fa53b60b12e6ef11f6ade2d662abded8073be7e8104fb6751f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "lifecycle-final.log",
+      "bytes": 560,
+      "sha256": "b0bd206d1c4a984342e6041bf1854042a4b7f3b9306b1552977a12aba119bf6f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "lldb-before.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "lldb-before.log",
+      "bytes": 4705,
+      "sha256": "1900762cf444aca873c1edca37cb9703f1777f9e94b05db6ac930716d30c9048",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "lldb-repeat-0.log",
+      "bytes": 4705,
+      "sha256": "32c0b117ec49fdb50ff8887fc4f54995f13802b20e0a29dce5f9d0de6248a544",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "lldb-repeat-1.log",
+      "bytes": 6965,
+      "sha256": "2dca20882d474db6cdb837d1421f8596d34e92b60669e3c05ce628a1877d2c2b",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "lldb-repeat.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "lldb-type-0.log",
+      "bytes": 4703,
+      "sha256": "283c50df2111e86e7731046cfbdb1a968922140647eca88513d0e808c33db2a1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "lldb-type-1.log",
+      "bytes": 42429,
+      "sha256": "7b8e909959c22eee4f4131836914443c65b0126d5fca68a9eaaee3c78272f3b3",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "lldb-type.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "progress-browser-sandbox.log",
+      "bytes": 5697,
+      "sha256": "0f82804ed32440d7d0b6f732ac303f79bdb43ab996b9972cd5769b2d7b309428",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 823001,
+      "sha256": "255c67cd72c7e5996e02f6cb070976e4382149fc45862e692ecf261bb9fcdd59",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 821925,
+      "sha256": "fb0c06b7caeebf162dac57cfa82da0405f80a0e21ce0df285804292e75f0f950",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 309752,
+      "sha256": "30674681c97abb6cdb0480d551a1b010b43949ce8d5ceec628c706266f088de3",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 329581,
+      "sha256": "003138029370d4e83778c1657f1386069ef0f03ed9a4978d8ad4dd894e3edd0e",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 464580,
+      "sha256": "adf445cb28d8fca89dca80b79267f34d24a67af0ff013504db1a8520c2d77ef2",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "trace.c",
+      "bytes": 278,
+      "sha256": "cc59714cffc8951eb23ea4a3f17cc37006dc945e8fce2a4488494fe2327d5cdd",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "trace.py",
+      "bytes": 303,
+      "sha256": "5351ad5110dcea56c10b8ca79e649efe43617ef681b71c30e68b316df92d824c",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "traced-0.log",
+      "bytes": 4000,
+      "sha256": "14c16694a2f4135aa4b4e60e33285c9ec89e41e47bcd7506be51b4c2a73d260f",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "traced-1.log",
+      "bytes": 4000,
+      "sha256": "86096aba96433c44a6ffeea9851520a536b7218ebe2e39d4138e9c942f2cbbaf",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "traced-2.log",
+      "bytes": 4000,
+      "sha256": "b12ff67d3068efa9b69b77664b7527b2e04aa88e1d19c567e0b88c45d655b122",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "traced.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "verification.json",
+      "bytes": 1610,
+      "sha256": "2079e3a3f5e6e4dd599b11dd2452422b2b9d7fea637c17e2a507fb11e6daf553",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "verify_integrity.py",
+      "bytes": 3785,
+      "sha256": "ce0cf361c26b8cba9b7741f65b4700a519fa3cecf1336716221910e3049c79fd",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    },
+    {
+      "file": "wrapper-disassembly.log",
+      "bytes": 2268,
+      "sha256": "6ec9ebaf3aaa87a0e47ecfef70e61c83630d55749caeaf1a4c60d56841335a9b",
+      "source": "本輪Linux Qt原生診斷、修正前後真實測試／正常程序退出、初輪環境失敗、完整回歸及離線進度頁截圖；無使用者文件"
+    }
+  ]
+}

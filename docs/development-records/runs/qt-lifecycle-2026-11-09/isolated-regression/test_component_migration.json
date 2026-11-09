@@ -1,0 +1,10 @@
+{
+  "module": "test_component_migration",
+  "run": 29,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 1,
+  "expected_failures": [],
+  "unexpected_successes": 0,
+  "tests_reported_success": true
+}

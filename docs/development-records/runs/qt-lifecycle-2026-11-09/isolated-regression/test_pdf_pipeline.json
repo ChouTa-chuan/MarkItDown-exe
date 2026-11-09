@@ -1,0 +1,10 @@
+{
+  "module": "test_pdf_pipeline",
+  "run": 19,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 4,
+  "expected_failures": [],
+  "unexpected_successes": 0,
+  "tests_reported_success": true
+}

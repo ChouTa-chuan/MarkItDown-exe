@@ -11,6 +11,8 @@ class HelpTests(unittest.TestCase):
     def setUpClass(cls):
         from PySide6.QtWidgets import QApplication
         cls.app=QApplication.instance() or QApplication([])
+        from qt_support import release_test_widgets
+        cls.addClassCleanup(release_test_widgets, cls.app)
 
     def test_packaged_manual_and_ui(self):
         from desktop_app.help_ui import HelpDialog

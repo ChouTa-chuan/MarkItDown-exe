@@ -1,0 +1,68 @@
+(lldb) target create "/workspace/markitdown-clean-venv/bin/python"
+Current executable set to '/workspace/markitdown-clean-venv/bin/python' (x86_64).
+(lldb) settings set -- target.run-args  "scripts/check_isolated_tests.py" "--module" "test_component_management" "--expected-count" "23" "--output" "/tmp/markitdown-qt-diagnosis/lldb-repeat.json"
+(lldb) settings set target.disable-aslr false
+(lldb) run
+test_cancel_escape_and_close_wait_for_background_cleanup (test_component_management.ManagementDialogTests.test_cancel_escape_and_close_wait_for_background_cleanup) ... ok
+test_capacity_license_version_plain_metadata_and_owned_controls (test_component_management.ManagementDialogTests.test_capacity_license_version_plain_metadata_and_owned_controls) ... ok
+test_desktop_opens_dialog_with_current_resource_preferences (test_component_management.ManagementDialogTests.test_desktop_opens_dialog_with_current_resource_preferences) ... ok
+test_failed_optional_operation_does_not_disable_main_text_conversion (test_component_management.ManagementDialogTests.test_failed_optional_operation_does_not_disable_main_text_conversion) ... ok
+test_gui_offline_import_health_license_and_confirmed_remove (test_component_management.ManagementDialogTests.test_gui_offline_import_health_license_and_confirmed_remove) ... ok
+test_unconfigured_dialog_no_network_and_actions_disabled (test_component_management.ManagementDialogTests.test_unconfigured_dialog_no_network_and_actions_disabled) ... ok
+test_default_unconfigured_source_does_not_connect_or_change_settings (test_component_management.ManagementTests.test_default_unconfigured_source_does_not_connect_or_change_settings) ... ok
+test_expired_catalog_retains_owned_rows_and_allows_safe_removal (test_component_management.ManagementTests.test_expired_catalog_retains_owned_rows_and_allows_safe_removal) ... ok
+test_explicit_download_install_reports_progress_and_uses_cache (test_component_management.ManagementTests.test_explicit_download_install_reports_progress_and_uses_cache) ... ok
+test_health_failure_leaves_current_active_unchanged (test_component_management.ManagementTests.test_health_failure_leaves_current_active_unchanged) ... ok
+test_health_of_inactive_version_does_not_switch_active_and_rollback_works (test_component_management.ManagementTests.test_health_of_inactive_version_does_not_switch_active_and_rollback_works) ... ok
+test_invalid_signatures_and_oversize_or_linked_catalog_preserve_old (test_component_management.ManagementTests.test_invalid_signatures_and_oversize_or_linked_catalog_preserve_old) ... ok
+test_license_tampering_is_not_displayed (test_component_management.ManagementTests.test_license_tampering_is_not_displayed) ... ok
+test_offline_transaction_and_license_plain_original (test_component_management.ManagementTests.test_offline_transaction_and_license_plain_original) ... ok
+test_online_catalog_is_only_fetched_by_explicit_action (test_component_management.ManagementTests.test_online_catalog_is_only_fetched_by_explicit_action) ... ok
+test_other_window_lock_is_not_stolen (test_component_management.ManagementTests.test_other_window_lock_is_not_stolen) ... ok
+test_pre_cancel_and_shared_worker_guard_preserve_active (test_component_management.ManagementTests.test_pre_cancel_and_shared_worker_guard_preserve_active) ... ok
+test_repair_modified_payload_and_recheck_health (test_component_management.ManagementTests.test_repair_modified_payload_and_recheck_health) ... ok
+test_required_removal_and_unknown_operations_are_rejected (test_component_management.ManagementTests.test_required_removal_and_unknown_operations_are_rejected) ... ok
+test_seen_revision_downgrade_is_rejected (test_component_management.ManagementTests.test_seen_revision_downgrade_is_rejected) ... ok
+test_signed_catalog_saved_and_reloaded_without_health_or_network (test_component_management.ManagementTests.test_signed_catalog_saved_and_reloaded_without_health_or_network) ... ok
+test_unsupported_platform_or_health_binding_rejected_before_download (test_component_management.ManagementTests.test_unsupported_platform_or_health_binding_rejected_before_download) ... ok
+test_withdrawn_catalog_disables_execution_but_owned_removal_allowed (test_component_management.ManagementTests.test_withdrawn_catalog_disables_execution_but_owned_removal_allowed) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 3.249s
+
+OK
+Process 349397 launched: '/workspace/markitdown-clean-venv/bin/python' (x86_64)
+Process 349397 stopped and restarted: thread 2 received signal: SIGCHLD
+Process 349397 stopped
+* thread #1, name = 'python', stop reason = signal SIGSEGV: address not mapped to object (fault address=0x8)
+       frame #0: 0x00007ff28611cb24 libQt6Core.so.6`QObject::~QObject() + 724
+libQt6Core.so.6`QObject::~QObject:
+->  0x7ff28611cb24 <+724>: movq   0x8(%rax), %rax
+    0x7ff28611cb28 <+728>: cmpq   %rdx, %rax
+    0x7ff28611cb2b <+731>: jne    0x7ff28611cf0a            ; <+1722>
+    0x7ff28611cb31 <+737>: movq   %rbp, %rdi
+(lldb) thread backtrace -c 32
+* thread #1, name = 'python', stop reason = signal SIGSEGV: address not mapped to object (fault address=0x8)
+   * frame #0: 0x00007ff28611cb24 libQt6Core.so.6`QObject::~QObject() + 724
+     frame #1: 0x00007ff287c97852 QtWidgets.abi3.so`___lldb_unnamed_symbol_256844 + 14
+     frame #2: 0x00007ff287a2a86c libpyside6.abi3.so.6.12`___lldb_unnamed_symbol_337ff + 109
+     frame #3: 0x00007ff2883bebb0 libshiboken6.abi3.so.6.12`Shiboken::BindingManager::visitAllPyObjects(void (*)(SbkObject*, void*), void*) + 368
+     frame #4: 0x00007ff287a2ad7a libpyside6.abi3.so.6.12`PySide::destroyQCoreApplication() + 98
+     frame #5: 0x00007ff287a2deb9 libpyside6.abi3.so.6.12`PySide::runCleanupFunctions() + 43
+     frame #6: 0x00007ff28298cba0 QtCore.abi3.so`___lldb_unnamed_symbol_d1b89 + 23
+     frame #7: 0x000000000180fe43 python`cfunction_vectorcall_NOARGS.llvm.2305966719422422379 + 131
+     frame #8: 0x0000000001ad767f python`atexit_callfuncs.llvm.6960507242384659805.warm + 63
+     frame #9: 0x000000000197b7d6 python`Py_FinalizeEx + 86
+     frame #10: 0x000000000197b64d python`Py_Exit + 13
+     frame #11: 0x0000000001c83b6c python`handle_system_exit.cold + 8
+     frame #12: 0x0000000001a345f0 python`_PyErr_PrintEx + 36
+     frame #13: 0x00000000019dcce8 python`_PyRun_SimpleFileObject + 424
+     frame #14: 0x00000000019dc9ca python`_PyRun_AnyFileObject + 74
+     frame #15: 0x00000000019dc950 python`pymain_run_file_obj + 184
+     frame #16: 0x00000000019dc85d python`pymain_run_file + 93
+     frame #17: 0x0000000001ad7763 python`Py_RunMain.warm + 35
+     frame #18: 0x000000000197d35f python`pymain_main.llvm.3121965821471187960 + 479
+     frame #19: 0x000000000197d16c python`main + 44
+     frame #20: 0x00007ff289ca3ca8 libc.so.6`___lldb_unnamed_symbol_29c30 + 120
+     frame #21: 0x00007ff289ca3d65 libc.so.6`__libc_start_main + 133
+     frame #22: 0x00000000019b1229 python`_start + 41

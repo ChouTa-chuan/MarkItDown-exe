@@ -1,0 +1,34 @@
+
+/workspace/markitdown-clean-venv/lib/python3.12/site-packages/PySide6/QtWidgets.abi3.so:	file format elf64-x86-64
+
+Disassembly of section .text:
+
+00000000002292a8 <_ZN11QRubberBand4moveEii>:
+  2567ee: 48 8d 05 33 46 32 00         	leaq	0x324633(%rip), %rax    # 0x57ae28
+  2567f5: 55                           	pushq	%rbp
+  2567f6: 48 89 fd                     	movq	%rdi, %rbp
+  2567f9: 48 89 07                     	movq	%rax, (%rdi)
+  2567fc: 48 05 d0 01 00 00            	addq	$0x1d0, %rax            # imm = 0x1D0
+  256802: 48 89 47 10                  	movq	%rax, 0x10(%rdi)
+  256806: e8 15 f8 ec ff               	callq	0x126020 <_ZN8Shiboken14BindingManager8instanceEv@plt>
+  25680b: 48 89 ee                     	movq	%rbp, %rsi
+  25680e: 48 89 c7                     	movq	%rax, %rdi
+  256811: 48 8d 05 88 ce 37 00         	leaq	0x37ce88(%rip), %rax    # 0x5d36a0 <_ZZN9QMetaType21registerConverterImplI5QListIiE9QIterableI13QMetaSequenceEEEbSt8functionIFbPKvPvEES_S_E10unregister+0x190>
+  256818: 48 8b 00                     	movq	(%rax), %rax
+  25681b: 48 8b 90 20 0f 00 00         	movq	0xf20(%rax), %rdx
+  256822: e8 39 f1 ec ff               	callq	0x125960 <_ZNK8Shiboken14BindingManager15retrieveWrapperEPKvP11_typeobject@plt>
+  256827: 48 89 ee                     	movq	%rbp, %rsi
+  25682a: 48 89 c7                     	movq	%rax, %rdi
+  25682d: e8 ee 1e ed ff               	callq	0x128720 <_ZN8Shiboken6Object7destroyEP9SbkObjectPv@plt>
+  256832: 48 89 ef                     	movq	%rbp, %rdi
+  256835: 5d                           	popq	%rbp
+  256836: e9 45 6b ec ff               	jmp	0x11d380 <_ZN11QPushButtonD2Ev@plt>
+  25683b: 48 83 ef 10                  	subq	$0x10, %rdi
+  25683f: e9 aa ff ff ff               	jmp	0x2567ee <_ZN11QRubberBand4moveEii+0x2d546>
+  256844: 48 83 ec 18                  	subq	$0x18, %rsp
+  256848: 48 89 7c 24 08               	movq	%rdi, 0x8(%rsp)
+  25684d: e8 9c ff ff ff               	callq	0x2567ee <_ZN11QRubberBand4moveEii+0x2d546>
+  256852: 48 8b 7c 24 08               	movq	0x8(%rsp), %rdi
+  256857: be c0 01 00 00               	movl	$0x1c0, %esi            # imm = 0x1C0
+  25685c: 48 83 c4 18                  	addq	$0x18, %rsp
+  256860: e9 eb 23 ec ff               	jmp	0x118c50 <_ZdlPvm@plt>

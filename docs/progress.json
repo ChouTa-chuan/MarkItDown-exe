@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-09",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
-  "tests_passed": 593,
-  "headline": "Windows程序中斷三停點續修3/3已驗；C11仍2/5／完整7/12",
-  "blocker": "各profile／更完整故障恢復、無Python乾淨機與人工／GPU仍待；Linux594含Qt退出-11未接受，單獨補驗exit0不代表修復。",
-  "next": "接各profile相容、更完整中斷恢復與乾淨Windows離線首次流程；並定位Linux Qt退出問題。",
+  "tests_passed": 596,
+  "headline": "Qt視窗生命週期修正：混合597正常退出、35模組全exit0；C11仍2/5／完整7/12",
+  "blocker": "各profile／更完整故障恢復、Inno暫存清理、無Python乾淨機、人工／GPU與ONNX繁中品質仍待；Windows0.17.1需另驗。",
+  "next": "完成Inno暫存所有權清理及各profile相容，接乾淨Windows離線首次流程與人工測試包。",
   "milestones": [
     {
       "id": "m0",
@@ -62,7 +62,7 @@
       "id": "m2",
       "title": "桌面 MVP",
       "state": "active",
-      "description": "桌面新增／拖放、批次、RAM 設定與預覽已實作，文字流程通過 Linux 離屏測試。",
+      "description": "桌面新增／拖放、批次、RAM與預覽已實作；Linux入口釋放與忙碌取消正常退出已驗，Windows人工待驗。",
       "checks": [
         {
           "label": "版本化 RAM 設定持久化",
@@ -138,7 +138,7 @@
       "id": "m5",
       "title": "發佈準備",
       "state": "active",
-      "description": "已補齊 Inno Setup、安裝／解除安裝與自我檢查流程；58 套件授權與手冊完成，Windows 原生產物尚未建置驗收。",
+      "description": "0.17 Windows hosted基本包、安裝／修復／移除、基本跨版及三停點續修已驗；乾淨機、各profile、人工與正式發行待驗。",
       "checks": [
         {
           "label": "Windows 建置與安裝包",
@@ -161,8 +161,8 @@
       "title": "桌面介面",
       "layer": "介面",
       "state": "partial",
-      "detail": "桌面批次／預覽、原模型管理與 C08 背景選配管理；版本、容量、授權、健康與維護可操作，Windows UI 仍待驗。 首次設定介面已接入，基本包仍待驗收。 可明確選受管 CPU 元件與版號，不自動取代 Tesseract。",
-      "evidence": "C08 152 項含桌面回歸＋真實 Qt／frozen CPU 9 項；正式來源尚未發布"
+      "detail": "桌面批次／預覽、首次設定與C08選配管理可操作；0.17.1補入口與測試視窗正常釋放，Windows人工UI待驗。",
+      "evidence": "Linux Qt入口3案、管理23項12輪正常退出；0.17 hosted GUI已驗，新版Windows待驗。"
     },
     {
       "id": "application",
@@ -209,8 +209,8 @@
       "title": "背景程序",
       "layer": "支援",
       "state": "partial",
-      "detail": "新基本 profile 內含同平台引擎與固定四語；Linux frozen core／full 已驗，舊 core 缺 OCR 拒絕仍保留。Windows 只驗靜態 payload。",
-      "evidence": "Linux frozen 12 項，空 PATH／搬移／缺檔／損毀／實際 library loader；非 Windows 或發行驗收"
+      "detail": "基本profile內含同平台引擎與固定四語；Linux及0.17 Windows基本包／安裝後app已驗，乾淨機與各選配另驗。",
+      "evidence": "0.17 hosted Windows app各10項；0.17.1 Linux完整597正常退出，非乾淨機或發行。"
     },
     {
       "id": "settings",
@@ -226,7 +226,7 @@
       "layer": "處理",
       "state": "partial",
       "detail": "Tesseract 內含四語已接上預設解析，Linux 完整自檢真實辨識；明確自備引擎／模型偏好保留。ONNX 日韓／繁體品質與 GPU 未驗。",
-      "evidence": "185 項含回歸＋Linux frozen 四語 12 項；固定樣本非一般準確率，Windows PE 未執行"
+      "evidence": "Linux frozen四語與0.17 Windows四語固定樣本已驗；ONNX繁體／日韓與GPU仍有限制。"
     },
     {
       "id": "quality",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 593 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格63項；0.17.1全專案596通過、1固定繁體品質預期失敗，混合及35模組正常退出。"
     },
     {
       "id": "exporters",
@@ -246,20 +246,20 @@
     }
   ],
   "limits": [
-    "C01／C02／C05–C08／C10 已驗收，7/12；C03 Linux 內含整包 3/4、C04 2/4、C09 3/4 子檢核，完整原生基本包與 Windows 未驗。既有 19/25 分開追蹤。",
+    "C01／C02／C05–C08／C10已驗收7/12；C03 3/4、C04 2/4、C09 3/4、C11 2/5；乾淨機、全profile、人工與GPU待驗。既有19/25分開追蹤。",
     "Tesseract 日韓／四語合成樣本通過，不代表任意混排／直排／低品質文件準確率；ONNX 繁體缺口與日韓未驗保留，GPU 未實機。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
-    "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
+    "0.17已有hosted Windows基本包、安裝／修復／移除、基本跨版及三停點續修證據；0.17.1本輪Linux驗證，不能代替乾淨Windows、全profile、人工或GPU驗收。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
-    "Linux 555 項採31模組正常退出；混合程序完成斷言後曾native teardown exit139，根因未定位。"
+    "0.17.1混合597與35模組正常exit0，管理23項連續12輪exit0；Qt全域cleanup舊失敗與native stack保留。不是所有第三方Qt錯誤已解決。"
   ],
-  "tests_run": 594,
+  "tests_run": 597,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收 7/12。C03 四語、來源與 Linux 內含整包 3/4；Windows 靜態 payload 已備，實機未驗。C04 2/4、C09 3/4，完整項仍待後續。",
+    "description": "已驗收7/12。C03四語／來源／Linux內含整包3/4、C04 2/4、C09 3/4、C11 2/5；0.17 hosted Windows基本包已驗，乾淨機與全profile仍待。0.17.1完成Linux Qt正常退出修正。",
     "phases": [
       {
         "id": "a",
@@ -487,7 +487,7 @@
         "id": "native_assets",
         "title": "內含四語與原生基本包",
         "state": "partial",
-        "detail": "固定來源四語 Windows 基本包已真正打包、辨識、中文搬移、CLI與Qt自檢通過；乾淨機與安裝仍待，C03 3/4。",
+        "detail": "0.17固定四語Windows基本包／安裝後app已真正辨識、中文路徑與CLI／Qt自檢通過；乾淨機仍待，C03 3/4。",
         "evidence": "Windows CI 10/10；Linux frozen 12／source Qt3。hosted runner非乾淨機，C03不關閉。"
       },
       {
@@ -520,5 +520,40 @@
       }
     ]
   },
-  "full_regression_accepted": false
+  "full_regression_accepted": true,
+  "source_version": "0.17.1",
+  "qt_lifecycle": {
+    "source_version": "0.17.1",
+    "architecture_version": "0.4",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.12",
+    "qt": "PySide6 6.12.0",
+    "known_expected_failure": "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap",
+    "mixed_process_exit": 0,
+    "isolated_accepted": true,
+    "modules": 35,
+    "run": 597,
+    "passed": 596,
+    "skipped": 0,
+    "management_repeats": 12,
+    "management_all_exits_zero": true,
+    "gui_entrypoint_checks": 3,
+    "windows_executed_this_revision": false,
+    "gpu_executed": false,
+    "release_ready": false,
+    "commands": [
+      "python -m pip install --no-index --no-deps --no-build-isolation .",
+      "python scripts/packaging_profiles.py --generate",
+      "python -m unittest discover -s tests -v",
+      "python scripts/check_isolated_tests.py --expected-count 597 --output <fresh-directory>"
+    ],
+    "source_hashes": {
+      "src/desktop_app/desktop.py": "250e4bcec19b51f20490c90ed26799693ec5b3d3514b686bc6e195eabfccce73",
+      "tests/qt_support.py": "a5feb31cde1de7ca9b80a325ff9ac49bad3a6357ba18265cb662d7001e3ae8e9",
+      "tests/test_qt_lifecycle.py": "32076beec144b56aeea15e3a3956e15498eacdfec6846cda1c048a1ceea62412",
+      "scripts/check_isolated_tests.py": "3b28014c644b24cd039985ca49471f12531607b1bbe965c7f475569986e49e59",
+      "pyproject.toml": "09cb07bc0a4c758ca51c9499a804dc252628fe22d2959a46ac16dad2933282bf",
+      "packaging/profiles/base-closure.json": "763510d527dae27fd67bbab4fa31c3aafe0182d499b73e8a2369dbaf7a89f4ac"
+    }
+  }
 }

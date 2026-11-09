@@ -1,0 +1,35 @@
+{
+  "source_version": "0.17.1",
+  "architecture_version": "0.4",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.12",
+  "qt": "PySide6 6.12.0",
+  "known_expected_failure": "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap",
+  "mixed_process_exit": 0,
+  "isolated_accepted": true,
+  "modules": 35,
+  "run": 597,
+  "passed": 596,
+  "skipped": 0,
+  "management_repeats": 12,
+  "management_all_exits_zero": true,
+  "gui_entrypoint_checks": 3,
+  "windows_executed_this_revision": false,
+  "gpu_executed": false,
+  "release_ready": false,
+  "commands": [
+    "python -m pip install --no-index --no-deps --no-build-isolation .",
+    "python scripts/packaging_profiles.py --generate",
+    "python -m unittest discover -s tests -v",
+    "python scripts/check_isolated_tests.py --expected-count 597 --output <fresh-directory>"
+  ],
+  "source_hashes": {
+    "src/desktop_app/desktop.py": "250e4bcec19b51f20490c90ed26799693ec5b3d3514b686bc6e195eabfccce73",
+    "tests/qt_support.py": "a5feb31cde1de7ca9b80a325ff9ac49bad3a6357ba18265cb662d7001e3ae8e9",
+    "tests/test_qt_lifecycle.py": "32076beec144b56aeea15e3a3956e15498eacdfec6846cda1c048a1ceea62412",
+    "scripts/check_isolated_tests.py": "3b28014c644b24cd039985ca49471f12531607b1bbe965c7f475569986e49e59",
+    "pyproject.toml": "09cb07bc0a4c758ca51c9499a804dc252628fe22d2959a46ac16dad2933282bf",
+    "packaging/profiles/base-closure.json": "763510d527dae27fd67bbab4fa31c3aafe0182d499b73e8a2369dbaf7a89f4ac"
+  },
+  "qtwidgets_wrapper_module_sha256": "4543cab2c4a8edee5bc4c818dc0ba2f8552ffa6b10a4b4ab02d8536f10400115"
+}

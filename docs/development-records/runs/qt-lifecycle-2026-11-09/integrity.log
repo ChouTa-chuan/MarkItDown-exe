@@ -1,0 +1,19 @@
+{
+  "previous_committed_record_files_unchanged": 2299,
+  "previous_architecture_snapshots_unchanged": 28,
+  "architecture_snapshots_verified": 28,
+  "locked_requirements_unchanged": 7,
+  "original_license_asset_files_unchanged": 221,
+  "previous_product_data_files_unchanged": 233,
+  "traditional_quality_fixture_and_old_health_unchanged": 4,
+  "relative_markdown_links_verified": 201,
+  "baseline_commit": "9eeb1ba",
+  "source_version": "0.17.1",
+  "completed_date_taipei": "2026-11-09",
+  "check": "Qt-owned-window-lifecycle",
+  "linux_full_regression_accepted": true,
+  "windows_executed_this_revision": false,
+  "gpu_executed": false,
+  "full_c11_complete": false,
+  "temporary_cleanup_complete": false
+}
