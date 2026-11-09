@@ -24,7 +24,7 @@ class RecordedResult(unittest.TextTestResult):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--report', type=Path, required=True)
-    parser.add_argument('--check', choices=('C01', 'C02', 'C03-languages', 'C03-native-static', 'C03-minimal-source', 'C03-bundle', 'C03-windows-ci', 'C04-locks', 'C04-build', 'C05', 'C06', 'C07', 'C08', 'C09-flow', 'C10'), default='C01')
+    parser.add_argument('--check', choices=('C01', 'C02', 'C03-languages', 'C03-native-static', 'C03-minimal-source', 'C03-bundle', 'C03-windows-ci', 'C04-locks', 'C04-build', 'C05', 'C06', 'C07', 'C08', 'C09-flow', 'C10','C11-installer'), default='C01')
     args = parser.parse_args()
     # 使用已安裝的套件，避免把原始碼路徑插入 sys.path 而掩蓋漏打包的新模組。
     sys.path.insert(0, str(ROOT / 'tests'))
@@ -33,6 +33,8 @@ def main():
                'C03-languages':['test_languages','test_onboarding','test_settings','test_component_migration',
                                 'test_models','test_desktop','test_help_ui','test_core','test_pdf_pipeline'],
                'C03-windows-ci':['test_windows_ci','test_bundled_ocr','test_minimal_native','test_native_assets','test_build_profile','test_diagnostics','test_packaging_profiles','test_license_inventory',
+                                 'test_pdf_pipeline.PdfPipelineTests.test_utf8_language_probe_and_real_ocr_with_cp1252_default'],
+               'C11-installer':['test_base_installer','test_windows_ci','test_bundled_ocr','test_minimal_native','test_native_assets','test_build_profile','test_diagnostics','test_packaging_profiles','test_license_inventory',
                                  'test_pdf_pipeline.PdfPipelineTests.test_utf8_language_probe_and_real_ocr_with_cp1252_default'],
                'C03-bundle':['test_bundled_ocr','test_build_profile','test_diagnostics','test_languages','test_onboarding','test_settings','test_component_migration','test_models','test_desktop','test_help_ui','test_core','test_pdf_pipeline'],
                'C03-minimal-source':['test_minimal_native','test_native_assets','test_build_profile','test_diagnostics','test_packaging_profiles','test_license_inventory'],
@@ -67,6 +69,7 @@ def main():
                       'C02':'v1-v5 settings, SQLite schema migration, synthetic downloads, desktop text conversion, pinned local models and explicit OCR path checks',
                       'C03-languages':'Four-language model/preference contracts, v1-v6 settings migration, Qt, local native health and PDF/core regression. New JA/KO model inference and full GUI/CLI acceptance reported separately; no bundled Windows native OCR.',
                       'C03-windows-ci':'CI fixed-input downloads/receipt and platform-refusal plus native/payload/profile/license regressions; actual Linux Tesseract with a CP1252 negative control and Chinese-path UTF-8 probe/OCR. Actual Windows hosted-runner execution reported separately; no clean-machine, installer, GPU or release acceptance.',
+                      'C11-installer':'Synthetic file catalogs, version/path/tampering/uninstall ownership and actual UTF-16 diagnostic files; Linux platform refusal plus base/native/profile/license and CP1252/native OCR regressions. Actual Inno/Windows installation reported separately; no clean-machine, upgrade/rollback, human or full C11 acceptance.',
                       'C03-bundle':'Embedded four-language payload/profile resolution, explicit override and relocation, integrity/platform/fallback protections and self-test contracts; includes four-language/onboarding/settings/Qt/core regressions. Actual Linux frozen OCR and Windows static payload reported separately; no Windows execution or full C03/C04/C09 acceptance.',
                       'C03-minimal-source':'Fixed minimal native sources/notices, bounded extraction and candidate/config checks; 64 native/profile/license regressions. Actual Linux cross-built PE and link/source evidence reported separately. No Windows execution, OCR, application bundle or redistribution approval.',
                       'C03-native-static':'Synthetic PE boundaries/imports and actual file/hash policy plus profile/diagnostic/license regressions. Actual pinned Windows payload static inspection reported separately; does not complete the C03 source/license or Windows execution gates.',
@@ -84,6 +87,9 @@ def main():
         report['flow_accepted']=accepted
         report['full_c09_complete']=False
         report['base_ocr_bundled']=False
+    if args.check=='C11-installer':
+        report['full_c11_complete']=False
+        report['installer_executed']=False
     if args.check in ('C04-locks','C04-build'):
         report['full_c04_complete']=False
         report['native_ocr_bundled']=False

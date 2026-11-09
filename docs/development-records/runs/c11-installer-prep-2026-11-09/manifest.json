@@ -1,0 +1,486 @@
+{
+  "schema_version": 1,
+  "source_version": "0.15.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-09",
+  "check": "C11-installer",
+  "mechanism_accepted": true,
+  "full_c11_complete": false,
+  "scope": "C11 hosted installer工具準備與Linux契約／隔離回歸；尚無新Windows安裝／修復／移除證據，非乾淨機或完整C11／發行",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1923,
+      "sha256": "749fbdf4d85d538e9a970a0f37556bd549ba3e81d58c242f4a0b0c6762d357fb",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "acceptance-publisher.json",
+      "bytes": 14922,
+      "sha256": "58b6b83a94ed1376d06c008653bc7136df947412884168ea3025e7198e3af153",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "acceptance-publisher.log",
+      "bytes": 22435,
+      "sha256": "1a383b81f693e369a6c8dead1969b6b7e56a1a28ba25115f822b87fcd2d02fcb",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "acceptance.json",
+      "bytes": 14922,
+      "sha256": "b93be73a50bff0c45ecb242a73b7e1b491807de7caf02d409e16c5ef50a84e66",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "acceptance.log",
+      "bytes": 22435,
+      "sha256": "73abcc7ff612f074916a32079449555062df0ec4720613a6e42b9820393ca66c",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "install-source.log",
+      "bytes": 1269,
+      "sha256": "f19959d74e6b10f14a0eac7a78c9619b956b1dc4a0103ef457a74f613cac2d5d",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 2475,
+      "sha256": "409c1c04b53ca0997da0f9d973062af759e7bebfed9f46f3b8cb42db9cbcf49e",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/summary.json",
+      "bytes": 8556,
+      "sha256": "a8369bfb077920e2aea7c8269269d85cd590b771100db1ee712993f1ec53bba3",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_installer.json",
+      "bytes": 189,
+      "sha256": "c373c0e29a9cc8c8ed0de2d8d49282529221267c3e8514ae0766bd2fe1eff0b2",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_installer.log",
+      "bytes": 2153,
+      "sha256": "1e8c85df7b2fe1990b21c7601780f9ce62b483fca156442c26c62d7cf0892b77",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_borderless.json",
+      "bytes": 185,
+      "sha256": "6b9be17e89ca6db4a135a99a96bd8110564cc60529452fbe74ffe2d144366c93",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_borderless.log",
+      "bytes": 2053,
+      "sha256": "04acb399226f3237ca43878c15e8d368224e1fea1c8af0850d11569a137baeca",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_build_profile.json",
+      "bytes": 188,
+      "sha256": "11c00d1448720f97abbc5d298323b78fdeccee8b33d74e548d1ba38a2a1c17ff",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_build_profile.log",
+      "bytes": 2257,
+      "sha256": "bb21edf6d14ca67e1618f27ace9dfd7ec08907d6bc7d431eefab351155a93a9c",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_bundled_ocr.json",
+      "bytes": 186,
+      "sha256": "680b9c1c91c6d74883a09b0a127205a9dee78bbb76e7a9529c80469981b4f204",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_bundled_ocr.log",
+      "bytes": 3835,
+      "sha256": "d5efdb7f1a094c64b9632a6bd64795fd0de9218af9a70540c5d84e200540bc8e",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_downloads.json",
+      "bytes": 194,
+      "sha256": "d12b09adf4c28c16e88669f8771c8629843970a030bdf902a10dea753d0fdf57",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_downloads.log",
+      "bytes": 6645,
+      "sha256": "5e2bf15afe6ea84b2de166a994a824caccdc33078ebb249f6a0fb297b0748e71",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_lifecycle.json",
+      "bytes": 194,
+      "sha256": "bd764b822063ebe25f8bdd1217af2aa9849015ff5c564c6b3e1812c88aa5d8f8",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_lifecycle.log",
+      "bytes": 8564,
+      "sha256": "bbe7eca656c2d3d1d20503161f0e93a9f573617655636baf95e9ce48b28b0ce8",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_management.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_management.log",
+      "bytes": 4000,
+      "sha256": "40a426767d1b84345e2101cc185643c6da0061df6fed925f5b48b59a33f8df6d",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_migration.json",
+      "bytes": 194,
+      "sha256": "13a39638064053a789eaeda453cfdc9b19de10ad885a82aed0c97cabce80e3db",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_migration.log",
+      "bytes": 5094,
+      "sha256": "378234622a3f9beb78dfb9fea4ffcf2718057e8288b2c677a4ba4559be8ebff7",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_workers.json",
+      "bytes": 192,
+      "sha256": "56cb2b7d43be4e4d49c89fb22df03b7d7f822a3098131907530c23952f21aadf",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_workers.log",
+      "bytes": 3537,
+      "sha256": "da3c9009c1506bc307e3838a3bf3029ddd7c7e611d5081904c8232c8f44a2b2c",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_components.json",
+      "bytes": 185,
+      "sha256": "c85c5b436760aef9bfaa5e5c1adb5c4ff9a1ec547713caa57e5235e00a02ef1f",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_components.log",
+      "bytes": 6943,
+      "sha256": "ffb48897f13f43c190320249f32c916393b602b473fbd070da0cb7d8d224f965",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_core.json",
+      "bytes": 179,
+      "sha256": "a93d8007bf356996f386d0fdd566a8dbafdedf75de9f17a77a102f6f84df3aff",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_core.log",
+      "bytes": 1743,
+      "sha256": "c6f40bdb45618ea5f4ebbda217277085ff7f0da0e1cb7a67905b3a0f776c704b",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_desktop.json",
+      "bytes": 182,
+      "sha256": "e8a2827f9ff901fe5c1fe902d287c9a963d2a73c47068bb24ee5dda4c5030d2d",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_desktop.log",
+      "bytes": 1494,
+      "sha256": "9e165b882b2694812837380301f41e3d76fabdc0a3e2e99be719cb8a7f3ba217",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_devices.json",
+      "bytes": 181,
+      "sha256": "ff3fd557fc6150e23395a0398240e500795dcd8d436246fbbc373f23d509b135",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_devices.log",
+      "bytes": 1000,
+      "sha256": "65744c29d259bd36eed8128a867e9741a4b95a4b1cd673ab208bfc9e7a615a90",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_diagnostics.json",
+      "bytes": 185,
+      "sha256": "b2861c84efecd4ad7910775db50667c210cb5cb2a3eeaf25f2138cfca8e369b5",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_diagnostics.log",
+      "bytes": 1054,
+      "sha256": "3f5d41c18e6be2718880f80a476664dc3bd6b4a750d9be81b734fe7ff73a0dd8",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_formats.json",
+      "bytes": 181,
+      "sha256": "9515426c7ccac2d340b1c5dac050cdbfd1e9847f9aaf22d7c5e92073dce58b2f",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_formats.log",
+      "bytes": 1166,
+      "sha256": "8274a7b39a34796c2c67572595082cdd6f6101b30b68d7941c364bc8fea5d85e",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_help_ui.json",
+      "bytes": 181,
+      "sha256": "13dfa63fe7cbacc513fc70a12a960b59fb35e453bc92715e1a35387e822bdb0c",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_help_ui.log",
+      "bytes": 382,
+      "sha256": "22b1299da04de10705b4920f45c51505f44593604cc0e29144d0912c5876a99e",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_languages.json",
+      "bytes": 184,
+      "sha256": "e3fd996b21ff058c7c59ea07c20a61a6a5bf587c7c3f6c66ae4095526e7e1aa1",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_languages.log",
+      "bytes": 2774,
+      "sha256": "61e20eba89d84a663ce82bc9716e71051753b4a5813a194d870501d21e199f36",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_license_inventory.json",
+      "bytes": 191,
+      "sha256": "b1a9356652eb8e0023ef53080e145388f88d6b91935f2b0e6af53e001967ca50",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_license_inventory.log",
+      "bytes": 1169,
+      "sha256": "79118888fdf8f555099a194793099689fc5999c5636d86ccfc83da4950af51d8",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_managed_conversion.json",
+      "bytes": 193,
+      "sha256": "9ae2a6a0d0b6e05082293be94b3ae18ddd74167822f4de2a27152755f0e4cab7",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_managed_conversion.log",
+      "bytes": 3431,
+      "sha256": "0f26635ab4c385f2f4a4da577e701f26dcf9d823aa46e1e8f9531403ce2f779d",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_minimal_native.json",
+      "bytes": 189,
+      "sha256": "e8e00accf3cc3f0734f53eb29e2743b087d75711a2b94c94bf7968c87633c3bf",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_minimal_native.log",
+      "bytes": 3501,
+      "sha256": "3c06af6e416b2ef2df111abd8f58366f4bae2857d0bfe2404d852c7ec1c1e23f",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_models.json",
+      "bytes": 180,
+      "sha256": "5ea2901d74bcf159d9aec9c2f46258a8b471dee4e18dfa6cf598c26aa696df90",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_models.log",
+      "bytes": 942,
+      "sha256": "60e94bd03c316e3ac1f92b0ab95e62a41de67ca665c1a2e4d5013cff7c7d26d7",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_native_assets.json",
+      "bytes": 188,
+      "sha256": "cdda65f9c7b92c362f6a653f345b05a348c4f93fe4e8c9bbef2d2334efb1520b",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_native_assets.log",
+      "bytes": 2734,
+      "sha256": "af0497fce181abd2118ac5b4ddda0fc03b68da480fe99a03c38fb6f4cad7128f",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onboarding.json",
+      "bytes": 185,
+      "sha256": "135c04d454c22c30bc5298d4d71d9a6dae994a3b2e179b584389e83550a71076",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onboarding.log",
+      "bytes": 3436,
+      "sha256": "271749bebe430f92ba5f0cf83b556175086e9b8cd5912191c0356410098457c8",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onnx_ocr.json",
+      "bytes": 270,
+      "sha256": "5473748ad45f88fe92de41c8afe686dcf8f6be10ffca08cde4199a369ab3147c",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onnx_ocr.log",
+      "bytes": 1765,
+      "sha256": "fb05632f44619882423604a988cc765fc3ac95220a29a7250c731d54cce2fe9c",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_packaging_profiles.json",
+      "bytes": 193,
+      "sha256": "9a12514d89a19c4509ada37eb816bc371212b83160e35e1993de09ec684d777a",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_packaging_profiles.log",
+      "bytes": 2227,
+      "sha256": "7f2230e9fbe0314e7f93000b80a14989ab85a2ddd9f9039efb60de5fe6e5be63",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_acceptance.json",
+      "bytes": 188,
+      "sha256": "14153a32f1234b4ba0d99a57e0be06449d6241bfa555f301a63fe13a6119144c",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_acceptance.log",
+      "bytes": 918,
+      "sha256": "382bb077deca7c57f77c1c4a322c68f0971054f6e6c7503e36a732504ca2109e",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_pipeline.json",
+      "bytes": 187,
+      "sha256": "17635e630af495493d6167553bd28f55fb8c788c6fa481cc67526f70f36fd946",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_pipeline.log",
+      "bytes": 2690,
+      "sha256": "7db4b310b0dce01b65b5ed0653c9592335598f1a1110db4d681a57b81e748dad",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_quality.json",
+      "bytes": 181,
+      "sha256": "272db2627acbad3414e199b77a81d36f62b6e6f761312de1777eb6bf47312e83",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_quality.log",
+      "bytes": 764,
+      "sha256": "84d861088d7a2909f1bc5d83194f1f91b9418e96056dafb102bd48a122060345",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_settings.json",
+      "bytes": 183,
+      "sha256": "9da3a4a911fefbec1b221b6a8ee1c7fec4674929c0f66aace7a100b715dbc51d",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_settings.log",
+      "bytes": 1408,
+      "sha256": "0488d208b95d1eefed822d6e9682723292aaf1e5a9cb0ffddb20dfa7bfe86b22",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_table_continuation.json",
+      "bytes": 193,
+      "sha256": "ed43e12cfdb956325de422e4ed4bb11bdd73cf1abd16bae01104e1900e237213",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_table_continuation.log",
+      "bytes": 2703,
+      "sha256": "6b9329a66979382d27627e1583189a5400d5da809098a182171b8645e496a2fc",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_tables.json",
+      "bytes": 180,
+      "sha256": "5f020394fbbfa32326a3c3cf52fe2add764b14a13c47f0ed675d5d4c1592673a",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_tables.log",
+      "bytes": 875,
+      "sha256": "cd57cfcbed35a3b45e3001780e107631fb8c8a2bacc4a83cdd4d38813647f2b4",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_windows_ci.json",
+      "bytes": 185,
+      "sha256": "76413b62e9ab37e86829061d7dec3b940ff34e5145a3678a8d967c882bc47d3f",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_windows_ci.log",
+      "bytes": 4085,
+      "sha256": "2e84c9d7c94daa45ea6b642ef89ec980f55cd11292cb58b648ffb85396bbaff0",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 734765,
+      "sha256": "f9d5db6a01c10226b56feaac25ca09e10306bd4f7ea106403ab039eac2ca81cc",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 735425,
+      "sha256": "a5bf823ed3c8b709ddaf324a208aa96fd35dae671c426078b211b4c9556cbb10",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 297518,
+      "sha256": "51159b298b418a6eb555158915a0796582f9deef37ec5cd94d7592b2268a9fec",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 315775,
+      "sha256": "b09b8f17a1c64c414784c84747d65b47aebccc39f2dd3a97db9f2a96aa8fe54b",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 466967,
+      "sha256": "a9fc17d52f435e015e8c6a25bd266727804083cbdbceae06e6f996dd90aa5f24",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    },
+    {
+      "file": "unit-initial-12.log",
+      "bytes": 2009,
+      "sha256": "9cbaf6e491798e3901b36f96e124429258ce498e88c2a693970d63ebc608eadc",
+      "source": "Linux真實檔案／catalog／拒絕平台／UTF-16日誌與32模組568隔離回歸，Windows新安裝器未執行；無使用者文件"
+    }
+  ]
+}

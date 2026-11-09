@@ -47,6 +47,8 @@
 
 第二十二份：[Windows 基本包 CI 驗證完成](versions/v0.4-windows-base-ci.md)，保存10/10與乾淨機／安裝、GPU待驗範圍。
 
+第二十三份：[基本包安裝生命週期準備](versions/v0.4-base-installer-preparation.md)，程式0.15.0，真實Windows安裝待CI。
+
 ## 保存規則
 
 - 已存圖檔保留固定內容；下次架構變更新增另一份版本快照，再補索引與 CHANGELOG。

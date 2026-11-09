@@ -265,6 +265,18 @@
       "source_description": "Windows CI #7 基本包10/10已接受；乾淨機與安裝／GPU仍待",
       "architecture_scope": "0.4 actual Windows hosted base validation accepted; no clean-machine/installer/human/GPU completion",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-base-installer-preparation.md",
+      "title": "架構 v0.4：基本包安裝生命週期準備",
+      "diagram_sha256": "ccf58be075f1730bf1fad035bbad12a32ce622e917103312878a6af75db01810",
+      "file_sha256": "3a4756c3f410f01bc4ca99668ac9a973634625360fed60400307417c4988b626",
+      "source_kind": "same_commit",
+      "source_path": "README.md",
+      "source_version": "0.15.0",
+      "source_description": "新基本安裝器／catalog與C11 hosted工具，Windows實測待驗",
+      "architecture_scope": "0.4 base installer lifecycle preparation; no actual installer acceptance claimed",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-09"

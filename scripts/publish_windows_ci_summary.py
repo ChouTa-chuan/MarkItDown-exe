@@ -10,21 +10,32 @@ def publish_annotation(records, tails):
     if os.environ.get('GITHUB_ACTIONS') != 'true':
         return
     result = records.get('windows-build.json', records.get('build-evidence.json', {}))
-    accepted = result.get('validation_accepted', result.get('cross_build_complete'))
+    accepted = result.get('overall_accepted',result.get('validation_accepted', result.get('cross_build_complete')))
     # 公開頁會截斷約 5 KB 的 annotation；優先放真正失敗步驟，完整 JSON 留在 summary／artifact。
     def brief(record):
         keys = ('check', 'source_version', 'commit', 'accepted', 'build_verified', 'validation_accepted',
                 'windows_executed', 'python_utf8_mode', 'gui', 'checks_passed', 'error', 'cross_build_complete',
-                'clean_machine_accepted', 'release_ready')
+                'clean_machine_accepted', 'release_ready','overall_accepted','installer_accepted',
+                'install_verified','repair_verified','uninstall_verified','user_data_preserved',
+                'shortcut_verified','installed_app_checks','full_c11_complete','installer_sha256',
+                'compiler_sha256','compiler_license_sha256','bundle_catalog_sha256','catalog_files')
         return {key: value[:250] if isinstance(value, str) else value
                 for key, value in record.items() if key in keys}
     payload = dict(result=brief(result))
     if 'acceptance/windows-acceptance.json' in records:
         payload['acceptance'] = brief(records['acceptance/windows-acceptance.json'])
+    if 'installer/installer-lifecycle.json' in records:
+        payload['installer'] = brief(records['installer/installer-lifecycle.json'])
     if not accepted:
         commands = result.get('commands', [])
         last = commands[-1].get('label', '') if commands and isinstance(commands[-1], dict) else ''
-        candidates = ['acceptance/driver-error.log', last+'.log']
+        installer=records.get('installer/installer-lifecycle.json',{})
+        commands=installer.get('commands',[])
+        inner=commands[-1].get('label','') if commands and isinstance(commands[-1],dict) else ''
+        command_failure=str(installer.get('error','')).startswith(('CalledProcessError','TimeoutExpired'))
+        candidates = ['installer/installed-acceptance/driver-error.log']
+        if command_failure:candidates.append('installer/'+inner+'.log')
+        candidates += ['installer/driver-error.log','acceptance/driver-error.log', last+'.log']
         selected = next((name for name in candidates if name in tails), next(reversed(tails), ''))
         payload['failure_log'] = selected
         payload['failure_tail'] = tails.get(selected, '')[-750:]
@@ -56,7 +67,7 @@ def main():
     records = {}
     for name in ['build-evidence.json', 'native-inputs/downloads.json', 'windows-build.json', 'acceptance/windows-acceptance.json',
                  'acceptance/core-self-test.json','acceptance/full-self-test.json',
-                 'acceptance/relocated-self-test.json']:
+                 'acceptance/relocated-self-test.json','installer/installer-lifecycle.json']:
         path = args.reports/name
         if path.is_file():
             if path.stat().st_size > 128*1024:
@@ -67,13 +78,15 @@ def main():
     for path in sorted(args.reports.rglob('*.log')):
         if path.stat().st_size > 8*1024**2:
             continue
-        tails[path.relative_to(args.reports).as_posix()] = '\n'.join(path.read_text(encoding='utf-8', errors='replace').splitlines()[-35:])[-6000:]
+        raw=path.read_bytes()
+        encoding='utf-16' if raw.startswith((b'\xff\xfe',b'\xfe\xff')) else 'utf-8-sig'
+        tails[path.relative_to(args.reports).as_posix()] = '\n'.join(raw.decode(encoding,errors='replace').splitlines()[-35:])[-6000:]
     content = json.dumps(dict(schema_version=1, reports=records, log_tails=tails), ensure_ascii=False, indent=2)
     if len(content.encode('utf-8')) > 900*1024:
         raise ValueError('CI summary 超過平台上限。')
     with args.summary.open('a', encoding='utf-8') as output:
         output.write('\n## Windows 基本包驗證報告\n\n')
-        output.write('僅為 CI 開發驗證；乾淨機、人工操作、安裝包與 GPU 尚未驗收。\n\n')
+        output.write('僅為 CI 開發驗證；乾淨機、人工操作、完整安裝生命週期與 GPU 尚未驗收。\n\n')
         output.write('<!-- MARKITDOWN_WINDOWS_CI_REPORT -->\n```json\n'+content+'\n```\n')
     publish_annotation(records, tails)
 

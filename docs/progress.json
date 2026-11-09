@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-09",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
-  "tests_passed": 554,
-  "headline": "Windows 基本包 CI 10/10 通過；完整導入 7/12，接乾淨機與安裝",
-  "blocker": "完整乾淨 Windows／安裝生命週期、人工 UI、各選配 profile／GPU 待驗；Linux混合native teardown與ONNX繁體品質仍開放。",
-  "next": "以已驗證的 Windows 基本包接乾淨機、首次完整流程與安裝／升級／修復／移除，另追 Linux 混合 teardown。",
+  "tests_passed": 567,
+  "headline": "0.15基本包安裝／同版修復／移除CI準備，Windows真實結果待驗；完整7/12",
+  "blocker": "新安裝器尚待Windows真正編譯／安裝／修復／移除；乾淨機、跨版升級回復／人工UI與GPU保留。",
+  "next": "重跑Windows基本包與真安裝生命週期，依實際結果關閉C11子檢核，仍不當作完整C11或Release。",
   "milestones": [
     {
       "id": "m0",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 554 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 567 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -254,7 +254,7 @@
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
     "Linux 555 項採31模組正常退出；混合程序完成斷言後曾native teardown exit139，根因未定位。"
   ],
-  "tests_run": 555,
+  "tests_run": 568,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -407,7 +407,25 @@
             "id": "C11",
             "label": "Windows 完整安裝生命週期",
             "done": false,
-            "acceptance": "無 Python 乾淨機、離線、升級／修復／回復／移除、資料保留及人工 UI。"
+            "acceptance": "新增hosted安裝／同版修復／移除工具與資料哨兵契約，尚待Windows實際執行；完整C11不關閉。",
+            "subchecks": [
+              {
+                "label": "Hosted Windows：真安裝／同版修復／移除及資料哨兵保留",
+                "done": false
+              },
+              {
+                "label": "真實跨版本升級／回復與各profile相容",
+                "done": false
+              },
+              {
+                "label": "無Python乾淨Windows／離線完整首次流程",
+                "done": false
+              },
+              {
+                "label": "人工UI與完整安裝生命週期驗收",
+                "done": false
+              }
+            ]
           },
           {
             "id": "C12",
@@ -474,6 +492,13 @@
         "state": "verified",
         "detail": "Windows 2022 實際原生基本包／四語／中文搬移／CLI／故障保護與 Qt正常退出 10/10 通過；範圍僅 hosted runner。",
         "evidence": "CI #7（3384167）接受；Python UTF-8=true，Qt正常exit0／4次正常關閉要求。乾淨機／安裝／GPU不計完成。"
+      },
+      {
+        "id": "base_installer",
+        "title": "基本包安裝生命週期",
+        "state": "partial",
+        "detail": "獨立per-user開發安裝器與catalog；真安裝／破壞後同版修復／移除及資料保留已接，待Windows CI。",
+        "evidence": "Linux新增13／相關154，32模組568隔離正常退出；不是Windows安裝證據。"
       }
     ]
   }

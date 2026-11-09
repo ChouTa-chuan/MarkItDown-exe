@@ -3,12 +3,12 @@
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 555,
-    "passed": 554,
+    "run": 568,
+    "passed": 567,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0,
-    "method": "31 isolated module subprocesses, all normal exit 0; mixed-process teardown remains open"
+    "method": "32 isolated module subprocesses, all normal exit0; mixed teardown remains open"
   },
   "command": "TESSDATA_PREFIX=<verified model directory> QT_QPA_PLATFORM=offscreen python -m unittest discover -s tests -v",
   "native_prerequisites": [
@@ -152,7 +152,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.14.0",
+  "source_version": "0.15.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -860,7 +860,8 @@
           "checks_passed": 10
         }
       }
-    }
+    },
+    "historical_source_version": "0.14.0"
   },
   "windows_execution_scope": "Windows 2022 hosted-runner base build and all 10 checks accepted, including four-language OCR, Chinese relocation, CLI, integrity faults and native Qt normal exit; no clean-machine, installer, human or GPU acceptance.",
   "linux_test_process_exit_observation": {
@@ -890,16 +891,28 @@
     "cause": "native shutdown unknown, investigated per module"
   },
   "isolated_regression": {
-    "scope": "Actual Linux per-module child processes; mixed-process teardown remains separately open; not Windows acceptance",
-    "modules": 31,
-    "run": 555,
-    "passed": 554,
+    "scope": "Actual per-module normal subprocess exits; mixed native shutdown remains a separate open issue",
+    "source_version": "0.15.0",
+    "modules": 32,
+    "run": 568,
+    "passed": 567,
     "expected_failures": [
       "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
     ],
     "accepted": true,
     "all_child_exits_zero": true,
     "records": [
+      {
+        "module": "test_base_installer",
+        "run": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
       {
         "module": "test_borderless",
         "run": 14,
@@ -1255,5 +1268,18 @@
     "fault_reproduced": false,
     "mixed_teardown_issue_resolved": false,
     "scope": "Native LLDB observation of the mixed Linux test process; no C stack captured because fault did not recur; does not prove issue fixed"
+  },
+  "base_installer_ci": {
+    "local_tests": 154,
+    "new_tests": 13,
+    "local_contract_accepted": true,
+    "windows_installer_executed": false,
+    "validation_accepted": false,
+    "full_c11_complete": false,
+    "clean_machine_accepted": false,
+    "upgrade_verified": false,
+    "rollback_verified": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/c11-installer-prep-2026-11-09/README.md"
   }
 }

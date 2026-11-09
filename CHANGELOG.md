@@ -35,6 +35,15 @@
 - 各份快照附中文說明、保存日期、來源及 SHA-256；後續更新新增快照，不覆寫既有紀錄。
 - 驗證範圍為來源圖一致性、文件雜湊、相對連結與程式版本未變；轉換程式未修改，未重跑功能測試或變更既有驗收進度。
 
+## 0.15.0 — 2026-11-09
+
+相對0.14.0，新增 **C11 基本包 hosted 安裝／同版修復／移除子檢核**，架構仍0.4；本次先提交準備，Windows真實結果另追加，不提高完整7/12。
+
+- 獨立per-user Inno基本包安裝器，不同AppId，Win10 1903+，不遞迴刪除使用者資料；來源catalog以同次建置expected逐檔驗證，拒絕版本漂移／路徑別名／連結／未知檔案。舊手動 installer workflow不動，Setup只在CI測試、不建立Release。
+- 新Windows流程真裝入中文路徑、核對registry／Start Menu存在、跑完整基本包10項；刪入口／損模型後同版修復並驗四語，再移除受管檔案／註冊／捷徑，保留外部合成資料與未追蹤文件。升級／回復、乾淨機、人工UI及C11全項保留。
+- 新增13項、本地154/154，隔離568項（567通過、1既有 ONNX繁體品質預期失敗），32個child均正常exit0。新增可重用隔離runner、UTF-16 Inno日誌讀取與overall／installer接受旗標，不能讓基本資料夾成功掩蓋安裝失敗。
+- [準備紀錄](docs/development-records/runs/c11-installer-prep-2026-11-09/README.md)、[指引](docs/base-installer-ci.md)、[第二十三份圖](docs/architecture/versions/v0.4-base-installer-preparation.md)與進度同步。既有22份圖、原文／lock／資料與原品質目標固定，Linux混合teardown、ONNX品質、GPU／RAM軟預算及最終發行限制保留。
+
 ## 0.14.0 — 2026-11-08／2026-11-09
 
 相對 **0.13.0** 新增可重跑的 Windows 基本包建置／驗證，架構 **0.4**。**2026-11-09 真正 Windows CI 10/10 通過**；完整導入仍 7/12（C03 3/4、C04 2/4、C09 3/4），歷史基線 19/25。
