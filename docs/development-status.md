@@ -1,5 +1,8 @@
 # 開發進度
 
+2026-11-09 最新：**0.17.2新增CI自身中斷產物的受限清理，Windows待實跑**。本地14／相關39，全611（610＋1既有品質預期失敗）混合與36模組exit0；[準備紀錄](development-records/runs/temporary-cleanup-prep-2026-11-09/README.md)／[邊界](temporary-cleanup-ci.md)。0.17.1 Windows基線已通過，但不能代替新清理；C11仍2/5、完整7/12。
+
+
 2026-11-09 最新：**0.17.1完成Qt視窗生命週期修正**。混合597與35模組全exit0（596通過、1既有ONNX品質預期失敗、0跳過），管理23項12輪正常退出；[原始紀錄](development-records/runs/qt-lifecycle-2026-11-09/README.md)／[設計](qt-lifecycle.md)。Windows0.17.1另驗；C11仍2/5、完整7/12、歷史19/25，Inno暫存清理／乾淨機／全profile／人工／GPU保留。下方保留當時狀態。
 
 

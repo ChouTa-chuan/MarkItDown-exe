@@ -1,0 +1,595 @@
+{
+  "schema_version": 1,
+  "source_version": "0.17.2",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-09",
+  "check": "CI-owned-temporary-cleanup-preparation",
+  "mechanism_accepted": false,
+  "linux_contracts_accepted": true,
+  "windows_cleanup_accepted": false,
+  "full_c11_complete": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1989,
+      "sha256": "1e7a2d188de202b30edfaaa09947e82f7ff2f3956dc85ccfa297b6b1780e8a94",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "baseline-0171-diagnostic.json",
+      "bytes": 3194,
+      "sha256": "622e8f34c639e2d61315943f151f89324c81b8d1e5f9cf8694244915af3ccc74",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "baseline-0171-run-page.txt",
+      "bytes": 179068,
+      "sha256": "10e8710f9f5cdd86674aa7047b400a98b6155623a7d22355ebe5e7ed991deaa7",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "final-unit-win32-metadata.log",
+      "bytes": 2311,
+      "sha256": "40b31a81822e040160a989aad3f119e4bff3e0b746fde82e01d413b6cdb8a61f",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "final-unit.log",
+      "bytes": 2311,
+      "sha256": "277f4475c80d2b56ee5add38efc0036d1a8b9b897f27c285548c0790c8024f42",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "full-mixed-exit.json",
+      "bytes": 24,
+      "sha256": "3b21820be1a7c4b84c298c2a550a72edfd9c1c38014cfa160903faf142a5063f",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "full-mixed.log",
+      "bytes": 91267,
+      "sha256": "f93589d89656f9879bf81ec69c662dd01c2beb247bf793c46d22f8935e850f11",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "initial-unit.log",
+      "bytes": 2311,
+      "sha256": "e3780f3ded1e378e7bc1b205a94799cf4b017615333dbac99d4bc1623ec79a4e",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "install-source.log",
+      "bytes": 1269,
+      "sha256": "c634279339f8b7c9dd6074ced775e4690bba7c0602689b8d4943e96911f1ad05",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "integrity-final.log",
+      "bytes": 722,
+      "sha256": "c4f1121a7e8dbc7eac5e9fdf4c9e790b284cc7469dca381c5b3e3986be816d6b",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 3434,
+      "sha256": "8e1a1913027348df86de9773dd303a052564fbd30bd25597c3f3429821a15ae9",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "integrity.log",
+      "bytes": 722,
+      "sha256": "c4f1121a7e8dbc7eac5e9fdf4c9e790b284cc7469dca381c5b3e3986be816d6b",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/summary.json",
+      "bytes": 9569,
+      "sha256": "0f33ce55346c44d5e491841e1a903d44cfbaf73ecc1260e633e6a5181049e22d",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_installer.json",
+      "bytes": 189,
+      "sha256": "c373c0e29a9cc8c8ed0de2d8d49282529221267c3e8514ae0766bd2fe1eff0b2",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_installer.log",
+      "bytes": 2153,
+      "sha256": "b3911765f4ec4f6a5eae9429f6751832fc7a4cce53077547a3dffb1f74f909ea",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_recovery.json",
+      "bytes": 188,
+      "sha256": "0fa86fa3e949401cbe2d257be32f9f3e522d937369737338dcf51cc37f8f0814",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_recovery.log",
+      "bytes": 2721,
+      "sha256": "c57c3198412e950bcdbaf47147fdaef2ef9eae350f04cfd853067cc60a4bcda6",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_upgrade.json",
+      "bytes": 187,
+      "sha256": "861deb83b51d4b8fdf8804d3a7891e75d5335c374571963c56873453263b7be1",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_upgrade.log",
+      "bytes": 2057,
+      "sha256": "f8b7ac96cebae1726ab8020867b860f9c7ae399767666702eb18a8e957d80626",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_borderless.json",
+      "bytes": 185,
+      "sha256": "6b9be17e89ca6db4a135a99a96bd8110564cc60529452fbe74ffe2d144366c93",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_borderless.log",
+      "bytes": 2053,
+      "sha256": "318de62d8a5d8b966d823fe483118722b5999cde56cec1f618d7ef8f9262384d",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_build_profile.json",
+      "bytes": 188,
+      "sha256": "11c00d1448720f97abbc5d298323b78fdeccee8b33d74e548d1ba38a2a1c17ff",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_build_profile.log",
+      "bytes": 2257,
+      "sha256": "5c53dc240b4ea213b3ceec10c77af3eeaa875ccb1d6b079c381aa56ba0814c45",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_bundled_ocr.json",
+      "bytes": 186,
+      "sha256": "680b9c1c91c6d74883a09b0a127205a9dee78bbb76e7a9529c80469981b4f204",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_bundled_ocr.log",
+      "bytes": 3835,
+      "sha256": "0a723ab35b9c10fb5dc22207b9880e2c52ce60aba25e861563bb8a50e061775e",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_downloads.json",
+      "bytes": 194,
+      "sha256": "d12b09adf4c28c16e88669f8771c8629843970a030bdf902a10dea753d0fdf57",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_downloads.log",
+      "bytes": 6645,
+      "sha256": "471df96aa0f45778fe8715f830c83b4e2b500af132bad28e89a756a5720de2ad",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_lifecycle.json",
+      "bytes": 194,
+      "sha256": "bd764b822063ebe25f8bdd1217af2aa9849015ff5c564c6b3e1812c88aa5d8f8",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_lifecycle.log",
+      "bytes": 8564,
+      "sha256": "c1bf337781f3e492f25cf3966a90e7bc9f928c3688c9a0118b49cd9c9d552a25",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_management.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_management.log",
+      "bytes": 4000,
+      "sha256": "aa5c9c54c32ac125b63457f49eff6db3ee2704a0bd3de5057a45f3df7da47ce3",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_migration.json",
+      "bytes": 194,
+      "sha256": "13a39638064053a789eaeda453cfdc9b19de10ad885a82aed0c97cabce80e3db",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_migration.log",
+      "bytes": 5094,
+      "sha256": "1f7a9b7cfc1dc4717ea679d93eeca7cb76d39599634ddcfaa162661a2c13c239",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_workers.json",
+      "bytes": 192,
+      "sha256": "56cb2b7d43be4e4d49c89fb22df03b7d7f822a3098131907530c23952f21aadf",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_workers.log",
+      "bytes": 3537,
+      "sha256": "118e4ebcd332eeb663621ea174bb89974365e90109b2fcc6e5eda18c146c46f4",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_components.json",
+      "bytes": 185,
+      "sha256": "c85c5b436760aef9bfaa5e5c1adb5c4ff9a1ec547713caa57e5235e00a02ef1f",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_components.log",
+      "bytes": 6943,
+      "sha256": "1040c8d8ebbcfb2a0a77cade6c7b5e8254d01caed76408cf014157aa7679500e",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_core.json",
+      "bytes": 179,
+      "sha256": "a93d8007bf356996f386d0fdd566a8dbafdedf75de9f17a77a102f6f84df3aff",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_core.log",
+      "bytes": 1743,
+      "sha256": "b4f691058629539f8db78152af332244ab564f02548cc1096c8f1b6bff2971b4",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_desktop.json",
+      "bytes": 182,
+      "sha256": "e8a2827f9ff901fe5c1fe902d287c9a963d2a73c47068bb24ee5dda4c5030d2d",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_desktop.log",
+      "bytes": 1494,
+      "sha256": "222f1411b343afa059adbd1b226355eb4d0c763cb056ef3230e3dfcae4bb21cd",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_devices.json",
+      "bytes": 181,
+      "sha256": "ff3fd557fc6150e23395a0398240e500795dcd8d436246fbbc373f23d509b135",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_devices.log",
+      "bytes": 1000,
+      "sha256": "2e0aff159f17ac9e059ff8bdd5984dfc9d282da461b21d3444a5549fd9dddee4",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_diagnostics.json",
+      "bytes": 185,
+      "sha256": "b2861c84efecd4ad7910775db50667c210cb5cb2a3eeaf25f2138cfca8e369b5",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_diagnostics.log",
+      "bytes": 1054,
+      "sha256": "9b7cc1e05f02aa992875d1cd144cf2588aeef33e58892323cc90c4235aa55fe8",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_formats.json",
+      "bytes": 181,
+      "sha256": "9515426c7ccac2d340b1c5dac050cdbfd1e9847f9aaf22d7c5e92073dce58b2f",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_formats.log",
+      "bytes": 1166,
+      "sha256": "ab9da7e2e77c920e15d8941e565df056ecfa79a6685662cf8d37f1ed18d9ea97",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_help_ui.json",
+      "bytes": 181,
+      "sha256": "13dfa63fe7cbacc513fc70a12a960b59fb35e453bc92715e1a35387e822bdb0c",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_help_ui.log",
+      "bytes": 382,
+      "sha256": "87f114447a4e8b8f6a1b71151d98bdde8fc78131021b2cea7468d01f5ebb3407",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_languages.json",
+      "bytes": 184,
+      "sha256": "e3fd996b21ff058c7c59ea07c20a61a6a5bf587c7c3f6c66ae4095526e7e1aa1",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_languages.log",
+      "bytes": 2774,
+      "sha256": "34a64b6bb9525e77f7f59433822d05ba4742ff99874ccc612398271c621d3abb",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_license_inventory.json",
+      "bytes": 191,
+      "sha256": "b1a9356652eb8e0023ef53080e145388f88d6b91935f2b0e6af53e001967ca50",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_license_inventory.log",
+      "bytes": 1169,
+      "sha256": "d0a0cc6254306d695283c8993a97f24b219841cea8d05554905faf714ecea823",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_managed_conversion.json",
+      "bytes": 193,
+      "sha256": "9ae2a6a0d0b6e05082293be94b3ae18ddd74167822f4de2a27152755f0e4cab7",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_managed_conversion.log",
+      "bytes": 3431,
+      "sha256": "92777e6c45710e19975de8e8b34343d5c193a3e5ab9f5c369669ab5fe1581672",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_minimal_native.json",
+      "bytes": 189,
+      "sha256": "e8e00accf3cc3f0734f53eb29e2743b087d75711a2b94c94bf7968c87633c3bf",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_minimal_native.log",
+      "bytes": 3501,
+      "sha256": "fa86ca6da44acbfa47ba10d843c16c548e85052fa025e76ae29dc622ba73b062",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_models.json",
+      "bytes": 180,
+      "sha256": "5ea2901d74bcf159d9aec9c2f46258a8b471dee4e18dfa6cf598c26aa696df90",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_models.log",
+      "bytes": 942,
+      "sha256": "7b73fcb26e70bc92f22375eee00b9a056bd03e60b663cc08454e302877e335e0",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_native_assets.json",
+      "bytes": 188,
+      "sha256": "cdda65f9c7b92c362f6a653f345b05a348c4f93fe4e8c9bbef2d2334efb1520b",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_native_assets.log",
+      "bytes": 2734,
+      "sha256": "8e3b53436b41df94388d88cb148b6c6db2f8833a2e5f481487c49ef00bf183ac",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onboarding.json",
+      "bytes": 185,
+      "sha256": "135c04d454c22c30bc5298d4d71d9a6dae994a3b2e179b584389e83550a71076",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onboarding.log",
+      "bytes": 3436,
+      "sha256": "3116860a01244ac62fd8352f0e3bab1ce5242c684d038bf17964b6fe3ac17ff1",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onnx_ocr.json",
+      "bytes": 270,
+      "sha256": "5473748ad45f88fe92de41c8afe686dcf8f6be10ffca08cde4199a369ab3147c",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onnx_ocr.log",
+      "bytes": 1765,
+      "sha256": "a5774ecdf209969f8362f014eab330e75b57a3cebfffe876ce6ba632869b4008",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_packaging_profiles.json",
+      "bytes": 193,
+      "sha256": "9a12514d89a19c4509ada37eb816bc371212b83160e35e1993de09ec684d777a",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_packaging_profiles.log",
+      "bytes": 2227,
+      "sha256": "00215b59c3e8edb6c968b78335643b33abc08dc1aac7f1d261134eb6cab4ff23",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_acceptance.json",
+      "bytes": 188,
+      "sha256": "14153a32f1234b4ba0d99a57e0be06449d6241bfa555f301a63fe13a6119144c",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_acceptance.log",
+      "bytes": 918,
+      "sha256": "8449c76623829c80e48406229e8ec4883bd33337ba895cca8dbc7cfb224d3988",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_pipeline.json",
+      "bytes": 187,
+      "sha256": "17635e630af495493d6167553bd28f55fb8c788c6fa481cc67526f70f36fd946",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_pipeline.log",
+      "bytes": 2690,
+      "sha256": "333e012e683473e9e1a434186658a99ab6045bd38e22602df9a5f0761728869d",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_qt_lifecycle.json",
+      "bytes": 186,
+      "sha256": "cdab8f48a03fcf7c2fa5a3e89d71e93513ca9e252ad45f5f128f735e529ac2a4",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_qt_lifecycle.log",
+      "bytes": 560,
+      "sha256": "0eb2ba4bb51a7a495aa3d8832ca640432c732e5b083fd4db9e7f1726a44da473",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_quality.json",
+      "bytes": 181,
+      "sha256": "272db2627acbad3414e199b77a81d36f62b6e6f761312de1777eb6bf47312e83",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_quality.log",
+      "bytes": 764,
+      "sha256": "4639e441fbb18ea579a4f77c3eed8c9cca337d04c7d9254a8f2a1c4060cc02b1",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_settings.json",
+      "bytes": 183,
+      "sha256": "9da3a4a911fefbec1b221b6a8ee1c7fec4674929c0f66aace7a100b715dbc51d",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_settings.log",
+      "bytes": 1408,
+      "sha256": "2133282438d42038c5e592d084b045c77914e5e5a399d112372a33839aae0fce",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_table_continuation.json",
+      "bytes": 193,
+      "sha256": "ed43e12cfdb956325de422e4ed4bb11bdd73cf1abd16bae01104e1900e237213",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_table_continuation.log",
+      "bytes": 2703,
+      "sha256": "54863c3539898f5571294238bec645279ad64570abc8fb95460b877eb8494c59",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_tables.json",
+      "bytes": 180,
+      "sha256": "5f020394fbbfa32326a3c3cf52fe2add764b14a13c47f0ed675d5d4c1592673a",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_tables.log",
+      "bytes": 875,
+      "sha256": "e933623110ef2d462a88ef73d2041e8e01dd6246125f4ea290ed5d4915f007b7",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_temporary_cleanup.json",
+      "bytes": 192,
+      "sha256": "7a3036315abb61261d486942e824bdb7404c827880f17c0c0d1efadf6308eb36",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_temporary_cleanup.log",
+      "bytes": 2311,
+      "sha256": "823f307e388307c8e254d535755bda34feed3433986c30c1971d8815952d080a",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_windows_ci.json",
+      "bytes": 185,
+      "sha256": "76413b62e9ab37e86829061d7dec3b940ff34e5145a3678a8d967c882bc47d3f",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_windows_ci.log",
+      "bytes": 4085,
+      "sha256": "0f74c5f00fc76d1b9d9459bbfe9180c264cdf0095ee5b7c7ea1c25757a5586e5",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "isolated-regression.log",
+      "bytes": 326,
+      "sha256": "06e0dc981c76d0dcb8e63227e56c53411b505f2dc229c7f71a1d3ec5fb75296c",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "related-base-final-step.log",
+      "bytes": 336,
+      "sha256": "328588162d7c589d20cc634b336754087b4a14747acf1dd174979e2ed8467cec",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "related-base-final.log",
+      "bytes": 6971,
+      "sha256": "cf66e18191568aca2ca5c8d5729f889bdae0d217d14e04e67cc156caada4641e",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "related-base.log",
+      "bytes": 6971,
+      "sha256": "a48b0994ac699725f0dcef9379bba108926082dc726d4c7bbb177933fa7e82e0",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 848349,
+      "sha256": "b51c654c62da683a6da492f0c5808e91085c808c7396c73d310e0a8342827f27",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 844877,
+      "sha256": "27d8d6216f32cf21602b46d73cd7078f88432fa2e7f7a0a039c9e04610bcbfaf",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 307550,
+      "sha256": "517e58d91403fea991d15c04cc24eca1fbef191a363652929fed61aff404be4f",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 326376,
+      "sha256": "09d876224dd4bb08b8f961cf7861b9824699e210020e3aa06fdf2bf7d1b03fa4",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 461196,
+      "sha256": "2678539284bce7d92a49e73e2e969f472815cc846dfbe58a784cd93f67bf8444",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "verification.json",
+      "bytes": 1439,
+      "sha256": "7bc00597ccec24ab55e499b51f4387687c067de4dfbb0b9d17839fd22fe27b38",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    },
+    {
+      "file": "verify_integrity.py",
+      "bytes": 3816,
+      "sha256": "9d24fba7b3dd84adc5aa74e329a8d495e73e3ce8ae5bb58ed9a61cd9360d41ae",
+      "source": "本輪Linux清理契約／全回歸、前版0.17.1 Windows公開基線及離線進度截圖；新Windows清理待驗，無使用者文件"
+    }
+  ]
+}

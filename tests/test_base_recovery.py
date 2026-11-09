@@ -115,7 +115,10 @@ class BaseRecoveryTests(unittest.TestCase):
         actual['recovery']=dict(check='C11-base-interruption-resume',accepted=True,source_version='0.17.0',
             interruption_cases=3,resumed_app_checks=[10,10,10],process_termination_verified=True,pending_app_blocked=True,
             explicit_resume_required=True,power_loss_accepted=False,full_c11_complete=False,all_profiles_accepted=False,
-            user_data_preserved=True,automatic_failure_rollback=False,test_only_fault_installer=True,commands=['x'*50000])
+            user_data_preserved=True,automatic_failure_rollback=False,test_only_fault_installer=True,commands=['x'*50000],
+            retained_inno_temporaries=0,temporary_cleanup_complete=True,cleaned_inno_temporaries=1,
+            temporary_cleanup_cases=3,unknown_temporary_preserved=True,
+            temporary_cleanup_scope='ci-owned-fault-installer-artifacts',locked_temporary_rejected=True)
         reports={'windows-build.json':actual['result'],'acceptance/windows-acceptance.json':actual['acceptance'],
                  'installer/installer-lifecycle.json':actual['installer'],'upgrade/upgrade-lifecycle.json':actual['upgrade'],
                  'recovery/recovery-lifecycle.json':actual['recovery']}
@@ -124,6 +127,12 @@ class BaseRecoveryTests(unittest.TestCase):
         self.assertLess(len(output.getvalue().encode()),3900)
         value=json.loads(output.getvalue().split('::')[-1]);self.assertEqual(value['recovery']['interruption_cases'],3)
         self.assertFalse(value['recovery']['power_loss_accepted']);self.assertFalse(value['recovery']['full_c11_complete'])
+        self.assertTrue(value['recovery']['temporary_cleanup_complete'])
+        self.assertEqual(value['recovery']['temporary_cleanup_cases'],3)
+        self.assertEqual(value['recovery']['cleaned_inno_temporaries'],1)
+        self.assertTrue(value['recovery']['unknown_temporary_preserved'])
+        self.assertEqual(value['recovery']['temporary_cleanup_scope'],'ci-owned-fault-installer-artifacts')
+        self.assertTrue(value['recovery']['locked_temporary_rejected'])
 
     def test_inno_backup_receipt_requires_exact_known_bytes_and_preserves_file(self):
         candidate=self.bundle/'is-ABC123XYZ0.tmp';candidate.write_bytes(b'verified prior application bytes')

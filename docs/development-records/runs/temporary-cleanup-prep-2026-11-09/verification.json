@@ -1,0 +1,30 @@
+{
+  "source_version": "0.17.2",
+  "architecture_version": "0.4",
+  "check": "C11-CI-owned-temporary-cleanup-preparation",
+  "linux_contract_tests": 14,
+  "related_base_tests": 39,
+  "run": 611,
+  "passed": 610,
+  "expected_failures": 1,
+  "skipped": 0,
+  "mixed_process_exit": 0,
+  "isolated_modules": 36,
+  "isolated_all_exits_zero": true,
+  "windows_cleanup_executed": false,
+  "windows_cleanup_accepted": false,
+  "full_c11_complete": false,
+  "release_ready": false,
+  "baseline_windows_run": "42594462484",
+  "source_hashes": {
+    "scripts/base_temporary_cleanup.py": "6a8ab0d63e2bbc6647a7aeae912152aade3d330427a860ac0f49de490f7ee3c8",
+    "scripts/check_windows_base_recovery.py": "2e79930bd5181aec219bd7dbe627dd6a785499294802059ce8f091fc95c28bc2",
+    "scripts/publish_windows_ci_summary.py": "ed7a838c2503b0e0b6f089182cffd912e77b7ac719857fe1e3238adec4da494a",
+    "tests/test_temporary_cleanup.py": "01bd4ecba3e5cbdfbcfaccdce26b1a67f4dd668ce0073f978e18a7db5c915b51",
+    "tests/test_base_recovery.py": "a515b5da861c83b53fbd325b18fedbf8a74964c4232550b734a33df4dcefd8c5",
+    "pyproject.toml": "5b42da4fbf1eb267013a3fcb71dcc96d861adce970f37c52e8b3f9ae95e0d7c0",
+    "packaging/profiles/base-closure.json": "721b8c1b10e40456ce84b361794237b938cdfb10b51b226d4a21435230a613e7"
+  },
+  "final_targeted_contract_tests": 14,
+  "native_windows_file_identity": "GetFileInformationByHandle; do not rely on CRT fstat for identity/link count"
+}

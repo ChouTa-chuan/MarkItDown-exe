@@ -1,5 +1,12 @@
 # 開發紀錄
 
+**2026-11-09｜新增CI中斷產物清理，程式0.17.1 → 0.17.2**
+
+- 真正抓取前版0.17.1 Windows公開成功結果（42594462484／c5f0c01），保留原頁／完整短摘要；app10、安裝6、跨版11、續修3案各10，殘留1份且cleanup=false，未倒填新機制。
+- 新清理限定本次自有PID、建立前不存在且已觀察的記憶體收據；整批預檢並以Windows原檔handle拒絕寫入／rename／delete分享，核對最終路徑後delete-on-close，沒有unlink後備／通配或外部JSON授權。新增真鎖檔拒絕與未知同名／同bytes保留的Windows CI控制，普通Setup未加入此清理入口。
+- Linux14／相關39通過，全611（610＋1既有ONNX品質預期失敗、0跳過）混合及36模組正常exit0；Windows清理待另驗。[準備日誌與基線](runs/temporary-cleanup-prep-2026-11-09/README.md)／[說明](../temporary-cleanup-ci.md)。C11仍2/5、完整7/12、歷史19/25，28份架構圖不改，沒有Setup／tag／Release。
+
+
 **2026-11-09｜修正Qt視窗生命週期，程式0.17.0 → 0.17.1**
 
 - 原23項管理測試12輪中1輪exit-11；LLDB真正抓到PySide全域cleanup內QPushButton／QObject destructor SIGSEGV。入口設WA_DeleteOnClose、六組Qt測試負責關閉／等待／deferred delete，不跳過cleanup或強制殺程序。

@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-09",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
-  "tests_passed": 596,
-  "headline": "Qt視窗生命週期修正：混合597正常退出、35模組全exit0；C11仍2/5／完整7/12",
-  "blocker": "各profile／更完整故障恢復、Inno暫存清理、無Python乾淨機、人工／GPU與ONNX繁中品質仍待；Windows0.17.1需另驗。",
-  "next": "完成Inno暫存所有權清理及各profile相容，接乾淨Windows離線首次流程與人工測試包。",
+  "tests_passed": 610,
+  "headline": "CI自有中斷產物清理已備、Windows待驗；Linux611正常退出／完整7/12",
+  "blocker": "新CI暫存清理待Windows真實刪除／鎖檔驗收；各profile、乾淨機、人工／GPU與ONNX繁中品質仍待。",
+  "next": "實跑CI精確收據清理／鎖檔與未知文件保留，再接各profile與乾淨Windows離線流程。",
   "milestones": [
     {
       "id": "m0",
@@ -210,7 +210,7 @@
       "layer": "支援",
       "state": "partial",
       "detail": "基本profile內含同平台引擎與固定四語；Linux及0.17 Windows基本包／安裝後app已驗，乾淨機與各選配另驗。",
-      "evidence": "0.17 hosted Windows app各10項；0.17.1 Linux完整597正常退出，非乾淨機或發行。"
+      "evidence": "0.17.1 hosted Windows app各10項；0.17.2 Linux完整611正常退出，非乾淨機或發行。"
     },
     {
       "id": "settings",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格63項；0.17.1全專案596通過、1固定繁體品質預期失敗，混合及35模組正常退出。"
+      "evidence": "版面／表格63項；0.17.2全專案610通過、1品質預期失敗，混合及36模組正常退出。"
     },
     {
       "id": "exporters",
@@ -249,12 +249,12 @@
     "C01／C02／C05–C08／C10已驗收7/12；C03 3/4、C04 2/4、C09 3/4、C11 2/5；乾淨機、全profile、人工與GPU待驗。既有19/25分開追蹤。",
     "Tesseract 日韓／四語合成樣本通過，不代表任意混排／直排／低品質文件準確率；ONNX 繁體缺口與日韓未驗保留，GPU 未實機。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
-    "0.17已有hosted Windows基本包、安裝／修復／移除、基本跨版及三停點續修證據；0.17.1本輪Linux驗證，不能代替乾淨Windows、全profile、人工或GPU驗收。",
+    "0.17.1已有hosted Windows基本包、安裝／修復／移除、基本跨版與三停點續修證據；0.17.2清理待另驗，不能代替乾淨Windows／全profile／人工／GPU。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
-    "0.17.1混合597與35模組正常exit0，管理23項連續12輪exit0；Qt全域cleanup舊失敗與native stack保留。不是所有第三方Qt錯誤已解決。"
+    "0.17.2混合611與36模組正常exit0；已知ONNX品質預期失敗保留。前版Qt修正與原native失敗完整保存；新CI清理非普通Setup任意中斷自動清理。"
   ],
-  "tests_run": 597,
+  "tests_run": 611,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -517,11 +517,18 @@
         "state": "verified",
         "detail": "hosted Windows三停點真正終止自己程序樹，一般Setup明確續修，各10項app／全hash與資料保留通過；Inno產物僅精確收據認列並保留，清理仍待。",
         "evidence": "CI 42578549106，intent／first-file／payload-written 3/3；各profile仍待。"
+      },
+      {
+        "id": "temporary_cleanup",
+        "title": "CI自有中斷產物清理",
+        "state": "partial",
+        "detail": "只清本次觀察／hash／身分綁定的記憶體收據；Windows原檔handle拒寫後delete-on-close，普通Setup未加入通配清理。",
+        "evidence": "Linux14／相關39與611全回歸已驗；Windows真清理／鎖檔／未知文件保留待實跑。"
       }
     ]
   },
   "full_regression_accepted": true,
-  "source_version": "0.17.1",
+  "source_version": "0.17.2",
   "qt_lifecycle": {
     "source_version": "0.17.1",
     "architecture_version": "0.4",
@@ -555,5 +562,35 @@
       "pyproject.toml": "09cb07bc0a4c758ca51c9499a804dc252628fe22d2959a46ac16dad2933282bf",
       "packaging/profiles/base-closure.json": "763510d527dae27fd67bbab4fa31c3aafe0182d499b73e8a2369dbaf7a89f4ac"
     }
+  },
+  "ci_temporary_cleanup": {
+    "source_version": "0.17.2",
+    "architecture_version": "0.4",
+    "check": "C11-CI-owned-temporary-cleanup-preparation",
+    "linux_contract_tests": 14,
+    "related_base_tests": 39,
+    "run": 611,
+    "passed": 610,
+    "expected_failures": 1,
+    "skipped": 0,
+    "mixed_process_exit": 0,
+    "isolated_modules": 36,
+    "isolated_all_exits_zero": true,
+    "windows_cleanup_executed": false,
+    "windows_cleanup_accepted": false,
+    "full_c11_complete": false,
+    "release_ready": false,
+    "baseline_windows_run": "42594462484",
+    "source_hashes": {
+      "scripts/base_temporary_cleanup.py": "6a8ab0d63e2bbc6647a7aeae912152aade3d330427a860ac0f49de490f7ee3c8",
+      "scripts/check_windows_base_recovery.py": "2e79930bd5181aec219bd7dbe627dd6a785499294802059ce8f091fc95c28bc2",
+      "scripts/publish_windows_ci_summary.py": "ed7a838c2503b0e0b6f089182cffd912e77b7ac719857fe1e3238adec4da494a",
+      "tests/test_temporary_cleanup.py": "01bd4ecba3e5cbdfbcfaccdce26b1a67f4dd668ce0073f978e18a7db5c915b51",
+      "tests/test_base_recovery.py": "a515b5da861c83b53fbd325b18fedbf8a74964c4232550b734a33df4dcefd8c5",
+      "pyproject.toml": "5b42da4fbf1eb267013a3fcb71dcc96d861adce970f37c52e8b3f9ae95e0d7c0",
+      "packaging/profiles/base-closure.json": "721b8c1b10e40456ce84b361794237b938cdfb10b51b226d4a21435230a613e7"
+    },
+    "final_targeted_contract_tests": 14,
+    "native_windows_file_identity": "GetFileInformationByHandle; do not rely on CRT fstat for identity/link count"
   }
 }

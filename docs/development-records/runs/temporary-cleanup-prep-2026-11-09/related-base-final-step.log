@@ -1,0 +1,6 @@
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/importlib/metadata/__init__.py:467: DeprecationWarning: Implicit None on return values is deprecated and will raise KeyErrors.
+  return self.metadata['Version']
+----------------------------------------------------------------------
+Ran 39 tests in 0.267s
+
+OK

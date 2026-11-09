@@ -9,9 +9,11 @@ import subprocess
 import sys
 import traceback
 import uuid
+import psutil
 
 from base_install_catalog import CATALOG, ENTRY, PENDING, verify, assert_managed_removed
 from base_install_transition import write_rules, plan
+from base_temporary_cleanup import capture as capture_temporaries, cleanup as cleanup_temporaries
 from check_windows_base_installer import known_folder, registration, wait_until, SHORTCUT
 from check_windows_base import native_environment
 from desktop_app.components.registry import _chain
@@ -74,10 +76,24 @@ def check(bundle, previous_bundle, setup, previous_setup, work, reports, *, iscc
         all_profiles_accepted=False,automatic_failure_rollback=False,full_c11_complete=False,
         clean_machine_accepted=False,release_ready=False,test_only_fault_installer=True,
         interruption_cases=0,resumed_app_checks=[],terminations=[],creation_receipts=[],temporary_receipts=[],
-        retained_inno_temporaries=0,temporary_cleanup_complete=False,checks=[],commands=[])
+        retained_inno_temporaries=0,temporary_cleanup_complete=False,cleaned_inno_temporaries=0,
+        temporary_cleanup_cases=0,unknown_temporary_preserved=False,locked_temporary_rejected=False,
+        temporary_cleanup_receipts=[],
+        temporary_cleanup_scope='ci-owned-fault-installer-artifacts',
+        checks=[],commands=[])
     install=work/'中文 中斷續修'/'MarkItDownBase';note=install/'使用者保留文件.txt'
     fixture=known_folder(0x1c)/'MarkItDownDesktop/MarkItDownDesktop'/('resume-probe-'+uuid.uuid4().hex)
-    user={};installed=False;new=old=None;active=None;known={};parents={'.'};created={}
+    user={};installed=False;new=old=None;active=None;known={};parents={'.'};created={};captured=[];processes={}
+
+    def quiescent():
+        # 只核對自己在握手停點取得的PID＋建立時間；不按名稱殺程序，PID重用先停止清理。
+        for pid,stamp in processes.items():
+            try:
+                process=psutil.Process(pid)
+                if process.create_time()!=stamp:raise RuntimeError('Owned installer PID was reused; preserve temporaries')
+                if process.is_running():return False
+            except psutil.NoSuchProcess:pass
+        return True
 
     def call(label,argv,*,allow_failure=False,environment=None):
         result['commands'].append(dict(label=label,argv=list(map(str,argv))))
@@ -159,6 +175,10 @@ def check(bundle, previous_bundle, setup, previous_setup, work, reports, *, iscc
                 if (install/PENDING).read_bytes()!=token:raise RuntimeError('Committed recovery intent missing at interruption')
                 observed={p.relative_to(install).as_posix() for p in install.rglob('*')
                           if p.is_file() and re.fullmatch(r'is-[a-z0-9]{6,16}\.tmp',p.name,re.I)}
+                owner=psutil.Process(active.pid)
+                for process in [owner,*owner.children(recursive=True)]:
+                    try:processes[process.pid]=process.create_time()
+                    except psutil.NoSuchProcess:pass
                 # 只終止自己啟動、且已完成握手的 bootstrap 與 Setup 子程序樹，不按名稱掃描或終止其他程序。
                 pid=active.pid
                 call(stage+'-terminate-owned-tree',['taskkill','/PID',str(pid),'/T','/F'])
@@ -166,15 +186,19 @@ def check(bundle, previous_bundle, setup, previous_setup, work, reports, *, iscc
                 if code==0:raise RuntimeError('Interruption did not produce a nonzero process exit')
                 result['terminations'].append(dict(stage=stage,pid=pid,returncode=code,owned_tree=True))
                 active=None
+                wait_until(quiescent,timeout=30)
             # Inno 會先抽出尚未提交的新 uninstaller，bytes 不一定等於任何已登錄版本。
             # 只有操作前不存在、在自己握手停點已看見的名稱，才於終止後讀取並綁定路徑／hash。
-            # 不能在續修後才把任意新 .tmp 當成合法，也不刪除任何暫存候選。
-            for name in observed-before:
-                path=install/name;_chain(path)
-                if str(PurePosixPath(name).parent) not in parents:raise ValueError('Unexpected generated temp parent')
-                digest,size=file_hash(path)
-                created[name]=dict(path=name,sha256=digest,bytes=size,pid=pid,stage=stage,
-                                   setup_sha256=result['fault_setup_sha256'],absent_before=True,observed_before_termination=True)
+            # 普通installer沒有外部收據刪除入口；只有本次CI控制端可持有這份記憶體收據。
+            protected={CATALOG,PENDING,PENDING+'.new',*(item['path'] for document in (old,new) for item in document['files'])}
+            receipts=capture_temporaries(install,before,observed,pid=pid,stage=stage,
+                setup_sha256=result['fault_setup_sha256'],parents=parents,protected=protected)
+            captured.extend(receipts)
+            for receipt in receipts:
+                name=receipt.path
+                created[name]=dict(path=name,sha256=receipt.sha256,bytes=receipt.bytes,pid=pid,stage=stage,
+                                   file_identity=receipt.identity,setup_sha256=result['fault_setup_sha256'],
+                                   absent_before=True,observed_before_termination=True)
                 result['creation_receipts'].append(created[name])
             if (install/PENDING).read_bytes()!=token:raise RuntimeError('Interrupted intent disappeared after actual process termination')
             user_unchanged()
@@ -217,12 +241,46 @@ def check(bundle, previous_bundle, setup, previous_setup, work, reports, *, iscc
             wait_until(removed);installed=False;user_unchanged()
             _,remaining=verified_inno_temporaries(install,known,parents,created)
             result['temporary_receipts']=remaining;result['retained_inno_temporaries']=len(remaining)
+            result['failed_step']=stage+'-temporary-cleanup'
+            to_clean=[receipt for receipt in captured if (install/receipt.path).exists()]
+            if {item['path'] for item in remaining}!={receipt.path for receipt in to_clean}:
+                raise RuntimeError('Remaining temporary lacks an exact current-process ownership receipt')
+            if to_clean and not result['locked_temporary_rejected']:
+                # 真正的Windows sharing violation反例：有其他讀取handle時不得刪除或改用unlink。
+                with (install/to_clean[0].path).open('rb'):
+                    try:cleanup_temporaries(install,to_clean,quiescent=quiescent)
+                    except OSError as exc:
+                        if getattr(exc,'winerror',None) not in (32,33):raise
+                    else:raise RuntimeError('Locked temporary was not preserved')
+                result['locked_temporary_rejected']=True
+            # 故意放同名型態且可與受管bytes相同的文件；清理只能使用既有收據，不能通配刪除。
+            decoy=install/'is-KEEP123456.tmp'
+            if decoy.exists():raise FileExistsError('Cleanup decoy already exists')
+            decoy.write_bytes((install/to_clean[0].path).read_bytes() if to_clean else b'KEEP UNKNOWN TEMP DOCUMENT')
+            user[decoy]=file_hash(decoy)
+            cleaned=cleanup_temporaries(install,to_clean,quiescent=quiescent)
+            result['temporary_cleanup_receipts'].extend(cleaned)
+            result['cleaned_inno_temporaries']+=len(cleaned)
+            user_unchanged()
+            result['unknown_temporary_preserved']=True
+            # 只移除自己剛建立且hash未變的合成哨兵，並非產品刪除使用者文件的規則。
+            if file_hash(decoy)!=user[decoy]:raise RuntimeError('Unknown temporary fixture changed')
+            decoy.unlink();del user[decoy]
+            _,remaining=verified_inno_temporaries(install,known,parents,created)
+            result['retained_inno_temporaries']=len(remaining)
+            result['temporary_receipts']=remaining
+            if remaining:raise RuntimeError('CI-owned temporary cleanup left artifacts')
+            result['temporary_cleanup_cases']+=1
+            result.pop('failed_step',None)
             result['interruption_cases']+=1
             result['checks'].append('Actual owned process-tree termination and normal-installer resume passes ten app checks: '+stage)
+        if not result['cleaned_inno_temporaries'] or not result['locked_temporary_rejected']:
+            raise RuntimeError('No real temporary cleanup / locked-file control was exercised')
+        result['temporary_cleanup_complete']=result['temporary_cleanup_cases']==len(STAGES)
         result['process_termination_verified']=True;result['user_data_preserved']=True;result['accepted']=True
     except Exception as exc:
         result['error']=f'{type(exc).__name__}: {exc}'
-        result['failed_step']=result['commands'][-1]['label'] if result['commands'] else ''
+        result.setdefault('failed_step',result['commands'][-1]['label'] if result['commands'] else '')
         (reports/'driver-error.log').write_text(traceback.format_exc(),encoding='utf-8')
     finally:
         if active is not None and active.poll() is None:

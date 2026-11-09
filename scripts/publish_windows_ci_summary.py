@@ -26,6 +26,8 @@ def publish_annotation(records, tails):
         keys += ('recovery_accepted','interruption_cases','resumed_app_checks','process_termination_verified',
                  'pending_app_blocked','explicit_resume_required','power_loss_accepted','test_only_fault_installer')
         keys += ('retained_inno_temporaries','temporary_cleanup_complete')
+        keys += ('cleaned_inno_temporaries','temporary_cleanup_cases','unknown_temporary_preserved')
+        keys += ('temporary_cleanup_scope','locked_temporary_rejected')
         return {key: value[:250] if isinstance(value, str) else value
                 for key, value in record.items() if key in keys}
     payload = dict(result=brief(result))
