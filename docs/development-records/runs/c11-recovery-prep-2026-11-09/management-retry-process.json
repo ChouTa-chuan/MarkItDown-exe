@@ -1,0 +1,6 @@
+{
+  "module": "test_component_management",
+  "run": 23,
+  "observed_process_exit": 0,
+  "scope": "Parent exec tool observed normal exit0 for one targeted retry; first full regression remains accepted=false, no root-cause fix claim"
+}

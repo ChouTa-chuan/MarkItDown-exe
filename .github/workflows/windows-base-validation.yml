@@ -89,7 +89,7 @@ jobs:
       - name: Checkout genuine previous base source
         uses: actions/checkout@v4
         with:
-          ref: 43cf811356a7616b784cba09191afdfcb52e16a7
+          ref: 990e600aed9e26011b77d46dfe5f9e5bb13ecc7a
           path: out/previous-source
           persist-credentials: false
       - uses: actions/setup-python@v5
@@ -102,7 +102,7 @@ jobs:
       - name: Build and validate the native Windows application
         shell: pwsh
         run: |
-          python scripts/run_windows_base_ci.py --inputs "$PWD/out/inputs" --output "$PWD/out/windows" --installer --previous-source "$PWD/out/previous-source"
+          python scripts/run_windows_base_ci.py --inputs "$PWD/out/inputs" --output "$PWD/out/windows" --installer --previous-source "$PWD/out/previous-source" --recovery
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Publish actual validation summary
         if: always()

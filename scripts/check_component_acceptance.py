@@ -34,7 +34,7 @@ def main():
                                 'test_models','test_desktop','test_help_ui','test_core','test_pdf_pipeline'],
                'C03-windows-ci':['test_windows_ci','test_bundled_ocr','test_minimal_native','test_native_assets','test_build_profile','test_diagnostics','test_packaging_profiles','test_license_inventory',
                                  'test_pdf_pipeline.PdfPipelineTests.test_utf8_language_probe_and_real_ocr_with_cp1252_default'],
-               'C11-installer':['test_base_upgrade','test_base_installer','test_windows_ci','test_bundled_ocr','test_minimal_native','test_native_assets','test_build_profile','test_diagnostics','test_packaging_profiles','test_license_inventory',
+               'C11-installer':['test_base_recovery','test_base_upgrade','test_base_installer','test_windows_ci','test_bundled_ocr','test_minimal_native','test_native_assets','test_build_profile','test_diagnostics','test_packaging_profiles','test_license_inventory',
                                  'test_pdf_pipeline.PdfPipelineTests.test_utf8_language_probe_and_real_ocr_with_cp1252_default'],
                'C03-bundle':['test_bundled_ocr','test_build_profile','test_diagnostics','test_languages','test_onboarding','test_settings','test_component_migration','test_models','test_desktop','test_help_ui','test_core','test_pdf_pipeline'],
                'C03-minimal-source':['test_minimal_native','test_native_assets','test_build_profile','test_diagnostics','test_packaging_profiles','test_license_inventory'],

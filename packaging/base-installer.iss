@@ -35,6 +35,7 @@ Compression=lzma2/fast
 SolidCompression=yes
 WizardStyle=modern
 UsePreviousAppDir=yes
+SetupMutex=MarkItDownBasePreviewInstaller
 DisableProgramGroupPage=yes
 CloseApplications=yes
 RestartApplications=no
@@ -45,7 +46,7 @@ SetupLogging=yes
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "{#BundleDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#BundleDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; AfterInstall: BaseFileInstalled
 
 [Icons]
 Name: "{userprograms}\MarkItDown Base Preview"; Filename: "{app}\MarkItDownBase.exe"; WorkingDir: "{app}"
@@ -54,8 +55,11 @@ Name: "{userprograms}\MarkItDown Base Preview"; Filename: "{app}\MarkItDownBase.
 
 [Code]
 var
-  ObsoleteNames, ObsoleteHashes, AddedNames, TargetNames, ObsoleteDirectories: TStringList;
-  IsTransition: Boolean;
+  ObsoleteNames, ObsoleteHashes, AddedNames, TargetNames, TargetHashes, ObsoleteDirectories: TStringList;
+  IsTransition, IsRecovery, ResumeConsent: Boolean;
+#ifdef CiFaultInjection
+  FaultFired: Boolean;
+#endif
 
 #include TransitionRules
 
@@ -77,71 +81,21 @@ begin
   Result := True;
 end;
 
-function PrepareToInstall(var NeedsRestart: Boolean): String;
-var
-  InstalledVersion, InstalledDir, CatalogPath, Name, RelativeName: String;
-  InstalledPacked, TargetPacked: Int64;
-  I: Integer;
-  Found: TFindRec;
+#include "base-recovery-code.iss"
+
+function CheckObsoleteState: String;
+var I: Integer; Name, RelativeName: String; Found: TFindRec;
 begin
   Result := '';
-  IsTransition := False;
-  if not SafeAncestors(WizardDirValue) then begin
-    Result := 'Installation path contains a reparse point.'; exit;
-  end;
-  // 每個目標檔的父鏈也要檢查，避免 _internal 等子目錄被 junction 替換。
-  for I := 0 to TargetNames.Count - 1 do begin
-    Name := AddBackslash(WizardDirValue) + TargetNames[I];
-    if not SafeAncestors(Name) or DirExists(Name) then begin
-      Result := 'A target file path is linked or replaced with a directory.'; exit;
-    end;
-  end;
-  if not RegKeyExists(HKCU64, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{DB61BCA4-7678-4BEA-9140-27B548460D75}_is1') then begin
-    if FileExists(AddBackslash(WizardDirValue) + 'base-install-catalog.json') or
-       FileExists(AddBackslash(WizardDirValue) + 'MarkItDownBase.exe') then
-      Result := 'An unregistered installation already exists. Select a fresh directory.';
-    exit;
-  end;
-  if not RegQueryStringValue(HKCU64, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{DB61BCA4-7678-4BEA-9140-27B548460D75}_is1', 'DisplayVersion', InstalledVersion) or
-     not RegQueryStringValue(HKCU64, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{DB61BCA4-7678-4BEA-9140-27B548460D75}_is1', 'InstallLocation', InstalledDir) then begin
-    Result := 'Existing registration is incomplete.'; exit;
-  end;
-  if CompareText(AddBackslash(ExpandFileName(InstalledDir)), AddBackslash(ExpandFileName(WizardDirValue))) <> 0 then begin
-    Result := 'Upgrade and repair must use the registered installation directory.'; exit;
-  end;
-  if not StrToVersion(InstalledVersion, InstalledPacked) or not StrToVersion('{#AppVersion}', TargetPacked) then begin
-    Result := 'Existing version is invalid.'; exit;
-  end;
-  // 降版必須明確指定；此為已知版本重新安裝，不宣稱中斷時可自動交易回復。
-  if (ComparePackedVersion(InstalledPacked, TargetPacked) > 0) and
-     (ExpandConstant('{param:ALLOWDOWNGRADE|0}') <> '1') then begin
-    Result := 'Downgrade blocked. Explicit /ALLOWDOWNGRADE=1 is required.'; exit;
-  end;
-  CatalogPath := AddBackslash(WizardDirValue) + 'base-install-catalog.json';
-  if not SafeAncestors(CatalogPath) or not FileExists(CatalogPath) then begin
-    Result := 'Existing catalog is missing or linked.'; exit;
-  end;
-  if InstalledVersion = '{#AppVersion}' then begin
-    if CompareText(GetSHA256OfFile(CatalogPath), TargetCatalogHash) <> 0 then
-      Result := 'Same-version catalog differs from this build. Repair with the matching installer.';
-    exit;
-  end;
-  if (InstalledVersion <> PreviousVersion) or
-     (CompareText(GetSHA256OfFile(CatalogPath), PreviousCatalogHash) <> 0) then begin
-    Result := 'This installer has no verified transition from the installed build.'; exit;
-  end;
-  // 新版新增的受管路徑若已被未知檔案占用，不能把使用者文件直接覆寫成程式資產。
-  for I := 0 to AddedNames.Count - 1 do
-    if FileExists(AddBackslash(WizardDirValue) + AddedNames[I]) then begin
-      Result := 'A new application path is occupied by an untracked file.'; exit;
-    end;
   // 只容許移除已知前版且 hash 未變的 obsolete 檔；有使用者修改就先停止，不遞迴刪目錄。
   for I := 0 to ObsoleteNames.Count - 1 do begin
     Name := AddBackslash(WizardDirValue) + ObsoleteNames[I];
     if not SafeAncestors(Name) then begin Result := 'Obsolete path contains a reparse point.'; exit; end;
     if DirExists(Name) then begin Result := 'Obsolete file was replaced with a directory.'; exit; end;
-    if FileExists(Name) and (CompareText(GetSHA256OfFile(Name), ObsoleteHashes[I]) <> 0) then begin
-      Result := 'Obsolete owned file changed. Back it up before upgrading.'; exit;
+    if FileExists(Name) then begin
+      if CompareText(GetSHA256OfFile(Name), ObsoleteHashes[I]) <> 0 then begin
+        Result := 'Obsolete owned file changed. Back it up before upgrading.'; exit;
+      end;
     end;
   end;
   // 空 dist-info 也會干擾 Python 版本解析；只移除已知舊目錄，若有未知內容則先拒絕升級。
@@ -166,12 +120,96 @@ begin
       end;
     end;
   end;
-  IsTransition := True;
+end;
+
+function PrepareToInstall(var NeedsRestart: Boolean): String;
+var
+  InstalledVersion, InstalledDir, CatalogPath, Name: String;
+  InstalledPacked, TargetPacked: Int64;
+  I: Integer;
+begin
+  Result := '';
+  IsTransition := False;
+  Result := RecoveryIntentError;
+  if Result <> '' then exit;
+  if not SafeAncestors(WizardDirValue) then begin
+    Result := 'Installation path contains a reparse point.'; exit;
+  end;
+  // 每個目標檔的父鏈也要檢查，避免 _internal 等子目錄被 junction 替換。
+  for I := 0 to TargetNames.Count - 1 do begin
+    Name := AddBackslash(WizardDirValue) + TargetNames[I];
+    if not SafeAncestors(Name) or DirExists(Name) then begin
+      Result := 'A target file path is linked or replaced with a directory.'; exit;
+    end;
+  end;
+  if not RegKeyExists(HKCU64, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{DB61BCA4-7678-4BEA-9140-27B548460D75}_is1') then begin
+    if IsRecovery then begin
+      Result := CheckObsoleteState;
+      IsTransition := PreviousVersion <> '';
+      exit;
+    end;
+    if FileExists(AddBackslash(WizardDirValue) + 'base-install-catalog.json') or
+       FileExists(AddBackslash(WizardDirValue) + 'MarkItDownBase.exe') then
+      Result := 'An unregistered installation already exists. Select a fresh directory.';
+    // 初裝意圖只能宣告空閒的程式路徑；未知文件不可因為沒有 registry 就被納為受管檔案。
+    for I := 0 to TargetNames.Count - 1 do
+      if FileExists(AddBackslash(WizardDirValue) + TargetNames[I]) then begin
+        Result := 'An unregistered application path contains existing data. Select a fresh directory.'; exit;
+      end;
+    exit;
+  end;
+  if not RegQueryStringValue(HKCU64, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{DB61BCA4-7678-4BEA-9140-27B548460D75}_is1', 'DisplayVersion', InstalledVersion) or
+     not RegQueryStringValue(HKCU64, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{DB61BCA4-7678-4BEA-9140-27B548460D75}_is1', 'InstallLocation', InstalledDir) then begin
+    Result := 'Existing registration is incomplete.'; exit;
+  end;
+  if CompareText(AddBackslash(ExpandFileName(InstalledDir)), AddBackslash(ExpandFileName(WizardDirValue))) <> 0 then begin
+    Result := 'Upgrade and repair must use the registered installation directory.'; exit;
+  end;
+  if not StrToVersion(InstalledVersion, InstalledPacked) or not StrToVersion('{#AppVersion}', TargetPacked) then begin
+    Result := 'Existing version is invalid.'; exit;
+  end;
+  if IsRecovery then begin
+    if (InstalledVersion <> '{#AppVersion}') and (InstalledVersion <> PreviousVersion) then begin
+      Result := 'Registered version does not match this recovery intent.'; exit;
+    end;
+  end else begin
+  // 降版必須明確指定；此為已知版本重新安裝，不宣稱中斷時可自動交易回復。
+  if (ComparePackedVersion(InstalledPacked, TargetPacked) > 0) and
+     (ExpandConstant('{param:ALLOWDOWNGRADE|0}') <> '1') then begin
+    Result := 'Downgrade blocked. Explicit /ALLOWDOWNGRADE=1 is required.'; exit;
+  end;
+  CatalogPath := AddBackslash(WizardDirValue) + 'base-install-catalog.json';
+  if not SafeAncestors(CatalogPath) or not FileExists(CatalogPath) then begin
+    Result := 'Existing catalog is missing or linked.'; exit;
+  end;
+  if InstalledVersion = '{#AppVersion}' then begin
+    if CompareText(GetSHA256OfFile(CatalogPath), TargetCatalogHash) <> 0 then
+      Result := 'Same-version catalog differs from this build. Repair with the matching installer.';
+    exit;
+  end;
+  if (InstalledVersion <> PreviousVersion) or
+     (CompareText(GetSHA256OfFile(CatalogPath), PreviousCatalogHash) <> 0) then begin
+    Result := 'This installer has no verified transition from the installed build.'; exit;
+  end;
+  // 新版新增的受管路徑若已被未知檔案占用，不能把使用者文件直接覆寫成程式資產。
+  for I := 0 to AddedNames.Count - 1 do
+    if FileExists(AddBackslash(WizardDirValue) + AddedNames[I]) then begin
+      Result := 'A new application path is occupied by an untracked file.'; exit;
+    end;
+  end;
+  Result := CheckObsoleteState;
+  if Result <> '' then exit;
+  IsTransition := PreviousVersion <> '';
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
 var I: Integer; Name: String;
 begin
+  if CurStep = ssInstall then begin
+    WriteRecoveryIntent;
+    RecoveryCheckpoint('intent');
+  end;
+  if CurStep = ssPostInstall then RecoveryCheckpoint('payload-written');
   if (CurStep = ssPostInstall) and IsTransition then begin
     for I := 0 to ObsoleteNames.Count - 1 do begin
       Name := AddBackslash(WizardDirValue) + ObsoleteNames[I];
@@ -190,6 +228,7 @@ begin
       end;
     end;
   end;
+  if CurStep = ssPostInstall then FinishRecoveryIntent;
 end;
 
 procedure InitializeWizard;
@@ -198,6 +237,7 @@ begin
   ObsoleteHashes := TStringList.Create;
   AddedNames := TStringList.Create;
   TargetNames := TStringList.Create;
+  TargetHashes := TStringList.Create;
   ObsoleteDirectories := TStringList.Create;
   PopulateObsolete;
 end;

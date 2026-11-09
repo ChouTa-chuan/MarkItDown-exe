@@ -9,6 +9,7 @@ from desktop_app.native_assets import file_hash
 
 CATALOG = 'base-install-catalog.json'
 ENTRY = 'MarkItDownBase.exe'
+PENDING = '.markitdown-install.pending'
 APP_ID = '{DB61BCA4-7678-4BEA-9140-27B548460D75}'
 MAX_FILES = 20000
 
@@ -28,7 +29,7 @@ def validate(document):
     seen=set()
     for item in records:
         name=relative_path(item['path'])
-        if (name.casefold() in seen or name.casefold()==CATALOG or re.fullmatch(r'unins\d{3}\..*',name,re.I)
+        if (name.casefold() in seen or name.casefold() in (CATALOG,PENDING,PENDING+'.new') or re.fullmatch(r'unins\d{3}\..*',name,re.I)
                 or type(item['bytes']) is not int or not 0<=item['bytes']<=128*1024**2
                 or not re.fullmatch('[0-9a-f]{64}',item['sha256'])):
             raise ValueError('清單有重複、保留名稱或不合法的 digest／size。')
@@ -72,7 +73,7 @@ def verify(directory,expected,*,allowed_extras=None,installed=False):
     extras=allowed_extras or {}
     for name,(digest,size) in extras.items():
         relative_path(name)
-        if name.casefold() in names or name.casefold()==CATALOG:raise ValueError('額外檔案不可覆蓋受管契約。')
+        if name.casefold() in names or name.casefold() in (CATALOG,PENDING,PENDING+'.new'):raise ValueError('額外檔案不可覆蓋受管契約。')
         verify_file(directory/name,size,digest)
     for path in directory.rglob('*'):
         _chain(path)
@@ -88,7 +89,7 @@ def assert_managed_removed(directory,expected):
     """移除以受管檔案為準；不能要求使用者留在安裝目錄的文件一併被刪除。"""
     directory=Path(directory)
     validate(expected)
-    for name in [CATALOG,*[item['path'] for item in expected['files']]]:
+    for name in [CATALOG,PENDING,PENDING+'.new',*[item['path'] for item in expected['files']]]:
         path=directory/name
         _chain(path)
         if path.exists():raise ValueError('受管檔案仍存在：'+name)

@@ -18,7 +18,7 @@ from desktop_app.components.registry import _chain
 from desktop_app.native_assets import file_hash
 
 ROOT = Path(__file__).resolve().parents[1]
-PREVIOUS_COMMIT = '43cf811356a7616b784cba09191afdfcb52e16a7'
+PREVIOUS_COMMIT = '990e600aed9e26011b77d46dfe5f9e5bb13ecc7a'
 
 
 def check(bundle, previous_bundle, previous_source, setup, work, reports, *, iscc=None):
@@ -84,10 +84,10 @@ def check(bundle, previous_bundle, previous_source, setup, work, reports, *, isc
     try:
         observed = subprocess.run(['git', '-C', str(previous_source), 'rev-parse', 'HEAD'],
                                   capture_output=True, text=True, check=True, timeout=20).stdout.strip()
-        if observed != PREVIOUS_COMMIT: raise ValueError('Previous source must be the pinned real 0.15 commit')
+        if observed != PREVIOUS_COMMIT: raise ValueError('Previous source must be the pinned real 0.16 commit')
         old, new = [json.loads((p/CATALOG).read_text(encoding='utf-8')) for p in (previous_bundle, bundle)]
         verify(previous_bundle, old); verify(bundle, new)
-        if old['app_version'] != '0.15.0' or Version.parse(old['app_version']) >= Version.parse(new['app_version']):
+        if old['app_version'] != '0.16.0' or Version.parse(old['app_version']) >= Version.parse(new['app_version']):
             raise ValueError('Use a genuine earlier app version, not a relabeled current payload')
         result.update(source_version=new['app_version'], previous_version=old['app_version'], previous_commit=observed)
         for label, path in [('previous', previous_bundle/CATALOG), ('target', bundle/CATALOG)]:
@@ -98,8 +98,16 @@ def check(bundle, previous_bundle, previous_source, setup, work, reports, *, isc
         result['target_setup_sha256'] = file_hash(setup)[0]
         # 初次安裝用前版原始 .iss；回復用明確標示的新相容安裝器，payload 仍為真正前版。
         original_dir, rollback_dir = work/'previous-original', work/'previous-compatible'
+        # 原版 .iss 必須配原版 generator，不可把新版新增的 Pascal 變數塞進舊版編譯契約。
+        original_rules=work/'previous-original-rules.iss'
+        prepare_code=('import sys,json;from pathlib import Path;sys.path.insert(0,sys.argv[1]);'
+                      'from base_install_transition import write_rules;'
+                      'write_rules(Path(sys.argv[2]),Path(sys.argv[3]),json.loads(Path(sys.argv[4]).read_text(encoding="utf-8")))')
+        call('previous-original-rules',[sys.executable,'-c',prepare_code,previous_source/'scripts',
+                                      original_rules,previous_bundle,previous_bundle/CATALOG])
         call('compile-previous-original', [compiler, '/DBundleDir='+str(previous_bundle),
-             '/DOutputDir='+str(original_dir), '/DAppVersion='+old['app_version'], previous_source/'packaging/base-installer.iss'])
+             '/DOutputDir='+str(original_dir), '/DAppVersion='+old['app_version'],
+             '/DTransitionRules='+str(original_rules),previous_source/'packaging/base-installer.iss'])
         rollback_rules = work/'rollback-rules.iss'
         result['rollback_rules'] = write_rules(rollback_rules, previous_bundle, old, bundle, new)
         call('compile-previous-compatible', [compiler, '/DBundleDir='+str(previous_bundle),
@@ -120,7 +128,7 @@ def check(bundle, previous_bundle, previous_source, setup, work, reports, *, isc
         call('install-previous', [previous_setup, *flags, '/DIR='+str(install), '/LOG='+str(reports/'previous-inno.log')])
         note.write_bytes(b'KEEP UNKNOWN DOCUMENT THROUGH UPGRADE AND ROLLBACK'); expected_user[note] = file_hash(note)
         full_acceptance('previous-acceptance', old)
-        result['checks'].append('Original 0.15 installer and actual old application pass ten installed checks')
+        result['checks'].append('Original 0.16 installer and actual old application pass ten installed checks')
         # 真正破壞一個將被移除的舊檔，再還原 catalog；拒絕時不能偷偷覆寫其他前版 bytes。
         obsolete = plan(new, old)['obsolete_files']
         if not obsolete: raise RuntimeError('Fixture must include a real removed owned file between builds')

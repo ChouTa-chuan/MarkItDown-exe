@@ -312,6 +312,17 @@
       "archived_at": "2026-11-09",
       "architecture_scope": "0.4 C11 actual hosted basic-profile cross-version; all profiles pending",
       "derived": false
+    },
+    {
+      "file": "versions/v0.4-base-recovery-preparation.md",
+      "title": "基本包安裝程序中斷續修準備",
+      "diagram_sha256": "7a33c7974f59c3864a2b5b1b313138d761360dafc3c4a166f3b24ed23c1a2de4",
+      "file_sha256": "f96658121d1da5bc69df167d7d39f9f3a050e8451a298ba7a637d53029d5fc0e",
+      "source_kind": "current_development",
+      "source_version": "0.17.0",
+      "archived_at": "2026-11-09",
+      "architecture_scope": "0.4 C11 interrupted process explicit resume preparation; Windows pending",
+      "derived": false
     }
   ],
   "updated_at": "2026-11-09"

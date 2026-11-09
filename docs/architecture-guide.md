@@ -285,3 +285,5 @@ C01／C02／C05／C06／C07／C08／C10 已完成。C03／C04 的完整門檻仍
 0.16.0：新增可信source差異規則與基本包跨版升級／明確回復CI；固定0.15原source獨立建置，未知build／catalog、改位置與未指定降版拒絕，僅刪hash未變的過期受管檔。Windows真實結果待CI，不當作自動失敗回滾／全profile或完整C11。
 
 0.16.0 實測更新：Windows基本包兩份真source之升級／明確前版重裝、各式拒絕控制與資料保留11段通過，原版／升級／回復app各10項。原C11四項細分五項，分開基本包與各profile；各profile仍待，C11為2/5，整體7/12；非中斷自動回滾、乾淨機／人工或標準帳戶完成。
+
+0.17.0：新增固定payload hash的intent／原位置明確續修、全hash後清標記及frozen啟動阻擋；三停點CI-only變體配一般Setup恢復，Windows實測待另記。前版0.16原spec／generator分開，非自動失敗回滾、斷電／重啟或各profile完成，C11仍2/5／完整7/12。

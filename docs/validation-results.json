@@ -1,16 +1,16 @@
 {
-  "recorded_at": "2026-11-09T03:52:29.648856+00:00",
+  "recorded_at": "2026-11-09T06:22:56.170462+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 579,
-    "passed": 578,
+    "run": 591,
+    "passed": 590,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0,
-    "method": "33 isolated module subprocesses, all normal exit0; mixed teardown remains open"
+    "method": "34 module subprocesses; all assertions completed but Qt management exited -11 after 23 passing assertions, so overall accepted=false"
   },
-  "command": "python scripts/check_isolated_tests.py --expected-count 579 --output <fresh-directory>",
+  "command": "python scripts/check_isolated_tests.py --expected-count 591 --output <fresh-directory>",
   "native_prerequisites": [
     "Tesseract 5.5.0",
     "verified chi_tra + eng data",
@@ -882,7 +882,22 @@
       "faulthandler_enabled": true
     },
     "cause": "Not established; one occurrence, not claimed resolved by a passing retry",
-    "scope": "Linux complete test process; no claim about a Windows product crash"
+    "scope": "Linux complete test process; no claim about a Windows product crash",
+    "latest_module_failure": {
+      "module": "test_component_management",
+      "assertions_passed": 23,
+      "exit_code": -11,
+      "full_regression_accepted": false,
+      "evidence": "development-records/runs/c11-recovery-prep-2026-11-09/isolated-regression/test_component_management.log"
+    },
+    "latest_module_retry": {
+      "module": "test_component_management",
+      "run": 23,
+      "observed_process_exit": 0,
+      "root_cause_fixed": false,
+      "full_regression_accepted": false,
+      "evidence": "development-records/runs/c11-recovery-prep-2026-11-09/management-retry.log"
+    }
   },
   "latest_mixed_suite": {
     "run": 555,
@@ -894,19 +909,30 @@
   },
   "isolated_regression": {
     "scope": "Actual per-module normal subprocess exits; mixed native shutdown remains a separate open issue",
-    "source_version": "0.16.0",
-    "modules": 33,
-    "run": 579,
-    "passed": 578,
+    "source_version": "0.17.0",
+    "modules": 34,
+    "run": 591,
+    "passed": 590,
     "expected_failures": [
       "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
     ],
-    "accepted": true,
-    "all_child_exits_zero": true,
+    "accepted": false,
+    "all_child_exits_zero": false,
     "records": [
       {
         "module": "test_base_installer",
         "run": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_base_recovery",
+        "run": 12,
         "failures": 0,
         "errors": 0,
         "skipped": 0,
@@ -990,7 +1016,7 @@
         "expected_failures": [],
         "unexpected_successes": 0,
         "tests_reported_success": true,
-        "process_exit": 0
+        "process_exit": -11
       },
       {
         "module": "test_component_migration",
@@ -1518,5 +1544,20 @@
       "report_artifact_retention_days": 7,
       "scope": "Actual basic-profile cross-version reinstall and explicit previous-payload recovery on hosted Windows; original previous installer and new compatibility installer are distinct; no interruption rollback, all-profile or clean-machine acceptance"
     }
+  },
+  "base_recovery_ci": {
+    "source_version": "0.17.0",
+    "previous_version": "0.16.0",
+    "previous_commit": "990e600aed9e26011b77d46dfe5f9e5bb13ecc7a",
+    "local_tests": 177,
+    "new_tests": 12,
+    "local_contract_accepted": true,
+    "windows_executed": false,
+    "validation_accepted": false,
+    "power_loss_accepted": false,
+    "automatic_failure_rollback": false,
+    "all_profiles_accepted": false,
+    "full_c11_complete": false,
+    "evidence": "development-records/runs/c11-recovery-prep-2026-11-09/README.md"
   }
 }

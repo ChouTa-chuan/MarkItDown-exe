@@ -40,7 +40,7 @@ def registration():
         try:
             with winreg.OpenKey(winreg.HKEY_CURRENT_USER,name,0,winreg.KEY_READ|view) as key:
                 values={}
-                for value in ['InstallLocation','Inno Setup: App Path','DisplayVersion']:
+                for value in ['InstallLocation','Inno Setup: App Path','DisplayVersion','UninstallString']:
                     try:values[value]=winreg.QueryValueEx(key,value)[0]
                     except FileNotFoundError:pass
                 records.append(values)

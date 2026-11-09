@@ -55,6 +55,8 @@
 
 第二十六份：[基本包真跨版本升級／明確回復實測](versions/v0.4-base-upgrade-ci.md)，保存hosted基本profile已驗與全profile／中斷恢復／乾淨機仍待。
 
+第二十七份：[基本包安裝程序中斷續修準備](versions/v0.4-base-recovery-preparation.md)，保存intent／三停點與一般Setup續修待驗範圍。
+
 ## 保存規則
 
 - 已存圖檔保留固定內容；下次架構變更新增另一份版本快照，再補索引與 CHANGELOG。

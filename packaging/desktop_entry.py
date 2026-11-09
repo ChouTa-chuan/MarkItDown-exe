@@ -2,8 +2,21 @@
 import multiprocessing
 import sys
 
+
+def installation_incomplete(executable, frozen):
+    """來源模式不受安裝標記影響；打包模式在任何核心匯入前阻擋半套程式。"""
+    if not frozen:return False
+    from pathlib import Path
+    return any((Path(executable).parent/name).exists() or (Path(executable).parent/name).is_symlink()
+               for name in ('.markitdown-install.pending','.markitdown-install.pending.new'))
+
+
 if __name__ == "__main__":
     multiprocessing.freeze_support()
+    # 尚未修復的安裝不能進入診斷／轉換；只檢查本程式目錄，不讀取使用者文件。
+    if installation_incomplete(sys.executable,getattr(sys,'frozen',False)):
+        print('安裝尚未完成，請重新執行原安裝程式完成修復。',file=sys.stderr)
+        raise SystemExit(3)
     if '--self-test' in sys.argv:
         sys.argv.remove('--self-test')
         from desktop_app.diagnostics import main

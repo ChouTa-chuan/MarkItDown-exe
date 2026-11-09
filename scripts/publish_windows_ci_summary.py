@@ -23,6 +23,8 @@ def publish_annotation(records, tails):
                  'obsolete_files_removed','all_profiles_accepted','automatic_failure_rollback',
                  'upgraded_app_checks','rolled_back_app_checks','previous_commit')
         keys += ('failed_step',)
+        keys += ('recovery_accepted','interruption_cases','resumed_app_checks','process_termination_verified',
+                 'pending_app_blocked','explicit_resume_required','power_loss_accepted','test_only_fault_installer')
         return {key: value[:250] if isinstance(value, str) else value
                 for key, value in record.items() if key in keys}
     payload = dict(result=brief(result))
@@ -32,6 +34,8 @@ def publish_annotation(records, tails):
         payload['installer'] = brief(records['installer/installer-lifecycle.json'])
     if 'upgrade/upgrade-lifecycle.json' in records:
         payload['upgrade'] = brief(records['upgrade/upgrade-lifecycle.json'])
+    if 'recovery/recovery-lifecycle.json' in records:
+        payload['recovery'] = brief(records['recovery/recovery-lifecycle.json'])
     if not accepted:
         commands = result.get('commands', [])
         last = commands[-1].get('label', '') if commands and isinstance(commands[-1], dict) else ''
@@ -51,6 +55,13 @@ def publish_annotation(records, tails):
             if str(upgrade.get('error','')).startswith(('CalledProcessError','TimeoutExpired')):
                 candidates.append('upgrade/'+inner_upgrade+'.log')
             candidates.append('upgrade/driver-error.log')
+        recovery=records.get('recovery/recovery-lifecycle.json',{})
+        if recovery and not recovery.get('accepted'):
+            failed=recovery.get('failed_step','')
+            candidates=['recovery/'+failed+'/driver-error.log']
+            if str(recovery.get('error','')).startswith(('CalledProcessError','TimeoutExpired')):
+                candidates.append('recovery/'+failed+'.log')
+            candidates.append('recovery/driver-error.log')
         if command_failure:candidates.append('installer/'+inner+'.log')
         candidates += ['installer/driver-error.log','acceptance/driver-error.log', last+'.log']
         selected = next((name for name in candidates if name in tails), next(reversed(tails), ''))
@@ -86,7 +97,7 @@ def main():
                  'acceptance/core-self-test.json','acceptance/full-self-test.json',
                  'acceptance/relocated-self-test.json','installer/installer-lifecycle.json',
                  'upgrade/upgrade-lifecycle.json','previous-build/windows-build.json',
-                 'previous-build/acceptance/windows-acceptance.json']:
+                 'previous-build/acceptance/windows-acceptance.json','recovery/recovery-lifecycle.json']:
         path = args.reports/name
         if path.is_file():
             if path.stat().st_size > 512*1024:

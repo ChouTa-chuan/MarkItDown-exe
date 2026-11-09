@@ -56,14 +56,16 @@ def write_rules(path, target_directory, target, previous_directory=None, previou
              '  TargetCatalogHash = ' + literal(rules['target_catalog_sha256']) + ';',
              '  PreviousVersion = ' + literal(rules['previous_version']) + ';',
              '  PreviousCatalogHash = ' + literal(rules['previous_catalog_sha256']) + ';',
+             '  RecoveryToken = '+literal('v1|'+rules['target_catalog_sha256']+'|'+rules['previous_catalog_sha256'])+';',
              'procedure PopulateObsolete;', 'begin']
     for item in rules['obsolete_files']:
         lines += ['  ObsoleteNames.Add(' + literal(item['path'].replace('/', '\\')) + ');',
                   '  ObsoleteHashes.Add(' + literal(item['sha256']) + ');']
     for name in rules['added_paths']:
         lines.append('  AddedNames.Add(' + literal(name.replace('/', '\\')) + ');')
-    for name in rules['target_paths']:
-        lines.append('  TargetNames.Add(' + literal(name.replace('/', '\\')) + ');')
+    for item in target['files']:
+        lines += ['  TargetNames.Add(' + literal(item['path'].replace('/', '\\')) + ');',
+                  '  TargetHashes.Add(' + literal(item['sha256']) + ');']
     for name in rules['obsolete_directories']:
         lines.append('  ObsoleteDirectories.Add(' + literal(name.replace('/', '\\')) + ');')
     lines += ['end;', '']
