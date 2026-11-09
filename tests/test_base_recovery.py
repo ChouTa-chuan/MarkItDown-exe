@@ -125,5 +125,36 @@ class BaseRecoveryTests(unittest.TestCase):
         value=json.loads(output.getvalue().split('::')[-1]);self.assertEqual(value['recovery']['interruption_cases'],3)
         self.assertFalse(value['recovery']['power_loss_accepted']);self.assertFalse(value['recovery']['full_c11_complete'])
 
+    def test_inno_backup_receipt_requires_exact_known_bytes_and_preserves_file(self):
+        candidate=self.bundle/'is-ABC123XYZ0.tmp';candidate.write_bytes(b'verified prior application bytes')
+        fingerprint=catalog.file_hash(candidate)
+        extras,receipts=recovery.verified_inno_temporaries(self.bundle,{fingerprint:'verified prior source'},{'.'})
+        self.assertEqual(extras,{candidate.name:fingerprint})
+        self.assertEqual(receipts[0]['verified_origin'],'verified prior source');self.assertTrue(receipts[0]['preserved'])
+        self.assertEqual(catalog.file_hash(candidate),fingerprint)
+        catalog.verify(self.bundle,self.document,installed=True,allowed_extras=extras)
+
+    def test_unknown_or_changed_inno_named_file_is_never_silently_exempted(self):
+        candidate=self.bundle/'is-ABC123XYZ0.tmp';candidate.write_bytes(b'unknown user document')
+        with self.assertRaisesRegex(ValueError,'Unowned temporary'):
+            recovery.verified_inno_temporaries(self.bundle,{}, {'.'})
+        known={catalog.file_hash(candidate):'synthetic registered uninstaller'}
+        candidate.write_bytes(b'changed after ownership receipt')
+        with self.assertRaises(ValueError):recovery.verified_inno_temporaries(self.bundle,known,{'.'})
+        self.assertEqual(candidate.read_bytes(),b'changed after ownership receipt')
+        digest,size=catalog.file_hash(candidate)
+        observation={candidate.name:dict(sha256=digest,bytes=size,pid=41,stage='first-file')}
+        extra,_=recovery.verified_inno_temporaries(self.bundle,{}, {'.'},observation)
+        self.assertEqual(extra[candidate.name],(digest,size))
+        candidate.rename(self.bundle/'is-DIFFERENT9.tmp')
+        with self.assertRaises(ValueError):recovery.verified_inno_temporaries(self.bundle,{}, {'.'},observation)
+
+    def test_backup_in_unknown_parent_or_reparse_path_is_rejected(self):
+        parent=self.bundle/'untracked';parent.mkdir();candidate=parent/'is-ABC123XYZ0.tmp';candidate.write_bytes(b'known bytes')
+        with self.assertRaisesRegex(ValueError,'directory'):
+            recovery.verified_inno_temporaries(self.bundle,{catalog.file_hash(candidate):'prior source'},{'.'})
+        candidate.unlink();candidate.symlink_to(self.bundle/catalog.ENTRY)
+        with self.assertRaises(RuntimeError):recovery.verified_inno_temporaries(self.bundle,{}, {'.','untracked'})
+
 
 if __name__=='__main__':unittest.main()

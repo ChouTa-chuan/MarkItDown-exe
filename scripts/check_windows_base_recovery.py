@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 import json
 import os
 import re
-from pathlib import Path
+from pathlib import Path,PurePosixPath
 import subprocess
 import sys
 import traceback
@@ -19,6 +19,26 @@ from desktop_app.native_assets import file_hash
 
 ROOT=Path(__file__).resolve().parents[1]
 STAGES=('intent','first-file','payload-written')
+
+
+def verified_inno_temporaries(directory,known,parents,created=None):
+    """只核對並保留已知程式 bytes 的 Inno 殘留，不以 is-*.tmp 通配就放行或刪除。"""
+    directory=Path(directory);extras={};receipts=[]
+    for path in directory.rglob('*'):
+        _chain(path)
+        if not path.is_file() or not re.fullmatch(r'is-[a-z0-9]{6,16}\.tmp',path.name,re.I):continue
+        relative=path.relative_to(directory).as_posix()
+        if str(PurePosixPath(relative).parent) not in parents:
+            raise ValueError('Unexpected temporary directory: '+relative)
+        digest,size=file_hash(path)
+        origin=known.get((digest,size))
+        observation=(created or {}).get(relative)
+        if origin is None and observation and (observation['sha256'],observation['bytes'])==(digest,size):
+            origin='new name observed at owned installer checkpoint; pid='+str(observation['pid'])+', stage='+observation['stage']
+        if origin is None:raise ValueError(f'Unowned temporary {relative}, bytes={size}, sha256={digest}')
+        extras[relative]=(digest,size)
+        receipts.append(dict(path=relative,sha256=digest,bytes=size,verified_origin=origin,preserved=True))
+    return extras,receipts
 
 
 def registered_uninstaller(install,records):
@@ -53,10 +73,11 @@ def check(bundle, previous_bundle, setup, previous_setup, work, reports, *, iscc
         explicit_resume_required=False,user_data_preserved=False,power_loss_accepted=False,
         all_profiles_accepted=False,automatic_failure_rollback=False,full_c11_complete=False,
         clean_machine_accepted=False,release_ready=False,test_only_fault_installer=True,
-        interruption_cases=0,resumed_app_checks=[],terminations=[],checks=[],commands=[])
+        interruption_cases=0,resumed_app_checks=[],terminations=[],creation_receipts=[],temporary_receipts=[],
+        retained_inno_temporaries=0,temporary_cleanup_complete=False,checks=[],commands=[])
     install=work/'中文 中斷續修'/'MarkItDownBase';note=install/'使用者保留文件.txt'
     fixture=known_folder(0x1c)/'MarkItDownDesktop/MarkItDownDesktop'/('resume-probe-'+uuid.uuid4().hex)
-    user={};installed=False;new=old=None;active=None
+    user={};installed=False;new=old=None;active=None;known={};parents={'.'};created={}
 
     def call(label,argv,*,allow_failure=False,environment=None):
         result['commands'].append(dict(label=label,argv=list(map(str,argv))))
@@ -72,7 +93,10 @@ def check(bundle, previous_bundle, setup, previous_setup, work, reports, *, iscc
             if file_hash(path)!=expected:raise RuntimeError('Synthetic user data changed')
 
     def installed_state(expected):
-        verify(install,expected,installed=True,allowed_extras={note.name:user[note]})
+        extras,receipts=verified_inno_temporaries(install,known,parents,created)
+        verify(install,expected,installed=True,allowed_extras={note.name:user[note],**extras})
+        result['temporary_receipts']=receipts
+        result['retained_inno_temporaries']=len(receipts)
         if (install/PENDING).exists() or (install/(PENDING+'.new')).exists():raise RuntimeError('Pending state was not cleared')
         records=registration()
         if not records or not shortcut.is_file():raise RuntimeError('Registration/shortcut missing after recovery')
@@ -80,12 +104,21 @@ def check(bundle, previous_bundle, setup, previous_setup, work, reports, *, iscc
             path=row.get('InstallLocation',row.get('Inno Setup: App Path',''))
             if Path(path).resolve()!=install.resolve() or row.get('DisplayVersion')!=expected['app_version']:
                 raise RuntimeError('Recovered registration path/version differs')
+        current_uninstaller=registered_uninstaller(install,records)
+        for suffix in ('.exe','.dat','.msg'):
+            sidecar=current_uninstaller.with_suffix(suffix)
+            if sidecar.is_file():
+                _chain(sidecar);known[file_hash(sidecar)]='verified registered Inno metadata '+expected['app_version']+':'+sidecar.name
         user_unchanged()
 
     flags=['/VERYSILENT','/SUPPRESSMSGBOXES','/NORESTART','/SP-','/DIR='+str(install)]
     try:
         new,old=[json.loads((p/CATALOG).read_text(encoding='utf-8')) for p in (bundle,previous_bundle)]
         verify(bundle,new);verify(previous_bundle,old)
+        for document in (old,new):
+            for item in document['files']:
+                known[(item['sha256'],item['bytes'])]='verified source '+document['app_version']+':'+item['path']
+                parents.update(str(p) for p in PurePosixPath(item['path']).parents)
         rules=work/'fault-rules.iss';transition=write_rules(rules,bundle,new,previous_bundle,old)
         result.update(source_version=new['app_version'],previous_version=old['app_version'],
                       target_setup_sha256=file_hash(setup)[0])
@@ -106,10 +139,17 @@ def check(bundle, previous_bundle, setup, previous_setup, work, reports, *, iscc
                 installed=True
                 call(stage+'-previous-install',[previous_setup,*flags,'/LOG='+str(reports/(stage+'-previous-inno.log'))])
                 installed_state(old)
+                # Inno 自己生成的解除安裝器不屬於 payload；在破壞前先從受限HKCU入口記錄其真實bytes。
+                prior_uninstaller=registered_uninstaller(install,registration())
+                for suffix in ('.exe','.dat','.msg'):
+                    sidecar=prior_uninstaller.with_suffix(suffix)
+                    if sidecar.is_file():
+                        _chain(sidecar);known[file_hash(sidecar)]='registered Inno metadata before '+stage+':'+sidecar.name
             signal=work/(stage+'-ready.txt')
             argv=[fault,*flags,'/CISTOP='+stage,'/CISIGNAL='+str(signal),'/LOG='+str(reports/(stage+'-fault-inno.log'))]
             result['commands'].append(dict(label=stage+'-fault-process',argv=list(map(str,argv))))
             installed=True
+            before={p.relative_to(install).as_posix() for p in install.rglob('*') if p.is_file()}
             with (reports/(stage+'-process.log')).open('wb') as log:
                 active=subprocess.Popen(list(map(str,argv)),cwd=ROOT,stdout=log,stderr=subprocess.STDOUT)
                 def ready():
@@ -117,6 +157,8 @@ def check(bundle, previous_bundle, setup, previous_setup, work, reports, *, iscc
                     return signal.is_file() and signal.read_text(encoding='ascii')==stage
                 wait_until(ready,timeout=120)
                 if (install/PENDING).read_bytes()!=token:raise RuntimeError('Committed recovery intent missing at interruption')
+                observed={p.relative_to(install).as_posix() for p in install.rglob('*')
+                          if p.is_file() and re.fullmatch(r'is-[a-z0-9]{6,16}\.tmp',p.name,re.I)}
                 # 只終止自己啟動、且已完成握手的 bootstrap 與 Setup 子程序樹，不按名稱掃描或終止其他程序。
                 pid=active.pid
                 call(stage+'-terminate-owned-tree',['taskkill','/PID',str(pid),'/T','/F'])
@@ -124,6 +166,17 @@ def check(bundle, previous_bundle, setup, previous_setup, work, reports, *, iscc
                 if code==0:raise RuntimeError('Interruption did not produce a nonzero process exit')
                 result['terminations'].append(dict(stage=stage,pid=pid,returncode=code,owned_tree=True))
                 active=None
+            # Inno 會先抽出尚未提交的新 uninstaller，bytes 不一定等於任何已登錄版本。
+            # 只有操作前不存在、在自己握手停點已看見的名稱，才於終止後讀取並綁定路徑／hash。
+            # 不能在續修後才把任意新 .tmp 當成合法，也不刪除任何暫存候選。
+            for name in observed-before:
+                path=install/name;_chain(path)
+                if str(PurePosixPath(name).parent) not in parents:raise ValueError('Unexpected generated temp parent')
+                digest,size=file_hash(path)
+                created[name]=dict(path=name,sha256=digest,bytes=size,pid=pid,stage=stage,
+                                   setup_sha256=result['fault_setup_sha256'],absent_before=True,observed_before_termination=True)
+                result['creation_receipts'].append(created[name])
+            if (install/PENDING).read_bytes()!=token:raise RuntimeError('Interrupted intent disappeared after actual process termination')
             user_unchanged()
             if stage=='intent':
                 if any((install/item['path']).is_file() for item in new['files']):raise RuntimeError('Intent stop ran after payload copy')
@@ -162,6 +215,8 @@ def check(bundle, previous_bundle, setup, previous_setup, work, reports, *, iscc
                 assert_managed_removed(install,new)
                 return not registration() and not shortcut.exists() and not uninstaller.exists()
             wait_until(removed);installed=False;user_unchanged()
+            _,remaining=verified_inno_temporaries(install,known,parents,created)
+            result['temporary_receipts']=remaining;result['retained_inno_temporaries']=len(remaining)
             result['interruption_cases']+=1
             result['checks'].append('Actual owned process-tree termination and normal-installer resume passes ten app checks: '+stage)
         result['process_termination_verified']=True;result['user_data_preserved']=True;result['accepted']=True

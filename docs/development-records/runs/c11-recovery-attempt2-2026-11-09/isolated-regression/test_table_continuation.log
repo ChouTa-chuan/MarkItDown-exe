@@ -1,0 +1,24 @@
+test_changed_columns_are_not_linked (test_table_continuation.ContinuationRulesTests.test_changed_columns_are_not_linked) ... ok
+test_changed_header_is_not_linked (test_table_continuation.ContinuationRulesTests.test_changed_header_is_not_linked) ... ok
+test_header_without_body_is_not_linked (test_table_continuation.ContinuationRulesTests.test_header_without_body_is_not_linked) ... ok
+test_intervening_prose_is_not_linked (test_table_continuation.ContinuationRulesTests.test_intervening_prose_is_not_linked) ... ok
+test_matching_header_and_geometry (test_table_continuation.ContinuationRulesTests.test_matching_header_and_geometry) ... ok
+test_numeric_first_row_is_not_assumed_to_be_header (test_table_continuation.ContinuationRulesTests.test_numeric_first_row_is_not_assumed_to_be_header) ... ok
+test_only_page_number_lines_are_ignored (test_table_continuation.ContinuationRulesTests.test_only_page_number_lines_are_ignored) ... ok
+test_skipped_page_is_not_linked (test_table_continuation.ContinuationRulesTests.test_skipped_page_is_not_linked) ... ok
+test_table_away_from_boundary_is_not_linked (test_table_continuation.ContinuationRulesTests.test_table_away_from_boundary_is_not_linked) ... ok
+test_blank_page_resets_candidate (test_table_continuation.CrossPagePDFTests.test_blank_page_resets_candidate) ... ok
+test_borderless_changed_geometry_or_header_not_linked (test_table_continuation.CrossPagePDFTests.test_borderless_changed_geometry_or_header_not_linked) ... ok
+test_borderless_continuation_preserves_headers_and_rows (test_table_continuation.CrossPagePDFTests.test_borderless_continuation_preserves_headers_and_rows) ... ok
+test_borderless_new_section_blocks_continuation (test_table_continuation.CrossPagePDFTests.test_borderless_new_section_blocks_continuation) ... ok
+test_different_column_geometry_not_linked (test_table_continuation.CrossPagePDFTests.test_different_column_geometry_not_linked) ... ok
+test_different_header_not_linked (test_table_continuation.CrossPagePDFTests.test_different_header_not_linked) ... ok
+test_multiple_top_tables_not_linked (test_table_continuation.CrossPagePDFTests.test_multiple_top_tables_not_linked) ... ok
+test_new_section_blocks_link (test_table_continuation.CrossPagePDFTests.test_new_section_blocks_link) ... ok
+test_possible_continuation_preserves_both_headers_and_rows (test_table_continuation.CrossPagePDFTests.test_possible_continuation_preserves_both_headers_and_rows) ... ok
+test_sparse_borderless_continuation_preserves_empty_cells (test_table_continuation.CrossPagePDFTests.test_sparse_borderless_continuation_preserves_empty_cells) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.322s
+
+OK

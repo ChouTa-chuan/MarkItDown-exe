@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-09",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
-  "tests_passed": 590,
-  "headline": "0.17程序中斷續修工具已接，Windows三停點待驗；完整7/12",
+  "tests_passed": 593,
+  "headline": "中斷1案已驗，第二案Inno暫存收據已補、待Windows重驗；完整7/12",
   "blocker": "Windows中斷續修待三停點；各profile／乾淨機／人工另驗。Linux Qt管理23項全過後exit -11、單獨補驗exit0，整輪未接受；ONNX品質／GPU／RAM限制保留。",
   "next": "真正Windows在三停點終止自己Setup程序樹，匹配一般Setup明確續修及各10項app／資料保留。",
   "milestones": [
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 590 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 593 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -254,7 +254,7 @@
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
     "Linux 555 項採31模組正常退出；混合程序完成斷言後曾native teardown exit139，根因未定位。"
   ],
-  "tests_run": 591,
+  "tests_run": 594,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -516,7 +516,7 @@
         "title": "安裝程序中斷續修",
         "state": "partial",
         "detail": "固定hash intent／匹配一般Setup明確續修／全hash後清標記及frozen啟動阻擋；待Windows三停點。",
-        "evidence": "本地新增12／相關177，34模組591斷言、Qt管理退出 -11仍追蹤；不是斷電／自動回滾或全profile。"
+        "evidence": "新增15／相關180接受；594斷言但Qt退出-11整輪未接受。Windows中斷1/3，精確產物收據待重驗。"
       }
     ]
   },

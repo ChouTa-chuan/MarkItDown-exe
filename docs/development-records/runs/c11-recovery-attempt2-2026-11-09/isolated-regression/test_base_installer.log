@@ -1,0 +1,18 @@
+test_actual_files_roundtrip_and_no_overwrite (test_base_installer.BaseInstallerTests.test_actual_files_roundtrip_and_no_overwrite) ... ok
+test_case_alias_escape_and_reserved_metadata_are_rejected (test_base_installer.BaseInstallerTests.test_case_alias_escape_and_reserved_metadata_are_rejected) ... ok
+test_installer_failure_cannot_be_hidden_by_successful_folder_validation (test_base_installer.BaseInstallerTests.test_installer_failure_cannot_be_hidden_by_successful_folder_validation) ... ok
+test_installer_metadata_exception_is_explicit (test_base_installer.BaseInstallerTests.test_installer_metadata_exception_is_explicit) ... ok
+test_links_and_replacement_parent_are_rejected (test_base_installer.BaseInstallerTests.test_links_and_replacement_parent_are_rejected) ... ok
+test_linux_guard_never_installs_queries_registry_or_creates_reports (test_base_installer.BaseInstallerTests.test_linux_guard_never_installs_queries_registry_or_creates_reports) ... ok
+test_missing_changed_and_extra_files_are_rejected (test_base_installer.BaseInstallerTests.test_missing_changed_and_extra_files_are_rejected) ... ok
+test_modified_installed_catalog_is_not_a_new_trust_root (test_base_installer.BaseInstallerTests.test_modified_installed_catalog_is_not_a_new_trust_root) ... ok
+test_new_inno_identity_is_separate_and_has_no_recursive_deletion (test_base_installer.BaseInstallerTests.test_new_inno_identity_is_separate_and_has_no_recursive_deletion) ... ok
+test_profile_and_package_versions_cannot_diverge (test_base_installer.BaseInstallerTests.test_profile_and_package_versions_cannot_diverge) ... ok
+test_real_utf16_inno_log_is_readable_in_summary (test_base_installer.BaseInstallerTests.test_real_utf16_inno_log_is_readable_in_summary) ... ok
+test_uninstall_must_remove_every_owned_file (test_base_installer.BaseInstallerTests.test_uninstall_must_remove_every_owned_file) ... ok
+test_unknown_user_file_is_preserved_and_cannot_override_owned_file (test_base_installer.BaseInstallerTests.test_unknown_user_file_is_preserved_and_cannot_override_owned_file) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.060s
+
+OK

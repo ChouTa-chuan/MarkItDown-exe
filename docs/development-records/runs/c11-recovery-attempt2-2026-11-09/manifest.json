@@ -1,0 +1,492 @@
+{
+  "schema_version": 1,
+  "source_version": "0.17.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-09",
+  "check": "C11-temporary-ownership-receipts",
+  "mechanism_accepted": false,
+  "full_c11_complete": false,
+  "scope": "Linux相關180接受，全594斷言完成但Qt管理退出-11，整輪未接受且補驗不抹除；第二輪Windows中斷1案已接受、第二案額外暫存拒絕；收據修正待實跑，非斷電／自動回滾／全profile或發行",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1964,
+      "sha256": "feb3b5f87db84c6cc044b8b1d9099d93c5402ce50806dabc77d3a51fd0b2ab6c",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 3164,
+      "sha256": "626f0be029b16309b970c97d774d605e8b4615e8ec4306f1c45709405d7e2b82",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/summary.json",
+      "bytes": 9067,
+      "sha256": "2566bd025de1ac555f21e20c22eb592f94e5061f8043932bf3ed2499f1e6d742",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_installer.json",
+      "bytes": 189,
+      "sha256": "c373c0e29a9cc8c8ed0de2d8d49282529221267c3e8514ae0766bd2fe1eff0b2",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_installer.log",
+      "bytes": 2153,
+      "sha256": "ed6874fd8cdb2f62f2a4b64c1b0059fffdb9b298e7ca3c8d8c9772e2c46b19dd",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_recovery.json",
+      "bytes": 188,
+      "sha256": "0fa86fa3e949401cbe2d257be32f9f3e522d937369737338dcf51cc37f8f0814",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_recovery.log",
+      "bytes": 2721,
+      "sha256": "b4a118be6721558cbb0e9c7c65289bc05e5d766f975148efc2ffa3460c75c608",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_upgrade.json",
+      "bytes": 187,
+      "sha256": "861deb83b51d4b8fdf8804d3a7891e75d5335c374571963c56873453263b7be1",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_base_upgrade.log",
+      "bytes": 2057,
+      "sha256": "f8b7ac96cebae1726ab8020867b860f9c7ae399767666702eb18a8e957d80626",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_borderless.json",
+      "bytes": 185,
+      "sha256": "6b9be17e89ca6db4a135a99a96bd8110564cc60529452fbe74ffe2d144366c93",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_borderless.log",
+      "bytes": 2053,
+      "sha256": "1076e1c826715811ae095a5f5922b40f5848ef70687e819623be3e1a720d8c74",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_build_profile.json",
+      "bytes": 188,
+      "sha256": "11c00d1448720f97abbc5d298323b78fdeccee8b33d74e548d1ba38a2a1c17ff",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_build_profile.log",
+      "bytes": 2257,
+      "sha256": "24129c2aea5537dd639909fca55dfd2494d7193f68e998e767264990e6c61496",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_bundled_ocr.json",
+      "bytes": 186,
+      "sha256": "680b9c1c91c6d74883a09b0a127205a9dee78bbb76e7a9529c80469981b4f204",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_bundled_ocr.log",
+      "bytes": 3835,
+      "sha256": "5b99c7283bff041398b2c8cf65c85e41ee19d5c79f9a7412601338a626d40524",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_downloads.json",
+      "bytes": 194,
+      "sha256": "d12b09adf4c28c16e88669f8771c8629843970a030bdf902a10dea753d0fdf57",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_downloads.log",
+      "bytes": 6645,
+      "sha256": "ddab2d37b6a6e589f375dee4f175a1302514f2a1c18fb612e900f416800a451d",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_lifecycle.json",
+      "bytes": 194,
+      "sha256": "bd764b822063ebe25f8bdd1217af2aa9849015ff5c564c6b3e1812c88aa5d8f8",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_lifecycle.log",
+      "bytes": 8564,
+      "sha256": "78fd958e59bb745112d5b3a7c6b453ed22adf872a27d5f8c568eb68c07445532",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_management.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_management.log",
+      "bytes": 4257,
+      "sha256": "7c8c463c4a7c85565a6c0f3d71200da819a375810da4756bd7bbeec201a25512",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_migration.json",
+      "bytes": 194,
+      "sha256": "13a39638064053a789eaeda453cfdc9b19de10ad885a82aed0c97cabce80e3db",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_migration.log",
+      "bytes": 5094,
+      "sha256": "6dd4d7e5446f0311e2efc347553175e8844b562ee4e754b1b35a69b262688d87",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_workers.json",
+      "bytes": 192,
+      "sha256": "56cb2b7d43be4e4d49c89fb22df03b7d7f822a3098131907530c23952f21aadf",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_workers.log",
+      "bytes": 3537,
+      "sha256": "57ce85d1842da34ce1088b6f7ced7f2f4ed6db1589432c092fbc6c0f9be1cda4",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_components.json",
+      "bytes": 185,
+      "sha256": "c85c5b436760aef9bfaa5e5c1adb5c4ff9a1ec547713caa57e5235e00a02ef1f",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_components.log",
+      "bytes": 6943,
+      "sha256": "0a564131f211ceba056e8fc247adc4919eb7ba048e3f8053ad8f2432fbd04138",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_core.json",
+      "bytes": 179,
+      "sha256": "a93d8007bf356996f386d0fdd566a8dbafdedf75de9f17a77a102f6f84df3aff",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_core.log",
+      "bytes": 1743,
+      "sha256": "48db55060c0c51d08e668703ff753011e8e61efa05e9037738c64bee62ef37b5",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_desktop.json",
+      "bytes": 182,
+      "sha256": "e8a2827f9ff901fe5c1fe902d287c9a963d2a73c47068bb24ee5dda4c5030d2d",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_desktop.log",
+      "bytes": 1494,
+      "sha256": "e589c3b021c660ab032dfeb367ad275ab1dd2c3395981a5409577be422d5fecf",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_devices.json",
+      "bytes": 181,
+      "sha256": "ff3fd557fc6150e23395a0398240e500795dcd8d436246fbbc373f23d509b135",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_devices.log",
+      "bytes": 1000,
+      "sha256": "db1520b5520f61e052aa91f3ecf7837e4a68518a66e0c26db1cf16651e1be7ed",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_diagnostics.json",
+      "bytes": 185,
+      "sha256": "b2861c84efecd4ad7910775db50667c210cb5cb2a3eeaf25f2138cfca8e369b5",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_diagnostics.log",
+      "bytes": 1054,
+      "sha256": "347ddc1526ab9aaf4d9ef5fb0ca30787a7e56cd14d3b5879b39a88a63b382f7b",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_formats.json",
+      "bytes": 181,
+      "sha256": "9515426c7ccac2d340b1c5dac050cdbfd1e9847f9aaf22d7c5e92073dce58b2f",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_formats.log",
+      "bytes": 1166,
+      "sha256": "f7b61eb2da9ccea8e10b37775a57c10bb496aa3a6f55395802723dd1519897ae",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_help_ui.json",
+      "bytes": 181,
+      "sha256": "13dfa63fe7cbacc513fc70a12a960b59fb35e453bc92715e1a35387e822bdb0c",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_help_ui.log",
+      "bytes": 382,
+      "sha256": "2c2b3df1754bb3ea21da6f24312a957a5299c7aab356ee0bef54bf8247e18a4e",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_languages.json",
+      "bytes": 184,
+      "sha256": "e3fd996b21ff058c7c59ea07c20a61a6a5bf587c7c3f6c66ae4095526e7e1aa1",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_languages.log",
+      "bytes": 2774,
+      "sha256": "80ea8f42442c66ed59fc6e784df733f8dab17fe3ed54f448b52ce871b8488391",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_license_inventory.json",
+      "bytes": 191,
+      "sha256": "b1a9356652eb8e0023ef53080e145388f88d6b91935f2b0e6af53e001967ca50",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_license_inventory.log",
+      "bytes": 1169,
+      "sha256": "bf3f49a38769422545200ef188f3804bc88bd9017e2d1ca4b06fd2a3963d51a5",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_managed_conversion.json",
+      "bytes": 193,
+      "sha256": "9ae2a6a0d0b6e05082293be94b3ae18ddd74167822f4de2a27152755f0e4cab7",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_managed_conversion.log",
+      "bytes": 3431,
+      "sha256": "ca1ce61f9dc3e27c82447f8365edb428d7ce9edd9dc98abd23252708356b3cc9",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_minimal_native.json",
+      "bytes": 189,
+      "sha256": "e8e00accf3cc3f0734f53eb29e2743b087d75711a2b94c94bf7968c87633c3bf",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_minimal_native.log",
+      "bytes": 3501,
+      "sha256": "2a759329ea78f85b1d6f79f1bfef82854192ecc6c3f8be2eaf6595b680c968e6",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_models.json",
+      "bytes": 180,
+      "sha256": "5ea2901d74bcf159d9aec9c2f46258a8b471dee4e18dfa6cf598c26aa696df90",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_models.log",
+      "bytes": 942,
+      "sha256": "044eee7f7a406ddf4368761e28201f004129b38aec727092417f5812f300f689",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_native_assets.json",
+      "bytes": 188,
+      "sha256": "cdda65f9c7b92c362f6a653f345b05a348c4f93fe4e8c9bbef2d2334efb1520b",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_native_assets.log",
+      "bytes": 2734,
+      "sha256": "af79b43dcc0c2016d73eab67eba68cf02ca3a0009c57551614f7c281f83fafc1",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onboarding.json",
+      "bytes": 185,
+      "sha256": "135c04d454c22c30bc5298d4d71d9a6dae994a3b2e179b584389e83550a71076",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onboarding.log",
+      "bytes": 3436,
+      "sha256": "db92d3bc8becd85322566e8018c53a91843a5d80beba21c85a02bbf1500d6eba",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onnx_ocr.json",
+      "bytes": 270,
+      "sha256": "5473748ad45f88fe92de41c8afe686dcf8f6be10ffca08cde4199a369ab3147c",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onnx_ocr.log",
+      "bytes": 1765,
+      "sha256": "88914a3277b5f2f7e0aca65ffdc26e7d557fb141f68573e0bd59dd364298955b",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_packaging_profiles.json",
+      "bytes": 193,
+      "sha256": "9a12514d89a19c4509ada37eb816bc371212b83160e35e1993de09ec684d777a",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_packaging_profiles.log",
+      "bytes": 2227,
+      "sha256": "eec9561458c90adab0f8350028077ceb189d43cdc0050e07e8c21af11c2874b4",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_acceptance.json",
+      "bytes": 188,
+      "sha256": "14153a32f1234b4ba0d99a57e0be06449d6241bfa555f301a63fe13a6119144c",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_acceptance.log",
+      "bytes": 918,
+      "sha256": "8db8a8987d0c6a39af0cc91b6e25a89126d2809e7c3245711190f98738ca0aca",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_pipeline.json",
+      "bytes": 187,
+      "sha256": "17635e630af495493d6167553bd28f55fb8c788c6fa481cc67526f70f36fd946",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_pipeline.log",
+      "bytes": 2690,
+      "sha256": "f6b8284a6f4ff82d2926a23bfa8bd0f70de62b5492e9c37a7b53f675cbbd8d11",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_quality.json",
+      "bytes": 181,
+      "sha256": "272db2627acbad3414e199b77a81d36f62b6e6f761312de1777eb6bf47312e83",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_quality.log",
+      "bytes": 764,
+      "sha256": "4639e441fbb18ea579a4f77c3eed8c9cca337d04c7d9254a8f2a1c4060cc02b1",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_settings.json",
+      "bytes": 183,
+      "sha256": "9da3a4a911fefbec1b221b6a8ee1c7fec4674929c0f66aace7a100b715dbc51d",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_settings.log",
+      "bytes": 1408,
+      "sha256": "fdb65bf792bf319a76e6c382f643281043cba454e9f84c0894d5122abe069c35",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_table_continuation.json",
+      "bytes": 193,
+      "sha256": "ed43e12cfdb956325de422e4ed4bb11bdd73cf1abd16bae01104e1900e237213",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_table_continuation.log",
+      "bytes": 2703,
+      "sha256": "469079eadfd4f888ea516694914599b68aabe59ec78e6fa9b58922aab86ba3ce",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_tables.json",
+      "bytes": 180,
+      "sha256": "5f020394fbbfa32326a3c3cf52fe2add764b14a13c47f0ed675d5d4c1592673a",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_tables.log",
+      "bytes": 875,
+      "sha256": "59a7fad60baaef9e28bdf4a52db459b63832d0e0447283475b6132eb695ad431",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_windows_ci.json",
+      "bytes": 185,
+      "sha256": "76413b62e9ab37e86829061d7dec3b940ff34e5145a3678a8d967c882bc47d3f",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_windows_ci.log",
+      "bytes": 4085,
+      "sha256": "6ef412d49436a5bc0b5c16df4209032fa249a44fadd28725e8108fbd90155f6f",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "isolated-regression.log",
+      "bytes": 332,
+      "sha256": "ca7a9abe41425e1f0d657a285a2c2a247b2ee4cd9bcae539c8d29ef311b04cfe",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "official-source-reference.json",
+      "bytes": 2313,
+      "sha256": "39d2e83293436b0869c24fecf4a385bae5f54223fa5fb4c369e83b839d9db430",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "provenance.json",
+      "bytes": 559,
+      "sha256": "91d5c1ab65974f61d285dbe830ff728111aab7deaa2b30fac4f93c14f678615f",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "public-diagnostic.json",
+      "bytes": 4200,
+      "sha256": "48e2a97e097ef93a99dccb152661be3c99a0758d87a993fe86ff108566f4d15a",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "receipt-final-acceptance.json",
+      "bytes": 17804,
+      "sha256": "20df17d049fa797bdd58faafde4ea689896bc57bf31f325831bc1200f302edce",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "receipt-final-acceptance.log",
+      "bytes": 27015,
+      "sha256": "0d28bb1ea3bf640d4b6c220f97fc35d313bb44ac9461754dfc51e1451cad4469",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "receipt-initial-acceptance.json",
+      "bytes": 17804,
+      "sha256": "c8464369e84d8d9c3f9c7c4cbb707f5050927c7725e7b67354ba99f3727d46bb",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "receipt-initial-acceptance.log",
+      "bytes": 27015,
+      "sha256": "1b0b72779747328c9619511d849623a53c05dc060e05f9d332cadb5fa7591d4a",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 182965,
+      "sha256": "c9cbebc8a849790ca0f0b8fcab8be1a7049de05ea3b3755f6d543b6ae0764c68",
+      "source": "Linux中斷續修契約177、591斷言含Qt原生退出失敗與單獨23項補驗、舊generator子程序與離線進度截圖；無使用者文件"
+    }
+  ]
+}

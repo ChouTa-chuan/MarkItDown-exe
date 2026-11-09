@@ -18,3 +18,5 @@
 中斷後Inno可能改變unins編號；驗收只使用本次HKCU登錄中、位於受管app目錄的uninsNNN.exe，不從命令字串執行其他參數或猜測固定unins000。舊過期檔遭修改／目錄有未知內容時仍先停止，沒有遞迴刪除資料或自動失敗回滾。各profile、中斷解除安裝、乾淨機／標準帳戶／人工UI／GPU及最終發行另驗。
 
 [準備與本地原始紀錄](development-records/runs/c11-recovery-prep-2026-11-09/README.md)。前版固定990e600（0.16），原controller／spec／generator獨立建置；只保證本輪已知兩份payload，未知舊build不擴大相容宣稱。完整CI報告七天保留，僅公開摘要可另封存，Setup不入Git、不建立Release。
+
+暫存產物收據修正：Windows中斷可能留下新uninstaller等opaque .tmp。驗收只接受已驗source／已登錄metadata的精確hash，或操作前不存在且在自己握手停點已觀察、終止後續修前綁定path／hash／size／PID的建立收據。未知、改變或不在已知父目錄的檔案不能憑is-*.tmp名稱放行；只保留、不盲目刪除。完整暫存清理另列未完成，payload hash、marker、app10項與資料保留標準不放寬。

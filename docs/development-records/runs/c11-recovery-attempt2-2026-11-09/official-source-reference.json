@@ -1,0 +1,19 @@
+{
+  "url": "https://raw.githubusercontent.com/jrsoftware/issrc/31ee6e35383c530cca8f047216045d3f61ca8be1/Projects/Src/Setup.Install.pas",
+  "source_commit": "31ee6e35383c530cca8f047216045d3f61ca8be1",
+  "scope": "Official algorithm reference only, not compiler binary source attribution or observed contents of the inaccessible CI temporary file",
+  "excerpts": [
+    {
+      "search": "TempFile := GenerateUniqueName",
+      "excerpt": "ory if it didn't already exist. }\n      LastOperation := SetupMessages[msgErrorCreatingTemp];\n      TempFile := GenerateUniqueName(PathExtractPath(DestFile), '.tmp');\n      Flags := [];\n      if foUninsNeverUninstall in CurFile^.Options then Include(Flags, mdNoUninstall);\n      if foDeleteAfterInstall in CurFile^.Options then Include(Flags, mdDeleteAfterInstall);\n      MakeDir(UninstLog, PathExtractDir(TempFile), Flags);\n      DestF := TFile.Create(TempFile, fdCreateAlways, faReadWrite, fsNone);\n      try\n        TempFileLeftOver := True;\n     "
+    },
+    {
+      "search": "procedure RenameUninstallExe",
+      "excerpt": "\n    end;\n  raise Exception.Create(FmtSetupMessage1(msgErrorTooManyFilesInDir,\n    BaseDir));\nend;\n\nprocedure RenameUninstallExe(var UninstallTempExeFilename: String);\nbegin\n  { If the uninstall EXE wasn't extracted to a .tmp file because it isn't\n    replacing an existing uninstall EXE, exit. }\n  if UninstallTempExeFilename = '' then\n    Exit;\n  Log('Renaming uninstaller.');\n  var Timer: TOneShotTimer;\n  const CapturableUninstallTempExeFilename = UninstallTempExeFilename;\n  PerformFileOperationWithRetries(4, False,\n    function(out LastError: "
+    },
+    {
+      "search": "RenameUninstallExe(UninstallTempExeFilename)",
+      "excerpt": "ext(SetupMessages[msgStatusSavingUninstall]);\n        Log('Saving uninstall information.');\n        RenameUninstallExe(UninstallTempExeFilename);\n        UninstallMsgCreated := CreateUninstallMsgFile(UninstallExeCreated, UninstallMsgFilename);\n        { Register uninstall information so the program can be uninstalled\n          through the Add/Remove Programs Control Panel applet. This is done\n          on NT 3.51 too, so that the uninstall entry for the app will appear\n          if the user later upgrades to NT 4.0+. }\n        if EvalDirectiveC"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+test_docx_heading_and_table (test_formats.FormatTests.test_docx_heading_and_table) ... [0;93m2026-11-09 07:03:25.011560395 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+ok
+test_html_structure (test_formats.FormatTests.test_html_structure) ... [0;93m2026-11-09 07:03:27.079690822 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+ok
+test_pptx_title_and_content (test_formats.FormatTests.test_pptx_title_and_content) ... [0;93m2026-11-09 07:03:28.372670236 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+ok
+test_text_pdf (test_formats.FormatTests.test_text_pdf) ... ok
+test_xlsx_sheet_and_values (test_formats.FormatTests.test_xlsx_sheet_and_values) ... [0;93m2026-11-09 07:03:30.269578455 [W:onnxruntime:Default, telemetry_1ds.cc:600 operator()] Failed to persist telemetry device ID; using an in-memory identifier[m
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 6.911s
+
+OK

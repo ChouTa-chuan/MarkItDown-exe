@@ -1,0 +1,18 @@
+{
+  "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42574395753",
+  "source_commit": "f84f7fc7ddb60a3f4a805390e70aec6e5132789c",
+  "source_version": "0.17.0",
+  "date_taipei": "2026-11-09",
+  "workflow_conclusion": "failure",
+  "base_checks": 10,
+  "installer_checks": 6,
+  "cross_version_checks": 11,
+  "interruption_cases_accepted": 1,
+  "resumed_app_checks": [
+    10
+  ],
+  "full_c11_complete": false,
+  "temporary_content_downloaded": false,
+  "complete_report_artifact_downloaded": false,
+  "report_artifact_retention_days": 7
+}

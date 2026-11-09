@@ -37,6 +37,8 @@
 
 ## 0.17.0 — 2026-11-09
 
+第二輪安裝6／跨版11及中斷1案通過，第二案因額外Inno.tmp被拒；補精確hash與自己程序建立的新名稱收據，不用通配排除或刪除未知文件，保留產物並明列清理未完成。[原始失敗與180相關／594斷言](docs/development-records/runs/c11-recovery-attempt2-2026-11-09/README.md)。
+
 第一次Windows基本包10項通過，Inno引入檔註解誤用分號造成BEGIN expected；已改Pascal //待重驗。[原始失敗](docs/development-records/runs/c11-recovery-attempt1-2026-11-09/README.md)保存，未先計中斷接受。
 
 相對0.16.0新增安裝程序中斷後明確續修，架構0.4；Windows真實結果待CI，C11仍2/5、完整7/12／歷史19/25。

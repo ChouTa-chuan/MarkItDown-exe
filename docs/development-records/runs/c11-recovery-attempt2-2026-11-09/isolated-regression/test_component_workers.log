@@ -1,0 +1,28 @@
+test_actual_cpu_model_health_in_a_separate_process (test_component_workers.NativeCPUProcessTests.test_actual_cpu_model_health_in_a_separate_process) ... ok
+test_child_guard_blocks_lifecycle_even_without_parent_lease (test_component_workers.NativeCPUProcessTests.test_child_guard_blocks_lifecycle_even_without_parent_lease) ... ok
+test_invalid_image_failure_leaves_no_output (test_component_workers.NativeCPUProcessTests.test_invalid_image_failure_leaves_no_output) ... ok
+test_parent_channel_eof_stops_native_worker_and_releases_its_guard (test_component_workers.NativeCPUProcessTests.test_parent_channel_eof_stops_native_worker_and_releases_its_guard) ... ok
+test_backpressure_pauses_then_resumes (test_component_workers.ProcessTests.test_backpressure_pauses_then_resumes) ... ok
+test_batch_failure_does_not_block_next_job (test_component_workers.ProcessTests.test_batch_failure_does_not_block_next_job) ... ok
+test_cancel_cooperative_and_unresponsive_worker (test_component_workers.ProcessTests.test_cancel_cooperative_and_unresponsive_worker) ... ok
+test_closed_child_pipe_during_cleanup_preserves_failure_and_cleans_workspace (test_component_workers.ProcessTests.test_closed_child_pipe_during_cleanup_preserves_failure_and_cleans_workspace) ... ok
+test_existing_destination_and_original_source_are_preserved (test_component_workers.ProcessTests.test_existing_destination_and_original_source_are_preserved) ... ok
+test_handshake_timeout_and_premature_exit_are_bounded (test_component_workers.ProcessTests.test_handshake_timeout_and_premature_exit_are_bounded) ... ok
+test_invalid_runtime_limits_are_rejected (test_component_workers.ProcessTests.test_invalid_runtime_limits_are_rejected) ... ok
+test_prestart_cancel_does_not_spawn (test_component_workers.ProcessTests.test_prestart_cancel_does_not_spawn) ... ok
+test_prestart_low_ram_does_not_spawn (test_component_workers.ProcessTests.test_prestart_low_ram_does_not_spawn) ... ok
+test_real_process_protocol_and_atomic_output (test_component_workers.ProcessTests.test_real_process_protocol_and_atomic_output) ... ok
+test_runtime_pressure_expires_and_reaps_worker (test_component_workers.ProcessTests.test_runtime_pressure_expires_and_reaps_worker) ... ok
+test_stdout_and_stderr_flood_are_bounded (test_component_workers.ProcessTests.test_stdout_and_stderr_flood_are_bounded) ... ok
+test_total_timeout_and_completed_but_hanging_worker_fail (test_component_workers.ProcessTests.test_total_timeout_and_completed_but_hanging_worker_fail) ... ok
+test_unfrozen_process_cannot_claim_independent_runtime (test_component_workers.ProcessTests.test_unfrozen_process_cannot_claim_independent_runtime) ... ok
+test_wrong_version_job_digest_escape_symlink_and_tail_are_rejected (test_component_workers.ProcessTests.test_wrong_version_job_digest_escape_symlink_and_tail_are_rejected) ... ok
+test_gpu_or_wrong_runtime_identity_is_not_a_cpu_handshake (test_component_workers.ProtocolTests.test_gpu_or_wrong_runtime_identity_is_not_a_cpu_handshake) ... ok
+test_oversize_truncated_duplicate_future_and_nonfinite_frames_rejected (test_component_workers.ProtocolTests.test_oversize_truncated_duplicate_future_and_nonfinite_frames_rejected) ... ok
+test_request_paths_limits_and_unknown_fields_rejected (test_component_workers.ProtocolTests.test_request_paths_limits_and_unknown_fields_rejected) ... ok
+test_round_trip_valid_control (test_component_workers.ProtocolTests.test_round_trip_valid_control) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 16.437s
+
+OK
