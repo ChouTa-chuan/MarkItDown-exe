@@ -1,5 +1,8 @@
 # 開發進度
 
+2026-11-10 最新：**0.17.2 Windows CI自有中斷產物清理3/3已驗**，實際清1份／殘留0，真鎖檔拒絕及未知文件保留；[原始紀錄](development-records/runs/temporary-cleanup-ci-2026-11-10/README.md)。基本app10／安裝6／跨版11／三續修各10也通過。只清本次CI自身產物，普通Setup未增加外部收據或通配入口；C11仍2/5、完整7/12，乾淨機／全profile／人工／GPU另驗。下方保留階段狀態。
+
+
 2026-11-09 最新：**0.17.2新增CI自身中斷產物的受限清理，Windows待實跑**。本地14／相關39，全611（610＋1既有品質預期失敗）混合與36模組exit0；[準備紀錄](development-records/runs/temporary-cleanup-prep-2026-11-09/README.md)／[邊界](temporary-cleanup-ci.md)。0.17.1 Windows基線已通過，但不能代替新清理；C11仍2/5、完整7/12。
 
 

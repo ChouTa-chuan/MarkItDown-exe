@@ -1,0 +1,20 @@
+{
+  "previous_committed_record_files_unchanged": 2628,
+  "previous_architecture_snapshots_unchanged": 28,
+  "architecture_snapshots_verified": 28,
+  "locked_requirements_unchanged": 7,
+  "original_license_asset_files_unchanged": 221,
+  "previous_product_data_files_unchanged": 233,
+  "traditional_quality_fixture_and_old_health_unchanged": 4,
+  "relative_markdown_links_verified": 213,
+  "baseline_commit": "a40f438",
+  "source_version": "0.17.2",
+  "completed_date_taipei": "2026-11-10",
+  "check": "CI-owned-temporary-cleanup-accepted",
+  "linux_full_regression_accepted": true,
+  "windows_executed_this_revision": true,
+  "gpu_executed": false,
+  "full_c11_complete": false,
+  "temporary_cleanup_complete": true,
+  "temporary_cleanup_scope": "ci-owned-fault-installer-artifacts"
+}

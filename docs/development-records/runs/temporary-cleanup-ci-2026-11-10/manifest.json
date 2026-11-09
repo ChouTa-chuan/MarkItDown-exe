@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "source_version": "0.17.2",
+  "architecture_version": "0.4",
+  "record_date_taipei": "2026-11-10",
+  "check": "CI-owned-temporary-cleanup-accepted",
+  "mechanism_accepted": true,
+  "temporary_cleanup_scope": "ci-owned-fault-installer-artifacts",
+  "full_c11_complete": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2171,
+      "sha256": "af7ae347079b8488ac1c7ff32e7bd20e2b08bcc34a04e1003f2cc53fb8e1014c",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "inno-setup-license.txt",
+      "bytes": 1521,
+      "sha256": "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 3585,
+      "sha256": "aea4457ae81ab37144b38a6fe6f3162dc3c5d5a29766b15f7c41dba1c9fb36e8",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "integrity.log",
+      "bytes": 784,
+      "sha256": "1915cc4395851ba764de6adc69ace0293b1f2fe71d71bb4b24ec5383ef0c861b",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "license-source.json",
+      "bytes": 290,
+      "sha256": "040bba9260380a88cc21f29e821f328814cad9dce0fd0bdff70269720bb0e182",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "monitor.log",
+      "bytes": 3201,
+      "sha256": "af56edf54b4f03bb2db929a8349faf95dfb551dddfcf92a872bc06603593fb30",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "native-job-page.txt",
+      "bytes": 163918,
+      "sha256": "f76edd2be8beff4b7a4e3ee299a85b431bdedd674ca963d6e6eb592d48dbb840",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "provenance.json",
+      "bytes": 1225,
+      "sha256": "e27d67f5c96631bb676432ebf6e17705f8156ce239bad147a3f24264a3315009",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "public-diagnostic.json",
+      "bytes": 3411,
+      "sha256": "e6b743fe5f68319682f5a196af0802242b0e47d2221062eff37e44e35eac5073",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 842763,
+      "sha256": "a3b981ee7c4e7d81680e0d38854888c90c79851367c00c23b4e463f5cd4160a5",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 836783,
+      "sha256": "3e33c48def0e8d3ac1773830193d8d3f5daf44ff1fb63e7c6e7bc9259d9135a2",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 301128,
+      "sha256": "0485eef5b283a2ec12242074a5e189f1c416a8f17037147a79d405c47178112a",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 319429,
+      "sha256": "42a96d7c195b74d987e455fc84d6ac6a5bb9e1b4648f830eec4212bfe8cf468e",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 454792,
+      "sha256": "42f51e0c19950387554a19d868f41c65e765efcbe0d76500df7f3d691dba639d",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "validated-source-comparison.json",
+      "bytes": 314,
+      "sha256": "1a739bfa0fdcb99cb00cb4232bf0c76908c8a60c1b973cdc1a3ba24b37856e14",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "verify_integrity.py",
+      "bytes": 3808,
+      "sha256": "dafc115110eb82360576cb9f7963cab8fd2b27ac2d58c9e4eac03acb48f9adb8",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "windows-job-page.txt",
+      "bytes": 165998,
+      "sha256": "f289f5396a6ed6dc5ffc494f57b19ceda0458831fc3c66e68896bab0706b8aa0",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 179320,
+      "sha256": "2e0dffe982842552b578b7e1fd438c5c9f8ff19dc3eac2f3e9ae8f0cbae744d9",
+      "source": "本次實際Windows CI公開完成頁／完整短摘要、來源比較、同hash授權與離線進度截圖；未下載需登入artifact，無使用者文件"
+    }
+  ]
+}

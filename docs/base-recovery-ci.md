@@ -1,6 +1,6 @@
 # 安裝程序中斷後續修
 
-2026-11-09：**0.17.2新增CI自有產物清理，Windows結果待實跑**；[範圍與驗收](temporary-cleanup-ci.md)。普通Setup不讀外部收據、不通配刪除；前版0.17.1 Windows基線成功，仍殘留1份。下方保留既有階段狀態。
+2026-11-10 最新：**0.17.2 CI自有產物清理Windows 3/3已驗，實清1份／殘留0**；[範圍與驗收](temporary-cleanup-ci.md)。普通Setup不讀外部收據、不通配刪除；前版0.17.1 Windows基線成功，仍殘留1份。下方保留既有階段狀態。
 
 **實測更新：Windows三停點3/3已接受**，一般Setup恢復後app各10項通過。[原始紀錄](development-records/runs/c11-recovery-2026-11-09/README.md)。各profile仍待，C11保持2/5；非斷電、OS重啟或自動回滾。以下保留準備／模組設計。
 

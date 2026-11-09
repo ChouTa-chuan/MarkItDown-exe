@@ -37,11 +37,11 @@
 
 ## 0.17.2 — 2026-11-09
 
-相對0.17.1新增可拋棄Windows CI自身中斷產物的受限清理，架構0.4；普通Setup未加入通配清理，C11仍2/5／完整7/12。
+2026-11-10更新Windows驗收紀錄。相對0.17.1完成可拋棄Windows CI自身中斷產物的受限清理，架構0.4；普通Setup未加入通配清理，C11仍2/5／完整7/12。
 
-- 自身程序退出、建立前不存在且停點已觀察的記憶體收據，整批驗hash／身分後以Windows原檔handle delete-on-close；保留未知檔案，拒絕硬連結／reparse／替換／鎖定，不讀JSON授權刪除。
-- 新14項契約、相關39；完整611（610通過、1既有ONNX品質預期失敗、0跳過）混合與36模組正常exit0。[準備紀錄](docs/development-records/runs/temporary-cleanup-prep-2026-11-09/README.md)保存，Windows真清理／鎖檔控制尚待實跑，不能以本地測試作原生成功。
-- 前版0.17.1 Windows成功基線另保存；closure只改來源版號，7鎖／第三方原文／模型與28份架構圖不改。無Python乾淨機／全profile／人工／GPU、一般Setup暫存政策與正式發行另驗。
+- Windows三案清理3/3，實際清1份／殘留0；真鎖檔拒絕，未知同類檔名／同bytes合成文件保持原bytes。原檔handle核對身分／hash、拒寫與rename後delete-on-close，不讀外部JSON授權。[Windows證據](docs/development-records/runs/temporary-cleanup-ci-2026-11-10/README.md)。
+- 基本app10、安裝／修復／移除6、真跨版11及三停點續修各10亦通過。本地14／相關39；完整611（610通過、1既有ONNX品質預期失敗、0跳過）混合與36模組exit0，[準備紀錄](docs/development-records/runs/temporary-cleanup-prep-2026-11-09/README.md)保持原狀。
+- closure只改來源版號，7鎖／模型／第三方原文與28份架構圖不改。清理只供CI自身產物；一般Setup暫存政策、全profile、乾淨機／人工／GPU及正式發行另驗，無Setup／tag／Release。
 
 ## 0.17.1 — 2026-11-09
 

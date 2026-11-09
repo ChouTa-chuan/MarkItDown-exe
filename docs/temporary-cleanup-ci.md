@@ -1,6 +1,6 @@
 # 中斷測試的受管暫存清理
 
-2026-11-09，程式 **0.17.2**、架構 **0.4**。Windows 實際結果另記，不以 Linux 單元測試視為原生刪除成功。
+2026-11-10 更新實測紀錄，程式 **0.17.2**、架構 **0.4**。Windows 三案 **3/3** 已實測，實際清理 **1** 份／殘留 **0**，真鎖檔拒絕及未知文件保留通過；[原始紀錄](development-records/runs/temporary-cleanup-ci-2026-11-10/README.md)。
 
 0.17／0.17.1 的 Windows 三停點續修成功，但可拋棄 CI 最後仍留下 1 份 Inno 暫存產物。本次只完成該測試環境的所有權清理機制；**一般使用者的 Setup 沒有新增通配清理或讀取外部收據的入口**，不能把此結果宣稱為正式安裝器任意中斷後都能自動清理。
 
@@ -16,4 +16,4 @@
 
 CI 每案仍先執行普通匹配 Setup 明確續修、完整 app 10 項及移除驗收，才清理自己的中斷產物。另用真實開檔 handle 驗證 sharing violation 時拒絕清理；放入同類檔名、甚至同 bytes 的未登錄合成文件，清理後必須保持原 bytes。三案全部完成、至少實際清理一份產物並完成鎖檔反例，才能接受清理檢核。合成哨兵的最後移除只屬於 CI fixture 收尾。
 
-本地契約測試與 Windows 原生結果分別保存於[準備紀錄](development-records/runs/temporary-cleanup-prep-2026-11-09/README.md)。完整 C11 仍為 2/5、完整導入 7/12、歷史基線 19/25。全 profile、無 Python 乾淨機、人工 UI、一般 Setup 的進一步暫存政策、斷電／任意故障時點及 GPU 另驗；不建立正式 Setup／tag／Release。
+本地契約測試保存在[準備紀錄](development-records/runs/temporary-cleanup-prep-2026-11-09/README.md)，本輪 Windows 結果見[實測紀錄](development-records/runs/temporary-cleanup-ci-2026-11-10/README.md)。完整 C11 仍為 2/5、完整導入 7/12、歷史基線 19/25。全 profile、無 Python 乾淨機、人工 UI、一般 Setup 的進一步暫存政策、斷電／任意故障時點及 GPU 另驗；不建立正式 Setup／tag／Release。

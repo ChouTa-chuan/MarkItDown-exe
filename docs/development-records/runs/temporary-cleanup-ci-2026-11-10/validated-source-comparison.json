@@ -1,0 +1,14 @@
+{
+  "validated_commit": "a40f43831d865d46c9c437e3359df825151ba89c",
+  "compared_paths": [
+    "src",
+    "scripts",
+    "packaging",
+    "tests",
+    "vendor",
+    ".github/workflows",
+    "pyproject.toml"
+  ],
+  "changed_files": [],
+  "scope": "Documentation/evidence only after actual accepted Windows source"
+}

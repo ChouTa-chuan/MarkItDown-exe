@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
   "tests_passed": 610,
-  "headline": "CI自有中斷產物清理已備、Windows待驗；Linux611正常退出／完整7/12",
-  "blocker": "新CI暫存清理待Windows真實刪除／鎖檔驗收；各profile、乾淨機、人工／GPU與ONNX繁中品質仍待。",
-  "next": "實跑CI精確收據清理／鎖檔與未知文件保留，再接各profile與乾淨Windows離線流程。",
+  "headline": "Windows CI自有產物清理3/3、殘留0；C11仍2/5／完整7/12",
+  "blocker": "全profile相容／更完整故障、無Python乾淨機、人工／GPU與ONNX繁中品質仍待；普通Setup暫存政策另驗。",
+  "next": "接各profile相容與乾淨Windows離線首次流程，再交付測試包供人工驗收。",
   "milestones": [
     {
       "id": "m0",
@@ -249,10 +249,10 @@
     "C01／C02／C05–C08／C10已驗收7/12；C03 3/4、C04 2/4、C09 3/4、C11 2/5；乾淨機、全profile、人工與GPU待驗。既有19/25分開追蹤。",
     "Tesseract 日韓／四語合成樣本通過，不代表任意混排／直排／低品質文件準確率；ONNX 繁體缺口與日韓未驗保留，GPU 未實機。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
-    "0.17.1已有hosted Windows基本包、安裝／修復／移除、基本跨版與三停點續修證據；0.17.2清理待另驗，不能代替乾淨Windows／全profile／人工／GPU。",
+    "0.17.2 hosted Windows基本包／安裝／跨版／三停點續修及CI自有產物清理已驗；不能代替乾淨Windows、全profile、人工或GPU。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
-    "0.17.2混合611與36模組正常exit0；已知ONNX品質預期失敗保留。前版Qt修正與原native失敗完整保存；新CI清理非普通Setup任意中斷自動清理。"
+    "0.17.2混合611與36模組正常exit0，ONNX品質預期失敗保留；CI清理只供自身產物，不代表普通Setup任意中斷可自動清理。"
   ],
   "tests_run": 611,
   "tests_expected_failures": 1,
@@ -494,8 +494,8 @@
         "id": "windows_ci",
         "title": "Windows 自動建置驗證",
         "state": "verified",
-        "detail": "0.17基本包／安裝後app各10項，安裝6段／跨版11段及程序中斷續修3案通過。",
-        "evidence": "CI 42578549106；hosted基本profile，非乾淨機／全部profile／人工UI。"
+        "detail": "0.17.2基本／安裝後app各10、安裝6／跨版11、續修3案各10及CI自有清理3案通過。",
+        "evidence": "CI 42599639656；hosted基本profile，非乾淨機／全profile／人工。"
       },
       {
         "id": "base_installer",
@@ -521,9 +521,9 @@
       {
         "id": "temporary_cleanup",
         "title": "CI自有中斷產物清理",
-        "state": "partial",
-        "detail": "只清本次觀察／hash／身分綁定的記憶體收據；Windows原檔handle拒寫後delete-on-close，普通Setup未加入通配清理。",
-        "evidence": "Linux14／相關39與611全回歸已驗；Windows真清理／鎖檔／未知文件保留待實跑。"
+        "state": "verified",
+        "detail": "Windows三案CI自有產物清理3/3，實清1份／殘留0；真鎖檔拒絕及未知同類文件保留。普通Setup沒有新增清理入口。",
+        "evidence": "CI 42599639656；同時驗基本app10／安裝6／跨版11／續修三案各10。非乾淨機或全profile。"
       }
     ]
   },
@@ -564,6 +564,44 @@
     }
   },
   "ci_temporary_cleanup": {
+    "recorded_at": "2026-11-09T22:40:30.695489+00:00",
+    "record_date_taipei": "2026-11-10",
+    "source_version": "0.17.2",
+    "architecture_version": "0.4",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42599639656",
+    "source_commit": "a40f43831d865d46c9c437e3359df825151ba89c",
+    "windows_executed": true,
+    "ci_temporary_cleanup_accepted": true,
+    "temporary_cleanup_scope": "ci-owned-fault-installer-artifacts",
+    "cleaned_inno_temporaries": 1,
+    "retained_inno_temporaries": 0,
+    "temporary_cleanup_cases": 3,
+    "locked_temporary_rejected": true,
+    "unknown_temporary_preserved": true,
+    "base_app_checks": 10,
+    "installer_checks": 6,
+    "cross_version_checks": 11,
+    "interruption_cases": 3,
+    "resumed_app_checks": [
+      10,
+      10,
+      10
+    ],
+    "full_c11_complete": false,
+    "all_profiles_accepted": false,
+    "clean_machine_accepted": false,
+    "human_ui_accepted": false,
+    "non_admin_account_accepted": false,
+    "power_loss_accepted": false,
+    "automatic_failure_rollback": false,
+    "gpu_executed": false,
+    "release_ready": false,
+    "setup_uploaded": false,
+    "complete_report_artifact_downloaded": false,
+    "report_artifact_retention_days": 7,
+    "ordinary_setup_cleanup_added": false
+  },
+  "ci_temporary_cleanup_preparation": {
     "source_version": "0.17.2",
     "architecture_version": "0.4",
     "check": "C11-CI-owned-temporary-cleanup-preparation",

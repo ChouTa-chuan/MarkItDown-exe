@@ -1,5 +1,12 @@
 # 開發紀錄
 
+**2026-11-10｜完成CI自有中斷產物清理實測，程式0.17.2**
+
+- [真正Windows CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42599639656)（a40f438）接受三案：普通Setup續修各app10項、移除後只清本次記憶體收據產物，實際清1份／殘留0；真實sharing violation時拒絕，未知同類檔名／同bytes合成文件保持原內容。基本app10、安裝6、真跨版11及續修3案均通過。
+- [公開原頁／完整短摘要／實測來源比較](runs/temporary-cleanup-ci-2026-11-10/README.md)與視覺進度保存；[準備14／39／611與前版Windows基線](runs/temporary-cleanup-prep-2026-11-09/README.md)不倒填。範圍僅ci-owned-fault-installer-artifacts，普通Setup沒有新增清理入口，不能當作一般使用者任意中斷自動清理。
+- C11仍2/5、完整7/12、歷史19/25；28份架構圖與原紀錄固定。完整需登入artifact七天、未下載；全profile、乾淨機／人工／標準帳戶、一般Setup暫存政策、GPU／品質與RAM門檻保留，沒有Setup／tag／Release。
+
+
 **2026-11-09｜新增CI中斷產物清理，程式0.17.1 → 0.17.2**
 
 - 真正抓取前版0.17.1 Windows公開成功結果（42594462484／c5f0c01），保留原頁／完整短摘要；app10、安裝6、跨版11、續修3案各10，殘留1份且cleanup=false，未倒填新機制。
