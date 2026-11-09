@@ -43,8 +43,9 @@
 - Git 實際 CRLF checkout 抓出固定來源 hash 改變，保護七類原位元組；Windows CI #3 已原生建置並通過 core／四語健康及四份掃描自檢，搬移中文空格路徑仍失敗。加入自有 UTF-8 manifest／RC 與個別來源證據，新候選 Linux 靜態／組裝通過，Windows 修正仍待新 CI。
 - Windows CI #4 已通過中文原生模型清單，接續 frozen full 自檢發現 CP1252 診斷解碼錯誤；明確使用 UTF-8，基本包固定 Python UTF-8 mode 並由 Windows core 驗旗標，只容錯診斷文字，OCR 本文嚴格解碼不變。真實 child／中文路徑及實際 OCR 的 CP1252 反例已通過，修正版仍待 Windows。
 - Windows CI #5 前 9 項（四語／中文／CLI／故障）通過，Qt 開窗後因一次關閉要求遇背景收尾而逾時。驗收工具在同一總期限重送正常關閉，仍須 exit 0，不以強制終止代替；新增 2 項關閉協定測試、相關 141/141，真正 GUI 重驗待新 CI。混合 555 項斷言完成後 native exit 139，另存原始診斷並逐模組正常退出調查；未當作完整通過。
-- 公開診斷依真正失敗步驟限量顯示，避免約 5 KB 截斷；完整原始報告保留。新增 **26 項**、相關 **139/139**，完整 **553：552 通過、1 既有 ONNX 繁體品質預期失敗**，未將 Windows 部分通過當成整體成功。
+- 公開診斷依真正失敗步驟限量顯示，避免約 5 KB 截斷；完整原始報告保留。新增 **28 項**、相關 **141/141**；逐模組 **555：554 通過、1 既有 ONNX 繁體品質預期失敗**（31 個 child 正常 exit 0；混合 teardown 仍待查），未將 Windows 部分通過當成整體成功。
 - [準備](docs/development-records/runs/windows-ci-2026-11-08/README.md)、[初次失敗](docs/development-records/runs/windows-ci-attempt1-2026-11-08/README.md)、[換行](docs/development-records/runs/windows-ci-eol-2026-11-08/README.md)及[原生建置／UTF-8](docs/development-records/runs/windows-ci-native-2026-11-08/README.md)及[診斷解碼](docs/development-records/runs/windows-ci-decode-2026-11-08/README.md)原始證據分存；[CI 指引](docs/windows-base-ci.md)、[第二十份快照](docs/architecture/versions/v0.4-windows-native-ci.md)、中文封面及進度同步。
+- 2026-11-09 補存隔離回歸；CI #6 在固定來源下載失敗、Windows 未執行，新增早期 pip／fetch 日誌與明確 pipefail，沒有放寬雜湊或用 tee 吞掉錯誤。[紀錄](docs/development-records/runs/windows-ci-retry-2026-11-09/README.md)。
 - Linux 完整測試曾在 unittest 印 OK 後 native teardown exit 139；最新 faulthandler 隔離重跑 exit 0，原始與更正後證據皆保存，根因未定位，不把重跑當修好。
 - 乾淨機／安裝生命週期、人工 UI、GPU、ONNX 繁體品質與 RAM 軟預算限制保留。上游、舊附件、十九份舊圖、七份既有 lock、221 份授權與 233 份資料不變，沒有 binary／模型／憑證入庫。
 

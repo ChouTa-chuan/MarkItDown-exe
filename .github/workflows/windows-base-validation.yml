@@ -28,6 +28,10 @@ jobs:
     name: Fixed Windows OCR inputs
     runs-on: ubuntu-24.04
     timeout-minutes: 25
+    defaults:
+      run:
+        # tee 保留早期失敗日誌，pipefail 保留原命令的非零結果。
+        shell: bash
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,13 +39,14 @@ jobs:
           python-version: '3.12'
       - name: Install isolated Linux build dependencies
         run: |
+          mkdir -p out/ci-logs
           python -m venv .venv-ci
-          .venv-ci/bin/python -m pip install --require-hashes -r packaging/profiles/base-linux-build.txt
-          .venv-ci/bin/python -m pip install --no-deps --no-build-isolation ./vendor/markitdown .
+          .venv-ci/bin/python -m pip install --require-hashes -r packaging/profiles/base-linux-build.txt 2>&1 | tee -a out/ci-logs/dependencies.log
+          .venv-ci/bin/python -m pip install --no-deps --no-build-isolation ./vendor/markitdown . 2>&1 | tee -a out/ci-logs/dependencies.log
           python -m venv .venv-native-tools
-          .venv-native-tools/bin/python -m pip install --require-hashes -r packaging/native/ci-tools-linux.txt
+          .venv-native-tools/bin/python -m pip install --require-hashes -r packaging/native/ci-tools-linux.txt 2>&1 | tee -a out/ci-logs/dependencies.log
       - name: Fetch and verify fixed public inputs
-        run: .venv-ci/bin/python scripts/fetch_windows_ci_inputs.py --output out/native-inputs
+        run: .venv-ci/bin/python scripts/fetch_windows_ci_inputs.py --output out/native-inputs 2>&1 | tee out/ci-logs/fetch.log
       - name: Cross-build fixed Windows native candidate
         run: |
           .venv-ci/bin/python scripts/build_minimal_native.py --inputs out/native-inputs --work out/native-build --cmake "$PWD/.venv-native-tools/bin/cmake" --ninja "$PWD/.venv-native-tools/bin/ninja" --jobs 2 --report out/build-evidence.json
@@ -67,6 +72,7 @@ jobs:
             out/native-inputs/downloads.json
             out/native-build/*.log
             out/native-build/commands.json
+            out/ci-logs/*.log
           retention-days: 7
           if-no-files-found: warn
       - name: Publish actual native preparation summary

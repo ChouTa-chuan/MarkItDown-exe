@@ -3,11 +3,12 @@
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 553,
-    "passed": 552,
+    "run": 555,
+    "passed": 554,
     "expected_failures": 1,
     "skipped": 0,
-    "failed": 0
+    "failed": 0,
+    "method": "31 isolated module subprocesses, all normal exit 0; mixed-process teardown remains open"
   },
   "command": "TESSDATA_PREFIX=<verified model directory> QT_QPA_PLATFORM=offscreen python -m unittest discover -s tests -v",
   "native_prerequisites": [
@@ -797,6 +798,15 @@
       "related_tests": 141,
       "accepted_local_contract": true,
       "windows_gui_retest_pending": true
+    },
+    "attempt6": {
+      "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42477745858",
+      "source_commit": "3328ffb",
+      "conclusion": "failure",
+      "failed_step": "Fetch and verify fixed public inputs",
+      "native_cross_build_executed": false,
+      "windows_job_executed": false,
+      "underlying_error_available": false
     }
   },
   "windows_execution_scope": "Windows 2022 hosted runner base build/core/four-language self-test passed; relocation failed. No clean-machine/installer/human/GPU acceptance.",
@@ -825,5 +835,361 @@
     "process_exit": 139,
     "accepted": false,
     "cause": "native shutdown unknown, investigated per module"
+  },
+  "isolated_regression": {
+    "scope": "Actual Linux per-module child processes; mixed-process teardown remains separately open; not Windows acceptance",
+    "modules": 31,
+    "run": 555,
+    "passed": 554,
+    "expected_failures": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "accepted": true,
+    "all_child_exits_zero": true,
+    "records": [
+      {
+        "module": "test_borderless",
+        "run": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_build_profile",
+        "run": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_bundled_ocr",
+        "run": 27,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_component_downloads",
+        "run": 41,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_component_lifecycle",
+        "run": 51,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_component_management",
+        "run": 23,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_component_migration",
+        "run": 29,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_component_workers",
+        "run": 23,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_components",
+        "run": 43,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_core",
+        "run": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_desktop",
+        "run": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_devices",
+        "run": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_diagnostics",
+        "run": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_formats",
+        "run": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_help_ui",
+        "run": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_languages",
+        "run": 18,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_license_inventory",
+        "run": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_managed_conversion",
+        "run": 20,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_minimal_native",
+        "run": 23,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_models",
+        "run": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_native_assets",
+        "run": 20,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_onboarding",
+        "run": 22,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_onnx_ocr",
+        "run": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [
+          "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+        ],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_packaging_profiles",
+        "run": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_pdf_acceptance",
+        "run": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_pdf_pipeline",
+        "run": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_quality",
+        "run": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_settings",
+        "run": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_table_continuation",
+        "run": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_tables",
+        "run": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_windows_ci",
+        "run": 26,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      }
+    ]
   }
 }

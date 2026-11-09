@@ -4,6 +4,11 @@
 
 目前程式版本 **0.14.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
 
+**2026-11-09｜補下載早期診斷，保存隔離回歸，程式 0.14.0**
+
+- 讀到 [CI #6](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42477745858)：下載固定來源失敗，原生編譯／Windows 均未執行，原早期日誌未保存而無法判定具體錯誤。增加 pip／fetch tee 日誌與 always 保存，明確 bash pipefail；實際合成失敗命令經 tee 仍 exit 1，不放寬 SHA／來源或驗收。
+- 保存先前 11-08 已執行的逐模組回歸：31 個 child 正常 exit 0，555 項中 554 通過、1 既有 ONNX 繁體品質預期失敗、0 跳過。混合 native teardown exit 139 根因仍待查，沒有把隔離當作修復。[原始日誌／JSON](runs/windows-ci-retry-2026-11-09/README.md)與視覺進度補存；Windows 仍九項通過、Qt待重驗，完整 7/12 保留。
+
 **2026-11-08｜Windows 前九項通過，修正 Qt 關閉測試協定，程式 0.14.0**
 
 - [CI #5](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42476509935) 已實測 Windows UTF-8 mode=true、四語健康／掃描、中文搬移／完整自檢、四語 CLI、設定保留及故障不回退，共 9 項通過；Qt 已開窗／自身截圖，但一次 WM_CLOSE 遇首次背景檢查收尾而暫緩關閉，工具等 25 秒後失敗。

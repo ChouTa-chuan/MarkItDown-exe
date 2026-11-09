@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
-  "tests_passed": 552,
-  "headline": "Windows 四語／中文搬移／CLI等9項通過；Qt正常關閉重驗，完整7/12",
-  "blocker": "Windows #5 Qt首次檢查收尾暫緩關閉，原工具只送一次WM_CLOSE而逾時；修工具仍維持正常exit0及25秒總期限。",
-  "next": "重驗真正Qt視窗正常退出；其後接乾淨機、基本／選配安裝與GPU。",
+  "tests_passed": 554,
+  "headline": "Windows九項通過／Qt重驗；來源下載診斷補強，完整7/12",
+  "blocker": "CI #6 固定來源下載失敗、Windows未執行；新日誌重跑。Linux 555 項隔離正常退出，混合teardown仍待查。",
+  "next": "取得新CI下載與Windows Qt正常退出結果，再接乾淨機／安裝與GPU。",
   "milestones": [
     {
       "id": "m0",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格 63 項全過；全專案 552 通過、1 固定繁體影像品質預期失敗"
+      "evidence": "版面／表格 63 項全過；全專案 554 通過、1 固定繁體影像品質預期失敗"
     },
     {
       "id": "exporters",
@@ -251,9 +251,10 @@
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
     "所有已驗證能力均限目前 Linux 環境，不代表 Windows、GPU 或安裝包通過。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
-    "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
+    "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
+    "Linux 555 項採31模組正常退出；混合程序完成斷言後曾native teardown exit139，根因未定位。"
   ],
-  "tests_run": 553,
+  "tests_run": 555,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",

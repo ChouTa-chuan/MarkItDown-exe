@@ -1,0 +1,10 @@
+test_added_fixture_provenance_matches_vendored_commit (test_pdf_acceptance.PublicPDFAcceptanceTests.test_added_fixture_provenance_matches_vendored_commit) ... ok
+test_article_preserves_paragraph_and_list_order (test_pdf_acceptance.PublicPDFAcceptanceTests.test_article_preserves_paragraph_and_list_order) ... ok
+test_multipage_repair_preserves_people_totals_and_disclaimer (test_pdf_acceptance.PublicPDFAcceptanceTests.test_multipage_repair_preserves_people_totals_and_disclaimer) ... ok
+test_receipt_preserves_money_signs_discount_order_and_payment (test_pdf_acceptance.PublicPDFAcceptanceTests.test_receipt_preserves_money_signs_discount_order_and_payment) ... ok
+test_sparse_inventory_exact_structure_and_content (test_pdf_acceptance.PublicPDFAcceptanceTests.test_sparse_inventory_exact_structure_and_content) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.035s
+
+OK

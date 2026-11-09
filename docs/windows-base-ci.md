@@ -57,3 +57,5 @@ CI #4 的中文 native --list-langs 已過；frozen full 的 PDF 模型探針仍
 ## Qt 收尾與正常關閉
 
 CI #5 已通過前 9 項，實際 Qt 已開窗；首次背景檢查忙碌時主窗會先取消並暫緩關閉。工具改在原 25 秒總期限內重新列舉自己的 child PID 視窗並正常要求關閉，仍必須 exit 0，kill／terminate 不能算成功。141 項本地回歸非 Windows GUI 證據，新 CI 另驗。[過程](development-records/runs/windows-ci-close-2026-11-08/README.md)保存。
+
+2026-11-09 補充：CI #6 在下載固定來源失敗，Windows 未執行。早期 pip／fetch 日誌經 tee 保存，job 明確使用 bash pipefail，always 上傳並可摘要；原始完整性與正常退出標準不變。31 模組隔離正常退出及原下載狀態[分存](development-records/runs/windows-ci-retry-2026-11-09/README.md)，混合 native teardown 不當作已修好。

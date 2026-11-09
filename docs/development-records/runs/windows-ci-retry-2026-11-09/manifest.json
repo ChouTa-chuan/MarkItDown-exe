@@ -1,0 +1,456 @@
+{
+  "schema_version": 1,
+  "source_version": "0.14.0",
+  "architecture_version": "0.4",
+  "completed_date_taipei": "2026-11-09",
+  "check": "C03-windows-ci",
+  "mechanism_accepted": true,
+  "full_c03_complete": false,
+  "scope": "CI #6 下載失敗、未執行Windows；31模組555項隔離正常退出，混合native teardown仍開放；無乾淨機／安裝包／GPU或發行",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1606,
+      "sha256": "0a1234cd16ed9ae20fabfad3ea723c70e2df66a3cf8a11bb3af0d63b8a71b807",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "ci6-native-job-page.txt",
+      "bytes": 168203,
+      "sha256": "f237bff4a4009ba7c7cec770c6c7091dbcfff6e6abc5a78a4ff941ecc00d914f",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "ci6-run-page.txt",
+      "bytes": 164695,
+      "sha256": "9dfa47183d77a16fee55619c8ea3e2bf3e3c583e74477d98ea7a06265e1b97d1",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 2310,
+      "sha256": "eb65792c7024b928cdf2c922506c66711e81b62c08e73ac3a360661a3aedf30c",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/summary.json",
+      "bytes": 8288,
+      "sha256": "04f178b1323fd6fc837dd34e6c7a19a57571f06bfad608536f2ab7928e1c509c",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_borderless.json",
+      "bytes": 185,
+      "sha256": "6b9be17e89ca6db4a135a99a96bd8110564cc60529452fbe74ffe2d144366c93",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_borderless.log",
+      "bytes": 2053,
+      "sha256": "467f32e6e9030d0d08c33022bcfadf8569f446d77519878f540cbf10ac1bd5d2",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_build_profile.json",
+      "bytes": 188,
+      "sha256": "11c00d1448720f97abbc5d298323b78fdeccee8b33d74e548d1ba38a2a1c17ff",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_build_profile.log",
+      "bytes": 2257,
+      "sha256": "52f8cf749f2220ffd8bbd900d81e0392df194d21284be094de0ef6e4e0a1a0e6",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_bundled_ocr.json",
+      "bytes": 186,
+      "sha256": "680b9c1c91c6d74883a09b0a127205a9dee78bbb76e7a9529c80469981b4f204",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_bundled_ocr.log",
+      "bytes": 3835,
+      "sha256": "1b9476101a504df4bef030a0161ecf9a059667cfcde2cb5a0a5b4c9bfe5b57c1",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_downloads.json",
+      "bytes": 194,
+      "sha256": "d12b09adf4c28c16e88669f8771c8629843970a030bdf902a10dea753d0fdf57",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_downloads.log",
+      "bytes": 6645,
+      "sha256": "3465768d7a5a336c4b566a74bc4469f5fbdab93960ed1ca008ffea0f3c5ca225",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_lifecycle.json",
+      "bytes": 194,
+      "sha256": "bd764b822063ebe25f8bdd1217af2aa9849015ff5c564c6b3e1812c88aa5d8f8",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_lifecycle.log",
+      "bytes": 8564,
+      "sha256": "4297f99f888ddb42c983ac2ecb98cddc613d15dcf8533c5fae3b5bd15d852040",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_management.json",
+      "bytes": 195,
+      "sha256": "5f45fab16dd90d9e46dc8df5eb529376e419e4a8a20665e2c5300740fcc3b9e1",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_management.log",
+      "bytes": 4000,
+      "sha256": "26facd8dfb7a931abd3934c44c820666a0276a94380585e1a9f29b11ab325099",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_migration.json",
+      "bytes": 194,
+      "sha256": "13a39638064053a789eaeda453cfdc9b19de10ad885a82aed0c97cabce80e3db",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_migration.log",
+      "bytes": 5094,
+      "sha256": "bb9fac3e9e898292fb99ae5c88df64796e42dbe063dbe0dcd8cf5c37618329a0",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_workers.json",
+      "bytes": 192,
+      "sha256": "56cb2b7d43be4e4d49c89fb22df03b7d7f822a3098131907530c23952f21aadf",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_component_workers.log",
+      "bytes": 3537,
+      "sha256": "819f6bf4f2786d31b192c8a882a43e7c2eb3d8056a8344b84541cb480976fe35",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_components.json",
+      "bytes": 185,
+      "sha256": "c85c5b436760aef9bfaa5e5c1adb5c4ff9a1ec547713caa57e5235e00a02ef1f",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_components.log",
+      "bytes": 6943,
+      "sha256": "b283d57a38900bc17b8e4c0f97e131022b7a5e0437928f40d1cc6729a0623126",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_core.json",
+      "bytes": 179,
+      "sha256": "a93d8007bf356996f386d0fdd566a8dbafdedf75de9f17a77a102f6f84df3aff",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_core.log",
+      "bytes": 1743,
+      "sha256": "cff68cb4cfa33a7bf856e91311438288c6110f5bfdc1ea92a51f8730bde8fbb3",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_desktop.json",
+      "bytes": 182,
+      "sha256": "e8a2827f9ff901fe5c1fe902d287c9a963d2a73c47068bb24ee5dda4c5030d2d",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_desktop.log",
+      "bytes": 1494,
+      "sha256": "2e112e3276b2580cd12ff8c0e48986800c8f5b4d442185af7a171767bb738c04",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_devices.json",
+      "bytes": 181,
+      "sha256": "ff3fd557fc6150e23395a0398240e500795dcd8d436246fbbc373f23d509b135",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_devices.log",
+      "bytes": 1000,
+      "sha256": "927b94b2392f618921c3445219b5b37e9fa91f75267078f137a2f0c24354f04d",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_diagnostics.json",
+      "bytes": 185,
+      "sha256": "b2861c84efecd4ad7910775db50667c210cb5cb2a3eeaf25f2138cfca8e369b5",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_diagnostics.log",
+      "bytes": 1044,
+      "sha256": "e047f6dccb9da2528f6f7b5da85022b513db234f3437ad5de9cfbed2c64c221e",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_formats.json",
+      "bytes": 181,
+      "sha256": "9515426c7ccac2d340b1c5dac050cdbfd1e9847f9aaf22d7c5e92073dce58b2f",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_formats.log",
+      "bytes": 1166,
+      "sha256": "1cbaa39067bee927aadc74bfa36bc7f237e5ae3903240c8fbee2d178cbe6db72",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_help_ui.json",
+      "bytes": 181,
+      "sha256": "13dfa63fe7cbacc513fc70a12a960b59fb35e453bc92715e1a35387e822bdb0c",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_help_ui.log",
+      "bytes": 382,
+      "sha256": "7d9360730e1cf30a964f9e62194227f3bb466f040914d58943084d27db7ef824",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_languages.json",
+      "bytes": 184,
+      "sha256": "e3fd996b21ff058c7c59ea07c20a61a6a5bf587c7c3f6c66ae4095526e7e1aa1",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_languages.log",
+      "bytes": 2774,
+      "sha256": "b2830f3917bc40ec07da699cc7b6b835df1f658815ed0732cb1b446b38172de9",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_license_inventory.json",
+      "bytes": 191,
+      "sha256": "b1a9356652eb8e0023ef53080e145388f88d6b91935f2b0e6af53e001967ca50",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_license_inventory.log",
+      "bytes": 1169,
+      "sha256": "6fb2ed7583c052108755a94ffc5dc94d5daf44ae049fcaa8f5605edb9bb5a597",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_managed_conversion.json",
+      "bytes": 193,
+      "sha256": "9ae2a6a0d0b6e05082293be94b3ae18ddd74167822f4de2a27152755f0e4cab7",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_managed_conversion.log",
+      "bytes": 3431,
+      "sha256": "8521c5add7030f8af9db9975699505690c202844cfbbe90967ae383e4f03c49b",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_minimal_native.json",
+      "bytes": 189,
+      "sha256": "e8e00accf3cc3f0734f53eb29e2743b087d75711a2b94c94bf7968c87633c3bf",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_minimal_native.log",
+      "bytes": 3501,
+      "sha256": "6394d9b49d8256ce4cdf36501636ec424846556bae4fcdc05a37f2cc1ddafb94",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_models.json",
+      "bytes": 180,
+      "sha256": "5ea2901d74bcf159d9aec9c2f46258a8b471dee4e18dfa6cf598c26aa696df90",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_models.log",
+      "bytes": 942,
+      "sha256": "60e94bd03c316e3ac1f92b0ab95e62a41de67ca665c1a2e4d5013cff7c7d26d7",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_native_assets.json",
+      "bytes": 188,
+      "sha256": "cdda65f9c7b92c362f6a653f345b05a348c4f93fe4e8c9bbef2d2334efb1520b",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_native_assets.log",
+      "bytes": 2734,
+      "sha256": "f7d30c00ddada2e7a898958c0755c40ce0e93ae0d5f32084ad5787e5e1484702",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onboarding.json",
+      "bytes": 185,
+      "sha256": "135c04d454c22c30bc5298d4d71d9a6dae994a3b2e179b584389e83550a71076",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onboarding.log",
+      "bytes": 3436,
+      "sha256": "b80fb0c161aea5d479befb36415448a0e39ba8f65e3b8d258fe0284236825392",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onnx_ocr.json",
+      "bytes": 270,
+      "sha256": "5473748ad45f88fe92de41c8afe686dcf8f6be10ffca08cde4199a369ab3147c",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_onnx_ocr.log",
+      "bytes": 1765,
+      "sha256": "5ab2bc4e053bb842ab397901d55dfd2b85cb9265eb136b8f8f87fc4bd64a4537",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_packaging_profiles.json",
+      "bytes": 193,
+      "sha256": "9a12514d89a19c4509ada37eb816bc371212b83160e35e1993de09ec684d777a",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_packaging_profiles.log",
+      "bytes": 2227,
+      "sha256": "1bf2380a1e4184988a4ee2ed000c7d3dc91516f45a2992d5a3ba41c125550ccb",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_acceptance.json",
+      "bytes": 188,
+      "sha256": "14153a32f1234b4ba0d99a57e0be06449d6241bfa555f301a63fe13a6119144c",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_acceptance.log",
+      "bytes": 918,
+      "sha256": "43f56d66d39a480f8662c0f1f71f915893547d2e6ce9a09a9ede7fc4266f8e7e",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_pipeline.json",
+      "bytes": 187,
+      "sha256": "17635e630af495493d6167553bd28f55fb8c788c6fa481cc67526f70f36fd946",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_pdf_pipeline.log",
+      "bytes": 2690,
+      "sha256": "84461ac41fe87c89bac0697272e8e3d1848135158b08390e85b0f27c79b862d1",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_quality.json",
+      "bytes": 181,
+      "sha256": "272db2627acbad3414e199b77a81d36f62b6e6f761312de1777eb6bf47312e83",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_quality.log",
+      "bytes": 764,
+      "sha256": "4639e441fbb18ea579a4f77c3eed8c9cca337d04c7d9254a8f2a1c4060cc02b1",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_settings.json",
+      "bytes": 183,
+      "sha256": "9da3a4a911fefbec1b221b6a8ee1c7fec4674929c0f66aace7a100b715dbc51d",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_settings.log",
+      "bytes": 1408,
+      "sha256": "0488d208b95d1eefed822d6e9682723292aaf1e5a9cb0ffddb20dfa7bfe86b22",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_table_continuation.json",
+      "bytes": 193,
+      "sha256": "ed43e12cfdb956325de422e4ed4bb11bdd73cf1abd16bae01104e1900e237213",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_table_continuation.log",
+      "bytes": 2703,
+      "sha256": "7687e9188150cf018a5b13db1c9f54b5a9c324f7b1da45cbac24540b9ad566a3",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_tables.json",
+      "bytes": 180,
+      "sha256": "5f020394fbbfa32326a3c3cf52fe2add764b14a13c47f0ed675d5d4c1592673a",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_tables.log",
+      "bytes": 875,
+      "sha256": "eb14b9a86bba53975bba071138b4ff4e1a43b6b3772e7d3d70887fa383197649",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_windows_ci.json",
+      "bytes": 185,
+      "sha256": "76413b62e9ab37e86829061d7dec3b940ff34e5145a3678a8d967c882bc47d3f",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "isolated-regression/test_windows_ci.log",
+      "bytes": 4085,
+      "sha256": "2e84c9d7c94daa45ea6b642ef89ec980f55cd11292cb58b648ffb85396bbaff0",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 680041,
+      "sha256": "581fd56987c770e2290a2cb65e70c1cf73c7a846fdb1af7f5db135ea4f885622",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 688781,
+      "sha256": "0eb180a454c5a00d8d4d74027f04adcd51e9f03dd2313417fe36be5034fc13d8",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 291396,
+      "sha256": "e4a0590d4e9e37712ed39e153b11aae39e4992846fbaa3b47b179d424bd97aec",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 310143,
+      "sha256": "466038e0d0a849d3efa79622234c8c9ac8a2e8a19474b983be4b99d2e976deb2",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 461250,
+      "sha256": "779cdc484a92e35b86a9486c96b613e59b42243de36018f7bdc23d6e4710dacf",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    },
+    {
+      "file": "synthetic-pipefail.log",
+      "bytes": 117,
+      "sha256": "9eec64d9bef28e567981359bceca9a34617b5fbf2cdd0570844cd9ce56a428d3",
+      "source": "實際 CI #6 下載失敗／Windows未執行的公開頁；11-08真實31模組555項隔離日誌於11-09補存；無使用者文件"
+    }
+  ]
+}
