@@ -37,6 +37,8 @@
 
 ## 0.16.0 — 2026-11-09
 
+第一次Windows實測基本資料夾10/10；新Inno編譯遇不支援的ExcludeTrailingBackslash，已改官方RemoveBackslashUnlessRoot後待重驗。[原始失敗](docs/development-records/runs/c11-upgrade-attempt1-2026-11-09/README.md)，尚不計新安裝／跨版接受。
+
 相對0.15.0新增基本包真跨版本升級／明確回復CI，架構0.4；先保存準備，Windows結果另追加，C11仍1/4、完整7/12／歷史19/25。
 
 - 固定前版43cf811原source／controller獨立建置；原0.15 Setup初裝，再以新安裝政策驗真正兩版payload的升級／明確回復，未以改標籤假造歷史版本。相容回復Setup與原版Setup分別留hash，不提供正式安裝品。

@@ -4,6 +4,10 @@
 
 目前程式版本 **0.16.0**、架構版本 **0.4**。版本變更摘要另見 [CHANGELOG](../../CHANGELOG.md)。日期以台北時間記錄。
 
+**2026-11-09｜修正跨版CI第一次Inno編譯失敗，程式0.16.0**
+
+- Windows程式建置與基本包10/10通過；新安裝器在Inno編譯時指出ExcludeTrailingBackslash不支援，Setup與跨版安裝尚未開始。已改官方RemoveBackslashUnlessRoot，後續重新實跑；C11仍1/4、完整7/12。[第一次原始失敗](runs/c11-upgrade-attempt1-2026-11-09/README.md)及固定官方宣告保存，既有圖與raw日誌不倒填。
+
 **2026-11-09｜新增基本包真跨版本升級／明確回復CI，程式0.15.0 → 0.16.0**
 
 - 新增可信source catalog靜態規則、原位置／reparse保護、拒未指定降版與過期檔hash檢查，避免留下前版metadata或清除未知文件。回復使用新政策相容installer配真正0.15 payload；原0.15安裝器保持原樣，不能追溯加入保護，也不宣稱中斷自動回滾。

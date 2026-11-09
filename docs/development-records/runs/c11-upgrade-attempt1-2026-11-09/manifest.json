@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "source_version": "0.16.0",
+  "date_taipei": "2026-11-09",
+  "accepted": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 966,
+      "sha256": "978d9888c9593fd0230d531c29b60123c75800bea4181dc18d0c868b31e9cf9d",
+      "source": "公開實際CI失敗頁／完整短診斷與官方函式宣告；無使用者資料"
+    },
+    {
+      "file": "api-reference.json",
+      "bytes": 337,
+      "sha256": "8ea8db7ca08af9f12e51dadaecb0c1a662897af363907359037809b8d00add49",
+      "source": "公開實際CI失敗頁／完整短診斷與官方函式宣告；無使用者資料"
+    },
+    {
+      "file": "provenance.json",
+      "bytes": 493,
+      "sha256": "e725063a276dc45394257494a49b42e9436f8fa791e1aaf0432d7668e8b6424a",
+      "source": "公開實際CI失敗頁／完整短診斷與官方函式宣告；無使用者資料"
+    },
+    {
+      "file": "public-diagnostic.json",
+      "bytes": 2968,
+      "sha256": "1f7caf276dd359d7b1fb4a60beb9e9b312ffdb3bd63946162a18c80ca94b77f8",
+      "source": "公開實際CI失敗頁／完整短診斷與官方函式宣告；無使用者資料"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 181981,
+      "sha256": "be365cb916423f3cc9f6eb23643d10528674473294b1af18ae5dbc1a50af448d",
+      "source": "公開實際CI失敗頁／完整短診斷與官方函式宣告；無使用者資料"
+    }
+  ]
+}

@@ -1382,6 +1382,16 @@
     "all_profiles_accepted": false,
     "automatic_failure_rollback": false,
     "full_c11_complete": false,
-    "evidence": "development-records/runs/c11-upgrade-prep-2026-11-09/README.md"
+    "evidence": "development-records/runs/c11-upgrade-prep-2026-11-09/README.md",
+    "attempts": [
+      {
+        "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42554509169",
+        "source_commit": "4e7057808fef921ea0b221d20706cac23aa69b10",
+        "accepted": false,
+        "base_folder_checks": 10,
+        "reason": "Inno Script unknown identifier ExcludeTrailingBackslash",
+        "evidence": "development-records/runs/c11-upgrade-attempt1-2026-11-09/README.md"
+      }
+    ]
   }
 }

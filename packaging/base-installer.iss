@@ -70,7 +70,7 @@ begin
   while Name <> '' do begin
     Attr := NativeAttributes(Name);
     if (Attr <> $FFFFFFFF) and ((Attr and $400) <> 0) then exit;
-    Parent := ExtractFileDir(ExcludeTrailingBackslash(Name));
+    Parent := ExtractFileDir(RemoveBackslashUnlessRoot(Name));
     if Parent = Name then break;
     Name := Parent;
   end;
