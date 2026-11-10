@@ -2152,9 +2152,9 @@
   },
   "latest_windows_cpu": {
     "check": "windows-cpu-worker-ci",
-    "commit": "f0708d0587155640b2aee87f19ad45cbea92fe97",
-    "source_version": "0.18.0",
-    "recorded_at": "2026-11-10T09:31:45.000486+00:00",
+    "commit": "fd69854ee19ba031362750072e22a92bf5463a7c",
+    "source_version": "0.18.1",
+    "recorded_at": "2026-11-10T09:51:36.855883+00:00",
     "accepted": true,
     "windows_executed": true,
     "build_verified": true,
@@ -2165,14 +2165,67 @@
     "release_ready": false,
     "controller_unchanged": true,
     "controller_native_packages": false,
-    "package_sha256": "626eb91ebeaf1220242e84c4fcb820b7cfdda462ae5e064859f5629050581895",
+    "package_sha256": "8f7f520d64a72b79b83c796b600ee0e4fed7fd7b843c2e192a25a16e1ad6e39b",
     "actual_providers": [
       "CPUExecutionProvider",
       "CPUExecutionProvider",
       "CPUExecutionProvider"
     ],
     "installed_notice_packages": 26,
-    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42791407466",
-    "evidence": "development-records/runs/windows-cpu-ci-2026-11-10/README.md"
+    "lifecycle": {
+      "accepted": true,
+      "checks_passed": 8,
+      "checks": [
+        "existing install revalidated",
+        "incompatible architecture rejected",
+        "active lease blocks repair and removal",
+        "bad archive preserves installation",
+        "cancel after publish restores previous payload",
+        "damaged payload rejected and repaired with real health",
+        "unknown file blocks removal and remains unchanged",
+        "idle removal preserves synthetic data and cache then reinstalls"
+      ],
+      "scope": "same-version-cpu-component-maintenance",
+      "process_termination_executed": false,
+      "cross_version_executed": false,
+      "clean_machine_accepted": false,
+      "gpu_executed": false,
+      "release_ready": false,
+      "synthetic_data_preserved": true,
+      "archive_unchanged": true,
+      "payload_verified": true,
+      "journals_empty": true
+    },
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42794184827",
+    "evidence": "development-records/runs/windows-cpu-lifecycle-ci-2026-11-10/README.md"
+  },
+  "latest_windows_cpu_lifecycle": {
+    "accepted": true,
+    "checks_passed": 8,
+    "checks": [
+      "existing install revalidated",
+      "incompatible architecture rejected",
+      "active lease blocks repair and removal",
+      "bad archive preserves installation",
+      "cancel after publish restores previous payload",
+      "damaged payload rejected and repaired with real health",
+      "unknown file blocks removal and remains unchanged",
+      "idle removal preserves synthetic data and cache then reinstalls"
+    ],
+    "scope": "same-version-cpu-component-maintenance",
+    "process_termination_executed": false,
+    "cross_version_executed": false,
+    "clean_machine_accepted": false,
+    "gpu_executed": false,
+    "release_ready": false,
+    "synthetic_data_preserved": true,
+    "archive_unchanged": true,
+    "payload_verified": true,
+    "journals_empty": true,
+    "source_version": "0.18.1",
+    "commit": "fd69854ee19ba031362750072e22a92bf5463a7c",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42794184827",
+    "windows_executed": true,
+    "evidence": "development-records/runs/windows-cpu-lifecycle-ci-2026-11-10/README.md"
   }
 }

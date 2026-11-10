@@ -20,3 +20,5 @@ CPU選配獨立建置與打包，控制端不安裝NumPy、Pillow、ONNX、Rapid
 本地新15／相關143項在hash鎖定venv通過，完整本版回歸未執行，0.17.2的611項仍屬舊完整基線。公開原頁與完整短摘要已入專案；完整需登入報告artifact七天未下載，未聲稱永久保存原始native報告。
 
 固定英文樣本僅驗功能；ONNX繁體已知缺口、日韓品質、GPU、無Python／離線乾淨Windows、各profile完整生命週期及最終原生再散布審查仍待。RAM仍為軟性預算。來源維持example.invalid，測試金鑰只在記憶體；沒有正式元件下載來源或Setup交付。C04仍2/4、C11仍2/5、導入7/12、歷史19/25；不能把CPU單一bundle通過當成所有profile完成。
+
+0.18.1另完成[CPU同版本維護8案](windows-cpu-lifecycle.md)，原功能11項也重新通過；版本與範圍見該頁。

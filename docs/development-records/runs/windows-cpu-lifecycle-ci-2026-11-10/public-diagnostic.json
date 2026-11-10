@@ -1,0 +1,47 @@
+{
+  "check": "windows-cpu-worker-ci",
+  "commit": "fd69854ee19ba031362750072e22a92bf5463a7c",
+  "source_version": "0.18.1",
+  "recorded_at": "2026-11-10T09:51:36.855883+00:00",
+  "accepted": true,
+  "windows_executed": true,
+  "build_verified": true,
+  "checks_passed": 11,
+  "clean_machine_accepted": false,
+  "gpu_executed": false,
+  "traditional_chinese_quality_passed": false,
+  "release_ready": false,
+  "controller_unchanged": true,
+  "controller_native_packages": false,
+  "package_sha256": "8f7f520d64a72b79b83c796b600ee0e4fed7fd7b843c2e192a25a16e1ad6e39b",
+  "actual_providers": [
+    "CPUExecutionProvider",
+    "CPUExecutionProvider",
+    "CPUExecutionProvider"
+  ],
+  "installed_notice_packages": 26,
+  "lifecycle": {
+    "accepted": true,
+    "checks_passed": 8,
+    "checks": [
+      "existing install revalidated",
+      "incompatible architecture rejected",
+      "active lease blocks repair and removal",
+      "bad archive preserves installation",
+      "cancel after publish restores previous payload",
+      "damaged payload rejected and repaired with real health",
+      "unknown file blocks removal and remains unchanged",
+      "idle removal preserves synthetic data and cache then reinstalls"
+    ],
+    "scope": "same-version-cpu-component-maintenance",
+    "process_termination_executed": false,
+    "cross_version_executed": false,
+    "clean_machine_accepted": false,
+    "gpu_executed": false,
+    "release_ready": false,
+    "synthetic_data_preserved": true,
+    "archive_unchanged": true,
+    "payload_verified": true,
+    "journals_empty": true
+  }
+}

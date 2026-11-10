@@ -1,0 +1,10 @@
+{
+  "relative_links_checked": 215,
+  "failures": [],
+  "progress_browser_accepted": true,
+  "milestone_checks": "19/25",
+  "component_rollout": "7/12",
+  "C04": "2/4",
+  "C11": "2/5",
+  "full_regression_executed_this_version": false
+}

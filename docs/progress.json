@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-10",
-  "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
+  "environment": "Linux · Python 3.12；Windows2022 CI部分實測；完整回歸基線0.17.2",
   "tests_passed": 610,
-  "headline": "CPU選配新增同版維護8案，相關147項通過，Windows待驗",
-  "blocker": "Windows CPU選配功能已驗；各profile完整生命週期、乾淨機／人工／GPU與ONNX繁中品質仍待。",
-  "next": "Windows實跑CPU選配8案維護，再接全profile與乾淨機。",
+  "headline": "Windows CPU功能11/11與同版維護8/8通過，原資料／快取保留",
+  "blocker": "CPU選配同版維護已驗；跨版元件與其他profile、乾淨機／人工／GPU及ONNX品質仍待。",
+  "next": "接續元件跨版本相容與其他profile，再驗無Python／離線乾淨Windows及人工UI。",
   "milestones": [
     {
       "id": "m0",
@@ -254,14 +254,14 @@
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
     "0.17.2混合611與36模組正常exit0，ONNX品質預期失敗保留；CI清理只供自身產物，不代表普通Setup任意中斷可自動清理。",
     "0.18.0 Windows CPU獨立選配11項及本輪相關143通過，完整本版回歸未執行；頁面610＋1是0.17.2完整基線，不能當作新版全回歸。",
-    "0.18.1本地相關147項通過，Windows維護8案待跑；0.18.0原生11項與0.17.2完整611均保留來源版本。"
+    "0.18.1本地相關147項、Windows原生功能11項與同版維護8案通過；0.18.0原生11項與0.17.2完整611均保留來源版本。"
   ],
   "tests_run": 611,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收7/12。C03四語／來源／Linux內含整包3/4、C04 2/4、C09 3/4、C11 2/5；0.17 hosted Windows基本包已驗，乾淨機與全profile仍待。0.17.1完成Linux Qt正常退出修正。",
+    "description": "已驗收7/12。C03 3/4、C04 2/4、C09 3/4、C11 2/5；0.18.1 Windows CPU功能11與同版維護8案通過，仍待其他profile／元件跨版、乾淨機與人工／GPU。",
     "phases": [
       {
         "id": "a",
@@ -409,7 +409,7 @@
             "id": "C11",
             "label": "Windows 完整安裝生命週期",
             "done": false,
-            "acceptance": "C11 2/5：基本包安裝6段／跨版11段已驗，新增三個程序終止停點普通Setup續修3/3、每案app10項；Inno產物精確收據保留、清理未完成；第三項仍待各profile與更完整故障恢復，不視為斷電／自動回滾或乾淨機。",
+            "acceptance": "C11 2/5：基本包安裝6段／跨版11段已驗，新增三個程序終止停點普通Setup續修3/3、每案app10項；Inno產物精確收據保留、清理未完成；第三項仍待各profile與更完整故障恢復，不視為斷電／自動回滾或乾淨機。 0.18.1獨立CPU同版維護8/8已驗；尚非各profile／元件跨版全過。",
             "subchecks": [
               {
                 "label": "Hosted Windows：真安裝／同版修復／移除及資料哨兵保留",
@@ -533,6 +533,13 @@
         "state": "verified",
         "detail": "Windows2022獨立frozen CPU選配11項；建置24／無OCR控制端5鎖定依賴，控制端環境不變。驗收範圍限hosted CPU bundle。",
         "evidence": "真正Windows：簽章離線匯入、健康／推論／取消、RAM啟動拒絕、移除與frozen EOF退出72／鎖釋放11/11；非繁中品質或乾淨機。"
+      },
+      {
+        "id": "cpu_maintenance",
+        "title": "CPU選配同版維護",
+        "state": "verified",
+        "detail": "真正Windows frozen CPU：重驗、架構與租約拒絕、壞包、取消回復、損壞修復、未知檔案保留與移除重裝。",
+        "evidence": "Windows CI42794184827：同版維護8/8及原功能11/11；全hash／active／READY與合成資料／cache驗證，非跨版或強制中斷。"
       }
     ]
   },
@@ -673,9 +680,9 @@
   },
   "latest_cpu_attempt": {
     "check": "windows-cpu-worker-ci",
-    "commit": "f0708d0587155640b2aee87f19ad45cbea92fe97",
-    "source_version": "0.18.0",
-    "recorded_at": "2026-11-10T09:31:45.000486+00:00",
+    "commit": "fd69854ee19ba031362750072e22a92bf5463a7c",
+    "source_version": "0.18.1",
+    "recorded_at": "2026-11-10T09:51:36.855883+00:00",
     "accepted": true,
     "windows_executed": true,
     "build_verified": true,
@@ -686,13 +693,37 @@
     "release_ready": false,
     "controller_unchanged": true,
     "controller_native_packages": false,
-    "package_sha256": "626eb91ebeaf1220242e84c4fcb820b7cfdda462ae5e064859f5629050581895",
+    "package_sha256": "8f7f520d64a72b79b83c796b600ee0e4fed7fd7b843c2e192a25a16e1ad6e39b",
     "actual_providers": [
       "CPUExecutionProvider",
       "CPUExecutionProvider",
       "CPUExecutionProvider"
     ],
-    "installed_notice_packages": 26
+    "installed_notice_packages": 26,
+    "lifecycle": {
+      "accepted": true,
+      "checks_passed": 8,
+      "checks": [
+        "existing install revalidated",
+        "incompatible architecture rejected",
+        "active lease blocks repair and removal",
+        "bad archive preserves installation",
+        "cancel after publish restores previous payload",
+        "damaged payload rejected and repaired with real health",
+        "unknown file blocks removal and remains unchanged",
+        "idle removal preserves synthetic data and cache then reinstalls"
+      ],
+      "scope": "same-version-cpu-component-maintenance",
+      "process_termination_executed": false,
+      "cross_version_executed": false,
+      "clean_machine_accepted": false,
+      "gpu_executed": false,
+      "release_ready": false,
+      "synthetic_data_preserved": true,
+      "archive_unchanged": true,
+      "payload_verified": true,
+      "journals_empty": true
+    }
   },
   "latest_targeted_current": {
     "source_version": "0.18.1",
@@ -717,9 +748,9 @@
   },
   "latest_windows_cpu": {
     "check": "windows-cpu-worker-ci",
-    "commit": "f0708d0587155640b2aee87f19ad45cbea92fe97",
-    "source_version": "0.18.0",
-    "recorded_at": "2026-11-10T09:31:45.000486+00:00",
+    "commit": "fd69854ee19ba031362750072e22a92bf5463a7c",
+    "source_version": "0.18.1",
+    "recorded_at": "2026-11-10T09:51:36.855883+00:00",
     "accepted": true,
     "windows_executed": true,
     "build_verified": true,
@@ -730,14 +761,67 @@
     "release_ready": false,
     "controller_unchanged": true,
     "controller_native_packages": false,
-    "package_sha256": "626eb91ebeaf1220242e84c4fcb820b7cfdda462ae5e064859f5629050581895",
+    "package_sha256": "8f7f520d64a72b79b83c796b600ee0e4fed7fd7b843c2e192a25a16e1ad6e39b",
     "actual_providers": [
       "CPUExecutionProvider",
       "CPUExecutionProvider",
       "CPUExecutionProvider"
     ],
     "installed_notice_packages": 26,
-    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42791407466",
-    "evidence": "development-records/runs/windows-cpu-ci-2026-11-10/README.md"
+    "lifecycle": {
+      "accepted": true,
+      "checks_passed": 8,
+      "checks": [
+        "existing install revalidated",
+        "incompatible architecture rejected",
+        "active lease blocks repair and removal",
+        "bad archive preserves installation",
+        "cancel after publish restores previous payload",
+        "damaged payload rejected and repaired with real health",
+        "unknown file blocks removal and remains unchanged",
+        "idle removal preserves synthetic data and cache then reinstalls"
+      ],
+      "scope": "same-version-cpu-component-maintenance",
+      "process_termination_executed": false,
+      "cross_version_executed": false,
+      "clean_machine_accepted": false,
+      "gpu_executed": false,
+      "release_ready": false,
+      "synthetic_data_preserved": true,
+      "archive_unchanged": true,
+      "payload_verified": true,
+      "journals_empty": true
+    },
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42794184827",
+    "evidence": "development-records/runs/windows-cpu-lifecycle-ci-2026-11-10/README.md"
+  },
+  "latest_windows_cpu_lifecycle": {
+    "accepted": true,
+    "checks_passed": 8,
+    "checks": [
+      "existing install revalidated",
+      "incompatible architecture rejected",
+      "active lease blocks repair and removal",
+      "bad archive preserves installation",
+      "cancel after publish restores previous payload",
+      "damaged payload rejected and repaired with real health",
+      "unknown file blocks removal and remains unchanged",
+      "idle removal preserves synthetic data and cache then reinstalls"
+    ],
+    "scope": "same-version-cpu-component-maintenance",
+    "process_termination_executed": false,
+    "cross_version_executed": false,
+    "clean_machine_accepted": false,
+    "gpu_executed": false,
+    "release_ready": false,
+    "synthetic_data_preserved": true,
+    "archive_unchanged": true,
+    "payload_verified": true,
+    "journals_empty": true,
+    "source_version": "0.18.1",
+    "commit": "fd69854ee19ba031362750072e22a92bf5463a7c",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42794184827",
+    "windows_executed": true,
+    "evidence": "development-records/runs/windows-cpu-lifecycle-ci-2026-11-10/README.md"
   }
 }

@@ -37,9 +37,10 @@
 
 ## 0.18.1 — 2026-11-10
 
-相對0.18.0新增Windows CPU選配同版本維護驗收8案；架構0.4，真正Windows結果待跑。
+相對0.18.0新增Windows CPU選配同版本維護驗收8案；架構0.4，真正Windows原生功能11/11與同版維護8/8已驗。
 
 - 沿用原生CPU11項，增加重驗／架構拒絕、使用中鎖、壞包、publish後取消回復、損壞與修復、未知資料拒刪及保留合成資料／快取後重裝。各案後核對payload hash、active、READY與交易收尾；失敗保留部分結果，不吞非預期例外。
+- [真正Windows結果與原頁](docs/development-records/runs/windows-cpu-lifecycle-ci-2026-11-10/README.md)保存：八案全過，原CPU11項也通過，控制端無OCR／Qt且環境不變。只保留七天報告、不上傳產品。
 - 新4／相關147項本地通過，[準備原始日誌](docs/development-records/runs/windows-cpu-lifecycle-prep-2026-11-10/README.md)保存；完整本版回歸未執行，前版完整611仍屬0.17.2。closure只更新版號，9份鎖／模型／原文不改。
 - 這是同版元件維護，非跨版、強制終止／斷電、乾淨機、所有profile或GPU驗收。C04 2/4、C11 2/5、導入7/12保留，無Setup／tag／Release。
 

@@ -1,0 +1,3 @@
+Windows-tested commit: fd69854ee19ba031362750072e22a92bf5463a7c
+Command: git diff fd69854ee19ba031362750072e22a92bf5463a7c -- src scripts packaging tests vendor .github/workflows pyproject.toml
+Result: empty; source, tests, packaging and workflow match tested commit.

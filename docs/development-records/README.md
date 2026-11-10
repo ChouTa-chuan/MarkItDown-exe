@@ -1,5 +1,11 @@
 # 開發紀錄
 
+**2026-11-10｜完成Windows CPU選配同版維護8案，程式0.18.1**
+
+- [真正Windows2022 CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42794184827)（fd69854）功能11/11、維護8/8接受。重驗／租約鎖／架構拒絕、壞包、publish後取消回復、損壞修復、未知檔案及移除重裝，全hash／active／READY、合成文件／設定／快取與交易收尾均符合預期；控制端無OCR／Qt且環境不變。
+- [公開原頁／完整短摘要／來源對照及視覺紀錄](runs/windows-cpu-lifecycle-ci-2026-11-10/README.md)保存；[147項準備日誌](runs/windows-cpu-lifecycle-prep-2026-11-10/README.md)固定。取消為Event停點，非強制終止、斷電、跨版或乾淨機；完整登入報告未下載，不冒充永久備份。
+- 進度新增CPU同版維護已驗卡，C04仍2/4、C11仍2/5、導入7/12。3023份原紀錄／資產／鎖與28圖不改，本版完整回歸未跑；下一步元件跨版相容與其他profile，GPU／品質／乾淨機／人工仍待，無Setup／tag／Release。
+
 **2026-11-10｜新增Windows CPU選配同版維護8案，0.18.0 → 0.18.1**
 
 - 獨立驗收重驗、架構拒絕、租約鎖、壞包、publish後取消回復、損壞修復、未知資料拒刪、移除保留合成文件／設定／快取後重裝；每案驗hash、active／READY與交易收尾。原生功能11項保留，八案結果另外計，不合併成全profile或強制中斷驗收。

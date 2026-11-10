@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "source_version": "0.18.1",
+  "windows_executed": true,
+  "accepted": true,
+  "tested_commit": "fd69854ee19ba031362750072e22a92bf5463a7c",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2634,
+      "sha256": "7c3fde6afda5e11591a06ebc4e8303572e78a788636841418fccf22c08dd6b8c"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5"
+    },
+    {
+      "file": "document-checks.json",
+      "bytes": 235,
+      "sha256": "2e609f37c50551a09209da53bead8e8404cab2f01bfb3fead5edb302c292beab"
+    },
+    {
+      "file": "historical-integrity.json",
+      "bytes": 177,
+      "sha256": "b446fd1db369bd74e680d79aa1a2efc7912fb70f6f59317715c224ed638917ec"
+    },
+    {
+      "file": "monitor.log",
+      "bytes": 1639,
+      "sha256": "6875669e04b5cf4e59c76d8ae7f6c708645f8592e1e4636693a89cfdb2b05ea5"
+    },
+    {
+      "file": "public-diagnostic.json",
+      "bytes": 1583,
+      "sha256": "56e71af71625577ad4407c2228b17f61ef2b1fa9f699d7d43e25c55fe7c7debb"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 943549,
+      "sha256": "2c40c007f5e8a3a3169e8a393495502f124e2d95c5bf271560c17839325ff271"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 939486,
+      "sha256": "f712a60acb1ecb7fa842bfc12f2b533b95cdd88c9676524d92b050e09353a816"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 326452,
+      "sha256": "df2fae2a0b13ea9a3fe25ea6bdf018c2d95bb89352a732c587635638b95eb8c4"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 344787,
+      "sha256": "629c866b21d56ab2a558212cb2eb857ff309fd8ba3312a2c6216a759cd99b7f7"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 480072,
+      "sha256": "39d500ee5b7476c02905a1f44f7c62c2878bb208a6dfb5c46e2ca0c9c9c8b1a8"
+    },
+    {
+      "file": "source-comparison.txt",
+      "bytes": 268,
+      "sha256": "0391bc427ed3cd27ea47eab0664c76865664267c0526344b5a7aff6c04c3decf"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 161909,
+      "sha256": "0a06326a514fb762580fc4933747da12e86b0597745a0cfbcfc34edaf8e65f9b"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Windows CPU選配元件維護
 
-2026-11-10（台北），程式0.18.1、架構0.4。沿用[前版Windows CPU原生11項](windows-cpu-ci.md)，增加同版本維護8案，真正Windows結果待驗。
+2026-11-10（台北），程式0.18.1、架構0.4。沿用[前版Windows CPU原生11項](windows-cpu-ci.md)，增加同版本維護8案，[真正Windows2022 CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42794184827)原功能11/11、同版維護8/8通過；[公開原頁與紀錄](development-records/runs/windows-cpu-lifecycle-ci-2026-11-10/README.md)保存。
 
 | 情境 | 接受條件 |
 | --- | --- |
