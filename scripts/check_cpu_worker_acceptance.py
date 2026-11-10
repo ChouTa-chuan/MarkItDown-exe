@@ -25,6 +25,7 @@ from desktop_app.components.registry import ComponentRegistry
 from desktop_app.core import State
 from desktop_app.resources import MIB, Policy
 from cpu_fixture_diagnostics import FixtureStderr
+from cpu_lifecycle_acceptance import acceptance as lifecycle_acceptance
 
 
 def require(condition, message):
@@ -134,6 +135,8 @@ def acceptance(package_directory, report_path):
             hello=wire.event(wire.decode(orphan.stdout))
             require(hello['type']=='hello' and hello['frozen'],'EOF probe did not use the real frozen worker')
             with file_lock(manager.worker_guard_path,exclusive=True):pass
+        with patch.dict(os.environ, {'PATH': ''}):
+            lifecycle=lifecycle_acceptance(manager,envelope,spec,cached.path,root,report_path.parent/'cpu-lifecycle.json')
         manager.remove(*spec.key)
         require(not registry.installation_path(spec).exists(), '閒置元件移除未完成。')
     after = environment()
@@ -160,6 +163,7 @@ def acceptance(package_directory, report_path):
                   native_binary_records=len(natives['files']), native_copyright_packages=len(natives['native_copyrights']),
                   windows_executed=(platform.system()=='Windows'), gpu_executed=False, traditional_chinese_quality_passed=False,
                   production_release=False)
+    report['lifecycle']=lifecycle
     if platform.system()=='Windows':report['checks'].append('frozen parent EOF exits72 and releases native worker guard')
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
     print(json.dumps(dict(accepted=True, checks=report['checks_passed'], frozen=True, controller_native_packages=False), ensure_ascii=False))

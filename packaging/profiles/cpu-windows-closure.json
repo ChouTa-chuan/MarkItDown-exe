@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "cpu-worker-windows",
-  "source_version": "0.18.0",
+  "source_version": "0.18.1",
   "parent_sha256": "678ce2b9aaa548655b4715e0e457dcf5048727653203b435103361ab50a1f39f",
   "profiles": {
     "build": {

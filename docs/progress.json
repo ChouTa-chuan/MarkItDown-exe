@@ -2,9 +2,9 @@
   "updated": "2026-11-10",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
   "tests_passed": 610,
-  "headline": "Windows CPU選配原生11/11通過，獨立控制端與父程序斷線退出已驗",
+  "headline": "CPU選配新增同版維護8案，相關147項通過，Windows待驗",
   "blocker": "Windows CPU選配功能已驗；各profile完整生命週期、乾淨機／人工／GPU與ONNX繁中品質仍待。",
-  "next": "接續各profile相容與安裝生命週期，再進行無Python／離線乾淨Windows與人工驗收。",
+  "next": "Windows實跑CPU選配8案維護，再接全profile與乾淨機。",
   "milestones": [
     {
       "id": "m0",
@@ -253,7 +253,8 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
     "0.17.2混合611與36模組正常exit0，ONNX品質預期失敗保留；CI清理只供自身產物，不代表普通Setup任意中斷可自動清理。",
-    "0.18.0 Windows CPU獨立選配11項及本輪相關143通過，完整本版回歸未執行；頁面610＋1是0.17.2完整基線，不能當作新版全回歸。"
+    "0.18.0 Windows CPU獨立選配11項及本輪相關143通過，完整本版回歸未執行；頁面610＋1是0.17.2完整基線，不能當作新版全回歸。",
+    "0.18.1本地相關147項通過，Windows維護8案待跑；0.18.0原生11項與0.17.2完整611均保留來源版本。"
   ],
   "tests_run": 611,
   "tests_expected_failures": 1,
@@ -536,7 +537,7 @@
     ]
   },
   "full_regression_accepted": false,
-  "source_version": "0.18.0",
+  "source_version": "0.18.1",
   "qt_lifecycle": {
     "source_version": "0.17.1",
     "architecture_version": "0.4",
@@ -694,15 +695,25 @@
     "installed_notice_packages": 26
   },
   "latest_targeted_current": {
-    "run": 143,
-    "passed": 143,
-    "skipped": 0,
-    "source_version": "0.18.0",
-    "new_tests": 15,
+    "source_version": "0.18.1",
+    "architecture_version": "0.4",
+    "date_taipei": "2026-11-10",
+    "new_tests": 4,
+    "targeted_run": 147,
+    "targeted_passed": 147,
     "process_exit": 0,
-    "source_commit": "f0708d0587155640b2aee87f19ad45cbea92fe97",
+    "skipped": 0,
     "full_regression_executed": false,
-    "evidence": "development-records/runs/windows-cpu-ci-2026-11-10/related-tests-143.log"
+    "windows_executed": false,
+    "release_ready": false,
+    "source_hashes": {
+      "scripts/cpu_lifecycle_acceptance.py": "3a3906932216fc980926602fd541ad58a2032c442b3e31a192652d7be9ffd515",
+      "scripts/check_cpu_worker_acceptance.py": "f01fb913a58bd494c6541bc344829387b78fb43825fe343a64a10f2abe42da46",
+      "scripts/run_windows_cpu_ci.py": "0a69e6f83065e910fa185ea2401269d0f1fac3eab0a45d1e0747ab5adc9617ac",
+      "tests/test_cpu_lifecycle_acceptance.py": "213f3d59842138f47fb533bff68bbdd6e56a87c594f4fdf959c90fe07792f42d",
+      "pyproject.toml": "0a5ee0139b06d361ea104c1cf0418beac574d3df6d66b5375ed69e6c7ed0db70"
+    },
+    "evidence": "development-records/runs/windows-cpu-lifecycle-prep-2026-11-10/README.md"
   },
   "latest_windows_cpu": {
     "check": "windows-cpu-worker-ci",

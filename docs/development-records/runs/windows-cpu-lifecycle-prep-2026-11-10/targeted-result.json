@@ -1,0 +1,20 @@
+{
+  "source_version": "0.18.1",
+  "architecture_version": "0.4",
+  "date_taipei": "2026-11-10",
+  "new_tests": 4,
+  "targeted_run": 147,
+  "targeted_passed": 147,
+  "process_exit": 0,
+  "skipped": 0,
+  "full_regression_executed": false,
+  "windows_executed": false,
+  "release_ready": false,
+  "source_hashes": {
+    "scripts/cpu_lifecycle_acceptance.py": "3a3906932216fc980926602fd541ad58a2032c442b3e31a192652d7be9ffd515",
+    "scripts/check_cpu_worker_acceptance.py": "f01fb913a58bd494c6541bc344829387b78fb43825fe343a64a10f2abe42da46",
+    "scripts/run_windows_cpu_ci.py": "0a69e6f83065e910fa185ea2401269d0f1fac3eab0a45d1e0747ab5adc9617ac",
+    "tests/test_cpu_lifecycle_acceptance.py": "213f3d59842138f47fb533bff68bbdd6e56a87c594f4fdf959c90fe07792f42d",
+    "pyproject.toml": "0a5ee0139b06d361ea104c1cf0418beac574d3df6d66b5375ed69e6c7ed0db70"
+  }
+}

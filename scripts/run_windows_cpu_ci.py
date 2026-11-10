@@ -57,9 +57,12 @@ def run(output):
         if (not value['accepted'] or value['checks_passed']!=11 or not value['windows_executed']
                 or not value['runtime']['frozen'] or not value['controller_unchanged']):
             raise RuntimeError('Actual frozen CPU acceptance incomplete')
+        if not value['lifecycle']['accepted'] or value['lifecycle']['checks_passed']!=8:
+            raise RuntimeError('Actual CPU maintenance acceptance incomplete')
         result.update(accepted=True,checks_passed=11,controller_unchanged=True,
             controller_native_packages=False,package_sha256=value['package_sha256'],
-            actual_providers=value['actual_providers'],installed_notice_packages=value['installed_notice_packages'])
+            actual_providers=value['actual_providers'],installed_notice_packages=value['installed_notice_packages'],
+            lifecycle=value['lifecycle'])
         result.pop('failed_step',None)
     except Exception as exc:
         result['error']=type(exc).__name__+': '+str(exc)

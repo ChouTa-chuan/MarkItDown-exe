@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source_version": "0.18.1",
+  "windows_executed": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1450,
+      "sha256": "287062e8c84cf2bfe61811a8f194688c839c8b31b1be1393c43692dc363a27a5"
+    },
+    {
+      "file": "base-generate.log",
+      "bytes": 308,
+      "sha256": "60f4d04e67ddb2356cc4afea6ee669302d131723567341544a94a26097ec9171"
+    },
+    {
+      "file": "profile-generate.log",
+      "bytes": 31,
+      "sha256": "c6cdaf3fc44749c0c9f4e049b9cb80bca405ec6f2d9214af64cfd6f901fb61e3"
+    },
+    {
+      "file": "related-tests-final.log",
+      "bytes": 23413,
+      "sha256": "5f908081eb02c85115e6f9fb45a13f979e93bd3ff6d55ca4c148e39214fc7d09"
+    },
+    {
+      "file": "related-tests.log",
+      "bytes": 23413,
+      "sha256": "c906833679fa7022dc90e768be88a5b883d46c5ac2678c439e0812e71b2c9879"
+    },
+    {
+      "file": "targeted-result.json",
+      "bytes": 852,
+      "sha256": "e28d3156058162e613edb3c46bcc5011cf419d9085085cbb52ffdaa6fc6014e5"
+    }
+  ]
+}
