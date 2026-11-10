@@ -1,5 +1,11 @@
 # 開發紀錄
 
+**2026-11-10｜完成Windows CPU元件跨版8案，程式0.19.0**
+
+- [真正Windows2022 CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42802066110)（db601e2）跨版8/8、原功能11/11、同版維護8/8通過。固定前版fd69854（app0.18.1／CPU1.0.0）與新版各自來源／venv建置，真frozen OCR版號序列1.0.0、1.0.0、1.0.1、1.0.0、1.0.1；精確版號與provider、全hash、active、合成資料／cache與環境不變均接受。
+- [公開run／job原頁、完整短摘要與視覺紀錄](runs/windows-cpu-upgrade-ci-2026-11-10/README.md)保存；被取代首run最終Cancelled，不當失敗或成功。原156項準備與接續紀錄固定；完整登入報告七天未下載，原PDF／Qt與本版全回歸未重跑。
+- C04仍2/4、C11仍2/5、導入7/12；28原圖與3044份既有紀錄／資產／鎖不改。下一步其他profile／完整故障恢復與乾淨機／人工，GPU／品質與RAM軟性限制保留，無產品發行。
+
 **2026-11-10｜PDF／桌面驗收跟隨元件描述版號，程式0.19.0**
 
 - 將舊驗收腳本的固定1.0.0要求、輸出來源及GUI偏好改讀本次descriptor版號，避免新1.0.1無法沿用原驗收入口。相關156項／語法編譯正常，[接續原始日誌與首run更新前快照](runs/windows-cpu-upgrade-followup-2026-11-10/README.md)保存；未重跑完整PDF／Qt或全專案。Windows將再驗最新版，原準備紀錄不改。

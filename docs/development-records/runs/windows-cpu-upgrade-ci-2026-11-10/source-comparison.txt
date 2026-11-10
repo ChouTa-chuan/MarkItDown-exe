@@ -1,0 +1,4 @@
+Windows-tested source: db601e28a00aee740d53d439af2ee580f8981ef0
+Pinned previous source: fd69854ee19ba031362750072e22a92bf5463a7c
+Command: git diff db601e28a00aee740d53d439af2ee580f8981ef0 -- src scripts packaging tests vendor .github/workflows pyproject.toml
+Result: empty; source, tests, packaging and workflows match tested source.

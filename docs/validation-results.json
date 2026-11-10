@@ -2150,15 +2150,17 @@
       "tests/test_cpu_upgrade.py": "9732849081d0f2512bc0a36a8ebd409eb68fc1c3f7efb450a31c38aad26fcf8a",
       "tests/fixtures/component-worker-fixture.py": "cac678e7d9be22be05f4fc5102beacaeb9b2ec41ecf9a97870e553fbf0aa4cba",
       ".github/workflows/windows-cpu-validation.yml": "1a1b36884df5bffdc853bf7b59e452b9e65b58864b9ae1a0904ca4aef1e235c0",
-      "pyproject.toml": "1a45ab0208a832c4e76d9dc3ff05d8e33ab9bcf6c612e2d51a9881a1f32c2916"
+      "pyproject.toml": "1a45ab0208a832c4e76d9dc3ff05d8e33ab9bcf6c612e2d51a9881a1f32c2916",
+      "scripts/check_managed_conversion_acceptance.py": "2976e897a0cc92d3a07ae38c01ca452760625f9f9c0a9c26a71ccea57ea8693e"
     },
-    "evidence": "development-records/runs/windows-cpu-upgrade-prep-2026-11-10/README.md"
+    "evidence": "development-records/runs/windows-cpu-upgrade-prep-2026-11-10/README.md",
+    "additional_evidence": "development-records/runs/windows-cpu-upgrade-followup-2026-11-10/README.md"
   },
   "latest_windows_cpu": {
     "check": "windows-cpu-worker-ci",
-    "commit": "fd69854ee19ba031362750072e22a92bf5463a7c",
-    "source_version": "0.18.1",
-    "recorded_at": "2026-11-10T09:51:36.855883+00:00",
+    "commit": "db601e28a00aee740d53d439af2ee580f8981ef0",
+    "source_version": "0.19.0",
+    "recorded_at": "2026-11-10T10:47:49.538975+00:00",
     "accepted": true,
     "windows_executed": true,
     "build_verified": true,
@@ -2169,7 +2171,7 @@
     "release_ready": false,
     "controller_unchanged": true,
     "controller_native_packages": false,
-    "package_sha256": "8f7f520d64a72b79b83c796b600ee0e4fed7fd7b843c2e192a25a16e1ad6e39b",
+    "package_sha256": "bb9ea0b323493242c087f2dc8c099654ff07985430da38dbddbc88d20d57dc0d",
     "actual_providers": [
       "CPUExecutionProvider",
       "CPUExecutionProvider",
@@ -2200,8 +2202,52 @@
       "payload_verified": true,
       "journals_empty": true
     },
-    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42794184827",
-    "evidence": "development-records/runs/windows-cpu-lifecycle-ci-2026-11-10/README.md"
+    "upgrade": {
+      "accepted": true,
+      "checks_passed": 8,
+      "checks": [
+        "signed old install and OCR",
+        "cancel published upgrade preserves old OCR",
+        "upgrade records previous version and runs new OCR",
+        "pinned old request rejects before health",
+        "explicit rollback runs retained old worker",
+        "explicit return runs retained new worker",
+        "retire old clears rollback and preserves new",
+        "remove new preserves synthetic document and caches"
+      ],
+      "scope": "cpu-component-cross-version",
+      "windows_executed": true,
+      "transaction_checks_accepted": true,
+      "process_termination_executed": false,
+      "clean_machine_accepted": false,
+      "release_ready": false,
+      "synthetic_data_preserved": true,
+      "archives_unchanged": true,
+      "journals_empty": true,
+      "source_version": "0.19.0",
+      "previous_version": "1.0.0",
+      "current_version": "1.0.1",
+      "actual_ocr_versions": [
+        "1.0.0",
+        "1.0.0",
+        "1.0.1",
+        "1.0.0",
+        "1.0.1"
+      ],
+      "actual_frozen": true,
+      "controller_unchanged": true,
+      "controller_native_packages": false,
+      "package_sha256": {
+        "1.0.0": "ce97730fe64fe53b003e526dd1ac657aee95a5b14b1bce43a00a32c3a2a30a5d",
+        "1.0.1": "bb9ea0b323493242c087f2dc8c099654ff07985430da38dbddbc88d20d57dc0d"
+      },
+      "gpu_executed": false,
+      "traditional_chinese_quality_passed": false,
+      "cross_version_executed": true
+    },
+    "previous_source": "fd69854ee19ba031362750072e22a92bf5463a7c",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42802066110",
+    "evidence": "development-records/runs/windows-cpu-upgrade-ci-2026-11-10/README.md"
   },
   "latest_windows_cpu_lifecycle": {
     "accepted": true,
@@ -2226,10 +2272,57 @@
     "archive_unchanged": true,
     "payload_verified": true,
     "journals_empty": true,
-    "source_version": "0.18.1",
-    "commit": "fd69854ee19ba031362750072e22a92bf5463a7c",
-    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42794184827",
+    "source_version": "0.19.0",
+    "commit": "db601e28a00aee740d53d439af2ee580f8981ef0",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42802066110",
     "windows_executed": true,
-    "evidence": "development-records/runs/windows-cpu-lifecycle-ci-2026-11-10/README.md"
+    "evidence": "development-records/runs/windows-cpu-upgrade-ci-2026-11-10/README.md"
+  },
+  "latest_windows_cpu_upgrade": {
+    "accepted": true,
+    "checks_passed": 8,
+    "checks": [
+      "signed old install and OCR",
+      "cancel published upgrade preserves old OCR",
+      "upgrade records previous version and runs new OCR",
+      "pinned old request rejects before health",
+      "explicit rollback runs retained old worker",
+      "explicit return runs retained new worker",
+      "retire old clears rollback and preserves new",
+      "remove new preserves synthetic document and caches"
+    ],
+    "scope": "cpu-component-cross-version",
+    "windows_executed": true,
+    "transaction_checks_accepted": true,
+    "process_termination_executed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "synthetic_data_preserved": true,
+    "archives_unchanged": true,
+    "journals_empty": true,
+    "source_version": "0.19.0",
+    "previous_version": "1.0.0",
+    "current_version": "1.0.1",
+    "actual_ocr_versions": [
+      "1.0.0",
+      "1.0.0",
+      "1.0.1",
+      "1.0.0",
+      "1.0.1"
+    ],
+    "actual_frozen": true,
+    "controller_unchanged": true,
+    "controller_native_packages": false,
+    "package_sha256": {
+      "1.0.0": "ce97730fe64fe53b003e526dd1ac657aee95a5b14b1bce43a00a32c3a2a30a5d",
+      "1.0.1": "bb9ea0b323493242c087f2dc8c099654ff07985430da38dbddbc88d20d57dc0d"
+    },
+    "gpu_executed": false,
+    "traditional_chinese_quality_passed": false,
+    "cross_version_executed": true,
+    "commit": "db601e28a00aee740d53d439af2ee580f8981ef0",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42802066110",
+    "evidence": "development-records/runs/windows-cpu-upgrade-ci-2026-11-10/README.md",
+    "previous_source": "fd69854ee19ba031362750072e22a92bf5463a7c"
   }
 }

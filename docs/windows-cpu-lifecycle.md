@@ -16,3 +16,5 @@
 由scripts/cpu_lifecycle_acceptance.py負責情境，scripts/check_cpu_worker_acceptance.py在同一無OCR控制端、中文受管目錄、空PATH呼叫，再由既有Windows CI明確要求原11與維護8案均通過。驗收保存部分計數與當前失敗案，沒有以一般例外冒充預期拒絕。新4／相關147項本地通過，[準備日誌](development-records/runs/windows-cpu-lifecycle-prep-2026-11-10/README.md)另存；本版完整回歸未執行。
 
 取消以published停點觸發Event；不代表程序強制終止、斷電／重啟、跨版升降級或所有profile完成。文件與設定均由CI在自己的暫存根目錄建立，不讀取真實使用者資料。只有固定公開健康fixture保留有界診斷，測試金鑰不落盤；報告七天、不發布worker／ZIP／模型／Setup。C04仍2/4、C11仍2/5、導入7/12／歷史19/25；乾淨機／人工／GPU與ONNX繁體及日韓品質仍待，RAM為軟性預算。
+
+0.19.0已完成[CPU兩版升級與明確回復8案](windows-cpu-upgrade.md)，本頁原同版8案及功能11項亦重新通過；範圍分開計。

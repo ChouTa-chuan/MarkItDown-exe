@@ -1,6 +1,6 @@
 # Windows CPU元件跨版本驗證
 
-2026-11-10（台北），程式0.19.0、架構0.4；Windows跨版待實跑。沿用[同版維護](windows-cpu-lifecycle.md)，新增獨立跨版驗收。
+2026-11-10（台北），程式0.19.0、架構0.4；[真正Windows2022 CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42802066110)跨版8/8、原功能11/11、同版維護8/8通過，[公開原頁與紀錄](development-records/runs/windows-cpu-upgrade-ci-2026-11-10/README.md)已保存。沿用[同版維護](windows-cpu-lifecycle.md)，新增獨立跨版驗收。
 
 | 版本層次 | 前版 | 新版 |
 | --- | --- | --- |
