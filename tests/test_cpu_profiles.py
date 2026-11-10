@@ -2,10 +2,12 @@
 from pathlib import Path
 import json
 import io
+import os
 import subprocess
 import shutil
 import sys
 import tempfile
+import runpy
 import unittest
 from unittest.mock import patch
 
@@ -93,3 +95,23 @@ class CPUProfileTests(unittest.TestCase):
         target=self.root/'stderr.log';target.write_bytes(b'preserved')
         with self.assertRaises(FileExistsError):FixtureStderr(io.BytesIO(b'new'),target)
         self.assertEqual(target.read_bytes(),b'preserved')
+
+    def test_fixture_pipe_lines_are_recorded_without_changing_frames(self):
+        raw=b'{"frame":1}\r\n{"frame":2}\n';target=self.root/'stdout.log'
+        stream=FixtureStderr(io.BytesIO(raw),target,limit=100)
+        self.assertEqual(stream.readline(),b'{"frame":1}\r\n')
+        self.assertEqual(stream.readline(),b'{"frame":2}\n');self.assertEqual(stream.readline(),b'')
+        self.assertEqual(target.read_bytes(),raw)
+
+    def test_fixed_fixture_watchdog_is_opt_in_and_cancelled(self):
+        import faulthandler
+        for enabled in ('0','1'):
+            with patch.dict(os.environ,{'MARKITDOWN_FIXED_HEALTH_TRACE':enabled}), \
+                 patch('multiprocessing.freeze_support'),patch('desktop_app.component_workers.server.main',return_value=0), \
+                 patch.object(faulthandler,'enable'),patch.object(faulthandler,'dump_traceback_later') as dump, \
+                 patch.object(faulthandler,'cancel_dump_traceback_later') as cancel:
+                with self.assertRaises(SystemExit) as caught:
+                    runpy.run_path(str(ROOT/'packaging/ocr_worker_entry.py'),run_name='__main__')
+                self.assertEqual(caught.exception.code,0)
+                if enabled=='1':dump.assert_called_once_with(45);cancel.assert_called_once()
+                else:dump.assert_not_called();cancel.assert_not_called()

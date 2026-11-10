@@ -6,6 +6,12 @@ class FixtureStderr:
 
     def read(self, size=-1):
         data=self.source.read(size)
+        return self._record(data)
+
+    def readline(self, size=-1):
+        return self._record(self.source.readline(size))
+
+    def _record(self, data):
         keep=data[:max(0,self.limit-self.kept)]
         if keep:
             with self.destination.open('ab') as output:output.write(keep)

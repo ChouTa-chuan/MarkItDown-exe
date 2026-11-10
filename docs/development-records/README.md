@@ -1,5 +1,9 @@
 # 開發紀錄
 
+**2026-11-10｜Windows CPU確認健康工作逾時，0.18.0**
+
+- [第二輪原始結果](runs/windows-cpu-attempt2-2026-11-10/README.md)保存，錯誤為工作逾時、stderr空白，仍未接受。固定health驗收補協定進度與45秒堆疊，既有120秒驗收期限不變；新2／相關140項通過，未宣稱Windows修復或全623回歸通過。
+
 **2026-11-10｜Windows CPU首輪編譯成功、staging健康失敗，0.18.0**
 
 - 保存[原頁與短摘要](runs/windows-cpu-attempt1-2026-11-10/README.md)，原10項未通過、不提高進度。只對固定公開health fixture增加有界stderr與即時觀察，產品WorkerRunner仍排空且不保存文件診斷；新2／相關138通過，根因仍待下一輪實跑。

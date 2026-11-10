@@ -1,0 +1,17 @@
+{
+  "check": "windows-cpu-worker-ci",
+  "commit": "bbb82a2e8d7d77df9e2cef47eb01904c05a04822",
+  "source_version": "0.18.0",
+  "recorded_at": "2026-11-10T08:42:16.687319+00:00",
+  "accepted": false,
+  "windows_executed": true,
+  "build_verified": true,
+  "checks_passed": 0,
+  "clean_machine_accepted": false,
+  "gpu_executed": false,
+  "traditional_chinese_quality_passed": false,
+  "release_ready": false,
+  "failed_step": "native-acceptance",
+  "error": "CalledProcessError: Command '['D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows-cpu\\\\controller-env\\\\Scripts\\\\python.exe', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\scripts\\\\check_cpu_worker_acceptance.py', '--package-directory', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows-cpu\\\\package', '--report', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows-cpu\\\\reports\\\\cpu-acceptance.json']' returned non-zero exit status 1.",
+  "failure_detail": "Traceback (most recent call last):\r\n  File \"D:\\a\\MarkItDown-exe\\MarkItDown-exe\\scripts\\check_cpu_worker_acceptance.py\", line 153, in <module>\r\n    acceptance(args.package_directory, args.report)\r\n  File \"D:\\a\\MarkItDown-exe\\MarkItDown-exe\\scripts\\check_cpu_worker_acceptance.py\", line 88, in acceptance\r\n    installed = manager.install(envelope, *spec.key, cached.path)\r\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows-cpu\\controller-env\\Lib\\site-packages\\desktop_app\\components\\lifecycle.py\", line 245, in install\r\n    self._stage_health(spec,base/'payload',catalog,check)\r\n  File \"D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows-cpu\\controller-env\\Lib\\site-packages\\desktop_app\\components\\lifecycle.py\", line 98, in _stage_health\r\n    result = probe(spec,path,self.host)\r\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\a\\MarkItDown-exe\\MarkItDown-exe\\scripts\\check_cpu_worker_acceptance.py\", line 79, in actual_health\r\n    raise RuntimeError('Fixed-fixture health failed: '+result.detail+'; stderr='+detail)\r\nRuntimeError: Fixed-fixture health failed: WorkerError: 選配工作逾時，已停止該程序。; stderr=\r\n"
+}

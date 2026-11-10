@@ -41,7 +41,7 @@
 
 - CPU建置24／精簡控制端5套件，沿用原hash／wheel METADATA、核對實際核心依賴與97／30份原notice或metadata；不混Qt／GPU與主轉換器。
 - 獨立Windows2022 CI將以兩個venv跑真正frozen／簽章離線／空PATH及10項健康、推論、取消、RAM與移除，公開短錯誤保存內層失敗；只上傳報告，不發行ZIP／模型／Setup。
-- 新10、相關138項在鎖定venv正常退出；[原始準備紀錄](docs/development-records/runs/windows-cpu-prep-2026-11-10/README.md)。本輪完整621未執行，舊611保留0.17.2歸屬；Windows／GPU／品質與乾淨機另驗，C04 2/4、C11 2/5、完整7/12不提高，28份舊圖保持固定。
+- 新12、相關140項在鎖定venv正常退出；[原始準備紀錄](docs/development-records/runs/windows-cpu-prep-2026-11-10/README.md)。本輪完整623未執行，舊611保留0.17.2歸屬；Windows／GPU／品質與乾淨機另驗，C04 2/4、C11 2/5、完整7/12不提高，28份舊圖保持固定。
 
 ## 0.17.2 — 2026-11-09
 

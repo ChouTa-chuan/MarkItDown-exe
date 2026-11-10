@@ -180,7 +180,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C10 requires exact active component/version/capability on OCR pages and revalidates leased health; original C01 report retained"
   },
-  "current_run_scope": "Windows CPU profile preparation: locked targeted136 passed; Windows native build pending. Full621 not run; previous611 belongs to0.17.2.",
+  "current_run_scope": "Windows CPU profile preparation: locked targeted136 passed; Windows native build pending. Full623 not run; previous611 belongs to0.17.2.",
   "component_migration": {
     "check": "C02",
     "accepted": true,

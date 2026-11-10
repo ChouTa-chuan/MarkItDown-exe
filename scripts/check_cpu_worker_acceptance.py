@@ -8,6 +8,7 @@ import json
 import os
 from pathlib import Path
 import platform
+import re
 import tempfile
 from threading import Event
 from unittest.mock import patch
@@ -58,16 +59,20 @@ def acceptance(package_directory, report_path):
     with tempfile.TemporaryDirectory(prefix='markitdown-c07-acceptance-') as temporary:
         root = Path(temporary)/'中文受管環境'
         registry = ComponentRegistry(root/'state')
-        binding = CPUWorkerBinding(root/'state/.locks/worker-use.lock', Policy(budget=2048*MIB, reserve=0))
+        binding = CPUWorkerBinding(root/'state/.locks/worker-use.lock', Policy(budget=2048*MIB, reserve=0),
+            notify=lambda state,message:events.append(dict(state=state.value,message=message)))
         def actual_health(component, directory, host):
             # 只對固定公開health fixture的真正子程序保存stderr，不改產品的診斷隱私契約或執行結果。
             import subprocess
             original=subprocess.Popen
             report_path.parent.mkdir(parents=True,exist_ok=True)
             stderr_path=report_path.parent/('health-'+str(len(health_observations))+'.stderr.log')
+            stdout_path=report_path.parent/('health-'+str(len(health_observations))+'.stdout.log')
             def observed(*args,**kwargs):
+                kwargs={**kwargs,'env':{**kwargs.get('env',os.environ),'MARKITDOWN_FIXED_HEALTH_TRACE':'1'}}
                 process=original(*args,**kwargs)
                 process.stderr=FixtureStderr(process.stderr,stderr_path)
+                process.stdout=FixtureStderr(process.stdout,stdout_path)
                 return process
             with patch('desktop_app.component_workers.client.subprocess.Popen',side_effect=observed):
                 result = binding.health(component, directory, host)
@@ -75,8 +80,9 @@ def acceptance(package_directory, report_path):
                                             passed=result.passed, message=result.detail))
             (report_path.parent/'health-observations.json').write_text(json.dumps(health_observations,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
             if not result.passed:
-                detail=stderr_path.read_bytes().decode('utf-8',errors='replace')[-800:] if stderr_path.exists() else ''
-                raise RuntimeError('Fixed-fixture health failed: '+result.detail+'; stderr='+detail)
+                detail=stderr_path.read_bytes().decode('utf-8',errors='replace') if stderr_path.exists() else ''
+                detail=re.sub(r'File "[^"\n]*[\\/]([^"\\/]+)"',r'File "\1"',detail)[-900:]
+                raise RuntimeError('Fixed-fixture health failed: '+result.detail+'; events='+str(events[-3:])+'; stderr='+detail)
             return result
         host = HostContext(platform.system().lower(), 'x86_64', Version.parse(metadata.version('markitdown-desktop')),
                            Version.parse('1.0.0'))
