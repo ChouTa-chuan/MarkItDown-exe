@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.0",
+  "windows_executed": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 800,
+      "sha256": "6da9a532bce232f60a108409c7aa4d4b9d969e18ad7833050e9a20e4d7467304"
+    },
+    {
+      "file": "related-tests.log",
+      "bytes": 24909,
+      "sha256": "7322db6a5b9754d7856a38a1c10bf7c575a188f8eacb23fcbe5e23063719b1e5"
+    },
+    {
+      "file": "source-hashes.json",
+      "bytes": 123,
+      "sha256": "c229e5438e749ac98026a92b56b58227c2db0e3f2d8bd814b49ae38665d835b6"
+    },
+    {
+      "file": "superseded-monitor.log",
+      "bytes": 97,
+      "sha256": "89946ae5526f7d4794edf17ec011c0ec64cea0fd055cd230894776e347da84a8"
+    },
+    {
+      "file": "superseded-run-snapshot.txt",
+      "bytes": 151877,
+      "sha256": "764a54649af81e741b682b37741eded5f40832c6dbd0f43a0c234d148f095012"
+    }
+  ]
+}

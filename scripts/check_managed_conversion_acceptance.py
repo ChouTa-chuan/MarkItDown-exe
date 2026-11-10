@@ -57,6 +57,8 @@ def acceptance(package,output):
     output.mkdir(parents=True,exist_ok=True);app=QApplication.instance() or QApplication([])
     now=datetime.now(timezone.utc);stamp=lambda value:value.strftime('%Y-%m-%dT%H:%M:%SZ')
     key=Ed25519PrivateKey.generate();spec=ComponentSpec.from_dict(json.loads((package/'component.json').read_bytes()))
+    # 驗收固定本次包的精確版號，不把歷史1.0.0寫死成新元件的要求。
+    component_version=str(spec.version)
     policy=TrustPolicy(1,'c10-development',1,{'ephemeral':key.public_key().public_bytes_raw()},frozenset(),('https://example.invalid',))
     def signed(components,revision):
         payload=dict(schema_version=1,catalog_id='c10-development',revision=revision,trust_policy_version=1,
@@ -88,7 +90,7 @@ def acceptance(package,output):
             return Snapshot(value.total,0,3072*MIB) if ready.is_set() and not release.is_set() else value
         try:
             with patch.dict(os.environ,{'PATH':'','TESSDATA_PREFIX':''}), ThreadPoolExecutor(max_workers=1) as executor:
-                request=Request(mixed,root/'mixed.md',ocr_backend='managed_cpu',component_version='1.0.0')
+                request=Request(mixed,root/'mixed.md',ocr_backend='managed_cpu',component_version=component_version)
                 future=executor.submit(Runner(budget,read_snapshot=pressure,component_context=context).run,request,None,notify)
                 try:
                     require(ready.wait(90),'Actual component lease was not acquired')
@@ -103,7 +105,7 @@ def acceptance(package,output):
                         'Actual isolated CPU execution evidence missing')
                 content=request.destination.read_text()
                 require(content.count('route: native')==2 and content.count('route: blank')==1 and content.count('route: ocr')==1,'Per-page routing mismatch')
-                require(content.count('source-component: onnx-cpu-ocr; version: 1.0.0')==1,'Component provenance mismatch')
+                require(content.count('source-component: onnx-cpu-ocr; version: '+component_version)==1,'Component provenance mismatch')
                 for fragment in ('NATIVE CONTROL CONTENT PRESERVED 12345','AFTER OCR ORIGINAL TEXT 98765','WORKER HEALTH CHECK 12345','Alpha','Beta','100','150'):
                     require(fragment in content,'Missing original/recognized content: '+fragment)
                 require('| Alpha | 2 | 100 |' in content and '| Beta | 3 | 150 |' in content,'Native table cell regression')
@@ -136,7 +138,7 @@ def acceptance(package,output):
                 require([item.state for item in window.job.outcomes]==[State.FAILED,State.COMPLETED,State.COMPLETED],'Version failure stopped native/text batch')
                 require('指定版本未啟用' in window.job.outcomes[0].message,'Pinned version failure was hidden')
                 window.grab().save(str(output/'desktop-batch-isolation.png'))
-                window.clear_sources();window.add_sources([mixed]);window.managed_version.setText('1.0.0');window.output.setText(str(root/'gui'));window.start()
+                window.clear_sources();window.add_sources([mixed]);window.managed_version.setText(component_version);window.output.setText(str(root/'gui'));window.start()
                 deadline=time.monotonic()+120
                 while window.job.isRunning() and time.monotonic()<deadline:app.processEvents();time.sleep(0.005)
                 require(not window.job.isRunning(),'GUI real managed conversion timed out');app.processEvents()
