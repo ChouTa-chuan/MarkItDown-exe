@@ -1,0 +1,17 @@
+{
+  "check": "windows-cpu-worker-ci",
+  "commit": "eb3ed8ffa03fcfa98d2e899130dca5ced99bd34d",
+  "source_version": "0.18.0",
+  "recorded_at": "2026-11-10T08:56:27.390858+00:00",
+  "accepted": false,
+  "windows_executed": true,
+  "build_verified": true,
+  "checks_passed": 0,
+  "clean_machine_accepted": false,
+  "gpu_executed": false,
+  "traditional_chinese_quality_passed": false,
+  "release_ready": false,
+  "failed_step": "native-acceptance",
+  "error": "CalledProcessError: Command '['D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows-cpu\\\\controller-env\\\\Scripts\\\\python.exe', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\scripts\\\\check_cpu_worker_acceptance.py', '--package-directory', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows-cpu\\\\package', '--report', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows-cpu\\\\reports\\\\cpu-acceptance.json']' returned non-zero exit status 1.",
+  "failure_detail": "ed-fixture health failed: '+result.detail+'; events='+str(events[-3:])+'; stderr='+detail)\r\nRuntimeError: Fixed-fixture health failed: WorkerError: 選配工作逾時，已停止該程序。; events=[{'state': 'running', 'message': '選配 CPU 工作程序已啟動。'}, {'state': 'running', 'message': '選配工作階段：loading'}]; stderr=xec_module\r\n  File \"<frozen importlib._bootstrap>\", line 935 in _load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 1331 in _find_and_load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 1360 in _find_and_load\r\n  File \"_pybind_state.py\", line 32 in <module>\r\n  File \"pyimod02_importers.py\", line 457 in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 935 in _load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 1331 in _find_and_load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 1360 in _find_and_load\r\n  File \"__init__.py\", line 26 in <module>\r\n  File \"pyimod02_importers.py\", line 457 in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 935 in _load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 1331 in _find_and_load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 1360 in _find_and_load\r\n  File \"server.py\", line 91 in serve\r\n  File \"desktop\r\n"
+}

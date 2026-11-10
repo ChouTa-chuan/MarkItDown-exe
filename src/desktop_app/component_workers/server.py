@@ -146,7 +146,13 @@ def main(argv=None):
     os.dup2(sys.stderr.fileno(),sys.stdout.fileno())
     # daemon 不能持有標準 BufferedReader 的鎖，否則 CPython 結束時可能 abort。
     # 單工作程序使用 raw fd；退出時由 OS 回收，無等待另一個 daemon 關閉 buffered IO。
-    input_stream=os.fdopen(os.dup(sys.stdin.fileno()),'rb',buffering=0)
+    if os.name=='nt':
+        # Windows實測停在ORT原生匯入，同時背景執行緒正以CRT讀stdin；
+        # 改用Win32管道讀取，保留原有reader／EOF／取消語意，不靠延長期限或延後控制處理。
+        from .pipe_input import windows_pipe_input
+        input_stream=windows_pipe_input(sys.stdin.fileno())
+    else:
+        input_stream=os.fdopen(os.dup(sys.stdin.fileno()),'rb',buffering=0)
     try:return serve(args.job_directory,args.guard,control,input_stream)
     finally:control.close()
 

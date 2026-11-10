@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "source_version": "0.18.0",
+  "windows_executed": true,
+  "accepted": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1674,
+      "sha256": "0d44b877d4f47d03548aa70c2c0fd023aa97c5850d12ae59fd9ed9b9080b0b15"
+    },
+    {
+      "file": "monitor.log",
+      "bytes": 2467,
+      "sha256": "3b387097050fa746c6ca8f46ecf4ab20b3784f03c68820fbe6cacde3255a2be4"
+    },
+    {
+      "file": "public-diagnostic.json",
+      "bytes": 2295,
+      "sha256": "6ade1fb41c2ca94f610b887068b88ed11e1119e3fdff5f24b58b11647e72f68a"
+    },
+    {
+      "file": "onnxruntime-pybind-state.cc",
+      "bytes": 179054,
+      "sha256": "544788e1475ad16348a48adfc116d0c0d6644de37341e3391e10e7ac0f9b42bc"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 165399,
+      "sha256": "f1b151a10963907fbf65f1a22b988a3c9b32083aff176e81e1f82af2521c46f3"
+    },
+    {
+      "file": "onnxruntime-pybind-module.cc",
+      "bytes": 5293,
+      "sha256": "e3e03892d8f87de4bc332ecbd519e2bf91f2284e712ffe6f25922f2c12e2e3a4"
+    },
+    {
+      "file": "related-tests-pipe.log",
+      "bytes": 23083,
+      "sha256": "e1f11f0b3b861160f43948d48ad74739b278aef89b51f1923e8574a64d5988e9"
+    }
+  ]
+}
