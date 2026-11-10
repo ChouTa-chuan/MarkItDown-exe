@@ -152,7 +152,7 @@
     "windows_executed": false
   },
   "known_quality_gap_fixture": "tests/fixtures/ocr-traditional-meeting.png; SHA-256 and reference verified separately; strict expected failure retained",
-  "source_version": "0.18.1",
+  "source_version": "0.19.0",
   "architecture_version": "0.4",
   "chinese_comment_maintenance": {
     "python_executable_ast_unchanged_files": 33,
@@ -2130,25 +2130,29 @@
   "tests_source_version": "0.17.2",
   "full_regression_executed_this_version": false,
   "latest_targeted_current": {
-    "source_version": "0.18.1",
+    "source_version": "0.19.0",
     "architecture_version": "0.4",
     "date_taipei": "2026-11-10",
-    "new_tests": 4,
-    "targeted_run": 147,
-    "targeted_passed": 147,
-    "process_exit": 0,
+    "new_tests": 9,
+    "run": 156,
+    "passed": 156,
     "skipped": 0,
+    "process_exit": 0,
     "full_regression_executed": false,
     "windows_executed": false,
     "release_ready": false,
     "source_hashes": {
-      "scripts/cpu_lifecycle_acceptance.py": "3a3906932216fc980926602fd541ad58a2032c442b3e31a192652d7be9ffd515",
-      "scripts/check_cpu_worker_acceptance.py": "f01fb913a58bd494c6541bc344829387b78fb43825fe343a64a10f2abe42da46",
-      "scripts/run_windows_cpu_ci.py": "0a69e6f83065e910fa185ea2401269d0f1fac3eab0a45d1e0747ab5adc9617ac",
-      "tests/test_cpu_lifecycle_acceptance.py": "213f3d59842138f47fb533bff68bbdd6e56a87c594f4fdf959c90fe07792f42d",
-      "pyproject.toml": "0a5ee0139b06d361ea104c1cf0418beac574d3df6d66b5375ed69e6c7ed0db70"
+      "src/desktop_app/component_workers/protocol.py": "dc1527c959b5e219ff4f4673542cb0f30a0396f506d4558fbbd477671145c13f",
+      "src/desktop_app/component_workers/client.py": "f15915e6f3b71e035db89f01058dc79a8c5b4a25fdfd10d79f1690bed90e439b",
+      "src/desktop_app/component_workers/binding.py": "9eb3637d202cb87bd39b9339348c51194255d95f6285646e6cfbb1d6eb54dfaa",
+      "scripts/check_cpu_upgrade_acceptance.py": "9e31142d9d985abd3e8177e5273cd485692b30a8c234e9d3b3af11ba070a3f47",
+      "scripts/run_windows_cpu_ci.py": "5148ac98fd75bbd84bf0ec4ed8b0dd899079b1b4609c4631cc5741511fced975",
+      "tests/test_cpu_upgrade.py": "9732849081d0f2512bc0a36a8ebd409eb68fc1c3f7efb450a31c38aad26fcf8a",
+      "tests/fixtures/component-worker-fixture.py": "cac678e7d9be22be05f4fc5102beacaeb9b2ec41ecf9a97870e553fbf0aa4cba",
+      ".github/workflows/windows-cpu-validation.yml": "1a1b36884df5bffdc853bf7b59e452b9e65b58864b9ae1a0904ca4aef1e235c0",
+      "pyproject.toml": "1a45ab0208a832c4e76d9dc3ff05d8e33ab9bcf6c612e2d51a9881a1f32c2916"
     },
-    "evidence": "development-records/runs/windows-cpu-lifecycle-prep-2026-11-10/README.md"
+    "evidence": "development-records/runs/windows-cpu-upgrade-prep-2026-11-10/README.md"
   },
   "latest_windows_cpu": {
     "check": "windows-cpu-worker-ci",

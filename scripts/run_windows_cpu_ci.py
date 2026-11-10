@@ -11,9 +11,22 @@ import tomllib
 import traceback
 
 ROOT=Path(__file__).resolve().parents[1]
+PREVIOUS_SOURCE='fd69854ee19ba031362750072e22a92bf5463a7c'
 
 
-def run(output):
+def verify_previous_source(directory):
+    directory=Path(directory).absolute()
+    # HEAD相同但有修改也拒絕；不以目前程式改描述冒充前一版。
+    def git(*args):
+        return subprocess.check_output(['git','-C',str(directory),*args],text=True,timeout=30).strip()
+    if git('rev-parse','HEAD')!=PREVIOUS_SOURCE or git('status','--porcelain'):
+        raise ValueError('Previous CPU source must be the clean pinned commit')
+    if tomllib.loads((directory/'pyproject.toml').read_text())['project']['version']!='0.18.1':
+        raise ValueError('Previous application version mismatch')
+    return directory
+
+
+def run(output,previous_source=None):
     # 先拒絕錯誤平台，避免在Linux創建目錄後冒充Windows編譯結果。
     if sys.platform!='win32' or sys.version_info[:2]!=(3,12) or struct.calcsize('P')!=8:
         raise RuntimeError('Requires actual Windows x64 CPython 3.12')
@@ -59,10 +72,32 @@ def run(output):
             raise RuntimeError('Actual frozen CPU acceptance incomplete')
         if not value['lifecycle']['accepted'] or value['lifecycle']['checks_passed']!=8:
             raise RuntimeError('Actual CPU maintenance acceptance incomplete')
+        result['failed_step']='previous-source'
+        previous=verify_previous_source(previous_source)
+        old_python=output/'previous-build-env/Scripts/python.exe'
+        call('previous-venv',[sys.executable,'-m','venv',old_python.parent.parent])
+        call('previous-dependencies',[old_python,'-m','pip','install','--require-hashes','-r',previous/'packaging/profiles/cpu-windows-build.txt'])
+        call('previous-application',[old_python,'-m','pip','install','--no-deps','--no-build-isolation',previous])
+        call('previous-profiles',[old_python,previous/'scripts/cpu_worker_profiles.py'])
+        call('previous-pip-check',[old_python,'-m','pip','check'])
+        old_assets=output/'previous-assets'
+        call('previous-assets',[old_python,previous/'scripts/prepare_worker_assets.py','--output',old_assets])
+        env['MARKITDOWN_WORKER_ASSETS']=str(old_assets)
+        call('previous-pyinstaller',[old_python,'-m','PyInstaller','--noconfirm','--clean','--distpath',output/'previous-dist',
+            '--workpath',output/'previous-work',previous/'packaging/ocr-worker.spec'])
+        old_package=output/'previous-package'
+        call('previous-package',[old_python,previous/'scripts/package_cpu_worker.py','--bundle',output/'previous-dist/MarkItDownOCRWorker','--output',old_package])
+        call('cross-version-acceptance',[control,ROOT/'scripts/check_cpu_upgrade_acceptance.py',
+            '--previous-package',old_package,'--package',package,'--report',reports/'cpu-upgrade.json'])
+        upgrade=json.loads((reports/'cpu-upgrade.json').read_text(encoding='utf-8'))
+        if (not upgrade['accepted'] or upgrade['checks_passed']!=8 or not upgrade['windows_executed']
+                or not upgrade['actual_frozen'] or not upgrade['controller_unchanged']
+                or upgrade['previous_version']!='1.0.0' or upgrade['current_version']!='1.0.1'):
+            raise RuntimeError('Actual CPU cross-version acceptance incomplete')
         result.update(accepted=True,checks_passed=11,controller_unchanged=True,
             controller_native_packages=False,package_sha256=value['package_sha256'],
             actual_providers=value['actual_providers'],installed_notice_packages=value['installed_notice_packages'],
-            lifecycle=value['lifecycle'])
+            lifecycle=value['lifecycle'],upgrade=upgrade,previous_source=PREVIOUS_SOURCE)
         result.pop('failed_step',None)
     except Exception as exc:
         result['error']=type(exc).__name__+': '+str(exc)
@@ -85,4 +120,5 @@ def run(output):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,required=True)
-    args=parser.parse_args();value=run(args.output);raise SystemExit(0 if value['accepted'] else 1)
+    parser.add_argument('--previous-source',type=Path,required=True)
+    args=parser.parse_args();value=run(args.output,args.previous_source);raise SystemExit(0 if value['accepted'] else 1)

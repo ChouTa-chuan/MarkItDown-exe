@@ -4,7 +4,9 @@ import re
 
 PROTOCOL = '1.0.0'
 COMPONENT_ID = 'onnx-cpu-ocr'
-COMPONENT_VERSION = '1.0.0'
+COMPONENT_VERSION = '1.0.1'
+# 只加入實際驗證且共用此協定的版本；不能因major相同就信任未知引擎。
+SUPPORTED_COMPONENT_VERSIONS = frozenset(('1.0.0','1.0.1'))
 MAX_FRAME = 16384
 MAX_INPUT = 64*1024**2
 MAX_RESULT = 8*1024**2
@@ -79,12 +81,18 @@ def command(value):
     return value
 
 
-def event(value):
+def component_version(value):
+    require(isinstance(value,str) and value in SUPPORTED_COMPONENT_VERSIONS,'不支援此CPU元件版本。')
+    return value
+
+
+def event(value, *, expected_version=COMPONENT_VERSION):
+    component_version(expected_version)
     require(value.get('protocol')==PROTOCOL)
     kind = value.get('type')
     if kind=='hello':
         fields(value,('protocol','type','component_id','component_version','pid','frozen','device'))
-        require(value['component_id']==COMPONENT_ID and value['component_version']==COMPONENT_VERSION
+        require(value['component_id']==COMPONENT_ID and value['component_version']==expected_version
                 and value['device']=='cpu' and type(value['pid']) is int and value['pid']>0 and type(value['frozen']) is bool)
     elif kind=='progress':
         fields(value,('protocol','type','job_id','stage'))
@@ -104,13 +112,14 @@ def event(value):
     return value
 
 
-def result(value, job_id):
+def result(value, job_id, *, expected_version=COMPONENT_VERSION):
+    component_version(expected_version)
     require(isinstance(value,dict))
     fields(value,('schema_version','protocol','job_id','component_id','component_version','actual_device',
                   'providers','text','warning','input_sha256','health_passed','runtime'))
     require(type(value['schema_version']) is int and value['schema_version']==1 and value['protocol']==PROTOCOL
             and value['job_id']==job_id and value['component_id']==COMPONENT_ID
-            and value['component_version']==COMPONENT_VERSION and value['actual_device']=='cpu'
+            and value['component_version']==expected_version and value['actual_device']=='cpu'
             and value['providers']==['CPUExecutionProvider']*3 and type(value['health_passed']) is bool)
     digest(value['input_sha256'])
     require(isinstance(value['text'],str) and isinstance(value['warning'],str) and len(value['warning'])<=2048)

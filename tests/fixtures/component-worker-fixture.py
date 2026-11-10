@@ -9,13 +9,14 @@ import threading
 import time
 
 parser=argparse.ArgumentParser();parser.add_argument('--job-directory',type=Path,required=True)
-parser.add_argument('--guard');parser.add_argument('--scenario',default='valid');args=parser.parse_args()
+parser.add_argument('--guard');parser.add_argument('--scenario',default='valid')
+parser.add_argument('--component-version',default='1.0.1');parser.add_argument('--result-version');args=parser.parse_args()
 scenario=args.scenario;protocol='1.0.0';output=sys.stdout.buffer
 def emit(kind,**values):
     output.write((json.dumps(dict(protocol=protocol,type=kind,**values))+'\n').encode());output.flush()
 if scenario=='no_hello':time.sleep(20);raise SystemExit(0)
 if scenario=='oversize':output.write(b'x'*16385);output.flush();raise SystemExit(0)
-emit('hello',component_id='onnx-cpu-ocr',component_version='1.0.0' if scenario!='version' else '9.0.0',
+emit('hello',component_id='onnx-cpu-ocr',component_version=args.component_version if scenario!='version' else '9.0.0',
      pid=os.getpid(),frozen=False,device='cpu')
 if scenario=='crash':os._exit(17)
 raw=os.fdopen(os.dup(sys.stdin.fileno()),'rb',buffering=0)
@@ -42,7 +43,7 @@ while time.monotonic()<until or not permit.is_set():
     if cancel.is_set():emit('cancelled',job_id=job,code='cancelled');raise SystemExit(2)
     time.sleep(0.01)
 if scenario=='failure':emit('failed',job_id=job,code='fixture_failure');raise SystemExit(1)
-value=dict(schema_version=1,protocol=protocol,job_id=job,component_id='onnx-cpu-ocr',component_version='1.0.0',
+value=dict(schema_version=1,protocol=protocol,job_id=job,component_id='onnx-cpu-ocr',component_version=args.result_version or args.component_version,
            actual_device='cpu',providers=['CPUExecutionProvider']*3,text='FAKE WORKER CONTENT',warning='IPC fixture only',
            input_sha256=request['input_sha256'] or 'a'*64,health_passed=request['operation']=='health',
            runtime=dict(python='3.12.0',rapidocr='1.4.4',onnxruntime='fixture',numpy='fixture',opencv='fixture',frozen=False))

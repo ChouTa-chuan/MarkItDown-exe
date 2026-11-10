@@ -1,0 +1,24 @@
+{
+  "source_version": "0.19.0",
+  "architecture_version": "0.4",
+  "date_taipei": "2026-11-10",
+  "new_tests": 9,
+  "run": 156,
+  "passed": 156,
+  "skipped": 0,
+  "process_exit": 0,
+  "full_regression_executed": false,
+  "windows_executed": false,
+  "release_ready": false,
+  "source_hashes": {
+    "src/desktop_app/component_workers/protocol.py": "dc1527c959b5e219ff4f4673542cb0f30a0396f506d4558fbbd477671145c13f",
+    "src/desktop_app/component_workers/client.py": "f15915e6f3b71e035db89f01058dc79a8c5b4a25fdfd10d79f1690bed90e439b",
+    "src/desktop_app/component_workers/binding.py": "9eb3637d202cb87bd39b9339348c51194255d95f6285646e6cfbb1d6eb54dfaa",
+    "scripts/check_cpu_upgrade_acceptance.py": "9e31142d9d985abd3e8177e5273cd485692b30a8c234e9d3b3af11ba070a3f47",
+    "scripts/run_windows_cpu_ci.py": "5148ac98fd75bbd84bf0ec4ed8b0dd899079b1b4609c4631cc5741511fced975",
+    "tests/test_cpu_upgrade.py": "9732849081d0f2512bc0a36a8ebd409eb68fc1c3f7efb450a31c38aad26fcf8a",
+    "tests/fixtures/component-worker-fixture.py": "cac678e7d9be22be05f4fc5102beacaeb9b2ec41ecf9a97870e553fbf0aa4cba",
+    ".github/workflows/windows-cpu-validation.yml": "1a1b36884df5bffdc853bf7b59e452b9e65b58864b9ae1a0904ca4aef1e235c0",
+    "pyproject.toml": "1a45ab0208a832c4e76d9dc3ff05d8e33ab9bcf6c612e2d51a9881a1f32c2916"
+  }
+}

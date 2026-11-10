@@ -21,13 +21,17 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: fd69854ee19ba031362750072e22a92bf5463a7c
+          path: out/previous-cpu-source
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Build independent CPU bundle and validate with a lean controller
         shell: pwsh
         run: |
-          python scripts/run_windows_cpu_ci.py --output out/windows-cpu
+          python scripts/run_windows_cpu_ci.py --output out/windows-cpu --previous-source out/previous-cpu-source
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - uses: actions/upload-artifact@v4
         if: always()

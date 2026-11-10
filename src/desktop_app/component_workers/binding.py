@@ -22,7 +22,7 @@ class CPUWorkerBinding:
 
     def runner(self, spec, directory):
         wire.require(Path(directory).absolute().is_relative_to(self.guard.parent.parent),'元件不屬於此 binding 的受管根目錄。')
-        wire.require(spec.key==(wire.COMPONENT_ID,wire.COMPONENT_VERSION)
+        wire.require(spec.component_id==wire.COMPONENT_ID and str(spec.version) in wire.SUPPORTED_COMPONENT_VERSIONS
                      and spec.worker_protocols.contains(Version.parse(wire.PROTOCOL)),'沒有此元件／協定的可信 binding。')
         name='MarkItDownOCRWorker.exe' if os.name=='nt' else 'MarkItDownOCRWorker'
         wire.require(any(item.path==name for item in spec.files),'元件未宣告固定入口檔。')
@@ -30,7 +30,7 @@ class CPUWorkerBinding:
         wire.require(executable.is_file() and (os.name=='nt' or os.access(executable,os.X_OK)),'元件入口無法執行。')
         return WorkerRunner((str(executable),),self.guard,self.policy,estimate_mib=spec.resources.ram_mib,
             cpu_threads=self.cpu_threads,timeout=self.timeout,read_snapshot=self.read_snapshot,require_frozen=True,
-            permit=self.permit,resource_wait=max(0.001,min(600,self.resource_wait)))
+            permit=self.permit,resource_wait=max(0.001,min(600,self.resource_wait)),component_version=str(spec.version))
 
     def health(self, spec, directory, host):
         outcome=self.runner(spec,directory).run(operation='health',cancel=self.cancel,notify=self.notify)

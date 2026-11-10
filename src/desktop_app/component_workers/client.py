@@ -57,7 +57,7 @@ class WorkerRunner:
     """command 由可信程式 binding 提供，不能從下載目錄讀取任意 shell 命令。"""
     def __init__(self, command, guard, policy, *, estimate_mib=768, cpu_threads=1,
                  timeout=120, handshake_timeout=10, resource_wait=30, cancel_grace=1,
-                 read_snapshot=snapshot, require_frozen=True, permit=None):
+                 read_snapshot=snapshot, require_frozen=True, permit=None, component_version=wire.COMPONENT_VERSION):
         if not isinstance(command,tuple) or not command or not all(isinstance(item,str) and item and '\x00' not in item for item in command):
             raise ValueError('工作程序命令須為可信非空參數 tuple。')
         for value in (timeout,handshake_timeout,resource_wait,cancel_grace):
@@ -67,6 +67,8 @@ class WorkerRunner:
             raise ValueError('工作程序 RAM 預估無效。')
         wire.limits(dict(cpu_threads=cpu_threads,max_pixels=wire.MAX_PIXELS,max_output_bytes=wire.MAX_RESULT))
         if type(require_frozen) is not bool:raise ValueError('獨立 runtime 選項須為布林值。')
+        # 由可信binding傳入租約描述的精確版號；hello和結果皆不得換成另一個受支援版。
+        self.component_version=wire.component_version(component_version)
         self.command=command;self.guard=Path(guard).absolute();self.policy=policy
         self.estimate_mib=estimate_mib;self.cpu_threads=cpu_threads
         self.timeout=timeout;self.handshake_timeout=handshake_timeout;self.resource_wait=resource_wait
@@ -105,7 +107,7 @@ class WorkerRunner:
                     if not line:return
                     count+=1
                     wire.require(count<=64,'工作程序訊息數量超限。')
-                    value=wire.event(wire.decode(line));messages.put_nowait(value)
+                    value=wire.event(wire.decode(line),expected_version=self.component_version);messages.put_nowait(value)
             except Exception:transport_error.set()
         def stderr_reader():
             # 只排空，不把可能含有使用者內容的原生診斷記錄或返回主程序。
@@ -219,7 +221,7 @@ class WorkerRunner:
             target=directory/'result.json'
             verify_file(target,terminal['bytes'],terminal['sha256'],check)
             value=json.loads(target.read_bytes(),object_pairs_hook=wire.unique)
-            wire.result(value,job_id)
+            wire.result(value,job_id,expected_version=self.component_version)
             wire.require(value['runtime']['frozen']==hello['frozen'])
             if input_hash is not None:wire.require(value['input_sha256']==input_hash,'輸入與結果不相符。')
             if operation=='health':wire.require(value['health_passed'],'真實 CPU OCR 健康檢查未通過。')
