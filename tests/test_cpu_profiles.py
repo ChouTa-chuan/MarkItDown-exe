@@ -113,5 +113,5 @@ class CPUProfileTests(unittest.TestCase):
                 with self.assertRaises(SystemExit) as caught:
                     runpy.run_path(str(ROOT/'packaging/ocr_worker_entry.py'),run_name='__main__')
                 self.assertEqual(caught.exception.code,0)
-                if enabled=='1':dump.assert_called_once_with(45);cancel.assert_called_once()
+                if enabled=='1':dump.assert_called_once_with(7);cancel.assert_called_once()
                 else:dump.assert_not_called();cancel.assert_not_called()

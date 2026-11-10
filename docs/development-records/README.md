@@ -1,5 +1,9 @@
 # 開發紀錄
 
+**2026-11-10｜Windows CPU第四輪未通過，改為reader前初始化原生庫，0.18.0**
+
+- [第四輪原頁與結果](runs/windows-cpu-attempt4-2026-11-10/README.md)保存；ReadFile候選仍在ORT匯入逾時，已退回raw輸入。新候選保留共享鎖／RAM／原期限，真正Windows另驗frozen EOF退出與鎖釋放，共預期11項；相關143項通過，完整626未執行，Windows待驗。
+
 **2026-11-10｜Windows CPU定位原生匯入等待，加入Win32管道候選修正，0.18.0**
 
 - [第三輪原頁與堆疊短摘要](runs/windows-cpu-attempt3-2026-11-10/README.md)顯示hello／loading後卡在ORT native import，仍未通過。Windows控制reader改用ReadFile避免CRT讀鎖，保留EOF／取消／資源及原期限，未提前宣稱修復。新6／相關146項通過，完整629尚未執行；參考ORT固定來源保存原bytes並標明未證實底層DLL呼叫。

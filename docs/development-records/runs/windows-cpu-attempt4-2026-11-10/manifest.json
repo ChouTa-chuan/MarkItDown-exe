@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "source_version": "0.18.0",
+  "windows_executed": true,
+  "accepted": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1346,
+      "sha256": "11a8990ba34d44bd69f27f8d719188f06de1b8ba216c24f7c162da803461ab47"
+    },
+    {
+      "file": "monitor.log",
+      "bytes": 2865,
+      "sha256": "af1cd29b9a0e6e88a0890a23f58719640566aa1c7b5eb401bdf71bb727ede9c8"
+    },
+    {
+      "file": "public-diagnostic.json",
+      "bytes": 2291,
+      "sha256": "21b51779311d5e06c1d1ab5d1e55b7ec8a32be13307beb99b1d7cd8e15f20472"
+    },
+    {
+      "file": "related-tests-preload.log",
+      "bytes": 22653,
+      "sha256": "53b599c422fd99b0f0e61636cde15ac6b0a607daa59db64bba6bd5b129c56e99"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 165409,
+      "sha256": "8d9fef6e0827cf0a96f8bbd8d9bf2f001c8ac13d3786119d4477a561fbe74bd6"
+    }
+  ]
+}

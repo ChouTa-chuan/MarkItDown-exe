@@ -54,10 +54,10 @@ def run(output):
         call('native-acceptance',[control,ROOT/'scripts/check_cpu_worker_acceptance.py','--package-directory',package,
                                   '--report',reports/'cpu-acceptance.json'])
         value=json.loads((reports/'cpu-acceptance.json').read_text(encoding='utf-8'))
-        if (not value['accepted'] or value['checks_passed']!=10 or not value['windows_executed']
+        if (not value['accepted'] or value['checks_passed']!=11 or not value['windows_executed']
                 or not value['runtime']['frozen'] or not value['controller_unchanged']):
             raise RuntimeError('Actual frozen CPU acceptance incomplete')
-        result.update(accepted=True,checks_passed=10,controller_unchanged=True,
+        result.update(accepted=True,checks_passed=11,controller_unchanged=True,
             controller_native_packages=False,package_sha256=value['package_sha256'],
             actual_providers=value['actual_providers'],installed_notice_packages=value['installed_notice_packages'])
         result.pop('failed_step',None)

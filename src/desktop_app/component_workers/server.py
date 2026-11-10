@@ -1,7 +1,7 @@
 """CPU OCR worker：先取得子程序自己的共享鎖，再載入專屬 runtime 與固定模型。"""
 import argparse
 import hashlib
-from importlib import metadata, resources
+from importlib import metadata, resources, util
 import json
 import os
 from pathlib import Path
@@ -41,6 +41,20 @@ def verify_assets(checkpoint):
     wire.require((root/'python-runtime/LICENSE.txt').is_file())
 
 
+def preload_windows_runtime():
+    """Windows原生庫須先初始化，再開始可能阻塞stdin的背景reader。
+
+    此時已持有worker共享鎖，父程序也已通過含完整估算的RAM准入；
+    僅預載套件，不執行模型推論或輸出。首次hello仍受父程序握手期限保護。
+    非frozen的無OCR協定測試可直接處理EOF，不假裝有可用引擎。
+    """
+    if os.name!='nt':return
+    if not getattr(sys,'frozen',False) and any(util.find_spec(name) is None for name in ('onnxruntime','rapidocr_onnxruntime')):
+        return
+    import onnxruntime
+    import rapidocr_onnxruntime
+
+
 def serve(directory, guard, control, input_stream):
     directory = Path(directory).absolute();_chain(directory)
     cancel = threading.Event();permit = threading.Event();permit.set()
@@ -75,6 +89,7 @@ def serve(directory, guard, control, input_stream):
     try:
         # 健康檢查與實際工作共用此鎖；控制端退出後，鎖仍由 worker 自己持有。
         with file_lock(guard,exclusive=False):
+            preload_windows_runtime()
             emit('hello',component_id=wire.COMPONENT_ID,component_version=wire.COMPONENT_VERSION,
                  pid=os.getpid(),frozen=bool(getattr(sys,'frozen',False)),device='cpu')
             thread = threading.Thread(target=reader,daemon=True);thread.start()
@@ -146,13 +161,7 @@ def main(argv=None):
     os.dup2(sys.stderr.fileno(),sys.stdout.fileno())
     # daemon 不能持有標準 BufferedReader 的鎖，否則 CPython 結束時可能 abort。
     # 單工作程序使用 raw fd；退出時由 OS 回收，無等待另一個 daemon 關閉 buffered IO。
-    if os.name=='nt':
-        # Windows實測停在ORT原生匯入，同時背景執行緒正以CRT讀stdin；
-        # 改用Win32管道讀取，保留原有reader／EOF／取消語意，不靠延長期限或延後控制處理。
-        from .pipe_input import windows_pipe_input
-        input_stream=windows_pipe_input(sys.stdin.fileno())
-    else:
-        input_stream=os.fdopen(os.dup(sys.stdin.fileno()),'rb',buffering=0)
+    input_stream=os.fdopen(os.dup(sys.stdin.fileno()),'rb',buffering=0)
     try:return serve(args.job_directory,args.guard,control,input_stream)
     finally:control.close()
 

@@ -9,7 +9,7 @@ if __name__=='__main__':
     diagnostic=os.environ.get('MARKITDOWN_FIXED_HEALTH_TRACE')=='1'
     if diagnostic:
         import faulthandler
-        faulthandler.enable();faulthandler.dump_traceback_later(45)
+        faulthandler.enable();faulthandler.dump_traceback_later(7)
     try:
         from desktop_app.component_workers.server import main
         raise SystemExit(main())
