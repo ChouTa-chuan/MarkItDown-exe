@@ -23,6 +23,7 @@ from desktop_app.components.lifecycle import ComponentManager
 from desktop_app.components.registry import ComponentRegistry
 from desktop_app.core import State
 from desktop_app.resources import MIB, Policy
+from cpu_fixture_diagnostics import FixtureStderr
 
 
 def require(condition, message):
@@ -59,9 +60,23 @@ def acceptance(package_directory, report_path):
         registry = ComponentRegistry(root/'state')
         binding = CPUWorkerBinding(root/'state/.locks/worker-use.lock', Policy(budget=2048*MIB, reserve=0))
         def actual_health(component, directory, host):
-            result = binding.health(component, directory, host)
+            # 只對固定公開health fixture的真正子程序保存stderr，不改產品的診斷隱私契約或執行結果。
+            import subprocess
+            original=subprocess.Popen
+            report_path.parent.mkdir(parents=True,exist_ok=True)
+            stderr_path=report_path.parent/('health-'+str(len(health_observations))+'.stderr.log')
+            def observed(*args,**kwargs):
+                process=original(*args,**kwargs)
+                process.stderr=FixtureStderr(process.stderr,stderr_path)
+                return process
+            with patch('desktop_app.component_workers.client.subprocess.Popen',side_effect=observed):
+                result = binding.health(component, directory, host)
             health_observations.append(dict(staging=directory.is_relative_to(root/'state/lifecycle-staging'),
                                             passed=result.passed, message=result.detail))
+            (report_path.parent/'health-observations.json').write_text(json.dumps(health_observations,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+            if not result.passed:
+                detail=stderr_path.read_bytes().decode('utf-8',errors='replace')[-800:] if stderr_path.exists() else ''
+                raise RuntimeError('Fixed-fixture health failed: '+result.detail+'; stderr='+detail)
             return result
         host = HostContext(platform.system().lower(), 'x86_64', Version.parse(metadata.version('markitdown-desktop')),
                            Version.parse('1.0.0'))

@@ -13,6 +13,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 import cpu_worker_profiles as profiles
 import run_windows_cpu_ci as ci
+from cpu_fixture_diagnostics import FixtureStderr
 
 
 class CPUProfileTests(unittest.TestCase):
@@ -79,3 +80,16 @@ class CPUProfileTests(unittest.TestCase):
         self.assertTrue((target/'reports/driver-error.log').is_file())
         saved=json.loads((target/'reports/cpu-build.json').read_text())
         self.assertFalse(saved['accepted']);self.assertIn('CalledProcessError',saved['error'])
+
+    def test_fixture_stderr_keeps_drain_and_bounds_recorded_bytes(self):
+        raw=b'fixed fixture diagnostic\n'*1000
+        source=io.BytesIO(raw);target=self.root/'stderr.log'
+        stream=FixtureStderr(source,target,limit=100)
+        self.assertEqual(stream.read(50),raw[:50])
+        self.assertEqual(stream.read(),raw[50:])
+        self.assertEqual(target.read_bytes(),raw[:100]);stream.close();self.assertTrue(source.closed)
+
+    def test_fixture_stderr_never_overwrites_existing_record(self):
+        target=self.root/'stderr.log';target.write_bytes(b'preserved')
+        with self.assertRaises(FileExistsError):FixtureStderr(io.BytesIO(b'new'),target)
+        self.assertEqual(target.read_bytes(),b'preserved')
