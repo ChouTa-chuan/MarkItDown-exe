@@ -124,7 +124,7 @@ def acceptance(package_directory, report_path):
                   checks_passed=10, events=events, output_sha256=hashlib.sha256(output).hexdigest(),
                   installed_notice_packages=len(originals['packages']), installed_notice_files=len(originals['files']),
                   native_binary_records=len(natives['files']), native_copyright_packages=len(natives['native_copyrights']),
-                  windows_executed=False, gpu_executed=False, traditional_chinese_quality_passed=False,
+                  windows_executed=(platform.system()=='Windows'), gpu_executed=False, traditional_chinese_quality_passed=False,
                   production_release=False)
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
     print(json.dumps(dict(accepted=True, checks=10, frozen=True, controller_native_packages=False), ensure_ascii=False))

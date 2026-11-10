@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "source_version": "0.18.0",
+  "architecture_version": "0.4",
+  "date_taipei": "2026-11-10",
+  "windows_executed": false,
+  "full_regression_executed": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1607,
+      "sha256": "69e191526be1922933d7db10d5a5caeba45618a52abd628c8fb03ecd3d6cd747",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "dependencies-outer.log",
+      "bytes": 1679,
+      "sha256": "aeb2140443f9a6b6be11c1b5d40a360b581a6154d6f0c82e7cb7ba226fb4a82f",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "dependencies.log",
+      "bytes": 2120,
+      "sha256": "83c2d673c27efa0bcb085a44739cd97f5e9f7bc843adbc254726191667ba6b57",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "install-source.log",
+      "bytes": 1065,
+      "sha256": "20461358bee597b31d003a2d2c9b8937023267365e44885b71db5ccee701f17d",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "integrity.json",
+      "bytes": 220,
+      "sha256": "399f5cafed56f8d7ac06c26b41a5cad9d20e922ea92f6fa343a18e59d6333ea1",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "local-packaging.txt",
+      "bytes": 174,
+      "sha256": "cdae29c6e2319efc915db1273ccd26f08e9508c6df94e64cfd97c1f7ab76d59e",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "profile-tests.log",
+      "bytes": 960,
+      "sha256": "5ee312705b4959a10ce8e367efc0517cd8c28cbb3836424cc439b8f324071c04",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "progress-browser-sandbox.log",
+      "bytes": 5667,
+      "sha256": "28d5e628fc1cb4d8c2e3b09d499a2265e03d000e2a7000ed4c3d4bb10913fcb0",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "progress-browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "related-tests-locked.log",
+      "bytes": 21519,
+      "sha256": "8f4f78646813459bf72149267aca4c99f5a2b690e4d2473cb2a66f9410fcbfaf",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "related-tests.log",
+      "bytes": 21177,
+      "sha256": "627ca76f5de6861164eb0627b7c15e7c635f053f55eadc36456186f13ae6e67d",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 880153,
+      "sha256": "1da7d58324d1e2ef7ace211e982ed1c7754a3db942545964b45accf6e9b7a2e3",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 877903,
+      "sha256": "74c7b41b05e4ad941921c5796744d280459b7023614f117f8f8e68fa1217bfa2",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 311542,
+      "sha256": "0627b7e59a72b51e20575d17f70fffbd385b0986e60095052ee4c7a101c68f07",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 329414,
+      "sha256": "da03293304e796c9113ff21141ab7523edcd93ee2832fa2c38f921501620b62c",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 465205,
+      "sha256": "0df5f581c128af892b06bea8c963e2bb045fef6490761e1e18d62c1a0394b58f",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    },
+    {
+      "file": "verification.json",
+      "bytes": 1237,
+      "sha256": "6980c22c20f47444ee10ef496aa985ed415891d3c99db56612aefa3acbb0ef95",
+      "source": "0.18.0本地profile與IPC等136項鎖定環境驗證、初驗／代理失敗與離線進度截圖；Windows原生仍待，不含使用者文件"
+    }
+  ]
+}

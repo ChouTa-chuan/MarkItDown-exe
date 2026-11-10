@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "id": "cpu-worker-windows",
+  "source_version": "0.18.0",
+  "parent_sha256": "678ce2b9aaa548655b4715e0e457dcf5048727653203b435103361ab50a1f39f",
+  "profiles": {
+    "build": {
+      "lock": "packaging/profiles/cpu-windows-build.txt",
+      "sha256": "243efad87865d215c4f5314cfcb093d0f0201cb7aaee5dc47c0a878ec1a7c2a5",
+      "roots": [
+        "psutil>=5.9,<8",
+        "cryptography>=50.0.2,<51",
+        "rapidocr-onnxruntime==1.4.4",
+        "pyinstaller",
+        "setuptools"
+      ],
+      "packages": [
+        "altgraph",
+        "cffi",
+        "colorama",
+        "cryptography",
+        "flatbuffers",
+        "numpy",
+        "onnxruntime",
+        "opencv-python",
+        "packaging",
+        "pefile",
+        "pillow",
+        "protobuf",
+        "psutil",
+        "pyclipper",
+        "pycparser",
+        "pyinstaller",
+        "pyinstaller-hooks-contrib",
+        "pywin32-ctypes",
+        "pyyaml",
+        "rapidocr-onnxruntime",
+        "setuptools",
+        "shapely",
+        "six",
+        "tqdm"
+      ],
+      "dependency_edges": [
+        [
+          "<root>",
+          "cryptography"
+        ],
+        [
+          "<root>",
+          "psutil"
+        ],
+        [
+          "<root>",
+          "pyinstaller"
+        ],
+        [
+          "<root>",
+          "rapidocr-onnxruntime"
+        ],
+        [
+          "<root>",
+          "setuptools"
+        ],
+        [
+          "cffi",
+          "pycparser"
+        ],
+        [
+          "cryptography",
+          "cffi"
+        ],
+        [
+          "onnxruntime",
+          "flatbuffers"
+        ],
+        [
+          "onnxruntime",
+          "numpy"
+        ],
+        [
+          "onnxruntime",
+          "packaging"
+        ],
+        [
+          "onnxruntime",
+          "protobuf"
+        ],
+        [
+          "opencv-python",
+          "numpy"
+        ],
+        [
+          "pyinstaller",
+          "altgraph"
+        ],
+        [
+          "pyinstaller",
+          "packaging"
+        ],
+        [
+          "pyinstaller",
+          "pefile"
+        ],
+        [
+          "pyinstaller",
+          "pyinstaller-hooks-contrib"
+        ],
+        [
+          "pyinstaller",
+          "pywin32-ctypes"
+        ],
+        [
+          "pyinstaller",
+          "setuptools"
+        ],
+        [
+          "pyinstaller-hooks-contrib",
+          "packaging"
+        ],
+        [
+          "rapidocr-onnxruntime",
+          "numpy"
+        ],
+        [
+          "rapidocr-onnxruntime",
+          "onnxruntime"
+        ],
+        [
+          "rapidocr-onnxruntime",
+          "opencv-python"
+        ],
+        [
+          "rapidocr-onnxruntime",
+          "pillow"
+        ],
+        [
+          "rapidocr-onnxruntime",
+          "pyclipper"
+        ],
+        [
+          "rapidocr-onnxruntime",
+          "pyyaml"
+        ],
+        [
+          "rapidocr-onnxruntime",
+          "shapely"
+        ],
+        [
+          "rapidocr-onnxruntime",
+          "six"
+        ],
+        [
+          "rapidocr-onnxruntime",
+          "tqdm"
+        ],
+        [
+          "shapely",
+          "numpy"
+        ],
+        [
+          "tqdm",
+          "colorama"
+        ]
+      ],
+      "windows_notice_files": {
+        "altgraph/METADATA": "dc60641dba229a3aef09f764f562c38d908b930c92615af2e626af31d6ff19b5",
+        "altgraph/wheel/altgraph-0.17.5.dist-info/LICENSE": "6c194d6db0c64d45535d10c95142b9b0cda7b7dcc7f1ddee302b3d536f3dbe46",
+        "cffi/METADATA": "67b6a7595df7ede2195016a05d285faa7d362a8f57c238984edb8bb674b5770d",
+        "cffi/wheel/cffi-2.1.1.dist-info/licenses/LICENSE": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+        "colorama/METADATA": "7baed29eb50c3b29bdb33ff84e3177bf1bc05784f7685ecdcaa4471c7dd810cc",
+        "colorama/wheel/colorama-0.4.6.dist-info/licenses/LICENSE.txt": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318",
+        "cryptography/METADATA": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+        "flatbuffers/METADATA": "9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e",
+        "supplemental/flatbuffers.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "numpy/METADATA": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+        "numpy/wheel/numpy/ma/LICENSE": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+        "numpy/wheel/numpy/random/LICENSE.md": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+        "numpy/wheel/numpy/_core/include/numpy/random/LICENSE.txt": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md": "8db000e158c162e7249787852d8c69764706502ccee725c06641b31c1e95c8af",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt": "19060ef465e1797d682ee0fc3081bd25ab1395e995e43d25c9d13c95d9a3cd6b",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md": "cf5619f25b112d5ce7c896efffc8e610bcb345dfadcc19f2c1460aa48fff2c9e",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md": "92c10699884321f1c2947fe2a70ab23b0fbf1507f756d89dd08f38c61fc3d4fa",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md": "41190663b77bee5302386495a07b7eabfbfa571aa0ae2f11da6764162062fc4f",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md": "322ac46d870c8aeead6c53adcccc839296fb3c8e456eae155081297daf7f8013",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md": "28cad82ce1379dc529df30da78ec012d7d0d1d576b03ddcb93388aee53659f59",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md": "454ec7350e478e037061850b67395753b425b1cb0a34bbc26290b020bf89d763",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING": "aea41976c720f91bd19725c16916a1ace40eb1ea42620d340e587a5de4bbcea0",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE": "d208152e2777ffd0126eacc1bd21c0320d69e4e6b622d21a2a12a47e8ef73763",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt": "b0fd592d4ead563148e3977e7b589169d46a5ef2ff133c755a81af880a3fc919",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md": "a732977853530066790c42817087f4829b518dd98d340c916acbfd227e39d3cb",
+        "numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE": "585483905b13d4b42f800c55ba99e89d6e2e33ccd5f503e201c07531d148ff41",
+        "onnxruntime/METADATA": "2f3c9b07cbbb008caa43327723e11875e3a595eadfb30c9c1abd92163afe878e",
+        "onnxruntime/wheel/onnxruntime/LICENSE": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674",
+        "onnxruntime/wheel/onnxruntime/ThirdPartyNotices.txt": "c53a76501ef60db6f865f20599f220761201ac4057683acefdab37d861b86622",
+        "opencv-python/METADATA": "b81ca3fc0f3a4ab5d214e2d2ac24f1db7c38b8a3a27f9588e62a14bfd42992f2",
+        "opencv-python/wheel/cv2/LICENSE-3RD-PARTY.txt": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb",
+        "opencv-python/wheel/cv2/LICENSE.txt": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107",
+        "opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE-3RD-PARTY.txt": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb",
+        "opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE.txt": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107",
+        "packaging/METADATA": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+        "packaging/wheel/packaging/licenses/__init__.py": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+        "packaging/wheel/packaging/licenses/_spdx.py": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.BSD": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+        "pefile/METADATA": "8ad83a5f8659e8da6eeaabf2dafa0eebb8c05832a3def16a5db4dd0d52e72474",
+        "pefile/wheel/pefile-2024.8.26.dist-info/LICENSE": "b44409c067c6da52bfb54bb6624fb11a7b52157c3a13ae1400232f8196e86ad3",
+        "pillow/METADATA": "140f39cb31ec9b46109828a6286f034a4848621263d6aab38d2f142083dd06c5",
+        "pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236",
+        "protobuf/METADATA": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c",
+        "protobuf/wheel/protobuf-7.36.2.dist-info/LICENSE": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+        "psutil/METADATA": "a263a40220d921d9cb963fc636d34f817aa2eb72c2696e3e3465d088cdb1976b",
+        "psutil/wheel/psutil-7.2.2.dist-info/LICENSE": "c7adc4d5d1337a548b967421f1fbe258b93033a0417708fd6f4e38f8ecbceb80",
+        "pyclipper/METADATA": "98fe70a18b29110448b184deeaa5bcd9d018ce9e9db6ef232dd03146b68f1f78",
+        "pyclipper/wheel/pyclipper-1.4.0.dist-info/licenses/LICENSE": "73c25539e7fb486b834c33747d579e0bc56c0f984294c88f3cb2329420ba300f",
+        "pycparser/METADATA": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+        "pycparser/wheel/pycparser-3.12.dist-info/licenses/LICENSE": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+        "pyinstaller/METADATA": "2991d3dcd53fe9966b8c16586322a7f9bbc564dd4752c190bd4fe8d6747f7046",
+        "pyinstaller/wheel/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64",
+        "pyinstaller-hooks-contrib/METADATA": "1820f1a8a554ce1b6ae528c7fe502f4676c844eb1151f7f040adc8010052b0ba",
+        "pyinstaller-hooks-contrib/wheel/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE": "91d0baaff00773038e72c0a1fc9d5d2d38706b7a2b9c04f34296608f931b9cd0",
+        "pywin32-ctypes/METADATA": "1e3767d3faff4d5b9c347160883831098d1f25acf4306b02c9acdcc6bfb5883b",
+        "pywin32-ctypes/wheel/pywin32_ctypes-0.2.3.dist-info/LICENSE.txt": "dfa83b3e2709adfcdb838d9ad55823ca674abb780e60563d9dd9544ccbf785e9",
+        "pyyaml/METADATA": "847a701020334386852b6e07bad1053cb0ce3da9ee1846e7e9d02b24e8bb3f8d",
+        "pyyaml/wheel/pyyaml-6.0.3.dist-info/licenses/LICENSE": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+        "rapidocr-onnxruntime/METADATA": "1ac15bed7c7fb77d3fac58c2aba0a4d3e2da48de5c65badd3503900acebcf1df",
+        "supplemental/rapidocr-onnxruntime.txt": "3e0af25fdd06aa9586ae97adb00ea927ebe5a3805ac77d2d3a81ce5f55693333",
+        "setuptools/METADATA": "24939b84ead30ff4581918c8d5a95aafd377f6a8afc61f30ea18358a8786bfa4",
+        "setuptools/wheel/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04",
+        "setuptools/wheel/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683",
+        "setuptools/wheel/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+        "setuptools/wheel/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+        "setuptools/wheel/setuptools/_vendor/packaging/licenses/__init__.py": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+        "setuptools/wheel/setuptools/_vendor/packaging/licenses/_spdx.py": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+        "setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+        "setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+        "setuptools/wheel/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+        "setuptools/wheel/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+        "setuptools/wheel/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654",
+        "setuptools/wheel/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+        "setuptools/wheel/setuptools/config/NOTICE": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8",
+        "setuptools/wheel/setuptools/config/_validate_pyproject/NOTICE": "09c9bcea95ca086f8bc5bed174e40bc835b297d40fb5f86bbbb570fe0a5581a7",
+        "setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+        "setuptools/wheel/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d",
+        "setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+        "setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+        "shapely/METADATA": "f4fef957712e3a9e731434b4213dc72fd80b116cbd49f50f0d956c2237efb203",
+        "shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE.txt": "e8cd7d34604d2758ff589f0f34d6ed79c3f7fb14aaf5e12fb09221421391a3bf",
+        "shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_GEOS": "7233baa9a7d4a17257b357706b7dbdc4b675e5ca45425b3418673b16990cf239",
+        "shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_win32": "fdbb2abb8c598c8888755b52340bddcee38668a2def23e51e7d9e3f187bb8d51",
+        "six/METADATA": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+        "six/wheel/six-1.17.0.dist-info/LICENSE": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+        "tqdm/METADATA": "a5da70b966afea3a759716041bad7187f2ece02c22348cf9e7c0a512bbf15f57",
+        "tqdm/wheel/tqdm-4.70.1.dist-info/licenses/LICENCE": "fcff87c3a47ce8028a8512aa182d4fcf0ad1c90544ee75cf9b343684cac194de"
+      }
+    },
+    "controller": {
+      "lock": "packaging/profiles/cpu-windows-controller.txt",
+      "sha256": "52fd71de710fa90661a7d13c4e2827245334815ec2e21630c226f180b03531ef",
+      "roots": [
+        "psutil>=5.9,<8",
+        "cryptography>=50.0.2,<51",
+        "setuptools"
+      ],
+      "packages": [
+        "cffi",
+        "cryptography",
+        "psutil",
+        "pycparser",
+        "setuptools"
+      ],
+      "dependency_edges": [
+        [
+          "<root>",
+          "cryptography"
+        ],
+        [
+          "<root>",
+          "psutil"
+        ],
+        [
+          "<root>",
+          "setuptools"
+        ],
+        [
+          "cffi",
+          "pycparser"
+        ],
+        [
+          "cryptography",
+          "cffi"
+        ]
+      ],
+      "windows_notice_files": {
+        "cffi/METADATA": "67b6a7595df7ede2195016a05d285faa7d362a8f57c238984edb8bb674b5770d",
+        "cffi/wheel/cffi-2.1.1.dist-info/licenses/LICENSE": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+        "cryptography/METADATA": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+        "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+        "psutil/METADATA": "a263a40220d921d9cb963fc636d34f817aa2eb72c2696e3e3465d088cdb1976b",
+        "psutil/wheel/psutil-7.2.2.dist-info/LICENSE": "c7adc4d5d1337a548b967421f1fbe258b93033a0417708fd6f4e38f8ecbceb80",
+        "pycparser/METADATA": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+        "pycparser/wheel/pycparser-3.12.dist-info/licenses/LICENSE": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+        "setuptools/METADATA": "24939b84ead30ff4581918c8d5a95aafd377f6a8afc61f30ea18358a8786bfa4",
+        "setuptools/wheel/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04",
+        "setuptools/wheel/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683",
+        "setuptools/wheel/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+        "setuptools/wheel/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+        "setuptools/wheel/setuptools/_vendor/packaging/licenses/__init__.py": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+        "setuptools/wheel/setuptools/_vendor/packaging/licenses/_spdx.py": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+        "setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+        "setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+        "setuptools/wheel/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+        "setuptools/wheel/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+        "setuptools/wheel/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654",
+        "setuptools/wheel/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+        "setuptools/wheel/setuptools/config/NOTICE": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8",
+        "setuptools/wheel/setuptools/config/_validate_pyproject/NOTICE": "09c9bcea95ca086f8bc5bed174e40bc835b297d40fb5f86bbbb570fe0a5581a7",
+        "setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+        "setuptools/wheel/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d",
+        "setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+        "setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+      }
+    }
+  },
+  "windows_executed": false,
+  "gpu_executed": false,
+  "release_ready": false,
+  "scope": "Fixed Python dependency closure and existing original Windows notices; native binaries require actual build validation"
+}

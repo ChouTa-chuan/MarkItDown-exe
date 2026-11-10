@@ -1,5 +1,12 @@
 # 開發紀錄
 
+**2026-11-10｜新增Windows CPU選配獨立profile與原生驗證，程式0.17.2 → 0.18.0**
+
+- 新環境連線恢復，核對GitHub main 3e1d3d2後續寫；不重新套用或發布環境設定。CPU建置24／精簡控制端5套件，原notice／metadata對照97／30筆，沿用原hash／版本與核心依賴範圍，保留原文。
+- 獨立Windows2022 CI將真正建置frozen worker並以無OCR控制端跑原10項，包含中文路徑、空PATH、原生推論／取消、RAM拒絕與移除；臨時金鑰只在記憶體、只上傳七天報告，不提供產品ZIP／Setup。
+- 新8項、相關136項在鎖定venv通過；134項初驗與proxy失敗也保存。[準備紀錄](runs/windows-cpu-prep-2026-11-10/README.md)／[範圍](../windows-cpu-ci.md)。Windows待實跑，本輪未執行完整619項；保留0.17.2的611基線、ONNX繁中／GPU／RAM與乾淨機門檻，C04仍2/4、C11仍2/5、完整7/12。
+
+
 **2026-11-10｜完成CI自有中斷產物清理實測，程式0.17.2**
 
 - [真正Windows CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42599639656)（a40f438）接受三案：普通Setup續修各app10項、移除後只清本次記憶體收據產物，實際清1份／殘留0；真實sharing violation時拒絕，未知同類檔名／同bytes合成文件保持原內容。基本app10、安裝6、真跨版11及續修3案均通過。

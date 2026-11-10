@@ -1,0 +1,38 @@
+name: Windows CPU component validation
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/windows-cpu-validation.yml'
+      - 'scripts/**'
+      - 'src/**'
+      - 'packaging/**'
+      - 'pyproject.toml'
+permissions:
+  contents: read
+concurrency:
+  group: windows-cpu-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  PYTHONUTF8: '1'
+jobs:
+  cpu-component:
+    runs-on: windows-2022
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build independent CPU bundle and validate with a lean controller
+        shell: pwsh
+        run: |
+          python scripts/run_windows_cpu_ci.py --output out/windows-cpu
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-cpu-validation-reports
+          path: out/windows-cpu/reports/
+          retention-days: 7
+          if-no-files-found: warn

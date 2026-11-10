@@ -1,0 +1,30 @@
+{
+  "source_version": "0.18.0",
+  "architecture_version": "0.4",
+  "date_taipei": "2026-11-10",
+  "new_tests": 8,
+  "targeted_run": 136,
+  "targeted_passed": 136,
+  "targeted_skipped": 0,
+  "process_exit": 0,
+  "full_regression_executed": false,
+  "windows_executed": false,
+  "release_ready": false,
+  "packages": {
+    "cryptography": "50.0.2",
+    "psutil": "7.2.2",
+    "packaging": "26.3",
+    "cffi": "2.1.1",
+    "pycparser": "3.12",
+    "setuptools": "84.2.1"
+  },
+  "source_hashes": {
+    "scripts/cpu_worker_profiles.py": "3a13c9eb285ee4e13ce88e3db20141bba333e86bf78df1bf1b083e925612bd14",
+    "scripts/run_windows_cpu_ci.py": "eb33c768e82f9ff3dc405c141f8639d49e85663981d22b6e8d27d5b5bcbcd9d4",
+    "scripts/check_cpu_worker_acceptance.py": "2fba079c9a24d3a8de446a7b8540b223272b189635ae2058c16d483ee807fb00",
+    "tests/test_cpu_profiles.py": "3e70508a15ebbdfd9a7c6b12352cca49bdf3f81b22f853e047c6c51dabcd3f52",
+    "packaging/ocr-worker.spec": "47aaa74c8bb07842d97175a54207c1dbe72c5ae46eeb98afaf877f19fe11bf39",
+    ".github/workflows/windows-cpu-validation.yml": "fbe59589281dac24ec950eeb0a28e4fa47a5a2fa86b7151d6f6408579326eb3d",
+    "pyproject.toml": "fd266ed6860e55a22a6e2f6398d0a27cd36d0b4e748ad1ce2b6ca838bdb61f79"
+  }
+}

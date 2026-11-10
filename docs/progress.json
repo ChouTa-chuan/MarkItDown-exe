@@ -2,9 +2,9 @@
   "updated": "2026-11-10",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
   "tests_passed": 610,
-  "headline": "Windows CI自有產物清理3/3、殘留0；C11仍2/5／完整7/12",
-  "blocker": "全profile相容／更完整故障、無Python乾淨機、人工／GPU與ONNX繁中品質仍待；普通Setup暫存政策另驗。",
-  "next": "接各profile相容與乾淨Windows離線首次流程，再交付測試包供人工驗收。",
+  "headline": "Windows CPU選配獨立profile已備：24／5套件；相關136通過，原生待驗",
+  "blocker": "新Windows CPU真實frozen驗證待跑；全profile／乾淨機／人工／GPU與ONNX繁中品質仍待。",
+  "next": "實跑Windows CPU健康／推論／取消／資源／移除，再接各profile相容與乾淨機。",
   "milestones": [
     {
       "id": "m0",
@@ -252,7 +252,8 @@
     "0.17.2 hosted Windows基本包／安裝／跨版／三停點續修及CI自有產物清理已驗；不能代替乾淨Windows、全profile、人工或GPU。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
-    "0.17.2混合611與36模組正常exit0，ONNX品質預期失敗保留；CI清理只供自身產物，不代表普通Setup任意中斷可自動清理。"
+    "0.17.2混合611與36模組正常exit0，ONNX品質預期失敗保留；CI清理只供自身產物，不代表普通Setup任意中斷可自動清理。",
+    "0.18.0本輪相關136通過，完整619未執行；頁面610＋1是0.17.2完整基線，不能當作新版全回歸。"
   ],
   "tests_run": 611,
   "tests_expected_failures": 1,
@@ -524,11 +525,18 @@
         "state": "verified",
         "detail": "Windows三案CI自有產物清理3/3，實清1份／殘留0；真鎖檔拒絕及未知同類文件保留。普通Setup沒有新增清理入口。",
         "evidence": "CI 42599639656；同時驗基本app10／安裝6／跨版11／續修三案各10。非乾淨機或全profile。"
+      },
+      {
+        "id": "windows_cpu",
+        "title": "Windows CPU選配獨立封裝",
+        "state": "partial",
+        "detail": "建置24／無OCR控制端5套件、原notice或metadata對照97／30；真正frozen原10項將由Windows2022另跑。",
+        "evidence": "本地新8／相關136通過；Windows、GPU與繁中品質不以此列完成。"
       }
     ]
   },
-  "full_regression_accepted": true,
-  "source_version": "0.17.2",
+  "full_regression_accepted": false,
+  "source_version": "0.18.0",
   "qt_lifecycle": {
     "source_version": "0.17.1",
     "architecture_version": "0.4",
@@ -630,5 +638,36 @@
     },
     "final_targeted_contract_tests": 14,
     "native_windows_file_identity": "GetFileInformationByHandle; do not rely on CRT fstat for identity/link count"
+  },
+  "tests_source_version": "0.17.2",
+  "latest_targeted": {
+    "source_version": "0.18.0",
+    "architecture_version": "0.4",
+    "date_taipei": "2026-11-10",
+    "new_tests": 8,
+    "targeted_run": 136,
+    "targeted_passed": 136,
+    "targeted_skipped": 0,
+    "process_exit": 0,
+    "full_regression_executed": false,
+    "windows_executed": false,
+    "release_ready": false,
+    "packages": {
+      "cryptography": "50.0.2",
+      "psutil": "7.2.2",
+      "packaging": "26.3",
+      "cffi": "2.1.1",
+      "pycparser": "3.12",
+      "setuptools": "84.2.1"
+    },
+    "source_hashes": {
+      "scripts/cpu_worker_profiles.py": "3a13c9eb285ee4e13ce88e3db20141bba333e86bf78df1bf1b083e925612bd14",
+      "scripts/run_windows_cpu_ci.py": "eb33c768e82f9ff3dc405c141f8639d49e85663981d22b6e8d27d5b5bcbcd9d4",
+      "scripts/check_cpu_worker_acceptance.py": "2fba079c9a24d3a8de446a7b8540b223272b189635ae2058c16d483ee807fb00",
+      "tests/test_cpu_profiles.py": "3e70508a15ebbdfd9a7c6b12352cca49bdf3f81b22f853e047c6c51dabcd3f52",
+      "packaging/ocr-worker.spec": "47aaa74c8bb07842d97175a54207c1dbe72c5ae46eeb98afaf877f19fe11bf39",
+      ".github/workflows/windows-cpu-validation.yml": "fbe59589281dac24ec950eeb0a28e4fa47a5a2fa86b7151d6f6408579326eb3d",
+      "pyproject.toml": "fd266ed6860e55a22a6e2f6398d0a27cd36d0b4e748ad1ce2b6ca838bdb61f79"
+    }
   }
 }

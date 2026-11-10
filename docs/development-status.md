@@ -1,5 +1,8 @@
 # 開發進度
 
+2026-11-10 最新：**0.18.0新增Windows CPU獨立profile與原生CI，Windows待跑**。建置24／控制端5套件、原notice對照97／30；新8／相關136項在鎖定環境通過。[準備](development-records/runs/windows-cpu-prep-2026-11-10/README.md)／[說明](windows-cpu-ci.md)。完整619未執行、0.17.2的611屬歷史基線，C04 2/4、C11 2/5、完整7/12保留。
+
+
 2026-11-10 最新：**0.17.2 Windows CI自有中斷產物清理3/3已驗**，實際清1份／殘留0，真鎖檔拒絕及未知文件保留；[原始紀錄](development-records/runs/temporary-cleanup-ci-2026-11-10/README.md)。基本app10／安裝6／跨版11／三續修各10也通過。只清本次CI自身產物，普通Setup未增加外部收據或通配入口；C11仍2/5、完整7/12，乾淨機／全profile／人工／GPU另驗。下方保留階段狀態。
 
 

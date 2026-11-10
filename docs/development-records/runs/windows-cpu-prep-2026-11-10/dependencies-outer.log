@@ -1,0 +1,19 @@
+Collecting cffi==2.1.1 (from -r packaging/requirements-controller-test-linux.txt (line 3))
+  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+Collecting cryptography==50.0.2 (from -r packaging/requirements-controller-test-linux.txt (line 107))
+  Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 3.6 MB/s eta 0:00:00
+Collecting psutil==7.2.2 (from -r packaging/requirements-controller-test-linux.txt (line 170))
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+Collecting pycparser==3.12 (from -r packaging/requirements-controller-test-linux.txt (line 195))
+  Downloading pycparser-3.12-py3-none-any.whl (62 kB)
+Collecting setuptools==84.2.1 (from -r packaging/requirements-controller-test-linux.txt (line 201))
+  Downloading setuptools-84.2.1-py3-none-any.whl (876 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 876.3/876.3 kB 2.6 MB/s eta 0:00:00
+Collecting packaging==26.3 (from -r /tmp/markitdown-cpu-windows/local-packaging.txt (line 1))
+  Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Installing collected packages: setuptools, pycparser, psutil, packaging, cffi, cryptography
+Successfully installed cffi-2.1.1 cryptography-50.0.2 packaging-26.3 psutil-7.2.2 pycparser-3.12 setuptools-84.2.1
+
+[notice] A new release of pip is available: 25.0.1 -> 26.3
+[notice] To update, run: python -m pip install --upgrade pip

@@ -1,0 +1,11 @@
+test_changed_subset_hash_is_rejected (test_cpu_profiles.CPUProfileTests.test_changed_subset_hash_is_rejected) ... ok
+test_independent_worker_and_lean_controller_closures (test_cpu_profiles.CPUProfileTests.test_independent_worker_and_lean_controller_closures) ... ok
+test_original_notice_tampering_is_rejected (test_cpu_profiles.CPUProfileTests.test_original_notice_tampering_is_rejected) ... ok
+test_parent_version_or_metadata_cannot_be_silently_reselected (test_cpu_profiles.CPUProfileTests.test_parent_version_or_metadata_cannot_be_silently_reselected) ... ok
+test_release_claim_in_generated_report_is_rejected (test_cpu_profiles.CPUProfileTests.test_release_claim_in_generated_report_is_rejected) ... ok
+test_wrong_platform_cannot_start_build_or_create_output (test_cpu_profiles.CPUProfileTests.test_wrong_platform_cannot_start_build_or_create_output) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.502s
+
+OK

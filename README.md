@@ -6,17 +6,17 @@
 
 | 版本／進度 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.17.2**，Windows CI自有產物清理 **3/3**／殘留 **0**；續修 **3/3**；C11 **2/5**；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.18.0**，CPU選配獨立profile／Windows CI已備，實跑待驗；0.17.2清理已驗；C11 **2/5**；[查看每次更新與版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
 | 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
 | 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C03 四語／原生來源／Linux 內含整包三項、C04 兩項、C09 三項子檢核完成，完整項仍待乾淨機／安裝及各 profile |
-| 功能測試基線 | **610 通過、1 項 ONNX 繁體品質預期失敗**（611項；混合程序與36個模組均正常退出，0跳過） |
+| 功能測試基線 | 本輪相關 **136/136**；0.17.2完整基線 **610通過＋1既有ONNX品質預期失敗**，本輪完整619項未執行 |
 
 ## 模組架構封面
 
 綠色為可沿用核心與桌面原型，藍色為 C01／C02／C05／C06／C07／C08／C10 已驗收的基礎服務，黃色為待實作項目。舊模型管理已接入桌面；C08 已接上背景元件管理，C07 提供真正 CPU 工作程序；C10 已接逐頁需求、文件租約與提交重驗；C04 已驗基本依賴與 Linux frozen 核心自檢，完整原生包仍保留虛線；C03 已加入四語模型／選擇與本機辨識，基本包新增內含四語與預設解析，Linux frozen 完整 OCR 已驗；Windows 2022 CI 已真正建置並通過四語健康及掃描自檢，四語 CLI、中文搬移及故障處理已驗，Qt 正常開啟／退出也已通過 hosted runner 驗證；乾淨機／完整 Windows 與 GPU 另驗。
 
-[CI暫存清理](docs/temporary-cleanup-ci.md) · [Qt 正常退出修正](docs/qt-lifecycle.md) · [中斷續修CI](docs/base-recovery-ci.md) · [跨版升級CI](docs/base-upgrade-ci.md) · [基本包安裝CI](docs/base-installer-ci.md) · [Windows 實際 10 項驗證](docs/windows-base-ci.md) · [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
+[Windows CPU選配CI](docs/windows-cpu-ci.md) · [CI暫存清理](docs/temporary-cleanup-ci.md) · [Qt 正常退出修正](docs/qt-lifecycle.md) · [中斷續修CI](docs/base-recovery-ci.md) · [跨版升級CI](docs/base-upgrade-ci.md) · [基本包安裝CI](docs/base-installer-ci.md) · [Windows 實際 10 項驗證](docs/windows-base-ci.md) · [架構圖版本紀錄：舊版核心／第四節完整模組圖／對話簡圖／首頁比較圖](docs/architecture/README.md)
 
 ```mermaid
 flowchart TD
