@@ -2128,5 +2128,41 @@
     }
   },
   "tests_source_version": "0.17.2",
-  "full_regression_executed_this_version": false
+  "full_regression_executed_this_version": false,
+  "latest_targeted_current": {
+    "run": 143,
+    "passed": 143,
+    "skipped": 0,
+    "source_version": "0.18.0",
+    "new_tests": 15,
+    "process_exit": 0,
+    "source_commit": "f0708d0587155640b2aee87f19ad45cbea92fe97",
+    "full_regression_executed": false,
+    "evidence": "development-records/runs/windows-cpu-ci-2026-11-10/related-tests-143.log"
+  },
+  "latest_windows_cpu": {
+    "check": "windows-cpu-worker-ci",
+    "commit": "f0708d0587155640b2aee87f19ad45cbea92fe97",
+    "source_version": "0.18.0",
+    "recorded_at": "2026-11-10T09:31:45.000486+00:00",
+    "accepted": true,
+    "windows_executed": true,
+    "build_verified": true,
+    "checks_passed": 11,
+    "clean_machine_accepted": false,
+    "gpu_executed": false,
+    "traditional_chinese_quality_passed": false,
+    "release_ready": false,
+    "controller_unchanged": true,
+    "controller_native_packages": false,
+    "package_sha256": "626eb91ebeaf1220242e84c4fcb820b7cfdda462ae5e064859f5629050581895",
+    "actual_providers": [
+      "CPUExecutionProvider",
+      "CPUExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "installed_notice_packages": 26,
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42791407466",
+    "evidence": "development-records/runs/windows-cpu-ci-2026-11-10/README.md"
+  }
 }

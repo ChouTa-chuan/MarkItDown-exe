@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "source_version": "0.18.0",
+  "windows_executed": true,
+  "accepted": true,
+  "tested_commit": "f0708d0587155640b2aee87f19ad45cbea92fe97",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2879,
+      "sha256": "20c1d4f2572edc217d27c745ec9555a2142d9a2c89a5c89e87efab3b9c8be160"
+    },
+    {
+      "file": "base-profile-verification.log",
+      "bytes": 308,
+      "sha256": "60f4d04e67ddb2356cc4afea6ee669302d131723567341544a94a26097ec9171"
+    },
+    {
+      "file": "browser.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5"
+    },
+    {
+      "file": "cpu-profile-verification.log",
+      "bytes": 31,
+      "sha256": "c6cdaf3fc44749c0c9f4e049b9cb80bca405ec6f2d9214af64cfd6f901fb61e3"
+    },
+    {
+      "file": "document-checks.json",
+      "bytes": 246,
+      "sha256": "28f8c8fd8d9d40c7de4c3d35777e98e54da9633c4c55d09cc26c092058b48796"
+    },
+    {
+      "file": "historical-integrity.json",
+      "bytes": 215,
+      "sha256": "9dfc1a44e0ff8b7a72f769f841c3bccc03b219955357da43ae4cb2acf2b7bbc4"
+    },
+    {
+      "file": "monitor.log",
+      "bytes": 882,
+      "sha256": "2861f8b076f928e98bd0393c2d138a914acd72b387087c1e43c5b47a9171556b"
+    },
+    {
+      "file": "public-diagnostic.json",
+      "bytes": 714,
+      "sha256": "b60c38f43c95523d12ee1cd6635a321de1c8debbf317d0b65ec80314940d8961"
+    },
+    {
+      "file": "related-tests-143.log",
+      "bytes": 22653,
+      "sha256": "53b599c422fd99b0f0e61636cde15ac6b0a607daa59db64bba6bd5b129c56e99"
+    },
+    {
+      "file": "screenshots/components-mobile.png",
+      "bytes": 897530,
+      "sha256": "1f1226bbd35ef264fc532eee95d1859e7297aa5ae0504bbf84d6835bad04f479"
+    },
+    {
+      "file": "screenshots/components.png",
+      "bytes": 896790,
+      "sha256": "78f1717f70cb78cd28613b2351f6ae4c4e80bba5264b344c31526699a9dd2fe4"
+    },
+    {
+      "file": "screenshots/milestones.png",
+      "bytes": 317151,
+      "sha256": "308ed0cf9ea406265902c8340cc862c5cff50e0d31e00f8fa518209ed9ac6c48"
+    },
+    {
+      "file": "screenshots/mobile.png",
+      "bytes": 334296,
+      "sha256": "68691e54cf65d707b9cec0c9cfb1f73f5d3c54a8e6fd1cc41b7eb8de50052b4b"
+    },
+    {
+      "file": "screenshots/modules.png",
+      "bytes": 470754,
+      "sha256": "be201b1f84adf2a3a2f42196926b52c8b015259c2c084fc13cb0c300d806f265"
+    },
+    {
+      "file": "source-comparison.txt",
+      "bytes": 266,
+      "sha256": "b10817af5ed57fc641183e5c5738760fb20a08b248f94c9df95d750c5b5d610b"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 161286,
+      "sha256": "f087501ef5cf1c26af2e8f0a07758f5dc0cbc0135eed49283afc62c6ea08359e"
+    }
+  ]
+}

@@ -2,9 +2,9 @@
   "updated": "2026-11-10",
   "environment": "Linux · Python 3.12；Windows 2022 CI 部分實測",
   "tests_passed": 610,
-  "headline": "Windows CPU定位ORT匯入阻塞，Win32管道候選修正146項通過，原生待重跑",
-  "blocker": "新Windows CPU真實frozen驗證待跑；全profile／乾淨機／人工／GPU與ONNX繁中品質仍待。",
-  "next": "實跑Windows CPU健康／推論／取消／資源／移除，再接各profile相容與乾淨機。",
+  "headline": "Windows CPU選配原生11/11通過，獨立控制端與父程序斷線退出已驗",
+  "blocker": "Windows CPU選配功能已驗；各profile完整生命週期、乾淨機／人工／GPU與ONNX繁中品質仍待。",
+  "next": "接續各profile相容與安裝生命週期，再進行無Python／離線乾淨Windows與人工驗收。",
   "milestones": [
     {
       "id": "m0",
@@ -253,7 +253,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
     "0.17.2混合611與36模組正常exit0，ONNX品質預期失敗保留；CI清理只供自身產物，不代表普通Setup任意中斷可自動清理。",
-    "0.18.0本輪相關136通過，完整629未執行；頁面610＋1是0.17.2完整基線，不能當作新版全回歸。"
+    "0.18.0 Windows CPU獨立選配11項及本輪相關143通過，完整本版回歸未執行；頁面610＋1是0.17.2完整基線，不能當作新版全回歸。"
   ],
   "tests_run": 611,
   "tests_expected_failures": 1,
@@ -468,7 +468,7 @@
         "title": "獨立選配工作程序",
         "detail": "C07 完成獨立 CPU frozen 元件、版本化 IPC、RAM 准入／回壓、逾時／取消與自己持有 guard；GPU 仍待實機。 C10 整份文件租約、完整程序樹 RAM、巢狀暫停與執行證據已接。",
         "state": "partial",
-        "evidence": "115 項含元件回歸＋無 OCR 套件控制端實際 frozen 10 項；非繁體品質通過"
+        "evidence": "115 項含元件回歸＋無 OCR 套件控制端實際 frozen 10 項；非繁體品質通過；0.18 Windows獨立CPU 11項已驗，控制端無OCR。"
       },
       {
         "id": "updates",
@@ -529,9 +529,9 @@
       {
         "id": "windows_cpu",
         "title": "Windows CPU選配獨立封裝",
-        "state": "partial",
-        "detail": "建置24／無OCR控制端5套件、原notice或metadata對照97／30；真正frozen原10項將由Windows2022另跑。",
-        "evidence": "本地新8／相關136通過；Windows、GPU與繁中品質不以此列完成。"
+        "state": "verified",
+        "detail": "Windows2022獨立frozen CPU選配11項；建置24／無OCR控制端5鎖定依賴，控制端環境不變。驗收範圍限hosted CPU bundle。",
+        "evidence": "真正Windows：簽章離線匯入、健康／推論／取消、RAM啟動拒絕、移除與frozen EOF退出72／鎖釋放11/11；非繁中品質或乾淨機。"
       }
     ]
   },
@@ -672,26 +672,61 @@
   },
   "latest_cpu_attempt": {
     "check": "windows-cpu-worker-ci",
-    "commit": "eb3ed8ffa03fcfa98d2e899130dca5ced99bd34d",
+    "commit": "f0708d0587155640b2aee87f19ad45cbea92fe97",
     "source_version": "0.18.0",
-    "recorded_at": "2026-11-10T08:56:27.390858+00:00",
-    "accepted": false,
+    "recorded_at": "2026-11-10T09:31:45.000486+00:00",
+    "accepted": true,
     "windows_executed": true,
     "build_verified": true,
-    "checks_passed": 0,
+    "checks_passed": 11,
     "clean_machine_accepted": false,
     "gpu_executed": false,
     "traditional_chinese_quality_passed": false,
     "release_ready": false,
-    "failed_step": "native-acceptance",
-    "error": "CalledProcessError: Command '['D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows-cpu\\\\controller-env\\\\Scripts\\\\python.exe', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\scripts\\\\check_cpu_worker_acceptance.py', '--package-directory', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows-cpu\\\\package', '--report', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows-cpu\\\\reports\\\\cpu-acceptance.json']' returned non-zero exit status 1.",
-    "failure_detail": "ed-fixture health failed: '+result.detail+'; events='+str(events[-3:])+'; stderr='+detail)\r\nRuntimeError: Fixed-fixture health failed: WorkerError: 選配工作逾時，已停止該程序。; events=[{'state': 'running', 'message': '選配 CPU 工作程序已啟動。'}, {'state': 'running', 'message': '選配工作階段：loading'}]; stderr=xec_module\r\n  File \"<frozen importlib._bootstrap>\", line 935 in _load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 1331 in _find_and_load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 1360 in _find_and_load\r\n  File \"_pybind_state.py\", line 32 in <module>\r\n  File \"pyimod02_importers.py\", line 457 in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 935 in _load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 1331 in _find_and_load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 1360 in _find_and_load\r\n  File \"__init__.py\", line 26 in <module>\r\n  File \"pyimod02_importers.py\", line 457 in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 935 in _load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 1331 in _find_and_load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 1360 in _find_and_load\r\n  File \"server.py\", line 91 in serve\r\n  File \"desktop\r\n"
+    "controller_unchanged": true,
+    "controller_native_packages": false,
+    "package_sha256": "626eb91ebeaf1220242e84c4fcb820b7cfdda462ae5e064859f5629050581895",
+    "actual_providers": [
+      "CPUExecutionProvider",
+      "CPUExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "installed_notice_packages": 26
   },
   "latest_targeted_current": {
-    "run": 146,
-    "passed": 146,
+    "run": 143,
+    "passed": 143,
     "skipped": 0,
     "source_version": "0.18.0",
-    "full_regression_executed": false
+    "new_tests": 15,
+    "process_exit": 0,
+    "source_commit": "f0708d0587155640b2aee87f19ad45cbea92fe97",
+    "full_regression_executed": false,
+    "evidence": "development-records/runs/windows-cpu-ci-2026-11-10/related-tests-143.log"
+  },
+  "latest_windows_cpu": {
+    "check": "windows-cpu-worker-ci",
+    "commit": "f0708d0587155640b2aee87f19ad45cbea92fe97",
+    "source_version": "0.18.0",
+    "recorded_at": "2026-11-10T09:31:45.000486+00:00",
+    "accepted": true,
+    "windows_executed": true,
+    "build_verified": true,
+    "checks_passed": 11,
+    "clean_machine_accepted": false,
+    "gpu_executed": false,
+    "traditional_chinese_quality_passed": false,
+    "release_ready": false,
+    "controller_unchanged": true,
+    "controller_native_packages": false,
+    "package_sha256": "626eb91ebeaf1220242e84c4fcb820b7cfdda462ae5e064859f5629050581895",
+    "actual_providers": [
+      "CPUExecutionProvider",
+      "CPUExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "installed_notice_packages": 26,
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42791407466",
+    "evidence": "development-records/runs/windows-cpu-ci-2026-11-10/README.md"
   }
 }

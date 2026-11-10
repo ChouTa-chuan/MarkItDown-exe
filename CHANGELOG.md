@@ -37,11 +37,11 @@
 
 ## 0.18.0 — 2026-11-10
 
-相對0.17.2新增Windows CPU選配的獨立依賴閉包與原生建置驗證；架構0.4，Windows結果待實跑。
+相對0.17.2新增Windows CPU選配的獨立依賴閉包與原生建置驗證；架構0.4，Windows CPU獨立選配11/11已驗。
 
 - CPU建置24／精簡控制端5套件，沿用原hash／wheel METADATA、核對實際核心依賴與97／30份原notice或metadata；不混Qt／GPU與主轉換器。
-- 獨立Windows2022 CI將以兩個venv跑真正frozen／簽章離線／空PATH及Windows11項健康、推論、取消、RAM與移除，公開短錯誤保存內層失敗；只上傳報告，不發行ZIP／模型／Setup。
-- 新15、相關143項在鎖定venv正常退出；[原始準備紀錄](docs/development-records/runs/windows-cpu-prep-2026-11-10/README.md)。本輪完整626未執行，舊611保留0.17.2歸屬；Windows／GPU／品質與乾淨機另驗，C04 2/4、C11 2/5、完整7/12不提高，28份舊圖保持固定。
+- 獨立Windows2022 CI已以兩個venv通過真正frozen／簽章離線／空PATH的11項健康、推論、取消、RAM、移除與父管道EOF退出／鎖釋放。Windows原生庫在共享鎖內、背景reader前初始化，原期限／RAM准入保留；控制端無OCR且環境不變。[實跑原頁與紀錄](docs/development-records/runs/windows-cpu-ci-2026-11-10/README.md)，前四輪失敗另存。只上傳七天報告，不發行ZIP／模型／Setup。
+- 新15、相關143項在鎖定venv正常退出；[原始準備紀錄](docs/development-records/runs/windows-cpu-prep-2026-11-10/README.md)。本輪完整回歸未執行，舊611保留0.17.2歸屬；全profile／GPU／品質與乾淨機另驗，C04 2/4、C11 2/5、完整7/12不提高，28份舊圖保持固定。
 
 ## 0.17.2 — 2026-11-09
 
