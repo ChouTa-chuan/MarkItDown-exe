@@ -51,6 +51,8 @@ def native_notices(binaries, output):
     interpreter=Path(sys.base_prefix).resolve()
     owners=distribution_sources()
     for destination,source,kind in binaries:
+        # Analysis 在 Windows 使用反斜線；跨平台證據一律保存 POSIX 相對路徑。
+        destination=destination.replace('\\','/')
         path=Path(source).resolve()
         if path.is_relative_to(site):origin='installed-wheel';package=None
         elif path.is_relative_to(interpreter):origin='python-runtime';package=None

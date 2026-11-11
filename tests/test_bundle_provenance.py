@@ -148,5 +148,11 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(report['files'][0]['source_sha256'],sha256(source))
         self.assertEqual(report['files'][0]['distributions'],[dict(name='Example',version='2')])
 
+    def test_windows_analysis_destination_is_normalized_before_audit(self):
+        source=self.root/'runtime.dll';self.write(source,b'fixture source')
+        with patch('prepare_worker_assets.distribution_sources',return_value={}),patch('prepare_worker_assets.subprocess.run',return_value=SimpleNamespace(returncode=1)):
+            report=native_notices([('package.libs\\runtime.dll',str(source),'BINARY')],self.root/'native-windows')
+        self.assertEqual(report['files'][0]['file'],'package.libs/runtime.dll')
+
 
 if __name__=='__main__':unittest.main()
