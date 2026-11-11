@@ -1,0 +1,12 @@
+{
+  "run_id": 42986578102,
+  "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42986578102",
+  "source_commit": "73f4ebb",
+  "workflow_status": "failure",
+  "build_job": "success",
+  "deployment_succeeded": false,
+  "live_published": false,
+  "error": "Get Pages site failed. Please verify that the repository has Pages enabled and configured to build using GitHub Actions, or consider exploring the `enablement` parameter for this action. Error: Not Found -",
+  "required_action": "Repository administrator: Settings > Pages > Source > GitHub Actions",
+  "cloud_environment_changed": false
+}

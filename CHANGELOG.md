@@ -8,6 +8,7 @@
 
 - 依使用者要求準備固定網址及Pages工作流程；進度JSON／模板／產生器更新後自動部署，保留離線HTML。
 - 僅發布進度頁及別名，不複製完整docs或安裝產物；流程核對發布頁HTTP 200與建置SHA-256。首次Pages啟用涉及專案管理權限，實際部署狀態另存。
+- 本地網站產生及Chromium互動／手機版通過；[首次Pages流程](docs/development-records/runs/progress-pages-2026-11-11/first-deployment/README.md)建置成功、部署因站台Not Found停止，尚未上線，需管理員先選GitHub Actions來源。
 - 程式0.19.1／架構0.4、684項功能測試基線與7/12不變；本次驗證限網站產生與部署，未重跑Windows／OCR或發布應用程式。
 
 ### 2026-11-11｜候選包完整逐檔清單與CPU ZIP核對

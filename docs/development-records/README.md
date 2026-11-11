@@ -3,7 +3,8 @@
 **2026-11-11｜準備GitHub Pages固定視覺進度網址**
 
 - 依使用者指示新增[Pages自動部署流程](../../.github/workflows/progress-pages.yml)及[設定說明](../progress-pages.md)。固定網址為https://chouta-chuan.github.io/MarkItDown-exe/，首次部署狀態接續記錄；更新進度後自動發布，頁面重新整理載入最新快照。
-- 只部署兩份同內容HTML與.nojekyll；應用程式／模型／工程日誌不放入網站。網站更新不改功能里程碑、程式版本或Windows安裝包狀態。
+- 只部署兩份同內容HTML與.nojekyll；本地建置／互動／手機版檢查通過。[首次run42986578102](runs/progress-pages-2026-11-11/first-deployment/README.md)建置成功、Pages站台Not Found，部署未成功，需管理員先啟用Source為GitHub Actions；原頁／錯誤另存，未當網站已上線。
+- 網站更新不改功能里程碑、程式版本或Windows安裝包狀態。
 
 **2026-11-11｜Windows最終候選清單與CPU ZIP接受，完整684項正常退出**
 

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "live_published": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 624,
+      "sha256": "db434dadd6c399e34246a598a5d05417fcfb416270704c15912cb69bf731ab5c"
+    },
+    {
+      "file": "build-job-page.txt",
+      "bytes": 159129,
+      "sha256": "505070c380b7178f02f07db00e99e7054ce16d7188d1a60e4b3c7fb2292dcedc"
+    },
+    {
+      "file": "deploy-job-page.txt",
+      "bytes": 161651,
+      "sha256": "8648602468ced21274e235a0d67f3c878f0269b8ec28b2adbc96ceb2e2443a83"
+    },
+    {
+      "file": "observation.json",
+      "bytes": 615,
+      "sha256": "b99d577d3f36bc7870ad8a7819bb41a81eecf529f9fe44db5457884cc92b8652"
+    },
+    {
+      "file": "run-page.txt",
+      "bytes": 169919,
+      "sha256": "d41d3bc639eb15d3c76342c839dea6f6fe633c1577bdd128f66d702ad5c1e31a"
+    }
+  ]
+}
