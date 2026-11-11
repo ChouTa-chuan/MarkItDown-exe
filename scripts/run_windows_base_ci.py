@@ -84,6 +84,9 @@ def main():
         call('pyinstaller', [python,'-m','PyInstaller','--noconfirm','--clean','--distpath',args.output/'dist',
                             '--workpath',args.output/'work','packaging/base.spec'])
         summary['build_verified'] = True
+        call('bundle-provenance', [python,'scripts/check_bundle_provenance.py','--profile','base',
+             '--bundle',args.output/'dist/MarkItDownBase','--report',reports/'bundle-provenance.json'])
+        summary['provenance_accepted'] = True
         call('windows-validation', [python,'scripts/check_windows_base.py','--executable',
              args.output/'dist/MarkItDownBase/MarkItDownBase.exe','--output',reports/'acceptance'])
         acceptance = json.loads((reports/'acceptance/windows-acceptance.json').read_text(encoding='utf-8'))

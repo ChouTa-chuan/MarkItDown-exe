@@ -13,18 +13,11 @@ import tomllib
 
 from packaging.utils import canonicalize_name
 from packaging_profiles import ROOT, read_lock, verify_profiles
+from build_provenance import bootloader_notices, is_notice_entry
 
 
 def save_json(path, value):
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
-
-
-def is_notice_entry(value):
-    """授權目錄名稱也可能是 Python 模組，程式與編譯快取不可當成原文。"""
-    path=PurePosixPath(str(value))
-    return (not path.is_absolute() and '..' not in path.parts and '__pycache__' not in path.parts
-            and path.suffix not in ('.py','.pyc','.pyo')
-            and any(term in path.as_posix().lower() for term in ('license','licence','copying','notice','copyright')))
 
 
 def refresh_manifest(directory):
@@ -77,6 +70,7 @@ def prepare(output, root=ROOT, *, native_assets=None):
         if python_license is None: raise ValueError('缺少實際 Python runtime 原授權。')
         destination = staged/'licenses/python-runtime/LICENSE.txt'; destination.parent.mkdir(parents=True)
         shutil.copyfile(python_license, destination)
+        bootloader_notices(staged/'licenses/bootloader')
         notices = []; notice_root = staged/'licenses/installed'; notice_root.mkdir()
         original_inventory = json.loads((source/'licenses/windows/inventory.json').read_text())
         original_packages = {item['name']:item for item in original_inventory['packages']}

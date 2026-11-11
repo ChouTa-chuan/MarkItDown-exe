@@ -1,5 +1,11 @@
 # 開發紀錄
 
+**2026-11-11｜補齊基本包與CPU選配的啟動器原文／原生來源追溯**
+
+- 建置檢查發現PyInstaller是build相依，先前未獨立保存其啟動器原文；新增實際安裝原文逐位元複製與hash。原生Analysis清單升為schema2，記錄來源指紋／大小及可確認套件版號；未知原生來源保持未知。
+- 建置後驗隨包hash／METADATA／啟動器與每個原生收集檔，來源與收集後指紋分列，不能因PyInstaller處理後不同就冒稱位元相同。CPU套件表明列build來源範圍，缺wheel原文者保留待審。
+- 新15／相關64項通過；首輪fixture改sys.platform影響sysconfig及誤打測試模組名稱，原失敗保留，修正測試後通過。Windows與完整回歸接續，程式0.19.1／架構0.4，C04 2/4、C11 2/5及7/12保持。[本次紀錄](runs/bundle-provenance-2026-11-11/README.md)。
+
 **2026-11-11｜完成0.19.1完整回歸645項與41模組正常退出**
 
 - 以獨立venv安裝原Linux55套件hash鎖、本專案與固定vendor，pip check通過；四語／三個ONNX模型hash及字型／Tesseract5.5.0觀察另存。[完整原始日誌與環境指紋](runs/full-regression-0.19.1-2026-11-11/README.md)保存。

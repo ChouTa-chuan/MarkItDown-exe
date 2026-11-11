@@ -78,6 +78,9 @@ def run(output,previous_source=None):
         call('pyinstaller',[python,'-m','PyInstaller','--noconfirm','--clean','--distpath',output/'dist',
                             '--workpath',output/'work',ROOT/'packaging/ocr-worker.spec'])
         result['build_verified']=True
+        call('bundle-provenance',[python,ROOT/'scripts/check_bundle_provenance.py','--profile','cpu',
+             '--bundle',output/'dist/MarkItDownOCRWorker','--report',reports/'bundle-provenance.json'])
+        result['provenance_accepted']=True
         package=output/'package'
         call('component-package',[python,ROOT/'scripts/package_cpu_worker.py','--bundle',output/'dist/MarkItDownOCRWorker','--output',package])
         call('controller-venv',[sys.executable,'-m','venv',controller])

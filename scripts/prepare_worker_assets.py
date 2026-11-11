@@ -9,6 +9,7 @@ import shutil
 import sys
 import sysconfig
 import subprocess
+from build_provenance import bootloader_notices, distribution_sources, is_notice_entry, sha256
 
 
 def prepare(output, project):
@@ -18,6 +19,7 @@ def prepare(output, project):
     if runtime_license is None:raise ValueError('Actual Python runtime license missing')
     (output/'python-runtime').mkdir();shutil.copyfile(runtime_license,output/'python-runtime/LICENSE.txt')
     shutil.copytree(project/'src/desktop_app/data/licenses',output/'licenses')
+    bootloader_notices(output/'bootloader')
     stored={};packages=[]
     for distribution in sorted(metadata.distributions(),key=lambda value:value.metadata['Name'].lower()):
         name=re.sub('[-_.]+','-',distribution.metadata['Name']).lower()
@@ -29,7 +31,7 @@ def prepare(output, project):
         for entry in distribution.files or ():
             relative=PurePosixPath(str(entry))
             if relative.is_absolute() or '..' in relative.parts:continue
-            if not any(word in relative.name.lower() for word in ('license','licence','copying','notice','copyright')):continue
+            if not is_notice_entry(relative):continue
             source=Path(distribution.locate_file(entry))
             if not source.is_file() or source.stat().st_size>5*1024**2:continue
             target=output/'installed'/name/'original'/Path(*relative.parts)
@@ -47,6 +49,7 @@ def native_notices(binaries, output):
     packages={};records=[]
     site=Path(sysconfig.get_path('purelib')).resolve()
     interpreter=Path(sys.base_prefix).resolve()
+    owners=distribution_sources()
     for destination,source,kind in binaries:
         path=Path(source).resolve()
         if path.is_relative_to(site):origin='installed-wheel';package=None
@@ -65,8 +68,10 @@ def native_notices(binaries, output):
                     if not target.exists():shutil.copyfile(license_path,target)
                     packages[package]=dict(file=target.name,sha256=hashlib.sha256(target.read_bytes()).hexdigest())
             else:package=None
-        records.append(dict(file=destination,source_basename=path.name,origin=origin,system_package=package))
-    report=dict(scope='Actual bundled binaries and native package copyright evidence; final Windows/native release clearance remains pending',
+        records.append(dict(file=destination,source_basename=path.name,origin=origin,system_package=package,
+                            source_sha256=sha256(path),source_bytes=path.stat().st_size,
+                            distributions=owners.get(path,[])))
+    report=dict(schema_version=2,scope='Actual bundled binaries and native package copyright evidence; final Windows/native release clearance remains pending',
                 files=records,native_copyrights=packages)
     (output/'manifest.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     return report
