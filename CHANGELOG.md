@@ -6,11 +6,10 @@
 
 ### 2026-11-11｜候選包完整逐檔清單與CPU ZIP核對
 
-- 程式0.19.1／架構0.4不變。相對前次只查Analysis原生檔，新增全部普通檔案的大小／SHA-256、可確認的套件／原文對照、原METADATA授權宣告及未知來源待查表；新增同一候選的可信舊報告重驗。
-- CPU先包裝再核對真正ZIP（含額外NOTICE），驗全項大小／hash／CRC及descriptor；兩條CI會公開有界清單摘要和report hash，完整逐檔報告仍留artifact。
-- 新22／相關87項通過，涵蓋增刪改名／同大小變更、連結／junction／特殊檔、讀取失敗、限制、來源精確比對及ZIP反例。Windows及擴充完整回歸接續；舊完整661項仍是前次來源基線。
-- 管線檢視發現基本包安裝測試會新增catalog，已將快照移至所有生命週期測試之後，新增catalog反例；新23／相關88通過，完整684與Windows接續。
-- 檔案清單完整與runtime SBOM／授權核准分開；應用授權、Qt／Microsoft再散布與未知來源、乾淨機／人工及GPU仍待，C04 2/4、C11 2/5及7/12保持。
+- 程式0.19.1／架構0.4不變，僅改建置檢核。相對前次只查Analysis原生檔，新增全部普通檔案大小／SHA-256、可確認套件／原文對照、原METADATA授權宣告及未知來源待查；支援可信舊報告重驗同一候選。
+- [Windows最終清單與ZIP接受](docs/development-records/runs/candidate-inventory-ci-2026-11-11/README.md)：基本1655檔（封裝後含catalog）、CPU bundle741／真正ZIP742檔（含NOTICE）；全項內容／CRC／descriptor與快照重驗接受，CPU ZIP hash與原生接受一致。公開有界統計與report hash保存，完整逐檔登入artifact未下載。
+- 新23／相關88、全684：683通過／1既有ONNX繁中品質預期失敗／0跳過，混合與43獨立模組全exit0；基本app10／安裝6／跨版11／三停點續修、CPU功能11／同版8／跨版8／程序恢復6均接受。發現安裝會新增catalog後調整快照時點並補反例，前來源683與兩個Cancelled紀錄保留。
+- 更新中文說明、首頁與視覺進度；55份舊manifest／2925筆hash及原文／模型／9鎖／28圖不改。基本154／CPU303個檔案來源未對照，完整runtime SBOM與再散布、應用授權、乾淨機／人工及GPU待查；C04 2/4、C11 2/5及7/12保持，無Setup交付、tag／Release或環境發布。
 
 ### 2026-11-11｜補齊建置啟動器原文與原生來源追溯
 

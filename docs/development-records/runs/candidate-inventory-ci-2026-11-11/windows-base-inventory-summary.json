@@ -1,0 +1,24 @@
+{
+  "check": "bundle-provenance",
+  "profile": "base",
+  "source_version": "0.19.1",
+  "accepted": true,
+  "release_ready": false,
+  "report_sha256": "2246b6a8a9c0a73049b044e2fa7837880d0109f0077f3c6846fa8e0ef6e26c18",
+  "native_files": 201,
+  "packages": 40,
+  "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+  "inventory": {
+    "files": 1655,
+    "bytes": 274323912,
+    "unresolved_files": 154,
+    "review_files": 191,
+    "original_notice_files": 108,
+    "packages": 40,
+    "file_inventory_complete": true,
+    "runtime_sbom_complete": false,
+    "redistribution_approved": false,
+    "release_ready": false
+  },
+  "inventory_reverified": true
+}

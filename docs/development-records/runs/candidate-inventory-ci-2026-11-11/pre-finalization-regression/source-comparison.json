@@ -1,0 +1,14 @@
+{
+  "tested_source": "9c28526a350e306b9c3a88adf7bafdaf611b879d",
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "files": {
+    "scripts/candidate_inventory.py": "4d3eae3a89d5bd542c858a988c101cd5cf5c143235d9011963345335bcfdef3d",
+    "scripts/check_bundle_provenance.py": "ebda2726b6de91638278b4067df7feb77c0413e96177b19ea0addc42ae3a47a2",
+    "scripts/run_windows_cpu_ci.py": "156e5e575a279f700dfb9ad050fc3ba55951f06c4e24af37628c98b537e91b40",
+    "scripts/run_windows_base_ci.py": "982c128928b18381307a6d70a713f10cc76dc9ebdaa38dd7caac2e3b07ede18b",
+    "tests/test_candidate_inventory.py": "ce6a64b2cb956b491e8e4b8566ecd180f3198fbe9539b8e406abf844c12facdc"
+  },
+  "product_diff": "",
+  "environment_reference": "../full-regression-0.19.1-2026-11-11/README.md"
+}

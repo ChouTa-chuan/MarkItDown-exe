@@ -1,0 +1,41 @@
+{
+  "workflow_final_status": "cancelled",
+  "whole_workflow_accepted": false,
+  "summaries": [
+    {
+      "check": "bundle-provenance",
+      "profile": "cpu",
+      "source_version": "0.19.1",
+      "accepted": true,
+      "release_ready": false,
+      "report_sha256": "d162f758afedb799285eb90870b924ecfbdff2455f0540c73e909b473230a744",
+      "native_files": 106,
+      "packages": 26,
+      "source_commit": "9c28526a350e306b9c3a88adf7bafdaf611b879d",
+      "inventory": {
+        "files": 741,
+        "bytes": 252832252,
+        "unresolved_files": 303,
+        "review_files": 337,
+        "original_notice_files": 285,
+        "packages": 26,
+        "file_inventory_complete": true,
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "inventory_reverified": true,
+      "package_inventory": {
+        "files": 742,
+        "bytes": 252832617,
+        "archive_bytes": 106326763,
+        "archive_verified": true,
+        "file_inventory_complete": true,
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "package_sha256": "19d10b9b64e7b0c6edc383e54dc323f9c0a57ea3c090812c325629c54a2e68c5"
+    }
+  ]
+}

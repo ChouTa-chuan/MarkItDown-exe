@@ -1,0 +1,12 @@
+{
+  "markdown_files": [
+    "README.md",
+    "docs/candidate-inventory.md",
+    "docs/bundle-provenance.md",
+    "docs/windows-test-build-readiness.md",
+    "docs/development-records/runs/candidate-inventory-ci-2026-11-11/README.md"
+  ],
+  "relative_links_checked": 62,
+  "errors": [],
+  "accepted": true
+}

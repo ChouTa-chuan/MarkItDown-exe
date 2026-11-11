@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "base_root_accepted": true,
+    "base_catalog_count_matches_final_inventory": true,
+    "cpu_root_accepted": true,
+    "cpu_actual_zip_hash_matches_inventory": true,
+    "cpu_zip_adds_exactly_notice": true,
+    "same_source": true,
+    "both_reverified": true
+  },
+  "accepted": true,
+  "runtime_sbom_complete": false,
+  "release_ready": false
+}

@@ -1,0 +1,35 @@
+{
+  "check": "bundle-provenance",
+  "profile": "cpu",
+  "source_version": "0.19.1",
+  "accepted": true,
+  "release_ready": false,
+  "report_sha256": "9a0fc92b33f6c3d747f6c2762f1b944185c14eb9eed9ad217ca83531d421d64f",
+  "native_files": 106,
+  "packages": 26,
+  "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+  "inventory": {
+    "files": 741,
+    "bytes": 252832252,
+    "unresolved_files": 303,
+    "review_files": 337,
+    "original_notice_files": 285,
+    "packages": 26,
+    "file_inventory_complete": true,
+    "runtime_sbom_complete": false,
+    "redistribution_approved": false,
+    "release_ready": false
+  },
+  "inventory_reverified": true,
+  "package_inventory": {
+    "files": 742,
+    "bytes": 252832617,
+    "archive_bytes": 106326562,
+    "archive_verified": true,
+    "file_inventory_complete": true,
+    "runtime_sbom_complete": false,
+    "redistribution_approved": false,
+    "release_ready": false
+  },
+  "package_sha256": "5dee53420a4b7214fc44dbf132907a6356f63257f19bf858bb73274906083b21"
+}

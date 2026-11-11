@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-11",
-  "environment": "Linux · Python3.12.14；0.19.1全661／42模組exit0；Windows hosted證據另列",
-  "tests_passed": 660,
-  "headline": "Windows基本包與CPU隨包追溯通過；全661項／42模組正常退出",
-  "blocker": "啟動器原文／Analysis來源追溯已驗；完整候選清單與再散布、乾淨機／人工／GPU仍待。",
-  "next": "完成候選完整清單、原文對照與再散布事項，準備Windows測試產物及實機檢核表。",
+  "environment": "Linux · Python3.12.14；0.19.1全684／43模組exit0；Windows hosted證據另列",
+  "tests_passed": 683,
+  "headline": "Windows候選清單接受：基本1655檔／CPU ZIP742檔；全684項正常退出",
+  "blocker": "普通檔案快照／ZIP已驗；來源待查、runtime SBOM／再散布、乾淨機／人工／GPU仍待。",
+  "next": "整理未對照來源與原文範圍，完成再散布事項後準備Windows測試產物。",
   "milestones": [
     {
       "id": "m0",
@@ -138,7 +138,7 @@
       "id": "m5",
       "title": "發佈準備",
       "state": "active",
-      "description": "0.19.1 Linux完整661／42模組正常退出；Windows hosted基本包與CPU維護已驗，候選內容／原文、各profile、乾淨機／人工與發行仍待。",
+      "description": "0.19.1 Linux完整684／43模組正常退出；Windows hosted基本包與CPU維護已驗，候選內容／原文、各profile、乾淨機／人工與發行仍待。",
       "checks": [
         {
           "label": "Windows 建置與安裝包",
@@ -210,7 +210,7 @@
       "layer": "支援",
       "state": "partial",
       "detail": "基本profile包含同平台引擎與固定四語；0.19.1 Linux來源回歸與Windows hosted包／安裝已驗，乾淨機與其他選配仍待。",
-      "evidence": "0.19.1 Linux完整661及42模組exit0，Windows hosted基本／CPU另有證據；非乾淨機或發行。"
+      "evidence": "0.19.1 Linux完整684及43模組exit0，Windows hosted基本／CPU另有證據；非乾淨機或發行。"
     },
     {
       "id": "settings",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "0.19.1全661：660通過、1既有ONNX繁中品質預期失敗、0跳過；混合／42模組exit0。"
+      "evidence": "0.19.1全684：683通過、1既有ONNX繁中品質預期失敗、0跳過；混合／43模組exit0。"
     },
     {
       "id": "exporters",
@@ -253,14 +253,14 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
     "0.17.2混合611與36模組正常exit0，ONNX品質預期失敗保留；CI清理只供自身產物，不代表普通Setup任意中斷可自動清理。",
-    "0.19.1完整661：660通過＋1既有ONNX繁中品質預期失敗，0跳過；混合與42模組全exit0。此為Linux來源回歸，Windows／GPU與乾淨機範圍分開。"
+    "0.19.1完整684：683通過＋1既有ONNX繁中品質預期失敗，0跳過；混合與43模組全exit0。此為Linux來源回歸，Windows／GPU與乾淨機範圍分開。"
   ],
-  "tests_run": 661,
+  "tests_run": 684,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收7/12。C03 3/4、C04 2/4、C09 3/4、C11 2/5；0.19.1全661／42模組exit0及Windows基本／CPU維護已驗，候選再散布、其他profile／乾淨機／人工／GPU仍待。",
+    "description": "已驗收7/12。C03 3/4、C04 2/4、C09 3/4、C11 2/5；0.19.1全684／43模組exit0及Windows基本／CPU維護已驗，候選再散布、其他profile／乾淨機／人工／GPU仍待。",
     "phases": [
       {
         "id": "a",
@@ -558,15 +558,22 @@
         "id": "regression_0191",
         "title": "0.19.1完整回歸",
         "state": "verified",
-        "detail": "固定55套件／四語與三個ONNX模型hash，完整661與42獨立模組皆正常退出；原生teardown有外層退出檢查。",
-        "evidence": "660通過／1既有ONNX繁中品質預期失敗／0跳過；無效臨時啟動器另存、不納結果。GPU／乾淨機／發行另驗。"
+        "detail": "固定55套件／四語與三個ONNX模型hash，完整684與43獨立模組皆正常退出；原生teardown有外層退出檢查。",
+        "evidence": "683通過／1既有ONNX繁中品質預期失敗／0跳過；混合及43獨立模組皆exit0。GPU／乾淨機／發行另驗。"
       },
       {
         "id": "bundle_provenance",
         "title": "隨包原文與原生來源追溯",
         "state": "verified",
         "detail": "Windows基本包與CPU選配：實際啟動器原文、METADATA及Analysis原生來源／收集後指紋已檢核。",
-        "evidence": "兩條Windows CI接受；新16／相關65及完整661正常退出。只完成技術追溯，完整清單／SBOM、Qt／Microsoft runtime／應用授權與再散布另待。"
+        "evidence": "最終Windows兩包接受；全684正常退出。技術追溯與普通檔案快照已驗，完整runtime SBOM、Qt／Microsoft／應用授權與再散布待查。"
+      },
+      {
+        "id": "candidate_inventory",
+        "title": "候選完整檔案清單／ZIP核對",
+        "state": "verified",
+        "detail": "Windows基本包封裝後1655檔（含catalog）；CPU bundle741／真正ZIP742檔（含NOTICE）全hash重驗。",
+        "evidence": "來源cb8f24d：基本40／CPU build26套件表，原生來源201／106；來源未對照154／303項保留，runtime SBOM／再散布另待。"
       }
     ]
   },
@@ -877,9 +884,9 @@
   },
   "latest_windows_cpu": {
     "check": "windows-cpu-worker-ci",
-    "commit": "70f03f00cc77db4504b9072ae0b94372465f95a9",
+    "commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
     "source_version": "0.19.1",
-    "recorded_at": "2026-11-11T06:16:20.297539+00:00",
+    "recorded_at": "2026-11-11T07:50:56.296867+00:00",
     "accepted": true,
     "windows_executed": true,
     "build_verified": true,
@@ -891,7 +898,7 @@
     "provenance_accepted": true,
     "controller_unchanged": true,
     "controller_native_packages": false,
-    "package_sha256": "a96be6b3b4ec798b1c0ddf101be4b87a138c099491c6504fae9fb5a0d3b354bc",
+    "package_sha256": "5dee53420a4b7214fc44dbf132907a6356f63257f19bf858bb73274906083b21",
     "actual_providers": [
       "CPUExecutionProvider",
       "CPUExecutionProvider",
@@ -938,8 +945,8 @@
       "controller_unchanged": true,
       "controller_native_packages": false,
       "package_sha256": {
-        "1.0.0": "518367e86cee3bdff583be8b1ab79febf34e269142b4b8802c9a620c1460264b",
-        "1.0.1": "a96be6b3b4ec798b1c0ddf101be4b87a138c099491c6504fae9fb5a0d3b354bc"
+        "1.0.0": "76dd6f13605e41477978b019eaa5eb5d01c781210fea1fd8028c03e9a4b11b24",
+        "1.0.1": "5dee53420a4b7214fc44dbf132907a6356f63257f19bf858bb73274906083b21"
       },
       "gpu_executed": false,
       "traditional_chinese_quality_passed": false,
@@ -965,8 +972,8 @@
         {
           "operation": "upgrade",
           "stage": "published",
-          "maintenance_pid": 2344,
-          "recovery_pid": 4724,
+          "maintenance_pid": 2872,
+          "recovery_pid": 6356,
           "termination_exitcode": -15,
           "active_after_recover": "1.0.0",
           "version": "1.0.0",
@@ -975,8 +982,8 @@
         {
           "operation": "upgrade",
           "stage": "committed",
-          "maintenance_pid": 7260,
-          "recovery_pid": 976,
+          "maintenance_pid": 1068,
+          "recovery_pid": 7904,
           "termination_exitcode": -15,
           "active_after_recover": "1.0.1",
           "version": "1.0.1",
@@ -985,8 +992,8 @@
         {
           "operation": "repair",
           "stage": "old_moved",
-          "maintenance_pid": 4332,
-          "recovery_pid": 1240,
+          "maintenance_pid": 5660,
+          "recovery_pid": 4812,
           "termination_exitcode": -15,
           "active_after_recover": "1.0.1",
           "version": "1.0.1",
@@ -995,8 +1002,8 @@
         {
           "operation": "repair",
           "stage": "published",
-          "maintenance_pid": 5596,
-          "recovery_pid": 7716,
+          "maintenance_pid": 4752,
+          "recovery_pid": 4996,
           "termination_exitcode": -15,
           "active_after_recover": "1.0.1",
           "version": "1.0.1",
@@ -1005,8 +1012,8 @@
         {
           "operation": "remove",
           "stage": "old_moved",
-          "maintenance_pid": 6428,
-          "recovery_pid": 6160,
+          "maintenance_pid": 1572,
+          "recovery_pid": 2556,
           "termination_exitcode": -15,
           "active_after_recover": "1.0.1",
           "version": "1.0.1",
@@ -1015,8 +1022,8 @@
         {
           "operation": "remove",
           "stage": "committed",
-          "maintenance_pid": 2840,
-          "recovery_pid": 7328,
+          "maintenance_pid": 8116,
+          "recovery_pid": 6996,
           "termination_exitcode": -15,
           "active_after_recover": null,
           "version": "1.0.1",
@@ -1025,8 +1032,8 @@
       ]
     },
     "previous_source": "fd69854ee19ba031362750072e22a92bf5463a7c",
-    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42971219072",
-    "evidence": "development-records/runs/bundle-provenance-ci-2026-11-11/README.md"
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42982427186",
+    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/README.md"
   },
   "latest_windows_cpu_lifecycle": {
     "accepted": true,
@@ -1041,9 +1048,9 @@
     "archive_unchanged": true,
     "payload_verified": true,
     "journals_empty": true,
-    "source_commit": "70f03f00cc77db4504b9072ae0b94372465f95a9",
-    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42971219072",
-    "evidence": "development-records/runs/bundle-provenance-ci-2026-11-11/README.md"
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42982427186",
+    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/README.md"
   },
   "latest_windows_cpu_upgrade": {
     "accepted": true,
@@ -1071,15 +1078,15 @@
     "controller_unchanged": true,
     "controller_native_packages": false,
     "package_sha256": {
-      "1.0.0": "518367e86cee3bdff583be8b1ab79febf34e269142b4b8802c9a620c1460264b",
-      "1.0.1": "a96be6b3b4ec798b1c0ddf101be4b87a138c099491c6504fae9fb5a0d3b354bc"
+      "1.0.0": "76dd6f13605e41477978b019eaa5eb5d01c781210fea1fd8028c03e9a4b11b24",
+      "1.0.1": "5dee53420a4b7214fc44dbf132907a6356f63257f19bf858bb73274906083b21"
     },
     "gpu_executed": false,
     "traditional_chinese_quality_passed": false,
     "cross_version_executed": true,
-    "source_commit": "70f03f00cc77db4504b9072ae0b94372465f95a9",
-    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42971219072",
-    "evidence": "development-records/runs/bundle-provenance-ci-2026-11-11/README.md"
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42982427186",
+    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/README.md"
   },
   "latest_windows_cpu_recovery": {
     "accepted": true,
@@ -1101,8 +1108,8 @@
       {
         "operation": "upgrade",
         "stage": "published",
-        "maintenance_pid": 2344,
-        "recovery_pid": 4724,
+        "maintenance_pid": 2872,
+        "recovery_pid": 6356,
         "termination_exitcode": -15,
         "active_after_recover": "1.0.0",
         "version": "1.0.0",
@@ -1111,8 +1118,8 @@
       {
         "operation": "upgrade",
         "stage": "committed",
-        "maintenance_pid": 7260,
-        "recovery_pid": 976,
+        "maintenance_pid": 1068,
+        "recovery_pid": 7904,
         "termination_exitcode": -15,
         "active_after_recover": "1.0.1",
         "version": "1.0.1",
@@ -1121,8 +1128,8 @@
       {
         "operation": "repair",
         "stage": "old_moved",
-        "maintenance_pid": 4332,
-        "recovery_pid": 1240,
+        "maintenance_pid": 5660,
+        "recovery_pid": 4812,
         "termination_exitcode": -15,
         "active_after_recover": "1.0.1",
         "version": "1.0.1",
@@ -1131,8 +1138,8 @@
       {
         "operation": "repair",
         "stage": "published",
-        "maintenance_pid": 5596,
-        "recovery_pid": 7716,
+        "maintenance_pid": 4752,
+        "recovery_pid": 4996,
         "termination_exitcode": -15,
         "active_after_recover": "1.0.1",
         "version": "1.0.1",
@@ -1141,8 +1148,8 @@
       {
         "operation": "remove",
         "stage": "old_moved",
-        "maintenance_pid": 6428,
-        "recovery_pid": 6160,
+        "maintenance_pid": 1572,
+        "recovery_pid": 2556,
         "termination_exitcode": -15,
         "active_after_recover": "1.0.1",
         "version": "1.0.1",
@@ -1151,25 +1158,25 @@
       {
         "operation": "remove",
         "stage": "committed",
-        "maintenance_pid": 2840,
-        "recovery_pid": 7328,
+        "maintenance_pid": 8116,
+        "recovery_pid": 6996,
         "termination_exitcode": -15,
         "active_after_recover": null,
         "version": "1.0.1",
         "frozen": true
       }
     ],
-    "source_commit": "70f03f00cc77db4504b9072ae0b94372465f95a9",
-    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42971219072",
-    "evidence": "development-records/runs/bundle-provenance-ci-2026-11-11/README.md"
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42982427186",
+    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/README.md"
   },
   "latest_windows_base": {
     "source_version": "0.19.1",
-    "source_commit": "70f03f00cc77db4504b9072ae0b94372465f95a9",
-    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42971218861",
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42982427175",
     "result": {
       "check": "windows-base-build-ci",
-      "commit": "70f03f00cc77db4504b9072ae0b94372465f95a9",
+      "commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
       "build_verified": true,
       "validation_accepted": true,
       "clean_machine_accepted": false,
@@ -1210,11 +1217,11 @@
       "full_c11_complete": false,
       "release_ready": false,
       "source_version": "0.19.1",
-      "bundle_catalog_sha256": "121b989853df0ffe410785b43ed4fd3068082d7795b53a166a3f285ff37287d2",
+      "bundle_catalog_sha256": "8786d3b60cd51bca5f2f872420788a7f8bf68d9bd6ac3b44025ba5ba60f0aabc",
       "catalog_files": 1654,
       "compiler_sha256": "eb6f4410c8db367a5f74127e8025ad2ccacc0afabbe783959d237df3050f97fb",
       "compiler_license_sha256": "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c",
-      "installer_sha256": "85dfe222cf716ff6f8523e8f0c845bf4d60a3f0ee40269823df000de4f8aa7f0",
+      "installer_sha256": "72e9b6d0444818db6067baff1a5ed5805ba34e5bf221b78ec09e4ac7008b6415",
       "installed_app_checks": 10,
       "checks_passed": 6
     },
@@ -1272,17 +1279,17 @@
       "previous_version": "0.16.0",
       "checks_passed": 4
     },
-    "evidence": "development-records/runs/bundle-provenance-ci-2026-11-11/README.md"
+    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/README.md"
   },
   "full_regression_executed_this_version": true,
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "70f03f00cc77db4504b9072ae0b94372465f95a9",
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
     "date_taipei": "2026-11-11",
     "accepted": true,
-    "run": 661,
-    "passed": 660,
+    "run": 684,
+    "passed": 683,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1292,24 +1299,24 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 42,
+    "isolated_modules": 43,
     "isolated_all_exits_zero": true,
     "windows_executed_this_run": false,
     "gpu_executed": false,
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/bundle-provenance-ci-2026-11-11/README.md"
+    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/pre-finalization-regression/full-mixed-result.json"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
   "latest_test_build_readiness": {
     "source_version": "0.19.1",
-    "tested_source": "70f03f00cc77db4504b9072ae0b94372465f95a9",
+    "tested_source": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
     "full_regression_executed_this_version": true,
     "full_regression_accepted": true,
-    "run": 661,
-    "passed": 660,
+    "run": 684,
+    "passed": 683,
     "expected_failures": 1,
     "skipped": 0,
     "candidate_contents_review_complete": false,
@@ -1319,8 +1326,11 @@
     "human_ui_accepted": false,
     "gpu_executed": false,
     "release_ready": false,
-    "evidence": "development-records/runs/bundle-provenance-ci-2026-11-11/README.md",
-    "bundle_provenance_accepted": true
+    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/README.md",
+    "bundle_provenance_accepted": true,
+    "candidate_file_inventory_complete": true,
+    "cpu_zip_verified": true,
+    "runtime_sbom_complete": false
   },
   "previous_full_regression_645": {
     "source_version": "0.19.1",
@@ -1354,21 +1364,21 @@
     "evidence": "development-records/runs/full-regression-0.19.1-2026-11-11/README.md"
   },
   "latest_bundle_provenance": {
-    "source_commit": "70f03f00cc77db4504b9072ae0b94372465f95a9",
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
     "source_version": "0.19.1",
-    "local_tests": 16,
-    "related_tests": 65,
-    "full_regression": 661,
+    "local_tests": 23,
+    "related_tests": 88,
+    "full_regression": 684,
     "windows_accepted": true,
     "redistribution_approved": false,
     "release_ready": false,
-    "evidence": "development-records/runs/bundle-provenance-ci-2026-11-11/README.md",
+    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/README.md",
     "base_accepted": true,
     "cpu_accepted": true,
-    "base_evidence": "Required bundle-provenance subprocess exits zero before overall_accepted can become true; full detailed report not downloaded",
-    "cpu_evidence": "Public root provenance_accepted=true; full detailed report not downloaded",
-    "base_run": 42971218861,
-    "cpu_run": 42971219072
+    "base_evidence": "Direct public accepted inventory summary; detailed artifact not downloaded",
+    "cpu_evidence": "Direct public accepted inventory and actual ZIP summary; detailed artifact not downloaded",
+    "base_run": 42982427175,
+    "cpu_run": 42982427186
   },
   "previous_windows_base_before_provenance": {
     "source_version": "0.19.1",
@@ -1632,5 +1642,131 @@
     "previous_source": "fd69854ee19ba031362750072e22a92bf5463a7c",
     "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42943978279",
     "evidence": "development-records/runs/windows-cpu-recovery-ci-2026-11-11/README.md"
+  },
+  "previous_full_regression_661": {
+    "source_version": "0.19.1",
+    "architecture_version": "0.4",
+    "source_commit": "70f03f00cc77db4504b9072ae0b94372465f95a9",
+    "date_taipei": "2026-11-11",
+    "accepted": true,
+    "run": 661,
+    "passed": 660,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 1,
+    "expected_failure_ids": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "mixed_assertions_accepted": true,
+    "mixed_process_exit": 0,
+    "isolated_modules": 42,
+    "isolated_all_exits_zero": true,
+    "windows_executed_this_run": false,
+    "gpu_executed": false,
+    "traditional_chinese_onnx_quality_passed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/bundle-provenance-ci-2026-11-11/README.md"
+  },
+  "latest_candidate_inventory": {
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "source_version": "0.19.1",
+    "local_tests": 23,
+    "related_tests": 88,
+    "full_regression": 684,
+    "windows_accepted": true,
+    "file_inventory_complete": true,
+    "runtime_sbom_complete": false,
+    "redistribution_approved": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/README.md",
+    "base_final_catalog_included": true,
+    "cpu_zip_verified": true,
+    "base_summary": {
+      "check": "bundle-provenance",
+      "profile": "base",
+      "source_version": "0.19.1",
+      "accepted": true,
+      "release_ready": false,
+      "report_sha256": "2246b6a8a9c0a73049b044e2fa7837880d0109f0077f3c6846fa8e0ef6e26c18",
+      "native_files": 201,
+      "packages": 40,
+      "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+      "inventory": {
+        "files": 1655,
+        "bytes": 274323912,
+        "unresolved_files": 154,
+        "review_files": 191,
+        "original_notice_files": 108,
+        "packages": 40,
+        "file_inventory_complete": true,
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "inventory_reverified": true
+    },
+    "cpu_summary": {
+      "check": "bundle-provenance",
+      "profile": "cpu",
+      "source_version": "0.19.1",
+      "accepted": true,
+      "release_ready": false,
+      "report_sha256": "9a0fc92b33f6c3d747f6c2762f1b944185c14eb9eed9ad217ca83531d421d64f",
+      "native_files": 106,
+      "packages": 26,
+      "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+      "inventory": {
+        "files": 741,
+        "bytes": 252832252,
+        "unresolved_files": 303,
+        "review_files": 337,
+        "original_notice_files": 285,
+        "packages": 26,
+        "file_inventory_complete": true,
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "inventory_reverified": true,
+      "package_inventory": {
+        "files": 742,
+        "bytes": 252832617,
+        "archive_bytes": 106326562,
+        "archive_verified": true,
+        "file_inventory_complete": true,
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "package_sha256": "5dee53420a4b7214fc44dbf132907a6356f63257f19bf858bb73274906083b21"
+    }
+  },
+  "previous_full_regression_683": {
+    "source_version": "0.19.1",
+    "architecture_version": "0.4",
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "date_taipei": "2026-11-11",
+    "accepted": true,
+    "run": 684,
+    "passed": 683,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 1,
+    "expected_failure_ids": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "mixed_assertions_accepted": true,
+    "mixed_process_exit": 0,
+    "isolated_modules": 43,
+    "isolated_all_exits_zero": true,
+    "windows_executed_this_run": false,
+    "gpu_executed": false,
+    "traditional_chinese_onnx_quality_passed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/pre-finalization-regression/full-mixed-result.json"
   }
 }

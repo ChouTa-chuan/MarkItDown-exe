@@ -1,0 +1,32 @@
+test_actual_zip_inventory_includes_generated_notice (test_candidate_inventory.InventoryTests.test_actual_zip_inventory_includes_generated_notice) ... ok
+test_added_file_is_rejected (test_candidate_inventory.InventoryTests.test_added_file_is_rejected) ... ok
+test_all_regular_files_including_hidden_and_empty_have_hashes (test_candidate_inventory.InventoryTests.test_all_regular_files_including_hidden_and_empty_have_hashes) ... ok
+test_changed_bytes_are_rejected_even_with_same_size (test_candidate_inventory.InventoryTests.test_changed_bytes_are_rejected_even_with_same_size) ... ok
+test_changed_zip_archive_is_rejected (test_candidate_inventory.InventoryTests.test_changed_zip_archive_is_rejected) ... ok
+test_cli_reverification_and_public_summary_are_bounded (test_candidate_inventory.InventoryTests.test_cli_reverification_and_public_summary_are_bounded) ... ok
+test_complete_file_list_keeps_unresolved_source_and_archives_pending (test_candidate_inventory.InventoryTests.test_complete_file_list_keeps_unresolved_source_and_archives_pending) ... ok
+test_concurrent_file_change_is_rejected (test_candidate_inventory.InventoryTests.test_concurrent_file_change_is_rejected) ... ok
+test_duplicate_entries_and_case_aliases_are_rejected (test_candidate_inventory.InventoryTests.test_duplicate_entries_and_case_aliases_are_rejected) ... ok
+test_extra_zip_entry_is_rejected_even_if_archive_hash_matches (test_candidate_inventory.InventoryTests.test_extra_zip_entry_is_rejected_even_if_archive_hash_matches) ... ok
+test_file_and_byte_limits_are_enforced (test_candidate_inventory.InventoryTests.test_file_and_byte_limits_are_enforced) ... ok
+test_junction_branch_is_rejected (test_candidate_inventory.InventoryTests.test_junction_branch_is_rejected) ... ok
+test_links_to_file_and_directory_are_rejected (test_candidate_inventory.InventoryTests.test_links_to_file_and_directory_are_rejected) ... ok
+test_microsoft_dll_is_not_cleared_by_python_license_location (test_candidate_inventory.InventoryTests.test_microsoft_dll_is_not_cleared_by_python_license_location) ... ok
+test_missing_file_is_rejected (test_candidate_inventory.InventoryTests.test_missing_file_is_rejected) ... ok
+test_missing_or_changed_package_reference_is_rejected (test_candidate_inventory.InventoryTests.test_missing_or_changed_package_reference_is_rejected) ... ok
+test_missing_zip_entry_is_rejected_even_if_archive_hash_matches (test_candidate_inventory.InventoryTests.test_missing_zip_entry_is_rejected_even_if_archive_hash_matches) ... ok
+test_original_notice_mapping_has_package_version_and_hash (test_candidate_inventory.InventoryTests.test_original_notice_mapping_has_package_version_and_hash) ... ok
+test_record_owner_requires_exact_path_and_bytes (test_candidate_inventory.InventoryTests.test_record_owner_requires_exact_path_and_bytes) ... ok
+test_renamed_file_is_rejected (test_candidate_inventory.InventoryTests.test_renamed_file_is_rejected) ... ok
+test_special_file_is_rejected_without_reading (test_candidate_inventory.InventoryTests.test_special_file_is_rejected_without_reading) ... ok
+test_unreadable_directory_cannot_be_silently_omitted (test_candidate_inventory.InventoryTests.test_unreadable_directory_cannot_be_silently_omitted) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.905s
+
+OK
+{"component_id": "onnx-cpu-ocr", "version": "1.0.1", "protocol": "1.0.0", "files": 3, "descriptor_bytes": 1186, "package_bytes": 594, "unpacked_bytes": 380, "sha256": "c64ed2d67fe6b8f624324c79d7c4c04b94d969ba02ba198887e8cfc3ed620e1c", "platform": "linux", "architecture": "x86_64", "development_only": true, "production_catalog_published": false, "source_url_is_deliberately_non_downloadable": true}
+{"component_id": "onnx-cpu-ocr", "version": "1.0.1", "protocol": "1.0.0", "files": 3, "descriptor_bytes": 1186, "package_bytes": 594, "unpacked_bytes": 380, "sha256": "c64ed2d67fe6b8f624324c79d7c4c04b94d969ba02ba198887e8cfc3ed620e1c", "platform": "linux", "architecture": "x86_64", "development_only": true, "production_catalog_published": false, "source_url_is_deliberately_non_downloadable": true}
+{"component_id": "onnx-cpu-ocr", "version": "1.0.1", "protocol": "1.0.0", "files": 10, "descriptor_bytes": 2268, "package_bytes": 2519, "unpacked_bytes": 1240, "sha256": "4dcbf97ab9d575a8b0821a3daef6a5081e7c50c0839f50d5c95744770b96536a", "platform": "linux", "architecture": "x86_64", "development_only": true, "production_catalog_published": false, "source_url_is_deliberately_non_downloadable": true}
+{"component_id": "onnx-cpu-ocr", "version": "1.0.1", "protocol": "1.0.0", "files": 3, "descriptor_bytes": 1186, "package_bytes": 594, "unpacked_bytes": 380, "sha256": "c64ed2d67fe6b8f624324c79d7c4c04b94d969ba02ba198887e8cfc3ed620e1c", "platform": "linux", "architecture": "x86_64", "development_only": true, "production_catalog_published": false, "source_url_is_deliberately_non_downloadable": true}
+{"component_id": "onnx-cpu-ocr", "version": "1.0.1", "protocol": "1.0.0", "files": 3, "descriptor_bytes": 1186, "package_bytes": 594, "unpacked_bytes": 380, "sha256": "c64ed2d67fe6b8f624324c79d7c4c04b94d969ba02ba198887e8cfc3ed620e1c", "platform": "linux", "architecture": "x86_64", "development_only": true, "production_catalog_published": false, "source_url_is_deliberately_non_downloadable": true}

@@ -1,0 +1,30 @@
+{
+  "workflow_final_status": "cancelled",
+  "whole_workflow_accepted": false,
+  "summaries": [
+    {
+      "check": "bundle-provenance",
+      "profile": "base",
+      "source_version": "0.19.1",
+      "accepted": true,
+      "release_ready": false,
+      "report_sha256": "7850832fc74a9cda827f4bdff7353b93685324130ae6ecc68f5840b5f13cea38",
+      "native_files": 201,
+      "packages": 40,
+      "source_commit": "9c28526a350e306b9c3a88adf7bafdaf611b879d",
+      "inventory": {
+        "files": 1654,
+        "bytes": 274018998,
+        "unresolved_files": 153,
+        "review_files": 190,
+        "original_notice_files": 108,
+        "packages": 40,
+        "file_inventory_complete": true,
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "inventory_reverified": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+test_base_runtime_and_original_metadata_are_checked (test_bundle_provenance.ProvenanceTests.test_base_runtime_and_original_metadata_are_checked) ... ok
+test_bootloader_directory_named_notice_preserves_exact_bytes (test_bundle_provenance.ProvenanceTests.test_bootloader_directory_named_notice_preserves_exact_bytes) ... ok
+test_bootloader_original_is_required (test_bundle_provenance.ProvenanceTests.test_bootloader_original_is_required) ... ok
+test_changed_original_is_rejected (test_bundle_provenance.ProvenanceTests.test_changed_original_is_rejected) ... ok
+test_distinct_source_and_collected_bytes_are_explicit (test_bundle_provenance.ProvenanceTests.test_distinct_source_and_collected_bytes_are_explicit) ... ok
+test_empty_bootloader_notice_inventory_is_rejected (test_bundle_provenance.ProvenanceTests.test_empty_bootloader_notice_inventory_is_rejected) ... ok
+test_manifest_path_escape_is_rejected (test_bundle_provenance.ProvenanceTests.test_manifest_path_escape_is_rejected) ... ok
+test_metadata_version_conflict_is_rejected_even_with_matching_file_hash (test_bundle_provenance.ProvenanceTests.test_metadata_version_conflict_is_rejected_even_with_matching_file_hash) ... ok
+test_missing_collected_binary_is_rejected (test_bundle_provenance.ProvenanceTests.test_missing_collected_binary_is_rejected) ... ok
+test_native_source_digest_and_distribution_owner_are_captured (test_bundle_provenance.ProvenanceTests.test_native_source_digest_and_distribution_owner_are_captured) ... ok
+test_old_native_manifest_and_duplicate_destinations_are_rejected (test_bundle_provenance.ProvenanceTests.test_old_native_manifest_and_duplicate_destinations_are_rejected) ... ok
+test_packages_without_original_notice_remain_pending (test_bundle_provenance.ProvenanceTests.test_packages_without_original_notice_remain_pending) ... ok
+test_source_digest_missing_or_malformed_is_rejected (test_bundle_provenance.ProvenanceTests.test_source_digest_missing_or_malformed_is_rejected) ... ok
+test_stale_application_version_is_rejected (test_bundle_provenance.ProvenanceTests.test_stale_application_version_is_rejected) ... ok
+test_symlinks_and_case_aliases_are_rejected (test_bundle_provenance.ProvenanceTests.test_symlinks_and_case_aliases_are_rejected) ... ok
+test_windows_analysis_destination_is_normalized_before_audit (test_bundle_provenance.ProvenanceTests.test_windows_analysis_destination_is_normalized_before_audit) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.898s
+
+OK

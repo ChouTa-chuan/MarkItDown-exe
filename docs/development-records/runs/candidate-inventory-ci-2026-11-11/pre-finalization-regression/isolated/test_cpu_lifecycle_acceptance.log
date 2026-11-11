@@ -1,0 +1,9 @@
+test_eight_cases_use_real_transactions_and_preserve_data (test_cpu_lifecycle_acceptance.CPULifecycleAcceptanceTests.test_eight_cases_use_real_transactions_and_preserve_data) ... ok
+test_existing_report_and_synthetic_document_are_not_overwritten (test_cpu_lifecycle_acceptance.CPULifecycleAcceptanceTests.test_existing_report_and_synthetic_document_are_not_overwritten) ... ok
+test_failure_is_not_converted_to_a_successful_rejection (test_cpu_lifecycle_acceptance.CPULifecycleAcceptanceTests.test_failure_is_not_converted_to_a_successful_rejection) ... ok
+test_silent_maintenance_success_is_rejected_and_partial_report_saved (test_cpu_lifecycle_acceptance.CPULifecycleAcceptanceTests.test_silent_maintenance_success_is_rejected_and_partial_report_saved) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.222s
+
+OK

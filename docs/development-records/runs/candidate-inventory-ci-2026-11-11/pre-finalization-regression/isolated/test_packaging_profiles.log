@@ -1,0 +1,20 @@
+test_cycles_terminate_without_duplicate_edges (test_packaging_profiles.ClosureTests.test_cycles_terminate_without_duplicate_edges) ... ok
+test_missing_transitive_dependency_is_fatal (test_packaging_profiles.ClosureTests.test_missing_transitive_dependency_is_fatal) ... ok
+test_parent_extra_not_reinterpreted_on_child (test_packaging_profiles.ClosureTests.test_parent_extra_not_reinterpreted_on_child) ... ok
+test_platform_markers_are_evaluated_for_target (test_packaging_profiles.ClosureTests.test_platform_markers_are_evaluated_for_target) ... ok
+test_python_requires_python_and_direct_urls_rejected (test_packaging_profiles.ClosureTests.test_python_requires_python_and_direct_urls_rejected) ... ok
+test_transitive_extra_arrives_after_first_visit (test_packaging_profiles.ClosureTests.test_transitive_extra_arrives_after_first_visit) ... ok
+test_version_conflict_does_not_reselect (test_packaging_profiles.ClosureTests.test_version_conflict_does_not_reselect) ... ok
+test_added_onnx_ocr_extra_fails_base_exclusion (test_packaging_profiles.ProfileTests.test_added_onnx_ocr_extra_fails_base_exclusion) ... ok
+test_changed_generated_hash_rejected (test_packaging_profiles.ProfileTests.test_changed_generated_hash_rejected) ... ok
+test_changed_windows_wheel_metadata_rejected (test_packaging_profiles.ProfileTests.test_changed_windows_wheel_metadata_rejected) ... ok
+test_missing_or_unpinned_or_duplicate_hashes_rejected (test_packaging_profiles.ProfileTests.test_missing_or_unpinned_or_duplicate_hashes_rejected) ... ok
+test_original_notice_tampering_rejected (test_packaging_profiles.ProfileTests.test_original_notice_tampering_rejected) ... ok
+test_parent_lock_change_requires_metadata_refresh (test_packaging_profiles.ProfileTests.test_parent_lock_change_requires_metadata_refresh) ... ok
+test_real_profiles_keep_magika_runtime_and_omit_ocr_and_test_tools (test_packaging_profiles.ProfileTests.test_real_profiles_keep_magika_runtime_and_omit_ocr_and_test_tools) ... ok
+test_release_ready_cannot_be_claimed_by_changing_config (test_packaging_profiles.ProfileTests.test_release_ready_cannot_be_claimed_by_changing_config) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.747s
+
+OK

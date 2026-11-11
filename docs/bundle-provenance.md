@@ -22,6 +22,8 @@ python scripts/check_bundle_provenance.py --profile cpu --bundle out/windows-cpu
 
 報告的`accepted`只表示這次追溯一致性檢查通過：原文指紋、METADATA版號、啟動器原文及Analysis所列收集檔案符合檢查條件。`source_sha256`與`bundled_sha256`分列；PyInstaller可能處理原生檔案，`bytes_changed`會顯示差異，仍需依建置工具與來源進一步審閱。根EXE另外保存hash。
 
-`packages_without_wheel_notice`保留wheel內缺原文的套件，不能解讀為無授權義務。CPU套件表記錄build環境，並非所有套件都進入runtime。`redistribution_approved`與`release_ready`維持false；完整實物清單／SBOM、各套件與原文對照、Qt替換與對應來源、Microsoft原生runtime再散布及應用公開授權仍須獨立完成。此腳本不執行EXE，也不代表Windows乾淨機或人工驗收。
+`packages_without_wheel_notice`保留wheel內缺原文的套件，不能解讀為無授權義務。CPU套件表記錄build環境，並非所有套件都進入runtime。`redistribution_approved`與`release_ready`維持false；完整runtime SBOM／逐項內容審閱、各套件與原文對照、Qt替換與對應來源、Microsoft原生runtime再散布及應用公開授權仍須獨立完成。此腳本不執行EXE，也不代表Windows乾淨機或人工驗收。
 
 目前完整原生報告由CI保存七天，專案紀錄保存可取得的公開摘要與來源；未下載的登入artifact不宣稱永久備份。實際驗證與初輪問題見[開發紀錄](development-records/runs/bundle-provenance-ci-2026-11-11/README.md)。
+
+候選報告schema2已新增全部普通檔案快照與CPU實際ZIP檢核，欄位與可信舊報告重驗命令見[候選包完整檔案清單](candidate-inventory.md)。

@@ -31,3 +31,5 @@ python scripts/check_bundle_provenance.py --profile cpu --bundle out/windows-cpu
 程式0.19.1／架構0.4，這次只更新建置檢核。完整候選內容審閱、應用公開授權、Qt對應來源／替換、Microsoft原生再散布及乾淨機／人工仍待完成。歷次原文及模型不修改；技術清單不直接提高C04／C11或產品發行進度。
 
 基本包在安裝、升級及續修測試完成後才產生最後快照，包含安裝封裝新增的`base-install-catalog.json`；清單檢核通過也是整條流程接受的必要條件。清單範圍為基本包候選目錄，Setup本身另由既有安裝報告保存hash與驗收證據。
+
+[Windows最終實證](development-records/runs/candidate-inventory-ci-2026-11-11/README.md)：cb8f24d基本包1655檔、CPU bundle741／ZIP742檔接受，ZIP含額外NOTICE，兩份快照重驗通過。來源未對照檔案基本154、CPU303項，完整runtime SBOM與再散布保留待查；683通過／1既有品質預期失敗，完整684項與43模組exit0。
