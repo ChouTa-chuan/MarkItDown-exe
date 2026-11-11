@@ -1,0 +1,12 @@
+{
+  "workspace": "/tmp/markitdown-pages-5dfrxe0r",
+  "files": [
+    ".nojekyll",
+    "index.html",
+    "progress.html"
+  ],
+  "page_sha256": "59769d430451bca6b3ffe4cbe5ecf35a80cf41d5696b9bfa160fce6c3f579240",
+  "build_step_exit": 0,
+  "local_build_accepted": true,
+  "live_published": false
+}

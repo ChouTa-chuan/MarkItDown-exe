@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "live_published": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1255,
+      "sha256": "2a73a60c9c9b5688ef651ba62f2b88e5d7aa0b717b7c9dd329ab66d47395fc40"
+    },
+    {
+      "file": "browser-check.json",
+      "bytes": 145,
+      "sha256": "88c9a3341128f435e444cb438e7e308be33b6250fe0259d479eb72e6315703f9"
+    },
+    {
+      "file": "desktop.png",
+      "bytes": 863748,
+      "sha256": "74ca431925ed125b207a9cbd0432554bca39abf778d8e7f69f40cbbbe4f44f86"
+    },
+    {
+      "file": "local-build.json",
+      "bytes": 293,
+      "sha256": "9b9147226177105490201fc03c8a70f8d48f1edce91ec47a2aa5ec3f1ed9765c"
+    },
+    {
+      "file": "local-build.log",
+      "bytes": 124,
+      "sha256": "f355061bb19d1f44c0bddf7922d6f05a38ccd05932bdb2a986dc8346146619a2"
+    },
+    {
+      "file": "mobile.png",
+      "bytes": 869134,
+      "sha256": "a14918709e223d932e5b814e7e16e26897d59a1b588bcd3485c2f8ab695ded92"
+    },
+    {
+      "file": "published-index.html",
+      "bytes": 67470,
+      "sha256": "59769d430451bca6b3ffe4cbe5ecf35a80cf41d5696b9bfa160fce6c3f579240"
+    }
+  ]
+}

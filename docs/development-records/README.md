@@ -1,5 +1,10 @@
 # 開發紀錄
 
+**2026-11-11｜準備GitHub Pages固定視覺進度網址**
+
+- 依使用者指示新增[Pages自動部署流程](../../.github/workflows/progress-pages.yml)及[設定說明](../progress-pages.md)。固定網址為https://chouta-chuan.github.io/MarkItDown-exe/，首次部署狀態接續記錄；更新進度後自動發布，頁面重新整理載入最新快照。
+- 只部署兩份同內容HTML與.nojekyll；應用程式／模型／工程日誌不放入網站。網站更新不改功能里程碑、程式版本或Windows安裝包狀態。
+
 **2026-11-11｜Windows最終候選清單與CPU ZIP接受，完整684項正常退出**
 
 - [最終Windows基本42982427175／CPU42982427186](runs/candidate-inventory-ci-2026-11-11/README.md)同來源cb8f24d皆Success：基本封裝後1655檔（含catalog），CPU bundle741／ZIP742檔（含NOTICE），全檔大小／hash與快照重驗接受；CPU ZIP hash與11項原生接受精確相同。基本app10／安裝6／跨版11／續修三案、CPU功能11／同版8／跨版8／恢復6皆接受。

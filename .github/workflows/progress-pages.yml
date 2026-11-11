@@ -1,0 +1,109 @@
+name: Publish visual progress
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/progress-pages.yml'
+      - 'docs/progress.json'
+      - 'docs/progress.html'
+      - 'docs/progress-pages.md'
+      - 'scripts/build_progress.py'
+      - 'scripts/progress-template.html'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: progress-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      page_sha256: ${{ steps.site.outputs.page_sha256 }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build only the public progress page
+        id: site
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib, os, runpy
+          from pathlib import Path
+
+          # 沿用同一份JSON與產生器；網站僅上傳進度頁，不複製整份docs或建置產物。
+          page = runpy.run_path('scripts/build_progress.py')['build']()
+          marker = '離線進度快照 · 不會自動更新'
+          if page.count(marker) != 1:
+              raise ValueError('Progress template publication marker changed')
+          page = page.replace(marker, '線上進度快照 · 重新整理可載入最新部署')
+          site = Path('_site')
+          site.mkdir()
+          for name in ('index.html', 'progress.html'):
+              (site/name).write_text(page, encoding='utf-8')
+          (site/'.nojekyll').touch()
+          digest = hashlib.sha256((site/'index.html').read_bytes()).hexdigest()
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+              output.write('page_sha256=' + digest + '\n')
+          print('Public site: index.html, progress.html, .nojekyll; SHA-256=' + digest)
+          PY
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Pages首次啟用須由專案管理員在Settings/Pages選GitHub Actions；不索取PAT。
+      - uses: actions/configure-pages@v5
+      - name: Deploy the progress site
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Verify the published page content
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+          EXPECTED_SHA256: ${{ needs.build.outputs.page_sha256 }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, time
+          from urllib.request import Request, urlopen
+
+          url = os.environ['PAGE_URL']
+          expected = os.environ['EXPECTED_SHA256']
+          # Pages/CDN可能短暫仍回舊內容；在有界時間內要求真正HTTP 200與精確hash。
+          for attempt in range(12):
+              try:
+                  request = Request(url, headers={'Cache-Control': 'no-cache'})
+                  with urlopen(request, timeout=20) as response:
+                      body = response.read(2 * 1024 * 1024 + 1)
+                      if response.status != 200 or len(body) > 2 * 1024 * 1024:
+                          raise ValueError('Unexpected page response')
+                  if hashlib.sha256(body).hexdigest() != expected:
+                      raise ValueError('Published page differs from build')
+                  report = dict(check='progress-pages', url=url, source_commit=os.environ['GITHUB_SHA'],
+                                sha256=expected, http_status=200, published=True)
+                  print('::notice::' + json.dumps(report, separators=(',', ':')))
+                  with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as summary:
+                      summary.write('Progress site: ' + url + '\n\nVerified HTTP 200 / SHA-256: `' + expected + '`\n')
+                  break
+              except Exception:
+                  if attempt == 11:
+                      raise
+                  time.sleep(10)
+          PY
