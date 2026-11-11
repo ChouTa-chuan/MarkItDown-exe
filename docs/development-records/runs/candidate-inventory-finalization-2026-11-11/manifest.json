@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 874,
+      "sha256": "3aa64ab95e708fc514fc4cef5faff6e5d237817d0af11e4365d8abb155771d8f"
+    },
+    {
+      "file": "related-88.log",
+      "bytes": 14978,
+      "sha256": "cbeefc2673550cff6695e7bf172944313ab22819f7836771ebd3519daf37957d"
+    }
+  ]
+}

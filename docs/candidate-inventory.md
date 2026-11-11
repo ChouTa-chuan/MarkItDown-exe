@@ -29,3 +29,5 @@ python scripts/check_bundle_provenance.py --profile cpu --bundle out/windows-cpu
 完整逐檔JSON由CI artifact暫存七天；兩條管線會另外輸出有界的公開摘要，保存檔案數、待查數、報告hash及CPU ZIP hash，方便同步開發紀錄。未下載的完整登入報告仍不宣稱永久保存。
 
 程式0.19.1／架構0.4，這次只更新建置檢核。完整候選內容審閱、應用公開授權、Qt對應來源／替換、Microsoft原生再散布及乾淨機／人工仍待完成。歷次原文及模型不修改；技術清單不直接提高C04／C11或產品發行進度。
+
+基本包在安裝、升級及續修測試完成後才產生最後快照，包含安裝封裝新增的`base-install-catalog.json`；清單檢核通過也是整條流程接受的必要條件。清單範圍為基本包候選目錄，Setup本身另由既有安裝報告保存hash與驗收證據。

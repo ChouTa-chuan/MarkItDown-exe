@@ -1,5 +1,9 @@
 # 開發紀錄
 
+**2026-11-11｜基本包清單改於封裝／生命週期完成後產生**
+
+- 檢視發現安裝測試會新增catalog，逐檔快照移至最後，避免清單早於最終內容。新增真catalog產生的反例，新23／相關88通過；[排序修正紀錄](runs/candidate-inventory-finalization-2026-11-11/README.md)保存。前來源683全回歸保留，這次684與Windows接續；C04／C11及7/12不提高。
+
 **2026-11-11｜候選包逐檔清單與CPU ZIP核對準備，程式0.19.1**
 
 - [新22／相關87項](runs/candidate-inventory-prep-2026-11-11/README.md)通過：完整普通檔案大小／hash、可證明來源／原文對照、未知項待查及可信舊報告重驗；CPU ZIP包含額外NOTICE，逐項內容／CRC／descriptor皆核對。新增[中文檢核說明](../candidate-inventory.md)。

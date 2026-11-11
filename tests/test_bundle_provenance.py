@@ -80,7 +80,7 @@ class ProvenanceTests(unittest.TestCase):
         (self.bundle/'_internal/runtime.dll').unlink()
         with self.assertRaisesRegex(ValueError,'Missing or linked'):self.check()
 
-    def test_base_runtime_and_original_metadata_are_checked(self):
+    def base_fixture(self):
         import shutil
         assets=self.bundle/'_internal/desktop_app/data';assets.mkdir(parents=True)
         shutil.copytree(self.assets/'installed',assets/'licenses/installed')
@@ -94,9 +94,27 @@ class ProvenanceTests(unittest.TestCase):
                      assets={p.relative_to(assets).as_posix():sha256(p) for p in assets.rglob('*') if p.is_file()})
         self.save(assets/'build-profile.json',profile)
         self.write(self.bundle/'MarkItDownBase.exe',b'base fixture entry')
+        return assets,profile
+
+    def test_base_runtime_and_original_metadata_are_checked(self):
+        assets,profile=self.base_fixture()
         self.assertTrue(audit(self.bundle,'base','0.19.1')['accepted'])
         profile['local_packages']['extra']='1';self.save(assets/'build-profile.json',profile)
         with self.assertRaisesRegex(ValueError,'Runtime package list mismatch'):audit(self.bundle,'base','0.19.1')
+
+    def test_final_base_inventory_includes_generated_installer_catalog(self):
+        from base_install_catalog import create, CATALOG
+        from candidate_inventory import verify_inventory
+        assets,profile=self.base_fixture()
+        profile.update(id='base',platform='windows',native_ocr_integrated=True)
+        self.save(assets/'build-profile.json',profile)
+        before=audit(self.bundle,'base','0.19.1')['candidate_inventory']
+        create(self.bundle,'0.19.1')
+        with self.assertRaisesRegex(ValueError,'differs'):verify_inventory(self.bundle,before)
+        after=audit(self.bundle,'base','0.19.1')['candidate_inventory']
+        self.assertEqual(after['summary']['files'],before['summary']['files']+1)
+        self.assertIn(CATALOG,[row['path'] for row in after['files']])
+        self.assertTrue(verify_inventory(self.bundle,after))
 
     def test_old_native_manifest_and_duplicate_destinations_are_rejected(self):
         self.native['schema_version']=1;self.save(self.assets/'native/manifest.json',self.native)

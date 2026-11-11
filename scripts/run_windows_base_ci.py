@@ -84,11 +84,6 @@ def main():
         call('pyinstaller', [python,'-m','PyInstaller','--noconfirm','--clean','--distpath',args.output/'dist',
                             '--workpath',args.output/'work','packaging/base.spec'])
         summary['build_verified'] = True
-        call('bundle-provenance', [python,'scripts/check_bundle_provenance.py','--profile','base',
-             '--bundle',args.output/'dist/MarkItDownBase','--report',reports/'bundle-provenance.json'])
-        # 子程序stdout原本收進log；轉送這份有界JSON，讓公開頁也保存實際筆數與report hash。
-        print((reports/'bundle-provenance.log').read_text(encoding='utf-8'))
-        summary['provenance_accepted'] = True
         call('windows-validation', [python,'scripts/check_windows_base.py','--executable',
              args.output/'dist/MarkItDownBase/MarkItDownBase.exe','--output',reports/'acceptance'])
         acceptance = json.loads((reports/'acceptance/windows-acceptance.json').read_text(encoding='utf-8'))
@@ -118,7 +113,12 @@ def main():
                          '--output',args.output/'recovery-work','--reports',reports/'recovery'])
                     recovery=json.loads((reports/'recovery/recovery-lifecycle.json').read_text(encoding='utf-8'))
                     summary['recovery_accepted']=recovery['accepted']
-        summary['overall_accepted']=(summary['validation_accepted'] and (not args.installer or summary['installer_accepted'])
+        # 安裝測試會新增base-install-catalog.json；最後再產生快照，涵蓋封裝後的候選內容。
+        call('bundle-provenance', [python,'scripts/check_bundle_provenance.py','--profile','base',
+             '--bundle',args.output/'dist/MarkItDownBase','--report',reports/'bundle-provenance.json'])
+        print((reports/'bundle-provenance.log').read_text(encoding='utf-8'))
+        summary['provenance_accepted'] = True
+        summary['overall_accepted']=(summary['provenance_accepted'] and summary['validation_accepted'] and (not args.installer or summary['installer_accepted'])
                                     and (not args.previous_source or summary['upgrade_accepted'])
                                     and (not args.recovery or summary['recovery_accepted']))
     except Exception as exc:
