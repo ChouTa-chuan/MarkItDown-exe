@@ -1,0 +1,8 @@
+{
+  "observed_at_utc": "2026-11-11T02:47:04.654122+00:00",
+  "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42943978279",
+  "run_status": "Success",
+  "source_commit": "ad7d227c8b2b7ae67d141ea2f63d6547bd7b52d0",
+  "complete_public_json_parsed": true,
+  "previous_monitor_stopped_on_environment_disconnect": true
+}

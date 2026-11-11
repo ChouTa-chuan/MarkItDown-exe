@@ -17,3 +17,5 @@
 [本地準備156項與原始日誌](development-records/runs/windows-cpu-upgrade-prep-2026-11-10/README.md)已保存；合成ZIP只能驗交易流程，原生accepted須等真Windows、精確OCR版號序列及控制端環境不變均通過。本版完整回歸未跑，611項仍屬0.17.2基線。CI報告七天、不上傳worker／模型／ZIP／Setup，測試金鑰只在記憶體。
 
 取消是published停點觸發Event，不是程序強制終止、斷電或重啟；回復是明確操作，未宣稱任意失敗自動回滾。C04仍2/4、C11仍2/5、導入7/12／歷史19/25；其他profile、最終再散布、乾淨機／人工／GPU與ONNX品質仍待，RAM為軟性預算。
+
+0.19.1另完成[CPU維護程序中斷／獨立恢復六案](windows-cpu-recovery.md)，跨版8案與原功能亦重驗。

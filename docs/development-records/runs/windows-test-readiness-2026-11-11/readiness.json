@@ -1,0 +1,17 @@
+{
+  "source_version": "0.19.1",
+  "tested_source": "ad7d227c8b2b7ae67d141ea2f63d6547bd7b52d0",
+  "base_hosted_accepted": true,
+  "cpu_recovery_accepted": true,
+  "static_profiles_hashes_accepted": true,
+  "license_inventory_hashes_accepted": true,
+  "related_tests_previously_recorded": 162,
+  "related_tests_rerun_this_closeout": false,
+  "full_regression_executed_this_version": false,
+  "clean_machine_accepted": false,
+  "human_ui_accepted": false,
+  "gpu_accepted": false,
+  "test_setup_delivered": false,
+  "release_ready": false,
+  "next": "Recreate locked full test environment and run current-version regression before candidate packaging"
+}

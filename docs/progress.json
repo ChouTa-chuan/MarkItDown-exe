@@ -2,9 +2,9 @@
   "updated": "2026-11-11",
   "environment": "Linux · Python 3.12；Windows2022 CI部分實測；完整回歸基線0.17.2",
   "tests_passed": 610,
-  "headline": "Windows恢復首輪六案接受，162項本地通過，公開摘要截斷待完整重驗",
-  "blocker": "CPU同版／跨版已驗；其他profile與更完整故障恢復、乾淨機／人工／GPU及ONNX品質仍待。",
-  "next": "Windows實跑CPU維護程序中斷與獨立恢復，再接其他profile與乾淨機。",
+  "headline": "0.19.1 Windows基本包與CPU恢復已驗，完整摘要／開發紀錄已補存",
+  "blocker": "CPU維護指定停點的程序終止恢復已驗；其他profile、乾淨機／人工／GPU與ONNX品質仍待。",
+  "next": "重建固定完整測試環境並跑0.19.1全套回歸，接續候選包內容／原文與乾淨機測試準備。",
   "milestones": [
     {
       "id": "m0",
@@ -138,7 +138,7 @@
       "id": "m5",
       "title": "發佈準備",
       "state": "active",
-      "description": "0.17 Windows hosted基本包、安裝／修復／移除、基本跨版及三停點續修已驗；乾淨機、各profile、人工與正式發行待驗。",
+      "description": "0.19.1 Windows hosted基本包、安裝／跨版／三停點續修及CPU獨立維護／跨版／程序恢復已驗；完整回歸、各profile再散布、乾淨機／人工與發行待驗。",
       "checks": [
         {
           "label": "Windows 建置與安裝包",
@@ -256,14 +256,14 @@
     "0.18.0 Windows CPU獨立選配11項及本輪相關143通過，完整本版回歸未執行；頁面610＋1是0.17.2完整基線，不能當作新版全回歸。",
     "0.18.1本地相關147項、Windows原生功能11項與同版維護8案通過；0.18.0原生11項與0.17.2完整611均保留來源版本。",
     "0.19.0相關156項本地通過；Windows跨版8、原功能11與同版8也通過；本版完整回歸未跑，舊611仍屬0.17.2。",
-    "0.19.1相關161項本地通過，Windows程序終止六案待驗；本版完整回歸未跑，舊611屬0.17.2。"
+    "0.19.1相關162項本地及Windows程序終止／獨立恢復六案通過；本版完整回歸未跑，舊611屬0.17.2。"
   ],
   "tests_run": 611,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收7/12。C03 3/4、C04 2/4、C09 3/4、C11 2/5；0.19.0 Windows CPU功能11、同版維護8及兩版升級／回復8案已驗，其他profile／乾淨機／人工／GPU仍待。",
+    "description": "已驗收7/12。C03 3/4、C04 2/4、C09 3/4、C11 2/5；0.19.1基本包安裝6／跨版11／續修3案及CPU功能11／同版8／跨版8／程序恢復6已驗，完整回歸與乾淨機／人工／GPU仍待。",
     "phases": [
       {
         "id": "a",
@@ -411,7 +411,7 @@
             "id": "C11",
             "label": "Windows 完整安裝生命週期",
             "done": false,
-            "acceptance": "C11 2/5：基本包安裝6段／跨版11段已驗，新增三個程序終止停點普通Setup續修3/3、每案app10項；Inno產物精確收據保留、清理未完成；第三項仍待各profile與更完整故障恢復，不視為斷電／自動回滾或乾淨機。 0.18.1獨立CPU同版維護8/8已驗；尚非各profile／元件跨版全過。 0.19 CPU元件1.0.0→1.0.1跨版8案已驗，其他profile與完整故障恢復仍待。",
+            "acceptance": "C11 2/5：0.19.1基本包安裝6段、0.16→0.19.1跨版11段、三停點續修3/3各app10；CI自有暫存清理3/3、真鎖檔拒絕與未知檔保留。CPU功能11／同版8／跨版8／指定停點程序恢復6已驗。其他profile、完整故障恢復、無Python乾淨機與人工仍待；普通Setup無通用暫存清理，未驗斷電／OS重啟。",
             "subchecks": [
               {
                 "label": "Hosted Windows：真安裝／同版修復／移除及資料哨兵保留",
@@ -498,36 +498,36 @@
         "id": "windows_ci",
         "title": "Windows 自動建置驗證",
         "state": "verified",
-        "detail": "0.17.2基本／安裝後app各10、安裝6／跨版11、續修3案各10及CI自有清理3案通過。",
-        "evidence": "CI 42599639656；hosted基本profile，非乾淨機／全profile／人工。"
+        "detail": "0.19.1 Windows基本app10、安裝6、跨版11、三停點續修各10與CI自有暫存清理通過。",
+        "evidence": "CI42943978257；同來源ad7d227，非乾淨機／全profile／人工。"
       },
       {
         "id": "base_installer",
         "title": "基本包安裝／修復／移除CI",
         "state": "verified",
-        "detail": "0.17 Windows安裝／同版修復／移除6段、1652受管檔與合成資料保留已驗；完整C11仍待。",
-        "evidence": "CI 42578549106：安裝後app10項、跨版11段與中斷續修3案分別接受。"
+        "detail": "0.19.1 Windows安裝／同版修復／移除6段及安裝後app10通過，保留合成使用者資料。",
+        "evidence": "CI42943978257；完整C11仍2/5。"
       },
       {
         "id": "base_upgrade",
         "title": "基本包跨版本升級／明確回復",
         "state": "verified",
-        "detail": "真正0.16→0.17跨版升級／明確回復11段通過，原版／升級／回復app各10；中斷續修另驗3案。",
-        "evidence": "CI 42578549106；原版spec／generator獨立建置，各profile與斷電另驗。"
+        "detail": "真正0.16.0→0.19.1跨版升級／明確回復11段，資料保留與拒降版等通過。",
+        "evidence": "CI42943978257；原版獨立來源／spec建置，各profile仍待。"
       },
       {
         "id": "base_recovery",
         "title": "安裝程序中斷續修",
         "state": "verified",
-        "detail": "hosted Windows三停點真正終止自己程序樹，一般Setup明確續修，各10項app／全hash與資料保留通過；Inno產物僅精確收據認列並保留，清理仍待。",
-        "evidence": "CI 42578549106，intent／first-file／payload-written 3/3；各profile仍待。"
+        "detail": "0.19.1 Windows三停點終止自己的安裝程序，普通匹配Setup明確續修3/3，每案app10與合成資料保留。",
+        "evidence": "CI42943978257；指定停點，非斷電／OS重啟。"
       },
       {
         "id": "temporary_cleanup",
         "title": "CI自有中斷產物清理",
         "state": "verified",
-        "detail": "Windows三案CI自有產物清理3/3，實清1份／殘留0；真鎖檔拒絕及未知同類文件保留。普通Setup沒有新增清理入口。",
-        "evidence": "CI 42599639656；同時驗基本app10／安裝6／跨版11／續修三案各10。非乾淨機或全profile。"
+        "detail": "Windows三案CI自有暫存清理3/3，清1／剩0；真鎖檔拒絕與未知檔保留。",
+        "evidence": "CI42943978257；scope僅ci-owned-fault-installer-artifacts，普通Setup無通用清理。"
       },
       {
         "id": "windows_cpu",
@@ -549,6 +549,13 @@
         "state": "verified",
         "detail": "兩版由各自固定來源與獨立venv原生建置；依租約精確核對hello與結果，支援明確升級／回復，未知版拒絕。",
         "evidence": "Windows CI42802066110：跨版8/8；真frozen OCR序列1.0.0→1.0.0→1.0.1→1.0.0→1.0.1，合成資料／cache保留；非全profile或斷電。"
+      },
+      {
+        "id": "cpu_recovery",
+        "title": "CPU維護程序中斷恢復",
+        "state": "verified",
+        "detail": "升級、有效payload修復、移除各兩停點真終止；另一新程序依是否提交恢復並驗原生OCR。",
+        "evidence": "Windows程序終止／恢復6/6；核對自有PID／token，鎖拒絕、journal／staging收尾、重複恢復無動作與合成資料／cache保留。"
       }
     ]
   },
@@ -689,9 +696,9 @@
   },
   "latest_cpu_attempt": {
     "check": "windows-cpu-worker-ci",
-    "commit": "db601e28a00aee740d53d439af2ee580f8981ef0",
-    "source_version": "0.19.0",
-    "recorded_at": "2026-11-10T10:47:49.538975+00:00",
+    "commit": "ad7d227c8b2b7ae67d141ea2f63d6547bd7b52d0",
+    "source_version": "0.19.1",
+    "recorded_at": "2026-11-11T02:09:23.467066+00:00",
     "accepted": true,
     "windows_executed": true,
     "build_verified": true,
@@ -702,7 +709,7 @@
     "release_ready": false,
     "controller_unchanged": true,
     "controller_native_packages": false,
-    "package_sha256": "bb9ea0b323493242c087f2dc8c099654ff07985430da38dbddbc88d20d57dc0d",
+    "package_sha256": "8e7177be6b0ada73619fc34920a36210fcd3282bf2678d1b44c5fe6c8903c623",
     "actual_providers": [
       "CPUExecutionProvider",
       "CPUExecutionProvider",
@@ -712,16 +719,6 @@
     "lifecycle": {
       "accepted": true,
       "checks_passed": 8,
-      "checks": [
-        "existing install revalidated",
-        "incompatible architecture rejected",
-        "active lease blocks repair and removal",
-        "bad archive preserves installation",
-        "cancel after publish restores previous payload",
-        "damaged payload rejected and repaired with real health",
-        "unknown file blocks removal and remains unchanged",
-        "idle removal preserves synthetic data and cache then reinstalls"
-      ],
       "scope": "same-version-cpu-component-maintenance",
       "process_termination_executed": false,
       "cross_version_executed": false,
@@ -736,16 +733,6 @@
     "upgrade": {
       "accepted": true,
       "checks_passed": 8,
-      "checks": [
-        "signed old install and OCR",
-        "cancel published upgrade preserves old OCR",
-        "upgrade records previous version and runs new OCR",
-        "pinned old request rejects before health",
-        "explicit rollback runs retained old worker",
-        "explicit return runs retained new worker",
-        "retire old clears rollback and preserves new",
-        "remove new preserves synthetic document and caches"
-      ],
       "scope": "cpu-component-cross-version",
       "windows_executed": true,
       "transaction_checks_accepted": true,
@@ -755,7 +742,7 @@
       "synthetic_data_preserved": true,
       "archives_unchanged": true,
       "journals_empty": true,
-      "source_version": "0.19.0",
+      "source_version": "0.19.1",
       "previous_version": "1.0.0",
       "current_version": "1.0.1",
       "actual_ocr_versions": [
@@ -769,12 +756,91 @@
       "controller_unchanged": true,
       "controller_native_packages": false,
       "package_sha256": {
-        "1.0.0": "ce97730fe64fe53b003e526dd1ac657aee95a5b14b1bce43a00a32c3a2a30a5d",
-        "1.0.1": "bb9ea0b323493242c087f2dc8c099654ff07985430da38dbddbc88d20d57dc0d"
+        "1.0.0": "ede16b5d4143bbad48c89a950c5c0c204d0617e6d863dfc2d46c2530d4bc85a9",
+        "1.0.1": "8e7177be6b0ada73619fc34920a36210fcd3282bf2678d1b44c5fe6c8903c623"
       },
       "gpu_executed": false,
       "traditional_chinese_quality_passed": false,
       "cross_version_executed": true
+    },
+    "recovery": {
+      "accepted": true,
+      "windows_executed": true,
+      "checks_passed": 6,
+      "process_termination_executed": true,
+      "transaction_checks_accepted": true,
+      "clean_machine_accepted": false,
+      "power_loss_accepted": false,
+      "os_reboot_executed": false,
+      "release_ready": false,
+      "source_version": "0.19.1",
+      "actual_frozen": true,
+      "controller_unchanged": true,
+      "controller_native_packages": false,
+      "gpu_executed": false,
+      "traditional_chinese_quality_passed": false,
+      "cases": [
+        {
+          "operation": "upgrade",
+          "stage": "published",
+          "maintenance_pid": 3440,
+          "recovery_pid": 5700,
+          "termination_exitcode": -15,
+          "active_after_recover": "1.0.0",
+          "version": "1.0.0",
+          "frozen": true
+        },
+        {
+          "operation": "upgrade",
+          "stage": "committed",
+          "maintenance_pid": 7404,
+          "recovery_pid": 2820,
+          "termination_exitcode": -15,
+          "active_after_recover": "1.0.1",
+          "version": "1.0.1",
+          "frozen": true
+        },
+        {
+          "operation": "repair",
+          "stage": "old_moved",
+          "maintenance_pid": 1616,
+          "recovery_pid": 8064,
+          "termination_exitcode": -15,
+          "active_after_recover": "1.0.1",
+          "version": "1.0.1",
+          "frozen": true
+        },
+        {
+          "operation": "repair",
+          "stage": "published",
+          "maintenance_pid": 1012,
+          "recovery_pid": 5960,
+          "termination_exitcode": -15,
+          "active_after_recover": "1.0.1",
+          "version": "1.0.1",
+          "frozen": true
+        },
+        {
+          "operation": "remove",
+          "stage": "old_moved",
+          "maintenance_pid": 7192,
+          "recovery_pid": 2628,
+          "termination_exitcode": -15,
+          "active_after_recover": "1.0.1",
+          "version": "1.0.1",
+          "frozen": true
+        },
+        {
+          "operation": "remove",
+          "stage": "committed",
+          "maintenance_pid": 4708,
+          "recovery_pid": 6416,
+          "termination_exitcode": -15,
+          "active_after_recover": null,
+          "version": "1.0.1",
+          "frozen": true
+        }
+      ]
     },
     "previous_source": "fd69854ee19ba031362750072e22a92bf5463a7c"
   },
@@ -800,9 +866,9 @@
   },
   "latest_windows_cpu": {
     "check": "windows-cpu-worker-ci",
-    "commit": "db601e28a00aee740d53d439af2ee580f8981ef0",
-    "source_version": "0.19.0",
-    "recorded_at": "2026-11-10T10:47:49.538975+00:00",
+    "commit": "ad7d227c8b2b7ae67d141ea2f63d6547bd7b52d0",
+    "source_version": "0.19.1",
+    "recorded_at": "2026-11-11T02:09:23.467066+00:00",
     "accepted": true,
     "windows_executed": true,
     "build_verified": true,
@@ -813,7 +879,7 @@
     "release_ready": false,
     "controller_unchanged": true,
     "controller_native_packages": false,
-    "package_sha256": "bb9ea0b323493242c087f2dc8c099654ff07985430da38dbddbc88d20d57dc0d",
+    "package_sha256": "8e7177be6b0ada73619fc34920a36210fcd3282bf2678d1b44c5fe6c8903c623",
     "actual_providers": [
       "CPUExecutionProvider",
       "CPUExecutionProvider",
@@ -823,16 +889,6 @@
     "lifecycle": {
       "accepted": true,
       "checks_passed": 8,
-      "checks": [
-        "existing install revalidated",
-        "incompatible architecture rejected",
-        "active lease blocks repair and removal",
-        "bad archive preserves installation",
-        "cancel after publish restores previous payload",
-        "damaged payload rejected and repaired with real health",
-        "unknown file blocks removal and remains unchanged",
-        "idle removal preserves synthetic data and cache then reinstalls"
-      ],
       "scope": "same-version-cpu-component-maintenance",
       "process_termination_executed": false,
       "cross_version_executed": false,
@@ -847,16 +903,6 @@
     "upgrade": {
       "accepted": true,
       "checks_passed": 8,
-      "checks": [
-        "signed old install and OCR",
-        "cancel published upgrade preserves old OCR",
-        "upgrade records previous version and runs new OCR",
-        "pinned old request rejects before health",
-        "explicit rollback runs retained old worker",
-        "explicit return runs retained new worker",
-        "retire old clears rollback and preserves new",
-        "remove new preserves synthetic document and caches"
-      ],
       "scope": "cpu-component-cross-version",
       "windows_executed": true,
       "transaction_checks_accepted": true,
@@ -866,7 +912,7 @@
       "synthetic_data_preserved": true,
       "archives_unchanged": true,
       "journals_empty": true,
-      "source_version": "0.19.0",
+      "source_version": "0.19.1",
       "previous_version": "1.0.0",
       "current_version": "1.0.1",
       "actual_ocr_versions": [
@@ -880,30 +926,99 @@
       "controller_unchanged": true,
       "controller_native_packages": false,
       "package_sha256": {
-        "1.0.0": "ce97730fe64fe53b003e526dd1ac657aee95a5b14b1bce43a00a32c3a2a30a5d",
-        "1.0.1": "bb9ea0b323493242c087f2dc8c099654ff07985430da38dbddbc88d20d57dc0d"
+        "1.0.0": "ede16b5d4143bbad48c89a950c5c0c204d0617e6d863dfc2d46c2530d4bc85a9",
+        "1.0.1": "8e7177be6b0ada73619fc34920a36210fcd3282bf2678d1b44c5fe6c8903c623"
       },
       "gpu_executed": false,
       "traditional_chinese_quality_passed": false,
       "cross_version_executed": true
     },
+    "recovery": {
+      "accepted": true,
+      "windows_executed": true,
+      "checks_passed": 6,
+      "process_termination_executed": true,
+      "transaction_checks_accepted": true,
+      "clean_machine_accepted": false,
+      "power_loss_accepted": false,
+      "os_reboot_executed": false,
+      "release_ready": false,
+      "source_version": "0.19.1",
+      "actual_frozen": true,
+      "controller_unchanged": true,
+      "controller_native_packages": false,
+      "gpu_executed": false,
+      "traditional_chinese_quality_passed": false,
+      "cases": [
+        {
+          "operation": "upgrade",
+          "stage": "published",
+          "maintenance_pid": 3440,
+          "recovery_pid": 5700,
+          "termination_exitcode": -15,
+          "active_after_recover": "1.0.0",
+          "version": "1.0.0",
+          "frozen": true
+        },
+        {
+          "operation": "upgrade",
+          "stage": "committed",
+          "maintenance_pid": 7404,
+          "recovery_pid": 2820,
+          "termination_exitcode": -15,
+          "active_after_recover": "1.0.1",
+          "version": "1.0.1",
+          "frozen": true
+        },
+        {
+          "operation": "repair",
+          "stage": "old_moved",
+          "maintenance_pid": 1616,
+          "recovery_pid": 8064,
+          "termination_exitcode": -15,
+          "active_after_recover": "1.0.1",
+          "version": "1.0.1",
+          "frozen": true
+        },
+        {
+          "operation": "repair",
+          "stage": "published",
+          "maintenance_pid": 1012,
+          "recovery_pid": 5960,
+          "termination_exitcode": -15,
+          "active_after_recover": "1.0.1",
+          "version": "1.0.1",
+          "frozen": true
+        },
+        {
+          "operation": "remove",
+          "stage": "old_moved",
+          "maintenance_pid": 7192,
+          "recovery_pid": 2628,
+          "termination_exitcode": -15,
+          "active_after_recover": "1.0.1",
+          "version": "1.0.1",
+          "frozen": true
+        },
+        {
+          "operation": "remove",
+          "stage": "committed",
+          "maintenance_pid": 4708,
+          "recovery_pid": 6416,
+          "termination_exitcode": -15,
+          "active_after_recover": null,
+          "version": "1.0.1",
+          "frozen": true
+        }
+      ]
+    },
     "previous_source": "fd69854ee19ba031362750072e22a92bf5463a7c",
-    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42802066110",
-    "evidence": "development-records/runs/windows-cpu-upgrade-ci-2026-11-10/README.md"
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42943978279",
+    "evidence": "development-records/runs/windows-cpu-recovery-ci-2026-11-11/README.md"
   },
   "latest_windows_cpu_lifecycle": {
     "accepted": true,
     "checks_passed": 8,
-    "checks": [
-      "existing install revalidated",
-      "incompatible architecture rejected",
-      "active lease blocks repair and removal",
-      "bad archive preserves installation",
-      "cancel after publish restores previous payload",
-      "damaged payload rejected and repaired with real health",
-      "unknown file blocks removal and remains unchanged",
-      "idle removal preserves synthetic data and cache then reinstalls"
-    ],
     "scope": "same-version-cpu-component-maintenance",
     "process_termination_executed": false,
     "cross_version_executed": false,
@@ -914,25 +1029,15 @@
     "archive_unchanged": true,
     "payload_verified": true,
     "journals_empty": true,
-    "source_version": "0.19.0",
-    "commit": "db601e28a00aee740d53d439af2ee580f8981ef0",
-    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42802066110",
+    "source_version": "0.19.1",
+    "commit": "ad7d227c8b2b7ae67d141ea2f63d6547bd7b52d0",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42943978279",
     "windows_executed": true,
-    "evidence": "development-records/runs/windows-cpu-upgrade-ci-2026-11-10/README.md"
+    "evidence": "development-records/runs/windows-cpu-recovery-ci-2026-11-11/README.md"
   },
   "latest_windows_cpu_upgrade": {
     "accepted": true,
     "checks_passed": 8,
-    "checks": [
-      "signed old install and OCR",
-      "cancel published upgrade preserves old OCR",
-      "upgrade records previous version and runs new OCR",
-      "pinned old request rejects before health",
-      "explicit rollback runs retained old worker",
-      "explicit return runs retained new worker",
-      "retire old clears rollback and preserves new",
-      "remove new preserves synthetic document and caches"
-    ],
     "scope": "cpu-component-cross-version",
     "windows_executed": true,
     "transaction_checks_accepted": true,
@@ -942,7 +1047,7 @@
     "synthetic_data_preserved": true,
     "archives_unchanged": true,
     "journals_empty": true,
-    "source_version": "0.19.0",
+    "source_version": "0.19.1",
     "previous_version": "1.0.0",
     "current_version": "1.0.1",
     "actual_ocr_versions": [
@@ -956,15 +1061,208 @@
     "controller_unchanged": true,
     "controller_native_packages": false,
     "package_sha256": {
-      "1.0.0": "ce97730fe64fe53b003e526dd1ac657aee95a5b14b1bce43a00a32c3a2a30a5d",
-      "1.0.1": "bb9ea0b323493242c087f2dc8c099654ff07985430da38dbddbc88d20d57dc0d"
+      "1.0.0": "ede16b5d4143bbad48c89a950c5c0c204d0617e6d863dfc2d46c2530d4bc85a9",
+      "1.0.1": "8e7177be6b0ada73619fc34920a36210fcd3282bf2678d1b44c5fe6c8903c623"
     },
     "gpu_executed": false,
     "traditional_chinese_quality_passed": false,
     "cross_version_executed": true,
-    "commit": "db601e28a00aee740d53d439af2ee580f8981ef0",
-    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42802066110",
-    "evidence": "development-records/runs/windows-cpu-upgrade-ci-2026-11-10/README.md",
+    "commit": "ad7d227c8b2b7ae67d141ea2f63d6547bd7b52d0",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42943978279",
+    "evidence": "development-records/runs/windows-cpu-recovery-ci-2026-11-11/README.md",
     "previous_source": "fd69854ee19ba031362750072e22a92bf5463a7c"
+  },
+  "latest_windows_cpu_recovery": {
+    "accepted": true,
+    "windows_executed": true,
+    "checks_passed": 6,
+    "process_termination_executed": true,
+    "transaction_checks_accepted": true,
+    "clean_machine_accepted": false,
+    "power_loss_accepted": false,
+    "os_reboot_executed": false,
+    "release_ready": false,
+    "source_version": "0.19.1",
+    "actual_frozen": true,
+    "controller_unchanged": true,
+    "controller_native_packages": false,
+    "gpu_executed": false,
+    "traditional_chinese_quality_passed": false,
+    "cases": [
+      {
+        "operation": "upgrade",
+        "stage": "published",
+        "maintenance_pid": 3440,
+        "recovery_pid": 5700,
+        "termination_exitcode": -15,
+        "active_after_recover": "1.0.0",
+        "version": "1.0.0",
+        "frozen": true
+      },
+      {
+        "operation": "upgrade",
+        "stage": "committed",
+        "maintenance_pid": 7404,
+        "recovery_pid": 2820,
+        "termination_exitcode": -15,
+        "active_after_recover": "1.0.1",
+        "version": "1.0.1",
+        "frozen": true
+      },
+      {
+        "operation": "repair",
+        "stage": "old_moved",
+        "maintenance_pid": 1616,
+        "recovery_pid": 8064,
+        "termination_exitcode": -15,
+        "active_after_recover": "1.0.1",
+        "version": "1.0.1",
+        "frozen": true
+      },
+      {
+        "operation": "repair",
+        "stage": "published",
+        "maintenance_pid": 1012,
+        "recovery_pid": 5960,
+        "termination_exitcode": -15,
+        "active_after_recover": "1.0.1",
+        "version": "1.0.1",
+        "frozen": true
+      },
+      {
+        "operation": "remove",
+        "stage": "old_moved",
+        "maintenance_pid": 7192,
+        "recovery_pid": 2628,
+        "termination_exitcode": -15,
+        "active_after_recover": "1.0.1",
+        "version": "1.0.1",
+        "frozen": true
+      },
+      {
+        "operation": "remove",
+        "stage": "committed",
+        "maintenance_pid": 4708,
+        "recovery_pid": 6416,
+        "termination_exitcode": -15,
+        "active_after_recover": null,
+        "version": "1.0.1",
+        "frozen": true
+      }
+    ],
+    "commit": "ad7d227c8b2b7ae67d141ea2f63d6547bd7b52d0",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42943978279",
+    "evidence": "development-records/runs/windows-cpu-recovery-ci-2026-11-11/README.md"
+  },
+  "latest_windows_base": {
+    "source_version": "0.19.1",
+    "source_commit": "ad7d227c8b2b7ae67d141ea2f63d6547bd7b52d0",
+    "run_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42943978257",
+    "result": {
+      "check": "windows-base-build-ci",
+      "commit": "ad7d227c8b2b7ae67d141ea2f63d6547bd7b52d0",
+      "build_verified": true,
+      "validation_accepted": true,
+      "clean_machine_accepted": false,
+      "release_ready": false,
+      "installer_accepted": true,
+      "upgrade_accepted": true,
+      "overall_accepted": true,
+      "recovery_accepted": true
+    },
+    "acceptance": {
+      "check": "windows-base-ci",
+      "accepted": true,
+      "windows_executed": true,
+      "clean_machine_accepted": false,
+      "release_ready": false,
+      "source_version": "0.19.1",
+      "python_utf8_mode": true,
+      "gui": {
+        "opened": true,
+        "normal_exit": true,
+        "returncode": 0,
+        "close_requests": 3
+      },
+      "checks_passed": 10
+    },
+    "installer": {
+      "check": "C11-base-installer-smoke",
+      "accepted": true,
+      "windows_executed": true,
+      "install_verified": true,
+      "repair_verified": true,
+      "uninstall_verified": true,
+      "user_data_preserved": true,
+      "shortcut_verified": true,
+      "clean_machine_accepted": false,
+      "upgrade_verified": false,
+      "rollback_verified": false,
+      "full_c11_complete": false,
+      "release_ready": false,
+      "source_version": "0.19.1",
+      "bundle_catalog_sha256": "0893c8db099a99f0df959c9fe913eea4b50d903bf4d7ec8318d538ff2626b30a",
+      "catalog_files": 1652,
+      "compiler_sha256": "eb6f4410c8db367a5f74127e8025ad2ccacc0afabbe783959d237df3050f97fb",
+      "compiler_license_sha256": "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c",
+      "installer_sha256": "cf346e550252647c6d1126837d0287a189ccdca684044374c76be2dfee80a65d",
+      "installed_app_checks": 10,
+      "checks_passed": 6
+    },
+    "upgrade": {
+      "check": "C11-base-cross-version",
+      "accepted": true,
+      "windows_executed": true,
+      "upgrade_verified": true,
+      "rollback_verified": true,
+      "downgrade_blocked": true,
+      "obsolete_files_removed": true,
+      "user_data_preserved": true,
+      "all_profiles_accepted": false,
+      "automatic_failure_rollback": false,
+      "full_c11_complete": false,
+      "clean_machine_accepted": false,
+      "release_ready": false,
+      "source_version": "0.19.1",
+      "previous_version": "0.16.0",
+      "previous_commit": "990e600aed9e26011b77d46dfe5f9e5bb13ecc7a",
+      "compiler_sha256": "eb6f4410c8db367a5f74127e8025ad2ccacc0afabbe783959d237df3050f97fb",
+      "upgraded_app_checks": 10,
+      "rolled_back_app_checks": 10,
+      "checks_passed": 11
+    },
+    "recovery": {
+      "check": "C11-base-interruption-resume",
+      "accepted": true,
+      "windows_executed": true,
+      "process_termination_verified": true,
+      "pending_app_blocked": true,
+      "explicit_resume_required": true,
+      "user_data_preserved": true,
+      "power_loss_accepted": false,
+      "all_profiles_accepted": false,
+      "automatic_failure_rollback": false,
+      "full_c11_complete": false,
+      "clean_machine_accepted": false,
+      "release_ready": false,
+      "test_only_fault_installer": true,
+      "interruption_cases": 3,
+      "resumed_app_checks": [
+        10,
+        10,
+        10
+      ],
+      "retained_inno_temporaries": 0,
+      "temporary_cleanup_complete": true,
+      "cleaned_inno_temporaries": 1,
+      "temporary_cleanup_cases": 3,
+      "unknown_temporary_preserved": true,
+      "locked_temporary_rejected": true,
+      "temporary_cleanup_scope": "ci-owned-fault-installer-artifacts",
+      "source_version": "0.19.1",
+      "previous_version": "0.16.0",
+      "checks_passed": 4
+    },
+    "evidence": "development-records/runs/windows-test-readiness-2026-11-11/README.md"
   }
 }

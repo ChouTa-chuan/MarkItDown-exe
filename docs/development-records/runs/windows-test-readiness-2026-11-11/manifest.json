@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "windows_executed": true,
+  "tested_commit": "ad7d227c8b2b7ae67d141ea2f63d6547bd7b52d0",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1878,
+      "sha256": "eb8cfa2426b0731fd1aad8568b95bf1ca7e07ed4020f843c0b6da0a5c5e3444b"
+    },
+    {
+      "file": "base-profiles.log",
+      "bytes": 308,
+      "sha256": "60f4d04e67ddb2356cc4afea6ee669302d131723567341544a94a26097ec9171"
+    },
+    {
+      "file": "browser-cpu-closeout-first.log",
+      "bytes": 117,
+      "sha256": "57dba4d7eb8184055b13bf866291d0fb6c18caa17c4dcd73acf5a7fe2a3b4ac5"
+    },
+    {
+      "file": "cpu-profiles.log",
+      "bytes": 31,
+      "sha256": "c6cdaf3fc44749c0c9f4e049b9cb80bca405ec6f2d9214af64cfd6f901fb61e3"
+    },
+    {
+      "file": "document-checks.json",
+      "bytes": 350,
+      "sha256": "ee3c1d57f112201d8fe32f387473cfa04c1051d66e526ef1fea064053db429cb"
+    },
+    {
+      "file": "historical-integrity.json",
+      "bytes": 177,
+      "sha256": "8665d37fd787f240013c06d4acf705455bc0f8644a2f31b0090f673f71673cd2"
+    },
+    {
+      "file": "license-inventory.log",
+      "bytes": 58,
+      "sha256": "1ff13ac9cf6c136a178dbe90ea70fd665031ecd983ee8bf5c721ba0d541443c4"
+    },
+    {
+      "file": "readiness.json",
+      "bytes": 651,
+      "sha256": "004a0a20aef9c53d90d454586caa7990d8c565e55f30a8a82b6bf7718a5a4e5f"
+    },
+    {
+      "file": "screenshots-cpu-closeout-first/components-mobile.png",
+      "bytes": 1046228,
+      "sha256": "cccde9fae464326c08d0cf807357919d7bec43495c19d9b2049ab154a3c09707"
+    },
+    {
+      "file": "screenshots-cpu-closeout-first/components.png",
+      "bytes": 1044255,
+      "sha256": "96a0b77bf1d09528b51322bb36b935c45068296750725a85f0329d4aac2ec81b"
+    },
+    {
+      "file": "screenshots-cpu-closeout-first/milestones.png",
+      "bytes": 350914,
+      "sha256": "127ad217e762fc3d96f0e9f9f2b903645d84dbbd94a15f0bc2e529df045f7fbb"
+    },
+    {
+      "file": "screenshots-cpu-closeout-first/mobile.png",
+      "bytes": 367103,
+      "sha256": "b913f1f03131981e9bb200ef86c671cea5b0a07e2eed2003d595d0c65929d2e5"
+    },
+    {
+      "file": "screenshots-cpu-closeout-first/modules.png",
+      "bytes": 504438,
+      "sha256": "1c199a247dfd0b0923bc2eab57f464d0a42ecaa326762eeba44ccd2f72d88243"
+    },
+    {
+      "file": "source-comparison.txt",
+      "bytes": 249,
+      "sha256": "05e66adcf842e051ea8a494fe977e3d38ec58086fd4c7de646b51e0e11f4a663"
+    },
+    {
+      "file": "windows-base-latest.json",
+      "bytes": 3592,
+      "sha256": "9cf86b1d01068a96b3b02fbf0cc84112d0f858003b877af0d970dced7d343963"
+    },
+    {
+      "file": "windows-base-public-summaries.json",
+      "bytes": 3519,
+      "sha256": "3264cb922b647aa1ceddcef750c3baf77dea6f8634575f493fc499a26afc4cf3"
+    },
+    {
+      "file": "windows-base-run-page.txt",
+      "bytes": 178918,
+      "sha256": "48fa7ca267a4b68a9d411d19730ee307e2ea15ce2cd0ad8e03f1371e6a8dd805"
+    }
+  ]
+}

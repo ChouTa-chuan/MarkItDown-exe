@@ -1,5 +1,17 @@
 # 開發紀錄
 
+**2026-11-11｜補存同版基本包CI並盤點第一版測試安裝包，0.19.1**
+
+- [同來源ad7d227的Windows基本包CI](runs/windows-test-readiness-2026-11-11/README.md)公開原頁／摘要已保存：app10、安裝6、真0.16→0.19.1跨版11及續修3/3每案app10，CI自有清理3/3／清1剩0、鎖檔拒絕／未知檔保留均接受。並非本次重新建置；hosted仍非乾淨機。
+- 離線profile／授權hash驗證通過，CPU24／5、基本runtime38／Windows build49、上位58套件與214份notice／metadata；不當最終再散布核准。新增[測試安裝包準備](../windows-test-build-readiness.md)，列本版完整回歸、候選內容／原文與交付、乾淨機／人工及GPU品質的缺口與順序；目前不用使用者安裝。
+- 更新首頁／視覺卡與C11文字，清除過時的「CI清理未完成」描述；C11仍2/5、導入7/12、歷史19/25。本次僅驗文件／原文／閉包與瀏覽器，未重跑162或全回歸，無產品或環境發布。
+
+**2026-11-11｜完成Windows CPU程序終止／獨立恢復六案，程式0.19.1**
+
+- [真正Windows2022 CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42943978279)（ad7d227）恢復6/6、功能11/11、同版8/8、跨版8/8接受。升級／有效payload修復／移除六停點，自己spawn的安裝程序真kill，另一程序recover後驗精確版號／frozen／CPU及固定英文辨識；全hash、active、交易／staging收尾、重複恢復與合成資料／快取均符合預期。
+- [公開原頁、完整精簡JSON、來源對照與視覺紀錄](runs/windows-cpu-recovery-ci-2026-11-11/README.md)保存；首輪4096字元截斷原文、初輪負例fixture失敗與本地162項日誌都保留，沒有補造缺字。完整登入報告七天未下載，本版完整回歸未跑。
+- C04仍2/4、C11仍2/5、導入7/12；3073份既有紀錄／資產／鎖及28圖固定。其他profile、乾淨機／人工、斷電／OS重啟及GPU／品質仍待，無產品發行。
+
 **2026-11-11｜首輪Windows六案接受，縮短公開摘要避免截斷，0.19.1**
 
 - 首run42941852540（fc31d81）root與recovery接受true／六案已見公開註記，但GitHub在4096字元截斷，無法完整讀取後續明細。[原頁、原prefix與直接觀察欄位](runs/windows-cpu-recovery-summary-2026-11-11/README.md)保存，不猜補缺字。

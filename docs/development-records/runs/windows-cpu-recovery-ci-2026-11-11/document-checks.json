@@ -1,0 +1,13 @@
+{
+  "relative_links_checked": 238,
+  "failures": [],
+  "progress_browser_accepted": true,
+  "protected_baseline": "ad7d227",
+  "historical_files_unchanged": 3090,
+  "architecture_snapshots_unchanged": 28,
+  "milestone_checks": "19/25",
+  "component_rollout": "7/12",
+  "C04": "2/4",
+  "C11": "2/5",
+  "full_regression_executed_this_version": false
+}
