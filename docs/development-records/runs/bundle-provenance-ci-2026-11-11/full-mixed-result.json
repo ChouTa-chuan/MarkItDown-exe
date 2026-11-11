@@ -1,0 +1,14 @@
+{
+  "source_version": "0.19.1",
+  "run": 661,
+  "passed": 660,
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "expected_failures": [
+    "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+  ],
+  "unexpected_successes": [],
+  "assertions_accepted": true,
+  "process_exit_verified": false
+}

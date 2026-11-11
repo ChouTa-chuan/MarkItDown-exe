@@ -1,0 +1,151 @@
+{
+  "check": "windows-cpu-worker-ci",
+  "commit": "70f03f00cc77db4504b9072ae0b94372465f95a9",
+  "source_version": "0.19.1",
+  "recorded_at": "2026-11-11T06:16:20.297539+00:00",
+  "accepted": true,
+  "windows_executed": true,
+  "build_verified": true,
+  "checks_passed": 11,
+  "clean_machine_accepted": false,
+  "gpu_executed": false,
+  "traditional_chinese_quality_passed": false,
+  "release_ready": false,
+  "provenance_accepted": true,
+  "controller_unchanged": true,
+  "controller_native_packages": false,
+  "package_sha256": "a96be6b3b4ec798b1c0ddf101be4b87a138c099491c6504fae9fb5a0d3b354bc",
+  "actual_providers": [
+    "CPUExecutionProvider",
+    "CPUExecutionProvider",
+    "CPUExecutionProvider"
+  ],
+  "installed_notice_packages": 26,
+  "lifecycle": {
+    "accepted": true,
+    "checks_passed": 8,
+    "scope": "same-version-cpu-component-maintenance",
+    "process_termination_executed": false,
+    "cross_version_executed": false,
+    "clean_machine_accepted": false,
+    "gpu_executed": false,
+    "release_ready": false,
+    "synthetic_data_preserved": true,
+    "archive_unchanged": true,
+    "payload_verified": true,
+    "journals_empty": true
+  },
+  "upgrade": {
+    "accepted": true,
+    "checks_passed": 8,
+    "scope": "cpu-component-cross-version",
+    "windows_executed": true,
+    "transaction_checks_accepted": true,
+    "process_termination_executed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "synthetic_data_preserved": true,
+    "archives_unchanged": true,
+    "journals_empty": true,
+    "source_version": "0.19.1",
+    "previous_version": "1.0.0",
+    "current_version": "1.0.1",
+    "actual_ocr_versions": [
+      "1.0.0",
+      "1.0.0",
+      "1.0.1",
+      "1.0.0",
+      "1.0.1"
+    ],
+    "actual_frozen": true,
+    "controller_unchanged": true,
+    "controller_native_packages": false,
+    "package_sha256": {
+      "1.0.0": "518367e86cee3bdff583be8b1ab79febf34e269142b4b8802c9a620c1460264b",
+      "1.0.1": "a96be6b3b4ec798b1c0ddf101be4b87a138c099491c6504fae9fb5a0d3b354bc"
+    },
+    "gpu_executed": false,
+    "traditional_chinese_quality_passed": false,
+    "cross_version_executed": true
+  },
+  "recovery": {
+    "accepted": true,
+    "windows_executed": true,
+    "checks_passed": 6,
+    "process_termination_executed": true,
+    "transaction_checks_accepted": true,
+    "clean_machine_accepted": false,
+    "power_loss_accepted": false,
+    "os_reboot_executed": false,
+    "release_ready": false,
+    "source_version": "0.19.1",
+    "actual_frozen": true,
+    "controller_unchanged": true,
+    "controller_native_packages": false,
+    "gpu_executed": false,
+    "traditional_chinese_quality_passed": false,
+    "cases": [
+      {
+        "operation": "upgrade",
+        "stage": "published",
+        "maintenance_pid": 2344,
+        "recovery_pid": 4724,
+        "termination_exitcode": -15,
+        "active_after_recover": "1.0.0",
+        "version": "1.0.0",
+        "frozen": true
+      },
+      {
+        "operation": "upgrade",
+        "stage": "committed",
+        "maintenance_pid": 7260,
+        "recovery_pid": 976,
+        "termination_exitcode": -15,
+        "active_after_recover": "1.0.1",
+        "version": "1.0.1",
+        "frozen": true
+      },
+      {
+        "operation": "repair",
+        "stage": "old_moved",
+        "maintenance_pid": 4332,
+        "recovery_pid": 1240,
+        "termination_exitcode": -15,
+        "active_after_recover": "1.0.1",
+        "version": "1.0.1",
+        "frozen": true
+      },
+      {
+        "operation": "repair",
+        "stage": "published",
+        "maintenance_pid": 5596,
+        "recovery_pid": 7716,
+        "termination_exitcode": -15,
+        "active_after_recover": "1.0.1",
+        "version": "1.0.1",
+        "frozen": true
+      },
+      {
+        "operation": "remove",
+        "stage": "old_moved",
+        "maintenance_pid": 6428,
+        "recovery_pid": 6160,
+        "termination_exitcode": -15,
+        "active_after_recover": "1.0.1",
+        "version": "1.0.1",
+        "frozen": true
+      },
+      {
+        "operation": "remove",
+        "stage": "committed",
+        "maintenance_pid": 2840,
+        "recovery_pid": 7328,
+        "termination_exitcode": -15,
+        "active_after_recover": null,
+        "version": "1.0.1",
+        "frozen": true
+      }
+    ]
+  },
+  "previous_source": "fd69854ee19ba031362750072e22a92bf5463a7c"
+}

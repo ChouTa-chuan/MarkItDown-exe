@@ -1,0 +1,17 @@
+{
+  "check": "windows-cpu-worker-ci",
+  "commit": "2e88e2711de683b6a9ba9c2a584125ea77019662",
+  "source_version": "0.19.1",
+  "recorded_at": "2026-11-11T06:14:06.790073+00:00",
+  "accepted": false,
+  "windows_executed": true,
+  "build_verified": true,
+  "checks_passed": 0,
+  "clean_machine_accepted": false,
+  "gpu_executed": false,
+  "traditional_chinese_quality_passed": false,
+  "release_ready": false,
+  "failed_step": "bundle-provenance",
+  "error": "CalledProcessError: Command '['D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows-cpu\\\\build-env\\\\Scripts\\\\python.exe', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\scripts\\\\check_bundle_provenance.py', '--profile', 'cpu', '--bundle', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows-cpu\\\\dist\\\\MarkItDownOCRWorker', '--report', 'D:\\\\a\\\\MarkItDown-exe\\\\MarkItDown-exe\\\\out\\\\windows-cpu\\\\reports\\\\bundle-provenance.json']' returned non-zero exit status 1.",
+  "failure_detail": "::error::{\"check\":\"bundle-provenance\",\"profile\":\"cpu\",\"source_version\":\"0.19.1\",\"accepted\":false,\"release_ready\":false,\"report_sha256\":\"3516cc6fce18ca3236a3a5e76022dc704a9f144226c82a2eec06b0103d5c94bd\",\"native_files\":0,\"packages\":0,\"source_commit\":\"2e88e2711de683b6a9ba9c2a584125ea77019662\",\"error\":\"ValueError: Unsafe manifest path: _internal/Shapely.libs\\\\geos_c-6dd9fd915eef8a7928285416bef1e666.dll\"}\r\n"
+}

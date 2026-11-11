@@ -1,0 +1,10 @@
+{
+  "source_commit": "70f03f00cc77db4504b9072ae0b94372465f95a9",
+  "version": "0.19.1",
+  "architecture": "0.4",
+  "product_source_changed": false,
+  "scope": "Own build/provenance scripts and tests; installed environment and public OCR models unchanged from previous full run",
+  "environment_reference": "../full-regression-0.19.1-2026-11-11/README.md",
+  "full_ci_artifact_downloaded": false,
+  "artifact_download_observation": "Existing gh api read attempt returned Forbidden; public pages and annotations saved instead"
+}

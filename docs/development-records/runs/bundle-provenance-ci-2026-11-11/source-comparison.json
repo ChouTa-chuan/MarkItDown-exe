@@ -1,0 +1,14 @@
+{
+  "tested_source": "70f03f00cc77db4504b9072ae0b94372465f95a9",
+  "files": {
+    "scripts/build_provenance.py": "628066064d9664a3c5a5f99e16a525f82055b690a996082e32600de90cd5f410",
+    "scripts/check_bundle_provenance.py": "a42bdc04c056cacfeb0a9e9c5d9e73dc2eb1a30fdd86e5b5e78eed50267ee819",
+    "scripts/prepare_base_assets.py": "e6b2eef5b54d116adef14f9701452e5713a46831e6d3865b82cff2f06b03b08a",
+    "scripts/prepare_worker_assets.py": "460288ef90f6298ac5163fb030cac86b434f06df320631af5a663667224018ab",
+    "scripts/run_windows_base_ci.py": "2aea896620c75511e0f1ecf1d7d0f9a7480731223e734a9788acc684bc6fde58",
+    "scripts/run_windows_cpu_ci.py": "4540348f7217eaf822aa6d8ec5a7845f731ee07e578ee7a4a80cf8024c7568de",
+    "tests/test_bundle_provenance.py": "591f1ef6d656ad0169db121a452e270fb2c85dfc386fd3e79e3dc2232a7409fc"
+  },
+  "product_tree_unchanged_from": "fa792b0b5848cae63a5bd62cc68cdba343b784c3",
+  "product_diff": ""
+}

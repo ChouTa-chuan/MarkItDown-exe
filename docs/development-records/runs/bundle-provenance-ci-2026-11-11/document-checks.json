@@ -1,0 +1,11 @@
+{
+  "markdown_files": [
+    "README.md",
+    "docs/bundle-provenance.md",
+    "docs/windows-test-build-readiness.md",
+    "docs/development-records/runs/bundle-provenance-ci-2026-11-11/README.md"
+  ],
+  "relative_links_checked": 56,
+  "errors": [],
+  "accepted": true
+}

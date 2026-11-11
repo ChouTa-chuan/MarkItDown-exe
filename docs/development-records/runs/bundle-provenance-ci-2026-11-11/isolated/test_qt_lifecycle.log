@@ -1,0 +1,8 @@
+test_busy_close_cancels_then_destroys_after_thread_finishes (test_qt_lifecycle.QtLifecycleTests.test_busy_close_cancels_then_destroys_after_thread_finishes) ... ok
+test_entrypoint_destroys_closed_component_dialog_with_parent (test_qt_lifecycle.QtLifecycleTests.test_entrypoint_destroys_closed_component_dialog_with_parent) ... ok
+test_entrypoint_destroys_closed_main_window (test_qt_lifecycle.QtLifecycleTests.test_entrypoint_destroys_closed_main_window) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.881s
+
+OK

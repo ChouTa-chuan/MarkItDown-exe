@@ -1,0 +1,24 @@
+test_bad_encoding_requests_ocr (test_pdf_pipeline.PageDecisionTests.test_bad_encoding_requests_ocr) ... ok
+test_blank_page (test_pdf_pipeline.PageDecisionTests.test_blank_page) ... ok
+test_column_analysis_honors_cancellation (test_pdf_pipeline.PageDecisionTests.test_column_analysis_honors_cancellation) ... ok
+test_column_band_limit_preserves_original_order (test_pdf_pipeline.PageDecisionTests.test_column_band_limit_preserves_original_order) ... ok
+test_mixed_content_has_warning (test_pdf_pipeline.PageDecisionTests.test_mixed_content_has_warning) ... ok
+test_scan_routes_to_ocr (test_pdf_pipeline.PageDecisionTests.test_scan_routes_to_ocr) ... ok
+test_short_native_title_does_not_require_ocr (test_pdf_pipeline.PageDecisionTests.test_short_native_title_does_not_require_ocr) ... ok
+test_cancel_during_pdf_export_cleans_output (test_pdf_pipeline.PdfPipelineTests.test_cancel_during_pdf_export_cleans_output) ... ok
+test_english_scan_and_native_page_are_routed_separately (test_pdf_pipeline.PdfPipelineTests.test_english_scan_and_native_page_are_routed_separately) ... ok
+test_explicit_paths_work_without_environment_variable (test_pdf_pipeline.PdfPipelineTests.test_explicit_paths_work_without_environment_variable) ... ok
+test_full_width_headings_separate_two_column_bands (test_pdf_pipeline.PdfPipelineTests.test_full_width_headings_separate_two_column_bands) ... ok
+test_missing_ocr_engine_fails_without_partial_output (test_pdf_pipeline.PdfPipelineTests.test_missing_ocr_engine_fails_without_partial_output) ... ok
+test_native_table_extracted_without_duplicate_cells (test_pdf_pipeline.PdfPipelineTests.test_native_table_extracted_without_duplicate_cells) ... ok
+test_ocr_retry_is_bounded_and_warns (test_pdf_pipeline.PdfPipelineTests.test_ocr_retry_is_bounded_and_warns) ... ok
+test_scan_improves_over_native_baseline (test_pdf_pipeline.PdfPipelineTests.test_scan_improves_over_native_baseline) ... ok
+test_sparse_chinese_image_keeps_both_lines (test_pdf_pipeline.PdfPipelineTests.test_sparse_chinese_image_keeps_both_lines) ... ok
+test_traditional_chinese_scan (test_pdf_pipeline.PdfPipelineTests.test_traditional_chinese_scan) ... ok
+test_two_columns_read_left_then_right (test_pdf_pipeline.PdfPipelineTests.test_two_columns_read_left_then_right) ... ok
+test_utf8_language_probe_and_real_ocr_with_cp1252_default (test_pdf_pipeline.PdfPipelineTests.test_utf8_language_probe_and_real_ocr_with_cp1252_default) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 3.421s
+
+OK
