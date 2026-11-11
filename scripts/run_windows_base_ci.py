@@ -86,6 +86,8 @@ def main():
         summary['build_verified'] = True
         call('bundle-provenance', [python,'scripts/check_bundle_provenance.py','--profile','base',
              '--bundle',args.output/'dist/MarkItDownBase','--report',reports/'bundle-provenance.json'])
+        # 子程序stdout原本收進log；轉送這份有界JSON，讓公開頁也保存實際筆數與report hash。
+        print((reports/'bundle-provenance.log').read_text(encoding='utf-8'))
         summary['provenance_accepted'] = True
         call('windows-validation', [python,'scripts/check_windows_base.py','--executable',
              args.output/'dist/MarkItDownBase/MarkItDownBase.exe','--output',reports/'acceptance'])

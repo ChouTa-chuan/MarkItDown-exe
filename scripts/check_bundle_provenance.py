@@ -9,6 +9,7 @@ import sys
 import tomllib
 
 from build_provenance import sha256
+from candidate_inventory import component_inventory, inventory, verify_inventory
 
 
 def contained_file(root, value):
@@ -79,7 +80,17 @@ def audit(bundle, profile, expected_version):
                 raise ValueError('Empty installed notice: ' + notice)
         if not notices:
             pending.append(name)
-        packages.append(dict(name=name, version=row['version'], original_notice_files=len(notices)))
+        # 版本與授權宣告保留原metadata字串，不能把License欄位當作已核准SPDX。
+        prefix=assets.relative_to(bundle).as_posix()
+        references=[]
+        for notice in dict.fromkeys([*notices,*[p['path'] for p in row.get('supplemental_sources',[])]]):
+            file=contained_file(assets,notice)
+            references.append(dict(path=prefix+'/'+notice,bytes=file.stat().st_size,sha256=sha256(file)))
+        meta_path=metadata_prefix+name+'/METADATA'
+        packages.append(dict(name=name, version=row['version'], original_notice_files=len(notices),
+            metadata_path=prefix+'/'+meta_path,metadata_sha256=sha256(contained_file(assets,meta_path)),
+            declared_license_expression=value.get('License-Expression'),declared_license=value.get('License'),
+            declared_license_files=value.get_all('License-File',[]),notices=references))
     if len({p['name'] for p in packages}) != len(packages):
         raise ValueError('Duplicate package provenance')
     if next((p['version'] for p in packages if p['name']=='markitdown-desktop'), None) != expected_version:
@@ -103,14 +114,20 @@ def audit(bundle, profile, expected_version):
                              bytes_changed=digest!=row['source_sha256'], origin=row['origin'],
                              distributions=row['distributions']))
     entry = contained_file(bundle, 'MarkItDownBase.exe' if profile=='base' else 'MarkItDownOCRWorker.exe')
-    return dict(check='bundle-provenance', schema_version=1, profile=profile, source_version=expected_version,
+    prefix=assets.relative_to(bundle).as_posix()
+    contents=inventory(bundle,packages,binaries,{**loader,'prefix':bootloader.relative_to(assets).as_posix()},
+                       prefix,python_license,entry.relative_to(bundle).as_posix())
+    verify_inventory(bundle,contents)
+    return dict(check='bundle-provenance', schema_version=2, profile=profile, source_version=expected_version,
                 source_commit=os.environ.get('GITHUB_SHA'), accepted=True, native_execution_performed=False,
                 host_platform=sys.platform, packages=packages, packages_without_wheel_notice=pending,
                 bootloader=loader, entry_sha256=sha256(entry), native_files=binaries,
                 transformed_binaries=sum(p['bytes_changed'] for p in binaries),
+                candidate_inventory=contents,inventory_reverified=True,
                 scope='Bundled provenance consistency; CPU package list describes build environment, not runtime closure',
                 pending_review=['Application license', 'Qt obligations', 'Microsoft/native runtimes',
-                                'Final redistribution review', 'Complete candidate inventory and clean-machine acceptance'],
+                                'Final redistribution review', 'Unresolved file ownership and archive member SBOM',
+                                'Clean-machine acceptance'],
                 redistribution_approved=False, release_ready=False)
 
 
@@ -119,12 +136,29 @@ def main():
     parser.add_argument('--bundle', type=Path, required=True)
     parser.add_argument('--profile', choices=['base','cpu'], required=True)
     parser.add_argument('--report', type=Path, required=True)
+    parser.add_argument('--verify-inventory', type=Path, help='以可信的既有報告重驗同一候選包，拒絕任何增刪改名或內容變更')
+    parser.add_argument('--package-directory', type=Path, help='CPU候選ZIP／component.json／NOTICE.txt所在目錄')
     args=parser.parse_args()
     if args.report.exists() or args.report.resolve().is_relative_to(args.bundle.resolve()):
         raise ValueError('Report must be fresh and outside bundle')
     version=tomllib.loads((Path(__file__).resolve().parents[1]/'pyproject.toml').read_text())['project']['version']
     try:
+        if args.package_directory and args.profile!='cpu':raise ValueError('Package directory requires CPU profile')
+        if args.verify_inventory:
+            if args.verify_inventory.resolve().is_relative_to(args.bundle.resolve()):
+                raise ValueError('Previous report must be outside bundle')
+            previous=json.loads(args.verify_inventory.read_text(encoding='utf-8'))
+            if previous['profile']!=args.profile or previous['source_version']!=version:
+                raise ValueError('Previous inventory profile/version mismatch')
+            verify_inventory(args.bundle,previous['candidate_inventory'])
+            if 'package_inventory' in previous:
+                if not args.package_directory:raise ValueError('Previous inventory requires CPU package directory')
+                if sha256(args.package_directory/'onnx-cpu-ocr-development.zip')!=previous['package_inventory']['archive_sha256']:
+                    raise ValueError('Previous CPU archive fingerprint mismatch')
         report=audit(args.bundle, args.profile, version)
+        if args.package_directory:
+            report['package_inventory']=component_inventory(args.package_directory,report['candidate_inventory'])
+        if args.verify_inventory:report['previous_inventory_report_sha256']=sha256(args.verify_inventory)
     except Exception as exc:
         report=dict(check='bundle-provenance', profile=args.profile, source_version=version,
                     accepted=False, error=type(exc).__name__+': '+str(exc), release_ready=False)
@@ -133,6 +167,12 @@ def main():
     brief={k:report[k] for k in ('check','profile','source_version','accepted','release_ready')}
     brief.update(report_sha256=sha256(args.report), native_files=len(report.get('native_files',[])),
                  packages=len(report.get('packages',[])), source_commit=os.environ.get('GITHUB_SHA'))
+    if 'candidate_inventory' in report:
+        brief['inventory']=report['candidate_inventory']['summary']
+        brief['inventory_reverified']=report['inventory_reverified']
+    if 'package_inventory' in report:
+        brief['package_inventory']=report['package_inventory']['summary']
+        brief['package_sha256']=report['package_inventory']['archive_sha256']
     if 'error' in report:brief['error']=report['error'][:500]
     message=json.dumps(brief, ensure_ascii=False, separators=(',',':'))
     if os.environ.get('GITHUB_ACTIONS')=='true':
