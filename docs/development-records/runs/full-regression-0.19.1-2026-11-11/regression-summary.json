@@ -1,0 +1,30 @@
+{
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "source_commit": "ca5a296e84cdbfbfb9912f5d846df138f6fea801",
+  "date_taipei": "2026-11-11",
+  "accepted": true,
+  "run": 645,
+  "passed": 644,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "expected_failures": 1,
+  "expected_failure_ids": [
+    "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+  ],
+  "mixed_assertions_accepted": true,
+  "mixed_process_exit": 0,
+  "isolated_modules": 41,
+  "isolated_all_exits_zero": true,
+  "windows_executed_this_run": false,
+  "gpu_executed": false,
+  "traditional_chinese_onnx_quality_passed": false,
+  "clean_machine_accepted": false,
+  "release_ready": false,
+  "invalid_harness_attempt": {
+    "accepted": false,
+    "excluded_from_regression_result": true,
+    "reason": "Missing multiprocessing __main__ guard in temporary test driver; stopped own runner and rebuilt guarded driver"
+  }
+}

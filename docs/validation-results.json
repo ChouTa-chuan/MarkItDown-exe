@@ -1,16 +1,16 @@
 {
-  "recorded_at": "2026-11-09T22:40:30.706671+00:00",
+  "recorded_at": "2026-11-11T03:14:58.601742+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 611,
-    "passed": 610,
+    "run": 645,
+    "passed": 644,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0,
-    "method": "Mixed process exit0 and36 isolated module processes exit0; known ONNX quality expected failure retained."
+    "method": "Guarded mixed process exit0 and41 isolated module processes exit0; strict known ONNX quality expected failure retained."
   },
-  "command": "TESSDATA_PREFIX=<verified-models> PYTHONPATH=src QT_QPA_PLATFORM=offscreen python scripts/check_isolated_tests.py --expected-count 611 --output <fresh-directory>",
+  "command": "Verified TESSDATA_PREFIX + PYTHONPATH=src:tests + QT_QPA_PLATFORM=offscreen; guarded mixed runner and check_isolated_tests.py --expected-count 645 --output <fresh-directory>",
   "native_prerequisites": [
     "Tesseract 5.5.0",
     "verified chi_tra + eng data",
@@ -37,7 +37,7 @@
     ],
     "historical_source_version": "0.1.1"
   },
-  "windows_workflow": "Manual-only Windows 2022 folder/installer/lifecycle workflow saved; not executed",
+  "windows_workflow": "Prior hosted windows-base-validation.yml and windows-cpu-validation.yml accepted; legacy manual release workflow not triggered.",
   "model_manager": {
     "actual_https_download": true,
     "verified_files": 3,
@@ -180,7 +180,7 @@
     "report": "development-records/runs/c01-2026-11-06/acceptance.json",
     "scope_note": "C10 requires exact active component/version/capability on OCR pages and revalidates leased health; original C01 report retained"
   },
-  "current_run_scope": "Windows CPU profile preparation: locked targeted136 passed; Windows native build pending. Full629 not run; previous611 belongs to0.17.2.",
+  "current_run_scope": "0.19.1 Linux source full regression:645 (644 passed, one known ONNX Traditional Chinese quality expected failure, zero skipped), mixed exit0 and41 isolated module processes exit0. Windows hosted CI evidence is earlier and separately attributed.",
   "component_migration": {
     "check": "C02",
     "accepted": true,
@@ -275,7 +275,7 @@
     "actual_frozen_report": "development-records/runs/c07-2026-11-07/frozen-acceptance.json",
     "c08_native_health_cancellation_preserved": true
   },
-  "completed_date_taipei": "2026-11-10",
+  "completed_date_taipei": "2026-11-11",
   "component_management": {
     "check": "C08",
     "accepted": true,
@@ -920,10 +920,10 @@
   },
   "isolated_regression": {
     "scope": "Actual per-module normal subprocess exits; mixed-process acceptance is recorded separately",
-    "source_version": "0.17.2",
-    "modules": 36,
-    "run": 611,
-    "passed": 610,
+    "source_version": "0.19.1",
+    "modules": 41,
+    "run": 645,
+    "passed": 644,
     "expected_failures": [
       "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
     ],
@@ -1065,6 +1065,61 @@
       {
         "module": "test_core",
         "run": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_cpu_lifecycle_acceptance",
+        "run": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_cpu_profiles",
+        "run": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_cpu_recovery",
+        "run": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_cpu_startup",
+        "run": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "expected_failures": [],
+        "unexpected_successes": 0,
+        "tests_reported_success": true,
+        "process_exit": 0
+      },
+      {
+        "module": "test_cpu_upgrade",
+        "run": 9,
         "failures": 0,
         "errors": 0,
         "skipped": 0,
@@ -2130,8 +2185,8 @@
       "pyproject.toml": "fd266ed6860e55a22a6e2f6398d0a27cd36d0b4e748ad1ce2b6ca838bdb61f79"
     }
   },
-  "tests_source_version": "0.17.2",
-  "full_regression_executed_this_version": false,
+  "tests_source_version": "0.19.1",
+  "full_regression_executed_this_version": true,
   "latest_targeted_current": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
@@ -2552,5 +2607,55 @@
       "checks_passed": 4
     },
     "evidence": "development-records/runs/windows-test-readiness-2026-11-11/README.md"
+  },
+  "full_regression_accepted": true,
+  "full_regression": {
+    "source_version": "0.19.1",
+    "architecture_version": "0.4",
+    "source_commit": "ca5a296e84cdbfbfb9912f5d846df138f6fea801",
+    "date_taipei": "2026-11-11",
+    "accepted": true,
+    "run": 645,
+    "passed": 644,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 1,
+    "expected_failure_ids": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "mixed_assertions_accepted": true,
+    "mixed_process_exit": 0,
+    "isolated_modules": 41,
+    "isolated_all_exits_zero": true,
+    "windows_executed_this_run": false,
+    "gpu_executed": false,
+    "traditional_chinese_onnx_quality_passed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "invalid_harness_attempt": {
+      "accepted": false,
+      "excluded_from_regression_result": true,
+      "reason": "Missing multiprocessing __main__ guard in temporary test driver; stopped own runner and rebuilt guarded driver"
+    },
+    "evidence": "development-records/runs/full-regression-0.19.1-2026-11-11/README.md"
+  },
+  "latest_test_build_readiness": {
+    "source_version": "0.19.1",
+    "tested_source": "ca5a296e84cdbfbfb9912f5d846df138f6fea801",
+    "full_regression_executed_this_version": true,
+    "full_regression_accepted": true,
+    "run": 645,
+    "passed": 644,
+    "expected_failures": 1,
+    "skipped": 0,
+    "candidate_contents_review_complete": false,
+    "redistribution_review_complete": false,
+    "test_setup_delivered": false,
+    "clean_machine_accepted": false,
+    "human_ui_accepted": false,
+    "gpu_executed": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/full-regression-0.19.1-2026-11-11/README.md"
   }
 }

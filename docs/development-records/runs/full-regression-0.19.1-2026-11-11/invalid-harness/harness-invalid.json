@@ -1,0 +1,10 @@
+{
+  "accepted": false,
+  "harness_valid": false,
+  "reason": "Temporary mixed runner missed __main__ guard and recursively ran tests during multiprocessing spawn",
+  "owned_root_pid": 3244,
+  "owned_child_pids": [
+    3245,
+    4527
+  ]
+}

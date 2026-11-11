@@ -37,14 +37,12 @@
 
 ## 0.19.1 — 2026-11-11
 
-- 補存同來源Windows基本包app10、安裝6、跨版11、續修3/3及CI自有清理結果，更新當前視覺進度；[測試安裝包準備與缺口](docs/windows-test-build-readiness.md)已整理。本次文件收尾不升版，離線profile／授權hash驗證通過，本版完整回歸仍待。
+相對0.19.0新增CPU維護程序真實終止／獨立恢復六案，完成Windows接受與本版Linux完整回歸；架構0.4。
 
-相對0.19.0新增CPU維護程序真實中斷／獨立程序恢復六案；架構0.4，Windows原生六案及完整公開摘要已驗。
-
-- 使用既有C06日誌與鎖，核對自有Process／PID／隨機token／操作／停點後kill；另一spawn程序recover、驗交易收尾並執行OCR。涵蓋升級published／committed、修復old_moved／published、移除old_moved／committed，分別核對未提交還原與已提交保留。
-- 首輪Windows原生六案已接受，但公開摘要在4096字元截斷；[原頁與未補字prefix](docs/development-records/runs/windows-cpu-recovery-summary-2026-11-11/README.md)保存。公開摘要縮短且不改完整報告，重跑後六案與完整公開JSON均接受；[最終原頁與結果](docs/development-records/runs/windows-cpu-recovery-ci-2026-11-11/README.md)保存。
-- 新6／相關162項本地通過，初輪負例fixture設定錯誤日誌與後兩輪通過均[保存](docs/development-records/runs/windows-cpu-recovery-prep-2026-11-11/README.md)。Linux真kill合成元件不當Windows OCR證據，本版完整回歸未跑，舊611仍屬0.17.2。
-- 9鎖／模型／第三方原文不變。程序終止範圍不涵蓋斷電／OS重啟、全profile、乾淨機／人工／GPU；C04 2/4、C11 2/5、導入7/12與RAM／品質門檻保留，無產品發行。
+- Windows CPU原功能11／同版8／跨版8／程序恢復6接受，[完整公開摘要與原頁](docs/development-records/runs/windows-cpu-recovery-ci-2026-11-11/README.md)保存。公開副本縮短以避免4096字元截斷，原完整報告不改；首輪prefix、負例fixture失敗及先前162項相關紀錄保留。
+- [0.19.1全645項](docs/development-records/runs/full-regression-0.19.1-2026-11-11/README.md)：644通過、1既有ONNX繁中品質預期失敗、0跳過。混合程序exit0，41獨立模組全exit0；55固定套件、四語與三個ONNX模型hash驗證。初輪暫存driver漏main guard的無效嘗試另存，修正driver後重跑接受，產品碼與測試斷言未改。
+- 同來源Windows基本包app10／安裝6／跨版11／續修3案及CI自有清理結果已補存，視覺進度與[測試安裝包準備](docs/windows-test-build-readiness.md)已更新；9鎖／模型／第三方原文及28架構圖固定。
+- C04 2/4、C11 2/5、導入7/12保持。候選再散布與包內容、其他profile、乾淨機／人工／GPU、ONNX品質與RAM軟性限制保留，無Setup／tag／Release或環境設定發布。
 
 ## 0.19.0 — 2026-11-10
 

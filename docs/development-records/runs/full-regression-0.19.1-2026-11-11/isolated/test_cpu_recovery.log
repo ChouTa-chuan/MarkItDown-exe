@@ -1,0 +1,11 @@
+test_actual_child_exit_before_stop_is_not_accepted (test_cpu_recovery.CPURecoveryTests.test_actual_child_exit_before_stop_is_not_accepted) ... ok
+test_public_annotation_keeps_six_cases_under_limit_without_mutating_full_report (test_cpu_recovery.CPURecoveryTests.test_public_annotation_keeps_six_cases_under_limit_without_mutating_full_report) ... ok
+test_recovery_noop_cannot_hide_unfinished_transaction (test_cpu_recovery.CPURecoveryTests.test_recovery_noop_cannot_hide_unfinished_transaction) ... ok
+test_six_actual_terminated_children_and_independent_recovery (test_cpu_recovery.CPURecoveryTests.test_six_actual_terminated_children_and_independent_recovery) ... ok
+test_stop_requires_exact_owned_pid_token_stage_and_operation (test_cpu_recovery.CPURecoveryTests.test_stop_requires_exact_owned_pid_token_stage_and_operation) ... ok
+test_wrong_platform_cannot_create_report (test_cpu_recovery.CPURecoveryTests.test_wrong_platform_cannot_create_report) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 2.832s
+
+OK

@@ -1,0 +1,3 @@
+Regression-tested commit: ca5a296e84cdbfbfb9912f5d846df138f6fea801
+Command: git diff ca5a296e84cdbfbfb9912f5d846df138f6fea801 -- src scripts packaging tests vendor .github/workflows pyproject.toml
+Result: empty; source, tests, profiles, workflow and original third-party assets unchanged.

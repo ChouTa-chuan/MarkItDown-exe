@@ -1,0 +1,12 @@
+{
+  "module": "test_onnx_ocr",
+  "run": 12,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "expected_failures": [
+    "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+  ],
+  "unexpected_successes": 0,
+  "tests_reported_success": true
+}

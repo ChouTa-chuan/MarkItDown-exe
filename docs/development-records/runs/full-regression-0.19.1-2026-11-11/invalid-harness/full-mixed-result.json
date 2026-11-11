@@ -1,0 +1,40 @@
+{
+  "source_version": "0.19.1",
+  "run": 645,
+  "passed": 620,
+  "failures": [
+    "test_core.CoreTests.test_batch_continues_after_failure",
+    "test_core.CoreTests.test_memory_pressure_recovers_before_spawn",
+    "test_core.CoreTests.test_running_worker_pauses_and_resumes",
+    "test_core.CoreTests.test_streaming_and_spawn_preserve_text",
+    "test_desktop.DesktopTests.test_full_desktop_text_flow",
+    "test_formats.FormatTests.test_docx_heading_and_table",
+    "test_formats.FormatTests.test_html_structure",
+    "test_formats.FormatTests.test_pptx_title_and_content",
+    "test_formats.FormatTests.test_text_pdf",
+    "test_formats.FormatTests.test_xlsx_sheet_and_values",
+    "test_managed_conversion.ManagedSpawnTests.test_missing_optional_document_does_not_stop_native_or_text_batch",
+    "test_managed_conversion.ManagedSpawnTests.test_nested_resource_state_reaches_controller_without_becoming_running"
+  ],
+  "errors": [
+    "test_component_lifecycle.LifecycleTests.test_crash_at_each_install_stage_recovers_old_or_committed_version (stage='journaled')",
+    "test_component_lifecycle.LifecycleTests.test_crash_at_each_install_stage_recovers_old_or_committed_version (stage='staged')",
+    "test_component_lifecycle.LifecycleTests.test_crash_at_each_install_stage_recovers_old_or_committed_version (stage='published')",
+    "test_component_lifecycle.LifecycleTests.test_crash_at_each_install_stage_recovers_old_or_committed_version (stage='registered')",
+    "test_component_lifecycle.LifecycleTests.test_crash_at_each_install_stage_recovers_old_or_committed_version (stage='committed')",
+    "test_component_lifecycle.LifecycleTests.test_crash_during_repair_and_remove_restores_precommit_and_finishes_commit",
+    "test_component_lifecycle.LifecycleTests.test_cross_process_lease_blocks_update_until_process_is_killed",
+    "test_component_lifecycle.LockAndCacheTests.test_kernel_lock_survives_file_presence_and_releases_on_real_exit",
+    "test_component_management.ManagementDialogTests.test_failed_optional_operation_does_not_disable_main_text_conversion",
+    "test_cpu_recovery.CPURecoveryTests.test_actual_child_exit_before_stop_is_not_accepted",
+    "test_cpu_recovery.CPURecoveryTests.test_recovery_noop_cannot_hide_unfinished_transaction",
+    "test_cpu_recovery.CPURecoveryTests.test_six_actual_terminated_children_and_independent_recovery"
+  ],
+  "skipped": [],
+  "expected_failures": [
+    "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+  ],
+  "unexpected_successes": [],
+  "assertions_accepted": false,
+  "process_exit_verified": false
+}

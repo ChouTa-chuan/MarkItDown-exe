@@ -1,0 +1,21 @@
+Processing /workspace/MarkItDown-exe
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Processing ./vendor/markitdown
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: markitdown-desktop, markitdown
+  Building wheel for markitdown-desktop (pyproject.toml): started
+  Building wheel for markitdown-desktop (pyproject.toml): finished with status 'done'
+  Created wheel for markitdown-desktop: filename=markitdown_desktop-0.19.1-py3-none-any.whl size=978195 sha256=7cc4893f8667b2669bfb44f926293d2abe37e907b5aa62f1327e0b22b6efd600
+  Stored in directory: /home/agent/.cache/pip/wheels/d7/ad/60/c524083f0a5e8d8bf18de410619466f4df85f430329d5fa9f6
+  Building wheel for markitdown (pyproject.toml): started
+  Building wheel for markitdown (pyproject.toml): finished with status 'done'
+  Created wheel for markitdown: filename=markitdown-0.1.9-py3-none-any.whl size=94018 sha256=1449e5184c50e3edbc570226b401867e6444ea744f7a42c3a5dbe07c64ff289a
+  Stored in directory: /tmp/pip-ephem-wheel-cache-mg3o3dec/wheels/97/2b/5a/0d47f664b7a8b68688ed1d18cc1800ee3cf4cda8adce660d0e
+Successfully built markitdown-desktop markitdown
+Installing collected packages: markitdown-desktop, markitdown
+Successfully installed markitdown-0.1.9 markitdown-desktop-0.19.1
+
+[notice] A new release of pip is available: 25.0.1 -> 26.3
+[notice] To update, run: python -m pip install --upgrade pip

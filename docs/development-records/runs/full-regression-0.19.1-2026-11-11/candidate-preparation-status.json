@@ -1,0 +1,17 @@
+{
+  "source_version": "0.19.1",
+  "tested_source": "ca5a296e84cdbfbfb9912f5d846df138f6fea801",
+  "full_regression_executed_this_version": true,
+  "full_regression_accepted": true,
+  "run": 645,
+  "passed": 644,
+  "expected_failures": 1,
+  "skipped": 0,
+  "candidate_contents_review_complete": false,
+  "redistribution_review_complete": false,
+  "test_setup_delivered": false,
+  "clean_machine_accepted": false,
+  "human_ui_accepted": false,
+  "gpu_executed": false,
+  "release_ready": false
+}

@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-11",
-  "environment": "Linux · Python 3.12；Windows2022 CI部分實測；完整回歸基線0.17.2",
-  "tests_passed": 610,
-  "headline": "0.19.1 Windows基本包與CPU恢復已驗，完整摘要／開發紀錄已補存",
-  "blocker": "CPU維護指定停點的程序終止恢復已驗；其他profile、乾淨機／人工／GPU與ONNX品質仍待。",
-  "next": "重建固定完整測試環境並跑0.19.1全套回歸，接續候選包內容／原文與乾淨機測試準備。",
+  "environment": "Linux · Python3.12.14；0.19.1全回歸／41模組exit0；Windows hosted證據另列",
+  "tests_passed": 644,
+  "headline": "0.19.1完整回歸645項完成：644通過／1既有品質預期失敗，41模組正常退出",
+  "blocker": "本版完整回歸已完成；候選包內容／原文與再散布、其他profile及乾淨機／人工／GPU仍待。",
+  "next": "核對候選基本包／CPU選配內容、隨包原文／通知與版本，準備Windows測試安裝包及實機檢核表。",
   "milestones": [
     {
       "id": "m0",
@@ -138,7 +138,7 @@
       "id": "m5",
       "title": "發佈準備",
       "state": "active",
-      "description": "0.19.1 Windows hosted基本包、安裝／跨版／三停點續修及CPU獨立維護／跨版／程序恢復已驗；完整回歸、各profile再散布、乾淨機／人工與發行待驗。",
+      "description": "0.19.1 Linux完整645／41模組正常退出；Windows hosted基本包與CPU維護已驗，候選內容／原文、各profile、乾淨機／人工與發行仍待。",
       "checks": [
         {
           "label": "Windows 建置與安裝包",
@@ -209,8 +209,8 @@
       "title": "背景程序",
       "layer": "支援",
       "state": "partial",
-      "detail": "基本profile內含同平台引擎與固定四語；Linux及0.17 Windows基本包／安裝後app已驗，乾淨機與各選配另驗。",
-      "evidence": "0.17.1 hosted Windows app各10項；0.17.2 Linux完整611正常退出，非乾淨機或發行。"
+      "detail": "基本profile包含同平台引擎與固定四語；0.19.1 Linux來源回歸與Windows hosted包／安裝已驗，乾淨機與其他選配仍待。",
+      "evidence": "0.19.1 Linux完整645及41模組exit0，Windows hosted基本／CPU另有證據；非乾淨機或發行。"
     },
     {
       "id": "settings",
@@ -234,7 +234,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "版面／表格63項；0.17.2全專案610通過、1品質預期失敗，混合及36模組正常退出。"
+      "evidence": "0.19.1全645：644通過、1既有ONNX繁中品質預期失敗、0跳過；混合／41模組exit0。"
     },
     {
       "id": "exporters",
@@ -253,17 +253,14 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
     "0.17.2混合611與36模組正常exit0，ONNX品質預期失敗保留；CI清理只供自身產物，不代表普通Setup任意中斷可自動清理。",
-    "0.18.0 Windows CPU獨立選配11項及本輪相關143通過，完整本版回歸未執行；頁面610＋1是0.17.2完整基線，不能當作新版全回歸。",
-    "0.18.1本地相關147項、Windows原生功能11項與同版維護8案通過；0.18.0原生11項與0.17.2完整611均保留來源版本。",
-    "0.19.0相關156項本地通過；Windows跨版8、原功能11與同版8也通過；本版完整回歸未跑，舊611仍屬0.17.2。",
-    "0.19.1相關162項本地及Windows程序終止／獨立恢復六案通過；本版完整回歸未跑，舊611屬0.17.2。"
+    "0.19.1完整645：644通過＋1既有ONNX繁中品質預期失敗，0跳過；混合與41模組全exit0。此為Linux來源回歸，Windows／GPU與乾淨機範圍分開。"
   ],
-  "tests_run": 611,
+  "tests_run": 645,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收7/12。C03 3/4、C04 2/4、C09 3/4、C11 2/5；0.19.1基本包安裝6／跨版11／續修3案及CPU功能11／同版8／跨版8／程序恢復6已驗，完整回歸與乾淨機／人工／GPU仍待。",
+    "description": "已驗收7/12。C03 3/4、C04 2/4、C09 3/4、C11 2/5；0.19.1全645／41模組exit0及Windows基本／CPU維護已驗，候選再散布、其他profile／乾淨機／人工／GPU仍待。",
     "phases": [
       {
         "id": "a",
@@ -556,10 +553,17 @@
         "state": "verified",
         "detail": "升級、有效payload修復、移除各兩停點真終止；另一新程序依是否提交恢復並驗原生OCR。",
         "evidence": "Windows程序終止／恢復6/6；核對自有PID／token，鎖拒絕、journal／staging收尾、重複恢復無動作與合成資料／cache保留。"
+      },
+      {
+        "id": "regression_0191",
+        "title": "0.19.1完整回歸",
+        "state": "verified",
+        "detail": "固定55套件／四語與三個ONNX模型hash，完整645與41獨立模組皆正常退出；原生teardown有外層退出檢查。",
+        "evidence": "644通過／1既有ONNX繁中品質預期失敗／0跳過；無效臨時啟動器另存、不納結果。GPU／乾淨機／發行另驗。"
       }
     ]
   },
-  "full_regression_accepted": false,
+  "full_regression_accepted": true,
   "source_version": "0.19.1",
   "qt_lifecycle": {
     "source_version": "0.17.1",
@@ -663,7 +667,7 @@
     "final_targeted_contract_tests": 14,
     "native_windows_file_identity": "GetFileInformationByHandle; do not rely on CRT fstat for identity/link count"
   },
-  "tests_source_version": "0.17.2",
+  "tests_source_version": "0.19.1",
   "latest_targeted": {
     "source_version": "0.18.0",
     "architecture_version": "0.4",
@@ -1264,5 +1268,57 @@
       "checks_passed": 4
     },
     "evidence": "development-records/runs/windows-test-readiness-2026-11-11/README.md"
+  },
+  "full_regression_executed_this_version": true,
+  "full_regression": {
+    "source_version": "0.19.1",
+    "architecture_version": "0.4",
+    "source_commit": "ca5a296e84cdbfbfb9912f5d846df138f6fea801",
+    "date_taipei": "2026-11-11",
+    "accepted": true,
+    "run": 645,
+    "passed": 644,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 1,
+    "expected_failure_ids": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "mixed_assertions_accepted": true,
+    "mixed_process_exit": 0,
+    "isolated_modules": 41,
+    "isolated_all_exits_zero": true,
+    "windows_executed_this_run": false,
+    "gpu_executed": false,
+    "traditional_chinese_onnx_quality_passed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "invalid_harness_attempt": {
+      "accepted": false,
+      "excluded_from_regression_result": true,
+      "reason": "Missing multiprocessing __main__ guard in temporary test driver; stopped own runner and rebuilt guarded driver"
+    },
+    "evidence": "development-records/runs/full-regression-0.19.1-2026-11-11/README.md"
+  },
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "latest_test_build_readiness": {
+    "source_version": "0.19.1",
+    "tested_source": "ca5a296e84cdbfbfb9912f5d846df138f6fea801",
+    "full_regression_executed_this_version": true,
+    "full_regression_accepted": true,
+    "run": 645,
+    "passed": 644,
+    "expected_failures": 1,
+    "skipped": 0,
+    "candidate_contents_review_complete": false,
+    "redistribution_review_complete": false,
+    "test_setup_delivered": false,
+    "clean_machine_accepted": false,
+    "human_ui_accepted": false,
+    "gpu_executed": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/full-regression-0.19.1-2026-11-11/README.md"
   }
 }
