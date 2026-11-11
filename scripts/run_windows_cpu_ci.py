@@ -94,10 +94,17 @@ def run(output,previous_source=None):
                 or not upgrade['actual_frozen'] or not upgrade['controller_unchanged']
                 or upgrade['previous_version']!='1.0.0' or upgrade['current_version']!='1.0.1'):
             raise RuntimeError('Actual CPU cross-version acceptance incomplete')
+        call('process-recovery-acceptance',[control,ROOT/'scripts/check_cpu_recovery_acceptance.py',
+            '--previous-package',old_package,'--package',package,'--report',reports/'cpu-recovery.json'])
+        recovery=json.loads((reports/'cpu-recovery.json').read_text(encoding='utf-8'))
+        if (not recovery['accepted'] or recovery['checks_passed']!=6 or not recovery['windows_executed']
+                or not recovery['process_termination_executed'] or not recovery['actual_frozen']
+                or not recovery['controller_unchanged']):
+            raise RuntimeError('Actual CPU process recovery acceptance incomplete')
         result.update(accepted=True,checks_passed=11,controller_unchanged=True,
             controller_native_packages=False,package_sha256=value['package_sha256'],
             actual_providers=value['actual_providers'],installed_notice_packages=value['installed_notice_packages'],
-            lifecycle=value['lifecycle'],upgrade=upgrade,previous_source=PREVIOUS_SOURCE)
+            lifecycle=value['lifecycle'],upgrade=upgrade,recovery=recovery,previous_source=PREVIOUS_SOURCE)
         result.pop('failed_step',None)
     except Exception as exc:
         result['error']=type(exc).__name__+': '+str(exc)

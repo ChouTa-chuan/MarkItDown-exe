@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "environment": "Linux · Python 3.12；Windows2022 CI部分實測；完整回歸基線0.17.2",
   "tests_passed": 610,
-  "headline": "Windows CPU跨版8/8、原功能11/11及同版維護8/8通過",
+  "headline": "CPU程序中斷六案已實作，161項本地通過，Windows原生恢復待驗",
   "blocker": "CPU同版／跨版已驗；其他profile與更完整故障恢復、乾淨機／人工／GPU及ONNX品質仍待。",
-  "next": "接續其他profile與故障恢復，再驗無Python離線乾淨Windows與人工UI。",
+  "next": "Windows實跑CPU維護程序中斷與獨立恢復，再接其他profile與乾淨機。",
   "milestones": [
     {
       "id": "m0",
@@ -255,7 +255,8 @@
     "0.17.2混合611與36模組正常exit0，ONNX品質預期失敗保留；CI清理只供自身產物，不代表普通Setup任意中斷可自動清理。",
     "0.18.0 Windows CPU獨立選配11項及本輪相關143通過，完整本版回歸未執行；頁面610＋1是0.17.2完整基線，不能當作新版全回歸。",
     "0.18.1本地相關147項、Windows原生功能11項與同版維護8案通過；0.18.0原生11項與0.17.2完整611均保留來源版本。",
-    "0.19.0相關156項本地通過；Windows跨版8、原功能11與同版8也通過；本版完整回歸未跑，舊611仍屬0.17.2。"
+    "0.19.0相關156項本地通過；Windows跨版8、原功能11與同版8也通過；本版完整回歸未跑，舊611仍屬0.17.2。",
+    "0.19.1相關161項本地通過，Windows程序終止六案待驗；本版完整回歸未跑，舊611屬0.17.2。"
   ],
   "tests_run": 611,
   "tests_expected_failures": 1,
@@ -552,7 +553,7 @@
     ]
   },
   "full_regression_accepted": false,
-  "source_version": "0.19.0",
+  "source_version": "0.19.1",
   "qt_lifecycle": {
     "source_version": "0.17.1",
     "architecture_version": "0.4",
@@ -778,31 +779,24 @@
     "previous_source": "fd69854ee19ba031362750072e22a92bf5463a7c"
   },
   "latest_targeted_current": {
-    "source_version": "0.19.0",
+    "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "date_taipei": "2026-11-10",
-    "new_tests": 9,
-    "run": 156,
-    "passed": 156,
+    "date_taipei": "2026-11-11",
+    "new_tests": 5,
+    "run": 161,
+    "passed": 161,
     "skipped": 0,
     "process_exit": 0,
     "full_regression_executed": false,
     "windows_executed": false,
     "release_ready": false,
     "source_hashes": {
-      "src/desktop_app/component_workers/protocol.py": "dc1527c959b5e219ff4f4673542cb0f30a0396f506d4558fbbd477671145c13f",
-      "src/desktop_app/component_workers/client.py": "f15915e6f3b71e035db89f01058dc79a8c5b4a25fdfd10d79f1690bed90e439b",
-      "src/desktop_app/component_workers/binding.py": "9eb3637d202cb87bd39b9339348c51194255d95f6285646e6cfbb1d6eb54dfaa",
-      "scripts/check_cpu_upgrade_acceptance.py": "9e31142d9d985abd3e8177e5273cd485692b30a8c234e9d3b3af11ba070a3f47",
-      "scripts/run_windows_cpu_ci.py": "5148ac98fd75bbd84bf0ec4ed8b0dd899079b1b4609c4631cc5741511fced975",
-      "tests/test_cpu_upgrade.py": "9732849081d0f2512bc0a36a8ebd409eb68fc1c3f7efb450a31c38aad26fcf8a",
-      "tests/fixtures/component-worker-fixture.py": "cac678e7d9be22be05f4fc5102beacaeb9b2ec41ecf9a97870e553fbf0aa4cba",
-      ".github/workflows/windows-cpu-validation.yml": "1a1b36884df5bffdc853bf7b59e452b9e65b58864b9ae1a0904ca4aef1e235c0",
-      "pyproject.toml": "1a45ab0208a832c4e76d9dc3ff05d8e33ab9bcf6c612e2d51a9881a1f32c2916",
-      "scripts/check_managed_conversion_acceptance.py": "2976e897a0cc92d3a07ae38c01ca452760625f9f9c0a9c26a71ccea57ea8693e"
+      "scripts/check_cpu_recovery_acceptance.py": "4857df8ef4625573c8d52eb165399544ce356172c3ed1407f8ea0815f349d37c",
+      "scripts/run_windows_cpu_ci.py": "a933f833d5c22d6b1917351bbcacd4ddd41a09219f243e8b8c0c8084e46c6edf",
+      "tests/test_cpu_recovery.py": "d85081940d739e66e77d20840bd0e819677abf69b831db0b09485f48d4f46e35",
+      "pyproject.toml": "45d1942c6e3e05f1a10789590801bb09badb7830b1317f80a3ca60c736352beb"
     },
-    "evidence": "development-records/runs/windows-cpu-upgrade-prep-2026-11-10/README.md",
-    "additional_evidence": "development-records/runs/windows-cpu-upgrade-followup-2026-11-10/README.md"
+    "evidence": "development-records/runs/windows-cpu-recovery-prep-2026-11-11/README.md"
   },
   "latest_windows_cpu": {
     "check": "windows-cpu-worker-ci",

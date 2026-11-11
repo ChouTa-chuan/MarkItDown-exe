@@ -1,0 +1,19 @@
+{
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "date_taipei": "2026-11-11",
+  "new_tests": 5,
+  "run": 161,
+  "passed": 161,
+  "skipped": 0,
+  "process_exit": 0,
+  "full_regression_executed": false,
+  "windows_executed": false,
+  "release_ready": false,
+  "source_hashes": {
+    "scripts/check_cpu_recovery_acceptance.py": "4857df8ef4625573c8d52eb165399544ce356172c3ed1407f8ea0815f349d37c",
+    "scripts/run_windows_cpu_ci.py": "a933f833d5c22d6b1917351bbcacd4ddd41a09219f243e8b8c0c8084e46c6edf",
+    "tests/test_cpu_recovery.py": "d85081940d739e66e77d20840bd0e819677abf69b831db0b09485f48d4f46e35",
+    "pyproject.toml": "45d1942c6e3e05f1a10789590801bb09badb7830b1317f80a3ca60c736352beb"
+  }
+}

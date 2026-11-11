@@ -35,6 +35,14 @@
 - 各份快照附中文說明、保存日期、來源及 SHA-256；後續更新新增快照，不覆寫既有紀錄。
 - 驗證範圍為來源圖一致性、文件雜湊、相對連結與程式版本未變；轉換程式未修改，未重跑功能測試或變更既有驗收進度。
 
+## 0.19.1 — 2026-11-11
+
+相對0.19.0新增CPU維護程序真實中斷／獨立程序恢復六案；架構0.4，Windows結果待驗。
+
+- 使用既有C06日誌與鎖，核對自有Process／PID／隨機token／操作／停點後kill；另一spawn程序recover、驗交易收尾並執行OCR。涵蓋升級published／committed、修復old_moved／published、移除old_moved／committed，分別核對未提交還原與已提交保留。
+- 新5／相關161項本地通過，初輪負例fixture設定錯誤日誌與後兩輪通過均[保存](docs/development-records/runs/windows-cpu-recovery-prep-2026-11-11/README.md)。Linux真kill合成元件不當Windows OCR證據，本版完整回歸未跑，舊611仍屬0.17.2。
+- 9鎖／模型／第三方原文不變。程序終止範圍不涵蓋斷電／OS重啟、全profile、乾淨機／人工／GPU；C04 2/4、C11 2/5、導入7/12與RAM／品質門檻保留，無產品發行。
+
 ## 0.19.0 — 2026-11-10
 
 相對0.18.1新增CPU元件跨版本控制與Windows驗收；架構0.4，Windows跨版8/8、原功能11/11與同版維護8/8已驗。
