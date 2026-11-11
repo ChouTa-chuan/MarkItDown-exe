@@ -14,6 +14,26 @@ ROOT=Path(__file__).resolve().parents[1]
 PREVIOUS_SOURCE='fd69854ee19ba031362750072e22a92bf5463a7c'
 
 
+def public_summary(result):
+    """GitHub公開註記最多4096字元；保留接受條件與六案實證，完整明細仍寫原報告。"""
+    brief={key:value for key,value in result.items() if key!='commands'}
+    for name in ('lifecycle','upgrade','recovery'):
+        if name not in brief:continue
+        section={key:value for key,value in brief[name].items() if key not in ('checks','cases')}
+        if name=='recovery':
+            section['cases']=[{**{key:case[key] for key in ('operation','stage','maintenance_pid','recovery_pid',
+                'termination_exitcode','active_after_recover')},'version':case['validation']['version'],
+                'frozen':case['validation']['frozen']} for case in brief[name]['cases']]
+        brief[name]=section
+    # 失敗詳情只縮短公開副本，保留尾端真正錯誤與完整報告，不直接截斷JSON。
+    def size():return len(json.dumps(brief,ensure_ascii=False,separators=(',',':')).encode('utf-8'))
+    for key in ('failure_detail','error'):
+        while size()>3900 and isinstance(brief.get(key),str) and len(brief[key])>100:
+            brief[key]=brief[key][-max(100,len(brief[key])//2):];brief['public_detail_shortened']=True
+    if size()>4000:raise ValueError('Public CPU summary exceeds annotation budget')
+    return brief
+
+
 def verify_previous_source(directory):
     directory=Path(directory).absolute()
     # HEAD相同但有修改也拒絕；不以目前程式改描述冒充前一版。
@@ -117,7 +137,7 @@ def run(output,previous_source=None):
         (reports/'driver-error.log').write_text(traceback.format_exc(),encoding='utf-8')
     (reports/'cpu-build.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     # 短摘要可從公開Actions頁保存；不把大型worker、模型、套件或測試金鑰上傳。
-    brief={key:value for key,value in result.items() if key not in ('commands',)}
+    brief=public_summary(result)
     message=json.dumps(brief,ensure_ascii=False,separators=(',',':'))
     if os.environ.get('GITHUB_ACTIONS')=='true':
         print('::'+('notice' if result['accepted'] else 'error')+'::'+message.replace('%','%25').replace('\n','%0A').replace('\r','%0D'))

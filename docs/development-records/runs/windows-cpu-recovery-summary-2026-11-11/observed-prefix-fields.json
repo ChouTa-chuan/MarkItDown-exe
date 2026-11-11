@@ -1,0 +1,12 @@
+{
+  "source_commit": "fc31d8101af4a7e7ab68e9998757618ac4efe148",
+  "root_accepted": true,
+  "functional_checks": 11,
+  "lifecycle_checks": 8,
+  "upgrade_checks": 8,
+  "recovery_accepted": true,
+  "recovery_windows_executed": true,
+  "recovery_checks": 6,
+  "annotation_chars": 4096,
+  "complete_annotation": false
+}

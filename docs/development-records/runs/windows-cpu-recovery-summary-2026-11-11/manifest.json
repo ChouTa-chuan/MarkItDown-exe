@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "windows_executed": true,
+  "complete_public_annotation": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1239,
+      "sha256": "c43b464457458cac284463ee9fea889f5af69095d56daca7a34cf568153a4de1"
+    },
+    {
+      "file": "annotation-prefix.txt",
+      "bytes": 4096,
+      "sha256": "a890837f9c2b40fd35d070712d836268565087c36c471092e95a9ae0869108a5"
+    },
+    {
+      "file": "collector.log",
+      "bytes": 1234,
+      "sha256": "952c5b94eccc4c11832a7b203255dc4bbf764f50824f35cd7637272fa16174a7"
+    },
+    {
+      "file": "observed-prefix-fields.json",
+      "bytes": 316,
+      "sha256": "ea5b90ddf4d8b34209bc298754ed37fcf4c296c05db51bcfaf9ba4151e3bfb42"
+    },
+    {
+      "file": "related-tests.log",
+      "bytes": 25869,
+      "sha256": "5f689173c98790ec3a0926f2c8ebc5cd3caa8fd46401010923991ceb40b4fa8b"
+    },
+    {
+      "file": "source-hashes.json",
+      "bytes": 320,
+      "sha256": "14a14163e1160fd26b896effb8fea894bb9a28c0a8d94c160d27048ebb391016"
+    },
+    {
+      "file": "windows-job-page.txt",
+      "bytes": 166021,
+      "sha256": "bdc3f88bd4982fba4857197e40eafa6550af263e8790ee5bdd2d3e8680d7bdc4"
+    },
+    {
+      "file": "windows-run-page.txt",
+      "bytes": 164761,
+      "sha256": "3c505de54674d388bdc110a497f137b1f48074afa5d5a6379bbb85af04fd781d"
+    }
+  ]
+}

@@ -16,6 +16,7 @@ from test_component_downloads import sign
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from check_cpu_recovery_acceptance import exercise,receive,stopped,cleanup,acceptance
+from run_windows_cpu_ci import public_summary
 
 
 def synthetic_manager(root,public,catalog):return manager_for(root,public,catalog)
@@ -89,3 +90,24 @@ class CPURecoveryTests(unittest.TestCase):
         with patch('check_cpu_recovery_acceptance.sys.platform','linux'):
             with self.assertRaisesRegex(RuntimeError,'actual Windows'):acceptance(self.root,self.root,report)
         self.assertFalse(report.parent.exists())
+
+    def test_public_annotation_keeps_six_cases_under_limit_without_mutating_full_report(self):
+        baseline=Path(__file__).resolve().parents[1]/'docs/development-records/runs/windows-cpu-upgrade-ci-2026-11-10/public-diagnostic.json'
+        value=json.loads(baseline.read_bytes());value['source_version']='0.19.1'
+        # formatter專用合成資料，不當原生恢復證據；使用最大Windows PID估計公開註記長度。
+        value['recovery']=dict(accepted=True,checks_passed=6,actual_frozen=True,controller_unchanged=True,
+            windows_executed=True,transaction_checks_accepted=True,process_termination_executed=True,
+            clean_machine_accepted=False,power_loss_accepted=False,os_reboot_executed=False,release_ready=False,
+            source_version='0.19.1',controller_native_packages=False,gpu_executed=False,
+            traditional_chinese_quality_passed=False,cases=[dict(operation=operation,stage=stage,
+                maintenance_pid=2**32-1,recovery_pid=2**32-1,termination_exitcode=-15,
+                active_after_recover=active,validation=dict(version=active or '1.0.1',frozen=True))
+                for operation,stage,active in __import__('check_cpu_recovery_acceptance').CASES])
+        original=json.dumps(value,sort_keys=True);brief=public_summary(value)
+        self.assertLess(len(json.dumps(brief,ensure_ascii=False,separators=(',',':')).encode()),4000)
+        self.assertEqual(len(brief['recovery']['cases']),6);self.assertTrue(brief['recovery']['accepted'])
+        self.assertEqual(json.dumps(value,sort_keys=True),original)
+        failure=public_summary(dict(accepted=False,failed_step='fixture',error='錯'*2000,failure_detail='誤'*2000))
+        self.assertFalse(failure['accepted']);self.assertEqual(failure['failed_step'],'fixture')
+        self.assertTrue(failure['public_detail_shortened'])
+        self.assertLess(len(json.dumps(failure,ensure_ascii=False).encode()),4096)

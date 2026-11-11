@@ -1,0 +1,5 @@
+{
+  "scripts/run_windows_cpu_ci.py": "a428556f42348f4e2d932ab2598254dfe7a3835254776709b507eaacf722eb27",
+  "tests/test_cpu_recovery.py": "6c3b8d6f61407cd44ac573914ace0b08ebfd979990d3967bde7c5244775b2ac7",
+  "scripts/check_cpu_recovery_acceptance.py": "4857df8ef4625573c8d52eb165399544ce356172c3ed1407f8ea0815f349d37c"
+}

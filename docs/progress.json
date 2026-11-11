@@ -2,7 +2,7 @@
   "updated": "2026-11-11",
   "environment": "Linux · Python 3.12；Windows2022 CI部分實測；完整回歸基線0.17.2",
   "tests_passed": 610,
-  "headline": "CPU程序中斷六案已實作，161項本地通過，Windows原生恢復待驗",
+  "headline": "Windows恢復首輪六案接受，162項本地通過，公開摘要截斷待完整重驗",
   "blocker": "CPU同版／跨版已驗；其他profile與更完整故障恢復、乾淨機／人工／GPU及ONNX品質仍待。",
   "next": "Windows實跑CPU維護程序中斷與獨立恢復，再接其他profile與乾淨機。",
   "milestones": [
@@ -782,9 +782,9 @@
     "source_version": "0.19.1",
     "architecture_version": "0.4",
     "date_taipei": "2026-11-11",
-    "new_tests": 5,
-    "run": 161,
-    "passed": 161,
+    "new_tests": 6,
+    "run": 162,
+    "passed": 162,
     "skipped": 0,
     "process_exit": 0,
     "full_regression_executed": false,
@@ -792,11 +792,11 @@
     "release_ready": false,
     "source_hashes": {
       "scripts/check_cpu_recovery_acceptance.py": "4857df8ef4625573c8d52eb165399544ce356172c3ed1407f8ea0815f349d37c",
-      "scripts/run_windows_cpu_ci.py": "a933f833d5c22d6b1917351bbcacd4ddd41a09219f243e8b8c0c8084e46c6edf",
-      "tests/test_cpu_recovery.py": "d85081940d739e66e77d20840bd0e819677abf69b831db0b09485f48d4f46e35",
+      "scripts/run_windows_cpu_ci.py": "a428556f42348f4e2d932ab2598254dfe7a3835254776709b507eaacf722eb27",
+      "tests/test_cpu_recovery.py": "6c3b8d6f61407cd44ac573914ace0b08ebfd979990d3967bde7c5244775b2ac7",
       "pyproject.toml": "45d1942c6e3e05f1a10789590801bb09badb7830b1317f80a3ca60c736352beb"
     },
-    "evidence": "development-records/runs/windows-cpu-recovery-prep-2026-11-11/README.md"
+    "evidence": "development-records/runs/windows-cpu-recovery-summary-2026-11-11/README.md"
   },
   "latest_windows_cpu": {
     "check": "windows-cpu-worker-ci",

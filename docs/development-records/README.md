@@ -1,5 +1,10 @@
 # 開發紀錄
 
+**2026-11-11｜首輪Windows六案接受，縮短公開摘要避免截斷，0.19.1**
+
+- 首run42941852540（fc31d81）root與recovery接受true／六案已見公開註記，但GitHub在4096字元截斷，無法完整讀取後續明細。[原頁、原prefix與直接觀察欄位](runs/windows-cpu-recovery-summary-2026-11-11/README.md)保存，不猜補缺字。
+- 公開副本改為精簡每案PID／exitcode／版號／frozen，完整原報告不改。新6／相關162項通過（含長Unicode錯誤／最大PID／原資料不變）；既有Windows CI將重跑，驗證完整公開JSON，本版全回歸未跑。
+
 **2026-11-11｜CPU維護程序中斷／獨立程序恢復六案準備，0.19.0 → 0.19.1**
 
 - 真spawn安裝程序抵達停點後，核對自有PID／token／操作／停點才kill；另一新程序恢復交易並驗OCR。升級、有效payload修復及移除各兩停點，分別驗未提交還原／已提交保留；活著時鎖拒絕、終止後journal／staging收尾、重複recover無動作及合成資料／快取保留。
