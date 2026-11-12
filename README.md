@@ -12,7 +12,7 @@
 | 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C03 四語／原生來源／Linux 內含整包三項、C04 兩項、C09 三項子檢核完成，完整項仍待乾淨機／安裝及各 profile |
 | 功能測試基線 | **0.19.1完整684項：683通過＋1既有ONNX繁中品質預期失敗，0跳過**；混合程序與43獨立模組正常退出 |
 
-**[視覺進度固定網址](https://chouta-chuan.github.io/MarkItDown-exe/)**（GitHub Pages，首次部署後生效） · [發布狀態與設定](docs/progress-pages.md)
+**[開啟線上視覺進度](https://chouta-chuan.github.io/MarkItDown-exe/)**（GitHub Pages，進度更新後自動部署） · [發布狀態與設定](docs/progress-pages.md)
 
 ## 模組架構封面
 

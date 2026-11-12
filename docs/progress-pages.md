@@ -2,13 +2,15 @@
 
 固定網址：**https://chouta-chuan.github.io/MarkItDown-exe/**
 
-2026-11-12已由使用者確認完成Pages來源設定，正在重新部署並核對線上內容；[首次未啟用的流程](development-records/runs/progress-pages-2026-11-11/first-deployment/README.md)原樣保存。部署完成後也可使用同一網站的`progress.html`路徑；本地`docs/progress.html`繼續保留供離線查看。
+**2026-11-12已上線。** [部署43133764140](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43133764140)成功，GitHub runner實際GET固定網址回覆HTTP 200，內容SHA-256與目前產生器及已驗互動／手機版的HTML相同；[發布證據](development-records/runs/progress-pages-live-2026-11-12/README.md)已保存。
+
+也可使用同一網站的`progress.html`路徑；本地`docs/progress.html`繼續保留供離線查看。[首次未啟用的失敗](development-records/runs/progress-pages-2026-11-11/first-deployment/README.md)保持原樣。
 
 首頁顯示最近一次部署的進度快照。後續更新`docs/progress.json`、頁面模板或產生器並同步`main`時，GitHub Actions會自動產生與部署新版；頁面持續開啟時，重新整理即可載入最近部署。
 
 網站只包含`index.html`、同內容的`progress.html`及`.nojekyll`。使用既有產生器與內嵌資料，沒有額外套件相依；工程原始日誌、模型、安裝包與整份docs不加入網站。發布後以HTTP 200與建置檔案SHA-256核對實際網站內容。
 
-首次啟用GitHub Pages需要專案管理員操作：
+目前已啟用，無需再次設定。日後如需重新建立Pages站台，首次啟用需要專案管理員操作：
 
 1. 開啟[專案Settings → Pages](https://github.com/ChouTa-chuan/MarkItDown-exe/settings/pages)。
 2. 在「Build and deployment」將「Source」選為 **GitHub Actions**。

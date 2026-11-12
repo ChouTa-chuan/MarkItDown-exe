@@ -1,0 +1,16 @@
+{
+  "accepted": true,
+  "verification_executor": "GitHub Actions Ubuntu runner",
+  "run_id": 43133764140,
+  "source_commit": "bc5d601cbb9480d179edb26372891771b5fa955a",
+  "workflow_status": "success",
+  "http_status": 200,
+  "live_published": true,
+  "actual_page_sha256": "59769d430451bca6b3ffe4cbe5ecf35a80cf41d5696b9bfa160fce6c3f579240",
+  "matches_current_generator": true,
+  "matches_prior_browser_checked_html": true,
+  "direct_cloud_fetch_performed": false,
+  "application_tests_rerun": false,
+  "program_version": "0.19.1",
+  "architecture_version": "0.4"
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "live_published": true,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1412,
+      "sha256": "8f43dd1434987864cc8b595446e6a3e0705d9f3c6058bb4c570c6578786f5d72"
+    },
+    {
+      "file": "deploy-job-page.txt",
+      "bytes": 158933,
+      "sha256": "c0b94c8db20163d312ffff2219c1a762798009700e778f127f9c787139cc6293"
+    },
+    {
+      "file": "public-verification.json",
+      "bytes": 277,
+      "sha256": "6e08cbfea996f54c911f676ee23884957e119d23e8ee041cb563e2f0a3c74ad0"
+    },
+    {
+      "file": "run-page.txt",
+      "bytes": 167927,
+      "sha256": "2a4e734f6da316466d754225a295849533b9b01ef8c09bd2ff4c305a4d1d3dba"
+    },
+    {
+      "file": "validation.json",
+      "bytes": 566,
+      "sha256": "72f820bef75732dadc831a1fa160e1edb93202a6422e90ef267cb13ee50a4a04"
+    }
+  ]
+}

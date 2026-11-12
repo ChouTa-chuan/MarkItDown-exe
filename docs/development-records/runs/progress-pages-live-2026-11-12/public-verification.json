@@ -1,0 +1,8 @@
+{
+  "check": "progress-pages",
+  "url": "https://chouta-chuan.github.io/MarkItDown-exe/",
+  "source_commit": "bc5d601cbb9480d179edb26372891771b5fa955a",
+  "sha256": "59769d430451bca6b3ffe4cbe5ecf35a80cf41d5696b9bfa160fce6c3f579240",
+  "http_status": 200,
+  "published": true
+}
