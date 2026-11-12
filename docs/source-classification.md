@@ -51,7 +51,7 @@ status 的意思：**confirmed**＝來源由雜湊或同次建置清單證明；
 ## 仍未關閉的項目
 
 1. **系統路徑收集的 DLL（基本 48／CPU 46，candidate）。** `api-ms-win-*`（44／43 個）、`ucrtbase.dll`、`msvcp140.dll`、CPU 的 `MSVCP140_1.dll` 檔名符合 Microsoft Universal CRT／Visual C++ runtime，但報告沒有記錄來源路徑、數位簽章或版本資源，不能只靠檔名確認發行者。需要在 Windows 建置時補記這三項，再對照 Microsoft 再散布條款。
-2. **基本包的 `libcrypto-3-x64.dll`、`libssl-3-x64.dll`（candidate）。** 這兩個檔案是從 hosted runner 的**系統路徑**收集，雜湊與大小都和 CPython 隨附的 `libcrypto-3.dll`／`libssl-3.dll` 不同（6,946,448 對 5,231,472 位元組）。也就是候選包帶了一份來源不明、隨 runner 映像變動的 OpenSSL。這是重現性與再散布風險：需要查出哪個模組引入它，再決定排除或改用固定來源。此項會更動打包內容，尚未處理。
+2. **基本包的 `libcrypto-3-x64.dll`、`libssl-3-x64.dll`（candidate）。** 這兩個檔案是從 hosted runner 的**系統路徑**收集，雜湊與大小都和 CPython 隨附的 `libcrypto-3.dll`／`libssl-3.dll` 不同（6,946,448 對 5,231,472 位元組）。也就是候選包帶了一份來源不明、隨 runner 映像變動的 OpenSSL。這是重現性與再散布風險：候選包同時含 Qt 的 `PySide6/plugins/tls/qopensslbackend.dll`，**推測**是這個 Qt TLS 外掛的相依讓 PyInstaller 從系統路徑收進 OpenSSL，尚未在 Windows 上以相依分析證實。應用程式本身不需要 Qt 網路 TLS 時，排除該外掛即可同時移除這兩個檔案。此項會更動打包內容，需要擁有者同意，尚未處理。
 3. **CPython 隨附元件（基本 27／CPU 25，origin-known）。** 來源位置已確認，但 OpenSSL、libffi、SQLite、Microsoft VC runtime 各有自己的條款；隨包只有 CPython `LICENSE.txt`，尚未逐檔列出版本與原文，也未與 python.org 3.12.10 原文獨立比對。
 4. **`base_library.zip`（各 1，gap）。** PyInstaller 產生的標準庫封存，成員未展開；與 PYZ 內的 Python 模組一樣，需要成員層級清單才算 runtime SBOM。
 5. **專案產生的 manifest（基本 4／CPU 3，origin-known）。** 由固定腳本輸出，內容隨建置變動，無法逐位元對照；風險低，列出以求完整。
