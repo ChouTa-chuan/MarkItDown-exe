@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "tested_source": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+  "archived_at": "2026-11-12",
+  "accepted": true,
+  "windows_executed": false,
+  "windows_rebuilt": false,
+  "scope": "Original GitHub Actions report artifacts preserved byte-for-byte; no product binaries",
+  "workflow_runs": [
+    42982427175,
+    42982427186
+  ],
+  "runtime_sbom_complete": false,
+  "release_ready": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 3699,
+      "sha256": "a67e78e28a9964f936fdc817eebbe05f9d74c0464688a33af66b4bd53fcfb422"
+    },
+    {
+      "file": "verification.json",
+      "bytes": 1731,
+      "sha256": "f59a60c1512e972ea820af7362604b392e9d845125592b6599817f4c3b888a90"
+    },
+    {
+      "file": "verify_archive.py",
+      "bytes": 3462,
+      "sha256": "222390a92b0afa16bd9512a3563da4fcbbeafce2ec946886f173bd653298ceb5"
+    },
+    {
+      "file": "windows-base-validation-reports.zip",
+      "bytes": 2436414,
+      "sha256": "0808ecd9068d2a926663e9cc05da1b44533ce713654c713a06dc8be548281782"
+    },
+    {
+      "file": "windows-cpu-validation-reports.zip",
+      "bytes": 634069,
+      "sha256": "54831b0215cff8185e6fd0544c5be54bc8f57a6b771d76dafdc0e4937bc41a4e"
+    },
+    {
+      "file": "windows-native-build-reports.zip",
+      "bytes": 84938,
+      "sha256": "3197fcbfa85e3515ef1c0cb8e50cd22766c6e332db10948c009eb35ceffdfabd"
+    }
+  ]
+}

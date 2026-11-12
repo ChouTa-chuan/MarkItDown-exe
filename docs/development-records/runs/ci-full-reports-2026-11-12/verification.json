@@ -1,0 +1,49 @@
+{
+  "check": "ci-full-report-archive",
+  "accepted": true,
+  "windows_rebuilt": false,
+  "results": [
+    {
+      "profile": "base",
+      "workflow_run": 42982427175,
+      "artifact_id": 13838258991,
+      "zip_bytes": 2436414,
+      "zip_sha256": "0808ecd9068d2a926663e9cc05da1b44533ce713654c713a06dc8be548281782",
+      "zip_members": 384,
+      "zip_crc_ok": true,
+      "report_bytes": 1762395,
+      "report_sha256": "2246b6a8a9c0a73049b044e2fa7837880d0109f0077f3c6846fa8e0ef6e26c18",
+      "public_summary_report_sha256": "2246b6a8a9c0a73049b044e2fa7837880d0109f0077f3c6846fa8e0ef6e26c18",
+      "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+      "source_version": "0.19.1",
+      "files": 1655,
+      "unresolved_files": 154,
+      "review_files": 191,
+      "runtime_sbom_complete": false,
+      "redistribution_approved": false,
+      "release_ready": false,
+      "accepted": true
+    },
+    {
+      "profile": "cpu",
+      "workflow_run": 42982427186,
+      "artifact_id": 13839056280,
+      "zip_bytes": 634069,
+      "zip_sha256": "54831b0215cff8185e6fd0544c5be54bc8f57a6b771d76dafdc0e4937bc41a4e",
+      "zip_members": 61,
+      "zip_crc_ok": true,
+      "report_bytes": 8574464,
+      "report_sha256": "9a0fc92b33f6c3d747f6c2762f1b944185c14eb9eed9ad217ca83531d421d64f",
+      "public_summary_report_sha256": "9a0fc92b33f6c3d747f6c2762f1b944185c14eb9eed9ad217ca83531d421d64f",
+      "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+      "source_version": "0.19.1",
+      "files": 741,
+      "unresolved_files": 303,
+      "review_files": 337,
+      "runtime_sbom_complete": false,
+      "redistribution_approved": false,
+      "release_ready": false,
+      "accepted": true
+    }
+  ]
+}
