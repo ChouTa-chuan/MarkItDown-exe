@@ -1,5 +1,10 @@
 # 開發紀錄
 
+**2026-11-12｜使用者完成Pages設定，接續部署固定進度網址**
+
+- 使用者確認已完成來源設定，更新[Pages說明](../progress-pages.md)以啟動既有工作流程。將以runner的HTTP 200／精確SHA-256結果核對線上內容，首次未啟用的原始紀錄保持不變。
+- 程式0.19.1／架構0.4與684項基線維持，網站部署結果接續保存。
+
 **2026-11-11｜準備GitHub Pages固定視覺進度網址**
 
 - 依使用者指示新增[Pages自動部署流程](../../.github/workflows/progress-pages.yml)及[設定說明](../progress-pages.md)。固定網址為https://chouta-chuan.github.io/MarkItDown-exe/，首次部署狀態接續記錄；更新進度後自動發布，頁面重新整理載入最新快照。

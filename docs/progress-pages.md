@@ -2,7 +2,7 @@
 
 固定網址：**https://chouta-chuan.github.io/MarkItDown-exe/**
 
-自動部署流程及本地檢查已完成；[首次流程](development-records/runs/progress-pages-2026-11-11/first-deployment/README.md)建置成功，但部署因Pages站台尚未啟用而停止。目前網址尚未上線。啟用後也可使用同一網站的`progress.html`路徑；本地`docs/progress.html`繼續保留供離線查看。
+2026-11-12已由使用者確認完成Pages來源設定，正在重新部署並核對線上內容；[首次未啟用的流程](development-records/runs/progress-pages-2026-11-11/first-deployment/README.md)原樣保存。部署完成後也可使用同一網站的`progress.html`路徑；本地`docs/progress.html`繼續保留供離線查看。
 
 首頁顯示最近一次部署的進度快照。後續更新`docs/progress.json`、頁面模板或產生器並同步`main`時，GitHub Actions會自動產生與部署新版；頁面持續開啟時，重新整理即可載入最近部署。
 
