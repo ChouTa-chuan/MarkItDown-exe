@@ -1,5 +1,10 @@
 # 開發紀錄
 
+**2026-11-12｜PR 1 上新CI入口首次執行皆通過**
+
+- [PR 1](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/1)（head cd14fe7）觸發的Linux完整回歸43152427632、Windows基本包43152427580、Windows CPU選配43152427554皆Success。Linux在runner（CPython 3.12.16／Tesseract 5.3.4）為698 run／697 pass／1既有ONNX繁中預期失敗／0 skip，混合與45模組exit0；[報告原檔與說明](runs/pr1-ci-first-run-2026-11-12/README.md)保存。
+- PR流程以暫時merge commit執行，Windows結果只證明合併後內容可建置並通過既有自動驗收，不取代cb8f24d的候選證據；兩份Windows報告未下載。7/12、C04 2/4、C11 2/5不變，無產物發布。
+
 **2026-11-12｜新session接手：保存CI完整報告、分類未對照來源、補Linux CI與授權提案**
 
 - 接手時先唯讀查證交接文件：版號、鎖定檔數、里程碑、CI run與證據檔皆相符。發現根目錄沒有LICENSE、Linux回歸不在CI、`THIRD_PARTY_NOTICES`仍稱Tesseract未內含，以及兩份完整報告artifact仍未過期（11-18到期）。

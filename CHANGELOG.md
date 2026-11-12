@@ -10,7 +10,7 @@
 - [保存Windows CI完整報告原檔](docs/development-records/runs/ci-full-reports-2026-11-12/README.md)：run 42982427175／42982427186（source cb8f24d）三份artifact ZIP原位元組保存，`bundle-provenance.json`雜湊與公開摘要`report_sha256`相符。相對前版，repo不再只有摘要；更早各run的完整報告仍未保存。
 - 新增`scripts/classify_unresolved_sources.py`與[來源分類](docs/source-classification.md)：基本154／CPU303個未對照檔案依雜湊證據分類，confirmed 73／227、origin-known 32／29、candidate 48／46、gap 1／1。發現基本包含自runner系統路徑收集、來源不明的`libcrypto-3-x64`／`libssl-3-x64.dll`。
 - 自有`THIRD_PARTY_NOTICES`改為分profile敘述，修正「Tesseract未內含」只適用舊development整包的過時說法；第三方原文未改。新增[授權提案](docs/license-proposal.md)（自有程式擬採MIT，待確認，未新增LICENSE）。
-- 新增`linux-regression.yml`與`scripts/run_mixed_regression.py`；兩條Windows驗證流程加入`pull_request`與`workflow_dispatch`。新CI入口尚未在GitHub實際執行。
+- 新增`linux-regression.yml`與`scripts/run_mixed_regression.py`；兩條Windows驗證流程加入`pull_request`與`workflow_dispatch`。[PR 1首次執行](docs/development-records/runs/pr1-ci-first-run-2026-11-12/README.md)三條皆Success（Linux 698／697／1預期失敗／0跳過）；PR流程使用暫時merge commit，不取代cb8f24d候選證據。
 - 驗證：新容器先以原684項獨立重跑（[683通過／1預期失敗／0跳過，混合及43模組exit0](docs/development-records/runs/handover-regression-2026-11-12/README.md)）；新增14項測試後[全698：697通過／1既有ONNX繁中品質預期失敗／0跳過，混合及45模組exit0](docs/development-records/runs/handover-ci-and-classification-2026-11-12/README.md)。環境為CPython 3.12.3、apt Tesseract 5.3.4，與先前基線（3.12.14／5.5.0）不同。未執行Windows建置／安裝、GPU或人工驗收。
 - 未完成：candidate／gap基本49、CPU47項需Windows端補來源路徑／簽章／版本與封存成員清單；runtime SBOM、再散布、授權決定、乾淨機／人工、GPU仍待。C04 2/4、C11 2/5及7/12不變；無Setup交付、tag／Release。
 

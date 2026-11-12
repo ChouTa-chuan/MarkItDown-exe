@@ -224,7 +224,7 @@ Windows hosted runner 預裝開發工具與 Python，不能當作無 Python 乾�
 | [progress-pages.yml](.github/workflows/progress-pages.yml) | 只發布進度網站；資料／模板／產生器更新後自動部署，與應用程式 Release 分開 |
 | [linux-regression.yml](.github/workflows/linux-regression.yml) | PR、main 與手動：Ubuntu 24.04 以雜湊鎖與固定四語模型跑混合＋逐模組完整回歸，測試總數由 `EXPECTED_TESTS` 固定；只上傳日誌與摘要 |
 
-兩條 Windows 驗證流程自 2026-11-12 起另接受 `pull_request`（目標 main）與 `workflow_dispatch`。PR 執行的是 GitHub 產生的暫時 merge commit，報告中的 commit 是該暫時提交；要以分支上的固定提交留存候選證據，使用 `workflow_dispatch` 指定分支，或以合併後 main 的執行為準。這些新入口與 Linux 流程在工作分支上，合併或開 PR 前尚未在 GitHub 實際執行過。
+兩條 Windows 驗證流程自 2026-11-12 起另接受 `pull_request`（目標 main）與 `workflow_dispatch`。PR 執行的是 GitHub 產生的暫時 merge commit，報告中的 commit 是該暫時提交；要以分支上的固定提交留存候選證據，使用 `workflow_dispatch` 指定分支，或以合併後 main 的執行為準。這些新入口與 Linux 流程已在 [PR 1 首次執行](docs/development-records/runs/pr1-ci-first-run-2026-11-12/README.md)且皆 Success（Linux 698／697／1 預期失敗／0 跳過）；`workflow_dispatch` 尚未實際使用過。
 
 原生 Windows EXE／Setup 必須在 Windows 實際建置及驗證。Linux 可做可攜核心測試、來源／PE 分析與固定輸入交叉建置；Linux 的 frozen 程式無法充作 Windows 成果。
 
