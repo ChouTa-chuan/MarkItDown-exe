@@ -1,0 +1,1 @@
+{"scope": "Actual per-module normal subprocess exits; mixed-process acceptance is recorded separately", "source_version": "0.19.1", "modules": 45, "run": 698, "passed": 697, "expected_failures": ["test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"], "accepted": true, "all_child_exits_zero": true}

@@ -1,0 +1,14 @@
+{
+  "expected_count": 698,
+  "run": 698,
+  "failures": [],
+  "errors": [],
+  "load_errors": [],
+  "skipped": [],
+  "expected_failures": [
+    "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+  ],
+  "unexpected_successes": [],
+  "passed": 697,
+  "accepted": true
+}

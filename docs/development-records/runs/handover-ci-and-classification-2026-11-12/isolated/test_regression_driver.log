@@ -1,0 +1,9 @@
+test_cli_refuses_existing_output_before_running_tests (test_regression_driver.SummaryTests.test_cli_refuses_existing_output_before_running_tests) ... ok
+test_count_skip_and_missing_expected_failure_are_rejected (test_regression_driver.SummaryTests.test_count_skip_and_missing_expected_failure_are_rejected) ... ok
+test_exact_count_with_only_known_expected_failure_is_accepted (test_regression_driver.SummaryTests.test_exact_count_with_only_known_expected_failure_is_accepted) ... ok
+test_load_errors_are_reported_separately_and_never_counted_as_passed (test_regression_driver.SummaryTests.test_load_errors_are_reported_separately_and_never_counted_as_passed) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.085s
+
+OK

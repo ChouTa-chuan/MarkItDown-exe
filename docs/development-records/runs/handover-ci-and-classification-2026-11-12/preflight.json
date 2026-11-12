@@ -1,0 +1,65 @@
+{
+  "recorded": "2026-11-12",
+  "tested_head": "582458ef1c8454ca851fbc20beba7eac6630bdea",
+  "source_version": "0.19.1",
+  "os": "Linux-6.18.44-fc-v378-x86_64-with-glibc2.39",
+  "os_release": "Ubuntu 24.04.5 LTS",
+  "python": "3.12.3",
+  "baseline_python": "3.12.14",
+  "tesseract": "tesseract 5.3.4",
+  "tesseract_detail": [
+    " leptonica-1.82.0",
+    "  libgif 5.2.1 : libjpeg 8d (libjpeg-turbo 2.1.5) : libpng 1.6.43 : libtiff 4.5.1 : zlib 1.3 : libwebp 1.3.2 : libopenjp2 2.5.0"
+  ],
+  "baseline_tesseract": "5.5.0",
+  "apt_packages": {
+    "tesseract-ocr": "5.3.4-1build5",
+    "libtesseract5": "5.3.4-1build5",
+    "liblept5": "1.82.0-3build4",
+    "libegl1": "1.7.0-1build1",
+    "fonts-noto-cjk": "1:20230817+repack1-3",
+    "fonts-dejavu-core": "2.37-8"
+  },
+  "lock": "packaging/requirements-linux.txt",
+  "lock_sha256": "8c1bafe948b244b3a670896edf88678852adae32a8484e63a61bfe9722d92b60",
+  "installed_distributions": 58,
+  "pip_check": "No broken requirements found.",
+  "key_packages": {
+    "PySide6-Essentials": "6.12.0",
+    "onnxruntime": "1.31.1",
+    "rapidocr-onnxruntime": "1.4.4",
+    "pdfplumber": "0.11.9",
+    "pypdfium2": "5.14.0",
+    "psutil": "7.2.2",
+    "cryptography": "50.0.2",
+    "numpy": "2.5.4",
+    "pillow": "13.0.0"
+  },
+  "model_commit": "87416418657359cb625c412a48b6e1d6d41c29bd",
+  "models_sha256": {
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "chi_tra.traineddata": "529c5b5797d64b126065cd55f2bb4c7fd7b15790798091b1ff259941a829330b",
+    "eng.traineddata": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+    "jpn.traineddata": "1f5de9236d2e85f5fdf4b3c500f2d4926f8d9449f28f5394472d9e8d83b91b4d",
+    "kor.traineddata": "6b85e11d9bbf07863b97b3523b1b112844c43e713df8b66418a081fd1060b3b2"
+  },
+  "fonts_sha256": {
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf": "ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280",
+    "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc": "faa5f3656a78b2e2d450d27fe8382c778bc2b6bb5ea29c986664a6a435056ceb"
+  },
+  "environment": {
+    "QT_QPA_PLATFORM": "offscreen",
+    "OMP_THREAD_LIMIT": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "PYTHONFAULTHANDLER": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "differences_from_recorded_baseline": [
+    "CPython 3.12.3 instead of 3.12.14",
+    "Tesseract 5.3.4 (Ubuntu apt) instead of 5.5.0",
+    "Leptonica 1.82.0 from apt"
+  ],
+  "note": "Same container, venv, models and system packages as handover-regression-2026-11-12; only the tested source differs."
+}

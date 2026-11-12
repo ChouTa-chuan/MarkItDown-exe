@@ -1,0 +1,12 @@
+test_device_and_threads_validation (test_devices.DeviceTests.test_device_and_threads_validation) ... ok
+test_gpu_request_does_not_silently_use_cpu (test_devices.DeviceTests.test_gpu_request_does_not_silently_use_cpu) ... ok
+test_invalid_memory_rejected (test_devices.DeviceTests.test_invalid_memory_rejected) ... ok
+test_missing_query_does_not_claim_no_hardware (test_devices.DeviceTests.test_missing_query_does_not_claim_no_hardware) ... ok
+test_multiple_gpu_csv (test_devices.DeviceTests.test_multiple_gpu_csv) ... ok
+test_query_timeout_does_not_claim_ready (test_devices.DeviceTests.test_query_timeout_does_not_claim_ready) ... ok
+test_worker_limits_native_threads (test_devices.DeviceTests.test_worker_limits_native_threads) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.070s
+
+OK

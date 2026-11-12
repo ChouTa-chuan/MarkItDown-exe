@@ -1,0 +1,15 @@
+test_empty_file_is_not_attributed_and_nearest_repo_path_is_listed_first (test_source_classification.ClassificationTests.test_empty_file_is_not_attributed_and_nearest_repo_path_is_listed_first) ... ok
+test_generated_archive_and_unknown_are_never_confirmed (test_source_classification.ClassificationTests.test_generated_archive_and_unknown_are_never_confirmed) ... ok
+test_hash_evidence_is_preferred_in_documented_order (test_source_classification.ClassificationTests.test_hash_evidence_is_preferred_in_documented_order) ... ok
+test_only_unresolved_files_are_classified (test_source_classification.ClassificationTests.test_only_unresolved_files_are_classified) ... ok
+test_python_runtime_requires_unchanged_hash (test_source_classification.ClassificationTests.test_python_runtime_requires_unchanged_hash) ... ok
+test_record_must_match_package_table_version (test_source_classification.ClassificationTests.test_record_must_match_package_table_version) ... ok
+test_system_native_names_are_only_candidates (test_source_classification.ClassificationTests.test_system_native_names_are_only_candidates) ... ok
+test_cli_refuses_to_overwrite_existing_output (test_source_classification.EndToEndTests.test_cli_refuses_to_overwrite_existing_output) ... ok
+test_count_mismatch_is_not_accepted (test_source_classification.EndToEndTests.test_count_mismatch_is_not_accepted) ... ok
+test_git_artifact_model_and_payload_indexes (test_source_classification.EndToEndTests.test_git_artifact_model_and_payload_indexes) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.183s
+
+OK
