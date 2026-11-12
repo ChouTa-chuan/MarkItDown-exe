@@ -2,6 +2,8 @@
 
 更新日期：**2026-11-12（台北）**。這份文件寫給第一次接觸本專案的同事或新 AI session，不需要讀取過去聊天紀錄即可開始工作。先讀第 1–4 節了解產品，再讀第 5–8 節了解實作與證據；要開始開發，從第 9–12 節操作。
 
+**輪替接手入口：** 若使用者指定分支／PR，先取得其head並讀取該分支的[交接索引](docs/handoffs/README.md)、[輪替工作流](docs/ai-handoff-workflow.md)及本文件第13節。尚未合併的成果不一定存在main；每位AI完成階段後都須新增交接，下一位依同一流程維護。
+
 本次整理前的專案基準為 `da961af7ed2aea25be79a976f0d85479f009ae96`。最後完整功能／Windows 候選驗證來源為 `cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1`；之後另有網站與文件更新。**目前分支的 HEAD、程式版號與真正執行過測試的 source commit 必須分開記錄。**
 
 **2026-11-12 接手後更新（工作分支 `claude/confident-ride-o38ls7`，尚未合併 main）：** 已保存 Windows CI 完整報告原檔並核對雜湊、完成 154／303 個未對照來源的證據分類、在新環境重跑 Linux 完整回歸、新增 Linux 回歸 CI 與 PR／手動驗證入口、修正自有 `THIRD_PARTY_NOTICES`，並提出授權提案待確認。Linux 最新回歸來源為 `582458e`；Windows 候選來源仍是 `cb8f24d`，沒有新的 Windows 執行。分支規則改為「工作分支＋PR，不直接推 main」，見第 11 節。
@@ -403,6 +405,7 @@ gh run download 42982427186 --repo ChouTa-chuan/MarkItDown-exe --name windows-cp
 | 資訊 | 優先閱讀位置 |
 | --- | --- |
 | 新人／新 AI 起點 | 本文件與 [AGENTS.md](AGENTS.md) |
+| AI輪替、收工與接續 | [工作流](docs/ai-handoff-workflow.md)、[交接索引](docs/handoffs/README.md)、[範本](docs/handoffs/TEMPLATE.md) |
 | 產品規劃、模組責任與十二里程碑 | [architecture-guide.md](docs/architecture-guide.md)，注意各段補記的版本日期 |
 | 目前勾選／測試／最新 source | [progress.json](docs/progress.json)、[validation-results.json](docs/validation-results.json) 與對應 run 證據 |
 | 線上／離線視覺頁 | [固定網站](https://chouta-chuan.github.io/MarkItDown-exe/)／[progress.html](docs/progress.html)；JSON 是視覺頁資料來源 |
@@ -420,12 +423,13 @@ gh run download 42982427186 --repo ChouTa-chuan/MarkItDown-exe --name windows-cp
 - 新程式契約與複雜流程加中文註解；vendor 固定上游、第三方原文／模型／公開樣本維持來源與 hash。
 - 以實際證據維護本文件狀態段、`progress.json`、`validation-results.json`、CHANGELOG 與開發紀錄。只做文件更新就寫清楚未重跑產品測試，不抄舊數字冒充新執行。
 - 新證據放新的 run 目錄，保存原始失敗、樣本與 hash；不要覆寫舊附件、把真實使用者文件／環境秘密／venv／cache 加入 Git。
+- 每次完成階段／交棒時，以統一範本另存新的交接紀錄並更新索引，四組資料填齊；留下分支／PR、內容與測試提交、未完成與下一步、已確認及待定新規則，推送後提供簡短接手指令。詳見第13節。
 - 架構圖若改動，新增快照及索引／hash；目前 28 份舊圖保持不變。本文件的責任表引用既有架構，沒有新增或更改圖。
 - 分支規則（2026-11-12 起）：在工作分支作業並同步 GitHub，獨立工作開新分支；可自行提交、推送工作分支與建立 PR。**不直接推送 `main`，合併由使用者另行指示**；不 force push、不刪除分支或標籤、不改寫歷史。進度網站只在 `main` 更新後由 Pages workflow 部署，因此工作分支上的進度資料要等合併後才會出現在固定網址。先前「正常推送 `main`」的做法自此停用。
 - 刪除檔案、更動授權、升級大版本相依套件、更改打包方式，先取得使用者同意。
 - 應用程式 Release／Setup 發布、雲端環境設定發布與進度網站發布是不同動作。已有進度網站發布授權；未另有產品發行指示時，不自行建立 Release／tag、上傳 Setup 或觸發舊手動發行 workflow。後續使用者新指示優先。
 
-更新視覺頁使用 `python scripts/build_progress.py`。如改 UI／頁面行為，可用 `scripts/check_progress_browser.py` 驗分頁、篩選、鍵盤與手機版；需要 Playwright／Chromium。只改本交接說明不需重跑原生建置、OCR 或全 684。
+更新視覺頁使用 `python scripts/build_progress.py`。如改 UI／頁面行為，可用 `scripts/check_progress_browser.py` 驗分頁、篩選、鍵盤與手機版；需要 Playwright／Chromium。只改本交接說明不需重跑原生建置、OCR 或完整功能回歸。
 
 雲端環境可能替換或暫停；既有本機 venv、`/tmp`、未推送檔案與 CI artifact 保留期都不等於永久保存。GitHub 保存程式與已提交紀錄，ChatGPT／Codex 對話是否跨客戶端出現需另查，不能靠 Git 推送恢復聊天紀錄。
 
@@ -437,9 +441,32 @@ gh run download 42982427186 --repo ChouTa-chuan/MarkItDown-exe --name windows-cp
 
 > 請接手專案 https://github.com/ChouTa-chuan/MarkItDown-exe 。先讀根目錄 AGENTS.md、PROJECT_HANDOFF.md；若尚無 checkout，交接文件可先讀 https://raw.githubusercontent.com/ChouTa-chuan/MarkItDown-exe/main/PROJECT_HANDOFF.md 。再核對遠端 main、pyproject.toml、docs/progress.json 與最新開發紀錄。這是以 Microsoft MarkItDown 為核心的 Windows 桌面應用程式，採基本安裝包＋選配元件管理；精準模式自動分析，基本 Tesseract 四語，RAM 是軟性預算，GPU 尚未實卡驗收。
 >
+> 若使用者指定未合併分支／PR，請先取得其head，改讀該分支版本的AGENTS、PROJECT_HANDOFF、docs/ai-handoff-workflow.md及docs/handoffs/README.md最新交接；main連結只作背景。接手前核對base/head、推送狀態、內容／測試source與CI merge SHA；目標不明且存在多個工作分支時才詢問。完成後新增交接、更新索引與整體指南，四組資料及接手指令都要填，不必依賴聊天同步。
+>
 > 2026-11-12交接基線：程式0.19.1／架構0.4，C01–C12為7/12（C03 3/4、C04 2/4、C09 3/4、C11 2/5），完整698項為697 pass＋1既有ONNX繁中品質expected failure、0 skip，混合及45獨立模組exit0（cb8f24d當時為684／43模組）。真正功能／Windows候選來源cb8f24d；基本10／安裝6／跨版11／三停點續修，CPU11／同版8／跨版8／程序恢復6已接受。固定進度網站https://chouta-chuan.github.io/MarkItDown-exe/已上線。
 >
 > 完整候選報告原檔已保存於docs/development-records/runs/ci-full-reports-2026-11-12，基本154／CPU303個來源未對照項目已依雜湊證據分類（docs/source-classification.md）；下一項優先工作是在Windows建置補記系統DLL的來源路徑／簽章／版本、處理來源不明的OpenSSL、產生Python封存成員清單，並等使用者確認docs/license-proposal.md。更早各次run的完整報告未保存，不能憑總數補造明細。普通檔案清單已驗不等於runtime SBOM或授權核准。接著準備固定版本／hash／原文與操作表的測試產物，再做無Python乾淨Windows／離線／人工／GPU驗收；目前沒有使用者可下載的正式Setup。
 >
 > 在工作分支作業、推送分支並以PR提交，不直接推送main、不force push，合併由使用者指示。依當下任務先完成一個具體可驗證子項，維持中文註解、CHANGELOG、開發紀錄、交接摘要與視覺進度並同步GitHub；保留舊證據／架構圖／vendor／原文／模型。不重做已完成核心，不放寬品質目標，不把模擬、跳過或expected failure當品質通過；未另有發行指示時不建立Release／tag或發布Setup。若後續提交已更新狀態，以實際來源及新證據調整這份歷史基線。
+
+## 13. AI輪替與工作流持續更新
+
+使用者已確認採用固定交接方式。兩個AI／同事每次完成一項具體檢核或告一段落，都依[工作流1.0](docs/ai-handoff-workflow.md)新增紀錄，推送工作分支並更新[索引](docs/handoffs/README.md)，讓下一個session自行讀取專案接手。
+
+| 每次必留 | 必須能核對的內容 |
+| --- | --- |
+| 工作分支與PR | head／base、父PR、主要內容提交、是否已推送與合併；未建立PR時留下原因及比較連結 |
+| 完成、測試及提交 | 改了什麼、測試source／CI merge SHA、環境、真實計數／exit、證據路徑／hash／保留期限；未執行或running明列 |
+| 未完成、阻擋與下一步 | 可繼續工作、待使用者決策／平台限制、有期限的報告，以及第一個動作與完成條件 |
+| 新需求或工作規則 | 日期、來源、已確認／待定狀態、影響與已更新的文件；沒有新增也明寫 |
+
+使用[統一範本](docs/handoffs/TEMPLATE.md)另存新檔，舊紀錄保留。整體指南寫產品現況，階段交接寫「下一位此刻要做什麼」，開發紀錄保存過程；三者互相連結，避免複製長歷史後各自過時。
+
+使用者下次只需提供：
+
+> 請接手分支 `xxx`／PR `#123`，先讀最新交接紀錄，再繼續下一項工作。
+
+新AI先核對指定分支而非只讀main，不覆蓋上一位的未提交內容；有工具權限就自行開PR，不能開時先推分支並提供填妥base／head的建立連結。不同session的聊天、暫存及工具權限不共享，相關決策／證據要先保存。
+
+後續AI可繼續改進工作流：在分支修正文檔／範本，於交接D組及流程版本表記錄來源／影響，同步AGENTS與本節。沿用已確認的新規則，不每次重問；未獲核准的提案不能寫成授權，合併main／授權／打包／發行仍遵守現行界線。
 

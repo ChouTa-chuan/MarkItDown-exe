@@ -4,6 +4,8 @@
 
 **第一次接觸專案或交給新 AI session：請先讀 [專案說明與接手指南](PROJECT_HANDOFF.md)。** 文件包含需求沿革、模組責任、最新證據、未完成事項、開發／驗證指令及可直接複製的接手提示。
 
+兩個 AI／同事輪流作業時，使用[輪替工作流](docs/ai-handoff-workflow.md)、[最新交接索引](docs/handoffs/README.md)與[統一範本](docs/handoffs/TEMPLATE.md)。指定未合併 PR 時，先讀它的工作分支版本；一般不需轉貼整段聊天紀錄。
+
 > **開發中**：已有 Linux 核心與桌面原型驗證。Windows 已通過 hosted 基本包安裝驗證；乾淨機、完整生命週期與 GPU 仍待驗收，目前沒有 Windows 正式版下載。
 
 | 版本／進度 | 狀態 |

@@ -1,5 +1,11 @@
 # 開發紀錄
 
+**2026-11-12｜AI輪替工作流與固定交接欄位**
+
+- 使用者要求將每次交棒的四組資料寫進工作流，新增[流程](../ai-handoff-workflow.md)、[範本／索引](../handoffs/README.md)與PR範本；AGENTS及PROJECT_HANDOFF同步加入新AI持續維護要求與短接手指令。
+- 從未合併[PR #1](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/1)的最新dfce675，另開`codex/ai-handoff-workflow-20261112`，文件變更承接其698回歸與來源分類結果；本次不重跑產品驗證、不改父分支、不合併main，不新增授權／打包／產品發布決定。
+- 收工分支／提交、驗證及下一步見[本次交接](../handoffs/2026-11-12-codex-workflow.md)，舊run／架構圖與既有證據不改寫。
+
 **2026-11-12｜PR 1 上新CI入口首次執行皆通過**
 
 - [PR 1](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/1)（head cd14fe7）觸發的Linux完整回歸43152427632、Windows基本包43152427580、Windows CPU選配43152427554皆Success。Linux在runner（CPython 3.12.16／Tesseract 5.3.4）為698 run／697 pass／1既有ONNX繁中預期失敗／0 skip，混合與45模組exit0；[報告原檔與說明](runs/pr1-ci-first-run-2026-11-12/README.md)保存。
