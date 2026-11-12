@@ -1,0 +1,8 @@
+test_menu_has_both_documents (test_help_ui.HelpTests.test_menu_has_both_documents) ... ok
+test_packaged_attribution_and_folder (test_help_ui.HelpTests.test_packaged_attribution_and_folder) ... ok
+test_packaged_manual_and_ui (test_help_ui.HelpTests.test_packaged_manual_and_ui) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.181s
+
+OK

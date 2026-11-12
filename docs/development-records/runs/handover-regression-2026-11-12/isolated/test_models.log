@@ -1,0 +1,13 @@
+test_bad_download_never_published (test_models.ModelsTests.test_bad_download_never_published) ... ok
+test_cancel_during_read_cleans_partial_file (test_models.ModelsTests.test_cancel_during_read_cleans_partial_file) ... ok
+test_corrupt_existing_preserved (test_models.ModelsTests.test_corrupt_existing_preserved) ... ok
+test_download_and_reuse_without_network (test_models.ModelsTests.test_download_and_reuse_without_network) ... ok
+test_network_error_cleans_file (test_models.ModelsTests.test_network_error_cleans_file) ... ok
+test_remove_corrupt_file_refuses (test_models.ModelsTests.test_remove_corrupt_file_refuses) ... ok
+test_remove_preserves_unknown_files (test_models.ModelsTests.test_remove_preserves_unknown_files) ... ok
+test_manifest_available_and_pinned (test_models.PackagedManifestTests.test_manifest_available_and_pinned) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.009s
+
+OK

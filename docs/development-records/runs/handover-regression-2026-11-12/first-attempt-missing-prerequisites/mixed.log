@@ -1,0 +1,100 @@
+.................................................................................................................{"component_id": "onnx-cpu-ocr", "version": "1.0.1", "protocol": "1.0.0", "files": 3, "descriptor_bytes": 1186, "package_bytes": 594, "unpacked_bytes": 380, "sha256": "c64ed2d67fe6b8f624324c79d7c4c04b94d969ba02ba198887e8cfc3ed620e1c", "platform": "linux", "architecture": "x86_64", "development_only": true, "production_catalog_published": false, "source_url_is_deliberately_non_downloadable": true}
+....{"component_id": "onnx-cpu-ocr", "version": "1.0.1", "protocol": "1.0.0", "files": 3, "descriptor_bytes": 1186, "package_bytes": 594, "unpacked_bytes": 380, "sha256": "c64ed2d67fe6b8f624324c79d7c4c04b94d969ba02ba198887e8cfc3ed620e1c", "platform": "linux", "architecture": "x86_64", "development_only": true, "production_catalog_published": false, "source_url_is_deliberately_non_downloadable": true}
+.{"component_id": "onnx-cpu-ocr", "version": "1.0.1", "protocol": "1.0.0", "files": 10, "descriptor_bytes": 2268, "package_bytes": 2519, "unpacked_bytes": 1240, "sha256": "4dcbf97ab9d575a8b0821a3daef6a5081e7c50c0839f50d5c95744770b96536a", "platform": "linux", "architecture": "x86_64", "development_only": true, "production_catalog_published": false, "source_url_is_deliberately_non_downloadable": true}
+....{"component_id": "onnx-cpu-ocr", "version": "1.0.1", "protocol": "1.0.0", "files": 3, "descriptor_bytes": 1186, "package_bytes": 594, "unpacked_bytes": 380, "sha256": "c64ed2d67fe6b8f624324c79d7c4c04b94d969ba02ba198887e8cfc3ed620e1c", "platform": "linux", "architecture": "x86_64", "development_only": true, "production_catalog_published": false, "source_url_is_deliberately_non_downloadable": true}
+.......{"component_id": "onnx-cpu-ocr", "version": "1.0.1", "protocol": "1.0.0", "files": 3, "descriptor_bytes": 1186, "package_bytes": 594, "unpacked_bytes": 380, "sha256": "c64ed2d67fe6b8f624324c79d7c4c04b94d969ba02ba198887e8cfc3ed620e1c", "platform": "linux", "architecture": "x86_64", "development_only": true, "production_catalog_published": false, "source_url_is_deliberately_non_downloadable": true}
+..................................................................................................E................................s.s...............................................................................................................................E........usage: mixed.py [-h] --report REPORT [--scope {full,core}]
+mixed.py: error: Report already exists; select a new report path
+........EE........................................E.....................................................sE........................s.x............................ss....sss.sFFF.....................................................................................
+======================================================================
+ERROR: setUpClass (test_component_management.ManagementDialogTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/MarkItDown-exe/tests/test_component_management.py", line 200, in setUpClass
+    from PySide6.QtWidgets import QApplication
+ImportError: libEGL.so.1: cannot open shared object file: No such file or directory
+
+======================================================================
+ERROR: setUpClass (test_desktop.DesktopTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/MarkItDown-exe/tests/test_desktop.py", line 15, in setUpClass
+    from PySide6.QtWidgets import QApplication
+ImportError: libEGL.so.1: cannot open shared object file: No such file or directory
+
+======================================================================
+ERROR: setUpClass (test_help_ui.HelpTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/MarkItDown-exe/tests/test_help_ui.py", line 12, in setUpClass
+    from PySide6.QtWidgets import QApplication
+ImportError: libEGL.so.1: cannot open shared object file: No such file or directory
+
+======================================================================
+ERROR: setUpClass (test_languages.LanguageDesktopTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/MarkItDown-exe/tests/test_languages.py", line 137, in setUpClass
+    from PySide6.QtWidgets import QApplication
+ImportError: libEGL.so.1: cannot open shared object file: No such file or directory
+
+======================================================================
+ERROR: setUpClass (test_managed_conversion.ManagedDesktopTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/MarkItDown-exe/tests/test_managed_conversion.py", line 238, in setUpClass
+    from PySide6.QtWidgets import QApplication
+ImportError: libEGL.so.1: cannot open shared object file: No such file or directory
+
+======================================================================
+ERROR: setUpClass (test_onboarding.SetupDialogTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/MarkItDown-exe/tests/test_onboarding.py", line 161, in setUpClass
+    from PySide6.QtWidgets import QApplication
+ImportError: libEGL.so.1: cannot open shared object file: No such file or directory
+
+======================================================================
+FAIL: test_busy_close_cancels_then_destroys_after_thread_finishes (test_qt_lifecycle.QtLifecycleTests.test_busy_close_cancels_then_destroys_after_thread_finishes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/MarkItDown-exe/tests/test_qt_lifecycle.py", line 92, in test_busy_close_cancels_then_destroys_after_thread_finishes
+    self.run_entrypoint(busy=True)
+  File "/home/user/MarkItDown-exe/tests/test_qt_lifecycle.py", line 82, in run_entrypoint
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+ImportError: libEGL.so.1: cannot open shared object file: No such file or directory
+
+
+======================================================================
+FAIL: test_entrypoint_destroys_closed_component_dialog_with_parent (test_qt_lifecycle.QtLifecycleTests.test_entrypoint_destroys_closed_component_dialog_with_parent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/MarkItDown-exe/tests/test_qt_lifecycle.py", line 89, in test_entrypoint_destroys_closed_component_dialog_with_parent
+    self.run_entrypoint(True)
+  File "/home/user/MarkItDown-exe/tests/test_qt_lifecycle.py", line 82, in run_entrypoint
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+ImportError: libEGL.so.1: cannot open shared object file: No such file or directory
+
+
+======================================================================
+FAIL: test_entrypoint_destroys_closed_main_window (test_qt_lifecycle.QtLifecycleTests.test_entrypoint_destroys_closed_main_window)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/MarkItDown-exe/tests/test_qt_lifecycle.py", line 86, in test_entrypoint_destroys_closed_main_window
+    self.run_entrypoint(False)
+  File "/home/user/MarkItDown-exe/tests/test_qt_lifecycle.py", line 82, in run_entrypoint
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+ImportError: libEGL.so.1: cannot open shared object file: No such file or directory
+
+
+----------------------------------------------------------------------
+Ran 653 tests in 46.294s
+
+FAILED (failures=3, errors=6, skipped=10, expected failures=1)
+{"run": 653, "failures": ["test_qt_lifecycle.QtLifecycleTests.test_busy_close_cancels_then_destroys_after_thread_finishes", "test_qt_lifecycle.QtLifecycleTests.test_entrypoint_destroys_closed_component_dialog_with_parent", "test_qt_lifecycle.QtLifecycleTests.test_entrypoint_destroys_closed_main_window"], "errors": ["setUpClass (test_component_management.ManagementDialogTests)", "setUpClass (test_desktop.DesktopTests)", "setUpClass (test_help_ui.HelpTests)", "setUpClass (test_languages.LanguageDesktopTests)", "setUpClass (test_managed_conversion.ManagedDesktopTests)", "setUpClass (test_onboarding.SetupDialogTests)"], "expected": ["test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"], "unexpected_success": [], "skipped": [["test_component_migration.OCRPathRegressionTests.test_explicit_missing_data_directory_does_not_use_environment_models", "Native OCR prerequisite required"], ["test_component_migration.OCRPathRegressionTests.test_real_pinned_models_are_read_only_references_not_engine_readiness", "Verified pinned model directory required"], ["test_onboarding.NativeSetupTests.test_actual_cpu_bilingual_probe_offline", "Install native Tesseract and Pillow prerequisites"], ["test_onnx_ocr.OnnxIntegrationTests.test_crosscheck_keeps_primary_and_candidate", "Cross-check requires Tesseract"], ["test_pdf_pipeline.PdfPipelineTests.test_english_scan_and_native_page_are_routed_separately", "Tesseract not installed"], ["test_pdf_pipeline.PdfPipelineTests.test_explicit_paths_work_without_environment_variable", "Tesseract not installed"], ["test_pdf_pipeline.PdfPipelineTests.test_scan_improves_over_native_baseline", "Tesseract and MarkItDown are required"], ["test_pdf_pipeline.PdfPipelineTests.test_sparse_chinese_image_keeps_both_lines", "Tesseract not installed"], ["test_pdf_pipeline.PdfPipelineTests.test_traditional_chinese_scan", "Tesseract not installed"], ["test_pdf_pipeline.PdfPipelineTests.test_utf8_language_probe_and_real_ocr_with_cp1252_default", "Tesseract not installed"]]}
