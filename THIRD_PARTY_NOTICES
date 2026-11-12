@@ -1,33 +1,115 @@
+MarkItDown-exe third-party notices
+==================================
+
+This file is the project's own summary. It is not a license grant and not a
+final redistribution compliance statement. Original third-party license texts
+are preserved unmodified at the locations named below. What actually applies
+depends on which build profile a package was produced from; the profiles are
+listed separately because their contents differ.
+
+The application's own source code (src/desktop_app, scripts, packaging) has no
+published license yet. See docs/license-proposal.md for the pending proposal.
+
+
+1. Common to every profile
+--------------------------
+
 Microsoft MarkItDown 0.1.9
 Source: https://github.com/microsoft/markitdown
 Commit: 7482c092d9c0074a89803c9fdb63a969e7fe17fc
 License: MIT; full text is preserved in vendor/markitdown/LICENSE.
 The selected upstream runtime source is preserved without modifications.
 Per-file SHA-256 hashes are recorded in vendor/markitdown/UPSTREAM.json.
-
 The application adapter is maintained separately in src/desktop_app.
-Runtime dependencies and PySide6 have separate licenses. The 58-package
-Windows lock inventory, original notices and pinned supplemental sources are
-included in desktop_app/data/licenses and accessible through Help / Third-party
-licenses. This development inventory includes build/test dependencies as a
-superset. Windows final native-binary audit and Qt redistribution obligations
-remain release gates; no final distribution compliance claim is made.
-
-Optional local OCR models: tesseract-ocr/tessdata_fast
-Commit: 87416418657359cb625c412a48b6e1d6d41c29bd
-License: Apache-2.0. The official license is downloaded and SHA-256 checked
-alongside the models; model files are not included in this source repository.
-Source and hashes: src/desktop_app/data/ocr-models.json. Tesseract executable is external and
-is not bundled in the current development build.
-
-Experimental optional OCR: rapidocr-onnxruntime 1.4.4
-Package metadata declares Apache-2.0. Its bundled PP-OCR models are checked
-against SHA-256 values in src/desktop_app/onnx_ocr.py. Source of installed
-artifacts is PyPI with TLS and hashed dependency lock files. The complete
-runtime/model final redistribution review remains pending; this is not
-a final distribution compliance declaration.
 
 Upstream PDF regression fixture: tests/fixtures/upstream-sparse.pdf
 From the same Microsoft MarkItDown commit recorded above. Source path,
 SHA-256 and license reference are recorded in tests/fixtures/UPSTREAM.json.
-Original MIT license remains in vendor/markitdown/LICENSE.
+Test fixtures are not part of any built package.
+
+
+2. Source repository
+--------------------
+
+The Git repository contains no Tesseract executable, no OCR model files and no
+Python wheels. Dependencies are pinned by hash in packaging/*.txt and
+packaging/profiles/*.txt. Tesseract model sources and hashes are recorded in
+src/desktop_app/data/ocr-four-languages.json (four languages) and
+src/desktop_app/data/ocr-models.json (legacy two-language entry).
+
+
+3. Base package (packaging/base.spec, Windows)
+----------------------------------------------
+
+Python runtime packages: the 38-package Windows base runtime lock
+(packaging/profiles/base-windows-runtime.txt), including PySide6-Essentials
+6.12.0 / shiboken6 (Qt for Python; LGPL-3.0-only OR GPL-2.0-only OR
+GPL-3.0-only per package metadata), Magika and its CPU ONNX Runtime
+dependency. Notices actually collected from the installed packages are placed
+in desktop_app/data/licenses inside the package and are reachable through
+Help / Third-party licenses.
+
+CPython: the build interpreter's runtime DLLs and standard library are
+bundled; its LICENSE.txt is copied to
+desktop_app/data/licenses/python-runtime/LICENSE.txt.
+
+PyInstaller bootloader: the original PyInstaller license is copied to
+desktop_app/data/licenses/bootloader.
+
+Bundled Tesseract OCR engine: the Windows base package DOES include a
+tesseract.exe. It is built in CI from pinned source archives recorded in
+packaging/native/minimal-windows.json: Tesseract 5.5.3, Leptonica 1.87.0,
+libpng 1.6.59 and zlib 1.4, statically linked with an LLVM/MinGW-w64
+toolchain. Original license texts for these and for the toolchain runtime
+libraries are preserved in packaging/native/minimal-notices and copied to
+desktop_app/data/native/notices.
+
+Bundled OCR models: tesseract-ocr/tessdata_fast, commit
+87416418657359cb625c412a48b6e1d6d41c29bd, Apache-2.0. The base package
+includes chi_tra, eng, jpn and kor traineddata plus the official LICENSE in
+desktop_app/data/native/tessdata; every file is checked against the pinned
+SHA-256 values.
+
+Open items for this profile: Qt (LGPL) relinking/corresponding-source
+obligations, Microsoft Universal CRT / Visual C++ runtime redistribution,
+OpenSSL and other libraries collected from the build machine, per-file
+attribution of CPython's bundled third-party components, and a member-level
+inventory of the Python archive. See docs/source-classification.md.
+
+
+4. Optional CPU OCR component (packaging/ocr-worker.spec, Windows)
+------------------------------------------------------------------
+
+Experimental optional OCR: rapidocr-onnxruntime 1.4.4. Package metadata
+declares Apache-2.0. Its bundled PP-OCR models are checked against SHA-256
+values in src/desktop_app/onnx_ocr.py. Installed artifacts come from PyPI with
+TLS and the hashed lock packaging/profiles/cpu-windows-build.txt (24
+packages; this lock describes the build environment, not a runtime SBOM).
+Collected notices are placed in worker-assets inside the component package,
+which also carries its own NOTICE.txt. This component contains no Qt or
+Tesseract binaries; it only carries copies of license texts from the
+application's notice inventory.
+
+Open items for this profile: runtime/model redistribution review for
+rapidocr-onnxruntime, ONNX Runtime and OpenCV, Microsoft runtime
+redistribution, and the same CPython/archive items as the base package.
+
+
+5. Legacy development build (packaging/desktop.spec, manual workflow)
+---------------------------------------------------------------------
+
+The earlier all-in-one development build uses the 58-package Windows lock
+(packaging/requirements-windows.txt), a superset that includes build and test
+dependencies. Its notice inventory, original notices and pinned supplemental
+sources are in src/desktop_app/data/licenses/windows. In this build the
+Tesseract executable is external and is not bundled, and OCR models are
+downloaded separately with SHA-256 verification. It is not the delivery
+pipeline for the base package.
+
+
+6. Status
+---------
+
+No profile has passed final redistribution review. Windows native-binary
+audit, Qt redistribution obligations and the application license remain
+release gates; no final distribution compliance claim is made.
