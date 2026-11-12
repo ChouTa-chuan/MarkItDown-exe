@@ -7,7 +7,7 @@
 - 首次在新容器跑測試只執行653項：缺`libEGL.so.1`使6個Qt測試類別載入失敗、31個方法未執行，缺Tesseract使10項跳過。經使用者同意以apt補libEGL、Tesseract（實得5.3.4，非基線5.5.0）與CJK字型並下載固定四語模型後，[原684項重現](runs/handover-regression-2026-11-12/README.md)；首次輸出一併保存。
 - 以[雜湊證據分類](../source-classification.md)基本154／CPU303個未對照檔案，[逐檔結果](runs/source-classification-2026-11-12/README.md)保存。檔名像Microsoft runtime的系統DLL只列candidate；另發現基本包帶有自runner系統路徑收集的OpenSSL，推測由Qt TLS外掛引入、尚未證實。零位元組檔不以雜湊推定來源，同雜湊多路徑時優先列最相近的repo路徑。
 - 修正自有`THIRD_PARTY_NOTICES`、提出[授權提案](../license-proposal.md)待確認；新增Linux回歸CI與Windows驗證的PR／手動入口。新增14項測試後[全698項](runs/handover-ci-and-classification-2026-11-12/README.md)混合及45模組exit0。
-- 遇到的阻擋：本session對repo的git push回403（Claude GitHub App未安裝或未連結），提交暫存在本機分支，待使用者處理存取後推送並建立PR；新CI因此尚未實際執行。更動打包內容（排除Qt TLS外掛／FFmpeg、改用官方VC runtime來源）與授權決定待使用者同意。7/12、C04 2/4、C11 2/5不變。
+- 過程中本session對repo的git push曾兩度回403（提示Claude GitHub App存取未連結），提交先留在本機分支；稍後重試成功，分支已推送。新CI流程在PR建立後才會首次於GitHub執行，結果另記。更動打包內容（排除Qt TLS外掛／FFmpeg、改用官方VC runtime來源）與授權決定待使用者同意。7/12、C04 2/4、C11 2/5不變。
 
 **2026-11-12｜建立不依賴聊天紀錄的完整專案交接入口**
 

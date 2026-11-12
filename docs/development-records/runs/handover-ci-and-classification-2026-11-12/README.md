@@ -14,7 +14,7 @@
 
 ## 未在此驗證
 
-- `linux-regression.yml` 與兩條 Windows 流程的新觸發條件只做了 YAML 解析與本機等效指令執行；因本 session 無法推送，**尚未在 GitHub Actions 實際執行**。
+- `linux-regression.yml` 與兩條 Windows 流程的新觸發條件在本紀錄建立時只做了 YAML 解析與本機等效指令執行，**尚未在 GitHub Actions 實際執行**；PR 上的首次執行結果另記。
 - 沒有 Windows 建置、安裝、原生 worker、GPU 或人工 UI。C01–C12 的 7/12、C04 2/4、C11 2/5 不變。
 
 [返回開發紀錄](../../README.md)
