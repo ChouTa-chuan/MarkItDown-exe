@@ -1,16 +1,16 @@
 {
-  "recorded_at": "2026-11-11T03:14:58.601742+00:00",
+  "recorded_at": "2026-11-12T04:02:25+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",
   "tests": {
-    "run": 684,
-    "passed": 683,
+    "run": 698,
+    "passed": 697,
     "expected_failures": 1,
     "skipped": 0,
     "failed": 0,
-    "method": "Guarded mixed process exit0 and43 isolated module processes exit0; one known ONNX quality expected failure retained."
+    "method": "run_mixed_regression.py exit0 and 45 isolated module processes exit0; one known ONNX quality expected failure retained. Source 582458e; CPython 3.12.3, apt Tesseract 5.3.4."
   },
-  "command": "Verified TESSDATA_PREFIX + PYTHONPATH=src:tests + QT_QPA_PLATFORM=offscreen; guarded mixed runner and check_isolated_tests.py --expected-count 684 --output <fresh-directory>",
+  "command": "Verified TESSDATA_PREFIX + PYTHONPATH=src:tests + QT_QPA_PLATFORM=offscreen; scripts/run_mixed_regression.py --expected-count 698 --output <fresh-file> and check_isolated_tests.py --expected-count 698 --output <fresh-directory>",
   "native_prerequisites": [
     "Tesseract 5.5.0",
     "verified chi_tra + eng data",
@@ -3114,5 +3114,17 @@
     "clean_machine_accepted": false,
     "release_ready": false,
     "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/pre-finalization-regression/full-mixed-result.json"
+  },
+  "previous_tests_684": {
+    "recorded_at": "2026-11-11T03:14:58.601742+00:00",
+    "tests": {
+      "run": 684,
+      "passed": 683,
+      "expected_failures": 1,
+      "skipped": 0,
+      "failed": 0,
+      "method": "Guarded mixed process exit0 and43 isolated module processes exit0; one known ONNX quality expected failure retained."
+    },
+    "command": "Verified TESSDATA_PREFIX + PYTHONPATH=src:tests + QT_QPA_PLATFORM=offscreen; guarded mixed runner and check_isolated_tests.py --expected-count 684 --output <fresh-directory>"
   }
 }

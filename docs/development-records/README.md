@@ -1,5 +1,14 @@
 # 開發紀錄
 
+**2026-11-12｜新session接手：保存CI完整報告、分類未對照來源、補Linux CI與授權提案**
+
+- 接手時先唯讀查證交接文件：版號、鎖定檔數、里程碑、CI run與證據檔皆相符。發現根目錄沒有LICENSE、Linux回歸不在CI、`THIRD_PARTY_NOTICES`仍稱Tesseract未內含，以及兩份完整報告artifact仍未過期（11-18到期）。
+- 下載artifact時先被雲端環境網路政策拒絕（兩個GitHub artifact儲存主機CONNECT 403）；使用者核准加入允許清單後取得三份ZIP，雜湊與GitHub digest及公開摘要`report_sha256`相符，[原檔與核對腳本](runs/ci-full-reports-2026-11-12/README.md)保存。暫時簽章網址未入庫；EXE／模型本體未下載。
+- 首次在新容器跑測試只執行653項：缺`libEGL.so.1`使6個Qt測試類別載入失敗、31個方法未執行，缺Tesseract使10項跳過。經使用者同意以apt補libEGL、Tesseract（實得5.3.4，非基線5.5.0）與CJK字型並下載固定四語模型後，[原684項重現](runs/handover-regression-2026-11-12/README.md)；首次輸出一併保存。
+- 以[雜湊證據分類](../source-classification.md)基本154／CPU303個未對照檔案，[逐檔結果](runs/source-classification-2026-11-12/README.md)保存。檔名像Microsoft runtime的系統DLL只列candidate；另發現基本包帶有自runner系統路徑收集的OpenSSL，推測由Qt TLS外掛引入、尚未證實。零位元組檔不以雜湊推定來源，同雜湊多路徑時優先列最相近的repo路徑。
+- 修正自有`THIRD_PARTY_NOTICES`、提出[授權提案](../license-proposal.md)待確認；新增Linux回歸CI與Windows驗證的PR／手動入口。新增14項測試後[全698項](runs/handover-ci-and-classification-2026-11-12/README.md)混合及45模組exit0。
+- 遇到的阻擋：本session對repo的git push回403（Claude GitHub App未安裝或未連結），提交暫存在本機分支，待使用者處理存取後推送並建立PR；新CI因此尚未實際執行。更動打包內容（排除Qt TLS外掛／FFmpeg、改用官方VC runtime來源）與授權決定待使用者同意。7/12、C04 2/4、C11 2/5不變。
+
 **2026-11-12｜建立不依賴聊天紀錄的完整專案交接入口**
 
 - 依使用者需求新增[專案說明與接手指南](../../PROJECT_HANDOFF.md)，從產品目的、已確認需求到程式責任、里程碑、最新證據與限制完整整理；提供新環境啟動／驗證、P0來源明細工作及完成條件，附可直接交給新AI的指令。
