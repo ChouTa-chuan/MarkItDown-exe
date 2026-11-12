@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "date_taipei": "2026-11-12",
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "scope": "Documentation validation and public synthetic text CLI example; functional regression not rerun",
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1695,
+      "sha256": "ac8425312922487aefa3385c413ffab7342e5b94a6b7b1988e66e9d7c0446f84"
+    },
+    {
+      "file": "cli-example.json",
+      "bytes": 517,
+      "sha256": "2531275c0eb8acc85c6736a62146912ef76ed5021faa70fab48aa73274f1db29"
+    },
+    {
+      "file": "cli-example.log",
+      "bytes": 268,
+      "sha256": "8bd32a3e685cb7595f03900f591c21c2afc303f9a681f78250a19044a7319e64"
+    },
+    {
+      "file": "document-checks.json",
+      "bytes": 875,
+      "sha256": "7581c09d787176484723916886bca3c652d97d8a781073ba8e9a3a64ab3e53fd"
+    },
+    {
+      "file": "sample-input.txt",
+      "bytes": 65,
+      "sha256": "d1f9d39be84cdb56074fe1dd0bbc784626cc8253df29c60508fd85f9a572cd1e"
+    },
+    {
+      "file": "sample-output.md",
+      "bytes": 65,
+      "sha256": "d1f9d39be84cdb56074fe1dd0bbc784626cc8253df29c60508fd85f9a572cd1e"
+    },
+    {
+      "file": "verify_document.py",
+      "bytes": 5955,
+      "sha256": "88338b83d39318fd4409d337831ddd725332de77555c1f69f71a2a6815adbd2b"
+    }
+  ]
+}

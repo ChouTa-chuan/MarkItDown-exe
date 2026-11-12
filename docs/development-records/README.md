@@ -1,5 +1,11 @@
 # 開發紀錄
 
+**2026-11-12｜建立不依賴聊天紀錄的完整專案交接入口**
+
+- 依使用者需求新增[專案說明與接手指南](../../PROJECT_HANDOFF.md)，從產品目的、已確認需求到程式責任、里程碑、最新證據與限制完整整理；提供新環境啟動／驗證、P0來源明細工作及完成條件，附可直接交給新AI的指令。
+- 首頁／AGENTS與舊狀態／建置／架構文件加上入口及時序說明，區分當前HEAD、程式0.19.1與真正驗證來源cb8f24d；C04 2/4、C11 2/5及7/12不提高。
+- 此輪是文件整理，核對狀態／數字、範例語法與相對連結，另實跑公開合成文字CLI範例；[交接整理驗證](runs/project-handoff-2026-11-12/README.md)保存。未重跑全功能／Windows／OCR，原始失敗、vendor／原文／模型／hash鎖／28張架構圖與舊run保留。
+
 **2026-11-12｜GitHub Pages固定視覺進度網址已上線**
 
 - 使用者完成來源設定後，[run43133764140](runs/progress-pages-live-2026-11-12/README.md)（bc5d601）建置／部署成功。公開網址https://chouta-chuan.github.io/MarkItDown-exe/ 由GitHub runner實際GET驗HTTP 200，精確SHA-256與目前產生器及前次Chromium互動／手機版HTML相同；公開原頁與驗證JSON已保存，首次未啟用的失敗紀錄不改寫。

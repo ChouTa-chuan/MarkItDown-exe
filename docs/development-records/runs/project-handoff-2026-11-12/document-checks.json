@@ -1,0 +1,29 @@
+{
+  "accepted": true,
+  "date_taipei": "2026-11-12",
+  "document": "PROJECT_HANDOFF.md",
+  "document_sha256": "0320720cde7a21cf01f628155189fe91c77aa2f55e66c61e44d6d70da28a2170",
+  "program_version": "0.19.1",
+  "architecture_version": "0.4",
+  "relative_links_checked": 389,
+  "broken_links": [],
+  "bash_blocks_checked": 6,
+  "embedded_python_blocks_checked": 3,
+  "milestones_matched": 12,
+  "completed_milestones": 7,
+  "functional_baseline_run": 684,
+  "functional_baseline_passed": 683,
+  "functional_baseline_expected_failures": 1,
+  "functional_tests_rerun": false,
+  "architecture_snapshots_unchanged": 28,
+  "existing_mermaid_blocks_unchanged": true,
+  "actual_text_cli_example_exit": 0,
+  "upstream_check_observed": {
+    "source_files": 45,
+    "public_pdf_fixtures": 4
+  },
+  "license_check_observed": {
+    "packages": 58,
+    "notice_metadata_files": 214
+  }
+}

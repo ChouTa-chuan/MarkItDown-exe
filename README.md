@@ -2,6 +2,8 @@
 
 把 **Word、Excel、PowerPoint、HTML、文字與 PDF** 轉成可閱讀、可查核的 Markdown。以 Microsoft MarkItDown 為基礎，加入桌面操作、自動 PDF 分析、OCR、表格處理及 RAM 資源管理。
 
+**第一次接觸專案或交給新 AI session：請先讀 [專案說明與接手指南](PROJECT_HANDOFF.md)。** 文件包含需求沿革、模組責任、最新證據、未完成事項、開發／驗證指令及可直接複製的接手提示。
+
 > **開發中**：已有 Linux 核心與桌面原型驗證。Windows 已通過 hosted 基本包安裝驗證；乾淨機、完整生命週期與 GPU 仍待驗收，目前沒有 Windows 正式版下載。
 
 | 版本／進度 | 狀態 |
@@ -169,7 +171,7 @@ flowchart TD
 
 ## 本機開發驗證
 
-需求 Python 3.11+ 與 psutil。專案根目錄執行：
+以下是原型快速操作；套件最低 Python 3.11，必要依賴包含 psutil 與 cryptography。可重現的完整開發／建置基線使用 Python 3.12 x64 與 hash 鎖，請依[接手指南第九節](PROJECT_HANDOFF.md#9-新接手者的第一輪操作)。專案根目錄執行：
 
 ```bash
 python -m pip install -e .
@@ -198,7 +200,7 @@ CLI 可加 `--quality precise`（預設）或 `--quality fast`。掃描 OCR 另�
 
 轉換使用獨立 spawn 程序、低優先權與 RAM 回壓；PDF 精準模式在頁面之間可暫停，Office／單頁解析及 OCR 原生步驟仍不能即時釋放記憶體。RAM 是軟性預算，不保證瞬時上限。輸出須支援同磁碟硬連結（例如 NTFS），不支援時明確失敗。
 
-已有 Linux／Windows Python 3.12 雜湊鎖定檔，乾淨 Linux 安裝與測試已驗證；Windows 安裝、建置與完整安裝包待驗證。58 個 Windows 鎖定套件的授權清單及離線手冊已隨包驗證；最終 Windows 原生二進位／Qt 發佈義務仍需在建置後審核。
+已有 Linux／Windows Python 3.12 雜湊鎖定檔；Windows hosted 基本包與 CPU 選配的建置、安裝／維護及候選清單已有實測。無 Python 乾淨機、人工／各 profile 完整驗收與產品交付仍待。58 個 Windows 鎖定套件的原文清單已驗，最終原生／Qt 再散布義務尚未關閉；來源與範圍見[接手指南](PROJECT_HANDOFF.md)。
 
 ## 更新進度頁
 

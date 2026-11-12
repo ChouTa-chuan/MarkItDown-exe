@@ -1,5 +1,7 @@
 # 建置與可重現環境
 
+> 本頁保留早期完整開發包與手動流程的說明。現行方向是`base.spec`基本包＋`ocr-worker.spec`獨立選配，Windows hosted建置／安裝／跨版／恢復及候選清單已有實測；目前入口、版本與未關閉門檻請先讀[接手指南](../PROJECT_HANDOFF.md#8-建置與依賴要分清楚)。以下早期「尚未執行」按其當時版本解讀。
+
 以下為現有開發 profile。新版 [架構指引 v0.4](architecture-guide.md) 已採「基本安裝包＋選配元件管理」；C05 已完成簽章／下載服務，但基本 Tesseract native、分離選配 worker、profile 拆分與相依授權仍待實作，不能把現有 ONNX 開發包當成已完成的新基本版。
 
 程式 0.3.0 將既有鎖定版本的 cryptography 50.0.2 明確列為 Ed25519 驗證依賴；兩平台套件版本與雜湊不變，授權 inventory 的鎖定檔摘要已更新。這不等於 C04 profile 拆包完成。

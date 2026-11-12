@@ -1,0 +1,11 @@
+{
+  "interpreter": "/workspace/markitdown-full-0191-venv/bin/python",
+  "source_version": "0.19.1",
+  "command": "python -m desktop_app.cli <public-synthetic-input> <fresh-output> --ram-budget-mib 1024 --reserve-mib 2048",
+  "exit_code": 0,
+  "exact_unicode_output_matched": true,
+  "input_sha256": "d1f9d39be84cdb56074fe1dd0bbc784626cc8253df29c60508fd85f9a572cd1e",
+  "output_sha256": "d1f9d39be84cdb56074fe1dd0bbc784626cc8253df29c60508fd85f9a572cd1e",
+  "ocr_executed": false,
+  "full_regression_executed": false
+}
