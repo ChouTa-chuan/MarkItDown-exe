@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "tested_source": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+  "accepted": true,
+  "windows_executed": false,
+  "base_unresolved_classified": 154,
+  "cpu_unresolved_classified": 303,
+  "base_gap_or_candidate": 49,
+  "cpu_gap_or_candidate": 47,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1252,
+      "sha256": "cf9a8ae9c0c16eb6cf49f9ecde35520e12079b5cd326a76c611afed62ef131e6"
+    },
+    {
+      "file": "base-unresolved-classification.json",
+      "bytes": 77191,
+      "sha256": "5788ad400997d955e0aa8cb73dda6b0d4a83a979218738248d51ba388ae37543"
+    },
+    {
+      "file": "cpu-unresolved-classification.json",
+      "bytes": 205431,
+      "sha256": "b456026bc9ceb590f458859ec21fcf731e00b2d2595a4e98fdebd1833618494b"
+    }
+  ]
+}

@@ -1,0 +1,1897 @@
+{
+  "check": "unresolved-source-classification",
+  "schema_version": 1,
+  "profile": "base",
+  "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+  "source_version": "0.19.1",
+  "archive": "windows-base-validation-reports.zip",
+  "archive_sha256": "0808ecd9068d2a926663e9cc05da1b44533ce713654c713a06dc8be548281782",
+  "report_sha256": "2246b6a8a9c0a73049b044e2fa7837880d0109f0077f3c6846fa8e0ef6e26c18",
+  "unresolved_declared": 154,
+  "classified": 154,
+  "accepted": true,
+  "by_status": {
+    "candidate": 48,
+    "confirmed": 73,
+    "gap": 1,
+    "origin-known": 32
+  },
+  "by_category": {
+    "archive-members-not-enumerated": 1,
+    "ci-artifact-member": 3,
+    "cpython-license-text": 1,
+    "cpython-runtime": 27,
+    "installer-generated-record": 40,
+    "pinned-model": 4,
+    "project-generated": 4,
+    "project-native-payload": 2,
+    "repo-blob": 24,
+    "system-native": 48
+  },
+  "remaining_gap_or_candidate": 49,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "files": [
+    {
+      "path": "_internal/THIRD_PARTY_NOTICES",
+      "bytes": 1932,
+      "sha256": "883b22fd4a290528e2f591a6b04be08165a5d26b2fdf55dc6ee3ba4bb5874f32",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "THIRD_PARTY_NOTICES"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/_asyncio.pyd",
+      "bytes": 74096,
+      "sha256": "c77de90cad749087a0c5dc5e19d78d24f6ef44e7e5ac19b8420cfc0cea62395d",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_asyncio.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_bz2.pyd",
+      "bytes": 86896,
+      "sha256": "65f610646d10d5babea080e060d244b546ec52c54012e5e937dc72dcc2e2e7bc",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_bz2.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_ctypes.pyd",
+      "bytes": 127480,
+      "sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_ctypes.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_decimal.pyd",
+      "bytes": 262000,
+      "sha256": "aeacfead2befcc0768063a037bb64bd32109ae09cb144e5f571b04dd7965db9d",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_decimal.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_elementtree.pyd",
+      "bytes": 135160,
+      "sha256": "5009a9a53c03ef8387443b5cf6ce08e5c3a79727466a0b931c5bbca915bf89ca",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_elementtree.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_hashlib.pyd",
+      "bytes": 68976,
+      "sha256": "03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_hashlib.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_lzma.pyd",
+      "bytes": 161136,
+      "sha256": "e3deecc1f59a3b811c608861decd84de1e8df8bafd5e2b39188861318c5a38cf",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_lzma.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_multiprocessing.pyd",
+      "bytes": 37368,
+      "sha256": "2c636df7059cb0dd7e978dd735c7c5c8ddb09cf94754cf9e232296b96c5c545a",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_multiprocessing.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_overlapped.pyd",
+      "bytes": 57336,
+      "sha256": "662126ff80c3a1b4cedf74074029c12ae4743e6d3b37376e39ac70aacb7d4d3c",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_overlapped.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_queue.pyd",
+      "bytes": 33784,
+      "sha256": "48e76e0ad63f6932b4a77b5819f41c1e7595636ca8d9e824f0943a14b8bb5035",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_queue.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_socket.pyd",
+      "bytes": 85496,
+      "sha256": "3efa4636cf9e350856f6927d67a4c2564bf9bd2758a00bbf17d3aece5b60016d",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_socket.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_sqlite3.pyd",
+      "bytes": 126184,
+      "sha256": "64b51df2805c58b023a875e8ae3be7ac7f61ef664f32ca6c90f6315da47ef0bc",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_sqlite3.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_ssl.pyd",
+      "bytes": 179432,
+      "sha256": "0bc527d2dbc50009f43b2ed5d5982c4f63f4b647647ffa9eda612dcda80f6040",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_ssl.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_uuid.pyd",
+      "bytes": 27128,
+      "sha256": "acce4f281d7ffb2dec0997527faf25b1df62ad7bd3032c568ddcf65c90edc867",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_uuid.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_wmi.pyd",
+      "bytes": 40304,
+      "sha256": "a980f1e7a29842bd946863fc2693fbeb555a9dc0f9e1630dfed9a2fcdef3ece2",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_wmi.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_zoneinfo.pyd",
+      "bytes": 49656,
+      "sha256": "76f1439cda82ab6976df6ba505c4079444703f6d44d8b0259ce59c0ff4279fb4",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_zoneinfo.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/api-ms-win-core-console-l1-1-0.dll",
+      "bytes": 22072,
+      "sha256": "88ace577a9c51061cb7d1a36babbbefa48212fadc838ffde98fdfff60de18386",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-console-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-datetime-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "1bd81dfd19204b44662510d9054852fb77c9f25c1088d647881c9b976cc16818",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-datetime-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-debug-l1-1-0.dll",
+      "bytes": 21944,
+      "sha256": "591358eb4d1531e9563ee0813e4301c552ce364c912ce684d16576eabf195dc3",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-debug-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-errorhandling-l1-1-0.dll",
+      "bytes": 22096,
+      "sha256": "d56ce7b1cd76108ad6c137326ec694a14c99d48c3d7b0ace8c3ff4d9bcee3ce8",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-errorhandling-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-fibers-l1-1-0.dll",
+      "bytes": 22072,
+      "sha256": "91d249d7bc0e38ef6bcb17158b1fdc6dd8888dc086615c9b8b750b87e52a5fb3",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-fibers-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-fibers-l1-1-1.dll",
+      "bytes": 22072,
+      "sha256": "fc9d86cec621383eab636ebc87ddd3f5c19a3cb2a33d97be112c051d0b275429",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-fibers-l1-1-1.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-file-l1-1-0.dll",
+      "bytes": 26152,
+      "sha256": "1ca895aba4e7435563a6b43e85eba67a0f8c74aa6a6a94d0fc48fa35535e2585",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-file-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-file-l1-2-0.dll",
+      "bytes": 22056,
+      "sha256": "4cadbc0c39da7c6722206fdcebd670abe5b8d261e7b041dd94f9397a89d1990d",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-file-l1-2-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-file-l2-1-0.dll",
+      "bytes": 21960,
+      "sha256": "93c624b366ba16c643fc8933070a26f03b073ad0cf7f80173266d67536c61989",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-file-l2-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-handle-l1-1-0.dll",
+      "bytes": 21944,
+      "sha256": "39095f59c41d76ec81bb2723d646fde4c148e7cc3402f4980d2ade95cb9c84f9",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-handle-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-heap-l1-1-0.dll",
+      "bytes": 22072,
+      "sha256": "8f105771b236dbcb859de271f0a6822ce1cb79c36988dd42c9e3f6f55c5f7eb9",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-heap-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-interlocked-l1-1-0.dll",
+      "bytes": 22072,
+      "sha256": "53b25e753ca785bf8b695d89dde5818a318890211dc992a89146f16658f0b606",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-interlocked-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-kernel32-legacy-l1-1-1.dll",
+      "bytes": 22080,
+      "sha256": "a9b13a1cd1b8c19b0c6b4afcd5bb0dd29c0e2288231ac9e6db8510094ce68ba6",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-kernel32-legacy-l1-1-1.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-libraryloader-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "7f39ba298b41e4963047341288cab36b6a241835ee11ba4ad70f44dacd40906c",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-libraryloader-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-localization-l1-2-0.dll",
+      "bytes": 22080,
+      "sha256": "6ee44dd0d8510dc024c9f7c79b1b9fa88c987b26b6beb6653ddd11751c34e5dc",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-localization-l1-2-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-memory-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "0512a35316ec9180437f86696a84c5c06a7e4e82e050055a656e5bf9fca206f9",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-memory-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-namedpipe-l1-1-0.dll",
+      "bytes": 22096,
+      "sha256": "c05f1fffe3b5a2738ea54ce9485cca026fb9635f982626fba1e1dcc531897273",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-namedpipe-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-processenvironment-l1-1-0.dll",
+      "bytes": 21968,
+      "sha256": "c4eca98c3c67b6395d5b005b00ac1eb0318b86b23aa71035a44c2b1602befba9",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-processenvironment-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-processthreads-l1-1-0.dll",
+      "bytes": 22096,
+      "sha256": "5ccb89e93d67bc3288d4e84649c5346e66e15e3d7cd65d989daf3f4cb584be9a",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-processthreads-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-processthreads-l1-1-1.dll",
+      "bytes": 22072,
+      "sha256": "4ad565a8ba3ef0ea8ab87221ad11f83ee0bc844ce236607958406663b407333e",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-processthreads-l1-1-1.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-profile-l1-1-0.dll",
+      "bytes": 22080,
+      "sha256": "7809160932f44e59b021699f5bc68799eb7293ee1fa926d6fcca3c3445302e61",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-profile-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-rtlsupport-l1-1-0.dll",
+      "bytes": 21960,
+      "sha256": "9dc1e91e71c7c054854bd1487cb4e6946d82c9f463430f1c4e8d1471005172b1",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-rtlsupport-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-string-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "60fc31d2a0c634412f529dba76af3b9bf991352877c6dae528186d3935704cfd",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-string-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-synch-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "3a72b4f29f39a265d32ad12f0ce15dbf60129c840e10d84d427829ede45e78ad",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-synch-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-synch-l1-2-0.dll",
+      "bytes": 22080,
+      "sha256": "efc1e4460984a73cf47a3def033af1c8f3b1dbc1a56cd27781d3aacf3e3330cb",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-synch-l1-2-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-sysinfo-l1-1-0.dll",
+      "bytes": 22072,
+      "sha256": "b203d862ddef1dd62bf623fc866c7f7a9c317c1c2ae30d1f52cb41f955b5698e",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-sysinfo-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-sysinfo-l1-2-0.dll",
+      "bytes": 22080,
+      "sha256": "2703635d835396afd0f138d7c73751afe7e33a24f4225d08c1690b0a371932c0",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-sysinfo-l1-2-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-timezone-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "33f4fddc181066fce06b2227bded813f95e94ed1f3d785e982c6b6b56c510c57",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-timezone-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-util-l1-1-0.dll",
+      "bytes": 21944,
+      "sha256": "6eda016742a6171205a387a14b3c0b331841567740376f56768f8c151724207d",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-util-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-conio-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "b762061b688aae679afe788904d2c9970f74a7dac98f3b42463d08f25e483d3f",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-conio-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-convert-l1-1-0.dll",
+      "bytes": 26056,
+      "sha256": "ebb2ae5535a64f65daeab8235585114fc9dd2cf1a49f5852d446250b998b6ae4",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-convert-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-environment-l1-1-0.dll",
+      "bytes": 22080,
+      "sha256": "17d63275d00bdd8670422b95bd264c532998e0a1b041079e54fce4b6b7a55819",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-environment-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-filesystem-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "9a9e2a65a281644e368d0f272b95ba5f6b445d1c35910d06056c5ebeb77402db",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-filesystem-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-heap-l1-1-0.dll",
+      "bytes": 22096,
+      "sha256": "bab9ac3ec83e380ae51e4295ef3bf2c738627812d3a49d1e713661abbc8dc57a",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-heap-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-locale-l1-1-0.dll",
+      "bytes": 22080,
+      "sha256": "bd14c67ea28e21d6257ad780a37122c9b5773f69e693f5db6bffaee4d839526e",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-locale-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-math-l1-1-0.dll",
+      "bytes": 30248,
+      "sha256": "606d66d82db562ea7979179d06486a0f94d079941d26b80a1e2c49d29959df6f",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-math-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-multibyte-l1-1-0.dll",
+      "bytes": 30248,
+      "sha256": "95f49efbe8107786733fa7c474025cf3fee0ac632f240367b296c736d06572aa",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-multibyte-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-private-l1-1-0.dll",
+      "bytes": 75328,
+      "sha256": "1bc82bed6143d2bf1b6b08a7809f4a5e29317d6fddd338a7da3c0223522e4bbf",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-private-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-process-l1-1-0.dll",
+      "bytes": 22096,
+      "sha256": "f6156b1020380ec4f0e48577ebedaaef5fb1ab1f337d8b4e72e6a33a7567a9cc",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-process-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-runtime-l1-1-0.dll",
+      "bytes": 26152,
+      "sha256": "c5902934d026d7e15fbe9917d474f3322846a41a25e66f4b2b1f758801879f4b",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-runtime-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-stdio-l1-1-0.dll",
+      "bytes": 26168,
+      "sha256": "a9c5a153d8c0286f9b41a2b1c65854ad9e6471b8755b7de87bae4470e60bcab6",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-stdio-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-string-l1-1-0.dll",
+      "bytes": 26176,
+      "sha256": "25b8f83a7767211b11132775a0e27a45aa4ec8ab4e6572599f9c172ae3606b40",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-string-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-time-l1-1-0.dll",
+      "bytes": 22096,
+      "sha256": "7c7f6393f06de11750adb09cc5698ae55cd9fb27b2e51e207286feb1b5b2b156",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-time-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-utility-l1-1-0.dll",
+      "bytes": 21952,
+      "sha256": "d8ba5f17b9ffcbf3aeaf3fa1da226832d2fa90f81acce0cd669464e76ce434ac",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-utility-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/base_library.zip",
+      "bytes": 1333717,
+      "sha256": "412a6665158c91480dfa0354602019458b885d4a2bf0bd035ec81a6cc51f9482",
+      "role": "archive",
+      "category": "archive-members-not-enumerated",
+      "status": "gap",
+      "evidence": [],
+      "note": "PyInstaller 產生的 Python 標準庫封存，成員未展開；需另做成員層級 SBOM"
+    },
+    {
+      "path": "_internal/beautifulsoup4-4.15.0.dist-info/RECORD",
+      "bytes": 2529,
+      "sha256": "aed187a48c8926e528f22be27a1af359caf7c17558e1b2e6f0c97015dac29f2e",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:beautifulsoup4==4.15.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/certifi-2026.10.23.dist-info/RECORD",
+      "bytes": 1400,
+      "sha256": "56ae988c51ab219e549e79e86e6ed8bc4b7b1974687ea33201fcab4af3c3427d",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:certifi==2026.10.23"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/cffi-2.1.1.dist-info/RECORD",
+      "bytes": 3596,
+      "sha256": "40758e510ecd365323db52896be4062398c6abdb892bdcfefb03eaf3e141134a",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:cffi==2.1.1"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/charset_normalizer-3.5.2.dist-info/RECORD",
+      "bytes": 2868,
+      "sha256": "177fb7012fa38eab1c5bc9410b976cc4665b2d1671dbc4bedca39fe3407f76e4",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:charset-normalizer==3.5.2"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/click-8.5.0.dist-info/RECORD",
+      "bytes": 2619,
+      "sha256": "de1b5b403da8dd816a5876d2b0a06c80df8b02e61bd4bd28132c1b10af2d18c9",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:click==8.5.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/cobble-0.1.4.dist-info/RECORD",
+      "bytes": 720,
+      "sha256": "3c0e3b840043d5052d1d96ea7ec91c2bd1244de580d56beb9875e0bb2cd055d6",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:cobble==0.1.4"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/cryptography-50.0.2.dist-info/RECORD",
+      "bytes": 17959,
+      "sha256": "a3891bd341f4c6624b9f4d0bb94033a8d013439dba26c889f01f171ce1bbef83",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:cryptography==50.0.2"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/defusedxml-0.7.1.dist-info/RECORD",
+      "bytes": 2029,
+      "sha256": "bfeccb2f283733a690e2c5b5f809566da8ab8479e3209bd4b8c5d70f62397498",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:defusedxml==0.7.1"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/desktop_app/data/base-runtime-lock.txt",
+      "bytes": 73277,
+      "sha256": "3e6f43f67a4d514a963284d79490987c9a8dcd3db08ed2f77188e1d04d7e99f0",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/profiles/base-windows-runtime.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/build-profile.json",
+      "bytes": 29310,
+      "sha256": "304b8736f2dd8f98969715ed0949eb5e0f74a206edc52e392156ab7c982df7da",
+      "role": "data-or-generated",
+      "category": "ci-artifact-member",
+      "status": "confirmed",
+      "evidence": [
+        "acceptance/build-profile.json"
+      ],
+      "note": "與同次 CI artifact 成員位元組相同（當次建置產生）"
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/bootloader/manifest.json",
+      "bytes": 297,
+      "sha256": "5b9756b8845f7b9822c954d5292528f90d8d5ecab45f33b8aa7243c07b851604",
+      "role": "data-or-generated",
+      "category": "project-generated",
+      "status": "origin-known",
+      "evidence": [
+        "scripts/build_provenance.py"
+      ],
+      "note": "專案建置腳本的固定輸出路徑；內容隨建置產生，未逐位元對照"
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/installed/manifest.json",
+      "bytes": 18904,
+      "sha256": "fb14d6cebc22749a9b118fe729818cd9cdb91b96adae570c5f4cbd4e44be3f75",
+      "role": "data-or-generated",
+      "category": "project-generated",
+      "status": "origin-known",
+      "evidence": [
+        "scripts/prepare_base_assets.py"
+      ],
+      "note": "專案建置腳本的固定輸出路徑；內容隨建置產生，未逐位元對照"
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/native/manifest.json",
+      "bytes": 79664,
+      "sha256": "e41f8a57f1b16b854eee29edfb4871d30b89d92f657e3ed285c302c277835790",
+      "role": "data-or-generated",
+      "category": "project-generated",
+      "status": "origin-known",
+      "evidence": [
+        "scripts/prepare_base_assets.py"
+      ],
+      "note": "專案建置腳本的固定輸出路徑；內容隨建置產生，未逐位元對照"
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/python-runtime/LICENSE.txt",
+      "bytes": 36874,
+      "sha256": "e502c6b880ff58d614901495a9009c136539cd0b1e2a2abb8fc00b934c203419",
+      "role": "original-notice",
+      "category": "cpython-license-text",
+      "status": "origin-known",
+      "evidence": [
+        "scripts/prepare_base_assets.py",
+        "scripts/prepare_worker_assets.py"
+      ],
+      "note": "建置用 CPython 的 LICENSE.txt 複本（建置 Python 3.12.10）；尚未與 python.org 同版原文獨立比對"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/bin/tesseract.exe",
+      "bytes": 5369344,
+      "sha256": "e711fd11e0abdc08bd03445efe29849c65b5ab28ef82c62147d696dc62e6c2c5",
+      "role": "native-binary",
+      "category": "project-native-payload",
+      "status": "confirmed",
+      "evidence": [
+        "acceptance/native-payload.json#bin/tesseract.exe"
+      ],
+      "note": "與同次 CI 的 native payload 清單相同；由固定原始碼在 CI 建置"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/manifest.json",
+      "bytes": 4687,
+      "sha256": "18076ef885b45facf539d39ae304b278cff160999ccdbdb0c4e472c0d8493701",
+      "role": "data-or-generated",
+      "category": "ci-artifact-member",
+      "status": "confirmed",
+      "evidence": [
+        "acceptance/native-payload.json"
+      ],
+      "note": "與同次 CI artifact 成員位元組相同（當次建置產生）"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/compiler-rt-LICENSE.TXT",
+      "bytes": 16708,
+      "sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/compiler-rt-LICENSE.TXT"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/leptonica-LICENSE.txt",
+      "bytes": 1521,
+      "sha256": "87829abb5bbb00b55a107365da89e9a33f86c4250169e5a1e5588505be7d5806",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/leptonica-LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/libcxx-LICENSE.TXT",
+      "bytes": 16703,
+      "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/libcxx-LICENSE.TXT"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/libcxxabi-LICENSE.TXT",
+      "bytes": 16706,
+      "sha256": "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/libcxxabi-LICENSE.TXT"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/libpng-LICENSE.txt",
+      "bytes": 5345,
+      "sha256": "bdb0a645ea18c60507d0368379b1ac5474b92255fcc2d115e07486a7672ba526",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/libpng-LICENSE.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libpng.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libpng.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/libunwind-LICENSE.TXT",
+      "bytes": 16706,
+      "sha256": "b5efebcaca80879234098e52d1725e6d9eb8fb96a19fce625d39184b705f7b6d",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/libunwind-LICENSE.TXT"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/mingw-COPYING",
+      "bytes": 2326,
+      "sha256": "99a69660981156c21336fdb5661f89341b013c94e4bf9e1c7467b4745718397f",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/mingw-COPYING",
+        "packaging/native/minimal-notices/toolchain-COPYING"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/recipe-LICENSE.txt.txt",
+      "bytes": 1092,
+      "sha256": "8e5db0129069005be2a07be3297e198888fd72fad62a13a611504660c6b7e3c7",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/recipe-LICENSE.txt.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/recipe-build-compiler-rt.sh.txt",
+      "bytes": 6922,
+      "sha256": "090356aef7ddadaa597f5f8be51b3d3bec9aa0dc6846f55eb5d296653d945055",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/recipe-build-compiler-rt.sh.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/recipe-build-libcxx.sh.txt",
+      "bytes": 4334,
+      "sha256": "8af09b1afb92659a976f38897e5cee7ee202428153b6dfc510da88b09079bf7c",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/recipe-build-libcxx.sh.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/recipe-build-llvm.sh.txt",
+      "bytes": 14833,
+      "sha256": "1ea92bd008ccff60f1b14167bfdd1635461e0e3619897734f57df204821fc487",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/recipe-build-llvm.sh.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/recipe-build-mingw-w64.sh.txt",
+      "bytes": 4691,
+      "sha256": "cfd4cd14c833c4d0f7a9b5bf646cb828d6f0a948530ea3b064979fe6b34360c3",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/recipe-build-mingw-w64.sh.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/tesseract-AUTHORS.txt",
+      "bytes": 787,
+      "sha256": "720862b7253993b348fe15f37ed6e0d4feb0fc8df8324284d75975d54dd29923",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/tesseract-AUTHORS.txt",
+        "docs/development-records/runs/c03-native-static-2026-11-08/source-notices/AUTHORS"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/tesseract-LICENSE.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/tesseract-LICENSE.txt",
+        "src/desktop_app/data/licenses/models/tessdata-fast-Apache-2.0.txt",
+        "src/desktop_app/data/licenses/windows/supplemental/flatbuffers.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/LICENSES/Apache-2.0.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/models/tessdata-fast-Apache-2.0.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/toolchain-COPYING",
+      "bytes": 2326,
+      "sha256": "99a69660981156c21336fdb5661f89341b013c94e4bf9e1c7467b4745718397f",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/toolchain-COPYING",
+        "packaging/native/minimal-notices/mingw-COPYING"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/toolchain-COPYING.MinGW-w64-runtime.txt",
+      "bytes": 12155,
+      "sha256": "1db8da07b436c68833c0673ffee3d9fcb2526047f3820b81661865dfedc79a1f",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/toolchain-COPYING.MinGW-w64-runtime.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/toolchain-COPYING.MinGW-w64.txt",
+      "bytes": 5905,
+      "sha256": "f38e6194bd3bfa1b654f118e5acefe0aead437bbe669eee43957ccc65a7127f1",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/toolchain-COPYING.MinGW-w64.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/toolchain-COPYING.winpthreads.txt",
+      "bytes": 2883,
+      "sha256": "63263614cdd29f2f93cba85e992f041b31f9fc7b4033692f31269489a8a1b177",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/toolchain-COPYING.winpthreads.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/toolchain-COPYING.winstorecompat.txt",
+      "bytes": 1099,
+      "sha256": "fa7368d1f93d890c173177475d8ec7aff265a7d08f1f364d66f74d138978ce36",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/toolchain-COPYING.winstorecompat.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/toolchain-LLVM-LICENSE.TXT",
+      "bytes": 15141,
+      "sha256": "8d85c1057d742e597985c7d4e6320b015a9139385cff4cbae06ffc0ebe89afee",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/toolchain-LLVM-LICENSE.TXT"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/notices/zlib-LICENSE.txt",
+      "bytes": 1002,
+      "sha256": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "packaging/native/minimal-notices/zlib-LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/source.json",
+      "bytes": 536,
+      "sha256": "9890ea46f81134c76553295a97446d830ec06b8acb88deb31f54c315a0cd8005",
+      "role": "data-or-generated",
+      "category": "project-native-payload",
+      "status": "confirmed",
+      "evidence": [
+        "acceptance/native-payload.json#source.json"
+      ],
+      "note": "與同次 CI 的 native payload 清單相同；由固定原始碼在 CI 建置"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/tessdata/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/native/tessdata/LICENSE",
+        "docs/development-records/runs/c03-native-static-2026-11-08/source-notices/LICENSE",
+        "packaging/native/minimal-notices/tesseract-LICENSE.txt",
+        "src/desktop_app/data/licenses/models/tessdata-fast-Apache-2.0.txt",
+        "src/desktop_app/data/licenses/windows/supplemental/flatbuffers.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/tessdata/chi_tra.traineddata",
+      "bytes": 2366642,
+      "sha256": "529c5b5797d64b126065cd55f2bb4c7fd7b15790798091b1ff259941a829330b",
+      "role": "data-or-generated",
+      "category": "pinned-model",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/ocr-four-languages.json#chi_tra.traineddata"
+      ],
+      "note": "與固定模型清單的 SHA-256 相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/tessdata/eng.traineddata",
+      "bytes": 4113088,
+      "sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+      "role": "data-or-generated",
+      "category": "pinned-model",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/ocr-four-languages.json#eng.traineddata"
+      ],
+      "note": "與固定模型清單的 SHA-256 相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/tessdata/jpn.traineddata",
+      "bytes": 2471260,
+      "sha256": "1f5de9236d2e85f5fdf4b3c500f2d4926f8d9449f28f5394472d9e8d83b91b4d",
+      "role": "data-or-generated",
+      "category": "pinned-model",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/ocr-four-languages.json#jpn.traineddata"
+      ],
+      "note": "與固定模型清單的 SHA-256 相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/native/tessdata/kor.traineddata",
+      "bytes": 1677415,
+      "sha256": "6b85e11d9bbf07863b97b3523b1b112844c43e713df8b66418a081fd1060b3b2",
+      "role": "data-or-generated",
+      "category": "pinned-model",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/ocr-four-languages.json#kor.traineddata"
+      ],
+      "note": "與固定模型清單的 SHA-256 相同"
+    },
+    {
+      "path": "_internal/desktop_app/data/third-party.md",
+      "bytes": 1704,
+      "sha256": "2665b1a68e7f41a7d86f664b9f8225d76253957cbdb08d2e2bf14679a5ae6a93",
+      "role": "data-or-generated",
+      "category": "project-generated",
+      "status": "origin-known",
+      "evidence": [
+        "scripts/prepare_base_assets.py"
+      ],
+      "note": "專案建置腳本的固定輸出路徑；內容隨建置產生，未逐位元對照"
+    },
+    {
+      "path": "_internal/et_xmlfile-2.0.0.dist-info/RECORD",
+      "bytes": 1193,
+      "sha256": "4312215cb7344243e69fe22b4544bb41e2c0649507f2101078679e086818c95a",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:et-xmlfile==2.0.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/flatbuffers-25.12.19.dist-info/RECORD",
+      "bytes": 1837,
+      "sha256": "7ced0220c7592df5b72b146f346c83ab7a393f26fb8e32dac348d6f57a6a80aa",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:flatbuffers==25.12.19"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/idna-3.20.dist-info/RECORD",
+      "bytes": 1877,
+      "sha256": "7f744e5642fc53954704a108d06ad702ed95d0361c6fa000190174db3da1ba81",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:idna==3.20"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/libcrypto-3-x64.dll",
+      "bytes": 6946448,
+      "sha256": "d51f2b081e5ac0f94c2bf15650a6b55cf48da1de8c313c9f90003d9ed08ccc9e",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:libcrypto-3-x64.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 OpenSSL 3，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/libcrypto-3.dll",
+      "bytes": 5231472,
+      "sha256": "ccfffddcd3defb8d899026298af9af43bc186130f8483d77e97c93233d5f27d7",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:libcrypto-3.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/libffi-8.dll",
+      "bytes": 39696,
+      "sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:libffi-8.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/libssl-3-x64.dll",
+      "bytes": 1296520,
+      "sha256": "a2cb46897a5365a740c8f898bf1b9119ba23f01807ad0ba1efb69a9997b43ba0",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:libssl-3-x64.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 OpenSSL 3，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/libssl-3.dll",
+      "bytes": 794992,
+      "sha256": "007142039f04d04e0ed607bda53de095e5bc6a8a10d26ecedde94ea7d2d7eefe",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:libssl-3.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/lxml-6.1.3.dist-info/RECORD",
+      "bytes": 17087,
+      "sha256": "6cc2e96b3b488aaa3c1f44682d6ad788e6ea7e4e60870d06ab724a3ff48fb199",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:lxml==6.1.3"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/magika-1.0.3.dist-info/RECORD",
+      "bytes": 3662,
+      "sha256": "6fb4067c3325c2e08fd6aad24475f9a64a19d4b6241c210e5f2bf20bbdd228c7",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:magika==1.0.3"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/mammoth-1.13.0.dist-info/RECORD",
+      "bytes": 6998,
+      "sha256": "116417a028591fa1ca0e09db3d3e4da8d3d35442c00086f44cacd9731acd4dd1",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:mammoth==1.13.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/markdownify-1.2.3.dist-info/RECORD",
+      "bytes": 1200,
+      "sha256": "8950012c3870eb9389afcdf03805347212a3d4c67dff2f395850aa519e81b97c",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:markdownify==1.2.3"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/markitdown-0.1.9.dist-info/RECORD",
+      "bytes": 7537,
+      "sha256": "cc561e0e77827e6c7f6c6a9c1acad16dab8af32088b09022f45766ba2ad371dd",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:markitdown==0.1.9"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/markitdown_desktop-0.19.1.dist-info/RECORD",
+      "bytes": 41888,
+      "sha256": "ac3a4fcff13b8a1481a8cf1a4ff67212a1e5c7963d287ed3d1470d6db502bfd4",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:markitdown-desktop==0.19.1"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/msvcp140.dll",
+      "bytes": 575056,
+      "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:msvcp140.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/RECORD",
+      "bytes": 113361,
+      "sha256": "5bf95e239d5bb28f386f8b780bcc46c1e357f336104650212f13bef1d3365e08",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:numpy==2.5.4"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/onnxruntime-1.31.1.dist-info/RECORD",
+      "bytes": 60839,
+      "sha256": "a8347703db602f3f0b53872bdfaa5766dde5bf4fc3705e51a3a8818f4fcf9d0a",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:onnxruntime==1.31.1"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/openpyxl-3.1.5.dist-info/RECORD",
+      "bytes": 27747,
+      "sha256": "1c090d66dae3db301874398d4145fd12aa4b22eb7a4057d82ff73c242acf5cb9",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:openpyxl==3.1.5"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/packaging-26.3.dist-info/RECORD",
+      "bytes": 3670,
+      "sha256": "fd59b791119d91d0602060c81541e41118992995c6a0070e411a5ea3c6b1ebb2",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:packaging==26.3"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/pandas-3.1.0.dist-info/RECORD",
+      "bytes": 254872,
+      "sha256": "936168338d8666e3d577719c78b8943385ae628378d141463e6f10b20fac822b",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:pandas==3.1.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/pdfminer_six-20251230.dist-info/RECORD",
+      "bytes": 18701,
+      "sha256": "8d251ad844061bd891b5c545569117df6b5179f994caa297837a5a6f1888b244",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:pdfminer-six==20251230"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/pdfplumber-0.11.9.dist-info/RECORD",
+      "bytes": 3527,
+      "sha256": "d64b7ebdea2981e50896d43918cf9e55b76c66d0619c26ac139ccaec9a7b1c98",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:pdfplumber==0.11.9"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/pillow-13.0.0.dist-info/RECORD",
+      "bytes": 14249,
+      "sha256": "9e8f333e0152e9519aaf158005a6228662c717578917fcb6dce159d15673061a",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:pillow==13.0.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/protobuf-7.36.2.dist-info/RECORD",
+      "bytes": 9638,
+      "sha256": "214307539bb83e7271913f5ca625d5a2ce9114fa2a1f508aa805521d508a2533",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:protobuf==7.36.2"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/psutil-7.2.2.dist-info/RECORD",
+      "bytes": 1875,
+      "sha256": "55fd2f55e72c18fd0017a0a033af4661d0227e339c5d772a40a29375e6f740d7",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:psutil==7.2.2"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/pycparser-3.12.dist-info/RECORD",
+      "bytes": 1580,
+      "sha256": "0068b60eb8c94886f74ddec847f496c881dad36514cf6873e4b3506cf6988969",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:pycparser==3.12"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/pyexpat.pyd",
+      "bytes": 205304,
+      "sha256": "d615e193d1affcdbfe504e90d3621cbdcff94bf72b79d899126534507fd6d27a",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:pyexpat.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/pypdfium2-5.14.0.dist-info/RECORD",
+      "bytes": 9614,
+      "sha256": "8c05605b5d980177b7b39b4232350458d426131b6aaf55238a83c6d325d13b04",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:pypdfium2==5.14.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/pyside6_essentials-6.12.0.dist-info/RECORD",
+      "bytes": 302299,
+      "sha256": "e47435cd63bcc95b770b7c3a19f68d52b9ef2b1d95ac21724dc28e267f6c86ec",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:pyside6-essentials==6.12.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/python3.dll",
+      "bytes": 70376,
+      "sha256": "fb975a606e7fbf74f64260e3f60c3490b4f74a183c0926fd6ed1ac4c52ac7b1c",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:python3.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/python312.dll",
+      "bytes": 6945272,
+      "sha256": "9a0e3435aaa680d868150f87ab3e388ad2eebc22f87e036155c7b4eda8cd2120",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:python312.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/python_dateutil-4.0.0.dist-info/RECORD",
+      "bytes": 3395,
+      "sha256": "6036b828dc3b2dadb27d919ce5bc5b4d150b39a5a526707c1a6500f02529e2fa",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:python-dateutil==4.0.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/python_pptx-1.0.2.dist-info/RECORD",
+      "bytes": 14231,
+      "sha256": "c644b01c36e437c1f5ca7662cd8806a2d48870efbcd4c162b37ab249701105d3",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:python-pptx==1.0.2"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/requests-2.34.2.dist-info/RECORD",
+      "bytes": 3153,
+      "sha256": "da741c2b9ead7ebcdbe3837ca1f094090666b76db41385596e6c57ee5d90938e",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:requests==2.34.2"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/select.pyd",
+      "bytes": 33136,
+      "sha256": "d4d7181b11db0bd22a6cd5cda6f8583d1f5c77615fd0a6ca33350619d6e0438a",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:select.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/shiboken6-6.12.0.dist-info/RECORD",
+      "bytes": 7355,
+      "sha256": "bbd561c16d61cf87e4263d1df7046fd187992f48513de9a7940f048a894955a8",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:shiboken6==6.12.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/six-1.17.0.dist-info/RECORD",
+      "bytes": 646,
+      "sha256": "9f1c0d6da86acfde698b1a0a31931cba957b2896a49bce80c4b0e3cac9d03aef",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:six==1.17.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/soupsieve-4.0.dist-info/RECORD",
+      "bytes": 1583,
+      "sha256": "525850d2eb96f8e21ea65610fdfbc67e3b57a630ad3b3b8ce6023a2460b3116b",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:soupsieve==4.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/sqlite3.dll",
+      "bytes": 1583608,
+      "sha256": "8daa45684bf6688fca28d956b2e8942f2fa98f656675ce68e6d61dd869848a7a",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:sqlite3.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/typing_extensions-4.16.0.dist-info/RECORD",
+      "bytes": 679,
+      "sha256": "9861cb1104df8ec0ce0e5de06999ed8540a156766893cf404a41e9adb275afff",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:typing-extensions==4.16.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/tzdata-2026.6.dist-info/RECORD",
+      "bytes": 56916,
+      "sha256": "73e28ec650cb37a099ef442207911a089349acfb5d3b5ae29412f624e06a54cf",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:tzdata==2026.6"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/ucrtbase.dll",
+      "bytes": 1361448,
+      "sha256": "2e5fb14b7bf8540278f3614a12f0226e56a7cc9e64b81cbd976c6fcf2f71cbfb",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:ucrtbase.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/unicodedata.pyd",
+      "bytes": 1140592,
+      "sha256": "208ee1cd3cbad0828433ca7246b05be2b1ff5569983d27d296c0b38888585488",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:unicodedata.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/urllib3-2.8.0.dist-info/RECORD",
+      "bytes": 5616,
+      "sha256": "63c86af2d9c9c5fcf21cc273730f5e8328ab17870790494379d1d9a50c092308",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:urllib3==2.8.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/vcruntime140.dll",
+      "bytes": 120400,
+      "sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:vcruntime140.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/vcruntime140_1.dll",
+      "bytes": 49776,
+      "sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:vcruntime140_1.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/xlsxwriter-3.3.1.dist-info/RECORD",
+      "bytes": 6351,
+      "sha256": "70c10b4be8fcfe17652bb16ebf10ac0b21b59c576775c6bf52afe27f014cb423",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:xlsxwriter==3.3.1"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "base-install-catalog.json",
+      "bytes": 304914,
+      "sha256": "8786d3b60cd51bca5f2f872420788a7f8bf68d9bd6ac3b44025ba5ba60f0aabc",
+      "role": "data-or-generated",
+      "category": "ci-artifact-member",
+      "status": "confirmed",
+      "evidence": [
+        "installer/base-install-catalog.json"
+      ],
+      "note": "與同次 CI artifact 成員位元組相同（當次建置產生）"
+    }
+  ]
+}

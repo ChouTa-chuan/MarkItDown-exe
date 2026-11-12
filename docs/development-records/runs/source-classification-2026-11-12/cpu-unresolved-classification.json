@@ -1,0 +1,4006 @@
+{
+  "check": "unresolved-source-classification",
+  "schema_version": 1,
+  "profile": "cpu",
+  "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+  "source_version": "0.19.1",
+  "archive": "windows-cpu-validation-reports.zip",
+  "archive_sha256": "54831b0215cff8185e6fd0544c5be54bc8f57a6b771d76dafdc0e4937bc41a4e",
+  "report_sha256": "9a0fc92b33f6c3d747f6c2762f1b944185c14eb9eed9ad217ca83531d421d64f",
+  "unresolved_declared": 303,
+  "classified": 303,
+  "accepted": true,
+  "by_status": {
+    "candidate": 46,
+    "confirmed": 227,
+    "gap": 1,
+    "origin-known": 29
+  },
+  "by_category": {
+    "archive-members-not-enumerated": 1,
+    "cpython-license-text": 1,
+    "cpython-runtime": 25,
+    "empty-file": 1,
+    "installer-generated-record": 6,
+    "project-generated": 3,
+    "repo-blob": 220,
+    "system-native": 46
+  },
+  "remaining_gap_or_candidate": 47,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "files": [
+    {
+      "path": "_internal/MSVCP140_1.dll",
+      "bytes": 35920,
+      "sha256": "456aebccb449fcba35f1109c259ba0aa10923e660f4de812a490d35f37f54fc9",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:MSVCP140_1.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/_asyncio.pyd",
+      "bytes": 74096,
+      "sha256": "c77de90cad749087a0c5dc5e19d78d24f6ef44e7e5ac19b8420cfc0cea62395d",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_asyncio.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_bz2.pyd",
+      "bytes": 86896,
+      "sha256": "65f610646d10d5babea080e060d244b546ec52c54012e5e937dc72dcc2e2e7bc",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_bz2.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_ctypes.pyd",
+      "bytes": 127480,
+      "sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_ctypes.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_decimal.pyd",
+      "bytes": 262000,
+      "sha256": "aeacfead2befcc0768063a037bb64bd32109ae09cb144e5f571b04dd7965db9d",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_decimal.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_elementtree.pyd",
+      "bytes": 135160,
+      "sha256": "5009a9a53c03ef8387443b5cf6ce08e5c3a79727466a0b931c5bbca915bf89ca",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_elementtree.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_hashlib.pyd",
+      "bytes": 68976,
+      "sha256": "03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_hashlib.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_lzma.pyd",
+      "bytes": 161136,
+      "sha256": "e3deecc1f59a3b811c608861decd84de1e8df8bafd5e2b39188861318c5a38cf",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_lzma.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_multiprocessing.pyd",
+      "bytes": 37368,
+      "sha256": "2c636df7059cb0dd7e978dd735c7c5c8ddb09cf94754cf9e232296b96c5c545a",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_multiprocessing.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_overlapped.pyd",
+      "bytes": 57336,
+      "sha256": "662126ff80c3a1b4cedf74074029c12ae4743e6d3b37376e39ac70aacb7d4d3c",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_overlapped.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_queue.pyd",
+      "bytes": 33784,
+      "sha256": "48e76e0ad63f6932b4a77b5819f41c1e7595636ca8d9e824f0943a14b8bb5035",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_queue.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_socket.pyd",
+      "bytes": 85496,
+      "sha256": "3efa4636cf9e350856f6927d67a4c2564bf9bd2758a00bbf17d3aece5b60016d",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_socket.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_sqlite3.pyd",
+      "bytes": 126184,
+      "sha256": "64b51df2805c58b023a875e8ae3be7ac7f61ef664f32ca6c90f6315da47ef0bc",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_sqlite3.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_ssl.pyd",
+      "bytes": 179432,
+      "sha256": "0bc527d2dbc50009f43b2ed5d5982c4f63f4b647647ffa9eda612dcda80f6040",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_ssl.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/_wmi.pyd",
+      "bytes": 40304,
+      "sha256": "a980f1e7a29842bd946863fc2693fbeb555a9dc0f9e1630dfed9a2fcdef3ece2",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:_wmi.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/api-ms-win-core-console-l1-1-0.dll",
+      "bytes": 22072,
+      "sha256": "88ace577a9c51061cb7d1a36babbbefa48212fadc838ffde98fdfff60de18386",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-console-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-datetime-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "1bd81dfd19204b44662510d9054852fb77c9f25c1088d647881c9b976cc16818",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-datetime-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-debug-l1-1-0.dll",
+      "bytes": 21944,
+      "sha256": "591358eb4d1531e9563ee0813e4301c552ce364c912ce684d16576eabf195dc3",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-debug-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-errorhandling-l1-1-0.dll",
+      "bytes": 22096,
+      "sha256": "d56ce7b1cd76108ad6c137326ec694a14c99d48c3d7b0ace8c3ff4d9bcee3ce8",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-errorhandling-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-fibers-l1-1-0.dll",
+      "bytes": 22072,
+      "sha256": "91d249d7bc0e38ef6bcb17158b1fdc6dd8888dc086615c9b8b750b87e52a5fb3",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-fibers-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-fibers-l1-1-1.dll",
+      "bytes": 22072,
+      "sha256": "fc9d86cec621383eab636ebc87ddd3f5c19a3cb2a33d97be112c051d0b275429",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-fibers-l1-1-1.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-file-l1-1-0.dll",
+      "bytes": 26152,
+      "sha256": "1ca895aba4e7435563a6b43e85eba67a0f8c74aa6a6a94d0fc48fa35535e2585",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-file-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-file-l1-2-0.dll",
+      "bytes": 22056,
+      "sha256": "4cadbc0c39da7c6722206fdcebd670abe5b8d261e7b041dd94f9397a89d1990d",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-file-l1-2-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-file-l2-1-0.dll",
+      "bytes": 21960,
+      "sha256": "93c624b366ba16c643fc8933070a26f03b073ad0cf7f80173266d67536c61989",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-file-l2-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-handle-l1-1-0.dll",
+      "bytes": 21944,
+      "sha256": "39095f59c41d76ec81bb2723d646fde4c148e7cc3402f4980d2ade95cb9c84f9",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-handle-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-heap-l1-1-0.dll",
+      "bytes": 22072,
+      "sha256": "8f105771b236dbcb859de271f0a6822ce1cb79c36988dd42c9e3f6f55c5f7eb9",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-heap-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-interlocked-l1-1-0.dll",
+      "bytes": 22072,
+      "sha256": "53b25e753ca785bf8b695d89dde5818a318890211dc992a89146f16658f0b606",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-interlocked-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-kernel32-legacy-l1-1-1.dll",
+      "bytes": 22080,
+      "sha256": "a9b13a1cd1b8c19b0c6b4afcd5bb0dd29c0e2288231ac9e6db8510094ce68ba6",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-kernel32-legacy-l1-1-1.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-libraryloader-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "7f39ba298b41e4963047341288cab36b6a241835ee11ba4ad70f44dacd40906c",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-libraryloader-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-localization-l1-2-0.dll",
+      "bytes": 22080,
+      "sha256": "6ee44dd0d8510dc024c9f7c79b1b9fa88c987b26b6beb6653ddd11751c34e5dc",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-localization-l1-2-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-memory-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "0512a35316ec9180437f86696a84c5c06a7e4e82e050055a656e5bf9fca206f9",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-memory-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-namedpipe-l1-1-0.dll",
+      "bytes": 22096,
+      "sha256": "c05f1fffe3b5a2738ea54ce9485cca026fb9635f982626fba1e1dcc531897273",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-namedpipe-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-processenvironment-l1-1-0.dll",
+      "bytes": 21968,
+      "sha256": "c4eca98c3c67b6395d5b005b00ac1eb0318b86b23aa71035a44c2b1602befba9",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-processenvironment-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-processthreads-l1-1-0.dll",
+      "bytes": 22096,
+      "sha256": "5ccb89e93d67bc3288d4e84649c5346e66e15e3d7cd65d989daf3f4cb584be9a",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-processthreads-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-processthreads-l1-1-1.dll",
+      "bytes": 22072,
+      "sha256": "4ad565a8ba3ef0ea8ab87221ad11f83ee0bc844ce236607958406663b407333e",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-processthreads-l1-1-1.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-profile-l1-1-0.dll",
+      "bytes": 22080,
+      "sha256": "7809160932f44e59b021699f5bc68799eb7293ee1fa926d6fcca3c3445302e61",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-profile-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-rtlsupport-l1-1-0.dll",
+      "bytes": 21960,
+      "sha256": "9dc1e91e71c7c054854bd1487cb4e6946d82c9f463430f1c4e8d1471005172b1",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-rtlsupport-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-string-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "60fc31d2a0c634412f529dba76af3b9bf991352877c6dae528186d3935704cfd",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-string-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-synch-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "3a72b4f29f39a265d32ad12f0ce15dbf60129c840e10d84d427829ede45e78ad",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-synch-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-synch-l1-2-0.dll",
+      "bytes": 22080,
+      "sha256": "efc1e4460984a73cf47a3def033af1c8f3b1dbc1a56cd27781d3aacf3e3330cb",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-synch-l1-2-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-sysinfo-l1-1-0.dll",
+      "bytes": 22072,
+      "sha256": "b203d862ddef1dd62bf623fc866c7f7a9c317c1c2ae30d1f52cb41f955b5698e",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-sysinfo-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-sysinfo-l1-2-0.dll",
+      "bytes": 22080,
+      "sha256": "2703635d835396afd0f138d7c73751afe7e33a24f4225d08c1690b0a371932c0",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-sysinfo-l1-2-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-timezone-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "33f4fddc181066fce06b2227bded813f95e94ed1f3d785e982c6b6b56c510c57",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-timezone-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-core-util-l1-1-0.dll",
+      "bytes": 21944,
+      "sha256": "6eda016742a6171205a387a14b3c0b331841567740376f56768f8c151724207d",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-core-util-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-conio-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "b762061b688aae679afe788904d2c9970f74a7dac98f3b42463d08f25e483d3f",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-conio-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-convert-l1-1-0.dll",
+      "bytes": 26056,
+      "sha256": "ebb2ae5535a64f65daeab8235585114fc9dd2cf1a49f5852d446250b998b6ae4",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-convert-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-environment-l1-1-0.dll",
+      "bytes": 22080,
+      "sha256": "17d63275d00bdd8670422b95bd264c532998e0a1b041079e54fce4b6b7a55819",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-environment-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-filesystem-l1-1-0.dll",
+      "bytes": 22056,
+      "sha256": "9a9e2a65a281644e368d0f272b95ba5f6b445d1c35910d06056c5ebeb77402db",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-filesystem-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-heap-l1-1-0.dll",
+      "bytes": 22096,
+      "sha256": "bab9ac3ec83e380ae51e4295ef3bf2c738627812d3a49d1e713661abbc8dc57a",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-heap-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-locale-l1-1-0.dll",
+      "bytes": 22080,
+      "sha256": "bd14c67ea28e21d6257ad780a37122c9b5773f69e693f5db6bffaee4d839526e",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-locale-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-math-l1-1-0.dll",
+      "bytes": 30248,
+      "sha256": "606d66d82db562ea7979179d06486a0f94d079941d26b80a1e2c49d29959df6f",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-math-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-private-l1-1-0.dll",
+      "bytes": 75328,
+      "sha256": "1bc82bed6143d2bf1b6b08a7809f4a5e29317d6fddd338a7da3c0223522e4bbf",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-private-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-process-l1-1-0.dll",
+      "bytes": 22096,
+      "sha256": "f6156b1020380ec4f0e48577ebedaaef5fb1ab1f337d8b4e72e6a33a7567a9cc",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-process-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-runtime-l1-1-0.dll",
+      "bytes": 26152,
+      "sha256": "c5902934d026d7e15fbe9917d474f3322846a41a25e66f4b2b1f758801879f4b",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-runtime-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-stdio-l1-1-0.dll",
+      "bytes": 26168,
+      "sha256": "a9c5a153d8c0286f9b41a2b1c65854ad9e6471b8755b7de87bae4470e60bcab6",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-stdio-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-string-l1-1-0.dll",
+      "bytes": 26176,
+      "sha256": "25b8f83a7767211b11132775a0e27a45aa4ec8ab4e6572599f9c172ae3606b40",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-string-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-time-l1-1-0.dll",
+      "bytes": 22096,
+      "sha256": "7c7f6393f06de11750adb09cc5698ae55cd9fb27b2e51e207286feb1b5b2b156",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-time-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/api-ms-win-crt-utility-l1-1-0.dll",
+      "bytes": 21952,
+      "sha256": "d8ba5f17b9ffcbf3aeaf3fa1da226832d2fa90f81acce0cd669464e76ce434ac",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:api-ms-win-crt-utility-l1-1-0.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/base_library.zip",
+      "bytes": 1333717,
+      "sha256": "5be55ad975f268c1484b7d55610cdc886d83f047c1ba3df02d040cc7062a26f2",
+      "role": "archive",
+      "category": "archive-members-not-enumerated",
+      "status": "gap",
+      "evidence": [],
+      "note": "PyInstaller 產生的 Python 標準庫封存，成員未展開；需另做成員層級 SBOM"
+    },
+    {
+      "path": "_internal/libcrypto-3.dll",
+      "bytes": 5231472,
+      "sha256": "ccfffddcd3defb8d899026298af9af43bc186130f8483d77e97c93233d5f27d7",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:libcrypto-3.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/libffi-8.dll",
+      "bytes": 39696,
+      "sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:libffi-8.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/libssl-3.dll",
+      "bytes": 794992,
+      "sha256": "007142039f04d04e0ed607bda53de095e5bc6a8a10d26ecedde94ea7d2d7eefe",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:libssl-3.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/msvcp140.dll",
+      "bytes": 575056,
+      "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:msvcp140.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/RECORD",
+      "bytes": 113361,
+      "sha256": "09535424a9185a76f178bd9b0af69eac6881eaea2a93ef89ac3f77a16253c6df",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:numpy==2.5.4"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/onnxruntime-1.31.1.dist-info/RECORD",
+      "bytes": 60839,
+      "sha256": "e16119f0065130af7c85c8a50913005bef0b834f350e74496fd82b7761327a21",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:onnxruntime==1.31.1"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/opencv_python-5.0.0.93.dist-info/RECORD",
+      "bytes": 4498,
+      "sha256": "6b0b9197f3a2919f3fdd055c9ed9b864b47654a75fe94418dc931c62ec4a8176",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:opencv-python==5.0.0.93"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/pillow-13.0.0.dist-info/RECORD",
+      "bytes": 14249,
+      "sha256": "9e8f333e0152e9519aaf158005a6228662c717578917fcb6dce159d15673061a",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:pillow==13.0.0"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/psutil-7.2.2.dist-info/RECORD",
+      "bytes": 1875,
+      "sha256": "55fd2f55e72c18fd0017a0a033af4661d0227e339c5d772a40a29375e6f740d7",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:psutil==7.2.2"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/pyexpat.pyd",
+      "bytes": 205304,
+      "sha256": "d615e193d1affcdbfe504e90d3621cbdcff94bf72b79d899126534507fd6d27a",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:pyexpat.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/python3.dll",
+      "bytes": 70376,
+      "sha256": "fb975a606e7fbf74f64260e3f60c3490b4f74a183c0926fd6ed1ac4c52ac7b1c",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:python3.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/python312.dll",
+      "bytes": 6945272,
+      "sha256": "9a0e3435aaa680d868150f87ab3e388ad2eebc22f87e036155c7b4eda8cd2120",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:python312.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/rapidocr_onnxruntime-1.4.4.dist-info/RECORD",
+      "bytes": 4608,
+      "sha256": "8f97b0f2d824ae109a69fd205b53e0bc1fd1d1fe678ad709a68b7d78db08b30c",
+      "role": "data-or-generated",
+      "category": "installer-generated-record",
+      "status": "confirmed",
+      "evidence": [
+        "packages:rapidocr-onnxruntime==1.4.4"
+      ],
+      "note": "安裝工具於安裝時產生的檔案清單，RECORD 不記錄自身雜湊；套件版號與報告套件表相符"
+    },
+    {
+      "path": "_internal/select.pyd",
+      "bytes": 33136,
+      "sha256": "d4d7181b11db0bd22a6cd5cda6f8583d1f5c77615fd0a6ca33350619d6e0438a",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:select.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/sqlite3.dll",
+      "bytes": 1583608,
+      "sha256": "8daa45684bf6688fca28d956b2e8942f2fa98f656675ce68e6d61dd869848a7a",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:sqlite3.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/ucrtbase.dll",
+      "bytes": 1361448,
+      "sha256": "2e5fb14b7bf8540278f3614a12f0226e56a7cc9e64b81cbd976c6fcf2f71cbfb",
+      "role": "native-binary",
+      "category": "system-native",
+      "status": "candidate",
+      "evidence": [
+        "native_files:ucrtbase.dll"
+      ],
+      "note": "自建置機系統路徑收集；檔名推測為 Microsoft Universal CRT／Visual C++ runtime，簽章／版本資源未驗"
+    },
+    {
+      "path": "_internal/unicodedata.pyd",
+      "bytes": 1140592,
+      "sha256": "208ee1cd3cbad0828433ca7246b05be2b1ff5569983d27d296c0b38888585488",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:unicodedata.pyd"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/vcruntime140.dll",
+      "bytes": 120400,
+      "sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:vcruntime140.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/vcruntime140_1.dll",
+      "bytes": 49776,
+      "sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8",
+      "role": "native-binary",
+      "category": "cpython-runtime",
+      "status": "origin-known",
+      "evidence": [
+        "native_files:vcruntime140_1.dll"
+      ],
+      "note": "自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對"
+    },
+    {
+      "path": "_internal/worker-assets/bootloader/manifest.json",
+      "bytes": 297,
+      "sha256": "5b9756b8845f7b9822c954d5292528f90d8d5ecab45f33b8aa7243c07b851604",
+      "role": "data-or-generated",
+      "category": "project-generated",
+      "status": "origin-known",
+      "evidence": [
+        "scripts/build_provenance.py"
+      ],
+      "note": "專案建置腳本的固定輸出路徑；內容隨建置產生，未逐位元對照"
+    },
+    {
+      "path": "_internal/worker-assets/installed-manifest.json",
+      "bytes": 95025,
+      "sha256": "b05a6851018923eb4bffbf0fe48cf3773f260bdc2fec5c7189a9b9932f205747",
+      "role": "data-or-generated",
+      "category": "project-generated",
+      "status": "origin-known",
+      "evidence": [
+        "scripts/prepare_worker_assets.py"
+      ],
+      "note": "專案建置腳本的固定輸出路徑；內容隨建置產生，未逐位元對照"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/index.html",
+      "bytes": 21105,
+      "sha256": "1f1c9875a02d051669f344d80021d39a04b7aec5b70219104abfd64ef4ba8b01",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/index.html"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/markitdown/LICENSE",
+      "bytes": 1141,
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/markitdown/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/markitdown/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/markitdown/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/markitdown/LICENSE",
+        "vendor/markitdown/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/models/SOURCE.json",
+      "bytes": 434,
+      "sha256": "b5b441741787fefbfbe4381baadcc7f1b25dd8f3f1ea2baf01d756c4d02620a0",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/models/SOURCE.json",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/models/SOURCE.json",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/models/SOURCE.json",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/models/SOURCE.json",
+        "src/desktop_app/data/ocr-models.json"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/models/tessdata-fast-Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/models/tessdata-fast-Apache-2.0.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/models/tessdata-fast-Apache-2.0.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/models/tessdata-fast-Apache-2.0.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/models/tessdata-fast-Apache-2.0.txt",
+        "packaging/native/minimal-notices/tesseract-LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/standards/BSD-2-Clause.txt",
+      "bytes": 1267,
+      "sha256": "f32fb3b417a194167cfad068223fc975ba96c5960513a10f66a3c28720aec1df",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/standards/BSD-2-Clause.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/standards/BSD-2-Clause.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/standards/BSD-2-Clause.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/standards/BSD-2-Clause.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/standards/SOURCE.json",
+      "bytes": 354,
+      "sha256": "aee93a231453078d13c7f69f169308bd3abc88b1904cfe5e12ca7ef4b4b6a1ab",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/standards/SOURCE.json",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/standards/SOURCE.json",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/standards/SOURCE.json",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/standards/SOURCE.json"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/altgraph/METADATA",
+      "bytes": 7519,
+      "sha256": "dc60641dba229a3aef09f764f562c38d908b930c92615af2e626af31d6ff19b5",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/altgraph/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/altgraph/wheel/altgraph-0.17.5.dist-info/LICENSE",
+      "bytes": 1002,
+      "sha256": "6c194d6db0c64d45535d10c95142b9b0cda7b7dcc7f1ddee302b3d536f3dbe46",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/altgraph/wheel/altgraph-0.17.5.dist-info/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/beautifulsoup4/METADATA",
+      "bytes": 3812,
+      "sha256": "b2f888103259f1607c85f3b1163be1bc49fc9941a3243c3b89a21075bfc6d4fb",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/beautifulsoup4/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/beautifulsoup4/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/beautifulsoup4/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/beautifulsoup4/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/AUTHORS",
+      "bytes": 2201,
+      "sha256": "b989238918e1fdac1e46717cb405b63e92497a272413af0d989c1df6c8abcb6f",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/AUTHORS",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/AUTHORS",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/AUTHORS"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE",
+      "bytes": 1441,
+      "sha256": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/beautifulsoup4/wheel/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/beautifulsoup4/original/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/certifi/METADATA",
+      "bytes": 2526,
+      "sha256": "e463e38f7fe7da36a11e6d3fecc5dfa5b97be8c8022620400750d79ae7d842bc",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/certifi/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/certifi/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/certifi/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/certifi/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/certifi/wheel/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "bytes": 989,
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/certifi/wheel/certifi-2026.10.23.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/certifi/original/certifi-2026.10.23.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/certifi/original/certifi-2026.10.23.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/certifi/original/certifi-2026.10.23.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cffi/METADATA",
+      "bytes": 2594,
+      "sha256": "67b6a7595df7ede2195016a05d285faa7d362a8f57c238984edb8bb674b5770d",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/cffi/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cffi/wheel/cffi-2.1.1.dist-info/licenses/LICENSE",
+      "bytes": 1123,
+      "sha256": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/cffi/wheel/cffi-2.1.1.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/cffi/original/cffi-2.1.1.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/cffi/original/cffi-2.1.1.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/cffi/original/cffi-2.1.1.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/charset-normalizer/METADATA",
+      "bytes": 47287,
+      "sha256": "49e955a09e1a159e0846872798006e8db7d518d8d70c637066fefdb08d3d9f7b",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/charset-normalizer/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/charset-normalizer/wheel/charset_normalizer-3.5.2.dist-info/licenses/LICENSE",
+      "bytes": 1092,
+      "sha256": "18577485d3704f1a479ded8e573c0976cfed315fd2fd17983fa988da4c2f70d1",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/charset-normalizer/wheel/charset_normalizer-3.5.2.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/click/METADATA",
+      "bytes": 2567,
+      "sha256": "e87bce0bd194de70dfb8e708e0a6b0483009f25611804eaf87bfeb63e6c20501",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/click/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/click/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/click/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/click/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/click/wheel/click-8.5.0.dist-info/licenses/LICENSE.txt",
+      "bytes": 1475,
+      "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/click/wheel/click-8.5.0.dist-info/licenses/LICENSE.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/click/original/click-8.5.0.dist-info/licenses/LICENSE.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/click/original/click-8.5.0.dist-info/licenses/LICENSE.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/click/original/click-8.5.0.dist-info/licenses/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cobble/METADATA",
+      "bytes": 2698,
+      "sha256": "6eb2cf88cfb39b884adde1eff7d8f89f80b256572eb0c6c164d6f99943dbd49f",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/cobble/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/cobble/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/cobble/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/cobble/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/colorama/METADATA",
+      "bytes": 17158,
+      "sha256": "7baed29eb50c3b29bdb33ff84e3177bf1bc05784f7685ecdcaa4471c7dd810cc",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/colorama/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/colorama/wheel/colorama-0.4.6.dist-info/licenses/LICENSE.txt",
+      "bytes": 1491,
+      "sha256": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/colorama/wheel/colorama-0.4.6.dist-info/licenses/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cryptography/METADATA",
+      "bytes": 4394,
+      "sha256": "047cfc71226409de4318b360aef15c63a2adf609731e3dcf7fe932f14ea042ee",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/cryptography/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/cryptography/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/cryptography/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/cryptography/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE",
+      "bytes": 197,
+      "sha256": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+      "bytes": 11360,
+      "sha256": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD",
+      "bytes": 1532,
+      "sha256": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/cryptography/original/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/defusedxml/METADATA",
+      "bytes": 32518,
+      "sha256": "369d3cef64870daf849fba711cb8d05a7efe3c8d9ab0f763adc34079fe378bb1",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/defusedxml/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/defusedxml/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/defusedxml/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/defusedxml/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/defusedxml/wheel/defusedxml-0.7.1.dist-info/LICENSE",
+      "bytes": 2409,
+      "sha256": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/defusedxml/wheel/defusedxml-0.7.1.dist-info/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/defusedxml/original/defusedxml-0.7.1.dist-info/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/defusedxml/original/defusedxml-0.7.1.dist-info/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/defusedxml/original/defusedxml-0.7.1.dist-info/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/et-xmlfile/METADATA",
+      "bytes": 2711,
+      "sha256": "0e97d7ea909ed0fbe03d88bc8b6f58677cee1b07bd3353ce361cd2405915204e",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/et-xmlfile/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/et-xmlfile/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/et-xmlfile/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/et-xmlfile/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.python",
+      "bytes": 14688,
+      "sha256": "4ccdaaebc0f44b83720ec0399bb7ab329adce067dd62f73c5535a2dc05628ab2",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.python",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.python",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.python",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.python"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.rst",
+      "bytes": 1131,
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.rst",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.rst",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.rst",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/et-xmlfile/original/et_xmlfile-2.0.0.dist-info/LICENCE.rst",
+        "src/desktop_app/data/licenses/windows/openpyxl/wheel/openpyxl-3.1.5.dist-info/LICENCE.rst"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/flatbuffers/METADATA",
+      "bytes": 1004,
+      "sha256": "9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/flatbuffers/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/flatbuffers/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/flatbuffers/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/flatbuffers/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/hatchling/METADATA",
+      "bytes": 3901,
+      "sha256": "482be6d989f36d3c7a31ceefb69ea757f1b603daa9dc598f8626fd0d81d1ca4a",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/hatchling/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/hatchling/wheel/hatchling-1.33.0.dist-info/licenses/LICENSE.txt",
+      "bytes": 1088,
+      "sha256": "7f143a8127ad4873862d70854b5bd2abd0085aa73e64fd2b08704a3b9f5c07fc",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/hatchling/wheel/hatchling-1.33.0.dist-info/licenses/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/hatchling/wheel/hatchling/licenses/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "data-or-generated",
+      "category": "empty-file",
+      "status": "confirmed",
+      "evidence": [],
+      "note": "零位元組檔案，沒有可授權的內容；不以雜湊相同推定來源"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/hatchling/wheel/hatchling/licenses/supported.py",
+      "bytes": 68,
+      "sha256": "641fb474d6916e23ea297f2b8d8ae20addad1c8f65e2852e7ca4445e73ed92e6",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/hatchling/wheel/hatchling/licenses/supported.py"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/idna/METADATA",
+      "bytes": 7207,
+      "sha256": "dbd8c14c1e4ca1e0c9824a6dbc7cbbf78884f38eb52d91148cd3025f671e4b85",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/idna/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/idna/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/idna/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/idna/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/idna/wheel/idna-3.20.dist-info/licenses/LICENSE.md",
+      "bytes": 1541,
+      "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/idna/wheel/idna-3.20.dist-info/licenses/LICENSE.md",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/idna/original/idna-3.20.dist-info/licenses/LICENSE.md",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/idna/original/idna-3.20.dist-info/licenses/LICENSE.md",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/idna/original/idna-3.20.dist-info/licenses/LICENSE.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/inventory.json",
+      "bytes": 79501,
+      "sha256": "7b721890a54453406fc7528f0054d8aad3d0ddefb315afe576aa0e750c0a6107",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/inventory.json"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/lxml/METADATA",
+      "bytes": 3368,
+      "sha256": "4038f4e4decac1c15eb5fd883abf1370f2df9b176b53bd172dd709d4542e2a48",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/lxml/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSE.txt",
+      "bytes": 1538,
+      "sha256": "e7c3ce8d76331b0101cc46790ab43958ea90a364bcf962ed8763d5a818340e69",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+      "bytes": 6348,
+      "sha256": "df682c668de65321677b5e4861dca4128a8bad8067f230956e9da3f985b3d398",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/magika/METADATA",
+      "bytes": 10874,
+      "sha256": "72b51757fa5acba3f59ed4abb2d038debda3fc9de68178903e90dbbf8298e9c9",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/magika/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/mammoth/METADATA",
+      "bytes": 26193,
+      "sha256": "aa45c59d8352de6aebe3c85b991045ffdf0acbedb76237dcf48d5e8cee0d8b6d",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/mammoth/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/mammoth/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/mammoth/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/mammoth/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/mammoth/wheel/mammoth-1.13.0.dist-info/licenses/LICENSE",
+      "bytes": 1307,
+      "sha256": "6663bbd049205d38a496ccacb412a151980b444627d38de218b3b809aef330f1",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/mammoth/wheel/mammoth-1.13.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/mammoth/original/mammoth-1.13.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/mammoth/original/mammoth-1.13.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/mammoth/original/mammoth-1.13.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/markdownify/METADATA",
+      "bytes": 9922,
+      "sha256": "4b457b9a3b3c6e7c87277a5157f9f99588b6cf89ee16ae20c8a019c6a66f6e2b",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/markdownify/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/markdownify/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/markdownify/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/markdownify/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/markdownify/wheel/markdownify-1.2.3.dist-info/LICENSE",
+      "bytes": 1083,
+      "sha256": "fae8b42db142dabf03b0c5c495831a5d11b9649ead0cf0bd4ab4f52294b263be",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/markdownify/wheel/markdownify-1.2.3.dist-info/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/markdownify/original/markdownify-1.2.3.dist-info/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/markdownify/original/markdownify-1.2.3.dist-info/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/markdownify/original/markdownify-1.2.3.dist-info/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/METADATA",
+      "bytes": 6635,
+      "sha256": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/numpy/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/numpy/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/numpy/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+      "bytes": 45831,
+      "sha256": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+      "bytes": 1039,
+      "sha256": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy/_core/include/numpy/random/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+      "bytes": 704,
+      "sha256": "aea41976c720f91bd19725c16916a1ace40eb1ea42620d340e587a5de4bbcea0",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+      "bytes": 21155,
+      "sha256": "d208152e2777ffd0126eacc1bd21c0320d69e4e6b622d21a2a12a47e8ef73763",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+      "bytes": 1441,
+      "sha256": "b0fd592d4ead563148e3977e7b589169d46a5ef2ff133c755a81af880a3fc919",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+      "bytes": 1542,
+      "sha256": "a732977853530066790c42817087f4829b518dd98d340c916acbfd227e39d3cb",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+      "bytes": 1573,
+      "sha256": "585483905b13d4b42f800c55ba99e89d6e2e33ccd5f503e201c07531d148ff41",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+      "bytes": 1523,
+      "sha256": "8db000e158c162e7249787852d8c69764706502ccee725c06641b31c1e95c8af",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+      "bytes": 2314,
+      "sha256": "19060ef465e1797d682ee0fc3081bd25ab1395e995e43d25c9d13c95d9a3cd6b",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+      "bytes": 1616,
+      "sha256": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy/ma/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+      "bytes": 3582,
+      "sha256": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy/random/LICENSE.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+      "bytes": 2805,
+      "sha256": "cf5619f25b112d5ce7c896efffc8e610bcb345dfadcc19f2c1460aa48fff2c9e",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+      "bytes": 2986,
+      "sha256": "92c10699884321f1c2947fe2a70ab23b0fbf1507f756d89dd08f38c61fc3d4fa",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+      "bytes": 1176,
+      "sha256": "41190663b77bee5302386495a07b7eabfbfa571aa0ae2f11da6764162062fc4f",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+      "bytes": 1540,
+      "sha256": "322ac46d870c8aeead6c53adcccc839296fb3c8e456eae155081297daf7f8013",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+      "bytes": 1253,
+      "sha256": "28cad82ce1379dc529df30da78ec012d7d0d1d576b03ddcb93388aee53659f59",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+      "bytes": 340,
+      "sha256": "454ec7350e478e037061850b67395753b425b1cb0a34bbc26290b020bf89d763",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy/_core/include/numpy/random/LICENSE.txt",
+      "bytes": 1039,
+      "sha256": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy/_core/include/numpy/random/LICENSE.txt",
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy/ma/LICENSE",
+      "bytes": 1616,
+      "sha256": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy/ma/LICENSE",
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/numpy/wheel/numpy/random/LICENSE.md",
+      "bytes": 3582,
+      "sha256": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy/random/LICENSE.md",
+        "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/onnxruntime/METADATA",
+      "bytes": 6099,
+      "sha256": "2f3c9b07cbbb008caa43327723e11875e3a595eadfb30c9c1abd92163afe878e",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/onnxruntime/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/onnxruntime/wheel/onnxruntime/LICENSE",
+      "bytes": 1094,
+      "sha256": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/onnxruntime/wheel/onnxruntime/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/onnxruntime/wheel/onnxruntime/ThirdPartyNotices.txt",
+      "bytes": 344457,
+      "sha256": "c53a76501ef60db6f865f20599f220761201ac4057683acefdab37d861b86622",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/onnxruntime/wheel/onnxruntime/ThirdPartyNotices.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/opencv-python/METADATA",
+      "bytes": 20050,
+      "sha256": "b81ca3fc0f3a4ab5d214e2d2ac24f1db7c38b8a3a27f9588e62a14bfd42992f2",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/opencv-python/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/opencv-python/wheel/cv2/LICENSE-3RD-PARTY.txt",
+      "bytes": 183251,
+      "sha256": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/opencv-python/wheel/cv2/LICENSE-3RD-PARTY.txt",
+        "src/desktop_app/data/licenses/windows/opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE-3RD-PARTY.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/opencv-python/wheel/cv2/LICENSE.txt",
+      "bytes": 1090,
+      "sha256": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/opencv-python/wheel/cv2/LICENSE.txt",
+        "src/desktop_app/data/licenses/windows/opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE-3RD-PARTY.txt",
+      "bytes": 183251,
+      "sha256": "c1d60169b55cee56452b227c2fd2a7b9ddda3dd3741065f1c6201072be73fadb",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE-3RD-PARTY.txt",
+        "src/desktop_app/data/licenses/windows/opencv-python/wheel/cv2/LICENSE-3RD-PARTY.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE.txt",
+      "bytes": 1090,
+      "sha256": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE.txt",
+        "src/desktop_app/data/licenses/windows/opencv-python/wheel/cv2/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/openpyxl/METADATA",
+      "bytes": 2510,
+      "sha256": "23f80ca9830dd89435da1710f26deda8f81e5409287e74540210c72627a4ad96",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/openpyxl/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/openpyxl/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/openpyxl/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/openpyxl/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/openpyxl/wheel/openpyxl-3.1.5.dist-info/LICENCE.rst",
+      "bytes": 1131,
+      "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/openpyxl/wheel/openpyxl-3.1.5.dist-info/LICENCE.rst",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/openpyxl/original/openpyxl-3.1.5.dist-info/LICENCE.rst",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/openpyxl/original/openpyxl-3.1.5.dist-info/LICENCE.rst",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/openpyxl/original/openpyxl-3.1.5.dist-info/LICENCE.rst",
+        "src/desktop_app/data/licenses/windows/et-xmlfile/wheel/et_xmlfile-2.0.0.dist-info/LICENCE.rst"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/METADATA",
+      "bytes": 3544,
+      "sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/packaging/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/packaging/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/packaging/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/packaging/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE",
+      "bytes": 197,
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.APACHE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "bytes": 1344,
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.BSD"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/wheel/packaging/licenses/__init__.py",
+      "bytes": 7859,
+      "sha256": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/packaging/wheel/packaging/licenses/__init__.py",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging/licenses/__init__.py"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/packaging/wheel/packaging/licenses/_spdx.py",
+      "bytes": 51122,
+      "sha256": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/packaging/wheel/packaging/licenses/_spdx.py",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging/licenses/_spdx.py"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/METADATA",
+      "bytes": 18156,
+      "sha256": "b2b43910a5ef734a08be961df9c484f4664ad9ec2fa5a08294d0edfa08bcdd4b",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSE",
+      "bytes": 1634,
+      "sha256": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+      "bytes": 1360,
+      "sha256": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+      "bytes": 2889,
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+        "src/desktop_app/data/licenses/windows/python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+      "bytes": 1099,
+      "sha256": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT",
+      "bytes": 1264,
+      "sha256": "87217d0a79195441ab615a3abb3ab6777502e57804ea83f973df975a67ebd720",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+      "bytes": 1104,
+      "sha256": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+      "bytes": 6203,
+      "sha256": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+      "bytes": 1542,
+      "sha256": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+      "bytes": 11519,
+      "sha256": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+        "src/desktop_app/data/licenses/windows/typing-extensions/wheel/typing_extensions-4.16.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+      "bytes": 1486,
+      "sha256": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+      "bytes": 1058,
+      "sha256": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+      "bytes": 1059,
+      "sha256": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+      "bytes": 1249,
+      "sha256": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+      "bytes": 5974,
+      "sha256": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+      "bytes": 1606,
+      "sha256": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+      "bytes": 10767,
+      "sha256": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+      "bytes": 1337,
+      "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+      "bytes": 1079,
+      "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pandas/original/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/fast_float.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pathspec/METADATA",
+      "bytes": 14797,
+      "sha256": "68de3f158b6592f086e78754c962092f32a761944ab66a660c0d62ad79c4b69b",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pathspec/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pathspec/wheel/pathspec-1.1.1.dist-info/licenses/LICENSE",
+      "bytes": 16726,
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pathspec/wheel/pathspec-1.1.1.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pdfminer-six/METADATA",
+      "bytes": 4289,
+      "sha256": "77a7aa49c45244383288e8b98cb567f19a9083ad0d74716e3011c831df801d44",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pdfminer-six/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pdfminer-six/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pdfminer-six/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pdfminer-six/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pdfminer-six/wheel/pdfminer_six-20251230.dist-info/licenses/LICENSE",
+      "bytes": 1093,
+      "sha256": "f01e5d699a33766b5caf4a5099f2856aba4f3f75ea1df05dc0572b34b4bea8f2",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pdfminer-six/wheel/pdfminer_six-20251230.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pdfminer-six/original/pdfminer_six-20251230.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pdfminer-six/original/pdfminer_six-20251230.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pdfminer-six/original/pdfminer_six-20251230.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pdfplumber/METADATA",
+      "bytes": 43599,
+      "sha256": "24f9118940ac3810a6bf0dd1970094e29cc659c71c334a6fc2e65d7120a74b62",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pdfplumber/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pdfplumber/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pdfplumber/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pdfplumber/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pdfplumber/wheel/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt",
+      "bytes": 1086,
+      "sha256": "0d48994da4d1321e395b5e64a724ed4dec63fb96b88ac5b88fc014771e690821",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pdfplumber/wheel/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pdfplumber/original/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pdfplumber/original/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pdfplumber/original/pdfplumber-0.11.9.dist-info/licenses/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pefile/METADATA",
+      "bytes": 1355,
+      "sha256": "8ad83a5f8659e8da6eeaabf2dafa0eebb8c05832a3def16a5db4dd0d52e72474",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pefile/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pefile/wheel/pefile-2024.8.26.dist-info/LICENSE",
+      "bytes": 1083,
+      "sha256": "b44409c067c6da52bfb54bb6624fb11a7b52157c3a13ae1400232f8196e86ad3",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pefile/wheel/pefile-2024.8.26.dist-info/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pillow/METADATA",
+      "bytes": 9300,
+      "sha256": "140f39cb31ec9b46109828a6286f034a4848621263d6aab38d2f142083dd06c5",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pillow/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+      "bytes": 78481,
+      "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pluggy/METADATA",
+      "bytes": 4966,
+      "sha256": "20ac8237e37f1d6e7e75500cd663015177ba80c1a1a595ff6bae18a539ff8a2c",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pluggy/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pluggy/wheel/pluggy-1.7.0.dist-info/licenses/LICENSE",
+      "bytes": 1110,
+      "sha256": "d6b65e6c213a5d0b577911d34d6e5949b9f59d76c238c5071a2f3fc16cfb2606",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pluggy/wheel/pluggy-1.7.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/protobuf/METADATA",
+      "bytes": 595,
+      "sha256": "445916389cc3a87d5f815d763192372a17a221339d474cb661523157bf07d61c",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/protobuf/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/protobuf/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/protobuf/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/protobuf/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/protobuf/wheel/protobuf-7.36.2.dist-info/LICENSE",
+      "bytes": 1732,
+      "sha256": "6e5e117324afd944dcf67f36cf329843bc1a92229a8cd9bb573d7a83130fea7d",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/protobuf/wheel/protobuf-7.36.2.dist-info/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/protobuf/original/protobuf-7.36.2.dist-info/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/protobuf/original/protobuf-7.36.2.dist-info/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/protobuf/original/protobuf-7.36.2.dist-info/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/psutil/METADATA",
+      "bytes": 22729,
+      "sha256": "a263a40220d921d9cb963fc636d34f817aa2eb72c2696e3e3465d088cdb1976b",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/psutil/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/psutil/wheel/psutil-7.2.2.dist-info/LICENSE",
+      "bytes": 1577,
+      "sha256": "c7adc4d5d1337a548b967421f1fbe258b93033a0417708fd6f4e38f8ecbceb80",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/psutil/wheel/psutil-7.2.2.dist-info/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyclipper/METADATA",
+      "bytes": 8824,
+      "sha256": "98fe70a18b29110448b184deeaa5bcd9d018ce9e9db6ef232dd03146b68f1f78",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pyclipper/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyclipper/wheel/pyclipper-1.4.0.dist-info/licenses/LICENSE",
+      "bytes": 1131,
+      "sha256": "73c25539e7fb486b834c33747d579e0bc56c0f984294c88f3cb2329420ba300f",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pyclipper/wheel/pyclipper-1.4.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pycparser/METADATA",
+      "bytes": 9709,
+      "sha256": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pycparser/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pycparser/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pycparser/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pycparser/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pycparser/wheel/pycparser-3.12.dist-info/licenses/LICENSE",
+      "bytes": 1543,
+      "sha256": "0a9e78156ae8b96caf1b4f11ac2df424b83de29736f9e757630548a6272fdf90",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pycparser/wheel/pycparser-3.12.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pycparser/original/pycparser-3.12.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pycparser/original/pycparser-3.12.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/pycparser/original/pycparser-3.12.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyinstaller-hooks-contrib/METADATA",
+      "bytes": 16042,
+      "sha256": "1820f1a8a554ce1b6ae528c7fe502f4676c844eb1151f7f040adc8010052b0ba",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pyinstaller-hooks-contrib/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyinstaller-hooks-contrib/wheel/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE",
+      "bytes": 27666,
+      "sha256": "91d0baaff00773038e72c0a1fc9d5d2d38706b7a2b9c04f34296608f931b9cd0",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pyinstaller-hooks-contrib/wheel/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyinstaller/METADATA",
+      "bytes": 8517,
+      "sha256": "2991d3dcd53fe9966b8c16586322a7f9bbc564dd4752c190bd4fe8d6747f7046",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pyinstaller/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyinstaller/wheel/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt",
+      "bytes": 32604,
+      "sha256": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pyinstaller/wheel/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/METADATA",
+      "bytes": 63509,
+      "sha256": "8733a714c056453b87b48c819495cc05f9038d38221b89505043d28c2501237e",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/Apache-2.0.txt",
+      "bytes": 11560,
+      "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/Apache-2.0.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/BSD-3-Clause.txt",
+      "bytes": 1485,
+      "sha256": "ad9a9e823df025f42389c1812eae28019f657d1ed7b3a4ebfd5010b0736a0da4",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/BSD-3-Clause.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/CC-BY-4.0.txt",
+      "bytes": 14844,
+      "sha256": "f1b1748301cd4274f46733c218d510929661b4990855de5fc645dacd69c4371c",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/CC-BY-4.0.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/abseil.txt",
+      "bytes": 11564,
+      "sha256": "f54fff0b905df5b3464527c652a30e903b172d6dcab4d89b5e6f105d5e4a4603",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/abseil.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/agg23.txt",
+      "bytes": 725,
+      "sha256": "c110d3ea2ad77467ce0dcff7d3337e6c8be8049a5103f4b9bd5fd911a77972e5",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/agg23.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/agg23.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/agg23.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/fast_float.txt",
+      "bytes": 1106,
+      "sha256": "bf1b57355feca8fce77ee95f48002f8d4789fb71b30ec7599c06cda4901fbb2b",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/fast_float.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/freetype.txt",
+      "bytes": 6741,
+      "sha256": "f4b133e25df1f86ad3ffea453aa0e613f0474f34778dbbb3e437e7b2724937d8",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/freetype.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/freetype.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/freetype.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/icu.txt",
+      "bytes": 28286,
+      "sha256": "93679f4389d53b6835d89843f251844fb9bc455b35bab036d3c8e7abe497a47a",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/icu.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/lcms.txt",
+      "bytes": 1353,
+      "sha256": "7312b68c5b25e9bf2b828706fb4e29588f22705112f411fd42e1f7d84c3d139a",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/lcms.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/lcms.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/lcms.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.ijg",
+      "bytes": 13059,
+      "sha256": "db16a04128171879c60708d171b88d97345a2dd20f9bfc173680a4497c73f704",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.ijg"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.md",
+      "bytes": 5755,
+      "sha256": "be2b2b5ab168bce87bc3e31f2a5c5adba4b7f6e9e51d618e958d1d46972ebd95",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libopenjpeg.txt",
+      "bytes": 1794,
+      "sha256": "c5ab0890a737c2dfa7ba675036554f6d17741d98629b0c2a145354d00617e6b2",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libopenjpeg.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libopenjpeg.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/libopenjpeg.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libpng.txt",
+      "bytes": 5479,
+      "sha256": "452390433ba0f88aa3e2b122c647741b72a0c117cd6ed7a329b49785aecb5511",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libpng.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/llvm-libc.txt",
+      "bytes": 15418,
+      "sha256": "3b6226c32e168c83b891d8d6f0d3c29c2116dc3ef93dc93c307b54f279ecf383",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/llvm-libc.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium-binaries.txt",
+      "bytes": 1184,
+      "sha256": "8854f4388f1ca13b3ad9baa42e95f5546b4c0b17109c159256d3eca7be39b09b",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium-binaries.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium.txt",
+      "bytes": 12818,
+      "sha256": "961eacd9633fff6d051db7208b755e9210e30efac7adec3e6a6d52798f0ccf0e",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/pdfium.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/pdfium.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/simdutf.txt",
+      "bytes": 1077,
+      "sha256": "c172a0ba936ff31230febb5dad869e25cb7c1a07480c7a381be8cf011bb52719",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/simdutf.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/zlib.txt",
+      "bytes": 1332,
+      "sha256": "33fd641c9f3b0e0be64bc78fea9e94807674cdd70c48477599226cb8956565fe",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/zlib.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/zlib.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/pypdfium2/original/pypdfium2-5.14.0.dist-info/licenses/data/linux_x64/BUILD_LICENSES/zlib.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyside6-essentials/METADATA",
+      "bytes": 3889,
+      "sha256": "c5eacdfdda84b8d0e026020a630e6a732bd403c00fc17e3efb9e2e92df0b98a7",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pyside6-essentials/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyside6-essentials/wheel/pyside6_essentials-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt",
+      "bytes": 470,
+      "sha256": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pyside6-essentials/wheel/pyside6_essentials-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt",
+        "src/desktop_app/data/licenses/windows/shiboken6/wheel/shiboken6-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-dateutil/METADATA",
+      "bytes": 7341,
+      "sha256": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/python-dateutil/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/python-dateutil/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/python-dateutil/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/python-dateutil/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md",
+      "bytes": 7031,
+      "sha256": "56004c45a95e9ee5582ea60f9a7ee42179c8594c7b9c245bbfb4a3445b4af640",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/AUTHORS.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+      "bytes": 2889,
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/python-dateutil/wheel/python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/python-dateutil/original/python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-docx/METADATA",
+      "bytes": 2022,
+      "sha256": "4c4cc819ebe6de4aca44daccfd3f9173e6f46d9ed900ad1c388ff9efb7b6b1d7",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/python-docx/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-docx/wheel/python_docx-1.2.0.dist-info/licenses/LICENSE",
+      "bytes": 1104,
+      "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/python-docx/wheel/python_docx-1.2.0.dist-info/licenses/LICENSE",
+        "src/desktop_app/data/licenses/windows/python-pptx/wheel/python_pptx-1.0.2.dist-info/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/python-pptx/original/python_pptx-1.0.2.dist-info/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/python-pptx/original/python_pptx-1.0.2.dist-info/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/python-pptx/original/python_pptx-1.0.2.dist-info/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-pptx/METADATA",
+      "bytes": 2503,
+      "sha256": "d38c6af5f1817cc528706264d8343cd1c95dbdec5672f29b944f54f79134a3a2",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/python-pptx/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/python-pptx/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/python-pptx/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/python-pptx/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/python-pptx/wheel/python_pptx-1.0.2.dist-info/LICENSE",
+      "bytes": 1104,
+      "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/python-pptx/wheel/python_pptx-1.0.2.dist-info/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/python-pptx/original/python_pptx-1.0.2.dist-info/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/python-pptx/original/python_pptx-1.0.2.dist-info/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/python-pptx/original/python_pptx-1.0.2.dist-info/LICENSE",
+        "src/desktop_app/data/licenses/windows/python-docx/wheel/python_docx-1.2.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pywin32-ctypes/METADATA",
+      "bytes": 3909,
+      "sha256": "1e3767d3faff4d5b9c347160883831098d1f25acf4306b02c9acdcc6bfb5883b",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pywin32-ctypes/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pywin32-ctypes/wheel/pywin32_ctypes-0.2.3.dist-info/LICENSE.txt",
+      "bytes": 1644,
+      "sha256": "dfa83b3e2709adfcdb838d9ad55823ca674abb780e60563d9dd9544ccbf785e9",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pywin32-ctypes/wheel/pywin32_ctypes-0.2.3.dist-info/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyyaml/METADATA",
+      "bytes": 2410,
+      "sha256": "847a701020334386852b6e07bad1053cb0ce3da9ee1846e7e9d02b24e8bb3f8d",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pyyaml/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/pyyaml/wheel/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "bytes": 1101,
+      "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/pyyaml/wheel/pyyaml-6.0.3.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/rapidocr-onnxruntime/METADATA",
+      "bytes": 1264,
+      "sha256": "1ac15bed7c7fb77d3fac58c2aba0a4d3e2da48de5c65badd3503900acebcf1df",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/rapidocr-onnxruntime/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/reportlab/METADATA",
+      "bytes": 1723,
+      "sha256": "c73111f8f0ce43fc2194b3e03d0a1e3dd5aa136a7f87b63261776fad7d023097",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/reportlab/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/reportlab/wheel/reportlab-4.4.9.dist-info/licenses/LICENSE",
+      "bytes": 1707,
+      "sha256": "ef831761646313921375fc2cb888e8eeaf7da213d0b92852c10c42f3a0b4d138",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/reportlab/wheel/reportlab-4.4.9.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/reportlab/wheel/reportlab/fonts/DarkGarden-copying-gpl.txt",
+      "bytes": 17976,
+      "sha256": "1b2a567f289f66a143c56353e7b3d4fa5862514a5e3c5cfdf8b02ee5e5aaa953",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/reportlab/wheel/reportlab/fonts/DarkGarden-copying-gpl.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/reportlab/wheel/reportlab/fonts/DarkGarden-copying.txt",
+      "bytes": 1318,
+      "sha256": "3cd1020510efa7f6b3166a5a2740f92bd664a695ea179e0bda442e74cd0ef3a4",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/reportlab/wheel/reportlab/fonts/DarkGarden-copying.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/reportlab/wheel/reportlab/fonts/bitstream-vera-license.txt",
+      "bytes": 5954,
+      "sha256": "3361d054759a2fc686a2c058be82deaf9c2e6fe549be9004d7935a6c1736315d",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/reportlab/wheel/reportlab/fonts/bitstream-vera-license.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/requests/METADATA",
+      "bytes": 4806,
+      "sha256": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/requests/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/requests/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/requests/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/requests/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/requests/wheel/requests-2.34.2.dist-info/licenses/LICENSE",
+      "bytes": 10142,
+      "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/requests/wheel/requests-2.34.2.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/requests/wheel/requests-2.34.2.dist-info/licenses/NOTICE",
+      "bytes": 38,
+      "sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/requests/wheel/requests-2.34.2.dist-info/licenses/NOTICE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/NOTICE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/NOTICE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/requests/original/requests-2.34.2.dist-info/licenses/NOTICE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/METADATA",
+      "bytes": 6581,
+      "sha256": "24939b84ead30ff4581918c8d5a95aafd377f6a8afc61f30ea18358a8786bfa4",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE",
+      "bytes": 1023,
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+      "bytes": 7634,
+      "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+      "bytes": 1023,
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE",
+      "bytes": 10278,
+      "sha256": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE",
+      "bytes": 1023,
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE",
+      "bytes": 1076,
+      "sha256": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE",
+      "bytes": 1076,
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE",
+      "bytes": 1053,
+      "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+      "bytes": 197,
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+        "src/desktop_app/data/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "bytes": 10174,
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+        "src/desktop_app/data/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.APACHE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "bytes": 1344,
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+        "src/desktop_app/data/licenses/windows/packaging/wheel/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/packaging/original/packaging-26.3.dist-info/licenses/LICENSE.BSD"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging/licenses/__init__.py",
+      "bytes": 7859,
+      "sha256": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging/licenses/__init__.py",
+        "src/desktop_app/data/licenses/windows/packaging/wheel/packaging/licenses/__init__.py"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging/licenses/_spdx.py",
+      "bytes": 51122,
+      "sha256": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging/licenses/_spdx.py",
+        "src/desktop_app/data/licenses/windows/packaging/wheel/packaging/licenses/_spdx.py"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE",
+      "bytes": 1089,
+      "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE",
+      "bytes": 1072,
+      "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt",
+      "bytes": 1107,
+      "sha256": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE",
+      "bytes": 1076,
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE",
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/config/NOTICE",
+      "bytes": 493,
+      "sha256": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/config/NOTICE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/config/_validate_pyproject/NOTICE",
+      "bytes": 18737,
+      "sha256": "09c9bcea95ca086f8bc5bed174e40bc835b297d40fb5f86bbbb570fe0a5581a7",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/config/_validate_pyproject/NOTICE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/shapely/METADATA",
+      "bytes": 6774,
+      "sha256": "f4fef957712e3a9e731434b4213dc72fd80b116cbd49f50f0d956c2237efb203",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/shapely/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE.txt",
+      "bytes": 1612,
+      "sha256": "e8cd7d34604d2758ff589f0f34d6ed79c3f7fb14aaf5e12fb09221421391a3bf",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_GEOS",
+      "bytes": 27296,
+      "sha256": "7233baa9a7d4a17257b357706b7dbdc4b675e5ca45425b3418673b16990cf239",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_GEOS"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_win32",
+      "bytes": 1180,
+      "sha256": "fdbb2abb8c598c8888755b52340bddcee38668a2def23e51e7d9e3f187bb8d51",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_win32"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/shiboken6/METADATA",
+      "bytes": 2594,
+      "sha256": "2e443fc68a670b00b5ee6f2d67fa3005613de00a8294a8f257c6c1263032009a",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/shiboken6/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/shiboken6/wheel/shiboken6-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt",
+      "bytes": 470,
+      "sha256": "4f54763ac0fe2abd8f7f8d8fe370a94a08ebf84786aa0b91045bd6628deb08a3",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/shiboken6/wheel/shiboken6-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt",
+        "src/desktop_app/data/licenses/windows/pyside6-essentials/wheel/pyside6_essentials-6.12.0.dist-info/licenses/LicenseRef-Qt-Commercial.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/six/METADATA",
+      "bytes": 1658,
+      "sha256": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/six/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/six/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/six/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/six/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/six/wheel/six-1.17.0.dist-info/LICENSE",
+      "bytes": 1066,
+      "sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/six/wheel/six-1.17.0.dist-info/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/six/original/six-1.17.0.dist-info/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/six/original/six-1.17.0.dist-info/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/six/original/six-1.17.0.dist-info/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/soupsieve/METADATA",
+      "bytes": 4387,
+      "sha256": "c1d4799cbf1c070586fa86f922f621c33845a5977886fcb6431c763dc083f838",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/soupsieve/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/soupsieve/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/soupsieve/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/soupsieve/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/soupsieve/wheel/soupsieve-4.0.dist-info/licenses/LICENSE.md",
+      "bytes": 1096,
+      "sha256": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/soupsieve/wheel/soupsieve-4.0.dist-info/licenses/LICENSE.md",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/soupsieve/original/soupsieve-4.0.dist-info/licenses/LICENSE.md",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/soupsieve/original/soupsieve-4.0.dist-info/licenses/LICENSE.md",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/soupsieve/original/soupsieve-4.0.dist-info/licenses/LICENSE.md"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/cobble.txt",
+      "bytes": 1770,
+      "sha256": "d6d46202db973b560d2f521dced9110b3e0a46d9a75e1428dade8b7608dd0cca",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/supplemental/cobble.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/supplemental/cobble.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/supplemental/cobble.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/flatbuffers.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/supplemental/flatbuffers.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/supplemental/flatbuffers.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/supplemental/flatbuffers.txt",
+        "packaging/native/minimal-notices/tesseract-LICENSE.txt",
+        "src/desktop_app/data/licenses/models/tessdata-fast-Apache-2.0.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/magika.txt",
+      "bytes": 11357,
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/supplemental/magika.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/supplemental/magika.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/supplemental/magika.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/qt-gpl3.txt",
+      "bytes": 35147,
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/supplemental/qt-gpl3.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/supplemental/qt-gpl3.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/supplemental/qt-gpl3.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/qt-lgpl3.txt",
+      "bytes": 7651,
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/supplemental/qt-lgpl3.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/supplemental/qt-lgpl3.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/supplemental/qt-lgpl3.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/rapidocr-onnxruntime.txt",
+      "bytes": 11422,
+      "sha256": "3e0af25fdd06aa9586ae97adb00ea927ebe5a3805ac77d2d3a81ce5f55693333",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/supplemental/rapidocr-onnxruntime.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/supplemental/sources.json",
+      "bytes": 1651,
+      "sha256": "32b829fc5948a633f7ab855d27a811bacc592d83dabd446f221d88280cf37b2d",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/supplemental/sources.json"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tomlkit/METADATA",
+      "bytes": 3409,
+      "sha256": "a2e59805b99c14685196efea6e2f17438853c9f18658a9b98370a883abcb2963",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/tomlkit/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tomlkit/wheel/tomlkit-0.15.2.dist-info/licenses/LICENSE",
+      "bytes": 1062,
+      "sha256": "f2f9b460ba719da6626add264d3782f275a4ff7aab677beda08b330911e23adb",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/tomlkit/wheel/tomlkit-0.15.2.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tqdm/METADATA",
+      "bytes": 57366,
+      "sha256": "a5da70b966afea3a759716041bad7187f2ece02c22348cf9e7c0a512bbf15f57",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/tqdm/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tqdm/wheel/tqdm-4.70.1.dist-info/licenses/LICENCE",
+      "bytes": 1985,
+      "sha256": "fcff87c3a47ce8028a8512aa182d4fcf0ad1c90544ee75cf9b343684cac194de",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/tqdm/wheel/tqdm-4.70.1.dist-info/licenses/LICENCE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/trove-classifiers/METADATA",
+      "bytes": 2350,
+      "sha256": "ca7e96493232b21f92aeccf456b2e01f1d4dbcaa8e17a9e1b5e6f03c6eb7461f",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/trove-classifiers/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/trove-classifiers/wheel/trove_classifiers-2026.9.21.13.dist-info/licenses/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/trove-classifiers/wheel/trove_classifiers-2026.9.21.13.dist-info/licenses/LICENSE",
+        "src/desktop_app/data/licenses/windows/tzdata/wheel/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/typing-extensions/METADATA",
+      "bytes": 3310,
+      "sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/typing-extensions/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/typing-extensions/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/typing-extensions/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/typing-extensions/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/typing-extensions/wheel/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/typing-extensions/wheel/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/typing-extensions/original/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/typing-extensions/original/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/typing-extensions/original/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+        "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tzdata/METADATA",
+      "bytes": 1358,
+      "sha256": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/tzdata/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/tzdata/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/tzdata/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/tzdata/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tzdata/wheel/tzdata-2026.6.dist-info/licenses/LICENSE",
+      "bytes": 625,
+      "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/tzdata/wheel/tzdata-2026.6.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/LICENSE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/tzdata/wheel/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/tzdata/wheel/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/tzdata/original/tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+        "src/desktop_app/data/licenses/windows/trove-classifiers/wheel/trove_classifiers-2026.9.21.13.dist-info/licenses/LICENSE"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/urllib3/METADATA",
+      "bytes": 7389,
+      "sha256": "10898c620e8007c030e07fa5622b68358a43010025dfbd78a1cb797699de2bb4",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/urllib3/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/urllib3/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/urllib3/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/urllib3/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/urllib3/wheel/urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+      "bytes": 1093,
+      "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/urllib3/wheel/urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/urllib3/original/urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/urllib3/original/urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/urllib3/original/urllib3-2.8.0.dist-info/licenses/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/xlsxwriter/METADATA",
+      "bytes": 2908,
+      "sha256": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
+      "role": "package-metadata",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/xlsxwriter/METADATA",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/xlsxwriter/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/xlsxwriter/METADATA",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/xlsxwriter/METADATA"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/licenses/windows/xlsxwriter/wheel/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt",
+      "bytes": 1349,
+      "sha256": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7",
+      "role": "data-or-generated",
+      "category": "repo-blob",
+      "status": "confirmed",
+      "evidence": [
+        "src/desktop_app/data/licenses/windows/xlsxwriter/wheel/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt",
+        "docs/development-records/runs/c03-bundle-2026-11-08/prepared-assets/licenses/installed/xlsxwriter/original/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/bundled-data/licenses/installed/xlsxwriter/original/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt",
+        "docs/development-records/runs/c04-build-2026-11-08/intermediate-core/bundled-data/licenses/installed/xlsxwriter/original/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt"
+      ],
+      "note": "與 source commit 的 repo 檔案位元組相同"
+    },
+    {
+      "path": "_internal/worker-assets/native/manifest.json",
+      "bytes": 39137,
+      "sha256": "cab888a1d7ed9f9e40ab1de6943d88ae5ff4c759595e88d235606aed4991becf",
+      "role": "data-or-generated",
+      "category": "project-generated",
+      "status": "origin-known",
+      "evidence": [
+        "scripts/prepare_worker_assets.py"
+      ],
+      "note": "專案建置腳本的固定輸出路徑；內容隨建置產生，未逐位元對照"
+    },
+    {
+      "path": "_internal/worker-assets/python-runtime/LICENSE.txt",
+      "bytes": 36874,
+      "sha256": "e502c6b880ff58d614901495a9009c136539cd0b1e2a2abb8fc00b934c203419",
+      "role": "original-notice",
+      "category": "cpython-license-text",
+      "status": "origin-known",
+      "evidence": [
+        "scripts/prepare_base_assets.py",
+        "scripts/prepare_worker_assets.py"
+      ],
+      "note": "建置用 CPython 的 LICENSE.txt 複本；尚未與 python.org 同版原文獨立比對"
+    }
+  ]
+}
