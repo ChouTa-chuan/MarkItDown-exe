@@ -8,50 +8,55 @@
 
 ## A. 分支與 PR
 
-| 項目 | 狀態 |
-| --- | --- |
-| 預設分支 | `main`（`2e06631`）；不直接推送，合併由使用者指示 |
-| [PR 1](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/1) | `claude/confident-ride-o38ls7` → `main`，開啟中、CI 通過、可合併，等使用者決定合併時機 |
-| 本階段分支 | `claude/status-and-history-index`，疊在 PR 1 之上，PR 目標為 `main`（CI 只在目標為 main 的 PR 執行）。PR 1 合併前，這個 PR 的差異會包含 PR 1 的內容。**合併順序：先 PR 1，再這一個** |
-| 其他分支 | `codex/ai-handoff-workflow-20261112`：Codex 提出的輪替交接方案，未合併。其四組欄位與 PR 範本的內容已採納進這份檔案與新規則，做法改為單一現況檔＋自動索引；該分支不需要再合併 |
+三個 PR 依序相疊，都以 `main` 為目標（CI 只在目標為 main 的 PR 執行），都還沒合併。**使用者決定：PR 是階段小成果，等完成較大的階段或里程碑後再一起合併；合併順序 1 → 2 → 3。** 在那之前 `main`（`2e06631`）維持接手前的狀態，接手請從最後一個分支開始。
+
+| PR | 分支 | 內容 | 狀態 |
+| --- | --- | --- | --- |
+| [1](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/1) | `claude/confident-ride-o38ls7` | 保存 CI 報告、來源分類、Linux CI、授權提案 | CI 通過 |
+| [2](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/2) | `claude/status-and-history-index` | 現況檔、自動索引、精簡規則、關鍵字表 | CI 通過 |
+| [3](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/3) | `claude/license-and-openssl-cleanup`（目前最新） | `LICENSE`、基本包排除來源不明的 OpenSSL | CI 通過 |
+
+`codex/ai-handoff-workflow-20261112` 是 Codex 提出的交接方案，內容已採納進現況檔與規則，不需要合併。
 
 ## B. 這個階段完成了什麼
 
-- 建立這份現況檔，取代「開工先讀交接指南、進度資料、開發紀錄、CHANGELOG」的做法。
-- 新增 `scripts/build_history_index.py`，由證據目錄、現況存檔與決策紀錄自動產生 [歷史索引](docs/history-index.md)；測試與 CI 會擋下過期的索引。
-- 改寫 `AGENTS.md`：必讀只剩兩份、數字只寫在 `progress.json`、階段完成才整體更新、新證據以摘要與雜湊為主、指定未合併 PR 時要讀該分支。
-- 新增精簡的 PR 範本，欄位與本檔 A–D 相同。
-- 首頁改為指向本檔與進度頁，不再重抄數字；保存[成本診斷](docs/cost-diagnosis-2026-11-13.html)。
-
-驗證結果與來源提交記在 `progress.json` 的 `full_regression`；本階段沒有新的 Windows 建置、安裝、GPU 或人工驗收。
+- 加入根目錄 `LICENSE`（MIT，著作權人 周大詮 (ChouTa-chuan)），`pyproject.toml` 宣告授權，自有 `THIRD_PARTY_NOTICES` 說明 MIT 只適用自有程式。
+- 基本包打包時排除 Qt 的 OpenSSL TLS 外掛，以及它從建置機系統路徑帶進來的 `libssl-3-x64`／`libcrypto-3-x64.dll`（`scripts/bundle_filters.py`、`packaging/base.spec`）。保留 Qt 的 Schannel 後端與 CPython 自己的 OpenSSL。
+- Linux 完整回歸通過，結果記在 `progress.json` 的 `full_regression`。
+- CPU 文字辨識元件打包時排除 OpenCV 內附的 FFmpeg 影片外掛（`packaging/ocr-worker.spec`）。Windows CPU 元件 CI 通過：功能、同版維護、跨版與程序恢復驗收全部接受，原生檔少 1 個、元件 ZIP 少約 13 MB（[紀錄](docs/development-records/runs/ffmpeg-exclusion-ci-2026-11-13/README.md)）；逐檔清單同樣尚未核對，元件版號仍為 1.0.1、正式發布前需重新定版。
+- 新增[輪替工作流 2.0](docs/ai-handoff-workflow.md)：接手時先看 PR 而非只看 main。
+- PR 3 的 Windows 基本包 CI 通過：排除後應用、安裝、跨版與續修驗收全部接受，原生檔少 3 個、未對照來源少 2 個，與排除三個檔案一致（[紀錄](docs/development-records/runs/openssl-exclusion-ci-2026-11-13/README.md)）。**逐檔清單尚未核對**：完整報告所在的儲存主機被網路政策擋下。
 
 ## C. 未完成、阻擋與下一步
 
 **等使用者決定**
 
-1. PR 1 與本階段 PR 的合併時機。
-2. 授權：是否採 MIT、著作權人名稱、早期「Codex Assistant」提交的權利歸屬（[提案](docs/license-proposal.md)）。
-3. 三項打包調整是否同意：排除 Qt TLS 外掛（連帶移除來源不明的 OpenSSL）、排除 OpenCV 的 FFmpeg、改用官方來源的 VC runtime。
+1. 圖片與影音的支援方式與排程（目前程式只接受文字、Office、HTML、PDF）：建議圖片檔走既有的本機 OCR，影音另做獨立選配元件並使用本機語音辨識；上游的語音轉文字會把音訊送到線上服務，不符合「本機完成」。尚未排入工作。
 
 **可以直接做的下一步（依序）**
 
-1. 在 Windows 建置流程為系統路徑收集的 DLL 補記來源路徑、數位簽章與版本，並列出 Python 封存檔成員；完成條件是[來源分類](docs/source-classification.md)中候選與無證據項目（基本包 49、CPU 47）有 Windows 端證據可判定。
-2. 上述決定確認後，加入 `LICENSE`、補 Qt／LGPL 隨包說明，重新產生候選報告。
-3. 準備測試用安裝包與驗收表，再做乾淨 Windows 與人工驗收。GPU 延後。
+1. 讓 CI 自己核對並公開關鍵檔案清單，不再依賴下載 artifact：在 Windows 驗收加入「不得出現被排除的三個檔案」的檢查，並把系統路徑來源的 DLL 清單寫進公開摘要。GitHub 的 artifact 儲存主機每次不同，逐一申請網路放行不可行。
+2. 微軟執行期程式庫改用官方來源（使用者已同意）：改從 Visual Studio 的可再散布目錄取得 VC runtime，並在建置時記錄來源路徑、數位簽章與版本；評估 `api-ms-win-*`／`ucrtbase.dll` 是否改用 Windows SDK 的可再散布目錄或不隨包。
+3. 產生 `base_library.zip` 與 PYZ 的成員清單，逐檔列出 CPython 隨附元件；之後重新產生候選報告並重跑[來源分類](docs/source-classification.md)。
+4. 補 Qt／LGPL 的隨包說明與原始碼取得方式（見[授權與第三方義務](docs/license-proposal.md)第 3 節）。
+5. 準備測試用安裝包與驗收表，再做乾淨 Windows 與人工驗收。GPU 延後。
 
 **優先順序原則**：先讓基本包可交付；暫不擴充選配元件系統與驗收矩陣。
 
-**有期限的資料**：PR 1 首次執行的兩份 Windows 報告（run 43152427580、43152427554）於 2026-11-19 到期，未保存；它們以暫時合併提交執行，不是候選證據，預設不保存。
+**有期限的資料**：PR 上的 Windows 報告保留七天，以暫時合併提交執行，不是候選證據，預設不保存。
 
 ## D. 近期新增的規則與決定
 
 | 日期 | 來源 | 內容 |
 | --- | --- | --- |
 | 2026-11-12 | 使用者指示 | 工作分支＋PR，不直接推 main；不強制推送；門檻未關閉前不對外交付安裝包（含 CI artifact）；暫不建立 Release 或 tag |
-| 2026-11-13 | 使用者同意 | 現況與歷史分開、自動索引、數字單一來源、階段完成才整體更新、新證據移出 repo（舊證據原地保留）、暫緩擴充元件系統、動到的檔案順手拆開壓縮的程式行 |
-| 2026-11-13 | 使用者同意 | Codex 交接方案採其內容、換其做法；現況檔不設硬性大小上限，但保持精簡 |
-| 2026-11-13 | 使用者同意 | 舊證據不改動；只為有失敗紀錄的 20 筆在 `docs/history/keywords.json` 補關鍵字（事後判讀，與原始證據分開），自有程式授權採 MIT（著作權人名稱待提供，`LICENSE` 尚未加入） |
+| 2026-11-13 | 使用者同意 | 現況與歷史分開、自動索引、數字單一來源、階段完成才整體更新、新證據移出 repo（舊證據原地保留）、暫緩擴充元件系統、動到的檔案順手拆開壓縮的程式行；現況檔不設硬性大小上限 |
+| 2026-11-13 | 使用者同意 | 舊證據不改動，只為有失敗紀錄的 20 筆在 `docs/history/keywords.json` 補關鍵字 |
+| 2026-11-13 | 使用者決定 | 自有程式採 MIT，著作權人「周大詮 (ChouTa-chuan)」；專案由使用者主導、以不同 AI 工具開發，早期 Codex 產生的提交一併適用，不需另外聲明 |
+| 2026-11-13 | 使用者決定 | PR 是階段小成果，累積到較大的階段或里程碑再一起合併 |
+| 2026-11-13 | 使用者同意 | 排除 Qt TLS 外掛與來源不明的 OpenSSL；微軟執行期改用官方來源；從 CPU 文字辨識元件排除 OpenCV 內附的 FFmpeg，影音日後另做獨立選配元件 |
+| 2026-11-13 | 使用者指示 | 輪替工作流要讓接手的 AI 注意 PR 而非只看 main |
 
 ## 接手指令
 
-> 請接手 ChouTa-chuan/MarkItDown-exe 的指定分支或 PR。先讀該分支的 AGENTS.md 與 STATUS.md，從 C 節「可以直接做的下一步」第一項開始；階段完成後依 AGENTS.md 更新現況、推送自己的分支並開 PR，不直接推送或自行合併 main。
+> 請接手 ChouTa-chuan/MarkItDown-exe 的分支 `claude/license-and-openssl-cleanup`（或 STATUS.md A 節列出的最新分支）。先讀該分支的 AGENTS.md 與 STATUS.md，從 C 節「可以直接做的下一步」第一項開始；階段完成後依 AGENTS.md 更新現況、推送自己的分支並開 PR，不直接推送或自行合併 main。

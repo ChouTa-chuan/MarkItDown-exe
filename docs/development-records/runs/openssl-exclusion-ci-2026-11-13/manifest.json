@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "tested_source": "746c4f4403d5047aa28a28fc1d33813f40b517e4",
+  "pr_merge_commit": "1926072c27626bf06bdefc0087bc295c2759a9f1",
+  "pull_request": 3,
+  "accepted": true,
+  "windows_executed": true,
+  "workflow_runs": [
+    43354507078,
+    43354507071,
+    43354507025,
+    43354507032
+  ],
+  "per_file_inventory_checked": false,
+  "release_ready": false,
+  "keywords": [
+    "OpenSSL排除",
+    "Qt TLS外掛",
+    "artifact下載被網路政策拒絕",
+    "儲存主機不固定"
+  ],
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2722,
+      "sha256": "d30a136e0670df787cb03c282408d50dfe4c763cc782f98f7f51f98abef5f3bc"
+    }
+  ]
+}
