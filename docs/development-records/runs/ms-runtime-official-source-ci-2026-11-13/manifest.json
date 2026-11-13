@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "tested_source": "c3cd3eb838da0147a64ba146c5a74b38752239ba",
+  "pr_merge_commit": "c6f8d66b4d162c2ff08cdb9fc6b70f495d618434",
+  "pull_request": 4,
+  "accepted": true,
+  "windows_executed": true,
+  "workflow_runs": [
+    43382813061,
+    43382813101,
+    43382812990,
+    43379996721
+  ],
+  "signatures_obtained": false,
+  "release_ready": false,
+  "keywords": [
+    "Universal CRT不隨包",
+    "VC runtime官方來源",
+    "系統DLL來自Java JDK目錄",
+    "PATH收集",
+    "簽章查詢失敗",
+    "PSModulePath"
+  ],
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 3542,
+      "sha256": "8b1feb97fb8b19bfa835c0f4c0cd8c5868ca13c9de1b8d0cbdb39c7cebf344b6"
+    }
+  ]
+}
