@@ -12,7 +12,7 @@
 | --- | --- |
 | 預設分支 | `main`（`2e06631`）；不直接推送，合併由使用者指示 |
 | [PR 1](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/1) | `claude/confident-ride-o38ls7` → `main`，開啟中、CI 通過、可合併，等使用者決定合併時機 |
-| 本階段分支 | `claude/status-and-history-index`，疊在 PR 1 之上；PR 的目標分支是 PR 1 的分支。**合併順序：先 PR 1，再這一個** |
+| 本階段分支 | `claude/status-and-history-index`，疊在 PR 1 之上，PR 目標為 `main`（CI 只在目標為 main 的 PR 執行）。PR 1 合併前，這個 PR 的差異會包含 PR 1 的內容。**合併順序：先 PR 1，再這一個** |
 | 其他分支 | `codex/ai-handoff-workflow-20261112`：Codex 提出的輪替交接方案，未合併。其四組欄位與 PR 範本的內容已採納進這份檔案與新規則，做法改為單一現況檔＋自動索引；該分支不需要再合併 |
 
 ## B. 這個階段完成了什麼
