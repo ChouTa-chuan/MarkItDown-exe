@@ -57,6 +57,14 @@ class SummaryTests(unittest.TestCase):
                           ('system-native', 'C:/tools', '', 1)])
 
 
+    def test_identity_errors_are_counted_and_deduplicated_for_the_public_summary(self):
+        files = [dict(identity_error='RuntimeError: a'), dict(identity_error='RuntimeError: a'),
+                 dict(identity_error='ValueError: b'), dict(origin='system-native')]
+        self.assertEqual(subject.identity_errors(files),
+                         dict(files=3, messages=['RuntimeError: a', 'ValueError: b']))
+        self.assertEqual(subject.identity_errors([{}]), dict(files=0, messages=[]))
+
+
 class ExcludedNameTests(unittest.TestCase):
     def test_excluded_names_match_both_filters_and_nothing_else(self):
         for name in ('qopensslbackend.dll', 'LIBSSL-3-X64.DLL', 'libcrypto-3-x64.dll', 'opencv_videoio_ffmpeg500_64.dll'):

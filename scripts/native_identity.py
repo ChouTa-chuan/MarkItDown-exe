@@ -14,13 +14,18 @@ import collections
 import json
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
+# 路徑清單由檔案傳入而不是 stdin：Windows PowerShell 對管線輸入與輸出編碼的行為因版本而異，
+# 讀檔並固定輸出為 UTF-8 比較可靠。{list} 於執行時替換為清單檔路徑。
 SIGNATURE_SCRIPT = (
     "$ErrorActionPreference='Stop';"
-    "$rows=@($input | ForEach-Object { $s=Get-AuthenticodeSignature -LiteralPath $_;"
-    " [pscustomobject]@{path=$_;status=[string]$s.Status;"
-    "signer=$(if($s.SignerCertificate){$s.SignerCertificate.Subject}else{$null})} });"
+    "[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+    "$rows=@(Get-Content -LiteralPath '{list}' -Encoding UTF8 | Where-Object {{ $_ }} | ForEach-Object {{"
+    " $p=[string]::Copy($_); $s=Get-AuthenticodeSignature -LiteralPath $p;"
+    " [pscustomobject]@{{path=$p;status=[string]$s.Status;"
+    "signer=$(if($s.SignerCertificate){{$s.SignerCertificate.Subject}}else{{$null}})}} }});"
     "ConvertTo-Json -InputObject $rows -Compress")
 
 
@@ -49,12 +54,19 @@ def signatures(paths, runner=subprocess.run):
     """一次查詢多個檔案的簽章；回傳 {路徑字串: (狀態, 簽署者)}。非 Windows 回傳空 dict。"""
     if sys.platform != 'win32' or not paths:
         return {}
-    done = runner(['powershell.exe', '-NoProfile', '-NonInteractive', '-Command', SIGNATURE_SCRIPT],
-                  input='\n'.join(str(path) for path in paths) + '\n', capture_output=True, text=True,
-                  encoding='utf-8', timeout=300)
+    with tempfile.TemporaryDirectory(prefix='markitdown-signatures-') as directory:
+        listing = Path(directory) / 'paths.txt'
+        listing.write_text('\n'.join(str(path) for path in paths) + '\n', encoding='utf-8')
+        done = runner(['powershell.exe', '-NoProfile', '-NonInteractive', '-Command',
+                       SIGNATURE_SCRIPT.format(list=str(listing).replace("'", "''"))],
+                      capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=300)
     if done.returncode != 0:
-        raise RuntimeError('Signature query failed: ' + done.stderr.strip()[-300:])
-    return {row['path']: (row['status'], row['signer']) for row in json.loads(done.stdout or '[]')}
+        raise RuntimeError('Signature query failed: ' + (done.stderr or '').strip()[-300:])
+    rows = json.loads((done.stdout or '').lstrip('\ufeff').strip() or '[]')
+    if not rows:
+        # 有檔案要查卻沒有任何結果，視為查詢失敗而不是「沒有簽章」。
+        raise RuntimeError('Signature query returned no rows')
+    return {row['path']: (row['status'], row['signer']) for row in rows}
 
 
 def describe(paths, sign=signatures, version=version_resource):
@@ -87,3 +99,9 @@ def summarize(files):
     return [dict(origin=origin, source_directory=directory, company=company, signature_status=status,
                  signer=signer, files=count)
             for (origin, directory, company, status, signer), count in sorted(groups.items())]
+
+
+def identity_errors(files, limit=3):
+    """回傳出現過的身分查詢錯誤（去重、截斷）與受影響檔案數，供公開摘要說明欄位為何空白。"""
+    messages = collections.Counter(row['identity_error'] for row in files if row.get('identity_error'))
+    return dict(files=sum(messages.values()), messages=[message[:160] for message, _ in messages.most_common(limit)])

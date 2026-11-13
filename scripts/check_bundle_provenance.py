@@ -11,7 +11,7 @@ import tomllib
 from build_provenance import sha256
 from candidate_inventory import component_inventory, inventory, verify_inventory
 from bundle_filters import is_excluded_name
-from native_identity import summarize
+from native_identity import identity_errors, summarize
 
 # 建置時為非 wheel 來源原生檔記錄的身分欄位；原樣帶進報告，缺少的欄位不補造。
 IDENTITY_FIELDS = ('source_directory', 'company', 'product', 'file_version', 'signature_status', 'signer',
@@ -184,6 +184,7 @@ def main():
         brief['inventory_reverified']=report['inventory_reverified']
         brief['excluded_binaries_absent']=report['excluded_binaries_absent']
         brief['non_wheel_native']=summarize(report['native_files'])
+        brief['identity_errors']=identity_errors(report['native_files'])
     if 'package_inventory' in report:
         brief['package_inventory']=report['package_inventory']['summary']
         brief['package_sha256']=report['package_inventory']['archive_sha256']
