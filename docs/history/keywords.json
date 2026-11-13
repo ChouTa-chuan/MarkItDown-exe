@@ -1,0 +1,22 @@
+{
+  "windows-ci-attempt1-2026-11-08": ["Windows CI首次失敗", "exit 1原因未知", "公開頁503"],
+  "windows-ci-eol-2026-11-08": ["換行CRLF", "autocrlf", "雜湊改變", ".gitattributes"],
+  "windows-ci-native-2026-11-08": ["profile鎖檢查失敗", "中文空格路徑", "list-langs失敗", "摘要被截斷"],
+  "windows-ci-decode-2026-11-08": ["CP1252解碼", "UnicodeDecodeError", "UTF-8模式"],
+  "windows-ci-close-2026-11-08": ["Qt視窗關閉逾時", "closeEvent"],
+  "windows-ci-retry-2026-11-09": ["固定來源下載失敗", "Windows job被略過"],
+  "c11-upgrade-attempt1-2026-11-09": ["Inno編譯失敗", "不存在的函式ExcludeTrailingBackslash"],
+  "c11-upgrade-attempt2-2026-11-09": ["升級後自檢失敗", "公開尾段選錯日誌"],
+  "c11-recovery-attempt1-2026-11-09": ["Inno編譯失敗", "Pascal註解語法", "BEGIN expected"],
+  "c11-recovery-attempt2-2026-11-09": ["中斷續修", "Inno暫存檔is-*.tmp", "完整性檢查拒絕"],
+  "qt-lifecycle-2026-11-09": ["Qt退出SIGSEGV", "exit -11", "QApplication cleanup", "偶發"],
+  "windows-cpu-attempt1-2026-11-10": ["CPU worker健康檢查未通過", "診斷不足"],
+  "windows-cpu-attempt2-2026-11-10": ["CPU worker逾時", "stderr為空"],
+  "windows-cpu-attempt4-2026-11-10": ["ONNX Runtime原生匯入逾時", "管道讀取互鎖", "ReadFile候選無效"],
+  "windows-cpu-ci-2026-11-10": ["CPU worker互鎖解法", "先初始化原生庫再啟動背景讀取"],
+  "bundle-provenance-ci-2026-11-11": ["Windows反斜線路徑", "Analysis路徑正規化"],
+  "candidate-inventory-ci-2026-11-11": ["安裝後新增catalog", "快照時點", "CI被後續提交取消"],
+  "progress-pages-2026-11-11": ["Pages未啟用", "部署Not Found", "需管理員設定來源"],
+  "handover-regression-2026-11-12": ["缺libEGL", "setUpClass載入錯誤", "缺Tesseract跳過", "Tesseract版本差異"],
+  "ci-full-reports-2026-11-12": ["artifact下載被網路政策拒絕", "CONNECT 403", "artifact到期"]
+}
