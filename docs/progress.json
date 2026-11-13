@@ -1,8 +1,8 @@
 {
-  "updated": "2026-11-12",
-  "environment": "Linux · Python3.12.3／Tesseract5.3.4；0.19.1全698／45模組exit0；Windows hosted證據（cb8f24d）另列",
-  "tests_passed": 697,
-  "headline": "CI完整報告已保存；未對照來源154／303已依證據分類；全698項正常退出",
+  "updated": "2026-11-13",
+  "environment": "Linux · Python3.12.3／Tesseract5.3.4；0.19.1全703／46模組exit0；Windows hosted證據（cb8f24d）另列",
+  "tests_passed": 702,
+  "headline": "現況檔與自動歷史索引上線；CI完整報告已保存、未對照來源已分類；全703項正常退出",
   "blocker": "授權提案待確認；系統DLL來源／簽章、來源不明OpenSSL、Python封存成員、runtime SBOM／再散布、乾淨機／人工／GPU仍待。",
   "next": "確認授權提案與打包調整後，在Windows建置補記系統DLL來源並重產候選報告，再準備測試產物。",
   "milestones": [
@@ -254,9 +254,10 @@
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
     "0.17.2混合611與36模組正常exit0，ONNX品質預期失敗保留；CI清理只供自身產物，不代表普通Setup任意中斷可自動清理。",
     "0.19.1完整684：683通過＋1既有ONNX繁中品質預期失敗，0跳過；混合與43模組全exit0。此為Linux來源回歸，Windows／GPU與乾淨機範圍分開。",
-    "2026-11-12：0.19.1完整698（697通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與45模組exit0；Tesseract5.3.4／CPython3.12.3與先前基線不同。未對照來源已分類但candidate／gap基本49、CPU47仍待，授權提案未確認，沒有新的Windows執行。"
+    "2026-11-12：0.19.1完整698（697通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與45模組exit0；Tesseract5.3.4／CPython3.12.3與先前基線不同。未對照來源已分類但candidate／gap基本49、CPU47仍待，授權提案未確認，沒有新的Windows執行。",
+    "2026-11-13：完整703（702通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與46模組exit0；新增項目為歷史索引測試，沒有新的Windows執行。"
   ],
-  "tests_run": 698,
+  "tests_run": 703,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1286,11 +1287,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "582458ef1c8454ca851fbc20beba7eac6630bdea",
-    "date_taipei": "2026-11-12",
+    "source_commit": "15a425bf5ae4e62abf131d17049d26135995fe7e",
+    "date_taipei": "2026-11-13",
     "accepted": true,
-    "run": 698,
-    "passed": 697,
+    "run": 703,
+    "passed": 702,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1300,7 +1301,7 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 45,
+    "isolated_modules": 46,
     "isolated_all_exits_zero": true,
     "python": "3.12.3",
     "tesseract": "5.3.4",
@@ -1310,7 +1311,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/handover-ci-and-classification-2026-11-12/README.md"
+    "evidence": "development-records/runs/status-and-index-2026-11-13/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -1835,5 +1836,34 @@
     "status": "awaiting-owner-decision",
     "root_license_file_present": false,
     "evidence": "license-proposal.md"
+  },
+  "previous_full_regression_698": {
+    "source_version": "0.19.1",
+    "architecture_version": "0.4",
+    "source_commit": "582458ef1c8454ca851fbc20beba7eac6630bdea",
+    "date_taipei": "2026-11-12",
+    "accepted": true,
+    "run": 698,
+    "passed": 697,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 1,
+    "expected_failure_ids": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "mixed_assertions_accepted": true,
+    "mixed_process_exit": 0,
+    "isolated_modules": 45,
+    "isolated_all_exits_zero": true,
+    "python": "3.12.3",
+    "tesseract": "5.3.4",
+    "baseline_environment_identical": false,
+    "windows_executed_this_run": false,
+    "gpu_executed": false,
+    "traditional_chinese_onnx_quality_passed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/handover-ci-and-classification-2026-11-12/README.md"
   }
 }

@@ -6,10 +6,11 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 70 筆。
+共 71 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-13 | 證據 | 現況檔與歷史索引上線後的完整回歸 | 15a425b | 接受、回歸703／通過702 | 現況檔、歷史索引、規則改寫 | [development-records/runs/status-and-index-2026-11-13/README.md](development-records/runs/status-and-index-2026-11-13/README.md) |
 | 2026-11-12 | 證據 | Windows CI 完整報告原檔保存 | cb8f24d | 接受 |  | [development-records/runs/ci-full-reports-2026-11-12/README.md](development-records/runs/ci-full-reports-2026-11-12/README.md) |
 | 2026-11-12 | 證據 | 新增分類工具與 CI 後的 Linux 完整回歸 | 582458e | 接受、回歸698／通過697 |  | [development-records/runs/handover-ci-and-classification-2026-11-12/README.md](development-records/runs/handover-ci-and-classification-2026-11-12/README.md) |
 | 2026-11-12 | 證據 | 接手環境的 Linux 完整回歸 | 2e06631 | 接受、回歸684／通過683 |  | [development-records/runs/handover-regression-2026-11-12/README.md](development-records/runs/handover-regression-2026-11-12/README.md) |
