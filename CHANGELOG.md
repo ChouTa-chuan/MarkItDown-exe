@@ -4,6 +4,14 @@
 
 ## 更新中
 
+### 2026-11-13｜自有程式採MIT；基本包排除來源不明的OpenSSL
+
+- 程式0.19.1／架構0.4不變；分支`claude/license-and-openssl-cleanup`疊在PR 2之上，未合併main。
+- 新增`LICENSE`（MIT，周大詮 (ChouTa-chuan)）並在`pyproject.toml`宣告；相對前版，自有程式不再是未授權狀態。第三方元件各依原授權，產品整體不是全部MIT。
+- `packaging/base.spec`經`scripts/bundle_filters.py`排除`qopensslbackend.dll`、`libssl-3-x64.dll`、`libcrypto-3-x64.dll`；保留Schannel後端與CPython的OpenSSL。
+- 驗證：Linux全705：704通過／1既有ONNX繁中品質預期失敗／0跳過，混合及47模組exit0（CPython 3.12.3、Tesseract 5.3.4）。**Windows建置後的實際效果尚待PR的CI確認**；未執行GPU或人工驗收。
+- 未完成：微軟執行期改用官方來源、Python封存成員清單、Qt／LGPL隨包說明；FFmpeg做法待確認。7/12、C04 2/4、C11 2/5不變。
+
 - 2026-11-13：為 20 筆有失敗紀錄的舊證據新增補充關鍵字表 `docs/history/keywords.json` 並重新產生歷史索引；舊證據檔未改動。
 
 ### 2026-11-13｜現況檔、自動歷史索引與精簡維護規則
