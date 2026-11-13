@@ -36,7 +36,7 @@ concurrency:
 
 env:
   # 新增或移除測試時，依真正 discovery 結果同步這個數字與交接文件；不為了變綠而放寬。
-  EXPECTED_TESTS: '707'
+  EXPECTED_TESTS: '713'
   PYTHONUTF8: '1'
   PYTHONFAULTHANDLER: '1'
   QT_QPA_PLATFORM: offscreen

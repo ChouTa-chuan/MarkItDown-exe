@@ -41,3 +41,8 @@ def drop_opencv_ffmpeg(entries):
         else:
             kept.append(entry)
     return kept, sorted(dropped)
+
+
+def is_excluded_name(name):
+    """檔名是否屬於已決定不隨包的原生檔；供建置後的檢核確認排除確實生效。"""
+    return name.lower() in UNTRACKED_OPENSSL or bool(OPENCV_FFMPEG.match(name))
