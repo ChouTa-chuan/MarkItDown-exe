@@ -12,6 +12,7 @@
 """
 import collections
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -21,6 +22,7 @@ from pathlib import Path
 # 讀檔並固定輸出為 UTF-8 比較可靠。{list} 於執行時替換為清單檔路徑。
 SIGNATURE_SCRIPT = (
     "$ErrorActionPreference='Stop';"
+    "Import-Module Microsoft.PowerShell.Security;"
     "[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
     "$rows=@(Get-Content -LiteralPath '{list}' -Encoding UTF8 | Where-Object {{ $_ }} | ForEach-Object {{"
     " $p=[string]::Copy($_); $s=Get-AuthenticodeSignature -LiteralPath $p;"
@@ -50,6 +52,17 @@ def version_resource(path):
         pe.close()
 
 
+def child_environment(environment=None):
+    """回傳給 Windows PowerShell 5.1 的環境：移除 PSModulePath。
+
+    CI 的外層 shell 是 PowerShell 7，它設定的 PSModulePath 會被子程序繼承，使 5.1 載入不到
+    內建的安全性模組，出現「找不到 Get-AuthenticodeSignature」（2026-11-13 的 CI 實際發生）。
+    移除後 5.1 會使用自己的預設模組路徑。
+    """
+    source = os.environ if environment is None else environment
+    return {key: value for key, value in source.items() if key.upper() != 'PSMODULEPATH'}
+
+
 def signatures(paths, runner=subprocess.run):
     """一次查詢多個檔案的簽章；回傳 {路徑字串: (狀態, 簽署者)}。非 Windows 回傳空 dict。"""
     if sys.platform != 'win32' or not paths:
@@ -59,7 +72,8 @@ def signatures(paths, runner=subprocess.run):
         listing.write_text('\n'.join(str(path) for path in paths) + '\n', encoding='utf-8')
         done = runner(['powershell.exe', '-NoProfile', '-NonInteractive', '-Command',
                        SIGNATURE_SCRIPT.format(list=str(listing).replace("'", "''"))],
-                      capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=300)
+                      capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=300,
+                      env=child_environment())
     if done.returncode != 0:
         raise RuntimeError('Signature query failed: ' + (done.stderr or '').strip()[-300:])
     rows = json.loads((done.stdout or '').lstrip('\ufeff').strip() or '[]')

@@ -33,6 +33,10 @@ class DescribeTests(unittest.TestCase):
         row = subject.describe([Path('/sys/a.dll')], sign=lambda items: {}, version=broken_version)[Path('/sys/a.dll')]
         self.assertIn('not a PE file', row['identity_error'])
 
+    def test_child_environment_drops_only_the_inherited_module_path(self):
+        cleaned = subject.child_environment({'PATH': 'x', 'PSModulePath': 'pwsh7', 'psmodulepath': 'again', 'A': '1'})
+        self.assertEqual(cleaned, {'PATH': 'x', 'A': '1'})
+
     def test_signature_query_is_skipped_off_windows_or_without_paths(self):
         calls = []
         self.assertEqual(subject.signatures([], runner=lambda *a, **k: calls.append(a)), {})
