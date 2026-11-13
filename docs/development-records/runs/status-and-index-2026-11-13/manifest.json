@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "tested_source": "15a425bf5ae4e62abf131d17049d26135995fe7e",
+  "accepted": true,
+  "windows_executed": false,
+  "full_regression_run": 703,
+  "full_regression_passed": 702,
+  "known_expected_failures": 1,
+  "skipped": 0,
+  "isolated_modules": 46,
+  "tesseract": "5.3.4",
+  "python": "3.12.3",
+  "keywords": [
+    "現況檔",
+    "歷史索引",
+    "規則改寫"
+  ],
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 1175,
+      "sha256": "104a8286a85cb8bb34276ac20bdb5e0af2dee4b1ab342bd2962e86b01b4d3914"
+    },
+    {
+      "file": "isolated-summary.json",
+      "bytes": 12130,
+      "sha256": "3ba1083ddd2ef438e217332e90a332e7906b421879fe9417dca88075ab948c53"
+    },
+    {
+      "file": "mixed-result.json",
+      "bytes": 295,
+      "sha256": "7fce6952ec1b5ebae218a9fe8681c624b55157599a4cb22121b711da95fc6ae9"
+    }
+  ]
+}

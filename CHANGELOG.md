@@ -4,6 +4,18 @@
 
 ## 更新中
 
+- 2026-11-13：為 20 筆有失敗紀錄的舊證據新增補充關鍵字表 `docs/history/keywords.json` 並重新產生歷史索引；舊證據檔未改動。
+
+### 2026-11-13｜現況檔、自動歷史索引與精簡維護規則
+
+- 程式0.19.1／架構0.4不變；分支`claude/status-and-history-index`疊在PR 1之上，未合併main。
+- 新增[STATUS.md](STATUS.md)作為唯一的現況入口，開工必讀由六份（約272 KB）減為AGENTS.md與STATUS.md（約10 KB）。相對前版，交接指南、開發紀錄、狀態頁改為背景與歷史，原樣保留但不再更新。
+- 新增`scripts/build_history_index.py`與[歷史索引](docs/history-index.md)，由證據目錄、現況存檔與決策紀錄自動產生；測試與`history-index.yml`檢查是否過期。
+- AGENTS.md改寫：數字只記在progress.json、階段完成才整體更新（小修只記一行）、新證據只留摘要與雜湊（舊證據原地保留）、指定未合併PR時讀該分支、暫緩擴充元件系統、動到的檔案順手拆開壓縮的程式行。採納Codex交接方案的四組欄位與PR範本內容，做法改為單一現況檔。
+- 首頁不再重抄數字；保存[成本診斷](docs/cost-diagnosis-2026-11-13.html)。
+- 驗證：[全703：702通過／1既有ONNX繁中品質預期失敗／0跳過，混合及46模組exit0](docs/development-records/runs/status-and-index-2026-11-13/README.md)。未執行Windows建置／安裝、GPU或人工驗收。
+- 未完成：授權與三項打包調整待決定；候選與無證據來源（基本49、CPU47）需Windows端資料；舊證據是否補關鍵字待決定。7/12、C04 2/4、C11 2/5不變。
+
 ### 2026-11-12｜接手：保存CI報告、來源分類、Linux CI與授權提案
 
 - 程式0.19.1／架構0.4不變；工作在分支`claude/confident-ride-o38ls7`，尚未合併main。分支規則改為「工作分支＋PR，不直接推main」，AGENTS與交接文件同步修正。

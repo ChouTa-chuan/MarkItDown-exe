@@ -2,17 +2,15 @@
 
 把 **Word、Excel、PowerPoint、HTML、文字與 PDF** 轉成可閱讀、可查核的 Markdown。以 Microsoft MarkItDown 為基礎，加入桌面操作、自動 PDF 分析、OCR、表格處理及 RAM 資源管理。
 
-**第一次接觸專案或交給新 AI session：請先讀 [專案說明與接手指南](PROJECT_HANDOFF.md)。** 文件包含需求沿革、模組責任、最新證據、未完成事項、開發／驗證指令及可直接複製的接手提示。
+**接手或想知道目前做到哪：讀 [現況](STATUS.md)。** 數字與里程碑在[進度頁](docs/progress.html)（資料來源 [progress.json](docs/progress.json)）；過去的紀錄用[歷史索引](docs/history-index.md)查找；產品背景與模組責任見[專案說明](PROJECT_HANDOFF.md)。
 
 > **開發中**：已有 Linux 核心與桌面原型驗證。Windows 已通過 hosted 基本包安裝驗證；乾淨機、完整生命週期與 GPU 仍待驗收，目前沒有 Windows 正式版下載。
 
-| 版本／進度 | 狀態 |
+| 項目 | 狀態 |
 | --- | --- |
-| 程式原始碼版本 | **0.19.1**，Windows CPU程序中斷恢復 **6/6**，功能11／同版8／跨版8已驗；0.17.2清理已驗；C11 **2/5**；[查看每次更新與版本差異](CHANGELOG.md) |
+| 程式原始碼版本 | **0.19.1**（以 pyproject.toml 為準）；[版本差異](CHANGELOG.md) |
 | 架構指引 | **0.4**：基本安裝包＋選配元件管理 |
-| 既有開發基線 | **19/25**；已完成範圍以 Linux 代表性證據為主 |
-| 新架構導入 | **C01–C12：7/12**，C01／C02／C05／C06／C07／C08／C10 驗收完成；C03 四語／原生來源／Linux 內含整包三項、C04 兩項、C09 三項子檢核完成，完整項仍待乾淨機／安裝及各 profile |
-| 功能測試基線 | **0.19.1完整698項：697通過＋1既有ONNX繁中品質預期失敗，0跳過**；混合程序與45獨立模組正常退出（來源`582458e`；`cb8f24d`當時為684／43模組） |
+| 進度與測試 | 見[進度頁](docs/progress.html)；這裡不重抄數字 |
 
 **[開啟線上視覺進度](https://chouta-chuan.github.io/MarkItDown-exe/)**（GitHub Pages，進度更新後自動部署） · [發布狀態與設定](docs/progress-pages.md)
 

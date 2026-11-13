@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MarkItDown-exe 成本診斷</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* 版面：單欄閱讀寬度；先給結論，再用兩張比例圖說明成本去向，接著六列「問題→建議」對照，最後優缺點並排。 */
+:root{
+  --bg:#f3f6f7; --surface:#ffffff; --fg:#17262b; --muted:#56696f; --line:#d3dde0;
+  --accent:#0b7a75; --accent-soft:#d9eeec; --cost:#b4531a; --cost-soft:#f7e3d3; --good:#2f7d4f; --good-soft:#dcefe2;
+  --font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --font-data:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#10191c; --surface:#18252a; --fg:#e4eef0; --muted:#9bb0b6; --line:#2c3d43;
+  --accent:#4fc3bb; --accent-soft:#173b3a; --cost:#f0a06a; --cost-soft:#43291a; --good:#7bcf9c; --good-soft:#193525; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#10191c; --surface:#18252a; --fg:#e4eef0; --muted:#9bb0b6; --line:#2c3d43;
+  --accent:#4fc3bb; --accent-soft:#173b3a; --cost:#f0a06a; --cost-soft:#43291a; --good:#7bcf9c; --good-soft:#193525; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.7}
+.wrap{max-width:920px;margin:0 auto;padding-block:36px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:40px}
+h1{font-size:clamp(26px,5vw,36px);line-height:1.25;margin:0;font-weight:700;text-wrap:balance}
+h2{font-size:21px;margin:0;font-weight:700;text-wrap:balance}
+p{margin:0;max-width:40em}
+.eyebrow{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+.lead{font-size:18px}
+.note{font-size:14px;color:var(--muted)}
+section{display:flex;flex-direction:column;gap:16px}
+.num{font-family:var(--font-data);font-variant-numeric:tabular-nums}
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.verdict div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.verdict strong{font-size:17px}
+.tag{align-self:flex-start;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px}
+.tag.ok{background:var(--good-soft);color:var(--good)} .tag.bad{background:var(--cost-soft);color:var(--cost)}
+/* 橫條圖：所有長條共用同一比例尺（最大值＝100%） */
+.bars{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px}
+.bar{display:grid;grid-template-columns:minmax(120px,190px) 1fr auto;gap:12px;align-items:center;font-size:14px}
+.bar .track{height:14px;background:var(--bg);border-radius:3px;min-width:0}
+.bar .fill{height:100%;border-radius:3px;background:var(--muted);min-width:2px}
+.bar.hot .fill{background:var(--cost)} .bar.core .fill{background:var(--accent)}
+.bar .num{font-size:13px;text-align:right;min-width:74px}
+.stack{display:flex;height:34px;border-radius:4px;overflow:hidden;border:1px solid var(--line)}
+.stack span{display:block;height:100%}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 20px;font-size:14px}
+.legend div{display:flex;gap:8px;align-items:baseline}
+.sw{width:10px;height:10px;border-radius:2px;flex:none;transform:translateY(1px)}
+.c1{background:var(--cost)} .c2{background:color-mix(in srgb,var(--cost) 72%,var(--bg))} .c3{background:color-mix(in srgb,var(--cost) 48%,var(--bg))} .c4{background:var(--accent)} .c5{background:color-mix(in srgb,var(--accent) 55%,var(--bg))} .c6{background:var(--muted)}
+/* 六項建議：每列三格，問題與量測在左，建議在中，效果與條件在右 */
+.rows{display:flex;flex-direction:column;gap:12px}
+.row{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;grid-template-columns:44px minmax(0,1fr) minmax(0,1fr) minmax(0,.8fr);gap:18px}
+.row .n{font-family:var(--font-data);font-size:22px;color:var(--accent);line-height:1.2}
+.row h3{font-size:13px;letter-spacing:.06em;color:var(--muted);margin:0 0 4px;font-weight:500}
+.row p{font-size:15px;line-height:1.6}
+.row .metric{margin-top:8px;font-size:13px;color:var(--cost);background:var(--cost-soft);border-radius:4px;padding:4px 8px;display:inline-block}
+.row .fix{font-weight:500}
+.chip{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:2px 8px;margin-top:8px}
+.chip.ask{background:var(--cost-soft);color:var(--cost)} .chip.free{background:var(--good-soft);color:var(--good)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.col h3{margin:0;font-size:16px}
+.col.good h3{color:var(--good)} .col.bad h3{color:var(--cost)}
+.col ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.6}
+@media (max-width:720px){
+  .row{grid-template-columns:36px minmax(0,1fr)} .row>div:nth-child(n+3){grid-column:2}
+  .bar{grid-template-columns:1fr auto} .bar .track{grid-column:1/-1;order:3}
+}
+body{margin:0}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:12px">
+    <div class="eyebrow">MarkItDown-exe ・ 2026-11-12 量測</div>
+    <h1>程式不大，貴的是圍繞程式的文件與證據</h1>
+    <p class="lead">產品程式約 6,700 行，結構合理，不需要重做。每一輪工作的成本主要花在開工要讀的文件、每次都要同步的多份紀錄，以及大量保存的驗證證據。</p>
+    <div class="verdict">
+      <div><span class="tag ok">程式架構</span><strong>大致合理</strong><span class="note">分層清楚、模組不大、測試完整；有幾處可改善。</span></div>
+      <div><span class="tag bad">工作流程</span><strong>成本過高</strong><span class="note">規則要求每次更新都維護全部文件與證據。</span></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>歷史上新增的內容，各佔多少</h2>
+    <p class="note">83 筆提交累計新增的行數。長條使用同一比例尺，產品程式那一條幾乎看不見，這就是重點。</p>
+    <div class="bars">
+      <div class="bar hot"><span>開發紀錄與證據</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="num">653,078</span></div>
+      <div class="bar"><span>授權原文資料</span><div class="track"><div class="fill" style="width:7.09%"></div></div><span class="num">46,272</span></div>
+      <div class="bar"><span>腳本、打包、CI</span><div class="track"><div class="fill" style="width:3.47%"></div></div><span class="num">22,645</span></div>
+      <div class="bar"><span>說明文件</span><div class="track"><div class="fill" style="width:2.2%"></div></div><span class="num">14,390</span></div>
+      <div class="bar"><span>上游 MarkItDown</span><div class="track"><div class="fill" style="width:1.23%"></div></div><span class="num">8,032</span></div>
+      <div class="bar"><span>測試</span><div class="track"><div class="fill" style="width:1.15%"></div></div><span class="num">7,521</span></div>
+      <div class="bar core"><span>產品程式</span><div class="track"><div class="fill" style="width:1.11%"></div></div><span class="num">7,262</span></div>
+    </div>
+    <p class="note">證據約為產品程式的 90 倍。每筆提交平均新增 39 個證據檔，中位數動到 29 個檔案。</p>
+  </section>
+
+  <section>
+    <h2>每次開工前必讀的文件</h2>
+    <p class="note">依專案規則，新的工作階段要先讀這六份。合計約 272 KB，粗估 9 萬 token，還沒開始做事就用掉一大塊。</p>
+    <div class="stack" role="img" aria-label="必讀文件大小比例">
+      <span class="c1" style="width:29.5%"></span><span class="c2" style="width:25.5%"></span><span class="c3" style="width:20.3%"></span><span class="c4" style="width:17.7%"></span><span class="c5" style="width:6%"></span><span class="c6" style="width:1%"></span>
+    </div>
+    <div class="legend">
+      <div><i class="sw c1"></i><span>開發紀錄 <span class="num">80 KB</span></span></div>
+      <div><i class="sw c2"></i><span>進度資料 progress.json <span class="num">70 KB</span></span></div>
+      <div><i class="sw c3"></i><span>CHANGELOG <span class="num">55 KB</span></span></div>
+      <div><i class="sw c4"></i><span>交接文件 <span class="num">48 KB</span></span></div>
+      <div><i class="sw c5"></i><span>首頁 README <span class="num">16 KB</span></span></div>
+      <div><i class="sw c6"></i><span>AGENTS 規則 <span class="num">3 KB</span></span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>六項建議，各自對應的問題</h2>
+    <div class="rows">
+      <div class="row">
+        <div class="n">1</div>
+        <div><h3>問題</h3><p>現況和歷史寫在同一份檔案，每次都得整份讀完才知道現在做到哪。</p><span class="metric">開工必讀約 9 萬 token</span></div>
+        <div><h3>建議</h3><p class="fix">把「現況」和「歷史」分開。做一份 5 KB 以內的現況檔，開工只讀它；歷史只在需要時查。</p></div>
+        <div><h3>效果</h3><p>每輪起始成本降一個數量級，分段次數明顯減少。</p><span class="chip ask">需改 AGENTS 規則</span></div>
+      </div>
+      <div class="row">
+        <div class="n">2</div>
+        <div><h3>問題</h3><p>測試數、里程碑進度等同一組數字，重複寫在七份文件裡，改一次要讀寫七次。</p><span class="metric">83 筆提交中 70 筆同時改 3 份以上文件</span></div>
+        <div><h3>建議</h3><p class="fix">數字只寫一處。以 progress.json 為唯一來源，其他文件引用而不重抄。</p></div>
+        <div><h3>效果</h3><p>每次更新少改五、六份檔案，也不會出現各處數字不一致。</p><span class="chip ask">需改 AGENTS 規則</span></div>
+      </div>
+      <div class="row">
+        <div class="n">3</div>
+        <div><h3>問題</h3><p>規則要求每次有更新就維護 CHANGELOG、開發紀錄、交接文件與進度頁，小修也一樣。</p><span class="metric">每筆提交平均動 59 個檔案</span></div>
+        <div><h3>建議</h3><p class="fix">階段完成時才整體更新一次；小修只在 CHANGELOG 記一行。</p></div>
+        <div><h3>效果</h3><p>小修的成本回到和改動本身相稱。</p><span class="chip ask">需改 AGENTS 規則</span></div>
+      </div>
+      <div class="row">
+        <div class="n">4</div>
+        <div><h3>問題</h3><p>每次驗證的日誌、截圖、報告全部存進 repo，每個檔案還要算雜湊、寫清單與說明。</p><span class="metric">證據 165 MB，約 3,500 個檔案</span></div>
+        <div><h3>建議</h3><p class="fix">證據改存 CI 的執行紀錄或附件，repo 只留摘要與雜湊。</p></div>
+        <div><h3>效果</h3><p>repo 變小、提交變輕；代價是 CI 紀錄有保存期限，重要的要另外留存。</p><span class="chip ask">需改規則，並涉及搬移既有檔案</span></div>
+      </div>
+      <div class="row">
+        <div class="n">5</div>
+        <div><h3>問題</h3><p>選配元件系統與安裝驗收做得很深，但目前只有一個實驗性元件，也還沒有人安裝過。Windows 行為只能推上 CI 試錯。</p><span class="metric">元件系統約佔產品程式四成；46 次 CI 有 11 次失敗、8 次取消</span></div>
+        <div><h3>建議</h3><p class="fix">暫緩再擴充元件系統與驗收矩陣，先把基本包做到可以交付。</p></div>
+        <div><h3>效果</h3><p>把力氣放在離使用者最近的缺口：授權、乾淨機、人工驗收。</p><span class="chip free">屬優先順序，不必改規則</span></div>
+      </div>
+      <div class="row">
+        <div class="n">6</div>
+        <div><h3>問題</h3><p>部分程式用分號把多個敘述擠在同一行，改動時通常得整段讀進來再整段重寫。</p><span class="metric">產品碼 115 處、腳本 223 處、測試 566 處</span></div>
+        <div><h3>建議</h3><p class="fix">之後動到哪個檔案，就順手把那裡壓縮的程式行拆開；不專門重寫。</p></div>
+        <div><h3>效果</h3><p>逐步變好讀，不增加額外風險。</p><span class="chip free">可直接進行</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>現況的優點與缺點</h2>
+    <div class="two">
+      <div class="col good">
+        <h3>優點</h3>
+        <ul>
+          <li>產品程式 51 個模組，最大的 465 行，沒有難以維護的巨型檔案。</li>
+          <li>核心不依賴介面，介面只集中在 6 個模組，沒有圖形環境也能測試。</li>
+          <li>轉換在獨立程序執行，取消、記憶體控管與故障隔離都有依據。</li>
+          <li>上游版本固定、相依套件以雜湊鎖定，建置可重現。</li>
+          <li>698 項測試在兩個環境都通過，Windows 的建置與安裝有自動驗證。</li>
+          <li>紀錄誠實，失敗與未驗證項目都有留存，交接文件的主張查證後大致屬實。</li>
+        </ul>
+      </div>
+      <div class="col bad">
+        <h3>缺點</h3>
+        <ul>
+          <li>開工必讀量大，文件只增不減，同一資訊重複多處。</li>
+          <li>證據量是產品程式的 90 倍，每次提交都很重。</li>
+          <li>元件系統與驗收深度超前於目前階段的需要。</li>
+          <li>轉換模組與元件工作程序之間有循環依賴；元件管理模組直接依賴 13 個模組。</li>
+          <li>部分程式寫得過密，可讀性差。</li>
+          <li>驗收腳本 48 支、約 6,400 行，比產品程式還多，彼此有重複。</li>
+          <li>仍沒有可交付的安裝包；授權與再散布尚未關閉。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <p class="note">數字為 2026-11-12 對 repo 的實際量測。Codex 當時每一輪實際使用的 token 無法得知，成本原因是由 repo 留下的痕跡推論。token 數以位元組數除以 3 粗估。</p>
+</div>
+</body>
+</html>

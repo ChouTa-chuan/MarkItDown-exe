@@ -1,0 +1,39 @@
+name: History index check
+
+# 責任：歷史紀錄有變動時，確認自動產生的 docs/history-index.md 沒有過期。
+# 只執行標準庫腳本，不安裝依賴、不建置、不發布。
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/history-index.yml'
+      - 'scripts/build_history_index.py'
+      - 'docs/history-index.md'
+      - 'docs/history/**'
+      - 'docs/decisions/**'
+      - 'docs/development-records/runs/**'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/history-index.yml'
+      - 'scripts/build_history_index.py'
+      - 'docs/history-index.md'
+      - 'docs/history/**'
+      - 'docs/decisions/**'
+      - 'docs/development-records/runs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Index is up to date
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/build_history_index.py --check
