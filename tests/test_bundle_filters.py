@@ -29,5 +29,24 @@ class OpenSslFilterTests(unittest.TestCase):
         self.assertEqual(subject.drop_untracked_openssl(entries), (entries, []))
 
 
+class OpenCvFfmpegFilterTests(unittest.TestCase):
+    def test_only_the_bundled_ffmpeg_plugin_is_dropped(self):
+        entries = [('cv2\\opencv_videoio_ffmpeg500_64.dll', 'C:\\site\\cv2\\opencv_videoio_ffmpeg500_64.dll', 'BINARY'),
+                   ('cv2/OPENCV_VIDEOIO_FFMPEG4110.DLL', '/site/x.dll', 'BINARY'),
+                   ('cv2/cv2.pyd', '/site/cv2/cv2.pyd', 'EXTENSION'),
+                   ('cv2/opencv_videoio_msmf500_64.dll', '/site/msmf.dll', 'BINARY'),
+                   ('licenses/opencv_videoio_ffmpeg500_64.dll.txt', '/notice', 'DATA'),
+                   ('ffmpeg.exe', '/elsewhere/ffmpeg.exe', 'BINARY')]
+        kept, dropped = subject.drop_opencv_ffmpeg(entries)
+        self.assertEqual(dropped, ['cv2/OPENCV_VIDEOIO_FFMPEG4110.DLL', 'cv2/opencv_videoio_ffmpeg500_64.dll'])
+        self.assertEqual([entry[0] for entry in kept],
+                         ['cv2/cv2.pyd', 'cv2/opencv_videoio_msmf500_64.dll',
+                          'licenses/opencv_videoio_ffmpeg500_64.dll.txt', 'ffmpeg.exe'])
+
+    def test_no_match_returns_entries_unchanged(self):
+        entries = [('cv2/cv2.pyd', '/site/cv2/cv2.pyd', 'EXTENSION')]
+        self.assertEqual(subject.drop_opencv_ffmpeg(entries), (entries, []))
+
+
 if __name__ == '__main__':
     unittest.main()
