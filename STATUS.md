@@ -23,7 +23,7 @@
 - 加入根目錄 `LICENSE`（MIT，著作權人 周大詮 (ChouTa-chuan)），`pyproject.toml` 宣告授權，自有 `THIRD_PARTY_NOTICES` 說明 MIT 只適用自有程式。
 - 基本包打包時排除 Qt 的 OpenSSL TLS 外掛，以及它從建置機系統路徑帶進來的 `libssl-3-x64`／`libcrypto-3-x64.dll`（`scripts/bundle_filters.py`、`packaging/base.spec`）。保留 Qt 的 Schannel 後端與 CPython 自己的 OpenSSL。
 - Linux 完整回歸通過，結果記在 `progress.json` 的 `full_regression`。
-- CPU 文字辨識元件打包時排除 OpenCV 內附的 FFmpeg 影片外掛（`packaging/ocr-worker.spec`）；**Windows 上的效果待 PR 3 最新提交的 CPU 元件 CI 確認**。
+- CPU 文字辨識元件打包時排除 OpenCV 內附的 FFmpeg 影片外掛（`packaging/ocr-worker.spec`）。Windows CPU 元件 CI 通過：功能、同版維護、跨版與程序恢復驗收全部接受，原生檔少 1 個、元件 ZIP 少約 13 MB（[紀錄](docs/development-records/runs/ffmpeg-exclusion-ci-2026-11-13/README.md)）；逐檔清單同樣尚未核對，元件版號仍為 1.0.1、正式發布前需重新定版。
 - 新增[輪替工作流 2.0](docs/ai-handoff-workflow.md)：接手時先看 PR 而非只看 main。
 - PR 3 的 Windows 基本包 CI 通過：排除後應用、安裝、跨版與續修驗收全部接受，原生檔少 3 個、未對照來源少 2 個，與排除三個檔案一致（[紀錄](docs/development-records/runs/openssl-exclusion-ci-2026-11-13/README.md)）。**逐檔清單尚未核對**：完整報告所在的儲存主機被網路政策擋下。
 

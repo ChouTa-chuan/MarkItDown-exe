@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-13：PR 3 的 Windows CPU 元件 CI 通過，排除 FFmpeg 後既有驗收全部接受，元件 ZIP 由約 106 MB 降為約 93 MB；逐檔清單未核對（[紀錄](docs/development-records/runs/ffmpeg-exclusion-ci-2026-11-13/README.md)）。
+
 - 2026-11-13：CPU 文字辨識元件排除 OpenCV 內附的 FFmpeg 影片外掛（Windows 效果待 CI）；新增輪替工作流 2.0 並在 AGENTS.md 要求接手時先看 PR。Linux 全 707：706 通過／1 既有預期失敗／0 跳過，混合及 47 模組 exit0。
 
 - 2026-11-13：PR 3 的 Windows 基本包 CI 通過，排除來源不明 OpenSSL 後既有自動驗收全部接受；計數與排除三個檔案一致，逐檔清單因 artifact 主機被網路政策擋下而未核對（[紀錄](docs/development-records/runs/openssl-exclusion-ci-2026-11-13/README.md)）。

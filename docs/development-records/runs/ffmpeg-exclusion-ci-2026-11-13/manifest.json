@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "tested_source": "0b532352526e68a04ebd5f2747a64502b5c119c9",
+  "pr_merge_commit": "3a2aa3cbd1e4747a8b33847e0c1dfb115fe57b42",
+  "pull_request": 3,
+  "accepted": true,
+  "windows_executed": true,
+  "workflow_runs": [
+    43357232050,
+    43357232138,
+    43357231995,
+    43357231996
+  ],
+  "per_file_inventory_checked": false,
+  "release_ready": false,
+  "keywords": [
+    "FFmpeg排除",
+    "OpenCV",
+    "CPU元件體積",
+    "元件版號未重定"
+  ],
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2690,
+      "sha256": "1cef64b97243d6c9aa0ad02b8155a70f4242c19b37fa1c73e6be02eb8e1aff43"
+    }
+  ]
+}
