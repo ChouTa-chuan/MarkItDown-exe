@@ -1,0 +1,127 @@
+name: Linux full regression
+
+# 責任：在 PR 與 main 上以雜湊鎖定依賴與固定四語模型跑完整單元／整合回歸。
+# 只驗 Linux 可攜核心與 offscreen Qt；不建置 Windows 產物，也不發布任何東西。
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.gitattributes'
+      - '.github/workflows/linux-regression.yml'
+      - 'packaging/**'
+      - 'scripts/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'vendor/**'
+      - 'pyproject.toml'
+  push:
+    branches: [main]
+    paths:
+      - '.gitattributes'
+      - '.github/workflows/linux-regression.yml'
+      - 'packaging/**'
+      - 'scripts/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'vendor/**'
+      - 'pyproject.toml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: linux-regression-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # 新增或移除測試時，依真正 discovery 結果同步這個數字與交接文件；不為了變綠而放寬。
+  EXPECTED_TESTS: '698'
+  PYTHONUTF8: '1'
+  PYTHONFAULTHANDLER: '1'
+  QT_QPA_PLATFORM: offscreen
+  OMP_THREAD_LIMIT: '1'
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+
+jobs:
+  regression:
+    name: Ubuntu 24.04 full regression
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    defaults:
+      run:
+        # tee 保留早期失敗日誌，pipefail 保留原命令的非零結果。
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install native OCR, EGL and fonts
+        run: |
+          mkdir -p out/logs
+          sudo apt-get update 2>&1 | tee out/logs/apt.log
+          sudo apt-get install -y --no-install-recommends tesseract-ocr libegl1 fonts-noto-cjk fonts-dejavu-core 2>&1 | tee -a out/logs/apt.log
+          # 如實記錄 runner 提供的版本；apt 的 Tesseract 不保證等於歷史基線 5.5.0。
+          { tesseract --version; dpkg-query -W tesseract-ocr libtesseract5 liblept5 libegl1 fonts-noto-cjk fonts-dejavu-core; python --version; } 2>&1 | tee out/logs/environment.log
+      - name: Install hash-locked dependencies
+        run: |
+          python -m venv .venv-ci
+          .venv-ci/bin/python -m pip install --require-hashes -r packaging/requirements-linux.txt 2>&1 | tee out/logs/dependencies.log
+          .venv-ci/bin/python -m pip install --no-deps --no-build-isolation ./vendor/markitdown . 2>&1 | tee -a out/logs/dependencies.log
+          .venv-ci/bin/python -m pip check 2>&1 | tee -a out/logs/dependencies.log
+      - name: Verify upstream, licenses and profiles
+        run: |
+          .venv-ci/bin/python scripts/verify_upstream.py 2>&1 | tee out/logs/verify.log
+          .venv-ci/bin/python scripts/license_inventory.py --verify 2>&1 | tee -a out/logs/verify.log
+          .venv-ci/bin/python scripts/packaging_profiles.py 2>&1 | tee -a out/logs/verify.log
+          .venv-ci/bin/python scripts/cpu_worker_profiles.py 2>&1 | tee -a out/logs/verify.log
+      - name: Fetch and verify pinned four-language models
+        run: |
+          mkdir -p "$RUNNER_TEMP/tessdata"
+          echo "TESSDATA_PREFIX=$RUNNER_TEMP/tessdata" >> "$GITHUB_ENV"
+          TESSDATA_PREFIX="$RUNNER_TEMP/tessdata" .venv-ci/bin/python - <<'PY' 2>&1 | tail -n 5 | tee out/logs/models.log
+          import os
+          from pathlib import Path
+          from desktop_app.languages import model_manifest
+          from desktop_app.models import install, inspect
+          directory = Path(os.environ['TESSDATA_PREFIX'])
+          install(directory, progress=lambda *_: None, spec=model_manifest())
+          state = inspect(directory, spec=model_manifest())
+          print(state)
+          assert set(state.values()) == {'valid'}
+          PY
+      - name: Mixed-process full regression
+        run: |
+          mkdir -m 700 "$RUNNER_TEMP/qt-runtime"
+          export XDG_RUNTIME_DIR="$RUNNER_TEMP/qt-runtime" PYTHONPATH=src:tests
+          .venv-ci/bin/python scripts/run_mixed_regression.py --expected-count "$EXPECTED_TESTS" --output out/mixed-result.json 2>&1 | tee out/logs/mixed.log
+      - name: Per-module isolated regression
+        run: |
+          export XDG_RUNTIME_DIR="$RUNNER_TEMP/qt-runtime" PYTHONPATH=src:tests
+          .venv-ci/bin/python scripts/check_isolated_tests.py --expected-count "$EXPECTED_TESTS" --output out/isolated 2>&1 | tee out/logs/isolated.log
+      - name: Publish summary
+        if: always()
+        run: |
+          {
+            echo '### Linux full regression'
+            echo '```'
+            cat out/logs/environment.log 2>/dev/null || true
+            echo "expected tests: $EXPECTED_TESTS"
+            tail -n 1 out/logs/mixed.log 2>/dev/null || echo 'mixed: not run'
+            tail -n 1 out/logs/isolated.log 2>/dev/null || echo 'isolated: not run'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      # 只保存日誌與摘要 JSON；不含模型、venv 或建置產物。
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: linux-regression-reports
+          path: |
+            out/logs/
+            out/mixed-result.json
+            out/isolated/
+          retention-days: 14
+          if-no-files-found: warn

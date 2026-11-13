@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "tested_source": "cd14fe7da32042859d9210a29c041b90f5af7e8b",
+  "pull_request": 1,
+  "pr_merge_commit_used": true,
+  "accepted": true,
+  "workflow_runs": [
+    43152427632,
+    43152427580,
+    43152427554
+  ],
+  "linux_full_regression_run": 698,
+  "linux_full_regression_passed": 697,
+  "known_expected_failures": 1,
+  "skipped": 0,
+  "windows_executed": true,
+  "windows_reports_archived": false,
+  "release_ready": false,
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2649,
+      "sha256": "f2c33c5ab1902493c721eca0c74f0b5f67cd4d4bc986d0400f91c7a804783c49"
+    },
+    {
+      "file": "linux-regression-reports.zip",
+      "bytes": 69263,
+      "sha256": "38e9b4130ba48652556e46043bcdb138301a7309261013f334fbf3472bec1001"
+    }
+  ]
+}

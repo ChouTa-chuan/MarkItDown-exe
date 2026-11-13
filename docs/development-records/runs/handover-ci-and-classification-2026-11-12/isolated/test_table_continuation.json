@@ -1,0 +1,10 @@
+{
+  "module": "test_table_continuation",
+  "run": 19,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "expected_failures": [],
+  "unexpected_successes": 0,
+  "tests_reported_success": true
+}

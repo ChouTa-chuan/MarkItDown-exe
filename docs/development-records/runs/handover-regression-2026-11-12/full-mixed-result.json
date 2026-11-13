@@ -1,0 +1,12 @@
+{
+  "run": 684,
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "expected_failures": [
+    "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+  ],
+  "unexpected_successes": [],
+  "passed": 683,
+  "accepted": true
+}

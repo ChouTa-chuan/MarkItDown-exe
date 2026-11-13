@@ -1,0 +1,8 @@
+test_lean_windows_source_can_handle_protocol_without_importing_ocr (test_cpu_startup.CPUStartupTests.test_lean_windows_source_can_handle_protocol_without_importing_ocr) ... ok
+test_native_initialization_has_guard_and_precedes_any_input_reader (test_cpu_startup.CPUStartupTests.test_native_initialization_has_guard_and_precedes_any_input_reader) ... ok
+test_real_parent_eof_stops_source_worker_and_releases_guard (test_cpu_startup.CPUStartupTests.test_real_parent_eof_stops_source_worker_and_releases_guard) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.103s
+
+OK

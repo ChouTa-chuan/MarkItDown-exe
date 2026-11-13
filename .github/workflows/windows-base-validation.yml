@@ -1,5 +1,7 @@
 name: Windows base validation
 
+# PR 會以 GitHub 產生的暫時 merge commit 執行，報告中的 commit 即該暫時提交；
+# 要以分支上的固定提交留存證據時，改用 workflow_dispatch 指定分支。兩者都不發布產物。
 on:
   push:
     branches: [main]
@@ -12,6 +14,18 @@ on:
       - 'tests/**'
       - 'vendor/**'
       - 'pyproject.toml'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.gitattributes'
+      - '.github/workflows/windows-base-validation.yml'
+      - 'packaging/**'
+      - 'scripts/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'vendor/**'
+      - 'pyproject.toml'
+  workflow_dispatch:
 
 permissions:
   contents: read

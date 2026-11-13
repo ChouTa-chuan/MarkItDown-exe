@@ -1,0 +1,10 @@
+test_docx_heading_and_table (test_formats.FormatTests.test_docx_heading_and_table) ... ok
+test_html_structure (test_formats.FormatTests.test_html_structure) ... ok
+test_pptx_title_and_content (test_formats.FormatTests.test_pptx_title_and_content) ... ok
+test_text_pdf (test_formats.FormatTests.test_text_pdf) ... ok
+test_xlsx_sheet_and_values (test_formats.FormatTests.test_xlsx_sheet_and_values) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 4.461s
+
+OK

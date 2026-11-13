@@ -1,0 +1,14 @@
+test_archive_traversal_rejected (test_license_inventory.InventoryTests.test_archive_traversal_rejected) ... ok
+test_complete_inventory_and_nested_metadata (test_license_inventory.InventoryTests.test_complete_inventory_and_nested_metadata) ... ok
+test_existing_user_directory_preserved (test_license_inventory.InventoryTests.test_existing_user_directory_preserved) ... ok
+test_locked_hash_mismatch_cleans_staging (test_license_inventory.InventoryTests.test_locked_hash_mismatch_cleans_staging) ... ok
+test_missing_notice_rejected (test_license_inventory.InventoryTests.test_missing_notice_rejected) ... ok
+test_missing_package_is_not_silently_omitted (test_license_inventory.InventoryTests.test_missing_package_is_not_silently_omitted) ... ok
+test_notice_tampering_rejected (test_license_inventory.InventoryTests.test_notice_tampering_rejected) ... ok
+test_real_windows_catalog_covers_lock (test_license_inventory.InventoryTests.test_real_windows_catalog_covers_lock) ... ok
+test_stale_lock_rejected (test_license_inventory.InventoryTests.test_stale_lock_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.040s
+
+OK

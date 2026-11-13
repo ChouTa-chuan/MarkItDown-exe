@@ -1,5 +1,19 @@
 # 開發紀錄
 
+**2026-11-12｜PR 1 上新CI入口首次執行皆通過**
+
+- [PR 1](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/1)（head cd14fe7）觸發的Linux完整回歸43152427632、Windows基本包43152427580、Windows CPU選配43152427554皆Success。Linux在runner（CPython 3.12.16／Tesseract 5.3.4）為698 run／697 pass／1既有ONNX繁中預期失敗／0 skip，混合與45模組exit0；[報告原檔與說明](runs/pr1-ci-first-run-2026-11-12/README.md)保存。
+- PR流程以暫時merge commit執行，Windows結果只證明合併後內容可建置並通過既有自動驗收，不取代cb8f24d的候選證據；兩份Windows報告未下載。7/12、C04 2/4、C11 2/5不變，無產物發布。
+
+**2026-11-12｜新session接手：保存CI完整報告、分類未對照來源、補Linux CI與授權提案**
+
+- 接手時先唯讀查證交接文件：版號、鎖定檔數、里程碑、CI run與證據檔皆相符。發現根目錄沒有LICENSE、Linux回歸不在CI、`THIRD_PARTY_NOTICES`仍稱Tesseract未內含，以及兩份完整報告artifact仍未過期（11-18到期）。
+- 下載artifact時先被雲端環境網路政策拒絕（兩個GitHub artifact儲存主機CONNECT 403）；使用者核准加入允許清單後取得三份ZIP，雜湊與GitHub digest及公開摘要`report_sha256`相符，[原檔與核對腳本](runs/ci-full-reports-2026-11-12/README.md)保存。暫時簽章網址未入庫；EXE／模型本體未下載。
+- 首次在新容器跑測試只執行653項：缺`libEGL.so.1`使6個Qt測試類別載入失敗、31個方法未執行，缺Tesseract使10項跳過。經使用者同意以apt補libEGL、Tesseract（實得5.3.4，非基線5.5.0）與CJK字型並下載固定四語模型後，[原684項重現](runs/handover-regression-2026-11-12/README.md)；首次輸出一併保存。
+- 以[雜湊證據分類](../source-classification.md)基本154／CPU303個未對照檔案，[逐檔結果](runs/source-classification-2026-11-12/README.md)保存。檔名像Microsoft runtime的系統DLL只列candidate；另發現基本包帶有自runner系統路徑收集的OpenSSL，推測由Qt TLS外掛引入、尚未證實。零位元組檔不以雜湊推定來源，同雜湊多路徑時優先列最相近的repo路徑。
+- 修正自有`THIRD_PARTY_NOTICES`、提出[授權提案](../license-proposal.md)待確認；新增Linux回歸CI與Windows驗證的PR／手動入口。新增14項測試後[全698項](runs/handover-ci-and-classification-2026-11-12/README.md)混合及45模組exit0。
+- 過程中本session對repo的git push曾兩度回403（提示Claude GitHub App存取未連結），提交先留在本機分支；稍後重試成功，分支已推送。新CI流程在PR建立後才會首次於GitHub執行，結果另記。更動打包內容（排除Qt TLS外掛／FFmpeg、改用官方VC runtime來源）與授權決定待使用者同意。7/12、C04 2/4、C11 2/5不變。
+
 **2026-11-12｜建立不依賴聊天紀錄的完整專案交接入口**
 
 - 依使用者需求新增[專案說明與接手指南](../../PROJECT_HANDOFF.md)，從產品目的、已確認需求到程式責任、里程碑、最新證據與限制完整整理；提供新環境啟動／驗證、P0來源明細工作及完成條件，附可直接交給新AI的指令。

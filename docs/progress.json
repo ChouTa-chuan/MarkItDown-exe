@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-11",
-  "environment": "Linux · Python3.12.14；0.19.1全684／43模組exit0；Windows hosted證據另列",
-  "tests_passed": 683,
-  "headline": "Windows候選清單接受：基本1655檔／CPU ZIP742檔；全684項正常退出",
-  "blocker": "普通檔案快照／ZIP已驗；來源待查、runtime SBOM／再散布、乾淨機／人工／GPU仍待。",
-  "next": "整理未對照來源與原文範圍，完成再散布事項後準備Windows測試產物。",
+  "updated": "2026-11-12",
+  "environment": "Linux · Python3.12.3／Tesseract5.3.4；0.19.1全698／45模組exit0；Windows hosted證據（cb8f24d）另列",
+  "tests_passed": 697,
+  "headline": "CI完整報告已保存；未對照來源154／303已依證據分類；全698項正常退出",
+  "blocker": "授權提案待確認；系統DLL來源／簽章、來源不明OpenSSL、Python封存成員、runtime SBOM／再散布、乾淨機／人工／GPU仍待。",
+  "next": "確認授權提案與打包調整後，在Windows建置補記系統DLL來源並重產候選報告，再準備測試產物。",
   "milestones": [
     {
       "id": "m0",
@@ -253,9 +253,10 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
     "0.17.2混合611與36模組正常exit0，ONNX品質預期失敗保留；CI清理只供自身產物，不代表普通Setup任意中斷可自動清理。",
-    "0.19.1完整684：683通過＋1既有ONNX繁中品質預期失敗，0跳過；混合與43模組全exit0。此為Linux來源回歸，Windows／GPU與乾淨機範圍分開。"
+    "0.19.1完整684：683通過＋1既有ONNX繁中品質預期失敗，0跳過；混合與43模組全exit0。此為Linux來源回歸，Windows／GPU與乾淨機範圍分開。",
+    "2026-11-12：0.19.1完整698（697通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與45模組exit0；Tesseract5.3.4／CPython3.12.3與先前基線不同。未對照來源已分類但candidate／gap基本49、CPU47仍待，授權提案未確認，沒有新的Windows執行。"
   ],
-  "tests_run": 684,
+  "tests_run": 698,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1285,11 +1286,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
-    "date_taipei": "2026-11-11",
+    "source_commit": "582458ef1c8454ca851fbc20beba7eac6630bdea",
+    "date_taipei": "2026-11-12",
     "accepted": true,
-    "run": 684,
-    "passed": 683,
+    "run": 698,
+    "passed": 697,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1299,14 +1300,17 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 43,
+    "isolated_modules": 45,
     "isolated_all_exits_zero": true,
+    "python": "3.12.3",
+    "tesseract": "5.3.4",
+    "baseline_environment_identical": false,
     "windows_executed_this_run": false,
     "gpu_executed": false,
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/pre-finalization-regression/full-mixed-result.json"
+    "evidence": "development-records/runs/handover-ci-and-classification-2026-11-12/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -1768,5 +1772,68 @@
     "clean_machine_accepted": false,
     "release_ready": false,
     "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/pre-finalization-regression/full-mixed-result.json"
+  },
+  "previous_full_regression_684": {
+    "source_version": "0.19.1",
+    "architecture_version": "0.4",
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "date_taipei": "2026-11-11",
+    "accepted": true,
+    "run": 684,
+    "passed": 683,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 1,
+    "expected_failure_ids": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "mixed_assertions_accepted": true,
+    "mixed_process_exit": 0,
+    "isolated_modules": 43,
+    "isolated_all_exits_zero": true,
+    "windows_executed_this_run": false,
+    "gpu_executed": false,
+    "traditional_chinese_onnx_quality_passed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/pre-finalization-regression/full-mixed-result.json"
+  },
+  "latest_ci_report_archive": {
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "workflow_runs": [
+      42982427175,
+      42982427186
+    ],
+    "base_report_sha256_matches_public_summary": true,
+    "cpu_report_sha256_matches_public_summary": true,
+    "windows_rebuilt": false,
+    "evidence": "development-records/runs/ci-full-reports-2026-11-12/README.md"
+  },
+  "latest_source_classification": {
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "base": {
+      "unresolved": 154,
+      "confirmed": 73,
+      "origin_known": 32,
+      "candidate": 48,
+      "gap": 1
+    },
+    "cpu": {
+      "unresolved": 303,
+      "confirmed": 227,
+      "origin_known": 29,
+      "candidate": 46,
+      "gap": 1
+    },
+    "runtime_sbom_complete": false,
+    "redistribution_approved": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/source-classification-2026-11-12/README.md"
+  },
+  "latest_license_proposal": {
+    "status": "awaiting-owner-decision",
+    "root_license_file_present": false,
+    "evidence": "license-proposal.md"
   }
 }

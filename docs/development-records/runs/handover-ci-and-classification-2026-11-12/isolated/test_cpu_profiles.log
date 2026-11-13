@@ -1,0 +1,17 @@
+test_changed_core_dependency_bounds_do_not_silently_use_old_pin (test_cpu_profiles.CPUProfileTests.test_changed_core_dependency_bounds_do_not_silently_use_old_pin) ... ok
+test_changed_subset_hash_is_rejected (test_cpu_profiles.CPUProfileTests.test_changed_subset_hash_is_rejected) ... ok
+test_child_failure_is_saved_and_never_counted_as_native_success (test_cpu_profiles.CPUProfileTests.test_child_failure_is_saved_and_never_counted_as_native_success) ... ok
+test_fixed_fixture_watchdog_is_opt_in_and_cancelled (test_cpu_profiles.CPUProfileTests.test_fixed_fixture_watchdog_is_opt_in_and_cancelled) ... ok
+test_fixture_pipe_lines_are_recorded_without_changing_frames (test_cpu_profiles.CPUProfileTests.test_fixture_pipe_lines_are_recorded_without_changing_frames) ... ok
+test_fixture_stderr_keeps_drain_and_bounds_recorded_bytes (test_cpu_profiles.CPUProfileTests.test_fixture_stderr_keeps_drain_and_bounds_recorded_bytes) ... ok
+test_fixture_stderr_never_overwrites_existing_record (test_cpu_profiles.CPUProfileTests.test_fixture_stderr_never_overwrites_existing_record) ... ok
+test_independent_worker_and_lean_controller_closures (test_cpu_profiles.CPUProfileTests.test_independent_worker_and_lean_controller_closures) ... ok
+test_original_notice_tampering_is_rejected (test_cpu_profiles.CPUProfileTests.test_original_notice_tampering_is_rejected) ... ok
+test_parent_version_or_metadata_cannot_be_silently_reselected (test_cpu_profiles.CPUProfileTests.test_parent_version_or_metadata_cannot_be_silently_reselected) ... ok
+test_release_claim_in_generated_report_is_rejected (test_cpu_profiles.CPUProfileTests.test_release_claim_in_generated_report_is_rejected) ... ok
+test_wrong_platform_cannot_start_build_or_create_output (test_cpu_profiles.CPUProfileTests.test_wrong_platform_cannot_start_build_or_create_output) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.171s
+
+OK

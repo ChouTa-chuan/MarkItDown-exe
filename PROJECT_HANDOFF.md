@@ -4,6 +4,8 @@
 
 本次整理前的專案基準為 `da961af7ed2aea25be79a976f0d85479f009ae96`。最後完整功能／Windows 候選驗證來源為 `cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1`；之後另有網站與文件更新。**目前分支的 HEAD、程式版號與真正執行過測試的 source commit 必須分開記錄。**
 
+**2026-11-12 接手後更新（工作分支 `claude/confident-ride-o38ls7`，尚未合併 main）：** 已保存 Windows CI 完整報告原檔並核對雜湊、完成 154／303 個未對照來源的證據分類、在新環境重跑 Linux 完整回歸、新增 Linux 回歸 CI 與 PR／手動驗證入口、修正自有 `THIRD_PARTY_NOTICES`，並提出授權提案待確認。Linux 最新回歸來源為 `582458e`；Windows 候選來源仍是 `cb8f24d`，沒有新的 Windows 執行。分支規則改為「工作分支＋PR，不直接推 main」，見第 11 節。
+
 ## 1. 接手摘要
 
 我們正在把 **Microsoft MarkItDown 包裝、擴充成 Windows 文件轉 Markdown 桌面應用程式**。使用者安裝後以圖形介面操作，執行環境、基本 OCR 與四語模型由基本包提供；額外引擎與模型透過元件管理安裝。產品一般轉換在本機完成。
@@ -12,7 +14,7 @@
 
 | 項目 | 截至本文件的狀態 |
 | --- | --- |
-| 專案 | [ChouTa-chuan/MarkItDown-exe](https://github.com/ChouTa-chuan/MarkItDown-exe)，工作同步分支為 `main` |
+| 專案 | [ChouTa-chuan/MarkItDown-exe](https://github.com/ChouTa-chuan/MarkItDown-exe)，預設分支 `main`；開發在工作分支進行，經 PR 由使用者指示後合併 |
 | 自有程式 | `markitdown-desktop` **0.19.1**，權威版號在 [pyproject.toml](pyproject.toml) |
 | 架構規劃 | **0.4**，「基本安裝包＋選配元件管理」 |
 | 上游 | Microsoft MarkItDown **0.1.9**，固定提交，MIT；vendor 保持原樣 |
@@ -20,11 +22,11 @@
 | 開發／建置基線 | CPython **3.12 x64**；套件宣告最低 Python 3.11 不代表完整 profile 在其他版本已驗 |
 | 新架構驗收 | **7/12**；C03 3/4、C04 2/4、C09 3/4、C11 2/5，GPU C12 未驗 |
 | 早期基線 | **19/25**，與新架構 C01–C12 分開計算 |
-| Linux 完整回歸 | **684 項：683 通過、1 既有 ONNX 繁中品質預期失敗、0 跳過**；混合程序與 43 獨立模組皆 exit 0 |
+| Linux 完整回歸 | **698 項：697 通過、1 既有 ONNX 繁中品質預期失敗、0 跳過**；混合程序與 45 獨立模組皆 exit 0（來源 `582458e`，Tesseract 5.3.4）。`cb8f24d` 當時為 684／683／43 模組，接手環境已獨立重跑出相同計數 |
 | Windows 基本包 | 應用 10 項、安裝／同版修復／移除 6 項、真跨版 11 項、三停點續修接受 |
 | Windows CPU 選配 | 功能 11、同版維護 8、跨版 8、程序終止／獨立恢復 6 案接受 |
 | 候選檔案清單 | 基本包 **1,655 檔**；CPU bundle **741 檔**、真正 ZIP **742 檔**，含額外 NOTICE |
-| 未關閉事項 | 來源未對照、完整 runtime SBOM／再散布、應用公開授權、乾淨機／人工、GPU 與品質矩陣 |
+| 未關閉事項 | 未對照來源中 candidate／gap 基本 49、CPU 47 項、完整 runtime SBOM／再散布、應用公開授權（[提案待確認](docs/license-proposal.md)）、乾淨機／人工、GPU 與品質矩陣 |
 | 固定進度網址 | **https://chouta-chuan.github.io/MarkItDown-exe/**，已上線並驗 HTTP 200／內容 hash |
 
 7/12 是已關閉的驗收項目數，並非工期完成百分比。部分完成與一份候選包通過，都不能直接把整個 C03／C04／C11 改為完成。
@@ -173,6 +175,9 @@ GPU 加值與 CPU 基本版交付分開排程；C12 未完成不需要阻止已�
 | Windows 基本包 run 42982427175 | app10、安裝6、0.16.0→0.19.1 真跨版11、三停點續修及資料保留 | [CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42982427175)、[公開摘要](docs/development-records/runs/candidate-inventory-ci-2026-11-11/windows-base-public-summaries.json) |
 | Windows CPU run 42982427186 | 功能11、同版8、元件1.0.0↔1.0.1跨版8、真程序終止／獨立恢復6 | [CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/42982427186)、[公開摘要](docs/development-records/runs/candidate-inventory-ci-2026-11-11/windows-cpu-public-summary.json) |
 | Pages run 43133764140 | 公開固定網址 HTTP 200，回傳 SHA-256 與產生器／已驗瀏覽器 HTML 精確一致 | [CI](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43133764140)、[發布證據](docs/development-records/runs/progress-pages-live-2026-11-12/README.md) |
+| 接手環境 Linux 684（來源 `2e06631`，程式與 `cb8f24d` 相同） | 新容器、雜湊鎖、固定四語模型：混合與 43 模組皆 684／683／1 預期失敗／0 跳過、exit 0；Tesseract 5.3.4、CPython 3.12.3，與基線版本不同 | [紀錄](docs/development-records/runs/handover-regression-2026-11-12/README.md) |
+| 新增測試後 Linux 698／45 模組（來源 `582458e`） | 697 通過、同一項預期失敗、0 跳過；混合與逐模組 exit 0。新增 14 項為來源分類與回歸 driver 的測試 | [紀錄](docs/development-records/runs/handover-ci-and-classification-2026-11-12/README.md) |
+| Windows CI 完整報告原檔 | 三份 artifact ZIP 原位元組保存；`bundle-provenance.json` 雜湊與公開摘要 `report_sha256` 相符 | [保存紀錄](docs/development-records/runs/ci-full-reports-2026-11-12/README.md) |
 
 功能／候選來源是 `cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1`，Pages 發布來源是 `bc5d601cbb9480d179edb26372891771b5fa955a`。Linux 完整回歸沿用 CPython 3.12.14、Tesseract 5.5.0、固定四語／三個 ONNX 模型及字型；環境指紋見[先前完整回歸](docs/development-records/runs/full-regression-0.19.1-2026-11-11/preflight.json)，最新測試結果仍以 684 那一輪為準。
 
@@ -192,9 +197,11 @@ Windows hosted runner 預裝開發工具與 Python，不能當作無 Python 乾�
 
 來源與收集後 binary hash 分列，PyInstaller 轉換差異會保留；不能只依檔名或位於 Python 目錄就套用某個授權。基本快照在安裝／升級／續修完成後才產生，以涵蓋 `base-install-catalog.json`；CPU 在真正 ZIP 產生後驗含 NOTICE 的全部內容／CRC／descriptor。
 
+未對照的 154／303 項已依雜湊證據分類：基本包 confirmed 73、origin-known 32、candidate 48、gap 1；CPU confirmed 227、origin-known 29、candidate 46、gap 1。candidate 主要是自 runner 系統路徑收集、僅檔名像 Microsoft runtime 的 DLL，以及基本包來源不明的 `libcrypto-3-x64`／`libssl-3-x64.dll`；gap 是未展開成員的 `base_library.zip`。分類不改變上述三個 false 旗標，見[來源分類](docs/source-classification.md)。
+
 細節見[候選清單](docs/candidate-inventory.md)、[原文追溯](docs/bundle-provenance.md)。當次 CPU ZIP hash 為 `5dee53420a4b7214fc44dbf132907a6356f63257f19bf858bb73274906083b21`，只識別那次測試候選，不代表有正式下載來源。
 
-**保存限制：** Repo 保存公開原頁、完整有界摘要、報告 hash、Linux 原始回歸及其他工程紀錄。完整逐檔 Windows JSON／原始登入 artifact 未下載，CI 保留期為七天；傳遞用 native 輸入僅同次 CI 使用、保留一天。新接手者不能宣稱所有 Windows 詳細報告永久備份，也不能從 154／303 的總數憑空補出明細。過期後應從固定來源重新建置，另存新證據。
+**保存限制：** Repo 保存公開原頁、完整有界摘要、報告 hash、Linux 原始回歸及其他工程紀錄。2026-11-12 起，run 42982427175／42982427186 的三份報告 artifact 原檔（含完整逐檔 `bundle-provenance.json`）已保存在 [ci-full-reports-2026-11-12](docs/development-records/runs/ci-full-reports-2026-11-12/README.md)；**更早各次 run 的完整報告沒有保存**，傳遞用 native 輸入（EXE／模型本體）保留一天、未保存。新接手者不能宣稱所有 Windows 詳細報告永久備份；其他 run 的明細過期後應從固定來源重新建置，另存新證據。
 
 ## 8. 建置與依賴要分清楚
 
@@ -215,6 +222,9 @@ Windows hosted runner 預裝開發工具與 Python，不能當作無 Python 乾�
 | [windows-cpu-validation.yml](.github/workflows/windows-cpu-validation.yml) | main 特定來源變動自動跑：新舊來源分開建置，驗功能／同版／跨版／恢復 |
 | [windows-build.yml](.github/workflows/windows-build.yml)、`packaging/desktop.spec`／`build-windows.ps1` | 早期完整開發包的手動工作流程；不能當作新版模組化基本包的正式發行管線 |
 | [progress-pages.yml](.github/workflows/progress-pages.yml) | 只發布進度網站；資料／模板／產生器更新後自動部署，與應用程式 Release 分開 |
+| [linux-regression.yml](.github/workflows/linux-regression.yml) | PR、main 與手動：Ubuntu 24.04 以雜湊鎖與固定四語模型跑混合＋逐模組完整回歸，測試總數由 `EXPECTED_TESTS` 固定；只上傳日誌與摘要 |
+
+兩條 Windows 驗證流程自 2026-11-12 起另接受 `pull_request`（目標 main）與 `workflow_dispatch`。PR 執行的是 GitHub 產生的暫時 merge commit，報告中的 commit 是該暫時提交；要以分支上的固定提交留存候選證據，使用 `workflow_dispatch` 指定分支，或以合併後 main 的執行為準。這些新入口與 Linux 流程已在 [PR 1 首次執行](docs/development-records/runs/pr1-ci-first-run-2026-11-12/README.md)且皆 Success（Linux 698／697／1 預期失敗／0 跳過）；`workflow_dispatch` 尚未實際使用過。
 
 原生 Windows EXE／Setup 必須在 Windows 實際建置及驗證。Linux 可做可攜核心測試、來源／PE 分析與固定輸入交叉建置；Linux 的 frozen 程式無法充作 Windows 成果。
 
@@ -306,32 +316,13 @@ mkdir /tmp/markitdown-handoff-run-1
 mkdir /tmp/markitdown-handoff-run-1/qt-runtime
 chmod 700 /tmp/markitdown-handoff-run-1/qt-runtime
 export XDG_RUNTIME_DIR=/tmp/markitdown-handoff-run-1/qt-runtime
-cat > /tmp/markitdown-handoff-run-1/mixed.py <<'PY'
-import json
-from pathlib import Path
-import sys
-import unittest
-
-def main():
-    sys.path.insert(0, str(Path.cwd() / 'scripts'))
-    from check_isolated_tests import KNOWN_EXPECTED_FAILURE
-    result = unittest.TextTestRunner(verbosity=2).run(
-        unittest.defaultTestLoader.discover('tests'))
-    expected = [test.id() for test, _ in result.expectedFailures]
-    accepted = (result.testsRun == 684 and result.wasSuccessful()
-                and not result.skipped and expected == [KNOWN_EXPECTED_FAILURE])
-    print(json.dumps(dict(run=result.testsRun, accepted=accepted,
-                          expected_failures=expected, skipped=len(result.skipped))))
-    return 0 if accepted else 1
-
-if __name__ == '__main__':
-    raise SystemExit(main())
-PY
-.venv-handoff/bin/python /tmp/markitdown-handoff-run-1/mixed.py > /tmp/markitdown-handoff-run-1/mixed.log 2>&1
-.venv-handoff/bin/python scripts/check_isolated_tests.py --expected-count 684 --output /tmp/markitdown-handoff-run-1/isolated > /tmp/markitdown-handoff-run-1/isolated.log 2>&1
+.venv-handoff/bin/python scripts/run_mixed_regression.py --expected-count 698 --output /tmp/markitdown-handoff-run-1/mixed-result.json > /tmp/markitdown-handoff-run-1/mixed.log 2>&1
+.venv-handoff/bin/python scripts/check_isolated_tests.py --expected-count 698 --output /tmp/markitdown-handoff-run-1/isolated > /tmp/markitdown-handoff-run-1/isolated.log 2>&1
 ```
 
-當前接受條件是 684 項、唯一既有 `test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap`、0 skip、混合程序 exit 0、43 個隔離模組全部 exit 0。新增測試後依真正 discovery 結果維護計數；品質修正須以原樣本／原目標證據更新預期失敗條件。不要為了變綠放寬白名單或刪斷言。
+Ubuntu 24.04 缺少的系統前置可用 `apt-get install --no-install-recommends tesseract-ocr libegl1 fonts-noto-cjk fonts-dejavu-core` 補齊；apt 提供的 Tesseract 是 5.3.4，不是歷史基線的 5.5.0，需如實記錄。缺 `libEGL.so.1` 時 Qt 測試類別會在 `setUpClass` 失敗、其下方法不會執行；缺 Tesseract 時相關測試會跳過，兩者都不算完成回歸。
+
+當前接受條件是 698 項、唯一既有 `test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap`、0 skip、混合程序 exit 0、45 個隔離模組全部 exit 0；同一條件由 [linux-regression.yml](.github/workflows/linux-regression.yml) 的 `EXPECTED_TESTS` 在 CI 執行。新增測試後依真正 discovery 結果維護計數；品質修正須以原樣本／原目標證據更新預期失敗條件。不要為了變綠放寬白名單或刪斷言。
 
 `spawn` 測試 driver 一定要有 `if __name__ == '__main__'`。判定時讀取**外層真正 process exit code**，不能只看日誌裡的 `OK`；也不能讓 `tail` 的成功蓋掉前一個測試失敗。舊 Qt teardown 失敗與錯誤暫存 driver 都已有原始紀錄，接手後不要抹除。
 
@@ -352,6 +343,15 @@ python scripts/check_bundle_provenance.py --profile cpu --bundle out/windows-cpu
 ## 10. 下一步工作，按優先順序做
 
 ### P0：取得完整待查明細並保存
+
+**2026-11-12 進度：** 第 1 步已完成（原檔與雜湊見 [ci-full-reports-2026-11-12](docs/development-records/runs/ci-full-reports-2026-11-12/README.md)），第 3、4 步已完成第一輪（[來源分類](docs/source-classification.md)與[逐檔結果](docs/development-records/runs/source-classification-2026-11-12/README.md)）。P0 尚未關閉的部分，需要在 Windows 建置時補資料：
+
+- 為自系統路徑收集的 DLL 記錄來源路徑、數位簽章與版本資源（基本 48／CPU 46 項 candidate）。
+- 查明並處理基本包的 `libcrypto-3-x64`／`libssl-3-x64.dll`（推測由 Qt TLS 外掛引入，未證實；排除會更動打包內容，需使用者同意）。
+- 產生 `base_library.zip` 與 PYZ 的成員層級清單。
+- 逐檔列出 CPython 隨附第三方元件的版本與原文。
+
+以下為原始 P0 說明，保留作為程序與完成條件的依據。
 
 當前最先接的工作是基本包 154／CPU 303 個未對照來源，以及 191／337 個需審閱檔案的分類與證據補齊。
 
@@ -375,11 +375,15 @@ gh run download 42982427186 --repo ChouTa-chuan/MarkItDown-exe --name windows-cp
 
 整理應用公開授權的待決策、Qt 對應來源／替換等要求、Microsoft／其他原生 runtime 再散布、Tesseract／模型原文、PyInstaller 啟動器原文與隨包通知。先做出具體可審閱的材料，再處理確實需要擁有者決定的項目。
 
+**2026-11-12 進度：** 可審閱材料已整理為[應用程式授權提案](docs/license-proposal.md)：自有程式擬採 MIT（不等於整個產品採 MIT），並逐項列出 Qt、Microsoft runtime、OpenSSL、CPython、Tesseract、模型、FFmpeg、GEOS 的義務與缺口。提案待使用者確認，根目錄尚未加入 `LICENSE`。自有 `THIRD_PARTY_NOTICES` 已改為分 profile 敘述。
+
 正式元件目錄 URL、維護金鑰與信任根還沒發布。測試使用臨時金鑰與 `example.invalid`，不能拿去當正式下載來源；主程式與元件更新的信任政策也不能由匯入包自行擴充。
 
 ### P2：準備測試產物，再做乾淨機／人工
 
 先準備固定 source commit、版號、SHA-256、profile、隨包原文、測試限制與操作表的基本測試 Setup；CPU 實驗選配另列。工具與報告已存在，但尚未向使用者交付安裝包。
+
+使用者指示（2026-11-12）：測試版優先規劃以 CI artifact 交付並附上述資料；必要授權與再散布門檻未關閉前，不自動對外上傳 Setup、worker 或模型，CI artifact 也屬交付、不得用來繞過門檻；暫不建立 Release／預發布或 tag。
 
 | 驗收 | 開發端可先完成 | 需要實際 Windows／使用者配合的部分 |
 | --- | --- | --- |
@@ -405,6 +409,8 @@ gh run download 42982427186 --repo ChouTa-chuan/MarkItDown-exe --name windows-cp
 | 逐次改動與版本差異 | [CHANGELOG.md](CHANGELOG.md) |
 | 過程、失敗、樣本、截圖、原始 log | [開發紀錄](docs/development-records/README.md)及各 run 的 manifest |
 | 交付缺口與驗收次序 | [windows-test-build-readiness.md](docs/windows-test-build-readiness.md) |
+| 未對照來源分類與剩餘缺口 | [source-classification.md](docs/source-classification.md) |
+| 授權提案與第三方義務 | [license-proposal.md](docs/license-proposal.md)（待確認） |
 | 原始架構圖與快照 hash | [architecture/README.md](docs/architecture/README.md) |
 
 `docs/development-status.md`、`docs/packaging.md`、`docs/packaging-profiles.md` 等文件保留早期階段敘述。它們有些「Windows 待跑」「本版完整回歸未跑」是當時狀態，閱讀時要比對日期、版號及 source；不能推翻本文件列出的較新實證，也不能把新實證倒填進舊 run。
@@ -415,7 +421,8 @@ gh run download 42982427186 --repo ChouTa-chuan/MarkItDown-exe --name windows-cp
 - 以實際證據維護本文件狀態段、`progress.json`、`validation-results.json`、CHANGELOG 與開發紀錄。只做文件更新就寫清楚未重跑產品測試，不抄舊數字冒充新執行。
 - 新證據放新的 run 目錄，保存原始失敗、樣本與 hash；不要覆寫舊附件、把真實使用者文件／環境秘密／venv／cache 加入 Git。
 - 架構圖若改動，新增快照及索引／hash；目前 28 份舊圖保持不變。本文件的責任表引用既有架構，沒有新增或更改圖。
-- 使用者已要求一般開發更新同步 GitHub。先看遠端、保留其變更、正常推送 `main`，不 force push；網站由既有 Pages workflow 自動更新。
+- 分支規則（2026-11-12 起）：在工作分支作業並同步 GitHub，獨立工作開新分支；可自行提交、推送工作分支與建立 PR。**不直接推送 `main`，合併由使用者另行指示**；不 force push、不刪除分支或標籤、不改寫歷史。進度網站只在 `main` 更新後由 Pages workflow 部署，因此工作分支上的進度資料要等合併後才會出現在固定網址。先前「正常推送 `main`」的做法自此停用。
+- 刪除檔案、更動授權、升級大版本相依套件、更改打包方式，先取得使用者同意。
 - 應用程式 Release／Setup 發布、雲端環境設定發布與進度網站發布是不同動作。已有進度網站發布授權；未另有產品發行指示時，不自行建立 Release／tag、上傳 Setup 或觸發舊手動發行 workflow。後續使用者新指示優先。
 
 更新視覺頁使用 `python scripts/build_progress.py`。如改 UI／頁面行為，可用 `scripts/check_progress_browser.py` 驗分頁、篩選、鍵盤與手機版；需要 Playwright／Chromium。只改本交接說明不需重跑原生建置、OCR 或全 684。
@@ -430,9 +437,9 @@ gh run download 42982427186 --repo ChouTa-chuan/MarkItDown-exe --name windows-cp
 
 > 請接手專案 https://github.com/ChouTa-chuan/MarkItDown-exe 。先讀根目錄 AGENTS.md、PROJECT_HANDOFF.md；若尚無 checkout，交接文件可先讀 https://raw.githubusercontent.com/ChouTa-chuan/MarkItDown-exe/main/PROJECT_HANDOFF.md 。再核對遠端 main、pyproject.toml、docs/progress.json 與最新開發紀錄。這是以 Microsoft MarkItDown 為核心的 Windows 桌面應用程式，採基本安裝包＋選配元件管理；精準模式自動分析，基本 Tesseract 四語，RAM 是軟性預算，GPU 尚未實卡驗收。
 >
-> 2026-11-12交接基線：程式0.19.1／架構0.4，C01–C12為7/12（C03 3/4、C04 2/4、C09 3/4、C11 2/5），完整684項為683 pass＋1既有ONNX繁中品質expected failure、0 skip，混合及43獨立模組exit0。真正功能／Windows候選來源cb8f24d；基本10／安裝6／跨版11／三停點續修，CPU11／同版8／跨版8／程序恢復6已接受。固定進度網站https://chouta-chuan.github.io/MarkItDown-exe/已上線。
+> 2026-11-12交接基線：程式0.19.1／架構0.4，C01–C12為7/12（C03 3/4、C04 2/4、C09 3/4、C11 2/5），完整698項為697 pass＋1既有ONNX繁中品質expected failure、0 skip，混合及45獨立模組exit0（cb8f24d當時為684／43模組）。真正功能／Windows候選來源cb8f24d；基本10／安裝6／跨版11／三停點續修，CPU11／同版8／跨版8／程序恢復6已接受。固定進度網站https://chouta-chuan.github.io/MarkItDown-exe/已上線。
 >
-> 下一項優先工作是取得或重建完整候選報告，處理基本154／CPU303個來源未對照項目與再散布義務；repo只有公開摘要／hash，完整Windows登入artifact未永久下載、保留七天，不能憑總數補造明細。普通檔案清單已驗不等於runtime SBOM或授權核准。接著準備固定版本／hash／原文與操作表的測試產物，再做無Python乾淨Windows／離線／人工／GPU驗收；目前沒有使用者可下載的正式Setup。
+> 完整候選報告原檔已保存於docs/development-records/runs/ci-full-reports-2026-11-12，基本154／CPU303個來源未對照項目已依雜湊證據分類（docs/source-classification.md）；下一項優先工作是在Windows建置補記系統DLL的來源路徑／簽章／版本、處理來源不明的OpenSSL、產生Python封存成員清單，並等使用者確認docs/license-proposal.md。更早各次run的完整報告未保存，不能憑總數補造明細。普通檔案清單已驗不等於runtime SBOM或授權核准。接著準備固定版本／hash／原文與操作表的測試產物，再做無Python乾淨Windows／離線／人工／GPU驗收；目前沒有使用者可下載的正式Setup。
 >
-> 依當下任務先完成一個具體可驗證子項，維持中文註解、CHANGELOG、開發紀錄、交接摘要與視覺進度並同步GitHub；保留舊證據／架構圖／vendor／原文／模型。不重做已完成核心，不放寬品質目標，不把模擬、跳過或expected failure當品質通過；未另有發行指示時不建立Release／tag或發布Setup。若後續提交已更新狀態，以實際來源及新證據調整這份歷史基線。
+> 在工作分支作業、推送分支並以PR提交，不直接推送main、不force push，合併由使用者指示。依當下任務先完成一個具體可驗證子項，維持中文註解、CHANGELOG、開發紀錄、交接摘要與視覺進度並同步GitHub；保留舊證據／架構圖／vendor／原文／模型。不重做已完成核心，不放寬品質目標，不把模擬、跳過或expected failure當品質通過；未另有發行指示時不建立Release／tag或發布Setup。若後續提交已更新狀態，以實際來源及新證據調整這份歷史基線。
 

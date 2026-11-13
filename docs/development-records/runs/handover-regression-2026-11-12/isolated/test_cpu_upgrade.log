@@ -1,0 +1,14 @@
+test_bad_rollback_keeps_partial_failure_report (test_cpu_upgrade.CPUUpgradeTransactionTests.test_bad_rollback_keeps_partial_failure_report) ... ok
+test_eight_real_zip_transactions_with_explicit_rollback_and_retirement (test_cpu_upgrade.CPUUpgradeTransactionTests.test_eight_real_zip_transactions_with_explicit_rollback_and_retirement) ... ok
+test_actual_legacy_and_current_fixture_processes_accept_only_selected_identity (test_cpu_upgrade.CPUVersionTests.test_actual_legacy_and_current_fixture_processes_accept_only_selected_identity) ... ok
+test_binding_passes_exact_descriptor_version (test_cpu_upgrade.CPUVersionTests.test_binding_passes_exact_descriptor_version) ... ok
+test_matching_hello_cannot_substitute_result_from_other_supported_version (test_cpu_upgrade.CPUVersionTests.test_matching_hello_cannot_substitute_result_from_other_supported_version) ... ok
+test_previous_source_guard_rejects_dirty_and_other_commits (test_cpu_upgrade.CPUVersionTests.test_previous_source_guard_rejects_dirty_and_other_commits) ... ok
+test_supported_handshake_still_requires_selected_version (test_cpu_upgrade.CPUVersionTests.test_supported_handshake_still_requires_selected_version) ... ok
+test_unknown_same_major_and_malformed_version_rejected_before_spawn (test_cpu_upgrade.CPUVersionTests.test_unknown_same_major_and_malformed_version_rejected_before_spawn) ... ok
+test_wrong_platform_cannot_create_native_report (test_cpu_upgrade.CPUVersionTests.test_wrong_platform_cannot_create_native_report) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.808s
+
+OK

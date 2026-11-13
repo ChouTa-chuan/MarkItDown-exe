@@ -1,0 +1,20 @@
+test_backup_in_unknown_parent_or_reparse_path_is_rejected (test_base_recovery.BaseRecoveryTests.test_backup_in_unknown_parent_or_reparse_path_is_rejected) ... ok
+test_entry_stops_before_diagnostics_or_report_creation (test_base_recovery.BaseRecoveryTests.test_entry_stops_before_diagnostics_or_report_creation) ... ok
+test_frozen_entry_blocks_pending_temp_and_broken_link (test_base_recovery.BaseRecoveryTests.test_frozen_entry_blocks_pending_temp_and_broken_link) ... ok
+test_inno_backup_receipt_requires_exact_known_bytes_and_preserves_file (test_base_recovery.BaseRecoveryTests.test_inno_backup_receipt_requires_exact_known_bytes_and_preserves_file) ... ok
+test_pending_marker_cannot_be_hidden_as_an_allowed_installed_extra (test_base_recovery.BaseRecoveryTests.test_pending_marker_cannot_be_hidden_as_an_allowed_installed_extra) ... ok
+test_public_summary_fits_all_stages_without_inventing_power_loss_acceptance (test_base_recovery.BaseRecoveryTests.test_public_summary_fits_all_stages_without_inventing_power_loss_acceptance) ... ok
+test_recovery_error_is_preserved_after_successful_installer_and_cleanup (test_base_recovery.BaseRecoveryTests.test_recovery_error_is_preserved_after_successful_installer_and_cleanup) ... ok
+test_recovery_names_cannot_be_owned_payload_files (test_base_recovery.BaseRecoveryTests.test_recovery_names_cannot_be_owned_payload_files) ... ok
+test_recovery_token_changes_with_real_source_catalog_bytes (test_base_recovery.BaseRecoveryTests.test_recovery_token_changes_with_real_source_catalog_bytes) ... ok
+test_registered_uninstaller_handles_changed_inno_suffix_without_shell_arguments (test_base_recovery.BaseRecoveryTests.test_registered_uninstaller_handles_changed_inno_suffix_without_shell_arguments) ... ok
+test_source_execution_is_not_blocked_by_an_unrelated_local_marker (test_base_recovery.BaseRecoveryTests.test_source_execution_is_not_blocked_by_an_unrelated_local_marker) ... ok
+test_source_rules_bind_token_and_every_final_file_hash (test_base_recovery.BaseRecoveryTests.test_source_rules_bind_token_and_every_final_file_hash) ... ok
+test_uninstaller_rejects_escape_ambiguous_missing_or_linked_registration (test_base_recovery.BaseRecoveryTests.test_uninstaller_rejects_escape_ambiguous_missing_or_linked_registration) ... ok
+test_unknown_or_changed_inno_named_file_is_never_silently_exempted (test_base_recovery.BaseRecoveryTests.test_unknown_or_changed_inno_named_file_is_never_silently_exempted) ... ok
+test_wrong_platform_never_starts_installer_or_queries_registry (test_base_recovery.BaseRecoveryTests.test_wrong_platform_never_starts_installer_or_queries_registry) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.075s
+
+OK
