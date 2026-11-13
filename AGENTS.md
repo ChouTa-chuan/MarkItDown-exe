@@ -5,7 +5,7 @@
 ## 開工
 
 - **必讀只有兩份**：本檔與根目錄 [STATUS.md](STATUS.md)。其他文件需要時才查。
-- 使用者指定未合併的分支或 PR 時，讀**該分支**的這兩份檔案，不能只讀 main；有多個目標且無法判斷時才請使用者指定。
+- **先看 PR，不要只看 main。** PR 會累積到較大的階段才合併，main 可能落後好幾個階段，連上面的規則與說明都是舊的。接手時先列出開啟中的 PR 與遠端分支，切到最新的工作分支（使用者指定的，或相疊 PR 的最上層），讀**該分支**的這兩份檔案；判斷不出哪個最新才請使用者指定。步驟與常見錯誤見 [docs/ai-handoff-workflow.md](docs/ai-handoff-workflow.md)。
 - 要追溯過去的做法、失敗或決定，查 [docs/history-index.md](docs/history-index.md) 找到那一筆再打開；不要整份翻閱開發紀錄。
 - PROJECT_HANDOFF.md、docs/development-records/README.md、docs/development-status.md、docs/validation-results.json 是背景與歷史，保留但不再更新、也不列為必讀。
 - 環境、工具權限與網路政策每個 session 自行核對；別的 session 裝過或下載過的東西不代表這裡也有。
@@ -14,7 +14,7 @@
 
 - 一律在工作分支作業並同步 GitHub，獨立工作使用新分支；可自行提交、推送自己的分支及建立 PR。**不直接推送 main，合併由使用者指示。**
 - 不強制推送、不刪除分支或標籤、不改寫歷史；一個提交只做一件事。不推送別人的工作分支。
-- 疊在未合併 PR 上的工作，要在 STATUS.md 與 PR 寫明父分支與合併順序。
+- 新工作從最新的工作分支開新分支，不從落後的 main 開；PR 目標仍設為 main（CI 只在目標為 main 的 PR 執行）。疊在未合併 PR 上的工作，要在 STATUS.md 與 PR 寫明父分支與合併順序。
 - 不把環境秘密、快取、venv 或個人文件加入版本控制。
 
 ## 文件怎麼維護
