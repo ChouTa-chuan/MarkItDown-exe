@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-13：簽章查詢修正後，CPU 元件 27 個非 wheel 原生檔全部取得有效簽章（Microsoft 或 Python Software Foundation），原生檔與未對照來源各再少 44 個（[紀錄](docs/development-records/runs/native-signatures-ci-2026-11-13/README.md)）；基本包摘要待讀。
+
 - 2026-11-13：微軟執行期調整通過 Windows CI：基本包原生檔與未對照來源各少 45 個，VC runtime 來自 Visual Studio 可再散布目錄（[紀錄](docs/development-records/runs/ms-runtime-official-source-ci-2026-11-13/README.md)）。簽章查詢因繼承的 PSModulePath 失敗，已修正待驗。Linux 全 719：718 通過／1 既有預期失敗／0 跳過。
 
 - 2026-11-13：Windows CI 摘要顯示 46 個系統 DLL 實際來自 runner 上 Java JDK 的 bin 目錄（經 PATH 收集）。改為不隨包 Universal CRT、VC runtime 取自 Visual Studio 可再散布目錄，並把簽章查詢錯誤寫進公開摘要。Linux 全 718：717 通過／1 既有預期失敗／0 跳過；Windows 效果待 CI。

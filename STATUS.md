@@ -24,7 +24,7 @@
 - PR 4 首次 Windows CI 的公開摘要顯示：基本包中 46 個檔名像 Microsoft 的系統 DLL（`api-ms-win-*`、`ucrtbase`、`msvcp140`）**不是來自 Windows 系統目錄，而是 PyInstaller 沿 PATH 從 runner 上 Java JDK 的 `bin` 目錄收進來的複本**；版本資源的公司欄為 Microsoft Corporation，但簽章欄位當次是空的，原因未明。排除的檔案確認不在候選包內（`excluded_binaries_absent: true`）。
 - 依此調整（`scripts/bundle_filters.py`、兩份 spec）：Universal CRT 是 Windows 10 以後內建的系統元件，不再隨包；來源不在 CPython 或 wheel 的 VC runtime 改從 Visual Studio 的可再散布目錄取得，找不到就中止建置。簽章查詢改為讀檔傳入路徑，並把查詢錯誤寫進公開摘要。
 - 調整後的 Windows CI 通過（[紀錄](docs/development-records/runs/ms-runtime-official-source-ci-2026-11-13/README.md)）：基本包原生檔與未對照來源各少 45 個，Java JDK 目錄不再出現，`msvcp140.dll` 來自 Visual Studio 可再散布目錄，既有自動驗收全部接受。
-- **數位簽章仍未取得**：查詢因繼承 PowerShell 7 的模組路徑而失敗，修正已提交，待下一次 CI 確認。
+- 數位簽章已取得（[紀錄](docs/development-records/runs/native-signatures-ci-2026-11-13/README.md)）：CPU 元件 27 個非 wheel 原生檔全部 `Valid`，VC runtime 由 Microsoft 簽署、其餘由 Python Software Foundation 簽署；CPU 元件原生檔與未對照來源各再少 44 個。基本包同一提交的 CI 也通過，但摘要尚未逐項讀取。
 - Linux 完整回歸通過，結果記在 `progress.json` 的 `full_regression`。
 
 ## C. 未完成、阻擋與下一步
@@ -35,7 +35,7 @@
 
 **可以直接做的下一步（依序）**
 
-1. 讀 PR 4 最新提交的 Windows CI 公開摘要，確認簽章欄位有值（`identity_errors.files` 為 0）；CPU 元件的摘要也逐項讀一次。
+1. 讀基本包最新一次 Windows CI 的公開摘要，確認簽章欄位同樣有值（run 43385475281 或之後的執行）。
 2. 通過後更新[來源分類](docs/source-classification.md)與[授權與第三方義務](docs/license-proposal.md)中 Microsoft runtime 的敘述；不隨包 Universal CRT 代表不支援 Windows 8.1 以前的系統，需寫進使用說明。
 3. 產生 `base_library.zip` 與 PYZ 的成員清單，逐檔列出 CPython 隨附元件；重新產生候選報告並重跑來源分類。
 4. 補 Qt／LGPL 的隨包說明與原始碼取得方式（見[授權與第三方義務](docs/license-proposal.md)第 3 節）；CPU 元件正式發布前重新定版（內容已因排除 FFmpeg 而不同於先前的 1.0.1）。
