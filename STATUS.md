@@ -13,8 +13,8 @@
 | PR | 分支 | 內容 | 狀態 |
 | --- | --- | --- | --- |
 | [1](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/1) | `claude/confident-ride-o38ls7` | 保存 CI 報告、來源分類、Linux CI、授權提案 | CI 通過 |
-| [2](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/2) | `claude/status-and-history-index` | 現況檔、自動索引、精簡規則、關鍵字表 | 見 PR 頁 |
-| 3 | `claude/license-and-openssl-cleanup`（目前最新） | `LICENSE`、基本包排除來源不明的 OpenSSL | 見 PR 頁 |
+| [2](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/2) | `claude/status-and-history-index` | 現況檔、自動索引、精簡規則、關鍵字表 | CI 通過 |
+| [3](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/3) | `claude/license-and-openssl-cleanup`（目前最新） | `LICENSE`、基本包排除來源不明的 OpenSSL | CI 通過 |
 
 `codex/ai-handoff-workflow-20261112` 是 Codex 提出的交接方案，內容已採納進現況檔與規則，不需要合併。
 
@@ -22,7 +22,8 @@
 
 - 加入根目錄 `LICENSE`（MIT，著作權人 周大詮 (ChouTa-chuan)），`pyproject.toml` 宣告授權，自有 `THIRD_PARTY_NOTICES` 說明 MIT 只適用自有程式。
 - 基本包打包時排除 Qt 的 OpenSSL TLS 外掛，以及它從建置機系統路徑帶進來的 `libssl-3-x64`／`libcrypto-3-x64.dll`（`scripts/bundle_filters.py`、`packaging/base.spec`）。保留 Qt 的 Schannel 後端與 CPython 自己的 OpenSSL。
-- Linux 完整回歸通過，結果記在 `progress.json` 的 `full_regression`。**Windows 上排除後的實際效果，要看 PR 3 的 Windows 基本包 CI 結果**；尚未確認前不算完成。
+- Linux 完整回歸通過，結果記在 `progress.json` 的 `full_regression`。
+- PR 3 的 Windows 基本包 CI 通過：排除後應用、安裝、跨版與續修驗收全部接受，原生檔少 3 個、未對照來源少 2 個，與排除三個檔案一致（[紀錄](docs/development-records/runs/openssl-exclusion-ci-2026-11-13/README.md)）。**逐檔清單尚未核對**：完整報告所在的儲存主機被網路政策擋下。
 
 ## C. 未完成、阻擋與下一步
 
@@ -32,7 +33,7 @@
 
 **可以直接做的下一步（依序）**
 
-1. 確認 PR 3 的 Windows 基本包 CI：應用 10 項、安裝、跨版與續修驗收通過，且報告的檔案清單中不再有上述三個檔案。失敗就查出是誰需要那份 OpenSSL，不恢復從系統路徑收集。
+1. 讓 CI 自己核對並公開關鍵檔案清單，不再依賴下載 artifact：在 Windows 驗收加入「不得出現被排除的三個檔案」的檢查，並把系統路徑來源的 DLL 清單寫進公開摘要。GitHub 的 artifact 儲存主機每次不同，逐一申請網路放行不可行。
 2. 微軟執行期程式庫改用官方來源（使用者已同意）：改從 Visual Studio 的可再散布目錄取得 VC runtime，並在建置時記錄來源路徑、數位簽章與版本；評估 `api-ms-win-*`／`ucrtbase.dll` 是否改用 Windows SDK 的可再散布目錄或不隨包。
 3. 產生 `base_library.zip` 與 PYZ 的成員清單，逐檔列出 CPython 隨附元件；之後重新產生候選報告並重跑[來源分類](docs/source-classification.md)。
 4. 補 Qt／LGPL 的隨包說明與原始碼取得方式（見[授權與第三方義務](docs/license-proposal.md)第 3 節）。

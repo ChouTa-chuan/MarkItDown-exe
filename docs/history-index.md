@@ -6,10 +6,11 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 72 筆。
+共 73 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-13 | 證據 | 基本包排除來源不明 OpenSSL 後的 Windows CI | 746c4f4 | 接受、Windows已執行 | OpenSSL排除、Qt TLS外掛、artifact下載被網路政策拒絕、儲存主機不固定 | [development-records/runs/openssl-exclusion-ci-2026-11-13/README.md](development-records/runs/openssl-exclusion-ci-2026-11-13/README.md) |
 | 2026-11-13 | 證據 | 現況檔與歷史索引上線後的完整回歸 | 15a425b | 接受、回歸703／通過702 | 現況檔、歷史索引、規則改寫 | [development-records/runs/status-and-index-2026-11-13/README.md](development-records/runs/status-and-index-2026-11-13/README.md) |
 | 2026-11-13 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-13-status-and-index.md](history/status/2026-11-13-status-and-index.md) |
 | 2026-11-12 | 證據 | Windows CI 完整報告原檔保存 | cb8f24d | 接受 | artifact下載被網路政策拒絕、CONNECT 403、artifact到期 | [development-records/runs/ci-full-reports-2026-11-12/README.md](development-records/runs/ci-full-reports-2026-11-12/README.md) |
