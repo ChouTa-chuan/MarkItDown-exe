@@ -1,4 +1,5 @@
 {
+  "superseded": "2026-11-13 起不再更新；目前的測試結果只記在 docs/progress.json 的 full_regression。以下為 2026-11-12 的紀錄。",
   "recorded_at": "2026-11-12T04:02:25+00:00",
   "platform": "Linux x86_64 / Python 3.12",
   "environment": "clean virtual environment; system-site-packages disabled",

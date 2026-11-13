@@ -1,5 +1,7 @@
 # 開發紀錄
 
+> **2026-11-13 起本頁不再追加。** 之後每個階段的經過記在 [STATUS.md](../../STATUS.md)，改寫前存檔到 `docs/history/status/`；所有紀錄可由[歷史索引](../history-index.md)查找。以下內容原樣保留。
+
 **2026-11-12｜PR 1 上新CI入口首次執行皆通過**
 
 - [PR 1](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/1)（head cd14fe7）觸發的Linux完整回歸43152427632、Windows基本包43152427580、Windows CPU選配43152427554皆Success。Linux在runner（CPython 3.12.16／Tesseract 5.3.4）為698 run／697 pass／1既有ONNX繁中預期失敗／0 skip，混合與45模組exit0；[報告原檔與說明](runs/pr1-ci-first-run-2026-11-12/README.md)保存。
