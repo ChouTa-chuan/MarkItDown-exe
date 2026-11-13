@@ -23,13 +23,15 @@
 - 加入根目錄 `LICENSE`（MIT，著作權人 周大詮 (ChouTa-chuan)），`pyproject.toml` 宣告授權，自有 `THIRD_PARTY_NOTICES` 說明 MIT 只適用自有程式。
 - 基本包打包時排除 Qt 的 OpenSSL TLS 外掛，以及它從建置機系統路徑帶進來的 `libssl-3-x64`／`libcrypto-3-x64.dll`（`scripts/bundle_filters.py`、`packaging/base.spec`）。保留 Qt 的 Schannel 後端與 CPython 自己的 OpenSSL。
 - Linux 完整回歸通過，結果記在 `progress.json` 的 `full_regression`。
+- CPU 文字辨識元件打包時排除 OpenCV 內附的 FFmpeg 影片外掛（`packaging/ocr-worker.spec`）；**Windows 上的效果待 PR 3 最新提交的 CPU 元件 CI 確認**。
+- 新增[輪替工作流 2.0](docs/ai-handoff-workflow.md)：接手時先看 PR 而非只看 main。
 - PR 3 的 Windows 基本包 CI 通過：排除後應用、安裝、跨版與續修驗收全部接受，原生檔少 3 個、未對照來源少 2 個，與排除三個檔案一致（[紀錄](docs/development-records/runs/openssl-exclusion-ci-2026-11-13/README.md)）。**逐檔清單尚未核對**：完整報告所在的儲存主機被網路政策擋下。
 
 ## C. 未完成、阻擋與下一步
 
 **等使用者決定**
 
-1. OpenCV 內的 FFmpeg（CPU 選配元件）：使用者希望保留影音能力並做成可選、可事後加裝。已說明這個 DLL 只是 OpenCV 的影片讀寫模組，不是 MarkItDown 處理影音所用的途徑；建議從 OCR 元件中排除，影音另做成獨立選配元件。等使用者確認這個做法，確認前不動 CPU 元件的內容。
+1. 圖片與影音的支援方式與排程（目前程式只接受文字、Office、HTML、PDF）：建議圖片檔走既有的本機 OCR，影音另做獨立選配元件並使用本機語音辨識；上游的語音轉文字會把音訊送到線上服務，不符合「本機完成」。尚未排入工作。
 
 **可以直接做的下一步（依序）**
 
@@ -52,7 +54,8 @@
 | 2026-11-13 | 使用者同意 | 舊證據不改動，只為有失敗紀錄的 20 筆在 `docs/history/keywords.json` 補關鍵字 |
 | 2026-11-13 | 使用者決定 | 自有程式採 MIT，著作權人「周大詮 (ChouTa-chuan)」；專案由使用者主導、以不同 AI 工具開發，早期 Codex 產生的提交一併適用，不需另外聲明 |
 | 2026-11-13 | 使用者決定 | PR 是階段小成果，累積到較大的階段或里程碑再一起合併 |
-| 2026-11-13 | 使用者同意 | 排除 Qt TLS 外掛與來源不明的 OpenSSL；微軟執行期改用官方來源。FFmpeg 不直接移除，待確認做法 |
+| 2026-11-13 | 使用者同意 | 排除 Qt TLS 外掛與來源不明的 OpenSSL；微軟執行期改用官方來源；從 CPU 文字辨識元件排除 OpenCV 內附的 FFmpeg，影音日後另做獨立選配元件 |
+| 2026-11-13 | 使用者指示 | 輪替工作流要讓接手的 AI 注意 PR 而非只看 main |
 
 ## 接手指令
 
