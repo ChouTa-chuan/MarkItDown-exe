@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-13：Windows CI 摘要顯示 46 個系統 DLL 實際來自 runner 上 Java JDK 的 bin 目錄（經 PATH 收集）。改為不隨包 Universal CRT、VC runtime 取自 Visual Studio 可再散布目錄，並把簽章查詢錯誤寫進公開摘要。Linux 全 718：717 通過／1 既有預期失敗／0 跳過；Windows 效果待 CI。
+
 ### 2026-11-13｜PR 1–3合併；CI自行檢查排除檔案並記錄原生檔來源與簽章
 
 - 程式0.19.1／架構0.4不變。使用者指示合併PR 1、2、3（main為`747edba`），現行規則與現況檔已在main；本階段分支`claude/ci-self-check-and-ms-runtime`由main開出。

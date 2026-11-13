@@ -21,7 +21,9 @@
 
 - 建置時為非 wheel 來源的原生檔（建置用 CPython 目錄、系統路徑）記錄來源目錄、PE 版本資源與 Windows 數位簽章（`scripts/native_identity.py`）。
 - 隨包檢核（`scripts/check_bundle_provenance.py`）把上述資料依來源目錄與簽署者分組寫進 CI 公開摘要，並在候選包出現已決定排除的檔案（來源不明的 OpenSSL、OpenCV 的 FFmpeg）時直接拒絕。之後不必下載 artifact 也能核對。
-- Linux 完整回歸通過，結果記在 `progress.json` 的 `full_regression`。**Windows 上實際產出的來源與簽章資料，要看本階段 PR 的 Windows CI**；那份資料出來前，系統 DLL 的發行者仍屬未證實。
+- PR 4 首次 Windows CI 的公開摘要顯示：基本包中 46 個檔名像 Microsoft 的系統 DLL（`api-ms-win-*`、`ucrtbase`、`msvcp140`）**不是來自 Windows 系統目錄，而是 PyInstaller 沿 PATH 從 runner 上 Java JDK 的 `bin` 目錄收進來的複本**；版本資源的公司欄為 Microsoft Corporation，但簽章欄位當次是空的，原因未明。排除的檔案確認不在候選包內（`excluded_binaries_absent: true`）。
+- 依此調整（`scripts/bundle_filters.py`、兩份 spec）：Universal CRT 是 Windows 10 以後內建的系統元件，不再隨包；來源不在 CPython 或 wheel 的 VC runtime 改從 Visual Studio 的可再散布目錄取得，找不到就中止建置。簽章查詢改為讀檔傳入路徑，並把查詢錯誤寫進公開摘要。
+- Linux 完整回歸通過，結果記在 `progress.json` 的 `full_regression`。**上述調整在 Windows 上是否可行、簽章是否取得，待 PR 4 最新提交的 CI**。
 
 ## C. 未完成、阻擋與下一步
 
@@ -31,8 +33,8 @@
 
 **可以直接做的下一步（依序）**
 
-1. 讀本階段 PR 的 Windows CI 公開摘要（`non_wheel_native`、`excluded_binaries_absent`），確認系統 DLL 實際來自哪些目錄、由誰簽署。
-2. 依上一步的實際資料，把微軟執行期程式庫改用官方來源（使用者已同意）：VC runtime 取自 Visual Studio 的可再散布目錄；`api-ms-win-*`／`ucrtbase.dll` 是 Windows 10 以後內建的系統元件，評估不隨包。變更後以 Windows CI 驗證，並更新[來源分類](docs/source-classification.md)。
+1. 讀 PR 4 最新提交的 Windows CI 公開摘要：確認不再有來自 JDK 目錄的檔案、VC runtime 來自 Visual Studio 可再散布目錄、簽章欄位有值（或 `identity_errors` 說明原因），且應用、安裝、跨版、續修驗收仍通過。失敗就依錯誤修正，不恢復從 PATH 收集。
+2. 通過後更新[來源分類](docs/source-classification.md)與[授權與第三方義務](docs/license-proposal.md)中 Microsoft runtime 的敘述；不隨包 Universal CRT 代表不支援 Windows 8.1 以前的系統，需寫進使用說明。
 3. 產生 `base_library.zip` 與 PYZ 的成員清單，逐檔列出 CPython 隨附元件；重新產生候選報告並重跑來源分類。
 4. 補 Qt／LGPL 的隨包說明與原始碼取得方式（見[授權與第三方義務](docs/license-proposal.md)第 3 節）；CPU 元件正式發布前重新定版（內容已因排除 FFmpeg 而不同於先前的 1.0.1）。
 5. 準備測試用安裝包與驗收表，再做乾淨 Windows 與人工驗收。GPU 延後。

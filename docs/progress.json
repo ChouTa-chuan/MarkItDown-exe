@@ -1,7 +1,7 @@
 {
   "updated": "2026-11-13",
-  "environment": "Linux · Python3.12.3／Tesseract5.3.4；0.19.1全713／48模組exit0；Windows hosted證據（cb8f24d）另列",
-  "tests_passed": 712,
+  "environment": "Linux · Python3.12.3／Tesseract5.3.4；0.19.1全718／48模組exit0；Windows hosted證據（cb8f24d）另列",
+  "tests_passed": 717,
   "headline": "PR 1–3已合併main；自有程式採MIT；來源不明OpenSSL與FFmpeg已排除並通過Windows CI；全713項正常退出",
   "blocker": "系統DLL發行者待CI資料證實、微軟執行期來源、Python封存成員、Qt／LGPL隨包說明、runtime SBOM／再散布、乾淨機／人工／GPU仍待。",
   "next": "讀Windows CI的來源與簽章摘要，據以把微軟執行期改用官方來源，再重產候選報告與準備測試產物。",
@@ -257,7 +257,7 @@
     "2026-11-12：0.19.1完整698（697通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與45模組exit0；Tesseract5.3.4／CPython3.12.3與先前基線不同。未對照來源已分類但candidate／gap基本49、CPU47仍待，授權提案未確認，沒有新的Windows執行。",
     "2026-11-13：完整703（702通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與46模組exit0；新增項目為歷史索引測試，沒有新的Windows執行。"
   ],
-  "tests_run": 713,
+  "tests_run": 718,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1287,11 +1287,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "d8f79f44a0934ffc3bcba6e793fc32ad388e8bd8",
+    "source_commit": "d8df2ef299d7422d6b94d45470d9a1f1f5f4c997",
     "date_taipei": "2026-11-13",
     "accepted": true,
-    "run": 713,
-    "passed": 712,
+    "run": 718,
+    "passed": 717,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
