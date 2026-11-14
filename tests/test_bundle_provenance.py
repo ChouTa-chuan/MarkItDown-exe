@@ -51,6 +51,19 @@ class ProvenanceTests(unittest.TestCase):
         self.assertFalse(report['redistribution_approved']);self.assertFalse(report['release_ready'])
         self.assertFalse(report['native_execution_performed'])
 
+    def test_excluded_binary_in_bundle_is_rejected_and_identity_fields_are_carried(self):
+        self.native['files'][0].update(source_directory='C:/Windows/System32', signature_status='Valid',
+                                       signer='CN=Fixture')
+        self.save(self.assets/'native/manifest.json', self.native)
+        report = self.check()
+        self.assertTrue(report['excluded_binaries_absent'])
+        self.assertEqual((report['native_files'][0]['source_directory'], report['native_files'][0]['signer']),
+                         ('C:/Windows/System32', 'CN=Fixture'))
+        self.assertNotIn('company', report['native_files'][0])
+        self.write(self.bundle/'_internal/cv2/opencv_videoio_ffmpeg500_64.dll', b'should have been excluded')
+        with self.assertRaisesRegex(ValueError, 'Excluded binaries present'):
+            self.check()
+
     def test_changed_original_is_rejected(self):
         (self.assets/'installed/markitdown-desktop/original/LICENSE.txt').write_bytes(b'changed')
         with self.assertRaisesRegex(ValueError,'Fingerprint mismatch'):self.check()

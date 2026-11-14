@@ -8,7 +8,7 @@ root = Path(SPECPATH).parent
 sys.path.insert(0, str(root/'scripts'))
 from prepare_base_assets import refresh_manifest
 from prepare_worker_assets import native_notices
-from bundle_filters import drop_untracked_openssl
+from bundle_filters import drop_os_ucrt, drop_untracked_openssl, find_vc_redist, official_vc_runtime
 from desktop_app.build_profile import load_profile, verify_assets
 
 assets = Path(os.environ['MARKITDOWN_BASE_ASSETS'])
@@ -40,6 +40,15 @@ analysis = Analysis([str(root/'packaging/desktop_entry.py')], pathex=[str(root/'
 # 必須在記錄 binary 來源之前做，隨包清單才與實際內容一致。
 analysis.binaries, dropped_openssl = drop_untracked_openssl(analysis.binaries)
 print('Excluded untracked OpenSSL binaries:', dropped_openssl)
+# Windows：Universal CRT 由作業系統提供、不隨包；來源不在 CPython 或 wheel 的 VC runtime 改用
+# Visual Studio 可再散布目錄的檔案。必須在記錄 binary 來源之前做。
+if sys.platform == 'win32':
+    import sysconfig
+    analysis.binaries, dropped_ucrt = drop_os_ucrt(analysis.binaries)
+    analysis.binaries, replaced_vc = official_vc_runtime(
+        analysis.binaries, find_vc_redist(), (sys.base_prefix, sysconfig.get_path('purelib')))
+    print('Excluded OS Universal CRT files:', len(dropped_ucrt))
+    print('VC runtime taken from the official redistributable directory:', replaced_vc)
 # 保存此輪真正收集的 binary 來源；更新資產雜湊後再交給 COLLECT。
 native_root = assets/'licenses/native'
 native_notices(analysis.binaries, native_root)

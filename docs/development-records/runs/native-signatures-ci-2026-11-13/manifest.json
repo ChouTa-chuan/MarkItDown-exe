@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "tested_source": "8e4dc2d02fc4c4882c2eebff258fcd6a60440951",
+  "pr_merge_commit": "159da419467eb9fcd401861d8d241d076594e8f4",
+  "pull_request": 4,
+  "accepted": true,
+  "windows_executed": true,
+  "workflow_runs": [
+    43385475364,
+    43385475281,
+    43385475418
+  ],
+  "signatures_obtained": true,
+  "base_summary_read": false,
+  "release_ready": false,
+  "keywords": [
+    "數位簽章取得",
+    "PSModulePath修正",
+    "VC runtime由Microsoft簽署",
+    "CPython由PSF簽署",
+    "CPU元件未對照259"
+  ],
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 3133,
+      "sha256": "fcadfeb0b683666c15eced8e12ee3e9a70f7182dbae4910f8a8a193556683543"
+    }
+  ]
+}

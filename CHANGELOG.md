@@ -4,6 +4,22 @@
 
 ## 更新中
 
+- 2026-11-14：AGENTS.md 新增「多個 AI 輪替」：以 PR 為交棒單位、接手從最新工作分支開新分支、不推送他人分支、共用檔案衝突的處理方式。
+
+- 2026-11-13：簽章查詢修正後，CPU 元件 27 個非 wheel 原生檔全部取得有效簽章（Microsoft 或 Python Software Foundation），原生檔與未對照來源各再少 44 個（[紀錄](docs/development-records/runs/native-signatures-ci-2026-11-13/README.md)）；基本包摘要待讀。
+
+- 2026-11-13：微軟執行期調整通過 Windows CI：基本包原生檔與未對照來源各少 45 個，VC runtime 來自 Visual Studio 可再散布目錄（[紀錄](docs/development-records/runs/ms-runtime-official-source-ci-2026-11-13/README.md)）。簽章查詢因繼承的 PSModulePath 失敗，已修正待驗。Linux 全 719：718 通過／1 既有預期失敗／0 跳過。
+
+- 2026-11-13：Windows CI 摘要顯示 46 個系統 DLL 實際來自 runner 上 Java JDK 的 bin 目錄（經 PATH 收集）。改為不隨包 Universal CRT、VC runtime 取自 Visual Studio 可再散布目錄，並把簽章查詢錯誤寫進公開摘要。Linux 全 718：717 通過／1 既有預期失敗／0 跳過；Windows 效果待 CI。
+
+### 2026-11-13｜PR 1–3合併；CI自行檢查排除檔案並記錄原生檔來源與簽章
+
+- 程式0.19.1／架構0.4不變。使用者指示合併PR 1、2、3（main為`747edba`），現行規則與現況檔已在main；本階段分支`claude/ci-self-check-and-ms-runtime`由main開出。
+- 新增`scripts/native_identity.py`：建置時為CPython目錄與系統路徑收集的原生檔記錄來源目錄、PE版本資源與Windows數位簽章。相對前版，報告不再只有雜湊。
+- 隨包檢核在公開摘要輸出分組後的來源／簽署者，並在候選包出現已排除的檔案時拒絕；不必下載artifact即可核對。
+- 驗證：Linux全713：712通過／1既有ONNX繁中品質預期失敗／0跳過，混合及48模組exit0。**Windows上的實際輸出待本階段PR的CI**；未執行GPU或人工驗收。
+- 未完成：微軟執行期改用官方來源、Python封存成員清單、Qt／LGPL隨包說明。7/12、C04 2/4、C11 2/5不變。
+
 - 2026-11-13：PR 3 的 Windows CPU 元件 CI 通過，排除 FFmpeg 後既有驗收全部接受，元件 ZIP 由約 106 MB 降為約 93 MB；逐檔清單未核對（[紀錄](docs/development-records/runs/ffmpeg-exclusion-ci-2026-11-13/README.md)）。
 
 - 2026-11-13：CPU 文字辨識元件排除 OpenCV 內附的 FFmpeg 影片外掛（Windows 效果待 CI）；新增輪替工作流 2.0 並在 AGENTS.md 要求接手時先看 PR。Linux 全 707：706 通過／1 既有預期失敗／0 跳過，混合及 47 模組 exit0。
