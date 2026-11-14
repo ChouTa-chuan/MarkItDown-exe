@@ -70,6 +70,20 @@ SOFTWARE.
 | pypdfium2 5.14.0／PDFium | 基本包 | BSD-3-Clause、Apache-2.0 與相依授權 | 套件原文 | PDFium 內含第三方的清單需確認已隨包 |
 | certifi、tqdm | 基本包／CPU build 環境 | MPL-2.0 | 套件原文 | MPL 要求保留原文並提供該檔案原始碼的取得方式；tqdm 是否進入 runtime【待確認】 |
 
+### 3.1.1 2026-11-13 之後的處理情形
+
+上表是提案當時的狀態。之後已處理的項目如下，依據都是 Windows CI 的公開摘要：
+
+| 元件 | 處理 | 仍待 |
+| --- | --- | --- |
+| Microsoft Universal CRT | 不再隨包，由 Windows 10 以後的作業系統提供 | 使用說明已註明系統需求；乾淨的 Windows 10／11 尚未實機驗證 |
+| Microsoft Visual C++ runtime | `msvcp140*.dll` 改取自 Visual Studio 2022 的可再散布目錄（`Microsoft.VC143.CRT`，14.44.35112），簽章有效、簽署者為 Microsoft；CPython 隨附的 `vcruntime140*.dll` 同樣由 Microsoft 簽署 | 對照 Microsoft 可再散布清單逐檔確認、隨包附上對應條款說明 |
+| OpenSSL（來源不明的 `-x64` 版本） | 已排除，CI 檢查其不得再出現 | 無；CPython 隨附的 OpenSSL 另屬 CPython 一項 |
+| OpenCV 內的 FFmpeg | 已從 CPU 元件排除 | 影音功能日後另做獨立選配元件時，再處理 FFmpeg 的 LGPL 義務 |
+| 自有程式授權 | 已採 MIT 並加入 `LICENSE` | 確認隨包通知已含自有授權原文 |
+
+Qt／LGPL、CPython 隨附元件逐檔清單、GEOS、PP-OCR 模型授權仍如上表所列，尚未處理。
+
 ### 3.2 其餘套件
 
 基本包其餘 runtime 套件的宣告授權為 MIT、BSD、Apache-2.0、PSF 或其組合（beautifulsoup4、cffi、charset-normalizer、click、cobble、cryptography、defusedxml、et-xmlfile、flatbuffers、idna、lxml、magika、mammoth、markdownify、numpy、onnxruntime、openpyxl、packaging、pandas、pdfminer-six、pdfplumber、pillow、protobuf、psutil、pycparser、python-dateutil、python-pptx、requests、six、soupsieve、typing-extensions、tzdata、urllib3、xlsxwriter）。主要義務是保留著作權與授權聲明，現有機制已把安裝套件的原文收進包內；逐一對照原生程式庫內含的第三方（例如 numpy、pillow、lxml、cryptography 的 wheel 內建程式庫）仍屬 runtime SBOM 的未完成部分。

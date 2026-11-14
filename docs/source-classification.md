@@ -48,7 +48,27 @@ status 的意思：**confirmed**＝來源由雜湊或同次建置清單證明；
 | `system-native` | 48 | 46 | 見下節 |
 | `archive-members-not-enumerated` | 1 | 1 | `base_library.zip` |
 
-## 仍未關閉的項目
+## 2026-11-13 之後的變化
+
+上面的數字是 source `cb8f24d` 候選的分類結果，保留作為當時的紀錄。之後的建置調整已改變候選包內容，以下數字取自 PR 3、PR 4 的 Windows CI 公開摘要（暫時合併提交上的驗證，不是新的候選證據；逐檔分類尚未對新候選重跑）。
+
+| 項目 | `cb8f24d` 候選 | 調整後 |
+| --- | ---: | ---: |
+| 基本包來源未對照 | 154 | 107 |
+| 基本包 Analysis 原生檔 | 201 | 153 |
+| CPU 元件來源未對照 | 303 | 259 |
+| CPU 元件 Analysis 原生檔 | 106 | 61 |
+
+對應下節各項的現況：
+
+- **第 1 項（系統路徑收集的 DLL）已處理。** CI 記錄的來源目錄顯示，這些檔案是 PyInstaller 沿 PATH 從 runner 上 Java JDK 的 `bin` 目錄收進來的複本。現在 Universal CRT（`api-ms-win-*`、`ucrtbase.dll`）不再隨包，由 Windows 10 以後的作業系統提供；`msvcp140*.dll` 改取自 Visual Studio 的可再散布目錄，數位簽章有效、簽署者為 Microsoft（[紀錄](development-records/runs/ms-runtime-official-source-ci-2026-11-13/README.md)、[簽章](development-records/runs/native-signatures-ci-2026-11-13/README.md)）。
+- **第 2 項（基本包來源不明的 OpenSSL）已處理。** 排除 Qt 的 OpenSSL TLS 外掛與那兩個 DLL；CI 會在它們再度出現時直接失敗（[紀錄](development-records/runs/openssl-exclusion-ci-2026-11-13/README.md)）。「由 Qt TLS 外掛引入」仍是推測，但排除後兩個檔案確實不再被收集。
+- **第 3 項（CPython 隨附元件）部分處理。** 來源目錄與簽章已記錄：基本包 27 個、CPU 元件 25 個檔案來自 python.org 發行的 CPython 3.12.10，簽章有效（Python Software Foundation 或 Microsoft）。逐檔列出隨附第三方（OpenSSL、libffi、SQLite）的版本與原文仍未做。
+- **第 4 項（`base_library.zip`）進行中**，見 [STATUS.md](../STATUS.md)。
+- **第 5 項不變。**
+- CPU 元件另排除了 OpenCV 內附的 FFmpeg 影片外掛（[紀錄](development-records/runs/ffmpeg-exclusion-ci-2026-11-13/README.md)）。
+
+## 仍未關閉的項目（`cb8f24d` 當時）
 
 1. **系統路徑收集的 DLL（基本 48／CPU 46，candidate）。** `api-ms-win-*`（44／43 個）、`ucrtbase.dll`、`msvcp140.dll`、CPU 的 `MSVCP140_1.dll` 檔名符合 Microsoft Universal CRT／Visual C++ runtime，但報告沒有記錄來源路徑、數位簽章或版本資源，不能只靠檔名確認發行者。需要在 Windows 建置時補記這三項，再對照 Microsoft 再散布條款。
 2. **基本包的 `libcrypto-3-x64.dll`、`libssl-3-x64.dll`（candidate）。** 這兩個檔案是從 hosted runner 的**系統路徑**收集，雜湊與大小都和 CPython 隨附的 `libcrypto-3.dll`／`libssl-3.dll` 不同（6,946,448 對 5,231,472 位元組）。也就是候選包帶了一份來源不明、隨 runner 映像變動的 OpenSSL。這是重現性與再散布風險：候選包同時含 Qt 的 `PySide6/plugins/tls/qopensslbackend.dll`，**推測**是這個 Qt TLS 外掛的相依讓 PyInstaller 從系統路徑收進 OpenSSL，尚未在 Windows 上以相依分析證實。應用程式本身不需要 Qt 網路 TLS 時，排除該外掛即可同時移除這兩個檔案。此項會更動打包內容，需要擁有者同意，尚未處理。
