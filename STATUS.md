@@ -12,7 +12,7 @@
 | --- | --- |
 | 本輪 main 起點 | **main 已合併 PR 1–11**，`e23d383b7f38ac95c4b883513834abfd8f814600`；A5b／A5c 已由 Claude reviewer 通過 |
 | 本輪分支 | `codex/a6-fixed-candidate-20261117`，自己的新分支；沒有推送其他 AI 分支或直接推 main |
-| 本輪 PR | A6 即將建立；最終 CI 與 Merge 結果以 PR 為準，CPU 固定候選尚缺新版審閱實證，現在不可合併 |
+| 本輪 PR | A6 [PR #12](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/12) 已建立；最終 CI 與 Merge 結果以 PR 為準，CPU 固定候選尚缺新版審閱實證，現在不可合併 |
 | 固定來源 | `8285450226abe1381e6a357e8bd33bff1ad46e0e`；基本包已驗，CPU 重送驗證執行中，PR 暫時 merge 不取代此候選 |
 
 ## B. 這個階段完成了什麼

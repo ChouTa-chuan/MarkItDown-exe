@@ -3157,6 +3157,8 @@
     "evidence": "development-records/runs/a6-fixed-review-2026-11-17/README.md",
     "review": "a6-source-review.md",
     "reviewer": "Codex self-review; no independent Claude review claimed",
-    "final_head_requires_ci": true
+    "final_head_requires_ci": true,
+    "pr": 12,
+    "pr_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/12"
   }
 }
