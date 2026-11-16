@@ -14,7 +14,7 @@
 | --- | --- | --- | --- |
 | 1–3 | — | 已合併，`main` 為 `747edba` | 已合併 |
 | [4](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/4) | `claude/ci-self-check-and-ms-runtime` | CI 自行檢查排除檔案、原生檔來源與簽章、微軟執行期改用官方來源、AI 輪替規則、Claude 三角色設定 | CI 通過 |
-| 5 | `claude/python-archive-inventory`（目前最新） | Python 模組來源清單、`base_library.zip` 成員列舉、文件更新 | 見 PR 頁 |
+| [5](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/5) | `claude/python-archive-inventory`（目前最新） | Python 模組來源清單、`base_library.zip` 成員列舉、文件更新 | CI 通過 |
 
 `codex/ai-handoff-workflow-20261112` 的內容已採納，不需要合併。
 
@@ -25,7 +25,7 @@
 - **A1 Python 模組來源清單**：建置時把每個純 Python 模組記為標準庫、具體套件、自有程式或不明，寫入隨包的 `python-modules.json`；隨包檢核列舉 `base_library.zip` 成員，並把分類計數寫進 CI 公開摘要（`scripts/python_archive_inventory.py`）。reviewer 確認七項驗收條件通過，五項建議已修正。
 - **A2 文件**：[來源分類](docs/source-classification.md)與[授權與第三方義務](docs/license-proposal.md)補記微軟執行期、OpenSSL、FFmpeg 的處理現況；使用說明註明需要 64 位元 Windows 10／11。
 - 基本包的數位簽章已確認（run 43385475281）：28 個非 wheel 原生檔全部有效，自建的 `tesseract.exe` 未簽章屬預期。
-- Linux 完整回歸通過，結果記在 `progress.json` 的 `full_regression`。**`python-modules.json` 在 Windows 上的實際輸出要看 PR 5 的 Windows CI**；reviewer 在 Linux 以真實打包分析試跑的結果是 1,655 個模組中 6 個無法歸屬。
+- Linux 完整回歸通過，結果記在 `progress.json` 的 `full_regression`。PR 5 的 Windows CI 已產出清單（[紀錄](docs/development-records/runs/python-archive-inventory-ci-2026-11-16/README.md)）：基本包 1,715 個模組中 5 個無法歸屬（全為 setuptools 隨附子套件），CPU 元件 562 個全部可歸屬；既有自動驗收全部通過。
 
 ## C. 未完成、阻擋與下一步
 
@@ -36,7 +36,7 @@
 
 **可以直接做的下一步（依序）**
 
-1. 讀 PR 5 的 Windows CI 公開摘要中的 `python_archives`：各來源的模組數、不明的數量與名稱、`base_library` 成員數；確認摘要沒有被公開頁截斷，且應用、安裝、跨版、續修驗收仍通過。不明的模組逐一查明原因。
+1. 查明基本包那 5 個 setuptools 子套件為何被收進來、是否需要隨包（setuptools 為 MIT，授權風險低）。
 2. **A3 Qt／LGPL 隨包說明**：在基本包加入說明檔，寫明 Qt 以 LGPL-3.0 使用、授權原文在包內的位置、對應原始碼的取得方式、如何替換 Qt 程式庫。每個連結都要有依據（可用 `src/desktop_app/data/licenses/windows/inventory.json` 記錄的補充來源），不憑印象寫網址。
 3. 逐檔列出 CPython 隨附第三方元件（OpenSSL、libffi、SQLite）的版本與原文。
 4. 大階段 A 完成後由規劃者整體確認，再評估 `runtime_sbom_complete` 是否有條件改為 true；之後重新產生候選報告並重跑來源分類。

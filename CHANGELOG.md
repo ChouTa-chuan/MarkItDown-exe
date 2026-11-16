@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-16：PR 5 的 Windows CI 通過並首次輸出 Python 模組清單：基本包 1,715 個模組中 5 個無法歸屬（setuptools 隨附子套件），CPU 元件 562 個全部可歸屬（[紀錄](docs/development-records/runs/python-archive-inventory-ci-2026-11-16/README.md)）。
+
 ### 2026-11-16｜Python 模組來源清單與封存成員列舉；三角色分工啟用
 
 - 程式0.19.1／架構0.4不變；分支`claude/python-archive-inventory`疊在PR 4之上，未合併main。

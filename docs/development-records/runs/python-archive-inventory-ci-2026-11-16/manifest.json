@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "source_version": "0.19.1",
+  "architecture_version": "0.4",
+  "tested_source": "c49c72922de07f5d3935783d7a326f7c0926288d",
+  "pr_merge_commit": "9c5110a8c18e86f07b98ea84bc130651119328b7",
+  "pull_request": 5,
+  "accepted": true,
+  "windows_executed": true,
+  "workflow_runs": [
+    43792126130,
+    43792126123,
+    43792126120
+  ],
+  "release_ready": false,
+  "keywords": [
+    "Python模組清單",
+    "base_library成員",
+    "setuptools不明模組"
+  ],
+  "records": [
+    {
+      "file": "README.md",
+      "bytes": 2558,
+      "sha256": "76266fa7c63754f515a3e3cc4db3242d2573bd85e48d7934c81afbd192ea98f0"
+    }
+  ]
+}
