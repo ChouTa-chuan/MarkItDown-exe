@@ -2,9 +2,9 @@
   "updated": "2026-11-16",
   "environment": "Linux · Python3.12.3／Tesseract5.3.4；A5本機完整回歸與Windows hosted基本包／CPU逐檔驗證已通過；原固定候選仍cb8f24d",
   "tests_passed": 760,
-  "headline": "A4完成（PR #8），A5逐檔CPython版本／原文完成（PR #9）；A5起點main已合併PR1–8，接續A5b",
+  "headline": "main已合併PR1–9；A4／A5完成且Claude reviewer通過，A5b開始Qt來源對應",
   "blocker": "A5實證已補齊；libffi仍僅建置宣告；Qt原始碼、runtime SBOM／再散布、乾淨機／人工／GPU仍待。",
-  "next": "接手A5b：Qt本體原始碼位置及版本對應；PR #9最終head全CI通過後一般Merge，合併狀態以PR為準，再開新分支。A6固定候選整體審查仍待。",
+  "next": "main 已合併 PR 1–9；本輪 A5b 補齊 Qt 原始碼與版本對應，之後另開 A5c PR 補強 A5 驗收，全部 Windows CI 通過才合併；再接 A6 固定候選整體審閱。",
   "milestones": [
     {
       "id": "m0",
@@ -2172,7 +2172,7 @@
     },
     "ci_evidence": "development-records/runs/a5-pr9-ci-2026-11-16/README.md",
     "merge_status_source": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/9",
-    "final_documentation_head_requires_ci": true,
+    "final_documentation_head_requires_ci": false,
     "observed_version_scope": "build-interpreter-loaded-source-hash-matched-to-collected-originals",
     "windows_base": {
       "components": {
@@ -2456,6 +2456,18 @@
         "base_library_members": 155
       },
       "provenance_report_sha256": "84f4398c846b908f2520430493e74198b09c2d6a384cf25b2494809a50687501"
+    },
+    "merged": true,
+    "stage_closed": true,
+    "merge_commit": "c51089a258b820b95af51816e516a05300dfb7c4",
+    "reviewer_confirmation": "User confirmed Claude reviewer passed program, originals, evidence and tests on 2026-11-16",
+    "final_ci_head": "944ef1279c82b0d50b8bd6becc961dce976e7ce6",
+    "final_ci_merge_sha": "1c96b7cce8fa2b75ecf40692837ff9f9e3520c63",
+    "final_ci_runs": {
+      "linux": 43824614323,
+      "base": 43824614148,
+      "cpu": 43824614112,
+      "history": 43824614093
     }
   }
 }

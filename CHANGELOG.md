@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-16：A5b 第一個提交依使用者要求恢復 STATUS D 節歷史使用者決定原文，維護規則明列不因精簡合併或刪除；main／next 更新為已合併 PR 1–9，A5 CI README 補最終 head 的四條 run（先另存原版，原始 JSON 不變）。A5c 三項列為獨立 PR 待辦，本輪不實作。
+
 ### 2026-11-16｜A5 Windows 實證完成（PR #9）
 
 - 相對前次只有 Linux 本機結果，Windows 基本包與 CPU 已通過既有驗收及新增逐檔來源／原文查驗；OpenSSL／SQLite 觀測與官方建置版本相符，libffi 仍明列僅建置宣告。實際 source hash 對應建置程序載入的來源檔，不冒充 frozen 候選獨立二進位認證。

@@ -22,7 +22,17 @@
     "來源指紋"
   ],
   "files": {
-    "README.md": "94df4976ed0758d58a81ee1bc3b9efeb650f1c61341d0b9cf1472a7305d240dc",
+    "README.md": "b6c3dde246a9d61f2571c6a72753ff255e4039d665de3916500f736638c79c42",
     "ci-results.json": "f2d73466eaca030a73ce94b5e453cc5a4a8d08759737fec0fcfb97d8f04d1adf"
-  }
+  },
+  "amendments": [
+    {
+      "date": "2026-11-16",
+      "reason": "User explicitly requested final-head four CI run references in A5 README",
+      "previous_readme_sha256": "94df4976ed0758d58a81ee1bc3b9efeb650f1c61341d0b9cf1472a7305d240dc",
+      "original_readme": "../a5b-handoff-corrections-2026-11-16/a5-README-before-a5b.md",
+      "original_manifest": "../a5b-handoff-corrections-2026-11-16/a5-manifest-before-a5b.json",
+      "raw_ci_results_unchanged": true
+    }
+  ]
 }

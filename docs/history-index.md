@@ -6,7 +6,7 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 89 筆。
+共 91 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -14,11 +14,13 @@
 | 2026-11-16 | 證據 | A4：setuptools 匯入來源與基本包排除驗證 | 8c26451 | 接受 | A4、setuptools、namespace、PyInstaller、基本包排除、Linux frozen、PR API限制 | [development-records/runs/a4-setuptools-audit-2026-11-16/README.md](development-records/runs/a4-setuptools-audit-2026-11-16/README.md) |
 | 2026-11-16 | 證據 | A5：CPython 隨附元件逐檔版本與原文 | 2104418 | 接受 | A5、CPython、OpenSSL、libffi、SQLite、原文、109基準、A4現況修正 | [development-records/runs/a5-cpython-components-2026-11-16/README.md](development-records/runs/a5-cpython-components-2026-11-16/README.md) |
 | 2026-11-16 | 證據 | A5：PR 9 Windows 逐檔元件驗證 | 3ef16b6 | 接受、Windows已執行 | A5、CPython、OpenSSL、libffi、SQLite、逐檔、Windows、PR9、原文、來源指紋 | [development-records/runs/a5-pr9-ci-2026-11-16/README.md](development-records/runs/a5-pr9-ci-2026-11-16/README.md) |
+| 2026-11-16 | 證據 | A5b 第一個提交：交接與使用者決定復原 | c51089a | 接受 | A5b、交接、使用者決定、A5c、最終CI、PR9 | [development-records/runs/a5b-handoff-corrections-2026-11-16/README.md](development-records/runs/a5b-handoff-corrections-2026-11-16/README.md) |
 | 2026-11-16 | 證據 | Python 模組來源清單的首次 Windows CI 輸出 | c49c729 | 接受、Windows已執行 | Python模組清單、base_library成員、setuptools不明模組 | [development-records/runs/python-archive-inventory-ci-2026-11-16/README.md](development-records/runs/python-archive-inventory-ci-2026-11-16/README.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a3-before-a4.md](history/status/2026-11-16-a3-before-a4.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a4-before-a5.md](history/status/2026-11-16-a4-before-a5.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a4-before-api-recovery.md](history/status/2026-11-16-a4-before-api-recovery.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a4-before-windows-ci-result.md](history/status/2026-11-16-a4-before-windows-ci-result.md) |
+| 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a5-before-a5b.md](history/status/2026-11-16-a5-before-a5b.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a5-before-windows-ci.md](history/status/2026-11-16-a5-before-windows-ci.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-ci-self-check-and-ms-runtime.md](history/status/2026-11-16-ci-self-check-and-ms-runtime.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-python-archive-inventory.md](history/status/2026-11-16-python-archive-inventory.md) |
