@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-16",
-  "environment": "Linux · Python3.12.14／Tesseract5.3.4；A5c完整回歸、Windows hosted基本包／CPU新接受條件已驗；原固定候選仍cb8f24d",
-  "tests_passed": 768,
-  "headline": "A5c完成（PR #11）：探測缺口拒絕與原生Windows新門檻已驗；本輪起點main已合併PR1–10，下一個A6",
-  "blocker": "A6固定來源候選／重分類／整體審閱仍待；完整build修補／設定、SBOM／再散布、乾淨機／人工／GPU未關閉。",
-  "next": "A5c（PR #11）已查驗，最終 head 依全 CI 門檻一般 Merge，合併狀態見 PR。本輪起點 main 已合併 PR 1–10；下一個 A6 從最新 main 另開新分支，先固定來源候選，再重分類與整體審閱。",
+  "updated": "2026-11-17",
+  "environment": "Linux 完整回歸／獨立模組與 Windows 基本包／CPU 固定候選 8285450 已驗；乾淨機／人工／GPU仍待",
+  "tests_passed": 781,
+  "headline": "main 起點已合併 PR 1–11；A6 固定候選、重分類與整體審閱完成，整合 CI／Merge 結果見 PR 12",
+  "blocker": "完整 runtime SBOM／再散布仍未關閉：自有 MIT 套件對照、wheel 內含第三方、Microsoft 條款、Qt build／替換、CPU 原文／模型／GEOS；乾淨機／人工／GPU未驗。",
+  "next": "A6 固定來源與兩種候選證據齊備；先核對 PR 12 最終 head 全 CI 與 Merge 結果，再從最新 main 開自己的 A7 新分支，將自有 MIT 全文綁定套件原文表並補反例。產品門檻未關閉前不交付。",
   "milestones": [
     {
       "id": "m0",
@@ -257,12 +257,12 @@
     "2026-11-12：0.19.1完整698（697通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與45模組exit0；Tesseract5.3.4／CPython3.12.3與先前基線不同。未對照來源已分類但candidate／gap基本49、CPU47仍待，授權提案未確認，沒有新的Windows執行。",
     "2026-11-13：完整703（702通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與46模組exit0；新增項目為歷史索引測試，沒有新的Windows執行。"
   ],
-  "tests_run": 769,
+  "tests_run": 782,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "已驗收7/12。C03 3/4、C04 2/4、C09 3/4、C11 2/5；0.19.1全684／43模組exit0及Windows基本／CPU維護已驗，候選再散布、其他profile／乾淨機／人工／GPU仍待。",
+    "description": "既有功能驗收不變；完整回歸見 full_regression，A6 固定候選與整體審閱見 a6_fixed_candidate_review。完整 SBOM／再散布、乾淨機／人工／GPU仍待。",
     "phases": [
       {
         "id": "a",
@@ -1287,11 +1287,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "afb2062d4854234356faf2bb959aac634c40f89e",
-    "date_taipei": "2026-11-16",
+    "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+    "date_taipei": "2026-11-17",
     "accepted": true,
-    "run": 769,
-    "passed": 768,
+    "run": 782,
+    "passed": 781,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1301,7 +1301,7 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 51,
+    "isolated_modules": 52,
     "isolated_all_exits_zero": true,
     "python": "3.12.14",
     "tesseract": "5.3.4",
@@ -1311,7 +1311,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/a5c-runtime-probe-2026-11-16/README.md"
+    "evidence": "development-records/runs/a6-fixed-review-2026-11-17/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -1675,78 +1675,42 @@
     "evidence": "development-records/runs/bundle-provenance-ci-2026-11-11/README.md"
   },
   "latest_candidate_inventory": {
-    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
     "source_version": "0.19.1",
-    "local_tests": 23,
-    "related_tests": 88,
-    "full_regression": 684,
+    "base_windows_accepted": true,
+    "cpu_windows_accepted": true,
     "windows_accepted": true,
-    "file_inventory_complete": true,
     "runtime_sbom_complete": false,
     "redistribution_approved": false,
     "release_ready": false,
-    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/README.md",
-    "base_final_catalog_included": true,
-    "cpu_zip_verified": true,
+    "evidence": "development-records/runs/a6-fixed-review-2026-11-17/README.md",
     "base_summary": {
-      "check": "bundle-provenance",
-      "profile": "base",
-      "source_version": "0.19.1",
-      "accepted": true,
-      "release_ready": false,
-      "report_sha256": "2246b6a8a9c0a73049b044e2fa7837880d0109f0077f3c6846fa8e0ef6e26c18",
-      "native_files": 201,
+      "bytes": 262639292,
+      "file_inventory_complete": true,
+      "files": 1615,
+      "original_notice_files": 111,
       "packages": 40,
-      "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
-      "inventory": {
-        "files": 1655,
-        "bytes": 274323912,
-        "unresolved_files": 154,
-        "review_files": 191,
-        "original_notice_files": 108,
-        "packages": 40,
-        "file_inventory_complete": true,
-        "runtime_sbom_complete": false,
-        "redistribution_approved": false,
-        "release_ready": false
-      },
-      "inventory_reverified": true
+      "redistribution_approved": false,
+      "release_ready": false,
+      "review_files": 152,
+      "runtime_sbom_complete": false,
+      "unresolved_files": 114
     },
     "cpu_summary": {
-      "check": "bundle-provenance",
-      "profile": "cpu",
-      "source_version": "0.19.1",
-      "accepted": true,
-      "release_ready": false,
-      "report_sha256": "9a0fc92b33f6c3d747f6c2762f1b944185c14eb9eed9ad217ca83531d421d64f",
-      "native_files": 106,
+      "bytes": 219724730,
+      "file_inventory_complete": true,
+      "files": 704,
+      "original_notice_files": 290,
       "packages": 26,
-      "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
-      "inventory": {
-        "files": 741,
-        "bytes": 252832252,
-        "unresolved_files": 303,
-        "review_files": 337,
-        "original_notice_files": 285,
-        "packages": 26,
-        "file_inventory_complete": true,
-        "runtime_sbom_complete": false,
-        "redistribution_approved": false,
-        "release_ready": false
-      },
-      "inventory_reverified": true,
-      "package_inventory": {
-        "files": 742,
-        "bytes": 252832617,
-        "archive_bytes": 106326562,
-        "archive_verified": true,
-        "file_inventory_complete": true,
-        "runtime_sbom_complete": false,
-        "redistribution_approved": false,
-        "release_ready": false
-      },
-      "package_sha256": "5dee53420a4b7214fc44dbf132907a6356f63257f19bf858bb73274906083b21"
-    }
+      "redistribution_approved": false,
+      "release_ready": false,
+      "review_files": 299,
+      "runtime_sbom_complete": false,
+      "unresolved_files": 265
+    },
+    "file_inventory_complete": true,
+    "base_final_catalog_included": true,
+    "cpu_zip_verified": true
   },
   "previous_full_regression_683": {
     "source_version": "0.19.1",
@@ -1812,25 +1776,51 @@
     "evidence": "development-records/runs/ci-full-reports-2026-11-12/README.md"
   },
   "latest_source_classification": {
-    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
     "base": {
-      "unresolved": 154,
-      "confirmed": 73,
-      "origin_known": 32,
-      "candidate": 48,
-      "gap": 1
+      "unresolved_declared": 114,
+      "classified": 114,
+      "by_status": {
+        "confirmed": 84,
+        "origin-known": 30
+      },
+      "by_category": {
+        "archive-members-enumerated": 1,
+        "ci-artifact-member": 4,
+        "cpython-component-evidence": 8,
+        "cpython-license-text": 1,
+        "cpython-runtime": 19,
+        "installer-generated-record": 40,
+        "microsoft-vc-redist": 1,
+        "pinned-model": 4,
+        "project-generated": 6,
+        "project-native-payload": 2,
+        "repo-blob": 28
+      }
     },
     "cpu": {
-      "unresolved": 303,
-      "confirmed": 227,
-      "origin_known": 29,
-      "candidate": 46,
-      "gap": 1
+      "unresolved_declared": 265,
+      "classified": 265,
+      "by_status": {
+        "confirmed": 237,
+        "origin-known": 28
+      },
+      "by_category": {
+        "archive-members-enumerated": 1,
+        "cpython-component-evidence": 8,
+        "cpython-license-text": 1,
+        "cpython-runtime": 17,
+        "empty-file": 1,
+        "installer-generated-record": 6,
+        "microsoft-vc-redist": 2,
+        "project-generated": 5,
+        "repo-blob": 224
+      }
     },
     "runtime_sbom_complete": false,
     "redistribution_approved": false,
     "release_ready": false,
-    "evidence": "development-records/runs/source-classification-2026-11-12/README.md"
+    "evidence": "development-records/runs/a6-fixed-review-2026-11-17/README.md"
   },
   "latest_license_proposal": {
     "status": "own-code-mit-adopted",
@@ -2614,7 +2604,8 @@
       "base": 43850657867,
       "cpu": 43850657893,
       "history": 43850657865
-    }
+    },
+    "reviewer_confirmation": "User confirmed Claude reviewer passed with no mandatory fixes on 2026-11-17"
   },
   "previous_full_regression_764": {
     "source_version": "0.19.1",
@@ -2704,7 +2695,7 @@
       "history": 43883657042
     },
     "ci_evidence": "development-records/runs/a5c-pr11-ci-2026-11-16/README.md",
-    "final_head_requires_ci": true,
+    "final_head_requires_ci": false,
     "windows_base_components": {
       "check": "cpython-components",
       "cpython_version": "3.12.10",
@@ -2981,6 +2972,290 @@
       "unknown_modules": 0,
       "unknown_names": [],
       "base_library_members": 155
+    },
+    "final_ci_head": "d9af4ee04da5dc00a52d7f686a0a2c92eb6cf9d1",
+    "final_ci_runs": {
+      "linux": 43887067525,
+      "base": 43887067612,
+      "cpu": 43887067591,
+      "history": 43887067502
+    },
+    "final_ci_merge_sha": "eb46114eb5634de0369f1ba8324810d1fb72af50",
+    "merged": true,
+    "stage_closed": true,
+    "merge_commit": "e23d383b7f38ac95c4b883513834abfd8f814600",
+    "reviewer_confirmation": "User confirmed Claude reviewer passed with no mandatory fixes on 2026-11-17"
+  },
+  "previous_full_regression_a5c": {
+    "source_version": "0.19.1",
+    "architecture_version": "0.4",
+    "source_commit": "afb2062d4854234356faf2bb959aac634c40f89e",
+    "date_taipei": "2026-11-16",
+    "accepted": true,
+    "run": 769,
+    "passed": 768,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 1,
+    "expected_failure_ids": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "mixed_assertions_accepted": true,
+    "mixed_process_exit": 0,
+    "isolated_modules": 51,
+    "isolated_all_exits_zero": true,
+    "python": "3.12.14",
+    "tesseract": "5.3.4",
+    "baseline_environment_identical": false,
+    "windows_executed_this_run": false,
+    "gpu_executed": false,
+    "traditional_chinese_onnx_quality_passed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/a5c-runtime-probe-2026-11-16/README.md"
+  },
+  "previous_candidate_inventory_cb8f24d": {
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "source_version": "0.19.1",
+    "local_tests": 23,
+    "related_tests": 88,
+    "full_regression": 684,
+    "windows_accepted": true,
+    "file_inventory_complete": true,
+    "runtime_sbom_complete": false,
+    "redistribution_approved": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/candidate-inventory-ci-2026-11-11/README.md",
+    "base_final_catalog_included": true,
+    "cpu_zip_verified": true,
+    "base_summary": {
+      "check": "bundle-provenance",
+      "profile": "base",
+      "source_version": "0.19.1",
+      "accepted": true,
+      "release_ready": false,
+      "report_sha256": "2246b6a8a9c0a73049b044e2fa7837880d0109f0077f3c6846fa8e0ef6e26c18",
+      "native_files": 201,
+      "packages": 40,
+      "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+      "inventory": {
+        "files": 1655,
+        "bytes": 274323912,
+        "unresolved_files": 154,
+        "review_files": 191,
+        "original_notice_files": 108,
+        "packages": 40,
+        "file_inventory_complete": true,
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "inventory_reverified": true
+    },
+    "cpu_summary": {
+      "check": "bundle-provenance",
+      "profile": "cpu",
+      "source_version": "0.19.1",
+      "accepted": true,
+      "release_ready": false,
+      "report_sha256": "9a0fc92b33f6c3d747f6c2762f1b944185c14eb9eed9ad217ca83531d421d64f",
+      "native_files": 106,
+      "packages": 26,
+      "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+      "inventory": {
+        "files": 741,
+        "bytes": 252832252,
+        "unresolved_files": 303,
+        "review_files": 337,
+        "original_notice_files": 285,
+        "packages": 26,
+        "file_inventory_complete": true,
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "inventory_reverified": true,
+      "package_inventory": {
+        "files": 742,
+        "bytes": 252832617,
+        "archive_bytes": 106326562,
+        "archive_verified": true,
+        "file_inventory_complete": true,
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "package_sha256": "5dee53420a4b7214fc44dbf132907a6356f63257f19bf858bb73274906083b21"
     }
+  },
+  "previous_source_classification_cb8f24d": {
+    "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+    "base": {
+      "unresolved": 154,
+      "confirmed": 73,
+      "origin_known": 32,
+      "candidate": 48,
+      "gap": 1
+    },
+    "cpu": {
+      "unresolved": 303,
+      "confirmed": 227,
+      "origin_known": 29,
+      "candidate": 46,
+      "gap": 1
+    },
+    "runtime_sbom_complete": false,
+    "redistribution_approved": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/source-classification-2026-11-12/README.md"
+  },
+  "a6_fixed_candidate_review": {
+    "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+    "status": "fixed-candidate-and-review-verified",
+    "engineering_review_complete": true,
+    "base_classification_replayed": true,
+    "cpu_classification_replayed": true,
+    "explicit_source_selection": true,
+    "fixed_ci_runs": {
+      "base": 43912954070,
+      "cpu": 43916217757,
+      "queued_original_cpu": 43912958713
+    },
+    "profiles": {
+      "base": {
+        "candidate": {
+          "bytes": 102273972,
+          "file": "MarkItDownBase-Setup-0.19.1-windows-x64.exe",
+          "sha256": "6b4638d8147f050658b4be463f52923bc5c3a10e04f2917fbdee80d3df23ea8e"
+        },
+        "inventory_summary": {
+          "bytes": 262639292,
+          "file_inventory_complete": true,
+          "files": 1615,
+          "original_notice_files": 111,
+          "packages": 40,
+          "redistribution_approved": false,
+          "release_ready": false,
+          "review_files": 152,
+          "runtime_sbom_complete": false,
+          "unresolved_files": 114
+        },
+        "classification": {
+          "unresolved_declared": 114,
+          "classified": 114,
+          "by_status": {
+            "confirmed": 84,
+            "origin-known": 30
+          },
+          "by_category": {
+            "archive-members-enumerated": 1,
+            "ci-artifact-member": 4,
+            "cpython-component-evidence": 8,
+            "cpython-license-text": 1,
+            "cpython-runtime": 19,
+            "installer-generated-record": 40,
+            "microsoft-vc-redist": 1,
+            "pinned-model": 4,
+            "project-generated": 6,
+            "project-native-payload": 2,
+            "repo-blob": 28
+          }
+        },
+        "review_reasons": {
+          "microsoft-native-redistribution-review": 14,
+          "package-original-notice-pending:markitdown-desktop": 27,
+          "source-owner-unresolved": 114
+        },
+        "python_archives": {
+          "base_library_members": 155,
+          "build_only_modules_absent": true,
+          "by_origin": {
+            "application": 49,
+            "distribution": 1239,
+            "stdlib": 268,
+            "unknown": 0
+          },
+          "pure_modules": 1556,
+          "unknown_modules": 0,
+          "unknown_names": []
+        }
+      },
+      "cpu": {
+        "candidate": {
+          "bytes": 92348876,
+          "component_id": "onnx-cpu-ocr",
+          "component_version": "1.0.1",
+          "descriptor_sha256": "2058acdd4050ddeab5b826a35a76093738320745c8a4b3b67fed4936c91f1cb8",
+          "file": "onnx-cpu-ocr-development.zip",
+          "sha256": "11034e5a02aa26797011b98ecf0b2f9f06ab0d734653e42e8453214e78de180d"
+        },
+        "inventory_summary": {
+          "bytes": 219724730,
+          "file_inventory_complete": true,
+          "files": 704,
+          "original_notice_files": 290,
+          "packages": 26,
+          "redistribution_approved": false,
+          "release_ready": false,
+          "review_files": 299,
+          "runtime_sbom_complete": false,
+          "unresolved_files": 265
+        },
+        "classification": {
+          "unresolved_declared": 265,
+          "classified": 265,
+          "by_status": {
+            "confirmed": 237,
+            "origin-known": 28
+          },
+          "by_category": {
+            "archive-members-enumerated": 1,
+            "cpython-component-evidence": 8,
+            "cpython-license-text": 1,
+            "cpython-runtime": 17,
+            "empty-file": 1,
+            "installer-generated-record": 6,
+            "microsoft-vc-redist": 2,
+            "project-generated": 5,
+            "repo-blob": 224
+          }
+        },
+        "review_reasons": {
+          "microsoft-native-redistribution-review": 6,
+          "package-original-notice-pending:flatbuffers": 1,
+          "package-original-notice-pending:rapidocr-onnxruntime": 31,
+          "source-owner-unresolved": 265
+        },
+        "python_archives": {
+          "base_library_members": 155,
+          "by_origin": {
+            "application": 12,
+            "distribution": 307,
+            "stdlib": 243,
+            "unknown": 0
+          },
+          "pure_modules": 562,
+          "unknown_modules": 0,
+          "unknown_names": []
+        }
+      }
+    },
+    "runtime_sbom_complete": false,
+    "redistribution_approved": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/a6-fixed-review-2026-11-17/README.md",
+    "review": "a6-source-review.md",
+    "reviewer": "Codex self-review; no independent Claude review claimed",
+    "final_head_requires_ci": true,
+    "pr": 12,
+    "pr_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/12",
+    "verification_complete": true,
+    "source_classification_replayed": true,
+    "source_gap_or_candidate_rows": {
+      "base": 0,
+      "cpu": 0
+    },
+    "code_source": "8285450226abe1381e6a357e8bd33bff1ad46e0e"
   }
 }

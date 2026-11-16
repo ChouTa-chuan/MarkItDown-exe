@@ -1,0 +1,703 @@
+{
+  "base": {
+    "run_id": 43912954070,
+    "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43912954070",
+    "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+    "event": "workflow_dispatch",
+    "created_at": "2026-11-16T16:56:15Z",
+    "updated_at": "2026-11-16T17:13:25Z",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 133459458323,
+        "name": "Fixed Windows OCR inputs",
+        "conclusion": "success"
+      },
+      {
+        "id": 133461005692,
+        "name": "Windows 2022 base build and OCR",
+        "conclusion": "success"
+      }
+    ],
+    "metadata_parts": 24,
+    "metadata_canonical_sha256": "cf70354cc99724d5b481d18729c68f07474b4c60bdb881ec57483a26d81bbe63",
+    "offline_replayed": true,
+    "artifacts": [
+      {
+        "id": 14250565438,
+        "name": "windows-base-validation-reports",
+        "size_in_bytes": 2583921,
+        "digest": "sha256:f53c7d0b66692f1611c378423ca01fd88df553e606a72b41b3ffd5641977b7d3",
+        "expires_at": "2026-11-23T17:13:17Z",
+        "expired": false
+      },
+      {
+        "id": 14248088304,
+        "name": "windows-native-build-reports",
+        "size_in_bytes": 84929,
+        "digest": "sha256:443847ed86d54b374dbfe8d5f9eb4870673cd5646752f6116da6b1eaf4596bf7",
+        "expires_at": "2026-11-23T16:58:41Z",
+        "expired": false
+      },
+      {
+        "id": 14247249723,
+        "name": "windows-ocr-ci-inputs",
+        "size_in_bytes": 8797006,
+        "digest": "sha256:de0024ba13f174fa6dde8dc653f571c0d2083a91145b00e3cc56a51f8e3d297e",
+        "expires_at": "2026-11-17T16:58:39Z",
+        "expired": false
+      }
+    ],
+    "original_public_summaries": [
+      {
+        "check": "cpython-components",
+        "cpython_version": "3.12.10",
+        "applicable": true,
+        "files": [
+          {
+            "file": "_ctypes.pyd",
+            "component": "libffi",
+            "role": "cpython-extension",
+            "file_version": "3.12.10",
+            "declared_version": "3.4.4",
+            "observed_version": null,
+            "version_status": "build-declaration-only",
+            "loaded_source_matched": true,
+            "source_sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81"
+          },
+          {
+            "file": "_hashlib.pyd",
+            "component": "openssl",
+            "role": "cpython-extension",
+            "file_version": "3.12.10",
+            "declared_version": "3.0.16",
+            "observed_version": "3.0.16",
+            "version_status": "matched-runtime-probe",
+            "loaded_source_matched": true,
+            "source_sha256": "03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba"
+          },
+          {
+            "file": "_sqlite3.pyd",
+            "component": "sqlite",
+            "role": "cpython-extension",
+            "file_version": "3.12.10",
+            "declared_version": "3.49.1.0",
+            "observed_version": "3.49.1",
+            "version_status": "matched-runtime-probe",
+            "loaded_source_matched": true,
+            "source_sha256": "64b51df2805c58b023a875e8ae3be7ac7f61ef664f32ca6c90f6315da47ef0bc"
+          },
+          {
+            "file": "_ssl.pyd",
+            "component": "openssl",
+            "role": "cpython-extension",
+            "file_version": "3.12.10",
+            "declared_version": "3.0.16",
+            "observed_version": "3.0.16",
+            "version_status": "matched-runtime-probe",
+            "loaded_source_matched": true,
+            "source_sha256": "0bc527d2dbc50009f43b2ed5d5982c4f63f4b647647ffa9eda612dcda80f6040"
+          },
+          {
+            "file": "libcrypto-3.dll",
+            "component": "openssl",
+            "role": "library",
+            "file_version": "3.0.16",
+            "declared_version": "3.0.16",
+            "observed_version": "3.0.16",
+            "version_status": "matched-runtime-probe",
+            "loaded_source_matched": true,
+            "source_sha256": "ccfffddcd3defb8d899026298af9af43bc186130f8483d77e97c93233d5f27d7"
+          },
+          {
+            "file": "libffi-8.dll",
+            "component": "libffi",
+            "role": "library",
+            "file_version": null,
+            "declared_version": "3.4.4",
+            "observed_version": null,
+            "version_status": "build-declaration-only",
+            "loaded_source_matched": true,
+            "source_sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a"
+          },
+          {
+            "file": "libssl-3.dll",
+            "component": "openssl",
+            "role": "library",
+            "file_version": "3.0.16",
+            "declared_version": "3.0.16",
+            "observed_version": "3.0.16",
+            "version_status": "matched-runtime-probe",
+            "loaded_source_matched": true,
+            "source_sha256": "007142039f04d04e0ed607bda53de095e5bc6a8a10d26ecedde94ea7d2d7eefe"
+          },
+          {
+            "file": "sqlite3.dll",
+            "component": "sqlite",
+            "role": "library",
+            "file_version": "3.49.1.0",
+            "declared_version": "3.49.1.0",
+            "observed_version": "3.49.1",
+            "version_status": "matched-runtime-probe",
+            "loaded_source_matched": true,
+            "source_sha256": "8daa45684bf6688fca28d956b2e8942f2fa98f656675ce68e6d61dd869848a7a"
+          }
+        ],
+        "notices": [
+          {
+            "component": "openssl",
+            "path": "cpython-original/openssl.txt",
+            "sha256": "ed72ce2b51ee58f117e5a021e2e04af158857f40269fbc03491f0b2a99dbcc96"
+          },
+          {
+            "component": "libffi",
+            "path": "cpython-original/libffi.txt",
+            "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388"
+          },
+          {
+            "component": "sqlite",
+            "path": "cpython-original/sqlite.txt",
+            "sha256": "cc65d76f325d884dd49e319acf3764d5513920f34ad18e34347b8dedc6ddd2ec"
+          }
+        ],
+        "redistribution_approved": false,
+        "runtime_sbom_complete": false
+      },
+      {
+        "check": "bundle-provenance",
+        "profile": "base",
+        "source_version": "0.19.1",
+        "accepted": true,
+        "release_ready": false,
+        "report_sha256": "e25abc0716b2d37d3c7c75de0f172be7572f8de191f65e4f9b6720fd72afd24d",
+        "native_files": 153,
+        "packages": 40,
+        "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+        "inventory": {
+          "files": 1615,
+          "bytes": 262639292,
+          "unresolved_files": 114,
+          "review_files": 152,
+          "original_notice_files": 111,
+          "packages": 40,
+          "file_inventory_complete": true,
+          "runtime_sbom_complete": false,
+          "redistribution_approved": false,
+          "release_ready": false
+        },
+        "inventory_reverified": true,
+        "excluded_binaries_absent": true,
+        "non_wheel_native": [
+          {
+            "origin": "python-runtime",
+            "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+            "company": "Microsoft Corporation",
+            "signature_status": "Valid",
+            "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+            "files": 2
+          },
+          {
+            "origin": "python-runtime",
+            "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+            "company": "Python Software Foundation",
+            "signature_status": "Valid",
+            "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+            "files": 2
+          },
+          {
+            "origin": "python-runtime",
+            "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+            "company": "",
+            "signature_status": "Valid",
+            "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+            "files": 1
+          },
+          {
+            "origin": "python-runtime",
+            "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+            "company": "Python Software Foundation",
+            "signature_status": "Valid",
+            "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+            "files": 19
+          },
+          {
+            "origin": "python-runtime",
+            "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+            "company": "SQLite3",
+            "signature_status": "Valid",
+            "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+            "files": 1
+          },
+          {
+            "origin": "python-runtime",
+            "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+            "company": "The OpenSSL Project, https://www.openssl.org/",
+            "signature_status": "Valid",
+            "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+            "files": 2
+          },
+          {
+            "origin": "system-native",
+            "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT",
+            "company": "Microsoft Corporation",
+            "signature_status": "Valid",
+            "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+            "files": 1
+          },
+          {
+            "origin": "system-native",
+            "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\base-assets\\native\\bin",
+            "company": "",
+            "signature_status": "NotSigned",
+            "signer": "",
+            "files": 1
+          }
+        ],
+        "identity_errors": {
+          "files": 0,
+          "messages": []
+        },
+        "python_archives": {
+          "pure_modules": 1556,
+          "by_origin": {
+            "stdlib": 268,
+            "distribution": 1239,
+            "application": 49,
+            "unknown": 0
+          },
+          "unknown_modules": 0,
+          "unknown_names": [],
+          "base_library_members": 155,
+          "build_only_modules_absent": true
+        }
+      },
+      {
+        "check": "qt-release-sources",
+        "version": "6.12.0",
+        "qt5_commit": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+        "qtbase_commit": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+        "pyside_commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+        "observed": {
+          "platform": "Windows",
+          "qt_version": "6.12.0",
+          "pyside_version": "6.12.0",
+          "shiboken_version": "6.12.0",
+          "qt_build": "Qt 6.12.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by MSVC 2022) [Python limited API run time: 3.12.10 built: 3.14.3]",
+          "core_extension_sha256": "6486f6f0a2fec42fc8c652c0b76bb3ad0d44eaccad9c72e577116a075681eebb"
+        },
+        "catalog_sha256": "224e4f7df81b99d1c55310e49beb5a280b10b7a7d15f7b4615872a73bb1725d6",
+        "release_source_map_verified": true,
+        "binary_reproduction_verified": false,
+        "upstream_build_patch_set_verified": false,
+        "redistribution_approved": false,
+        "runtime_sbom_complete": false
+      }
+    ]
+  },
+  "cpu": {
+    "run_id": 43916217757,
+    "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43916217757",
+    "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+    "event": "workflow_dispatch",
+    "created_at": "2026-11-16T17:14:11Z",
+    "updated_at": "2026-11-16T17:25:59Z",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 133470973391,
+        "name": "cpu-component",
+        "conclusion": "success"
+      }
+    ],
+    "metadata_parts": 30,
+    "metadata_canonical_sha256": "71407c8b2930a4fb1457716c2c6b6e7d8c895655d7d35afbc85fdab558920382",
+    "offline_replayed": true,
+    "artifacts": [
+      {
+        "id": 14252301530,
+        "name": "windows-cpu-validation-reports",
+        "size_in_bytes": 738517,
+        "digest": "sha256:893527739beb307bdebc4f4206bed73cd6ad14f4fd1be0187d3c05a79b16aa67",
+        "expires_at": "2026-11-23T17:25:53Z",
+        "expired": false
+      }
+    ],
+    "original_public_summaries": [
+      {
+        "check": "windows-cpu-worker-ci",
+        "commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+        "source_version": "0.19.1",
+        "recorded_at": "2026-11-16T17:14:33.128945+00:00",
+        "accepted": true,
+        "windows_executed": true,
+        "build_verified": true,
+        "checks_passed": 11,
+        "clean_machine_accepted": false,
+        "gpu_executed": false,
+        "traditional_chinese_quality_passed": false,
+        "release_ready": false,
+        "provenance_accepted": true,
+        "controller_unchanged": true,
+        "controller_native_packages": false,
+        "package_sha256": "11034e5a02aa26797011b98ecf0b2f9f06ab0d734653e42e8453214e78de180d",
+        "actual_providers": [
+          "CPUExecutionProvider",
+          "CPUExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "installed_notice_packages": 26,
+        "lifecycle": {
+          "accepted": true,
+          "checks_passed": 8,
+          "scope": "same-version-cpu-component-maintenance",
+          "process_termination_executed": false,
+          "cross_version_executed": false,
+          "clean_machine_accepted": false,
+          "gpu_executed": false,
+          "release_ready": false,
+          "synthetic_data_preserved": true,
+          "archive_unchanged": true,
+          "payload_verified": true,
+          "journals_empty": true
+        },
+        "upgrade": {
+          "accepted": true,
+          "checks_passed": 8,
+          "scope": "cpu-component-cross-version",
+          "windows_executed": true,
+          "transaction_checks_accepted": true,
+          "process_termination_executed": false,
+          "clean_machine_accepted": false,
+          "release_ready": false,
+          "synthetic_data_preserved": true,
+          "archives_unchanged": true,
+          "journals_empty": true,
+          "source_version": "0.19.1",
+          "previous_version": "1.0.0",
+          "current_version": "1.0.1",
+          "actual_ocr_versions": [
+            "1.0.0",
+            "1.0.0",
+            "1.0.1",
+            "1.0.0",
+            "1.0.1"
+          ],
+          "actual_frozen": true,
+          "controller_unchanged": true,
+          "controller_native_packages": false,
+          "package_sha256": {
+            "1.0.0": "6bd347347d6b0730f28b85f4b6e4db5e2c6bea029d1b0d7d4b37807a8c87a8e6",
+            "1.0.1": "11034e5a02aa26797011b98ecf0b2f9f06ab0d734653e42e8453214e78de180d"
+          },
+          "gpu_executed": false,
+          "traditional_chinese_quality_passed": false,
+          "cross_version_executed": true
+        },
+        "recovery": {
+          "accepted": true,
+          "windows_executed": true,
+          "checks_passed": 6,
+          "process_termination_executed": true,
+          "transaction_checks_accepted": true,
+          "clean_machine_accepted": false,
+          "power_loss_accepted": false,
+          "os_reboot_executed": false,
+          "release_ready": false,
+          "source_version": "0.19.1",
+          "actual_frozen": true,
+          "controller_unchanged": true,
+          "controller_native_packages": false,
+          "gpu_executed": false,
+          "traditional_chinese_quality_passed": false,
+          "cases": [
+            {
+              "operation": "upgrade",
+              "stage": "published",
+              "maintenance_pid": 3176,
+              "recovery_pid": 2704,
+              "termination_exitcode": -15,
+              "active_after_recover": "1.0.0",
+              "version": "1.0.0",
+              "frozen": true
+            },
+            {
+              "operation": "upgrade",
+              "stage": "committed",
+              "maintenance_pid": 2412,
+              "recovery_pid": 5848,
+              "termination_exitcode": -15,
+              "active_after_recover": "1.0.1",
+              "version": "1.0.1",
+              "frozen": true
+            },
+            {
+              "operation": "repair",
+              "stage": "old_moved",
+              "maintenance_pid": 3068,
+              "recovery_pid": 6800,
+              "termination_exitcode": -15,
+              "active_after_recover": "1.0.1",
+              "version": "1.0.1",
+              "frozen": true
+            },
+            {
+              "operation": "repair",
+              "stage": "published",
+              "maintenance_pid": 7760,
+              "recovery_pid": 3840,
+              "termination_exitcode": -15,
+              "active_after_recover": "1.0.1",
+              "version": "1.0.1",
+              "frozen": true
+            },
+            {
+              "operation": "remove",
+              "stage": "old_moved",
+              "maintenance_pid": 7096,
+              "recovery_pid": 1336,
+              "termination_exitcode": -15,
+              "active_after_recover": "1.0.1",
+              "version": "1.0.1",
+              "frozen": true
+            },
+            {
+              "operation": "remove",
+              "stage": "committed",
+              "maintenance_pid": 5372,
+              "recovery_pid": 3856,
+              "termination_exitcode": -15,
+              "active_after_recover": null,
+              "version": "1.0.1",
+              "frozen": true
+            }
+          ]
+        },
+        "previous_source": "fd69854ee19ba031362750072e22a92bf5463a7c"
+      },
+      {
+        "check": "cpython-components",
+        "cpython_version": "3.12.10",
+        "applicable": true,
+        "files": [
+          {
+            "file": "_ctypes.pyd",
+            "component": "libffi",
+            "role": "cpython-extension",
+            "file_version": "3.12.10",
+            "declared_version": "3.4.4",
+            "observed_version": null,
+            "version_status": "build-declaration-only",
+            "loaded_source_matched": true,
+            "source_sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81"
+          },
+          {
+            "file": "_hashlib.pyd",
+            "component": "openssl",
+            "role": "cpython-extension",
+            "file_version": "3.12.10",
+            "declared_version": "3.0.16",
+            "observed_version": "3.0.16",
+            "version_status": "matched-runtime-probe",
+            "loaded_source_matched": true,
+            "source_sha256": "03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba"
+          },
+          {
+            "file": "_sqlite3.pyd",
+            "component": "sqlite",
+            "role": "cpython-extension",
+            "file_version": "3.12.10",
+            "declared_version": "3.49.1.0",
+            "observed_version": "3.49.1",
+            "version_status": "matched-runtime-probe",
+            "loaded_source_matched": true,
+            "source_sha256": "64b51df2805c58b023a875e8ae3be7ac7f61ef664f32ca6c90f6315da47ef0bc"
+          },
+          {
+            "file": "_ssl.pyd",
+            "component": "openssl",
+            "role": "cpython-extension",
+            "file_version": "3.12.10",
+            "declared_version": "3.0.16",
+            "observed_version": "3.0.16",
+            "version_status": "matched-runtime-probe",
+            "loaded_source_matched": true,
+            "source_sha256": "0bc527d2dbc50009f43b2ed5d5982c4f63f4b647647ffa9eda612dcda80f6040"
+          },
+          {
+            "file": "libcrypto-3.dll",
+            "component": "openssl",
+            "role": "library",
+            "file_version": "3.0.16",
+            "declared_version": "3.0.16",
+            "observed_version": "3.0.16",
+            "version_status": "matched-runtime-probe",
+            "loaded_source_matched": true,
+            "source_sha256": "ccfffddcd3defb8d899026298af9af43bc186130f8483d77e97c93233d5f27d7"
+          },
+          {
+            "file": "libffi-8.dll",
+            "component": "libffi",
+            "role": "library",
+            "file_version": null,
+            "declared_version": "3.4.4",
+            "observed_version": null,
+            "version_status": "build-declaration-only",
+            "loaded_source_matched": true,
+            "source_sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a"
+          },
+          {
+            "file": "libssl-3.dll",
+            "component": "openssl",
+            "role": "library",
+            "file_version": "3.0.16",
+            "declared_version": "3.0.16",
+            "observed_version": "3.0.16",
+            "version_status": "matched-runtime-probe",
+            "loaded_source_matched": true,
+            "source_sha256": "007142039f04d04e0ed607bda53de095e5bc6a8a10d26ecedde94ea7d2d7eefe"
+          },
+          {
+            "file": "sqlite3.dll",
+            "component": "sqlite",
+            "role": "library",
+            "file_version": "3.49.1.0",
+            "declared_version": "3.49.1.0",
+            "observed_version": "3.49.1",
+            "version_status": "matched-runtime-probe",
+            "loaded_source_matched": true,
+            "source_sha256": "8daa45684bf6688fca28d956b2e8942f2fa98f656675ce68e6d61dd869848a7a"
+          }
+        ],
+        "notices": [
+          {
+            "component": "openssl",
+            "path": "cpython-original/openssl.txt",
+            "sha256": "ed72ce2b51ee58f117e5a021e2e04af158857f40269fbc03491f0b2a99dbcc96"
+          },
+          {
+            "component": "libffi",
+            "path": "cpython-original/libffi.txt",
+            "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388"
+          },
+          {
+            "component": "sqlite",
+            "path": "cpython-original/sqlite.txt",
+            "sha256": "cc65d76f325d884dd49e319acf3764d5513920f34ad18e34347b8dedc6ddd2ec"
+          }
+        ],
+        "redistribution_approved": false,
+        "runtime_sbom_complete": false
+      },
+      {
+        "check": "bundle-provenance",
+        "profile": "cpu",
+        "source_version": "0.19.1",
+        "accepted": true,
+        "release_ready": false,
+        "report_sha256": "09ec8e7c4eaefa390c6b1ee79abc1c406a02416de83980be3e339b19793b9512",
+        "native_files": 61,
+        "packages": 26,
+        "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+        "inventory": {
+          "files": 704,
+          "bytes": 219724730,
+          "unresolved_files": 265,
+          "review_files": 299,
+          "original_notice_files": 290,
+          "packages": 26,
+          "file_inventory_complete": true,
+          "runtime_sbom_complete": false,
+          "redistribution_approved": false,
+          "release_ready": false
+        },
+        "inventory_reverified": true,
+        "excluded_binaries_absent": true,
+        "non_wheel_native": [
+          {
+            "origin": "python-runtime",
+            "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+            "company": "Microsoft Corporation",
+            "signature_status": "Valid",
+            "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+            "files": 2
+          },
+          {
+            "origin": "python-runtime",
+            "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+            "company": "Python Software Foundation",
+            "signature_status": "Valid",
+            "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+            "files": 2
+          },
+          {
+            "origin": "python-runtime",
+            "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+            "company": "",
+            "signature_status": "Valid",
+            "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+            "files": 1
+          },
+          {
+            "origin": "python-runtime",
+            "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+            "company": "Python Software Foundation",
+            "signature_status": "Valid",
+            "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+            "files": 17
+          },
+          {
+            "origin": "python-runtime",
+            "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+            "company": "SQLite3",
+            "signature_status": "Valid",
+            "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+            "files": 1
+          },
+          {
+            "origin": "python-runtime",
+            "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+            "company": "The OpenSSL Project, https://www.openssl.org/",
+            "signature_status": "Valid",
+            "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+            "files": 2
+          },
+          {
+            "origin": "system-native",
+            "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT",
+            "company": "Microsoft Corporation",
+            "signature_status": "Valid",
+            "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+            "files": 2
+          }
+        ],
+        "identity_errors": {
+          "files": 0,
+          "messages": []
+        },
+        "python_archives": {
+          "pure_modules": 562,
+          "by_origin": {
+            "stdlib": 243,
+            "distribution": 307,
+            "application": 12,
+            "unknown": 0
+          },
+          "unknown_modules": 0,
+          "unknown_names": [],
+          "base_library_members": 155
+        },
+        "package_inventory": {
+          "files": 705,
+          "bytes": 219725095,
+          "archive_bytes": 92348876,
+          "archive_verified": true,
+          "file_inventory_complete": true,
+          "runtime_sbom_complete": false,
+          "redistribution_approved": false,
+          "release_ready": false
+        },
+        "package_sha256": "11034e5a02aa26797011b98ecf0b2f9f06ab0d734653e42e8453214e78de180d"
+      }
+    ]
+  }
+}

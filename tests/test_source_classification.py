@@ -85,6 +85,39 @@ class ClassificationTests(unittest.TestCase):
         self.assertEqual(rows['_internal/a.pyd']['status'], 'origin-known')
         self.assertEqual(rows['_internal/b.pyd']['status'], 'gap')
 
+    def test_official_vc_identity_requires_path_signature_version_and_unchanged_bytes(self):
+        item = entry('_internal/msvcp140.dll', b'vc', role='native-binary')
+        source = native('msvcp140.dll', b'vc', 'system-native')
+        source.update(source_directory='C:/Visual Studio/VC/Redist/MSVC/14.44.35112/x64/Microsoft.VC143.CRT',
+                      company='Microsoft Corporation', signer='CN=Microsoft, O=Microsoft Corporation',
+                      signature_status='Valid', file_version='14.44.35112')
+        row = self.classify([item], native=[source])[item['path']]
+        self.assertEqual((row['category'], row['status']), ('microsoft-vc-redist', 'origin-known'))
+        for field, value in [('source_directory', 'C:/Java/bin'), ('signature_status', 'Unknown'),
+                             ('signer', 'CN=Unverified'), ('file_version', ''), ('bundled_sha256', '0'*64)]:
+            with self.subTest(field=field):
+                changed = dict(source, **{field:value})
+                self.assertEqual(self.classify([item], native=[changed])[item['path']]['status'], 'candidate')
+
+    def test_cpython_component_requires_byte_matched_original_and_actual_probe(self):
+        item = entry('_internal/_ssl.pyd', b'ssl', role='native-binary')
+        notice = entry('_internal/desktop_app/data/licenses/native/cpython-original/openssl.txt', b'license')
+        source = native('_ssl.pyd', b'ssl', 'python-runtime')
+        source['component_notice_paths'] = [notice['path']]
+        data = report([item, notice], native=[source])
+        data['cpython_components'] = dict(applicable=True,
+            files=[dict(file='_ssl.pyd', component='openssl', source_sha256=digest(b'ssl'),
+                        loaded_source_sha256=digest(b'ssl'), loaded_source_matched=True,
+                        declared_version='3.0.16', observed_version='3.0.16', version_status='matched-runtime-probe',
+                        notice='cpython-original/openssl.txt')],
+            notices=[dict(component='openssl', path='cpython-original/openssl.txt',
+                          bytes=len(b'license'), sha256=digest(b'license'))])
+        row = subject.classify(data, {}, {}, {}, {})[0]
+        self.assertEqual((row['category'], row['status']), ('cpython-component-evidence', 'confirmed'))
+        data['candidate_inventory']['files'][1]['sha256'] = '0'*64
+        row = subject.classify(data, {}, {}, {}, {})[0]
+        self.assertEqual((row['category'], row['status']), ('cpython-runtime', 'origin-known'))
+
     def test_record_must_match_package_table_version(self):
         rows = self.classify([entry('_internal/demo_pkg-1.2.3.dist-info/RECORD', b'r'),
                               entry('_internal/demo_pkg-9.9.9.dist-info/RECORD', b's'),

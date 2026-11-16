@@ -26,6 +26,11 @@ on:
       - 'vendor/**'
       - 'pyproject.toml'
   workflow_dispatch:
+    inputs:
+      candidate_source:
+        description: 'A6 固定候選的完整來源 SHA；空白為一般驗證'
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -36,6 +41,7 @@ concurrency:
 
 env:
   PYTHONUTF8: '1'
+  MARKITDOWN_CANDIDATE_SOURCE: ${{ inputs.candidate_source || '' }}
 
 jobs:
   native-inputs:
@@ -109,6 +115,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Verify selected immutable source
+        shell: pwsh
+        run: |
+          python scripts/candidate_review.py --check-source --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - uses: actions/download-artifact@v4
         with:
           name: windows-ocr-ci-inputs
@@ -117,6 +128,37 @@ jobs:
         shell: pwsh
         run: |
           python scripts/run_windows_base_ci.py --inputs "$PWD/out/inputs" --output "$PWD/out/windows" --installer --previous-source "$PWD/out/previous-source" --recovery
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Classify and preserve candidate review metadata
+        shell: pwsh
+        run: |
+          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --profile base --bundle "out/windows/dist/MarkItDownBase" --reports "out/windows/reports" --package-directory "out/windows/installer-work/setup" --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      # metadata 每步最多八個 notice，避免平台的每步註記上限造成證據截斷。
+      - name: Preserve review metadata page 1
+        shell: pwsh
+        run: |
+          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 0 --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Preserve review metadata page 2
+        shell: pwsh
+        run: |
+          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 1 --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Preserve review metadata page 3
+        shell: pwsh
+        run: |
+          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 2 --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Preserve review metadata page 4
+        shell: pwsh
+        run: |
+          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 3 --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Preserve review metadata page 5
+        shell: pwsh
+        run: |
+          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 4 --expected-source "${{ inputs.candidate_source || github.sha }}"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Publish actual validation summary
         if: always()

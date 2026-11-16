@@ -1,0 +1,12 @@
+{
+  "source_commit": "e1761f95813d2e0b688db36cf5627f866d09cb82",
+  "base": "e23d383b7f38ac95c4b883513834abfd8f814600",
+  "protected_tracked_paths_unchanged": true,
+  "old_records_unchanged": true,
+  "own_branch": "codex/a6-fixed-candidate-20261117",
+  "workflow_yaml_parsed": true,
+  "known_onnx_traditional_chinese_expected_failure_preserved": true,
+  "approval_flags_not_raised": true,
+  "products_not_uploaded": true,
+  "review_scope": "Codex self-review; does not claim an independent Claude reviewer"
+}

@@ -1,6 +1,6 @@
 # 現況
 
-更新：2026-11-16（台北）｜程式 0.19.1／架構 0.4
+更新：2026-11-17（台北）｜程式 0.19.1／架構 0.4
 
 開工只需要讀 [AGENTS.md](AGENTS.md) 和這份檔案。測試數、里程碑等數字只記在 [docs/progress.json](docs/progress.json)（[進度頁](docs/progress.html)），這裡不重抄。要追溯過去的做法或失敗，查 [歷史索引](docs/history-index.md)。
 
@@ -10,45 +10,32 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| main／已完成基線 | **main 已合併 PR 1–10，A5b 已完成並一般 Merge（PR #10）**；A5c 起點 `8993253cbecb56fe1c9794078a2059f3a1ccca63`。A4／A5 的 Claude reviewer 結論仍保留其原範圍 |
-| 本階段分支 | `codex/a5c-runtime-probe-20261116`，從最新 main 另開；程式及本機完整回歸來源 `afb2062`，未推送別人分支 |
-| 本階段 PR | [PR #11](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/11)，目標 main；本機回歸、反例與首輪全部 CI 已通過；合併門檻為最終 head 全 CI 且查驗無必修項，即時狀態見 PR |
-| 合併規則 | 一個編號一個 PR；最終 head 全部 CI 通過、查驗無必修項才一般 Merge，不直接推 main、不刪分支、不改寫歷史 |
+| 本輪 main 起點 | **main 已合併 PR 1–11**，`e23d383b7f38ac95c4b883513834abfd8f814600`；A5b／A5c 已由 Claude reviewer 通過 |
+| 本輪分支 | `codex/a6-fixed-candidate-20261117`，自己的新分支；沒有推送其他 AI 分支或直接推 main |
+| 本輪 PR | A6 [PR #12](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/12) 已建立；固定候選與工程審閱齊備；最終 head CI／Merge 結果以 PR 為準，全部通過且無必修項才一般 Merge |
+| 固定來源 | `8285450226abe1381e6a357e8bd33bff1ad46e0e`；基本包與 CPU 均已驗並離線重跑分類，PR 暫時 merge 不取代此候選 |
 
 ## B. 這個階段完成了什麼
 
-- **A5c 三項已實作**：Windows 適用清單的 OpenSSL／SQLite 不能只有建置宣告；探測例外、無觀測或載入來源不匹配都拒絕。產生端保存原始診斷再失敗，重驗端也強制同一門檻，避免重算 hash 繞過。
-- 補齊各元件列、`probe_error`（含空字串）、刪除 OpenSSL 原文的反例；合成 Windows 清單先驗有效，再在 CI／非 CI 下證明 audit／CLI 拒絕 hash 重綁的探測缺口。合成資料不當 Windows 實證；libffi 仍僅建置宣告，Linux 不適用清單維持不適用。
-- CPython README 已說明 extension 的 observed_version 屬所連結 OpenSSL／SQLite，不是該檔自身 PE 版本。Linux 混合與獨立模組完整回歸正常退出，只有既有 ONNX 繁中 expected failure；[原始來源與結果](docs/development-records/runs/a5c-runtime-probe-2026-11-16/README.md)已保存，數字只記 [progress.json](docs/progress.json)。
-- **A5c 原生 Windows 新門檻已驗**：基本包及 CPU 的 OpenSSL／SQLite 均有匹配觀測，libffi 限制保留；[CI 原始公開摘要與來源](docs/development-records/runs/a5c-pr11-ci-2026-11-16/README.md)另存，沒有把合成故障反例當 Windows 注入實證。
-- A5b 已合併：原始 Qt 來源、原文與歷史實證不改寫；D 節全部使用者決定逐筆保留。
+- 首個提交 `d098e2c` 已完成使用者三項要求：現況／next／headline 更新至 main 已合併 PR 1–11、補 A5b／A5c 最終 CI run、D 節不重複摘要。既有 D 原文逐列保留。
+- A6 新增固定完整 SHA／乾淨來源檢查、候選指紋、來源重分類與可離線重跑的精簡 metadata。完整來源報告與公開 metadata 使用不同有界容量；缺片／混合來源／改 hash／改候選／提高產品旗標均拒絕。Windows 工作流只新增報告保存，沒有交付產品。
+- Windows **基本包固定候選**成功；[證據](docs/development-records/runs/a6-fixed-review-2026-11-17/README.md)及 [基本包整體審閱](docs/a6-source-review.md)已保存。來源分類與指紋離線重現，舊候選分類亦保持一致。同來源 CPU metadata 已取得且離線重跑；前輪失敗／排隊歷史另存，不當作本輪成功結果。
+- 新版完整 Linux 混合／獨立模組回歸通過，只有既有 ONNX 繁中 expected failure，無跳過；數字只見 [progress.json](docs/progress.json)。保存來源預檢失敗、容量不相容、索引過期與修正後結果。Codex 自我查驗完成可執行範圍，不冒稱新 Claude reviewer。
 
 ## C. 未完成、阻擋與下一步
 
-**下一個，交給接手 AI：A6 固定來源候選、來源重分類與整體審閱**。A5c（PR #11）的三項、反例與原生 Windows 新門檻已驗；最終 head 仍依全 CI／查驗門檻一般 Merge。接手先核對 PR 即時狀態，合併後從最新 main 另開自己的新分支；先固定來源提交與候選證據，不把 PR 暫時 merge 當交付候選，不提前上傳產品。
+**A6 固定候選、重分類與整體工程審閱已完成**。兩種候選皆以固定 SHA 建置並重跑分類；最終 PR head 仍依 CI／查驗條件合併，SBOM／再散布旗標維持 false。完整來源、run、artifact digest／期限、原始摘要與接手命令入口見證據 README。
 
-| 大階段 | 任務 | 現況／下一步 |
-| --- | --- | --- |
-| A 來源與再散布 | A1 模組清單、A2 文件、A3 Qt／自有 MIT 隨包 | 完成（PR #5／#6） |
-| | A4 setuptools 排除 | **完成（PR #8，已合併並通過 Claude reviewer）** |
-| | A5 CPython 隨附元件逐檔版本／原文 | **完成（PR #9，已合併並通過 Claude reviewer）** |
-| | A5b Qt 本體原始碼位置及版本對應 | **完成（PR #10，已合併）**；Qt 來源、Windows 版本與指紋查驗通過 |
-| | A5c A5 驗收補強 | **完成（PR #11）**；三項、反例、本機回歸及原生 Windows 新門檻皆已查驗；合併狀態見 PR |
-| | A6 固定來源候選、重跑來源分類、整體審閱 | **下一個**；固定來源／候選後重分類及整體審閱，才評估 runtime_sbom_complete，目前 false |
-| B 測試版安裝包 | 產物證據、驗收表、CPU 元件重新定版及門檻確認 | 未開始，不在門檻關閉前上傳產品 |
-| C 乾淨機／人工 | Windows 10／11、離線、四語、中文路徑、修復移除 | 需要使用者或實體 Windows，尚未接受 |
-| D 擴充 | 圖片本機 OCR／影音獨立元件 | 等使用者決定，未排入本輪 |
-| E GPU | 實卡驗收 | 延後 |
+| 任務 | 現況／下一步 |
+| --- | --- |
+| A1–A5c | 完成；main 本輪起點已合併 PR 1–11，A5b／A5c Claude reviewer 無必修項 |
+| A6 固定候選與整體審閱 | 基本包 [43912954070](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43912954070) 與 CPU [43916217757](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43916217757) 同來源成功，metadata 完整性與離線重跑通過；原排程異常留紀錄 |
+| A6 PR／合併 | 最終 head 全 CI 通過、無必修項且本輪候選證據齊備才一般 Merge；不直接推 main、不推別人分支、不刪分支 |
+| A7 下一個（交給下一位 AI，尚未開始） | 自有 MIT 全文已隨包，但未綁入 installed package notice 表；A6 結束後另開 PR 補對照及反例，不忽略 review_reason |
+| 其餘再散布 | 基本包優先：wheel 內含第三方來源／版本／原文、Microsoft 逐檔條款、Qt build／替換與靜態連結；CPU 模型／GEOS 另待，不把套件 owner／簽章當權利核准 |
+| B 交付／C 實機／E GPU | 仍待門檻及使用者實機驗收，沒有上傳 Setup／worker／模型或建立 Release／tag |
 
-**A5c 原規格與完成條件（使用者 2026-11-16 指定，獨立 PR）**：
-
-1. Windows 建置（`GITHUB_ACTIONS` 或 `win32`）時，OpenSSL／SQLite 相關檔案若不是 `matched-runtime-probe`，或有 `probe_error`，`check_bundle_provenance` 應判為不接受，並補反例測試；前版 `write_inventory` 只記 `probe_error` 而可通過，本輪已補強產生及重驗兩端。
-2. `tests/test_cpython_components.py` 新增反例：刪除包內 `cpython-original/openssl.txt` 後，`verify_inventory` 必須拒絕。
-3. README 或報告註明 `_ssl.pyd`、`_hashlib.pyd`、`_sqlite3.pyd` 等 extension 列的 `observed_version` 是所連結 OpenSSL／SQLite 的版本，不是該檔本身的版本。
-
-本輪以新標準的 Windows 基本包及 CPU CI 通過並查驗；不沿用 A5b 作為新標準已驗的證據。最終文件 head 仍必須全 CI 通過才合併。
-
-**平台／有期資料**：GitHub API 已恢復；一般沙箱連不到代理時依 runtime 指引用獲准命令，保留代理與 TLS。日誌／artifact 儲存主機仍可能受限，CI 需以公開 annotation 提供必要資料。Windows 報告保留七天、Linux 報告十四天，實際期限／hash 以每次 run 記錄為準；不依賴暫存或未下載附件。這些 PR 暫時 merge 驗證不取代 `cb8f24d` 固定候選，沒有產品發行。
+**平台**：GitHub API 可用；CPU 原排程 API／CLI 狀態回覆矛盾，未確認取消；重送已成功，原請求 43912958713 僅供追溯，後續核對狀態避免重複觸發。日誌／artifact 儲存主機仍受限，必要公開 metadata 經 annotation 保存；只保存報告 JSON，不搬產品。Windows 報告有時效，不能依賴未下載附件。ONNX 繁中缺口、RAM 軟性預算、乾淨機／人工／GPU限制保留。
 
 ## D. 新增規則與決定
 
@@ -77,5 +64,6 @@
 | 2026-11-14–16 | Claude 專用分工 | CLAUDE.md 與 .claude/ 保存其角色與模型；不把工具專用設定視為所有 AI 的規則 |
 | 2026-11-16 | 使用者本輪指示 | A5 已由 Claude reviewer 查驗通過；開始 A5b，第一個提交恢復使用者決定、修正 main 已合併 PR 1–9／next、補 A5 最終四個 CI run；D 節精簡不合併或刪除使用者親自做的決定。指定 A5 README 補註前保存原版及原始 manifest，其他舊證據不變 |
 | 2026-11-16 | 使用者補充 A5c | A5 的 runtime probe 接受條件、缺失 OpenSSL 原文反例與 extension 版本說明列入 C 節待辦；獨立 PR、全部 Windows CI 通過才合併，A5b 不處理 |
+| 2026-11-17 | 使用者決定 | 之後在 D 節新增紀錄時，不要再加原文已涵蓋的摘要列。 |
 
-接手先列 PR，再讀最新分支 AGENTS.md 與 STATUS.md；本輪 A5c，確認其即時合併狀態後，從最新 main 另開分支接 A6；不重做 A4／A5／A5b，不沿用舊 Forbidden 要求重設 API。
+接手先列 PR，再讀最新分支 AGENTS.md 與 STATUS.md；本輪 A6，先核對 PR 12 最終 CI／Merge，再接 A7；固定候選仍 8285450，不重做 A5b／A5c，不把 PR 暫時 merge 當候選。

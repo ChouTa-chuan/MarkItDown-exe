@@ -1,0 +1,8 @@
+{
+  "scope": "Preserved historical CPU JSON input parser only; not current Windows acceptance",
+  "source_commit": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+  "bytes": 8574464,
+  "default_compact_budget_rejected": true,
+  "full_report_budget_accepted": true,
+  "transport_budget_not_increased": true
+}

@@ -4,6 +4,30 @@
 
 ## 更新中
 
+### 2026-11-17｜A6 固定基本包／CPU 候選與整體工程審閱完成
+
+- 兩種候選以同一個完整來源提交 8285450 執行 Windows 驗證，既有功能及新增審閱 metadata 均通過；精簡資料完整取回後以固定 Git 樹離線重跑，來源 gap／candidate 列已消除，原 inventory 待審／未對照計數維持原值。
+- CPU 實際完整 provenance 超過前版精簡入口容量，分離上限後成功；原始預檢／審閱失敗、排程異常、前輪基本包實證與修正後結果一併保存，[證據與期限](docs/development-records/runs/a6-fixed-review-2026-11-17/README.md)可追溯。完整回歸數字只見 progress.json。
+- [整體審閱](docs/a6-source-review.md)明列自有 MIT 套件對照、wheel 內含第三方、Microsoft／Qt 與 CPU 原文／模型／GEOS 等待辦；A6 工程審閱完成，完整 SBOM／再散布與 release_ready 仍 false，產品里程碑不提高。
+- STATUS 先封存後更新，D 原文保留，視覺進度與索引同步；最終文件 head 仍依 PR 全 CI／查驗後一般 Merge，下一個 A7 另開分支處理自有 MIT 表對照。程式／架構版號不變，沒有產品發行。
+
+
+### 2026-11-17｜A6 首批檢核、基本包固定候選與 CPU 排程阻擋
+
+- 相對前版只有 PR 暫時合併驗證，本輪新增固定完整來源 SHA 的 Windows 候選檢查、候選 hash 與可離線重跑的精簡來源審閱資料；CPython 元件觀測／原文及官方 VC 身分證據納入分類，原 inventory 計數與產品核准旗標不改。
+- 第一個提交完成指定的 main 已合併 PR 1–11 現況、A5b／A5c 最終 CI run 與 D 節規則；保留所有使用者決定、歷史證據、上游原文與架構快照。
+- 完整 Linux 混合及獨立模組回歸通過，Windows 基本包固定候選與離線分類已驗；[原始結果、失敗紀錄、來源及期限](docs/development-records/runs/a6-fixed-review-2026-11-17/README.md)已保存，現況數字只記 progress.json，進度頁與索引同步。
+- A6 尚未整體完成：CPU 固定候選長時間 queued 且沒有 jobs，重送已開始執行，原請求取消 API／CLI 回覆矛盾；新版 CPU metadata 與整體審閱、PR 全 CI 仍待。A7 自有 MIT 套件對照先列後續，不提前合併或提高 SBOM／再散布門檻，沒有產品發行。
+
+
+- 2026-11-17：A6 第二輪基本包實證通過；CPU 既有驗收通過後，新增審閱入口以精簡 metadata 上限讀取大型完整 provenance 而拒絕。完整來源報告改用獨立有界容量、公開 metadata 上限不放寬，補容量分離反例與公開錯誤摘要；需重新固定同一來源的兩種候選。
+
+- 2026-11-17：A6 首輪固定來源檢查正確拒絕未提交的 CI out 目錄，但既有流程本來就在此存前版 checkout；新增根目錄 /out/ 的建置暫存忽略規則，來源檢查仍拒絕其他未提交檔。首次失敗保留，重新選定 SHA 後再驗。
+
+- 2026-11-17：A6 新增固定來源候選檢查、候選 hash／來源重分類與精簡可重跑審閱 metadata；Windows 工作流只保存報告，不上傳產品。CPython 原文／runtime 與官方 VC 身分證據納入分類，產品核准旗標維持 false；完整回歸及原生固定候選待驗。
+
+- 2026-11-17：A6 第一個提交依使用者指定更新 STATUS A／C 與進度 headline／next 為 main 已合併 PR 1–11，補齊 A5b／A5c 最終 head 的 CI run；記錄兩階段 Claude reviewer 通過。D 節新增前不得重複原文摘要，既有使用者決定不刪不併；A6 候選與分類尚未執行。
+
 ### 2026-11-16｜A5c 原生 Windows 新接受條件查驗完成（PR #11）
 
 - 相對前次只有本機反例，Windows 基本包與 CPU 現在都以 A5c 新 policy 建置並通過既有驗收；實際 CPython 摘要中 OpenSSL／SQLite 皆有匹配 runtime 觀測，libffi 僅建置宣告限制保留。拒絕缺口的合成反例與原生正常建置實證分開，不宣稱做過 Windows 故障注入。
