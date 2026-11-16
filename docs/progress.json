@@ -2,9 +2,9 @@
   "updated": "2026-11-16",
   "environment": "Linux · Python3.12.14／Tesseract5.3.4；0.19.1全744／50模組exit0；Windows候選仍沿用cb8f24d，A4 Windows CI未執行",
   "tests_passed": 743,
-  "headline": "A4基本包排除setuptools並通過Linux frozen core與回歸；PR與Windows CI待平台存取",
-  "blocker": "GitHub PR API被拒；A4 Windows排除效果待CI。Qt本體原始碼、CPython隨附元件、runtime SBOM／再散布、乾淨機／人工／GPU仍待。",
-  "next": "建立A4 PR，Windows及Linux CI通過並完成查驗後Merge；再做A5 CPython逐檔清單及A5b Qt來源。",
+  "headline": "A4基本包排除setuptools；API已恢復，PR #8正執行Windows與Linux CI",
+  "blocker": "A4 Windows排除效果待PR #8 CI。Qt本體原始碼、CPython隨附元件、runtime SBOM／再散布、乾淨機／人工／GPU仍待。",
+  "next": "確認PR #8全部CI與查驗通過後Merge，再做A5 CPython逐檔清單及A5b Qt來源。",
   "milestones": [
     {
       "id": "m0",
@@ -2051,10 +2051,13 @@
     "linux_unknown_modules": 0,
     "cpu_profile_changed": false,
     "windows_executed": false,
-    "pr_created": false,
+    "pr_created": true,
     "merged": false,
     "stage_closed": false,
     "runtime_sbom_complete": false,
-    "evidence": "development-records/runs/a4-setuptools-audit-2026-11-16/README.md"
+    "evidence": "development-records/runs/a4-setuptools-audit-2026-11-16/README.md",
+    "pr": 8,
+    "ci_status": "running",
+    "api_access_restored": true
   }
 }

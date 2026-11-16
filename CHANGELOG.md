@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-16：使用者發布允許 GitHub API 的新環境後，連線與 PR 建立已恢復；建立 A4 PR #8，更新 STATUS 與進度為 CI 執行中，既有 Linux 證據維持原來源，尚未關閉 A4。
+
 ### 2026-11-16｜A4：查明 setuptools namespace 並排除基本包的建置工具
 
 - 程式／架構版號不變；`codex/a4-setuptools-audit-20261116` 承接 PR 6，並以 merge 納入已合併 PR 6／7 的最新 main，保留另一 AI 的設定與歷史。
