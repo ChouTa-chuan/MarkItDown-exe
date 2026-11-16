@@ -1,0 +1,569 @@
+{
+  "scope": "Static inspection of exact locked Windows wheels on Linux; no Windows execution or packaged-candidate reclassification",
+  "pe_parser": "pefile 2024.8.26",
+  "wheels": [
+    {
+      "wheel": "shiboken6-6.12.0-cp310-abi3-win_amd64.whl",
+      "wheel_sha256": "a1906cb8116869178c64b6bab52623bbc8b4ceed7b30bfc3c9aa0f6e67f6438e",
+      "qt_libraries": [],
+      "version_declarations": {
+        "shiboken6/_config.py": {
+          "sha256": "badcf89bd66b00b2a3b74815065a1c4bd790c8c94ae3f565c3fe7a524e5955c8",
+          "text": "shiboken_library_soversion = \"6.12\"\r\n\r\nversion = \"6.12.0\"\r\nversion_info = (6, 12, 0, \"\", \"\")\r\n\r\n__build_date__ = '2026-10-05T13:28:25+00:00'\r\n\r\n\r\n\r\n\r\n__setup_py_package_version__ = '6.12.0'\r\n\r\n"
+        },
+        "shiboken6/_git_shiboken_module_version.py": {
+          "sha256": "199045222ad25e27501ba34228e9367f8f6b053e70b299e6511cb92a6cd0a96e",
+          "text": "# Copyright (C) 2022 The Qt Company Ltd.\r\n# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only\r\nfrom __future__ import annotations\r\n\r\nmajor_version = \"6\"\r\nminor_version = \"12\"\r\npatch_version = \"0\"\r\n\r\n# For example: \"a\", \"b\", \"rc\"\r\n# (which means \"alpha\", \"beta\", \"release candidate\").\r\n# An empty string means the generated package will be an official release.\r\nrelease_version_type = \"\"\r\n\r\n# For example: \"1\", \"2\" (which means \"beta1\", \"beta2\", if type is \"b\").\r\npre_release_version = \"\"\r\n\r\nif __name__ == '__main__':\r\n    # Used by CMake.\r\n    print(f'{major_version};{minor_version};{patch_version};'\r\n          f'{release_version_type};{pre_release_version}')\r\n"
+        }
+      }
+    },
+    {
+      "wheel": "pyside6_essentials-6.12.0-cp310-abi3-win_amd64.whl",
+      "wheel_sha256": "c9a95102aa23c1f86516a30d5a9be37552d324eee7e567eb7508973f1218cb42",
+      "qt_libraries": [
+        {
+          "file": "PySide6/Qt6Concurrent.dll",
+          "sha256": "6fd8b15e7b38c796e75edc05cbe45a8d604cc06530856fd3a397980068284b20",
+          "bytes": 35128,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Core.dll",
+          "sha256": "f57ed38afd95d0306cca9d88d997f639f70c7628a4f1f064eae291d579487121",
+          "bytes": 10472760,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6DBus.dll",
+          "sha256": "159ba0446017fbea91ae236f7f269e2531eb78f2e40000387f7d555aeed5a1ff",
+          "bytes": 756536,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Designer.dll",
+          "sha256": "9ef666935f3a811f614c3a21df654a084efad50e11d35d14765ba0d8bf3cd127",
+          "bytes": 5259064,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6DesignerComponents.dll",
+          "sha256": "0300fef05d5f5dcd528727c0f71cbc96d0d329233a6959b88855b88aef14ace5",
+          "bytes": 2444088,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Gui.dll",
+          "sha256": "abd20026e190e8cc69667d1bea042db05cd353cc05e7da74b063c20b7da3f6cd",
+          "bytes": 9683256,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Help.dll",
+          "sha256": "c8a700352e4e9370dbaf3e0b8e3dbb8675c5430f5a3de02e182c8c94883e0626",
+          "bytes": 614200,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6LabsAnimation.dll",
+          "sha256": "890c36f3adc21184e00231aaebf3fac70d699b403a8cfc2352581a4d0f766b18",
+          "bytes": 55096,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6LabsFolderListModel.dll",
+          "sha256": "43705b67f359701d317319dfa1ed8f86f8e618071168fb01c460ae33b4789ac0",
+          "bytes": 123704,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6LabsPlatform.dll",
+          "sha256": "4436debb44ccdd1b037a00cf0e775230cf9e5b6332dd27f6d13f635672dd8f88",
+          "bytes": 276792,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6LabsQmlModels.dll",
+          "sha256": "6110e3db656febfc00992018e41c2ffd4d994b7ea3ceed5aa5bf9141f125dc5e",
+          "bytes": 210232,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6LabsSettings.dll",
+          "sha256": "413e27c02def4251a36a0005cf2f75a6da3b7e44a476d2623d5ab5b9d1855265",
+          "bytes": 59704,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6LabsSharedImage.dll",
+          "sha256": "d393b303ee0c3d8702c88ce53f92875edc563d67b7432ec4d0ba8ee26fe7a9fc",
+          "bytes": 56632,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6LabsStyleKit.dll",
+          "sha256": "0e84043df6fe88a410117d10042a8e1a7467453e655c1a32a8ebe143f02b3700",
+          "bytes": 2906936,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6LabsStyleKitImpl.dll",
+          "sha256": "4b2fe264ad936a8044086a7f473c69e9b21b6b595345e47a528988273d2d8bfa",
+          "bytes": 528184,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6LabsSynchronizer.dll",
+          "sha256": "1504ab27b6fbbd36b301dc40832fb7ae75e1735d9c74339a988ed544bb4d51a8",
+          "bytes": 66360,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6LabsWavefrontMesh.dll",
+          "sha256": "b2efe29b4efa382fe548d51e3929bd636eb8cd64752d0dd7b1d9565bb72172a1",
+          "bytes": 60728,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Lottie.dll",
+          "sha256": "afed59f985b2d1e052e0e2c9863cbfdfe2da596be1ec766c65b0e1344c4d2d1d",
+          "bytes": 465720,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6LottieVectorImageGenerator.dll",
+          "sha256": "5061ab7f00f4be095469ac350e12ff6e4372f23c5bc2809d84e686ba62fbff93",
+          "bytes": 183608,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6LottieVectorImageHelpers.dll",
+          "sha256": "39b9036f5ee784b88c4d157f67b694fdac3b69908c03daf80ac3013e4d998b5b",
+          "bytes": 38712,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Network.dll",
+          "sha256": "1c7c393b264ae78f4dee211656377a086c4be714bf768d3135f94f11c1d0be61",
+          "bytes": 1780536,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6OpenGL.dll",
+          "sha256": "788b743bfaca141ca83e28c161646d51de92a71adf7a86c653c36fdea5a9bf5b",
+          "bytes": 1989944,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6OpenGLWidgets.dll",
+          "sha256": "18a96c26211d3487a895679d3ad72b79af3a0a18664c0def63cb519e749176fe",
+          "bytes": 65336,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6PrintSupport.dll",
+          "sha256": "990d93790aff279a2bb94bb569c5adfce2e0d0bff9baa80b6017bc48b9bac6e0",
+          "bytes": 406840,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Qml.dll",
+          "sha256": "0be9fc8ad3b7d2d19d0ed49a9026f02b78c4498ab2f53ca574d34a0740d7888a",
+          "bytes": 5390136,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QmlCompiler.dll",
+          "sha256": "a6210151100a13d7f535912f13a92add812be7f3832e1a96b1971dc45fc8d8f0",
+          "bytes": 2374456,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QmlCore.dll",
+          "sha256": "760f89b7b15df5fbeaacb948673bf534fc7b436e34f7b0321eb36fcd4c10deb8",
+          "bytes": 130360,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QmlDesignSupport.dll",
+          "sha256": "c0f2256cb4dca5f939fb1f7d96773f6ecf073ea848cd722817f533f8186e6cce",
+          "bytes": 106808,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QmlLocalStorage.dll",
+          "sha256": "cd9e60bf7cd0c5689c196a3d5bf06351997879ac595c37bc66c9593addd805b8",
+          "bytes": 61240,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QmlMeta.dll",
+          "sha256": "6edac38b27868e69c8ae15b08145688b02358426d5d652a0d2865ca4476fde0a",
+          "bytes": 158520,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QmlModels.dll",
+          "sha256": "78e79eee241326da0754e29f4b372dee9ff7b75f3484099504c4750ac1f519e6",
+          "bytes": 1021752,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QmlNetwork.dll",
+          "sha256": "40edb110f9ffeac2bff1c72d8ced70b3166d75ab8ea0862866ba84549773d735",
+          "bytes": 126264,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QmlWorkerScript.dll",
+          "sha256": "475456ab8f1e9570f5f5f496b0941445a34fca4bbac0dd07ea84ee5ea15e7194",
+          "bytes": 80184,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QmlXmlListModel.dll",
+          "sha256": "a126812306a202a31f2302fef28305ccdb2045214f881e9124d70ba42338e90c",
+          "bytes": 131384,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Quick.dll",
+          "sha256": "3c93688f36ad4e5c5c2fd73587f50ee94e1dfa4891805bbe5d6d0c031450faa2",
+          "bytes": 6752568,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2.dll",
+          "sha256": "2c46aad18953e2fb56f9c4a9b8b5543aa5e434a990efe4d806c1a438d5b54dfc",
+          "bytes": 102712,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2Basic.dll",
+          "sha256": "de37093349a035c4edd101e61d442545762865aa38927083c7eb1a66dcd14019",
+          "bytes": 2539832,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2BasicStyleImpl.dll",
+          "sha256": "6210c49496e06cde7265aadef089b30c455ba6770cf644686d40f2330e8c2792",
+          "bytes": 103736,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2FluentWinUI3.dll",
+          "sha256": "344761acfda0b43b1f4e3e9ed9a24520e29ef80c08b66b090b4d5fe797274077",
+          "bytes": 3588920,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2FluentWinUI3StyleImpl.dll",
+          "sha256": "fcee038aa12ba72ad6a350ce6d66302f56dc8af9fb01b0b0e3ef24c52d0f2065",
+          "bytes": 286008,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2Fusion.dll",
+          "sha256": "2347de80654e0c7d4191e72f0078cc762693409b89457ea5ad473a5224efd7cb",
+          "bytes": 2127160,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2FusionStyleImpl.dll",
+          "sha256": "1b6fa189b54e31eb4e88aeab2924e158902b73670eeb20de589152a007f77067",
+          "bytes": 232248,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2Imagine.dll",
+          "sha256": "c73ee11777af71c18f259933ef71f61b5b92693dfc2dde747c982a0d008f90b3",
+          "bytes": 3520312,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2ImagineStyleImpl.dll",
+          "sha256": "a633f93fee1326a324304e72176c602e0d938719b6f96c6b2f163228d3a218dc",
+          "bytes": 88888,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2Impl.dll",
+          "sha256": "a3c291666b580e2396a4699bab0dd6f96d1aed4a4e6bbe806075374589b7c585",
+          "bytes": 325944,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2Material.dll",
+          "sha256": "580f83013ad41ba2126b161ca6647f9d12a81491ab1416583d0dfcb3578fb23a",
+          "bytes": 2620216,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2MaterialStyleImpl.dll",
+          "sha256": "6e64a85eea89064102c650442751b9ad089303708fd1964d21f2c817b4e158fb",
+          "bytes": 390968,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2Native.dll",
+          "sha256": "ea1c7f2d366bd207f08acd7847e8a88e04ca38932022d997768e41587c133a0b",
+          "bytes": 24888,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2Universal.dll",
+          "sha256": "5a17b150dd48076e7d18cd177043c625d4a19ad52864f05f5cd499709f2026b5",
+          "bytes": 2213688,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2UniversalStyleImpl.dll",
+          "sha256": "c6a87fa61d213a276f3c97c3a5a99ee340322c717822ffd9dda70eb01d0f84b4",
+          "bytes": 180536,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2Windows.dll",
+          "sha256": "a9bc37baddce01bf0c6f8549fa0212531714954748588a07bb2b55b69343c1af",
+          "bytes": 956728,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickControls2WindowsStyleImpl.dll",
+          "sha256": "2cbb3ec7fd18a5c31c833fda1575eccc861ac21322774fe4c22c6cdb3c88d939",
+          "bytes": 127800,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickDialogs2.dll",
+          "sha256": "d6bf5e5dc758c1367aaf62c1f4d42677db880d4db53ca3d7c9bb7daac155d0a9",
+          "bytes": 156984,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickDialogs2QuickImpl.dll",
+          "sha256": "21f7ea3b6083afa5b652165a599368a9ceec745d814a2d5f06b71b358cdab16d",
+          "bytes": 3370296,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickDialogs2Utils.dll",
+          "sha256": "8cf2e7400327ca0183bb87ad5dd14dbe5e67364f26638361b2936208c06fe876",
+          "bytes": 47416,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickEffects.dll",
+          "sha256": "1ceaa8f6581cb8647144561fe3f36bd995eecf277ee727831f5cf475acc99e63",
+          "bytes": 445752,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickLayouts.dll",
+          "sha256": "9abbab28f828bc21c0c8040faaa56379699546d16f658b7ec2f2085fad269967",
+          "bytes": 314168,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickNativeStyle.dll",
+          "sha256": "478012d40d1ef92f23813514e8dda2390006abc0e306613e17d6728325a6d039",
+          "bytes": 1200440,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickParticles.dll",
+          "sha256": "8c24c2c3b55de3244390ef3372ddb7a9e1788fdd0e02939cdb53fabfa3ab329f",
+          "bytes": 625976,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickShapes.dll",
+          "sha256": "94a393bb2de0f2d9ea520751c196c63b8ddd18f868a86b7cdb8deb89b6d5cf1f",
+          "bytes": 348472,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickShapesDesignHelpers.dll",
+          "sha256": "71b852256acec6c1a2f35efe29ef08d574c1ba32ff7418c992120c35737e4960",
+          "bytes": 188216,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickTemplates2.dll",
+          "sha256": "34a7eb6458b5992e667b63ef4c9557a9b994e217e9f2dda9c8ab09b1ec2072a2",
+          "bytes": 2048824,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickTest.dll",
+          "sha256": "4495196d0080993de743d8b6cc88857500bf1773047a07500ffd56c1eb6f089c",
+          "bytes": 322872,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickTimeline.dll",
+          "sha256": "88092345621c98649f803cf9fd13dcdecf75393089818eb91f2f466576ee660f",
+          "bytes": 95032,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickTimelineBlendTrees.dll",
+          "sha256": "5ccdcf37655273f7e9b0f358c712073b2be2c8b3379c95c305e0db422028b40c",
+          "bytes": 79160,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickVectorImage.dll",
+          "sha256": "917a2da9014c3da590e0254468bfbc77ee8c2830dd440cbdf7abce55765fab0f",
+          "bytes": 92472,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickVectorImageGenerator.dll",
+          "sha256": "c8eb0e4d616a58608ba97e0f7526f15edee492599d8c52b9a1391eb43aa5d98c",
+          "bytes": 323384,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickVectorImageHelpers.dll",
+          "sha256": "568193dc6b772dbe27fe3fb67837e46b56abc067dd90cebc6d4607e4433889d5",
+          "bytes": 186680,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6QuickWidgets.dll",
+          "sha256": "cfa7207b667c7bb74da6ac28b1f437f90b6cad6bbb76ab35d13f11278168c1b4",
+          "bytes": 133944,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Sql.dll",
+          "sha256": "af7a9aa744d4932b80ea41e37fc71fe2c5da0055f32b95621bfa768146e3c911",
+          "bytes": 315704,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Svg.dll",
+          "sha256": "8f1de5b28aab1eedb415c751c81f9cfaa2804242868c0ceea5f3fdb4b2babca4",
+          "bytes": 608056,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6SvgWidgets.dll",
+          "sha256": "a358007c53185599445b41eb97256016c404041868bf0f7276b515a178568f5b",
+          "bytes": 59192,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Test.dll",
+          "sha256": "794b3e98d8f30e5dc88f886a501bddf752066d411e5ac45c67a839ce6c32bdb4",
+          "bytes": 383800,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6UiTools.dll",
+          "sha256": "d51cebfdddd31e823be0b8b4df8ae0c9042852182e1f93b537f507460ef8a55c",
+          "bytes": 694584,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Widgets.dll",
+          "sha256": "2f62cbe2869fff4e20df7369c2786e1ec7ec290d5a63d1371b7f70cf06909c3f",
+          "bytes": 6520120,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        },
+        {
+          "file": "PySide6/Qt6Xml.dll",
+          "sha256": "6847f873b727dd5d328acbd30965940aabd47ba462d6237c55da8b84cc180131",
+          "bytes": 158520,
+          "pe_file_version": "6.12.0.0",
+          "machine": "0x8664"
+        }
+      ],
+      "version_declarations": {
+        "PySide6/_config.py": {
+          "sha256": "28cdaec90954d0d43ad75558ad321f3d784d7a1b1d398ab45a8c7e35c3981443",
+          "text": "built_modules = list(name for name in\r\n    \"Core;Gui;Widgets;PrintSupport;Sql;Network;Test;Concurrent;DBus;Designer;Xml;Help;Multimedia;MultimediaWidgets;OpenGL;OpenGLWidgets;Pdf;PdfWidgets;Positioning;Location;NetworkAuth;Nfc;Qml;Quick;Quick3D;QuickControls2;CanvasPainter;QuickTest;QuickWidgets;LabsStyleKit;RemoteObjects;Scxml;Sensors;SerialPort;SerialBus;StateMachine;TextToSpeech;Charts;SpatialAudio;Svg;SvgWidgets;DataVisualization;Graphs;GraphsWidgets;Bluetooth;UiTools;AxContainer;WebChannel;WebEngineCore;WebEngineWidgets;WebEngineQuick;WebSockets;HttpServer;WebView;3DCore;3DRender;3DInput;3DLogic;3DAnimation;3DExtras\"\r\n    .split(\";\"))\r\n\r\nshiboken_library_soversion = \"6.12\"\r\npyside_library_soversion = \"6.12\"\r\n\r\nversion = \"6.12.0\"\r\nversion_info = (6, 12, 0, \"\", \"\")\r\n\r\n__build_date__ = '2026-10-05T13:28:34+00:00'\r\n\r\n\r\n\r\n\r\n__setup_py_package_version__ = '6.12.0'\r\n\r\n"
+        },
+        "PySide6/_git_pyside_version.py": {
+          "sha256": "43513b7c03b76e56dbd6e7b5f7bd0892c49bde8a22cb9288118b2945a67197af",
+          "text": "# Copyright (C) 2022 The Qt Company Ltd.\r\n# SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only\r\nfrom __future__ import annotations\r\n\r\nmajor_version = \"6\"\r\nminor_version = \"12\"\r\npatch_version = \"0\"\r\nchromium_version = \"140\"\r\n\r\n# For example: \"a\", \"b\", \"rc\"\r\n# (which means \"alpha\", \"beta\", \"release candidate\").\r\n# An empty string means the generated package will be an official release.\r\nrelease_version_type = \"\"\r\n\r\n# For example: \"1\", \"2\" (which means \"beta1\", \"beta2\", if type is \"b\").\r\npre_release_version = \"\"\r\n\r\nif __name__ == '__main__':\r\n    # Used by CMake.\r\n    print(f'{major_version};{minor_version};{patch_version};'\r\n          f'{release_version_type};{pre_release_version}')\r\n"
+        }
+      }
+    }
+  ]
+}

@@ -4,6 +4,13 @@
 
 ## 更新中
 
+### 2026-11-16｜A5b Qt 發布來源與實際版本對應
+
+- 相對前版 Qt 本體來源「待補」，現在固定官方發布 tag、supermodule／qtbase／PySide 提交、完整模組 gitlink、原始版本宣告與來源 hash；基本包隨附 qt-sources.json，離線查驗來源後核對真正載入的 Qt 及套件版本，CI 有獨立摘要。中文取得方法明列 supermodule tarball 不含子模組、各固定來源下載與限制。
+- 第一個提交已依使用者要求恢復原始使用者決定並新增不得因精簡合併／刪除的規則；main／next 改為 PR 1–9，A5 最終四條 run 追加至指定 README（原版先另存、原始 JSON 不變）。A5c 三項列獨立 PR 待辦，本輪未改其驗收標準。
+- 完整混合與獨立模組回歸通過、上游／原始授權／profiles 與來源變異反例通過；數字只記 progress.json，[原始結果及靜態 Windows wheel 證據](docs/development-records/runs/a5b-qt-source-2026-11-16/README.md)已保存。來源探索／呼叫錯誤照實記錄。A5b 原生 Windows 觀測尚待 PR CI。
+- 程式0.19.1／架構0.4與產品里程碑不提高；發布來源對應不等於完整 build 修補／參數、可重建二進位或完成 LGPL／SBOM／再散布。原始授權、模型、固定相依、既有圖及固定候選保留，沒有產品發行。
+
 - 2026-11-16：A5b 新增官方 Qt／PySide 固定發布來源、完整模組 gitlink 與原始版本宣告；基本包隨附 qt-sources.json 並核對實際載入版本，更新 Qt／LGPL 說明及產生範本。相關測試通過；完整回歸與 Windows CI 待執行，來源對應不視為完整建置修補／再散布審核。A5c 保留獨立待辦。
 
 - 2026-11-16：A5b 第一個提交依使用者要求恢復 STATUS D 節歷史使用者決定原文，維護規則明列不因精簡合併或刪除；main／next 更新為已合併 PR 1–9，A5 CI README 補最終 head 的四條 run（先另存原版，原始 JSON 不變）。A5c 三項列為獨立 PR 待辦，本輪不實作。

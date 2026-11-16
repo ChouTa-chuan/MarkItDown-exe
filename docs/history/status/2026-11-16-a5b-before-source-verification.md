@@ -1,0 +1,83 @@
+# 現況
+
+更新：2026-11-16（台北）｜程式 0.19.1／架構 0.4
+
+開工只需要讀 [AGENTS.md](AGENTS.md) 和這份檔案。測試數、里程碑等數字只記在 [docs/progress.json](docs/progress.json)（[進度頁](docs/progress.html)），這裡不重抄。要追溯過去的做法或失敗，查 [歷史索引](docs/history-index.md)。
+
+專案目標：把 Microsoft MarkItDown 做成一般人可安裝使用的 Windows 桌面應用程式，採「基本安裝包＋選配元件管理」。背景與模組責任見 [PROJECT_HANDOFF.md](PROJECT_HANDOFF.md)（背景資料，非必讀）。
+
+## A. 分支與 PR
+
+| 項目 | 狀態 |
+| --- | --- |
+| main／已完成基線 | **main 已合併 PR 1–9，A4／A5 完成（PR #8／#9）**；A5b 起點為 `c51089a258b820b95af51816e516a05300dfb7c4`。使用者確認 A5 的程式、原文、證據、測試已通過 Claude reviewer 查驗 |
+| 本階段分支 | `codex/a5b-qt-source-20261116`，從上述最新 main 另開；未推送別人的分支。A5 本機完整回歸來源仍為 `2104418`，A5b 尚未執行新回歸 |
+| 本階段 PR | A5b，尚未建立；[A5 PR #9](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/9) 已一般 Merge，最終 head `944ef12` 全部 CI 通過；本輪 A5b 完成後另開 PR |
+| 合併規則 | 一個編號一個 PR；所有 CI 通過且查驗無未解決必修項時，以一般 Merge 合併，不直接推 main、不刪分支、不改寫歷史 |
+
+## B. 這個階段完成了什麼
+
+- **A5b 第一個提交先修正交接**：恢復 D 節歷史使用者決定原文，main 現況改為已合併 PR 1–9，A5 證據 README 追加最終 head 的四個 run。A5b Qt 來源對應尚在進行；A5c 僅列待辦，不在本 PR 實作。
+
+- **A5 逐檔元件證據已實作**：`scripts/cpython_components.py` 在建置時記錄真正由 Windows CPython 目錄收集的 OpenSSL、libffi、SQLite 檔案，保存來源 hash、PE 檔案版本、官方建置宣告版本、與載入檔 hash 相符的 OpenSSL／SQLite 執行期版本；不是只用同名檔案猜版本。libffi 沒有支援的執行期版本 API，只有宣告時明列 `build-declaration-only`，不拿 ABI 編號當版本。
+- `packaging/cpython/windows-3.12.10/` 固定官方 CPython 與外部相依 commit、原文 hash 及來源；完整 OpenSSL／libffi 原文與 SQLite 原始標頭註記逐位元組隨包保存。SQLite 是明列 offset／length 的原文節錄，不假稱保存整份標頭。不同 patch 版／架構不能套用此 profile。
+- 原生 manifest 綁定新增清單的 hash，建置後重新驗證版本宣告、原文、逐檔覆蓋與來源指紋；候選清單連回各檔原文，但不因此授予 owner 或核准再散布。基本包與 CPU 共用既有原生來源管線，沒有擴充選配功能。
+- **A4 現況已修正**：A4 完成、PR #8 已合併，不再寫等待合併。依本輪明確指示在 A4 證據 README 補充實體檔案與 PYZ 計數口徑；找到 A3 公開摘要的 109 基準並補存。完整逐檔基準未保存，不能證明兩次未對照的檔案集合相同。原版 README／manifest 先另存，原始 CI JSON 不變。
+- Linux 混合與獨立模組完整回歸均正常退出，只有既有 ONNX 繁中 expected failure；來源、原始結果與限制見 [A5 紀錄](docs/development-records/runs/a5-cpython-components-2026-11-16/README.md)，現況計數只見 [progress.json](docs/progress.json)。**A5 Windows 基本包與 CPU 已取得原生實證，逐檔查驗通過**，來源與完整公開摘要見 [PR 9 CI 紀錄](docs/development-records/runs/a5-pr9-ci-2026-11-16/README.md)。觀測來自建置解譯器載入的來源 DLL，不冒充 frozen 候選獨立探測；libffi 仍僅建置宣告。
+
+## C. 未完成、阻擋與下一步
+
+**本輪 A5b：Qt 本體原始碼位置與版本對應**。main 已合併 PR 1–9；A5 最終 head `944ef12` 全部 CI 與 Claude reviewer 已通過。先完成 A5b，再以新分支／獨立 PR 做 A5c；不在 A5b 改動 A5 的 CI 驗收標準。
+
+| 大階段 | 任務 | 現況／下一步 |
+| --- | --- | --- |
+| A 來源與再散布 | A1 模組清單、A2 文件、A3 Qt／自有 MIT 隨包 | 完成（PR #5／#6） |
+| | A4 setuptools 排除 | **完成（PR #8，已合併並通過 Claude reviewer）** |
+| | A5 CPython 隨附元件逐檔版本／原文 | **完成（PR #9，已合併並通過 Claude reviewer）** |
+| | A5b Qt 本體原始碼位置及版本對應 | **本輪進行中**；要有來源依據，不能按印象補網址 |
+| | A5c A5 驗收補強 | **待辦，獨立 PR，A5b 不處理**；詳見下列三項，Windows CI 全部通過才合併 |
+| | A6 固定來源候選、重跑來源分類、整體審閱 | A5b／A5c 後，才評估 runtime_sbom_complete；目前保持 false |
+| B 測試版安裝包 | 產物證據、驗收表、CPU 元件重新定版及門檻確認 | 未開始，不在門檻關閉前上傳產品 |
+| C 乾淨機／人工 | Windows 10／11、離線、四語、中文路徑、修復移除 | 需要使用者或實體 Windows，尚未接受 |
+| D 擴充 | 圖片本機 OCR／影音獨立元件 | 等使用者決定，未排入本輪 |
+| E GPU | 實卡驗收 | 延後 |
+
+**A5c 待辦（使用者 2026-11-16 指定，獨立 PR）**：
+
+1. Windows 建置（`GITHUB_ACTIONS` 或 `win32`）時，OpenSSL／SQLite 相關檔案若不是 `matched-runtime-probe`，或有 `probe_error`，`check_bundle_provenance` 應判為不接受，並補反例測試；目前 `scripts/cpython_components.py` 的 `write_inventory` 偵測失敗只記 `probe_error` 而仍可通過，須補強。
+2. `tests/test_cpython_components.py` 新增反例：刪除包內 `cpython-original/openssl.txt` 後，`verify_inventory` 必須拒絕。
+3. README 或報告註明 `_ssl.pyd`、`_hashlib.pyd`、`_sqlite3.pyd` 等 extension 列的 `observed_version` 是所連結 OpenSSL／SQLite 的版本，不是該檔本身的版本。
+
+這會改變 CI 驗收標準，A5c 的全部 Windows CI 必須通過才合併；A5b 不實作這三項。
+
+**平台／有期資料**：GitHub API 已恢復；一般沙箱連不到代理時依 runtime 指引用獲准命令，保留代理與 TLS。日誌／artifact 儲存主機仍可能受限，CI 需以公開 annotation 提供必要資料。Windows 報告保留七天、Linux 報告十四天，實際期限／hash 以每次 run 記錄為準；不依賴暫存或未下載附件。這些 PR 暫時 merge 驗證不取代 `cb8f24d` 固定候選，沒有產品發行。
+
+## D. 新增規則與決定
+
+使用者親自做的決定逐筆保留，不因精簡而合併或刪除；工具專用設定的適用範圍說明不能取代原決定。以下恢復原文自 [A4 現況存檔](docs/history/status/2026-11-16-a4-before-a5.md)。
+
+| 日期 | 來源 | 內容 |
+| --- | --- | --- |
+| 2026-11-16 | 使用者本輪指示 | API 存取恢復後完成 A4 PR、Windows CI 與合併等阻擋項目，再依現況接續；沿用既有查驗與 Merge 條件，沒有新增產品發行授權 |
+| 2026-11-16 | 使用者本輪接手指示 | Codex 從 C 節 A4 開始；更新 STATUS、推送自己的新分支、開 PR；CI 通過即可依 AGENTS 的查驗條件 Merge。不直接推 main、不推別人分支。A4 任務內排除已驗證非必要的 setuptools，不擴及其他打包調整 |
+| 2026-11-12 | 使用者指示 | 工作分支＋PR，不直接推 main；不強制推送；門檻未關閉前不對外交付安裝包（含 CI artifact）；暫不建立 Release 或 tag |
+| 2026-11-13 | 使用者同意 | 現況與歷史分開、自動索引、數字單一來源、階段完成才整體更新、新證據移出 repo（舊證據原地保留）、暫緩擴充元件系統、動到的檔案順手拆開壓縮的程式行 |
+| 2026-11-13 | 使用者決定 | 自有程式採 MIT，著作權人「周大詮 (ChouTa-chuan)」，涵蓋以不同 AI 工具產生的全部自有內容 |
+| 2026-11-13 | 使用者同意 | 排除 Qt TLS 外掛與來源不明的 OpenSSL；從 CPU 文字辨識元件排除 OpenCV 內附的 FFmpeg，影音日後另做獨立選配元件；微軟執行期改用官方來源 |
+| 2026-11-14 | 使用者指示 | 專案由 Claude 與 Codex 輪流進行，每個 AI 至少完成一個小階段（PR）才換手；規則見 AGENTS.md「多個 AI 輪替」 |
+| 2026-11-16 | 使用者指示 | A3 完成後 Claude 暫停，換手給 Codex（GPT）從 A4 繼續 |
+| 2026-11-16 | 使用者指示 | 合併 PR 4、PR 5；之後每完成一個編號（如 A4、A5）視為小階段完成即可合併；`main` 已由使用者設定分支保護 |
+| 2026-11-14 | 使用者指示 | Claude 採三角色分工：規劃者（主對話）、編程者 `coder`、查驗者 `reviewer`，流程見 CLAUDE.md；主對話推理強度為中 |
+| 2026-11-16 | 使用者決定 | 規劃者改為子代理 `planner`（`claude-fable-5-2`），只在大階段開始前寫計畫、完成後整體複查；主對話改為不屬於角色的協調者，預設模型 `claude-opus-5-5`。原因：主對話會隨工作階段切換模型，角色模型應固定在子代理定義檔 |
+| 2026-11-16 | 使用者本輪指示 | A4 已由 Claude reviewer 查驗通過；開始 A5，並在同一 PR 修正 A4 完成／main 已合併 PR 1–8 的現況與 next；補充 A4 unresolved_files=109 的計數口徑與基準，找不到寫未保存 |
+| 2026-11-16 | 本輪明確授權的保存補註 | 僅對指定 A4 證據 README 追加說明；先保存原版 README／manifest，再更新該 README 的 hash。其他舊證據及原始 CI JSON 不變，不擴大成任意改寫歷史的授權 |
+| 2026-11-16 | 既有使用者指示／AGENTS | 各編號一個 PR，全部 CI 與查驗通過即可一般 Merge；不直接推 main、不推別人分支、不 force push 或刪分支 |
+| 2026-11-13 | 已確認授權決定 | 自有程式 MIT，著作權人「周大詮 (ChouTa-chuan)」，涵蓋以不同 AI 工具產生的全部自有內容 |
+| 2026-11-13 | 已確認打包決定 | 排除 Qt TLS／來源不明 OpenSSL、CPU OCR 的 OpenCV FFmpeg；VC runtime 取官方來源，影音另行規劃 |
+| 2026-11-13–16 | 已確認維護方式 | 現況／歷史分開，數字單一來源，階段完成才整體更新，原文／模型／圖及原始失敗保留；優先基本包，暫緩擴充元件系統 |
+| 既有規則 | AGENTS／使用者 | 來源與再散布門檻未關閉前不發 Setup／worker／模型（含產品 artifact）、不建 Release 或 tag；ONNX 繁中、RAM 軟性預算、實機／GPU 限制維持 |
+| 2026-11-14–16 | Claude 專用分工 | CLAUDE.md 與 .claude/ 保存其角色與模型；不把工具專用設定視為所有 AI 的規則 |
+| 2026-11-16 | 使用者本輪指示 | A5 已由 Claude reviewer 查驗通過；開始 A5b，第一個提交恢復使用者決定、修正 main 已合併 PR 1–9／next、補 A5 最終四個 CI run；D 節精簡不合併或刪除使用者親自做的決定。指定 A5 README 補註前保存原版及原始 manifest，其他舊證據不變 |
+| 2026-11-16 | 使用者補充 A5c | A5 的 runtime probe 接受條件、缺失 OpenSSL 原文反例與 extension 版本說明列入 C 節待辦；獨立 PR、全部 Windows CI 通過才合併，A5b 不處理 |
+
+接手先列 PR，再讀最新分支 AGENTS.md 與 STATUS.md；本輪 A5b，之後獨立 PR 做 A5c，不重做 A4／A5，也不沿用舊 Forbidden 要求重設 API。

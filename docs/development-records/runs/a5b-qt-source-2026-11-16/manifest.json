@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-16",
+  "tested_source": "bc2f77c46de1903877ab1a2ee4e489f2c7559aac",
+  "accepted": true,
+  "windows_executed": false,
+  "static_windows_wheel_inspection": true,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "keywords": [
+    "A5b",
+    "Qt",
+    "PySide",
+    "shiboken",
+    "發布來源",
+    "gitlink",
+    "Windowswheel",
+    "版本宣告",
+    "A5c待辦"
+  ],
+  "files": {
+    "README.md": "c493edfeffdd333365237dc1455af3dead177e1c215a3e48235230b24669bb9e",
+    "exploration-notes.txt": "8eb1551d9077d62602f2c91c42798780861cfbc60369943a9e2db650c09481e9",
+    "isolated-summary.json": "bc59486a9a5db5b3162b1171adfb174d69831812dfbd1524d8d2137dc708ccc8",
+    "linux-qt-observation.json": "1c4317a89c5791eea44c43354f5f7ec58c7a236c2f01e1dbc07a44a90d9ee2d5",
+    "mixed-result.json": "9303331a3c62cd0e0e18f88c8bb72a09e5dc92e72925cd98ef57e274f2e1d558",
+    "module-source-availability.json": "98978b8d3f0f3a9a31229260016b6f7aa89d31299092ca67f17a9e58cb92a370",
+    "windows-wheel-evidence.json": "f6e972a830f6733819c42bac7de0a305f29f60288817e61030c98192454ff877"
+  }
+}

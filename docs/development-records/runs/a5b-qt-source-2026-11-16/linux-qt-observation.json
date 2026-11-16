@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "check": "qt-release-sources",
+  "version": "6.12.0",
+  "qt5_commit": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+  "qtbase_commit": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+  "pyside_commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+  "pyside_archive": "https://codeload.github.com/pyside/pyside-setup/tar.gz/f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+  "qt5_archive": "https://codeload.github.com/qt/qt5/tar.gz/ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+  "modules": {
+    "qt3d": {
+      "commit": "ccb75d7928dac2656f407fb78ac30b9965ed7609",
+      "repository": "https://github.com/qt/qt3d",
+      "archive": "https://codeload.github.com/qt/qt3d/tar.gz/ccb75d7928dac2656f407fb78ac30b9965ed7609"
+    },
+    "qt5compat": {
+      "commit": "9c2a1b4c8298c750f8632e2fd19f7a1a539c5f09",
+      "repository": "https://github.com/qt/qt5compat",
+      "archive": "https://codeload.github.com/qt/qt5compat/tar.gz/9c2a1b4c8298c750f8632e2fd19f7a1a539c5f09"
+    },
+    "qtactiveqt": {
+      "commit": "087ebc25c281b8a74f665fd30611c8a93be56848",
+      "repository": "https://github.com/qt/qtactiveqt",
+      "archive": "https://codeload.github.com/qt/qtactiveqt/tar.gz/087ebc25c281b8a74f665fd30611c8a93be56848"
+    },
+    "qtbase": {
+      "commit": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+      "repository": "https://github.com/qt/qtbase",
+      "archive": "https://codeload.github.com/qt/qtbase/tar.gz/025bdad181de241e81bf853c8a2d7bf3d19261a9"
+    },
+    "qtcanvaspainter": {
+      "commit": "ab0866ae00c50cfc959b7a82cdfe643a7e5c2f3e",
+      "repository": "https://github.com/qt/qtcanvaspainter",
+      "archive": "https://codeload.github.com/qt/qtcanvaspainter/tar.gz/ab0866ae00c50cfc959b7a82cdfe643a7e5c2f3e"
+    },
+    "qtcharts": {
+      "commit": "56fc191c547f4319253fd72eccf5c4c9458b261c",
+      "repository": "https://github.com/qt/qtcharts",
+      "archive": "https://codeload.github.com/qt/qtcharts/tar.gz/56fc191c547f4319253fd72eccf5c4c9458b261c"
+    },
+    "qtcoap": {
+      "commit": "87c76148a75ecf7ecadb2caf3ac30eb7d8b7e24e",
+      "repository": "https://github.com/qt/qtcoap",
+      "archive": "https://codeload.github.com/qt/qtcoap/tar.gz/87c76148a75ecf7ecadb2caf3ac30eb7d8b7e24e"
+    },
+    "qtconnectivity": {
+      "commit": "2340c1f3ced364314228d8f64a86e8c7d32717f7",
+      "repository": "https://github.com/qt/qtconnectivity",
+      "archive": "https://codeload.github.com/qt/qtconnectivity/tar.gz/2340c1f3ced364314228d8f64a86e8c7d32717f7"
+    },
+    "qtdatavis3d": {
+      "commit": "f0edfedb1a770f6389d26ad6f2769d5819391360",
+      "repository": "https://github.com/qt/qtdatavis3d",
+      "archive": "https://codeload.github.com/qt/qtdatavis3d/tar.gz/f0edfedb1a770f6389d26ad6f2769d5819391360"
+    },
+    "qtdeclarative": {
+      "commit": "4332fbbb4c340463dc8cee36dda0c85d932122d8",
+      "repository": "https://github.com/qt/qtdeclarative",
+      "archive": "https://codeload.github.com/qt/qtdeclarative/tar.gz/4332fbbb4c340463dc8cee36dda0c85d932122d8"
+    },
+    "qtdoc": {
+      "commit": "0c98a846e11c56b0576f98cf8497345ae4adec40",
+      "repository": "https://github.com/qt/qtdoc",
+      "archive": "https://codeload.github.com/qt/qtdoc/tar.gz/0c98a846e11c56b0576f98cf8497345ae4adec40"
+    },
+    "qtgraphs": {
+      "commit": "3ef93c85b14a8a759c8c2ad596e2753eb1952666",
+      "repository": "https://github.com/qt/qtgraphs",
+      "archive": "https://codeload.github.com/qt/qtgraphs/tar.gz/3ef93c85b14a8a759c8c2ad596e2753eb1952666"
+    },
+    "qtgrpc": {
+      "commit": "743a5066f9072e34835a193e045df233a1762e1c",
+      "repository": "https://github.com/qt/qtgrpc",
+      "archive": "https://codeload.github.com/qt/qtgrpc/tar.gz/743a5066f9072e34835a193e045df233a1762e1c"
+    },
+    "qthttpserver": {
+      "commit": "b9b95d5ef79f88948c6f5f6f91742cbeea8cea1e",
+      "repository": "https://github.com/qt/qthttpserver",
+      "archive": "https://codeload.github.com/qt/qthttpserver/tar.gz/b9b95d5ef79f88948c6f5f6f91742cbeea8cea1e"
+    },
+    "qtimageformats": {
+      "commit": "dc13f2fbff1d579cfb2eb2d9092e3563b4d05b8e",
+      "repository": "https://github.com/qt/qtimageformats",
+      "archive": "https://codeload.github.com/qt/qtimageformats/tar.gz/dc13f2fbff1d579cfb2eb2d9092e3563b4d05b8e"
+    },
+    "qtlanguageserver": {
+      "commit": "c536390c64fbd21ff2981280034be71d714727f8",
+      "repository": "https://github.com/qt/qtlanguageserver",
+      "archive": "https://codeload.github.com/qt/qtlanguageserver/tar.gz/c536390c64fbd21ff2981280034be71d714727f8"
+    },
+    "qtlocation": {
+      "commit": "1bf8675f5c11d75faccf66541220d37923e2d682",
+      "repository": "https://github.com/qt/qtlocation",
+      "archive": "https://codeload.github.com/qt/qtlocation/tar.gz/1bf8675f5c11d75faccf66541220d37923e2d682"
+    },
+    "qtlottie": {
+      "commit": "6187542f2e7cd69477d1bf45697135c0f78417f4",
+      "repository": "https://github.com/qt/qtlottie",
+      "archive": "https://codeload.github.com/qt/qtlottie/tar.gz/6187542f2e7cd69477d1bf45697135c0f78417f4"
+    },
+    "qtmqtt": {
+      "commit": "f74f931ff303511ebfa54eab8cf1f0ae82be8b33",
+      "repository": "https://github.com/qt/qtmqtt",
+      "archive": "https://codeload.github.com/qt/qtmqtt/tar.gz/f74f931ff303511ebfa54eab8cf1f0ae82be8b33"
+    },
+    "qtmultimedia": {
+      "commit": "6ca885f084a3984749d53bb50a0e08bdc60e86cc",
+      "repository": "https://github.com/qt/qtmultimedia",
+      "archive": "https://codeload.github.com/qt/qtmultimedia/tar.gz/6ca885f084a3984749d53bb50a0e08bdc60e86cc"
+    },
+    "qtnetworkauth": {
+      "commit": "d38b832b9b19b0684f6b3539788d610a76ccb99b",
+      "repository": "https://github.com/qt/qtnetworkauth",
+      "archive": "https://codeload.github.com/qt/qtnetworkauth/tar.gz/d38b832b9b19b0684f6b3539788d610a76ccb99b"
+    },
+    "qtopcua": {
+      "commit": "9e959f7d565913492f7328ca1e0b42d2927ccbcb",
+      "repository": "https://github.com/qt/qtopcua",
+      "archive": "https://codeload.github.com/qt/qtopcua/tar.gz/9e959f7d565913492f7328ca1e0b42d2927ccbcb"
+    },
+    "qtopenapi": {
+      "commit": "c46e62154611707265969a320d3b066db41c0585",
+      "repository": "https://github.com/qt/qtopenapi",
+      "archive": "https://codeload.github.com/qt/qtopenapi/tar.gz/c46e62154611707265969a320d3b066db41c0585"
+    },
+    "qtpositioning": {
+      "commit": "6e77a4fa3d773960f6d35197d617df1665797b8a",
+      "repository": "https://github.com/qt/qtpositioning",
+      "archive": "https://codeload.github.com/qt/qtpositioning/tar.gz/6e77a4fa3d773960f6d35197d617df1665797b8a"
+    },
+    "qtqa": {
+      "commit": "35fa4c3c83cf541aeb62b2f06c67db8614feba84",
+      "repository": "https://github.com/qt/qtqa",
+      "archive": "https://codeload.github.com/qt/qtqa/tar.gz/35fa4c3c83cf541aeb62b2f06c67db8614feba84"
+    },
+    "qtquick3d": {
+      "commit": "a50a2ff960ca58d4b9f87b7e6a7ddae02e620426",
+      "repository": "https://github.com/qt/qtquick3d",
+      "archive": "https://codeload.github.com/qt/qtquick3d/tar.gz/a50a2ff960ca58d4b9f87b7e6a7ddae02e620426"
+    },
+    "qtquick3dphysics": {
+      "commit": "6514607dec860d7a5f2a42619ecac9322cfb91e2",
+      "repository": "https://github.com/qt/qtquick3dphysics",
+      "archive": "https://codeload.github.com/qt/qtquick3dphysics/tar.gz/6514607dec860d7a5f2a42619ecac9322cfb91e2"
+    },
+    "qtquickeffectmaker": {
+      "commit": "52a7a47cd549bbb8b128265c7f1d91e77b935eb6",
+      "repository": "https://github.com/qt/qtquickeffectmaker",
+      "archive": "https://codeload.github.com/qt/qtquickeffectmaker/tar.gz/52a7a47cd549bbb8b128265c7f1d91e77b935eb6"
+    },
+    "qtquicktimeline": {
+      "commit": "645ba346fd8175aa0572d66c917862f8a7c4a966",
+      "repository": "https://github.com/qt/qtquicktimeline",
+      "archive": "https://codeload.github.com/qt/qtquicktimeline/tar.gz/645ba346fd8175aa0572d66c917862f8a7c4a966"
+    },
+    "qtremoteobjects": {
+      "commit": "5add069a1b80a345690b911b9c55826a21ca251c",
+      "repository": "https://github.com/qt/qtremoteobjects",
+      "archive": "https://codeload.github.com/qt/qtremoteobjects/tar.gz/5add069a1b80a345690b911b9c55826a21ca251c"
+    },
+    "qtrepotools": {
+      "commit": "309df8d5eefb86d6a3c8d9cb42fcfbca1c7cd547",
+      "repository": "https://github.com/qt/qtrepotools",
+      "archive": "https://codeload.github.com/qt/qtrepotools/tar.gz/309df8d5eefb86d6a3c8d9cb42fcfbca1c7cd547"
+    },
+    "qtscxml": {
+      "commit": "0b5ce59845cc964efed91b59ecade97e81c30c66",
+      "repository": "https://github.com/qt/qtscxml",
+      "archive": "https://codeload.github.com/qt/qtscxml/tar.gz/0b5ce59845cc964efed91b59ecade97e81c30c66"
+    },
+    "qtsensors": {
+      "commit": "b04d15851692519167d5f31215a423e298c2e97b",
+      "repository": "https://github.com/qt/qtsensors",
+      "archive": "https://codeload.github.com/qt/qtsensors/tar.gz/b04d15851692519167d5f31215a423e298c2e97b"
+    },
+    "qtserialbus": {
+      "commit": "7e730085399effee86f0fdfa9e6cc650b5a09921",
+      "repository": "https://github.com/qt/qtserialbus",
+      "archive": "https://codeload.github.com/qt/qtserialbus/tar.gz/7e730085399effee86f0fdfa9e6cc650b5a09921"
+    },
+    "qtserialport": {
+      "commit": "beb4c887f3b886447cf86592fa65b8b9c1d6e312",
+      "repository": "https://github.com/qt/qtserialport",
+      "archive": "https://codeload.github.com/qt/qtserialport/tar.gz/beb4c887f3b886447cf86592fa65b8b9c1d6e312"
+    },
+    "qtshadertools": {
+      "commit": "bccd516b990a6396900051470ac86cc27a7042ea",
+      "repository": "https://github.com/qt/qtshadertools",
+      "archive": "https://codeload.github.com/qt/qtshadertools/tar.gz/bccd516b990a6396900051470ac86cc27a7042ea"
+    },
+    "qtspeech": {
+      "commit": "332f8a148bf01739140c3a00dd54f3ed98f3b546",
+      "repository": "https://github.com/qt/qtspeech",
+      "archive": "https://codeload.github.com/qt/qtspeech/tar.gz/332f8a148bf01739140c3a00dd54f3ed98f3b546"
+    },
+    "qtsvg": {
+      "commit": "883a58532078d003cefef0a549bfe9f885ce41f5",
+      "repository": "https://github.com/qt/qtsvg",
+      "archive": "https://codeload.github.com/qt/qtsvg/tar.gz/883a58532078d003cefef0a549bfe9f885ce41f5"
+    },
+    "qttasktree": {
+      "commit": "bb7e5587370bb5073e2d47123beb51ffba5c7fcd",
+      "repository": "https://github.com/qt/qttasktree",
+      "archive": "https://codeload.github.com/qt/qttasktree/tar.gz/bb7e5587370bb5073e2d47123beb51ffba5c7fcd"
+    },
+    "qttools": {
+      "commit": "613a6fbf0a7998010ab2fda260b64066d66a021d",
+      "repository": "https://github.com/qt/qttools",
+      "archive": "https://codeload.github.com/qt/qttools/tar.gz/613a6fbf0a7998010ab2fda260b64066d66a021d"
+    },
+    "qttranslations": {
+      "commit": "2811457ceff8f0c24a1c4d14f947a283a17239d0",
+      "repository": "https://github.com/qt/qttranslations",
+      "archive": "https://codeload.github.com/qt/qttranslations/tar.gz/2811457ceff8f0c24a1c4d14f947a283a17239d0"
+    },
+    "qtvirtualkeyboard": {
+      "commit": "934b432b13cae5c64357a5e98547280bd191f806",
+      "repository": "https://github.com/qt/qtvirtualkeyboard",
+      "archive": "https://codeload.github.com/qt/qtvirtualkeyboard/tar.gz/934b432b13cae5c64357a5e98547280bd191f806"
+    },
+    "qtwayland": {
+      "commit": "c4f85cd060e3e80a7d71829defac9cf5a40e8ffa",
+      "repository": "https://github.com/qt/qtwayland",
+      "archive": "https://codeload.github.com/qt/qtwayland/tar.gz/c4f85cd060e3e80a7d71829defac9cf5a40e8ffa"
+    },
+    "qtwebchannel": {
+      "commit": "621cb3df07d6cf316dd026ec71311368adfe371e",
+      "repository": "https://github.com/qt/qtwebchannel",
+      "archive": "https://codeload.github.com/qt/qtwebchannel/tar.gz/621cb3df07d6cf316dd026ec71311368adfe371e"
+    },
+    "qtwebsockets": {
+      "commit": "6aedb199b5d8ee4afa4cfc956ded22bc0a2632e9",
+      "repository": "https://github.com/qt/qtwebsockets",
+      "archive": "https://codeload.github.com/qt/qtwebsockets/tar.gz/6aedb199b5d8ee4afa4cfc956ded22bc0a2632e9"
+    },
+    "qtwebview": {
+      "commit": "5774c23849cdad2bcdf71ad8c8bd6946dcae38f0",
+      "repository": "https://github.com/qt/qtwebview",
+      "archive": "https://codeload.github.com/qt/qtwebview/tar.gz/5774c23849cdad2bcdf71ad8c8bd6946dcae38f0"
+    }
+  },
+  "observed": {
+    "platform": "Linux",
+    "qt_version": "6.12.0",
+    "pyside_version": "6.12.0",
+    "shiboken_version": "6.12.0",
+    "qt_build": "Qt 6.12.0 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 11.5.0 20240719 (Red Hat 11.5.0-5)) [Python limited API run time: 3.12.14 built: 3.12.9]",
+    "core_extension_sha256": "c69ab7ddf99eaf37df6c9ed9498bba9f3678d8544de3921c13d046c31f0d484b"
+  },
+  "catalog_sha256": "224e4f7df81b99d1c55310e49beb5a280b10b7a7d15f7b4615872a73bb1725d6",
+  "release_source_map_verified": true,
+  "binary_reproduction_verified": false,
+  "upstream_build_patch_set_verified": false,
+  "redistribution_approved": false,
+  "runtime_sbom_complete": false
+}

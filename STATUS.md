@@ -11,19 +11,15 @@
 | 項目 | 狀態 |
 | --- | --- |
 | main／已完成基線 | **main 已合併 PR 1–9，A4／A5 完成（PR #8／#9）**；A5b 起點為 `c51089a258b820b95af51816e516a05300dfb7c4`。使用者確認 A5 的程式、原文、證據、測試已通過 Claude reviewer 查驗 |
-| 本階段分支 | `codex/a5b-qt-source-20261116`，從上述最新 main 另開；未推送別人的分支。A5 本機完整回歸來源仍為 `2104418`，A5b 尚未執行新回歸 |
+| 本階段分支 | `codex/a5b-qt-source-20261116`，從上述最新 main 另開；未推送別人的分支。A5 本機完整回歸來源仍為 `2104418`，A5b 完整回歸來源為 `bc2f77c` |
 | 本階段 PR | A5b，尚未建立；[A5 PR #9](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/9) 已一般 Merge，最終 head `944ef12` 全部 CI 通過；本輪 A5b 完成後另開 PR |
 | 合併規則 | 一個編號一個 PR；所有 CI 通過且查驗無未解決必修項時，以一般 Merge 合併，不直接推 main、不刪分支、不改寫歷史 |
 
 ## B. 這個階段完成了什麼
 
-- **A5b 第一個提交先修正交接**：恢復 D 節歷史使用者決定原文，main 現況改為已合併 PR 1–9，A5 證據 README 追加最終 head 的四個 run。A5b Qt 來源對應尚在進行；A5c 僅列待辦，不在本 PR 實作。
-
-- **A5 逐檔元件證據已實作**：`scripts/cpython_components.py` 在建置時記錄真正由 Windows CPython 目錄收集的 OpenSSL、libffi、SQLite 檔案，保存來源 hash、PE 檔案版本、官方建置宣告版本、與載入檔 hash 相符的 OpenSSL／SQLite 執行期版本；不是只用同名檔案猜版本。libffi 沒有支援的執行期版本 API，只有宣告時明列 `build-declaration-only`，不拿 ABI 編號當版本。
-- `packaging/cpython/windows-3.12.10/` 固定官方 CPython 與外部相依 commit、原文 hash 及來源；完整 OpenSSL／libffi 原文與 SQLite 原始標頭註記逐位元組隨包保存。SQLite 是明列 offset／length 的原文節錄，不假稱保存整份標頭。不同 patch 版／架構不能套用此 profile。
-- 原生 manifest 綁定新增清單的 hash，建置後重新驗證版本宣告、原文、逐檔覆蓋與來源指紋；候選清單連回各檔原文，但不因此授予 owner 或核准再散布。基本包與 CPU 共用既有原生來源管線，沒有擴充選配功能。
-- **A4 現況已修正**：A4 完成、PR #8 已合併，不再寫等待合併。依本輪明確指示在 A4 證據 README 補充實體檔案與 PYZ 計數口徑；找到 A3 公開摘要的 109 基準並補存。完整逐檔基準未保存，不能證明兩次未對照的檔案集合相同。原版 README／manifest 先另存，原始 CI JSON 不變。
-- Linux 混合與獨立模組完整回歸均正常退出，只有既有 ONNX 繁中 expected failure；來源、原始結果與限制見 [A5 紀錄](docs/development-records/runs/a5-cpython-components-2026-11-16/README.md)，現況計數只見 [progress.json](docs/progress.json)。**A5 Windows 基本包與 CPU 已取得原生實證，逐檔查驗通過**，來源與完整公開摘要見 [PR 9 CI 紀錄](docs/development-records/runs/a5-pr9-ci-2026-11-16/README.md)。觀測來自建置解譯器載入的來源 DLL，不冒充 frozen 候選獨立探測；libffi 仍僅建置宣告。
+- **A5b 第一個提交 `c25e3c2` 已完成指定修正**：D 節恢復歷史使用者決定原文；main／next 改為 PR 1–9；A5 CI README 追加最終 head 四個 run，原版先另存、原始 CI JSON 不變。A5c 三項僅列獨立 PR 待辦。
+- **Qt 發布來源對應已實作**：官方 Qt supermodule／qtbase 與 PySide／shiboken tag、固定提交、完整 gitlink、原始版本宣告及鎖定 Windows wheel 有來源依據，不再只列「待補」。基本包隨附 `licenses/qt-sources.json`，離線驗證來源並核對實際載入版本；更新中文 Qt 取得方法、原始碼下載及第三方說明範本。限制保留，未核准再散布。
+- Linux 完整混合及獨立模組回歸正常退出，只有既有 ONNX 繁中 expected failure；[來源／原始結果／靜態 wheel 證據](docs/development-records/runs/a5b-qt-source-2026-11-16/README.md)已保存，計數只見 [progress.json](docs/progress.json)。Windows wheel 的 PE 檢查不冒充 Windows 執行；A5b 原生 Windows 觀測尚待本 PR CI。
 
 ## C. 未完成、阻擋與下一步
 
@@ -34,7 +30,7 @@
 | A 來源與再散布 | A1 模組清單、A2 文件、A3 Qt／自有 MIT 隨包 | 完成（PR #5／#6） |
 | | A4 setuptools 排除 | **完成（PR #8，已合併並通過 Claude reviewer）** |
 | | A5 CPython 隨附元件逐檔版本／原文 | **完成（PR #9，已合併並通過 Claude reviewer）** |
-| | A5b Qt 本體原始碼位置及版本對應 | **本輪進行中**；要有來源依據，不能按印象補網址 |
+| | A5b Qt 本體原始碼位置及版本對應 | 來源對應、本機回歸與靜態 Windows wheel 已驗；本 PR Windows CI 待驗 |
 | | A5c A5 驗收補強 | **待辦，獨立 PR，A5b 不處理**；詳見下列三項，Windows CI 全部通過才合併 |
 | | A6 固定來源候選、重跑來源分類、整體審閱 | A5b／A5c 後，才評估 runtime_sbom_complete；目前保持 false |
 | B 測試版安裝包 | 產物證據、驗收表、CPU 元件重新定版及門檻確認 | 未開始，不在門檻關閉前上傳產品 |

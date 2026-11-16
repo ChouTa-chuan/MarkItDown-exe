@@ -1,0 +1,282 @@
+{
+  "checked": "2026-11-16",
+  "scope": "GitHub official Qt mirrors contain each pinned supermodule gitlink; source archives not downloaded",
+  "modules": [
+    {
+      "module": "qt3d",
+      "commit": "ccb75d7928dac2656f407fb78ac30b9965ed7609",
+      "accepted": true,
+      "tree": "a3461af95d85cd964df8b8a11ea09bcc8deda1a6"
+    },
+    {
+      "module": "qt5compat",
+      "commit": "9c2a1b4c8298c750f8632e2fd19f7a1a539c5f09",
+      "accepted": true,
+      "tree": "1ee4112db906ee7ecb28bc9be462f11dc4d9483a"
+    },
+    {
+      "module": "qtactiveqt",
+      "commit": "087ebc25c281b8a74f665fd30611c8a93be56848",
+      "accepted": true,
+      "tree": "808db1d2f5876e774a392719367806b23a58a2e5"
+    },
+    {
+      "module": "qtbase",
+      "commit": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+      "accepted": true,
+      "tree": "09cffd3c354c81b13e3d780ff603b6728f79eb33"
+    },
+    {
+      "module": "qtcanvaspainter",
+      "commit": "ab0866ae00c50cfc959b7a82cdfe643a7e5c2f3e",
+      "accepted": true,
+      "tree": "203fe8aadb4c1d76940764d7ceace93b9abd51d5"
+    },
+    {
+      "module": "qtcharts",
+      "commit": "56fc191c547f4319253fd72eccf5c4c9458b261c",
+      "accepted": true,
+      "tree": "c747c14e15264be3f005910273ed36d31c4fb438"
+    },
+    {
+      "module": "qtcoap",
+      "commit": "87c76148a75ecf7ecadb2caf3ac30eb7d8b7e24e",
+      "accepted": true,
+      "tree": "6b6442bec8c9572742bfe798057ddc1b21843368"
+    },
+    {
+      "module": "qtconnectivity",
+      "commit": "2340c1f3ced364314228d8f64a86e8c7d32717f7",
+      "accepted": true,
+      "tree": "cc20777c7304c278c8b9edbb87364165bc8f0fd6"
+    },
+    {
+      "module": "qtdatavis3d",
+      "commit": "f0edfedb1a770f6389d26ad6f2769d5819391360",
+      "accepted": true,
+      "tree": "b00594814de7d5c467d65a4d310ba036f7bd839e"
+    },
+    {
+      "module": "qtdeclarative",
+      "commit": "4332fbbb4c340463dc8cee36dda0c85d932122d8",
+      "accepted": true,
+      "tree": "98324181f2eebf01e806603a01829a40b8683631"
+    },
+    {
+      "module": "qtdoc",
+      "commit": "0c98a846e11c56b0576f98cf8497345ae4adec40",
+      "accepted": true,
+      "tree": "abdfc75e397f97b790e2f3ef232232abe550a375"
+    },
+    {
+      "module": "qtgraphs",
+      "commit": "3ef93c85b14a8a759c8c2ad596e2753eb1952666",
+      "accepted": true,
+      "tree": "2186bf56b513ffa78dd7f5d12df53056d3c40f53"
+    },
+    {
+      "module": "qtgrpc",
+      "commit": "743a5066f9072e34835a193e045df233a1762e1c",
+      "accepted": true,
+      "tree": "6607b17ae537dcfdabcbf0b956b9485dbaf6c2ca"
+    },
+    {
+      "module": "qthttpserver",
+      "commit": "b9b95d5ef79f88948c6f5f6f91742cbeea8cea1e",
+      "accepted": true,
+      "tree": "55849c7986ae9b8652cb570f2860cf920171666f"
+    },
+    {
+      "module": "qtimageformats",
+      "commit": "dc13f2fbff1d579cfb2eb2d9092e3563b4d05b8e",
+      "accepted": true,
+      "tree": "7bfb4f556804616fc4f0848569aab04277da2221"
+    },
+    {
+      "module": "qtlanguageserver",
+      "commit": "c536390c64fbd21ff2981280034be71d714727f8",
+      "accepted": true,
+      "tree": "c6bd129e73b787f942bff5ef95e8474536dfcc16"
+    },
+    {
+      "module": "qtlocation",
+      "commit": "1bf8675f5c11d75faccf66541220d37923e2d682",
+      "accepted": true,
+      "tree": "3006c3268bcbec7eaf119bc6d79a1224b8038a7e"
+    },
+    {
+      "module": "qtlottie",
+      "commit": "6187542f2e7cd69477d1bf45697135c0f78417f4",
+      "accepted": true,
+      "tree": "abfa035f581a50358a7c23a6ab22fde950285ceb"
+    },
+    {
+      "module": "qtmqtt",
+      "commit": "f74f931ff303511ebfa54eab8cf1f0ae82be8b33",
+      "accepted": true,
+      "tree": "36aac744aa0ce125706632841639fe253bb831b7"
+    },
+    {
+      "module": "qtmultimedia",
+      "commit": "6ca885f084a3984749d53bb50a0e08bdc60e86cc",
+      "accepted": true,
+      "tree": "f4bbe279b13697486fb1e9a65e4cb0a281f8ea09"
+    },
+    {
+      "module": "qtnetworkauth",
+      "commit": "d38b832b9b19b0684f6b3539788d610a76ccb99b",
+      "accepted": true,
+      "tree": "9d599097d8020529a1d1c7c2e2c429f4cfc9c3ab"
+    },
+    {
+      "module": "qtopcua",
+      "commit": "9e959f7d565913492f7328ca1e0b42d2927ccbcb",
+      "accepted": true,
+      "tree": "e31547419db2f8d74a63a324e3d2bd8c26acbc96"
+    },
+    {
+      "module": "qtopenapi",
+      "commit": "c46e62154611707265969a320d3b066db41c0585",
+      "accepted": true,
+      "tree": "340116365cd2108fdb556e67fecc0eb2c9b85961"
+    },
+    {
+      "module": "qtpositioning",
+      "commit": "6e77a4fa3d773960f6d35197d617df1665797b8a",
+      "accepted": true,
+      "tree": "d419154dac7b9b60702ec628fe4dc35a28b11202"
+    },
+    {
+      "module": "qtqa",
+      "commit": "35fa4c3c83cf541aeb62b2f06c67db8614feba84",
+      "accepted": true,
+      "tree": "ec19c9a42b920390a6abfbbffa4cdddecb4e6a0a"
+    },
+    {
+      "module": "qtquick3d",
+      "commit": "a50a2ff960ca58d4b9f87b7e6a7ddae02e620426",
+      "accepted": true,
+      "tree": "8d64f00c1585681ddc43bb3115c1f02a41d01ac1"
+    },
+    {
+      "module": "qtquick3dphysics",
+      "commit": "6514607dec860d7a5f2a42619ecac9322cfb91e2",
+      "accepted": true,
+      "tree": "d8af27b024294a60394cd5b7e42c9076507a3c0e"
+    },
+    {
+      "module": "qtquickeffectmaker",
+      "commit": "52a7a47cd549bbb8b128265c7f1d91e77b935eb6",
+      "accepted": true,
+      "tree": "5600711de4cfcfc1d0ddea22953101fbc9750314"
+    },
+    {
+      "module": "qtquicktimeline",
+      "commit": "645ba346fd8175aa0572d66c917862f8a7c4a966",
+      "accepted": true,
+      "tree": "9a79206911d9f71d13ca40c3af7fedebca2bf250"
+    },
+    {
+      "module": "qtremoteobjects",
+      "commit": "5add069a1b80a345690b911b9c55826a21ca251c",
+      "accepted": true,
+      "tree": "68b5eb5308a2fc46bed5a6639e13195b7956ccbc"
+    },
+    {
+      "module": "qtrepotools",
+      "commit": "309df8d5eefb86d6a3c8d9cb42fcfbca1c7cd547",
+      "accepted": true,
+      "tree": "4fc968637fd2668b4a623700ecb8ae519f27e220"
+    },
+    {
+      "module": "qtscxml",
+      "commit": "0b5ce59845cc964efed91b59ecade97e81c30c66",
+      "accepted": true,
+      "tree": "9f1adb42daf5e22dd92c312e2ce91f6533199081"
+    },
+    {
+      "module": "qtsensors",
+      "commit": "b04d15851692519167d5f31215a423e298c2e97b",
+      "accepted": true,
+      "tree": "da2bd4b3a3f240d773d98810e782e2bbd3b535eb"
+    },
+    {
+      "module": "qtserialbus",
+      "commit": "7e730085399effee86f0fdfa9e6cc650b5a09921",
+      "accepted": true,
+      "tree": "b1006259ac9414c1fd1ebd518d7f49b43b1b5f3e"
+    },
+    {
+      "module": "qtserialport",
+      "commit": "beb4c887f3b886447cf86592fa65b8b9c1d6e312",
+      "accepted": true,
+      "tree": "cf8e90bec6d081aa092ee5881c153650796f96dd"
+    },
+    {
+      "module": "qtshadertools",
+      "commit": "bccd516b990a6396900051470ac86cc27a7042ea",
+      "accepted": true,
+      "tree": "00cf97838baca2f2b1a4833f6498ca39e6e073ec"
+    },
+    {
+      "module": "qtspeech",
+      "commit": "332f8a148bf01739140c3a00dd54f3ed98f3b546",
+      "accepted": true,
+      "tree": "b9de221ef9bd2070cfa0fed5f705b2973b7d29b5"
+    },
+    {
+      "module": "qtsvg",
+      "commit": "883a58532078d003cefef0a549bfe9f885ce41f5",
+      "accepted": true,
+      "tree": "8e965f3de3846149761c17e055f0182e3ca5ec41"
+    },
+    {
+      "module": "qttasktree",
+      "commit": "bb7e5587370bb5073e2d47123beb51ffba5c7fcd",
+      "accepted": true,
+      "tree": "a8cb5bdb6bd44d0cf0445e88ec31e0e0790a74fd"
+    },
+    {
+      "module": "qttools",
+      "commit": "613a6fbf0a7998010ab2fda260b64066d66a021d",
+      "accepted": true,
+      "tree": "1d83e0dacab71d136f89217acb95a7f2e9440e33"
+    },
+    {
+      "module": "qttranslations",
+      "commit": "2811457ceff8f0c24a1c4d14f947a283a17239d0",
+      "accepted": true,
+      "tree": "b0cc84329ebb5d17c19b85f691fba31e076c4b2c"
+    },
+    {
+      "module": "qtvirtualkeyboard",
+      "commit": "934b432b13cae5c64357a5e98547280bd191f806",
+      "accepted": true,
+      "tree": "7d75cd274ebb79ed0151658f866c8ad3a271b75f"
+    },
+    {
+      "module": "qtwayland",
+      "commit": "c4f85cd060e3e80a7d71829defac9cf5a40e8ffa",
+      "accepted": true,
+      "tree": "4eb883b556eedcc17abeb5dfdf1fc541f77a4be5"
+    },
+    {
+      "module": "qtwebchannel",
+      "commit": "621cb3df07d6cf316dd026ec71311368adfe371e",
+      "accepted": true,
+      "tree": "477b01863af333457f79f253e4ed072145fa2a97"
+    },
+    {
+      "module": "qtwebsockets",
+      "commit": "6aedb199b5d8ee4afa4cfc956ded22bc0a2632e9",
+      "accepted": true,
+      "tree": "7b61485013eb2af534fa782153e24314d9d1c4e9"
+    },
+    {
+      "module": "qtwebview",
+      "commit": "5774c23849cdad2bcdf71ad8c8bd6946dcae38f0",
+      "accepted": true,
+      "tree": "4e3ab922d4303068978cebf20fc68002ca5dcf82"
+    }
+  ]
+}
