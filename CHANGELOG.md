@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-16：A5b 已建立 PR #10，STATUS 與進度連回即時查驗入口，原生 Windows CI 執行中。
+
 ### 2026-11-16｜A5b Qt 發布來源與實際版本對應
 
 - 相對前版 Qt 本體來源「待補」，現在固定官方發布 tag、supermodule／qtbase／PySide 提交、完整模組 gitlink、原始版本宣告與來源 hash；基本包隨附 qt-sources.json，離線查驗來源後核對真正載入的 Qt 及套件版本，CI 有獨立摘要。中文取得方法明列 supermodule tarball 不含子模組、各固定來源下載與限制。

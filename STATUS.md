@@ -12,7 +12,7 @@
 | --- | --- |
 | main／已完成基線 | **main 已合併 PR 1–9，A4／A5 完成（PR #8／#9）**；A5b 起點為 `c51089a258b820b95af51816e516a05300dfb7c4`。使用者確認 A5 的程式、原文、證據、測試已通過 Claude reviewer 查驗 |
 | 本階段分支 | `codex/a5b-qt-source-20261116`，從上述最新 main 另開；未推送別人的分支。A5 本機完整回歸來源仍為 `2104418`，A5b 完整回歸來源為 `bc2f77c` |
-| 本階段 PR | A5b，尚未建立；[A5 PR #9](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/9) 已一般 Merge，最終 head `944ef12` 全部 CI 通過；本輪 A5b 完成後另開 PR |
+| 本階段 PR | [A5b PR #10](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/10)，目標 main；本機完整回歸與來源查驗通過，原生 Windows CI 執行中。A5 PR #9 已一般 Merge，最終 head `944ef12` 全部 CI 通過 |
 | 合併規則 | 一個編號一個 PR；所有 CI 通過且查驗無未解決必修項時，以一般 Merge 合併，不直接推 main、不刪分支、不改寫歷史 |
 
 ## B. 這個階段完成了什麼

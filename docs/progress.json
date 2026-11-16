@@ -2517,6 +2517,8 @@
     "runtime_sbom_complete": false,
     "redistribution_approved": false,
     "first_corrections_commit": "c25e3c2",
-    "evidence": "development-records/runs/a5b-qt-source-2026-11-16/README.md"
+    "evidence": "development-records/runs/a5b-qt-source-2026-11-16/README.md",
+    "pr": 10,
+    "merge_status_source": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/10"
   }
 }
