@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-16",
+  "tested_source": "24094d6dbc1d28cf4a6b9c720b2c14ce612a8d70",
+  "head_commit": "06e7538d67779d0083352b791354c14dd293fefe",
+  "program_source": "afb2062d4854234356faf2bb959aac634c40f89e",
+  "pr": 11,
+  "accepted": true,
+  "windows_executed": true,
+  "artifact_downloaded": false,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "keywords": [
+    "A5c",
+    "PR11",
+    "Windows",
+    "CPython",
+    "OpenSSL",
+    "SQLite",
+    "runtimeprobe",
+    "接受條件",
+    "原生CI"
+  ],
+  "files": {
+    "README.md": "040fd38d9d24571f143a9b667b97bb14d01ff52d59229bfa03b201eb3d60f7b1",
+    "ci-results.json": "7b46179c296a531a513ffc949ec254ae81a269798b9b65c9cbe45d08d1d4eed3"
+  }
+}

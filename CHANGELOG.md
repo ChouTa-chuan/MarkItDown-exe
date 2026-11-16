@@ -4,6 +4,12 @@
 
 ## 更新中
 
+### 2026-11-16｜A5c 原生 Windows 新接受條件查驗完成（PR #11）
+
+- 相對前次只有本機反例，Windows 基本包與 CPU 現在都以 A5c 新 policy 建置並通過既有驗收；實際 CPython 摘要中 OpenSSL／SQLite 皆有匹配 runtime 觀測，libffi 僅建置宣告限制保留。拒絕缺口的合成反例與原生正常建置實證分開，不宣稱做過 Windows 故障注入。
+- Linux、Windows 基本包、CPU 及索引首輪 CI 全通過，[head／暫時 merge、公開原始摘要、artifact digest／期限](docs/development-records/runs/a5c-pr11-ci-2026-11-16/README.md)另存，最終文件 head 仍須全 CI 通過才 Merge。數字只記 progress.json，清除發行準備描述中的舊回歸計數，不提高里程碑勾選。
+- 現況先封存再更新，D 節使用者決定逐筆保留，視覺進度與歷史索引同步；下一個 A6 先固定來源候選，再重跑分類及整體審閱。程式／架構版號、原候選及產品門檻不提高，沒有產品發行。
+
 ### 2026-11-16｜A5c：CPython 探測接受條件及反例
 
 - 程式0.19.1／架構0.4不變；相對前版 Windows 清單探測失敗僅保留缺口，本輪要求已收集 OpenSSL／SQLite 皆為匹配來源的 runtime probe，存在 probe_error（含空字串）就拒絕。產生端先保存診斷再失敗，重驗端再強制一次，不因重算 sidecar／native manifest hash 通過 audit／CLI。Windows 本機、CI 與 Windows 清單離線重驗一致。

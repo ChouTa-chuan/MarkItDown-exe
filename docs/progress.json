@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-16",
-  "environment": "Linux · Python3.12.14／Tesseract5.3.4；A5c本機完整回歸通過，原生Windows新門檻待CI；原固定候選仍cb8f24d",
+  "environment": "Linux · Python3.12.14／Tesseract5.3.4；A5c完整回歸、Windows hosted基本包／CPU新接受條件已驗；原固定候選仍cb8f24d",
   "tests_passed": 768,
-  "headline": "main已合併PR1–10；A5c探測接受條件與反例已補齊，本機完整回歸通過，Windows新標準待CI",
-  "blocker": "A5c 新接受條件仍待全部 Windows CI；A6 固定候選、完整build修補／設定、SBOM／再散布與實機仍待。",
-  "next": "完成 A5c 獨立 [PR #11](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/11) 的原生 Windows 新接受條件驗證；全 CI 與查驗通過後一般 Merge，再接 A6 固定來源候選／整體審閱。",
+  "headline": "A5c完成（PR #11）：探測缺口拒絕與原生Windows新門檻已驗；本輪起點main已合併PR1–10，下一個A6",
+  "blocker": "A6固定來源候選／重分類／整體審閱仍待；完整build修補／設定、SBOM／再散布、乾淨機／人工／GPU未關閉。",
+  "next": "A5c（PR #11）已查驗，最終 head 依全 CI 門檻一般 Merge，合併狀態見 PR。本輪起點 main 已合併 PR 1–10；下一個 A6 從最新 main 另開新分支，先固定來源候選，再重分類與整體審閱。",
   "milestones": [
     {
       "id": "m0",
@@ -138,7 +138,7 @@
       "id": "m5",
       "title": "發佈準備",
       "state": "active",
-      "description": "0.19.1 Linux完整684／43模組正常退出；Windows hosted基本包與CPU維護已驗，候選內容／原文、各profile、乾淨機／人工與發行仍待。",
+      "description": "Linux完整回歸、Windows hosted基本包與CPU維護已驗；A5c來源探測新門檻通過，固定候選／SBOM／再散布、乾淨機／人工與發行仍待。",
       "checks": [
         {
           "label": "Windows 建置與安裝包",
@@ -2676,7 +2676,7 @@
   },
   "a5c_runtime_probe": {
     "source_commit": "afb2062d4854234356faf2bb959aac634c40f89e",
-    "status": "local-verified-windows-pending",
+    "status": "verified",
     "strict_windows_report_policy": true,
     "enforced_at_generation": true,
     "enforced_at_verification": true,
@@ -2687,11 +2687,300 @@
     "libffi_declaration_limit_preserved": true,
     "targeted_tests_run": 68,
     "targeted_assertions_accepted": true,
-    "windows_executed": false,
+    "windows_executed": true,
     "runtime_sbom_complete": false,
     "redistribution_approved": false,
     "pr": 11,
     "evidence": "development-records/runs/a5c-runtime-probe-2026-11-16/README.md",
-    "merge_status_source": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/11"
+    "merge_status_source": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/11",
+    "verification_complete": true,
+    "ci_status": "success",
+    "ci_head": "06e7538d67779d0083352b791354c14dd293fefe",
+    "ci_merge_sha": "24094d6dbc1d28cf4a6b9c720b2c14ce612a8d70",
+    "ci_runs": {
+      "base": 43883656557,
+      "cpu": 43883656409,
+      "linux": 43883656659,
+      "history": 43883657042
+    },
+    "ci_evidence": "development-records/runs/a5c-pr11-ci-2026-11-16/README.md",
+    "final_head_requires_ci": true,
+    "windows_base_components": {
+      "check": "cpython-components",
+      "cpython_version": "3.12.10",
+      "applicable": true,
+      "files": [
+        {
+          "file": "_ctypes.pyd",
+          "component": "libffi",
+          "role": "cpython-extension",
+          "file_version": "3.12.10",
+          "declared_version": "3.4.4",
+          "observed_version": null,
+          "version_status": "build-declaration-only",
+          "loaded_source_matched": true,
+          "source_sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81"
+        },
+        {
+          "file": "_hashlib.pyd",
+          "component": "openssl",
+          "role": "cpython-extension",
+          "file_version": "3.12.10",
+          "declared_version": "3.0.16",
+          "observed_version": "3.0.16",
+          "version_status": "matched-runtime-probe",
+          "loaded_source_matched": true,
+          "source_sha256": "03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba"
+        },
+        {
+          "file": "_sqlite3.pyd",
+          "component": "sqlite",
+          "role": "cpython-extension",
+          "file_version": "3.12.10",
+          "declared_version": "3.49.1.0",
+          "observed_version": "3.49.1",
+          "version_status": "matched-runtime-probe",
+          "loaded_source_matched": true,
+          "source_sha256": "64b51df2805c58b023a875e8ae3be7ac7f61ef664f32ca6c90f6315da47ef0bc"
+        },
+        {
+          "file": "_ssl.pyd",
+          "component": "openssl",
+          "role": "cpython-extension",
+          "file_version": "3.12.10",
+          "declared_version": "3.0.16",
+          "observed_version": "3.0.16",
+          "version_status": "matched-runtime-probe",
+          "loaded_source_matched": true,
+          "source_sha256": "0bc527d2dbc50009f43b2ed5d5982c4f63f4b647647ffa9eda612dcda80f6040"
+        },
+        {
+          "file": "libcrypto-3.dll",
+          "component": "openssl",
+          "role": "library",
+          "file_version": "3.0.16",
+          "declared_version": "3.0.16",
+          "observed_version": "3.0.16",
+          "version_status": "matched-runtime-probe",
+          "loaded_source_matched": true,
+          "source_sha256": "ccfffddcd3defb8d899026298af9af43bc186130f8483d77e97c93233d5f27d7"
+        },
+        {
+          "file": "libffi-8.dll",
+          "component": "libffi",
+          "role": "library",
+          "file_version": null,
+          "declared_version": "3.4.4",
+          "observed_version": null,
+          "version_status": "build-declaration-only",
+          "loaded_source_matched": true,
+          "source_sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a"
+        },
+        {
+          "file": "libssl-3.dll",
+          "component": "openssl",
+          "role": "library",
+          "file_version": "3.0.16",
+          "declared_version": "3.0.16",
+          "observed_version": "3.0.16",
+          "version_status": "matched-runtime-probe",
+          "loaded_source_matched": true,
+          "source_sha256": "007142039f04d04e0ed607bda53de095e5bc6a8a10d26ecedde94ea7d2d7eefe"
+        },
+        {
+          "file": "sqlite3.dll",
+          "component": "sqlite",
+          "role": "library",
+          "file_version": "3.49.1.0",
+          "declared_version": "3.49.1.0",
+          "observed_version": "3.49.1",
+          "version_status": "matched-runtime-probe",
+          "loaded_source_matched": true,
+          "source_sha256": "8daa45684bf6688fca28d956b2e8942f2fa98f656675ce68e6d61dd869848a7a"
+        }
+      ],
+      "notices": [
+        {
+          "component": "openssl",
+          "path": "cpython-original/openssl.txt",
+          "sha256": "ed72ce2b51ee58f117e5a021e2e04af158857f40269fbc03491f0b2a99dbcc96"
+        },
+        {
+          "component": "libffi",
+          "path": "cpython-original/libffi.txt",
+          "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388"
+        },
+        {
+          "component": "sqlite",
+          "path": "cpython-original/sqlite.txt",
+          "sha256": "cc65d76f325d884dd49e319acf3764d5513920f34ad18e34347b8dedc6ddd2ec"
+        }
+      ],
+      "redistribution_approved": false,
+      "runtime_sbom_complete": false
+    },
+    "windows_base_inventory": {
+      "files": 1615,
+      "bytes": 262639292,
+      "unresolved_files": 114,
+      "review_files": 152,
+      "original_notice_files": 111,
+      "packages": 40,
+      "file_inventory_complete": true,
+      "runtime_sbom_complete": false,
+      "redistribution_approved": false,
+      "release_ready": false
+    },
+    "windows_base_python_archives": {
+      "pure_modules": 1556,
+      "by_origin": {
+        "stdlib": 268,
+        "distribution": 1239,
+        "application": 49,
+        "unknown": 0
+      },
+      "unknown_modules": 0,
+      "unknown_names": [],
+      "base_library_members": 155,
+      "build_only_modules_absent": true
+    },
+    "windows_cpu_components": {
+      "check": "cpython-components",
+      "cpython_version": "3.12.10",
+      "applicable": true,
+      "files": [
+        {
+          "file": "_ctypes.pyd",
+          "component": "libffi",
+          "role": "cpython-extension",
+          "file_version": "3.12.10",
+          "declared_version": "3.4.4",
+          "observed_version": null,
+          "version_status": "build-declaration-only",
+          "loaded_source_matched": true,
+          "source_sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81"
+        },
+        {
+          "file": "_hashlib.pyd",
+          "component": "openssl",
+          "role": "cpython-extension",
+          "file_version": "3.12.10",
+          "declared_version": "3.0.16",
+          "observed_version": "3.0.16",
+          "version_status": "matched-runtime-probe",
+          "loaded_source_matched": true,
+          "source_sha256": "03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba"
+        },
+        {
+          "file": "_sqlite3.pyd",
+          "component": "sqlite",
+          "role": "cpython-extension",
+          "file_version": "3.12.10",
+          "declared_version": "3.49.1.0",
+          "observed_version": "3.49.1",
+          "version_status": "matched-runtime-probe",
+          "loaded_source_matched": true,
+          "source_sha256": "64b51df2805c58b023a875e8ae3be7ac7f61ef664f32ca6c90f6315da47ef0bc"
+        },
+        {
+          "file": "_ssl.pyd",
+          "component": "openssl",
+          "role": "cpython-extension",
+          "file_version": "3.12.10",
+          "declared_version": "3.0.16",
+          "observed_version": "3.0.16",
+          "version_status": "matched-runtime-probe",
+          "loaded_source_matched": true,
+          "source_sha256": "0bc527d2dbc50009f43b2ed5d5982c4f63f4b647647ffa9eda612dcda80f6040"
+        },
+        {
+          "file": "libcrypto-3.dll",
+          "component": "openssl",
+          "role": "library",
+          "file_version": "3.0.16",
+          "declared_version": "3.0.16",
+          "observed_version": "3.0.16",
+          "version_status": "matched-runtime-probe",
+          "loaded_source_matched": true,
+          "source_sha256": "ccfffddcd3defb8d899026298af9af43bc186130f8483d77e97c93233d5f27d7"
+        },
+        {
+          "file": "libffi-8.dll",
+          "component": "libffi",
+          "role": "library",
+          "file_version": null,
+          "declared_version": "3.4.4",
+          "observed_version": null,
+          "version_status": "build-declaration-only",
+          "loaded_source_matched": true,
+          "source_sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a"
+        },
+        {
+          "file": "libssl-3.dll",
+          "component": "openssl",
+          "role": "library",
+          "file_version": "3.0.16",
+          "declared_version": "3.0.16",
+          "observed_version": "3.0.16",
+          "version_status": "matched-runtime-probe",
+          "loaded_source_matched": true,
+          "source_sha256": "007142039f04d04e0ed607bda53de095e5bc6a8a10d26ecedde94ea7d2d7eefe"
+        },
+        {
+          "file": "sqlite3.dll",
+          "component": "sqlite",
+          "role": "library",
+          "file_version": "3.49.1.0",
+          "declared_version": "3.49.1.0",
+          "observed_version": "3.49.1",
+          "version_status": "matched-runtime-probe",
+          "loaded_source_matched": true,
+          "source_sha256": "8daa45684bf6688fca28d956b2e8942f2fa98f656675ce68e6d61dd869848a7a"
+        }
+      ],
+      "notices": [
+        {
+          "component": "openssl",
+          "path": "cpython-original/openssl.txt",
+          "sha256": "ed72ce2b51ee58f117e5a021e2e04af158857f40269fbc03491f0b2a99dbcc96"
+        },
+        {
+          "component": "libffi",
+          "path": "cpython-original/libffi.txt",
+          "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388"
+        },
+        {
+          "component": "sqlite",
+          "path": "cpython-original/sqlite.txt",
+          "sha256": "cc65d76f325d884dd49e319acf3764d5513920f34ad18e34347b8dedc6ddd2ec"
+        }
+      ],
+      "redistribution_approved": false,
+      "runtime_sbom_complete": false
+    },
+    "windows_cpu_inventory": {
+      "files": 704,
+      "bytes": 219724730,
+      "unresolved_files": 265,
+      "review_files": 299,
+      "original_notice_files": 290,
+      "packages": 26,
+      "file_inventory_complete": true,
+      "runtime_sbom_complete": false,
+      "redistribution_approved": false,
+      "release_ready": false
+    },
+    "windows_cpu_python_archives": {
+      "pure_modules": 562,
+      "by_origin": {
+        "stdlib": 243,
+        "distribution": 307,
+        "application": 12,
+        "unknown": 0
+      },
+      "unknown_modules": 0,
+      "unknown_names": [],
+      "base_library_members": 155
+    }
   }
 }

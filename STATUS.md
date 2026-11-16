@@ -12,7 +12,7 @@
 | --- | --- |
 | main／已完成基線 | **main 已合併 PR 1–10，A5b 已完成並一般 Merge（PR #10）**；A5c 起點 `8993253cbecb56fe1c9794078a2059f3a1ccca63`。A4／A5 的 Claude reviewer 結論仍保留其原範圍 |
 | 本階段分支 | `codex/a5c-runtime-probe-20261116`，從最新 main 另開；程式及本機完整回歸來源 `afb2062`，未推送別人分支 |
-| 本階段 PR | [PR #11](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/11)，目標 main；本機回歸及反例通過，原生 Windows 新接受條件待本 PR CI |
+| 本階段 PR | [PR #11](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/11)，目標 main；本機回歸、反例與首輪全部 CI 已通過；合併門檻為最終 head 全 CI 且查驗無必修項，即時狀態見 PR |
 | 合併規則 | 一個編號一個 PR；最終 head 全部 CI 通過、查驗無必修項才一般 Merge，不直接推 main、不刪分支、不改寫歷史 |
 
 ## B. 這個階段完成了什麼
@@ -20,11 +20,12 @@
 - **A5c 三項已實作**：Windows 適用清單的 OpenSSL／SQLite 不能只有建置宣告；探測例外、無觀測或載入來源不匹配都拒絕。產生端保存原始診斷再失敗，重驗端也強制同一門檻，避免重算 hash 繞過。
 - 補齊各元件列、`probe_error`（含空字串）、刪除 OpenSSL 原文的反例；合成 Windows 清單先驗有效，再在 CI／非 CI 下證明 audit／CLI 拒絕 hash 重綁的探測缺口。合成資料不當 Windows 實證；libffi 仍僅建置宣告，Linux 不適用清單維持不適用。
 - CPython README 已說明 extension 的 observed_version 屬所連結 OpenSSL／SQLite，不是該檔自身 PE 版本。Linux 混合與獨立模組完整回歸正常退出，只有既有 ONNX 繁中 expected failure；[原始來源與結果](docs/development-records/runs/a5c-runtime-probe-2026-11-16/README.md)已保存，數字只記 [progress.json](docs/progress.json)。
+- **A5c 原生 Windows 新門檻已驗**：基本包及 CPU 的 OpenSSL／SQLite 均有匹配觀測，libffi 限制保留；[CI 原始公開摘要與來源](docs/development-records/runs/a5c-pr11-ci-2026-11-16/README.md)另存，沒有把合成故障反例當 Windows 注入實證。
 - A5b 已合併：原始 Qt 來源、原文與歷史實證不改寫；D 節全部使用者決定逐筆保留。
 
 ## C. 未完成、阻擋與下一步
 
-**本輪 A5c（獨立 PR）**：本機反例及完整回歸已通過；原生 Windows 基本包與 CPU 必須在新接受條件下全 CI 通過，查驗後才一般 Merge。完成後接 A6 固定來源候選與整體審閱，不在本 PR 提前關閉發行門檻。
+**下一個，交給接手 AI：A6 固定來源候選、來源重分類與整體審閱**。A5c（PR #11）的三項、反例與原生 Windows 新門檻已驗；最終 head 仍依全 CI／查驗門檻一般 Merge。接手先核對 PR 即時狀態，合併後從最新 main 另開自己的新分支；先固定來源提交與候選證據，不把 PR 暫時 merge 當交付候選，不提前上傳產品。
 
 | 大階段 | 任務 | 現況／下一步 |
 | --- | --- | --- |
@@ -32,8 +33,8 @@
 | | A4 setuptools 排除 | **完成（PR #8，已合併並通過 Claude reviewer）** |
 | | A5 CPython 隨附元件逐檔版本／原文 | **完成（PR #9，已合併並通過 Claude reviewer）** |
 | | A5b Qt 本體原始碼位置及版本對應 | **完成（PR #10，已合併）**；Qt 來源、Windows 版本與指紋查驗通過 |
-| | A5c A5 驗收補強 | **本輪已實作**；反例與本機回歸通過，Windows 全 CI 待驗 |
-| | A6 固定來源候選、重跑來源分類、整體審閱 | A5b／A5c 後，才評估 runtime_sbom_complete；目前保持 false |
+| | A5c A5 驗收補強 | **完成（PR #11）**；三項、反例、本機回歸及原生 Windows 新門檻皆已查驗；合併狀態見 PR |
+| | A6 固定來源候選、重跑來源分類、整體審閱 | **下一個**；固定來源／候選後重分類及整體審閱，才評估 runtime_sbom_complete，目前 false |
 | B 測試版安裝包 | 產物證據、驗收表、CPU 元件重新定版及門檻確認 | 未開始，不在門檻關閉前上傳產品 |
 | C 乾淨機／人工 | Windows 10／11、離線、四語、中文路徑、修復移除 | 需要使用者或實體 Windows，尚未接受 |
 | D 擴充 | 圖片本機 OCR／影音獨立元件 | 等使用者決定，未排入本輪 |
@@ -45,7 +46,7 @@
 2. `tests/test_cpython_components.py` 新增反例：刪除包內 `cpython-original/openssl.txt` 後，`verify_inventory` 必須拒絕。
 3. README 或報告註明 `_ssl.pyd`、`_hashlib.pyd`、`_sqlite3.pyd` 等 extension 列的 `observed_version` 是所連結 OpenSSL／SQLite 的版本，不是該檔本身的版本。
 
-本輪改變 CI 驗收標準，全部 Windows CI 必須通過才合併；不沿用 A5b 的 CI 結果作為新標準已驗的證據。
+本輪以新標準的 Windows 基本包及 CPU CI 通過並查驗；不沿用 A5b 作為新標準已驗的證據。最終文件 head 仍必須全 CI 通過才合併。
 
 **平台／有期資料**：GitHub API 已恢復；一般沙箱連不到代理時依 runtime 指引用獲准命令，保留代理與 TLS。日誌／artifact 儲存主機仍可能受限，CI 需以公開 annotation 提供必要資料。Windows 報告保留七天、Linux 報告十四天，實際期限／hash 以每次 run 記錄為準；不依賴暫存或未下載附件。這些 PR 暫時 merge 驗證不取代 `cb8f24d` 固定候選，沒有產品發行。
 
