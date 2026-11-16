@@ -1,0 +1,51 @@
+{
+  "date_taipei": "2026-11-17",
+  "attempts": [
+    {
+      "source_commit": "adacc8d11ade8be7bce1e2f3d527c0009f3c1ad7",
+      "base_run": 43909037415,
+      "cpu_run": 43909043704,
+      "failure": "CPU preflight rejected existing untracked out/previous-cpu-source; base cancelled before the same known preflight issue",
+      "product_validation_accepted": false
+    },
+    {
+      "scope": "targeted synthetic tests",
+      "initial_failure": "Out-of-range publication page validation returned early outside Actions; moved range check before environment check",
+      "fixed_targeted_run": 24,
+      "accepted": true
+    },
+    {
+      "source_commit": "e1761f95813d2e0b688db36cf5627f866d09cb82",
+      "base_run": 43909375005,
+      "cpu_run": 43909379721,
+      "base_accepted": true,
+      "cpu_existing_acceptance": true,
+      "cpu_source_review_accepted": false,
+      "failed_step": "Classify and preserve candidate review metadata",
+      "observed_failure": "Process completed with exit code 1; original traceback not retrieved",
+      "diagnosed_incompatibility": {
+        "historical_cpu_provenance_bytes": 8574464,
+        "review_input_limit_before": 4194304,
+        "full_report_limit_after": 16777216,
+        "transport_limit_unchanged": true
+      },
+      "scope": "Size incompatibility reproduced from preserved old real report and synthetic budget test; exact failed-run traceback unavailable"
+    },
+    {
+      "scope": "local full regression while new evidence directory was being prepared",
+      "failure": "History index stale after adding evidence directory; regenerated before rerun",
+      "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e"
+    },
+    {
+      "scope": "CPU workflow scheduling at fixed source 8285450",
+      "run": 43912958713,
+      "status": "queued-with-no-jobs",
+      "retry_run": 43916217757,
+      "cancel_cli_result": "Cannot cancel a workflow run that is completed (CLI output conflicts with API queued state)",
+      "cancel_api_result": "HTTP 409: Cannot cancel a workflow run that has not been queued yet",
+      "result": "No cancellation confirmed; no additional builds observed; both dispatch requests tracked"
+    }
+  ],
+  "local_full_regression_source": "adacc8d11ade8be7bce1e2f3d527c0009f3c1ad7",
+  "local_full_regression_out_ignore_only_followup": "e1761f95813d2e0b688db36cf5627f866d09cb82"
+}

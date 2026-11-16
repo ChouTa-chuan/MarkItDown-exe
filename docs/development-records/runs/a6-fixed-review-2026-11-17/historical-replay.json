@@ -1,0 +1,22 @@
+{
+  "original_source": "cb8f24d8dbbb937c9f1dadeadfe5c93a702650f1",
+  "checks": {
+    "base": {
+      "source_commit": true,
+      "unresolved_declared": true,
+      "classified": true,
+      "by_status": true,
+      "by_category": true,
+      "path_category_status_hash_identical": true
+    },
+    "cpu": {
+      "source_commit": true,
+      "unresolved_declared": true,
+      "classified": true,
+      "by_status": true,
+      "by_category": true,
+      "path_category_status_hash_identical": true
+    }
+  },
+  "note": "CPython note wording changed; classifications and fingerprints unchanged; historical files untouched"
+}
