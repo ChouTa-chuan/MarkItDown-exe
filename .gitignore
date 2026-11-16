@@ -5,3 +5,5 @@ __pycache__/
 *.egg-info/
 build/
 dist/
+# CI 的前版 checkout、原生輸入、隔離建置與報告都放此處；不是來源。
+/out/
