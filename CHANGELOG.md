@@ -6,6 +6,8 @@
 
 - 2026-11-16：A4 基本包排除建置用 setuptools，加入 spec 與隨包模組清單拒絕檢查及反例測試；CPU 元件不變。凍結程式與完整回歸結果待本階段收工記錄，Windows 效果待 PR CI。
 
+- 2026-11-16：PR 6（A3）合併。依使用者決定，Claude 的規劃者改為子代理 `planner`（Fable 5.2），主對話改為協調者並預設 Opus 5.5（`CLAUDE.md`、`.claude/`；只影響 Claude）。
+
 ### 2026-11-16｜A3：基本包隨附 Qt／LGPL 說明與自有程式 MIT 全文
 
 - 程式0.19.1／架構0.4不變；分支`claude/qt-lgpl-notice`由main開出。
