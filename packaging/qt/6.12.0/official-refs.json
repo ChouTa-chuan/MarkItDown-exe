@@ -1,0 +1,1167 @@
+{
+  "qt/qt5": {
+    "ref": {
+      "ref": "refs/tags/v6.12.0",
+      "node_id": "MDM6UmVmOTg4MDMxODpyZWZzL3RhZ3MvdjYuMTIuMA==",
+      "url": "https://api.github.com/repos/qt/qt5/git/refs/tags/v6.12.0",
+      "object": {
+        "sha": "41737d37054a9c500b2d0df38199593accb8b5c0",
+        "type": "tag",
+        "url": "https://api.github.com/repos/qt/qt5/git/tags/41737d37054a9c500b2d0df38199593accb8b5c0"
+      }
+    },
+    "tags": [
+      {
+        "node_id": "TA_kwDOAJbC_toAKDQxNzM3ZDM3MDU0YTljNTAwYjJkMGRmMzgxOTk1OTNhY2NiOGI1YzA",
+        "sha": "41737d37054a9c500b2d0df38199593accb8b5c0",
+        "url": "https://api.github.com/repos/qt/qt5/git/tags/41737d37054a9c500b2d0df38199593accb8b5c0",
+        "tagger": {
+          "name": "Antti Kokko",
+          "email": "antti.kokko@qt.io",
+          "date": "2026-09-30T09:00:58Z"
+        },
+        "object": {
+          "sha": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+          "type": "commit",
+          "url": "https://api.github.com/repos/qt/qt5/git/commits/ef25002ed292b132d1ed3246bfcee1d24a9cd966"
+        },
+        "tag": "v6.12.0",
+        "message": "Qt 6.12.0 release\n",
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      }
+    ],
+    "commit": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+    "tree": {
+      "sha": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+      "url": "https://api.github.com/repos/qt/qt5/git/trees/ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+      "tree": [
+        {
+          "path": ".commit-template",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "3a3091028c1ad2f0b76eedb36a6790031c64d907",
+          "size": 1577,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/3a3091028c1ad2f0b76eedb36a6790031c64d907"
+        },
+        {
+          "path": ".gitattributes",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "3be7f628ddb257d730673c0a0276ae187e33d032",
+          "size": 272,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/3be7f628ddb257d730673c0a0276ae187e33d032"
+        },
+        {
+          "path": ".github",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "3f2c1c6f34ba3055fe5f2c5c601de77810fa381f",
+          "url": "https://api.github.com/repos/qt/qt5/git/trees/3f2c1c6f34ba3055fe5f2c5c601de77810fa381f"
+        },
+        {
+          "path": ".gitignore",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "1fafd74d3336ad79f76ef99c4b260cb48b35fb0b",
+          "size": 325,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/1fafd74d3336ad79f76ef99c4b260cb48b35fb0b"
+        },
+        {
+          "path": ".gitmodules",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "cfc8b3dedf8f3465b38800dd830a43e0dd23b4d8",
+          "size": 6806,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/cfc8b3dedf8f3465b38800dd830a43e0dd23b4d8"
+        },
+        {
+          "path": ".gitreview",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "69388ea438a3e1d991e93cee72cca644c178d3a2",
+          "size": 73,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/69388ea438a3e1d991e93cee72cca644c178d3a2"
+        },
+        {
+          "path": ".tag",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "6828f88dcb0e88b8cd738ad6044ce74d7a9a13c8",
+          "size": 12,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/6828f88dcb0e88b8cd738ad6044ce74d7a9a13c8"
+        },
+        {
+          "path": "CHANGELOG.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "3f9c88dd1cee21d131fe8bc042c98f6f731e6095",
+          "size": 1253,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/3f9c88dd1cee21d131fe8bc042c98f6f731e6095"
+        },
+        {
+          "path": "CMakeLists.txt",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "0247f67e41826266978c9befd0f94ffd74d7e7be",
+          "size": 4410,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/0247f67e41826266978c9befd0f94ffd74d7e7be"
+        },
+        {
+          "path": "CODE_OF_CONDUCT.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "f5e1ee65d4d9dfa936e4a50d0c56d02ce0e23f87",
+          "size": 1131,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/f5e1ee65d4d9dfa936e4a50d0c56d02ce0e23f87"
+        },
+        {
+          "path": "CONTRIBUTING.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "8f85d5a6ed09a18a2b2afff5b346b191851c65ce",
+          "size": 336,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/8f85d5a6ed09a18a2b2afff5b346b191851c65ce"
+        },
+        {
+          "path": "GOVERNANCE.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "3e11ff298bba23eb682a63c7747fa6ce657f1d31",
+          "size": 1395,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/3e11ff298bba23eb682a63c7747fa6ce657f1d31"
+        },
+        {
+          "path": "LICENSE.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "afcac2710e9b5cac742bfeed51c0e0fd1c68f806",
+          "size": 2431,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/afcac2710e9b5cac742bfeed51c0e0fd1c68f806"
+        },
+        {
+          "path": "LICENSES",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "64e0c35683d96ab54f1e4b5ebd3840c43ccb1ce5",
+          "url": "https://api.github.com/repos/qt/qt5/git/trees/64e0c35683d96ab54f1e4b5ebd3840c43ccb1ce5"
+        },
+        {
+          "path": "README.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "36996739ae15405596de2e26ce3a510ad0995b4e",
+          "size": 3138,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/36996739ae15405596de2e26ce3a510ad0995b4e"
+        },
+        {
+          "path": "README.md.template",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "60399539cbf24ff9b52e784a8e5e7aba80bf03c0",
+          "size": 1634,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/60399539cbf24ff9b52e784a8e5e7aba80bf03c0"
+        },
+        {
+          "path": "REUSE.toml",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "4c031f4da789cc5159495caa483bd11fe5f31086",
+          "size": 1612,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/4c031f4da789cc5159495caa483bd11fe5f31086"
+        },
+        {
+          "path": "SECURITY.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "32a75a60710c1048d44b2b8fff477c79c762eba0",
+          "size": 1889,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/32a75a60710c1048d44b2b8fff477c79c762eba0"
+        },
+        {
+          "path": "_clang-format",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "cc36c73857e5a29cbcdc528028226d97240d95e1",
+          "size": 3826,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/cc36c73857e5a29cbcdc528028226d97240d95e1"
+        },
+        {
+          "path": "cmake",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "f2da8ca373328713561e14035b585afde82e4c11",
+          "url": "https://api.github.com/repos/qt/qt5/git/trees/f2da8ca373328713561e14035b585afde82e4c11"
+        },
+        {
+          "path": "coin",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "4a3c5c85e5abffab10fdcd8cf1709f986f36ef4d",
+          "url": "https://api.github.com/repos/qt/qt5/git/trees/4a3c5c85e5abffab10fdcd8cf1709f986f36ef4d"
+        },
+        {
+          "path": "configure",
+          "mode": "100755",
+          "type": "blob",
+          "sha": "11b10a0accdd4640dc836b626b997b7c3ddfd215",
+          "size": 790,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/11b10a0accdd4640dc836b626b997b7c3ddfd215"
+        },
+        {
+          "path": "configure.bat",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "9c0e0e620e820e1d79bfa2a83bf005c9328d75e2",
+          "size": 1067,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/9c0e0e620e820e1d79bfa2a83bf005c9328d75e2"
+        },
+        {
+          "path": "configure.json",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "f437252f093cf4ebf73bab8aef0085855ad65d21",
+          "size": 94,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/f437252f093cf4ebf73bab8aef0085855ad65d21"
+        },
+        {
+          "path": "gradle.properties",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "47c784a33268f4f6df8b9d4bdbc76aa3cb12b194",
+          "size": 573,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/47c784a33268f4f6df8b9d4bdbc76aa3cb12b194"
+        },
+        {
+          "path": "gradle",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "c4d8bb2ac0519632a9315c64eca9f428bd98805d",
+          "url": "https://api.github.com/repos/qt/qt5/git/trees/c4d8bb2ac0519632a9315c64eca9f428bd98805d"
+        },
+        {
+          "path": "init-repository",
+          "mode": "100755",
+          "type": "blob",
+          "sha": "e1d54c8c388dc3d91722de91a76e7249548861dc",
+          "size": 966,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/e1d54c8c388dc3d91722de91a76e7249548861dc"
+        },
+        {
+          "path": "init-repository.bat",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "b9daca2a0c8235e4e40b5f3f7b6a48dd003dc937",
+          "size": 1047,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/b9daca2a0c8235e4e40b5f3f7b6a48dd003dc937"
+        },
+        {
+          "path": "init-repository.pl",
+          "mode": "100755",
+          "type": "blob",
+          "sha": "3a5f26f660adf2a424154de6c00995c8ab549d75",
+          "size": 21404,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/3a5f26f660adf2a424154de6c00995c8ab549d75"
+        },
+        {
+          "path": "qt3d",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "ccb75d7928dac2656f407fb78ac30b9965ed7609"
+        },
+        {
+          "path": "qt5compat",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "9c2a1b4c8298c750f8632e2fd19f7a1a539c5f09"
+        },
+        {
+          "path": "qtactiveqt",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "087ebc25c281b8a74f665fd30611c8a93be56848"
+        },
+        {
+          "path": "qtbase",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "025bdad181de241e81bf853c8a2d7bf3d19261a9"
+        },
+        {
+          "path": "qtcanvaspainter",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "ab0866ae00c50cfc959b7a82cdfe643a7e5c2f3e"
+        },
+        {
+          "path": "qtcharts",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "56fc191c547f4319253fd72eccf5c4c9458b261c"
+        },
+        {
+          "path": "qtcoap",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "87c76148a75ecf7ecadb2caf3ac30eb7d8b7e24e"
+        },
+        {
+          "path": "qtconnectivity",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "2340c1f3ced364314228d8f64a86e8c7d32717f7"
+        },
+        {
+          "path": "qtdatavis3d",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "f0edfedb1a770f6389d26ad6f2769d5819391360"
+        },
+        {
+          "path": "qtdeclarative",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "4332fbbb4c340463dc8cee36dda0c85d932122d8"
+        },
+        {
+          "path": "qtdoc",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "0c98a846e11c56b0576f98cf8497345ae4adec40"
+        },
+        {
+          "path": "qtgraphs",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "3ef93c85b14a8a759c8c2ad596e2753eb1952666"
+        },
+        {
+          "path": "qtgrpc",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "743a5066f9072e34835a193e045df233a1762e1c"
+        },
+        {
+          "path": "qthttpserver",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "b9b95d5ef79f88948c6f5f6f91742cbeea8cea1e"
+        },
+        {
+          "path": "qtimageformats",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "dc13f2fbff1d579cfb2eb2d9092e3563b4d05b8e"
+        },
+        {
+          "path": "qtlanguageserver",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "c536390c64fbd21ff2981280034be71d714727f8"
+        },
+        {
+          "path": "qtlocation",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "1bf8675f5c11d75faccf66541220d37923e2d682"
+        },
+        {
+          "path": "qtlottie",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "6187542f2e7cd69477d1bf45697135c0f78417f4"
+        },
+        {
+          "path": "qtmqtt",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "f74f931ff303511ebfa54eab8cf1f0ae82be8b33"
+        },
+        {
+          "path": "qtmultimedia",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "6ca885f084a3984749d53bb50a0e08bdc60e86cc"
+        },
+        {
+          "path": "qtnetworkauth",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "d38b832b9b19b0684f6b3539788d610a76ccb99b"
+        },
+        {
+          "path": "qtopcua",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "9e959f7d565913492f7328ca1e0b42d2927ccbcb"
+        },
+        {
+          "path": "qtopenapi",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "c46e62154611707265969a320d3b066db41c0585"
+        },
+        {
+          "path": "qtpositioning",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "6e77a4fa3d773960f6d35197d617df1665797b8a"
+        },
+        {
+          "path": "qtqa",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "35fa4c3c83cf541aeb62b2f06c67db8614feba84"
+        },
+        {
+          "path": "qtquick3d",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "a50a2ff960ca58d4b9f87b7e6a7ddae02e620426"
+        },
+        {
+          "path": "qtquick3dphysics",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "6514607dec860d7a5f2a42619ecac9322cfb91e2"
+        },
+        {
+          "path": "qtquickeffectmaker",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "52a7a47cd549bbb8b128265c7f1d91e77b935eb6"
+        },
+        {
+          "path": "qtquicktimeline",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "645ba346fd8175aa0572d66c917862f8a7c4a966"
+        },
+        {
+          "path": "qtremoteobjects",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "5add069a1b80a345690b911b9c55826a21ca251c"
+        },
+        {
+          "path": "qtrepotools",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "309df8d5eefb86d6a3c8d9cb42fcfbca1c7cd547"
+        },
+        {
+          "path": "qtscxml",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "0b5ce59845cc964efed91b59ecade97e81c30c66"
+        },
+        {
+          "path": "qtsensors",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "b04d15851692519167d5f31215a423e298c2e97b"
+        },
+        {
+          "path": "qtserialbus",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "7e730085399effee86f0fdfa9e6cc650b5a09921"
+        },
+        {
+          "path": "qtserialport",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "beb4c887f3b886447cf86592fa65b8b9c1d6e312"
+        },
+        {
+          "path": "qtshadertools",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "bccd516b990a6396900051470ac86cc27a7042ea"
+        },
+        {
+          "path": "qtspeech",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "332f8a148bf01739140c3a00dd54f3ed98f3b546"
+        },
+        {
+          "path": "qtsvg",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "883a58532078d003cefef0a549bfe9f885ce41f5"
+        },
+        {
+          "path": "qttasktree",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "bb7e5587370bb5073e2d47123beb51ffba5c7fcd"
+        },
+        {
+          "path": "qttools",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "613a6fbf0a7998010ab2fda260b64066d66a021d"
+        },
+        {
+          "path": "qttranslations",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "2811457ceff8f0c24a1c4d14f947a283a17239d0"
+        },
+        {
+          "path": "qtvirtualkeyboard",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "934b432b13cae5c64357a5e98547280bd191f806"
+        },
+        {
+          "path": "qtwayland",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "c4f85cd060e3e80a7d71829defac9cf5a40e8ffa"
+        },
+        {
+          "path": "qtwebchannel",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "621cb3df07d6cf316dd026ec71311368adfe371e"
+        },
+        {
+          "path": "qtwebsockets",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "6aedb199b5d8ee4afa4cfc956ded22bc0a2632e9"
+        },
+        {
+          "path": "qtwebview",
+          "mode": "160000",
+          "type": "commit",
+          "sha": "5774c23849cdad2bcdf71ad8c8bd6946dcae38f0"
+        },
+        {
+          "path": "settings.gradle",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "d6ec311eff65cbfa165794ff3051b589b71bcf91",
+          "size": 1446,
+          "url": "https://api.github.com/repos/qt/qt5/git/blobs/d6ec311eff65cbfa165794ff3051b589b71bcf91"
+        },
+        {
+          "path": "tests",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "731bebd6f7735d2e47309528212a97deb3cf529b",
+          "url": "https://api.github.com/repos/qt/qt5/git/trees/731bebd6f7735d2e47309528212a97deb3cf529b"
+        }
+      ],
+      "truncated": false
+    }
+  },
+  "qt/qtbase": {
+    "ref": {
+      "ref": "refs/tags/v6.12.0",
+      "node_id": "MDM6UmVmOTg4MDMzNTpyZWZzL3RhZ3MvdjYuMTIuMA==",
+      "url": "https://api.github.com/repos/qt/qtbase/git/refs/tags/v6.12.0",
+      "object": {
+        "sha": "fcef5b2c755492753eb8f7424dd2bc7337832068",
+        "type": "tag",
+        "url": "https://api.github.com/repos/qt/qtbase/git/tags/fcef5b2c755492753eb8f7424dd2bc7337832068"
+      }
+    },
+    "tags": [
+      {
+        "node_id": "TA_kwDOAJbDD9oAKGZjZWY1YjJjNzU1NDkyNzUzZWI4Zjc0MjRkZDJiYzczMzc4MzIwNjg",
+        "sha": "fcef5b2c755492753eb8f7424dd2bc7337832068",
+        "url": "https://api.github.com/repos/qt/qtbase/git/tags/fcef5b2c755492753eb8f7424dd2bc7337832068",
+        "tagger": {
+          "name": "Antti Kokko",
+          "email": "antti.kokko@qt.io",
+          "date": "2026-09-30T09:00:58Z"
+        },
+        "object": {
+          "sha": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+          "type": "commit",
+          "url": "https://api.github.com/repos/qt/qtbase/git/commits/025bdad181de241e81bf853c8a2d7bf3d19261a9"
+        },
+        "tag": "v6.12.0",
+        "message": "Qt 6.12.0 release\n",
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      }
+    ],
+    "commit": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+    "tree": {
+      "sha": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+      "url": "https://api.github.com/repos/qt/qtbase/git/trees/025bdad181de241e81bf853c8a2d7bf3d19261a9",
+      "tree": [
+        {
+          "path": ".cmake.conf",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "b4e790d94c40db86583d6b69db9652ba0bd3051e",
+          "size": 3251,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/b4e790d94c40db86583d6b69db9652ba0bd3051e"
+        },
+        {
+          "path": ".gitattributes",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "c138aa11cc8006c6ac28dba50b20c5c91d8cab33",
+          "size": 227,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/c138aa11cc8006c6ac28dba50b20c5c91d8cab33"
+        },
+        {
+          "path": ".github",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "407bfec83d8a739a1468885894c1265f76b1d483",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/407bfec83d8a739a1468885894c1265f76b1d483"
+        },
+        {
+          "path": ".gitignore",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "00804d749203d657059689e6077fd5f2000e006e",
+          "size": 8050,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/00804d749203d657059689e6077fd5f2000e006e"
+        },
+        {
+          "path": ".gitreview",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "c7e84b785ff92afcd2653006209d6ee60fc19358",
+          "size": 76,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/c7e84b785ff92afcd2653006209d6ee60fc19358"
+        },
+        {
+          "path": ".tag",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "6828f88dcb0e88b8cd738ad6044ce74d7a9a13c8",
+          "size": 12,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/6828f88dcb0e88b8cd738ad6044ce74d7a9a13c8"
+        },
+        {
+          "path": "CMakeLists.txt",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "d3a14fc67eb1033df2e72e11938fdb0ece37536e",
+          "size": 1164,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/d3a14fc67eb1033df2e72e11938fdb0ece37536e"
+        },
+        {
+          "path": "CONTRIBUTING.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "8f85d5a6ed09a18a2b2afff5b346b191851c65ce",
+          "size": 336,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/8f85d5a6ed09a18a2b2afff5b346b191851c65ce"
+        },
+        {
+          "path": "LICENSES",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "e946ed3325968d7e3b2ff22b4df34f78007d7f72",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/e946ed3325968d7e3b2ff22b4df34f78007d7f72"
+        },
+        {
+          "path": "REUSE.toml",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "babb5b84ceb84dd0a160b2b778a6920ad3a858c0",
+          "size": 5615,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/babb5b84ceb84dd0a160b2b778a6920ad3a858c0"
+        },
+        {
+          "path": "bin",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "873647400d423c9b1115ca30ec17383fbb61bb0d",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/873647400d423c9b1115ca30ec17383fbb61bb0d"
+        },
+        {
+          "path": "cmake",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "177704911cb3d7446d1bbaec07379c45effba9f0",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/177704911cb3d7446d1bbaec07379c45effba9f0"
+        },
+        {
+          "path": "coin",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "96b14d399650beb9c765477e49ae8f4e8eec7313",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/96b14d399650beb9c765477e49ae8f4e8eec7313"
+        },
+        {
+          "path": "config.tests",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "b10bd79127bbd8dc61fe9bc87f7183b8abd413c1",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/b10bd79127bbd8dc61fe9bc87f7183b8abd413c1"
+        },
+        {
+          "path": "config_help.txt",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "2aef1746b246f6f6aec2bcfffb42c09cd97f57e6",
+          "size": 19413,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/2aef1746b246f6f6aec2bcfffb42c09cd97f57e6"
+        },
+        {
+          "path": "configure",
+          "mode": "100755",
+          "type": "blob",
+          "sha": "852d9f86d0fd4c612d9d27d7bdc974f318e17ce5",
+          "size": 4682,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/852d9f86d0fd4c612d9d27d7bdc974f318e17ce5"
+        },
+        {
+          "path": "configure.bat",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "7830459d4e31471671a2b6d6b6c6b385770bf1d5",
+          "size": 3367,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/7830459d4e31471671a2b6d6b6c6b385770bf1d5"
+        },
+        {
+          "path": "configure.cmake",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "668b4ac34131cbf70fe41d66fd6ff7cea63486b9",
+          "size": 54161,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/668b4ac34131cbf70fe41d66fd6ff7cea63486b9"
+        },
+        {
+          "path": "dependencies.yaml",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "c093387ce07ff17e0cf2ab0650abecca74b44328",
+          "size": 17,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/c093387ce07ff17e0cf2ab0650abecca74b44328"
+        },
+        {
+          "path": "dist",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "ee98d2d1b3491f328a01d706c21fe69c156798bc",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/ee98d2d1b3491f328a01d706c21fe69c156798bc"
+        },
+        {
+          "path": "doc",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "3cac9a162b4c88ecb98ae00a593e8f67643c91a7",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/3cac9a162b4c88ecb98ae00a593e8f67643c91a7"
+        },
+        {
+          "path": "examples",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "62a3920bfec5870409398a1fbdc9aee8f272348d",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/62a3920bfec5870409398a1fbdc9aee8f272348d"
+        },
+        {
+          "path": "lib",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "13f66dad3f43be68e547ca9a843cce190effa26f",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/13f66dad3f43be68e547ca9a843cce190effa26f"
+        },
+        {
+          "path": "libexec",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "11491b1c19ec10a714dc2aec8c85f8e781d0f4ac",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/11491b1c19ec10a714dc2aec8c85f8e781d0f4ac"
+        },
+        {
+          "path": "licenseRule.json",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "399ba29120200d1eb55808ea5a223b10fb8ad4ad",
+          "size": 26242,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/399ba29120200d1eb55808ea5a223b10fb8ad4ad"
+        },
+        {
+          "path": "mkspecs",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "19a1fa7992c1a5e34c70a85c40e412a1763b7121",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/19a1fa7992c1a5e34c70a85c40e412a1763b7121"
+        },
+        {
+          "path": "qmake",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "93d6a1b911a3ba5fc57b88b69f4af03fda030f91",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/93d6a1b911a3ba5fc57b88b69f4af03fda030f91"
+        },
+        {
+          "path": "qt_cmdline.cmake",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "1099ce73eb70bd77701c3d9571df184a677653ac",
+          "size": 10858,
+          "url": "https://api.github.com/repos/qt/qtbase/git/blobs/1099ce73eb70bd77701c3d9571df184a677653ac"
+        },
+        {
+          "path": "src",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "92be2a3913ba28d296b9b0978a587891999be1fa",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/92be2a3913ba28d296b9b0978a587891999be1fa"
+        },
+        {
+          "path": "tests",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "63c122b94824d9fd46e21e4d4bfd2e06169274f5",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/63c122b94824d9fd46e21e4d4bfd2e06169274f5"
+        },
+        {
+          "path": "util",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "3035d0d37896b2e30dfee9a637d380de76cf5ae4",
+          "url": "https://api.github.com/repos/qt/qtbase/git/trees/3035d0d37896b2e30dfee9a637d380de76cf5ae4"
+        }
+      ],
+      "truncated": false
+    }
+  },
+  "pyside/pyside-setup": {
+    "ref": {
+      "ref": "refs/tags/v6.12.0",
+      "node_id": "MDM6UmVmNDA4MzU3NjUyOnJlZnMvdGFncy92Ni4xMi4w",
+      "url": "https://api.github.com/repos/pyside/pyside-setup/git/refs/tags/v6.12.0",
+      "object": {
+        "sha": "6aefae25747a8d860d201f3ab2b2e199b9e8e006",
+        "type": "tag",
+        "url": "https://api.github.com/repos/pyside/pyside-setup/git/tags/6aefae25747a8d860d201f3ab2b2e199b9e8e006"
+      }
+    },
+    "tags": [
+      {
+        "node_id": "TA_kwDOGFcLFNoAKDZhZWZhZTI1NzQ3YThkODYwZDIwMWYzYWIyYjJlMTk5YjllOGUwMDY",
+        "sha": "6aefae25747a8d860d201f3ab2b2e199b9e8e006",
+        "url": "https://api.github.com/repos/pyside/pyside-setup/git/tags/6aefae25747a8d860d201f3ab2b2e199b9e8e006",
+        "tagger": {
+          "name": "Akseli Salovaara",
+          "email": "akseli.salovaara@qt.io",
+          "date": "2026-10-08T13:14:10Z"
+        },
+        "object": {
+          "sha": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+          "type": "commit",
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/commits/f50facb83fc3dc5f3240c854668c7a6dd93871b2"
+        },
+        "tag": "v6.12.0",
+        "message": "Qt For Python Release 6.12.0\n",
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      }
+    ],
+    "commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+    "tree": {
+      "sha": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+      "url": "https://api.github.com/repos/pyside/pyside-setup/git/trees/f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+      "tree": [
+        {
+          "path": ".flake8",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "f7b40d7487fd41321ba8829a02ed2edd282cfc07",
+          "size": 279,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/f7b40d7487fd41321ba8829a02ed2edd282cfc07"
+        },
+        {
+          "path": ".gitattributes",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "0848fedab8dd77601b0152d605ab92f1cf5d4224",
+          "size": 416,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/0848fedab8dd77601b0152d605ab92f1cf5d4224"
+        },
+        {
+          "path": ".gitignore",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "05a9abe35fd8610b789439e8b86d996506587df2",
+          "size": 2036,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/05a9abe35fd8610b789439e8b86d996506587df2"
+        },
+        {
+          "path": ".gitreview",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "e92d8e5732210eea48516725c4ce5f4e4a5bdde1",
+          "size": 86,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/e92d8e5732210eea48516725c4ce5f4e4a5bdde1"
+        },
+        {
+          "path": ".vscode",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "208194b9b81d5030dd046be1bd3c0e26f7ec9d08",
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/trees/208194b9b81d5030dd046be1bd3c0e26f7ec9d08"
+        },
+        {
+          "path": "CMakeLists.txt",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "06620328084743d0d06edcd507ca91fbcca6e7f1",
+          "size": 1024,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/06620328084743d0d06edcd507ca91fbcca6e7f1"
+        },
+        {
+          "path": "LICENSES",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "817e2592c9885591ca4ec60bbab571795ca012ac",
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/trees/817e2592c9885591ca4ec60bbab571795ca012ac"
+        },
+        {
+          "path": "README.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "1c9a1b2ce7dbf911e11a35024c31076db2089d96",
+          "size": 9181,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/1c9a1b2ce7dbf911e11a35024c31076db2089d96"
+        },
+        {
+          "path": "README.pyside6.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "e61a5acd160b89ede2ffddf69686a152c1170446",
+          "size": 3170,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/e61a5acd160b89ede2ffddf69686a152c1170446"
+        },
+        {
+          "path": "README.pyside6_addons.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "97b87e1d5be1264809823770aba2e6cbf8ca1631",
+          "size": 2207,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/97b87e1d5be1264809823770aba2e6cbf8ca1631"
+        },
+        {
+          "path": "README.pyside6_essentials.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "4a92742ce32ec5186d86f846980f5247aeec7776",
+          "size": 1737,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/4a92742ce32ec5186d86f846980f5247aeec7776"
+        },
+        {
+          "path": "README.pyside6_examples.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "b8ff70ad246781938531751fd42b1d736191f27c",
+          "size": 1803,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/b8ff70ad246781938531751fd42b1d736191f27c"
+        },
+        {
+          "path": "README.pyside6_pdf.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "cee2d984c3508035e669e7682b4e18dced38ef84",
+          "size": 1459,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/cee2d984c3508035e669e7682b4e18dced38ef84"
+        },
+        {
+          "path": "README.pyside6_webengine.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "f94ac7c6971ffce118e4beb063e6092879e353e5",
+          "size": 1512,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/f94ac7c6971ffce118e4beb063e6092879e353e5"
+        },
+        {
+          "path": "README.shiboken6-generator.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "7f486a5b66f76780888915186da972e67f3f5967",
+          "size": 1459,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/7f486a5b66f76780888915186da972e67f3f5967"
+        },
+        {
+          "path": "README.shiboken6.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "74e0bcda73517f4846b8c6f5cbab813c86c6ac79",
+          "size": 581,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/74e0bcda73517f4846b8c6f5cbab813c86c6ac79"
+        },
+        {
+          "path": "SECURITY.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "2b813565cd72cbd15701f8e6750b7ce766e20a31",
+          "size": 442,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/2b813565cd72cbd15701f8e6750b7ce766e20a31"
+        },
+        {
+          "path": "build_history",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "9c64921a19696889b754e21a637f77e99b23f282",
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/trees/9c64921a19696889b754e21a637f77e99b23f282"
+        },
+        {
+          "path": "build_scripts",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "fa33980b07b12eb926bbe0cbdf4241df3415a2b5",
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/trees/fa33980b07b12eb926bbe0cbdf4241df3415a2b5"
+        },
+        {
+          "path": "coin",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "19ded837a8aca79d3470b5d416354a1eb09da3e6",
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/trees/19ded837a8aca79d3470b5d416354a1eb09da3e6"
+        },
+        {
+          "path": "coin_build_instructions.py",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "b5ade8225aa76d4225cf1944754d773c55a0b484",
+          "size": 1148,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/b5ade8225aa76d4225cf1944754d773c55a0b484"
+        },
+        {
+          "path": "coin_test_instructions.py",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "a6e38b51f699e3ecdedf103773d66761ced46237",
+          "size": 806,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/a6e38b51f699e3ecdedf103773d66761ced46237"
+        },
+        {
+          "path": "create_wheels.py",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "d8e1ce6a5bda18b506d0b8d20a85642c6f79c5f2",
+          "size": 27286,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/d8e1ce6a5bda18b506d0b8d20a85642c6f79c5f2"
+        },
+        {
+          "path": "dependencies.yaml",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "e5f8dfc742216111e08a0945504f00c3b85bf319",
+          "size": 1860,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/e5f8dfc742216111e08a0945504f00c3b85bf319"
+        },
+        {
+          "path": "doc",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "ed34536f914f49f19c1f0f2d915c4ee8b38a183d",
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/trees/ed34536f914f49f19c1f0f2d915c4ee8b38a183d"
+        },
+        {
+          "path": "examples",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "b41002c4342262e0283577f9d544023daaa76970",
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/trees/b41002c4342262e0283577f9d544023daaa76970"
+        },
+        {
+          "path": "keyword-errors.lst",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "3b9ecea99d7bfd47e708504008d9f04705bce5b1",
+          "size": 7036,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/3b9ecea99d7bfd47e708504008d9f04705bce5b1"
+        },
+        {
+          "path": "requirements-coin.txt",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "a5dabc834ef8b903d013fa76152e4cd106c9aa9f",
+          "size": 218,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/a5dabc834ef8b903d013fa76152e4cd106c9aa9f"
+        },
+        {
+          "path": "requirements-doc.txt",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "1f3d3ac6d640011d6a22f1be6aeb73ae43381a26",
+          "size": 194,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/1f3d3ac6d640011d6a22f1be6aeb73ae43381a26"
+        },
+        {
+          "path": "requirements.txt",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "71000401d893bb30367c5115f14e9ebd84dc07c7",
+          "size": 367,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/71000401d893bb30367c5115f14e9ebd84dc07c7"
+        },
+        {
+          "path": "setup.py",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "26996a912d53872618e5987c9b5ab71b7a180250",
+          "size": 1365,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/26996a912d53872618e5987c9b5ab71b7a180250"
+        },
+        {
+          "path": "sources",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "370c3369785eb0de2051236e2ea906285cf8effd",
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/trees/370c3369785eb0de2051236e2ea906285cf8effd"
+        },
+        {
+          "path": "testing",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "2a865c222fc84aab76b647ce28668ae60dad1a53",
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/trees/2a865c222fc84aab76b647ce28668ae60dad1a53"
+        },
+        {
+          "path": "testrunner.py",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "3e3355e0593664175567625a6538345590f1cc0f",
+          "size": 355,
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/blobs/3e3355e0593664175567625a6538345590f1cc0f"
+        },
+        {
+          "path": "tools",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "c30e1f2f7a9942f060acd40753da33802941f7ca",
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/trees/c30e1f2f7a9942f060acd40753da33802941f7ca"
+        },
+        {
+          "path": "wheel_artifacts",
+          "mode": "040000",
+          "type": "tree",
+          "sha": "0d33570aded3306f38f8aa06bf05d48cdd6ffd88",
+          "url": "https://api.github.com/repos/pyside/pyside-setup/git/trees/0d33570aded3306f38f8aa06bf05d48cdd6ffd88"
+        }
+      ],
+      "truncated": false
+    }
+  }
+}

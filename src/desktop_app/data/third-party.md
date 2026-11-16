@@ -14,7 +14,7 @@
 
 ## 特別注意
 
-- Qt/PySide6/Shiboken：保留 wheel 商業授權提示，另附官方版本的 LGPLv3/GPLv3 原文。本程式已選擇依 LGPL-3.0 使用 Qt；授權原文位置、原始碼取得方式與替換 Qt 程式庫的方法見 licenses/qt-lgpl-notice.md。Qt 本身的對應原始碼位置仍待補，義務是否完全落實須在發佈前審核。
+- Qt/PySide6/Shiboken：保留 wheel 商業授權提示，另附官方版本的 LGPLv3/GPLv3 原文。本程式已選擇依 LGPL-3.0 使用 Qt；授權原文位置、原始碼取得方式與替換 Qt 程式庫的方法見 licenses/qt-lgpl-notice.md。Qt 6.12.0 與 PySide／shiboken 的官方固定來源及建置觀測已列於該說明與隨包 licenses/qt-sources.json；來源位置與版本對應不代表已完成建置修補、替換驗收或最終再散布審核。
 - LGPL 路徑需保留動態函式庫替換能力、通知、對應來源取得方式及所需修改資訊；不可把單一封裝方式當成自動合規。
 - Cobble：wheel 缺授權全文，保留官方 README 的 BSD-2-Clause 宣告、作者 metadata 及標準 BSD 文字；不代填未知著作權聲明。
 - Magika 補充文件是固定官方來源的標準 Apache-2.0 原文，不宣稱該提交是本 wheel 的對應來源版本。

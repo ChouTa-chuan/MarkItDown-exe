@@ -24,11 +24,13 @@ def canonical(name):
 
 
 def read_lock(path):
-    result={};current=None
+    result={}
+    current=None
     for line in path.read_text().splitlines():
         match=re.match(r'^([A-Za-z0-9_.-]+)==([^\s\\;]+)',line)
         if match:
-            current=canonical(match[1]);result[current]={'version':match[2],'hashes':[]}
+            current=canonical(match[1])
+            result[current]={'version':match[2],'hashes':[]}
         for value in re.findall(r'--hash=sha256:([0-9a-f]{64})',line):
             if current is None:raise ValueError('Hash without package')
             result[current]['hashes'].append(value)
@@ -51,10 +53,14 @@ def is_notice(name):
 def _generate(lock,wheels,supplements,output):
     required=read_lock(lock)
     if output.exists():raise ValueError('Output exists: generate to a fresh directory for review')
-    packages=[];seen=set();stored={}
+    packages=[]
+    seen=set()
+    stored={}
     def save(relative,data):
         safe_path(relative)
-        target=output/relative;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
+        target=output/relative
+        target.parent.mkdir(parents=True,exist_ok=True)
+        target.write_bytes(data)
         stored[relative]=sha(data)
     sources=json.loads((supplements/'sources.json').read_text())
     supplemental={}
@@ -62,19 +68,23 @@ def _generate(lock,wheels,supplements,output):
         if 'error' in record:raise ValueError('Unresolved supplemental source')
         content=(supplements/(record['name']+'.txt')).read_bytes()
         if sha(content)!=record['sha256']:raise ValueError('Supplement hash mismatch')
-        relative='supplemental/'+record['name']+'.txt';save(relative,content)
+        relative='supplemental/'+record['name']+'.txt'
+        save(relative,content)
         supplemental[record['name']]={**record,'path':relative}
     for wheel in sorted(wheels.glob('*.whl')):
         with zipfile.ZipFile(wheel) as archive:
             metadata_files=[name for name in archive.namelist() if name.endswith('.dist-info/METADATA') and len(PurePosixPath(name).parts)==2]
             if len(metadata_files)!=1:raise ValueError('Ambiguous wheel metadata')
-            metadata_raw=archive.read(metadata_files[0]);metadata=email.message_from_bytes(metadata_raw)
-            name=canonical(metadata['Name']);version=metadata['Version']
+            metadata_raw=archive.read(metadata_files[0])
+            metadata=email.message_from_bytes(metadata_raw)
+            name=canonical(metadata['Name'])
+            version=metadata['Version']
             if name not in required or name in seen:raise ValueError('Unexpected or duplicate wheel: '+name)
             digest=sha(wheel.read_bytes())
             if version!=required[name]['version'] or digest not in required[name]['hashes']:
                 raise ValueError('Wheel differs from lock: '+name)
-            seen.add(name);notices=[]
+            seen.add(name)
+            notices=[]
             save(name+'/METADATA',metadata_raw)
             for item in archive.infolist():
                 if item.is_dir() or not is_notice(item.filename):continue
@@ -82,7 +92,8 @@ def _generate(lock,wheels,supplements,output):
                 if (item.external_attr>>16)&0o170000==0o120000:raise ValueError('Notice cannot be a symlink')
                 if item.file_size>5*1024**2:raise ValueError('Oversized notice')
                 relative=name+'/wheel/'+item.filename
-                save(relative,archive.read(item));notices.append(relative)
+                save(relative,archive.read(item))
+                notices.append(relative)
             extra=[]
             if name in supplemental:extra.append(supplemental[name])
             if name in ('pyside6-essentials','shiboken6'):
@@ -149,7 +160,7 @@ def render(inventory,markdown,html):
       '- RapidOCR／PP-OCR 模型：屬固定版本套件，使用其 Apache-2.0 宣告，模型 SHA-256 在 onnx_ocr.py。',
       '- 本應用程式自有程式採 MIT；全文在基本安裝包內的 _internal\\desktop_app\\data\\licenses\\markitdown-desktop\\LICENSE（原始碼樹為根目錄 LICENSE）。MIT 只涵蓋自有部分，不改變上游與第三方元件的授權。',
       '', '## 特別注意', '',
-      '- Qt/PySide6/Shiboken：保留 wheel 商業授權提示，另附官方版本的 LGPLv3/GPLv3 原文。本程式已選擇依 LGPL-3.0 使用 Qt；授權原文位置、原始碼取得方式與替換 Qt 程式庫的方法見 licenses/qt-lgpl-notice.md。Qt 本身的對應原始碼位置仍待補，義務是否完全落實須在發佈前審核。',
+      '- Qt/PySide6/Shiboken：保留 wheel 商業授權提示，另附官方版本的 LGPLv3/GPLv3 原文。本程式已選擇依 LGPL-3.0 使用 Qt；授權原文位置、原始碼取得方式與替換 Qt 程式庫的方法見 licenses/qt-lgpl-notice.md。Qt 6.12.0 與 PySide／shiboken 的官方固定來源及建置觀測已列於該說明與隨包 licenses/qt-sources.json；來源位置與版本對應不代表已完成建置修補、替換驗收或最終再散布審核。',
       '- LGPL 路徑需保留動態函式庫替換能力、通知、對應來源取得方式及所需修改資訊；不可把單一封裝方式當成自動合規。',
       '- Cobble：wheel 缺授權全文，保留官方 README 的 BSD-2-Clause 宣告、作者 metadata 及標準 BSD 文字；不代填未知著作權聲明。',
       '- Magika 補充文件是固定官方來源的標準 Apache-2.0 原文，不宣稱該提交是本 wheel 的對應來源版本。',
@@ -164,7 +175,8 @@ def render(inventory,markdown,html):
         notice_paths=package['wheel_notice_files']+[record['path'] for record in package['supplemental_sources']]
         links=' '.join(f'<a href="windows/{quote(path,safe="/")}">原文 {number}</a>' for number,path in enumerate(notice_paths,1))
         rows.append('<tr><td>'+escape(package['name'])+'</td><td>'+escape(package['version'])+'</td><td>'+escape(declaration)+'</td><td>'+links+'</td></tr>')
-    markdown.parent.mkdir(parents=True,exist_ok=True);markdown.write_text('\n'.join(introduction)+'\n',encoding='utf-8')
+    markdown.parent.mkdir(parents=True,exist_ok=True)
+    markdown.write_text('\n'.join(introduction)+'\n',encoding='utf-8')
     html.write_text('<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
         '<title>'+title+'</title><style>body{font:16px/1.6 system-ui;margin:30px;max-width:1300px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccd;padding:10px;text-align:left}input{padding:12px;width:95%;margin:15px 0}a{display:inline-block;margin:4px}tr[hidden]{display:none}</style>'
         '<h1>'+title+'</h1><p>'+str(inventory['package_count'])+' 個鎖定套件，附原文與補充來源。此為開發依賴清單，不代表最終 Windows 原生檔發佈審核完成。完整說明見應用程式「第三方授權」。</p>'

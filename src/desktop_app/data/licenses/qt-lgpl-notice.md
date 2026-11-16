@@ -23,6 +23,7 @@ English: This program uses Qt 6 (through PySide6-Essentials and shiboken6, both 
 | PySide6-Essentials wheel 內的 Qt 商業授權提示 | `_internal\desktop_app\data\licenses\installed\pyside6-essentials\original\pyside6_essentials-6.12.0.dist-info\licenses\LicenseRef-Qt-Commercial.txt` |
 | shiboken6 wheel 內的 Qt 商業授權提示 | `_internal\desktop_app\data\licenses\installed\shiboken6\original\shiboken6-6.12.0.dist-info\licenses\LicenseRef-Qt-Commercial.txt` |
 | 各套件的 METADATA | `_internal\desktop_app\data\licenses\installed\pyside6-essentials\METADATA`、`_internal\desktop_app\data\licenses\installed\shiboken6\METADATA` |
+| 固定來源提交與本次建置 Qt 版本 | `_internal\desktop_app\data\licenses\qt-sources.json` |
 | 完整第三方清單 | `_internal\desktop_app\data\third-party.md`（程式內「說明／第三方授權」可開啟） |
 
 LGPL-3.0 與 GPL-3.0 原文取自 PySide 原始碼庫固定提交 `f50facb83fc3dc5f3240c854668c7a6dd93871b2` 的 `LICENSES/` 目錄：
@@ -30,13 +31,35 @@ LGPL-3.0 與 GPL-3.0 原文取自 PySide 原始碼庫固定提交 `f50facb83fc3d
 - https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/LICENSES/LGPL-3.0-only.txt
 - https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/LICENSES/GPL-3.0-only.txt
 
-該提交只用於取得授權原文，不表示它是本包 Qt 的對應原始碼版本。
+該提交原先只記錄授權原文來源；本輪另外查證它也是 PySide／shiboken 官方 `v6.12.0` tag 的提交。Qt 本體使用另一個來源庫，兩者分開列於下方，不能把 PySide 提交當作 Qt 本體提交。
 
 ## 對應原始碼的取得方式
 
-- PySide6／shiboken6 原始碼庫（依套件 METADATA 的 Repository 欄位）：https://code.qt.io/cgit/pyside/pyside-setup.git/
-- PySide6 專案首頁（METADATA 的 Homepage 欄位）：https://pyside.org
-- Qt 6 本身（qtbase 等模組）的對應原始碼位置與版本：**待補**。目前專案內沒有可作為依據的記錄，發佈前必須補上並確認與 6.12.0 相符；在此之前不宣稱已提供 Qt 本身的對應原始碼。
+目前來源對應版為 **Qt 6.12.0／PySide6-Essentials 6.12.0／shiboken6 6.12.0**。版本不是只按套件名稱推算：既有 hash 鎖定 Windows wheel 的 Qt DLL PE 版本經靜態檢查，建置時另用 `QtCore.qVersion()` 讀真正載入的 Qt 版本，並核對套件版本。每次基本包的觀測平台、Qt build 字串、Core extension 指紋與固定來源表記在上表的 `qt-sources.json`；建置解譯器觀測不等於 frozen 候選獨立執行驗證。
+
+| 來源 | 官方發布 tag 與固定提交 | 取得來源 |
+| --- | --- | --- |
+| Qt 完整模組組合（supermodule） | `v6.12.0` → `ef25002ed292b132d1ed3246bfcee1d24a9cd966` | https://github.com/qt/qt5/tree/ef25002ed292b132d1ed3246bfcee1d24a9cd966 |
+| Qt 本體 qtbase（Core／Gui／Widgets／Network 等） | `v6.12.0` → `025bdad181de241e81bf853c8a2d7bf3d19261a9`，也與上述 supermodule 的 qtbase gitlink 相同 | https://codeload.github.com/qt/qtbase/tar.gz/025bdad181de241e81bf853c8a2d7bf3d19261a9 |
+| SVG 程式庫 qtsvg | 上述 supermodule 的 `883a58532078d003cefef0a549bfe9f885ce41f5` | https://codeload.github.com/qt/qtsvg/tar.gz/883a58532078d003cefef0a549bfe9f885ce41f5 |
+| QML／Quick qtdeclarative | 上述 supermodule 的 `4332fbbb4c340463dc8cee36dda0c85d932122d8` | https://codeload.github.com/qt/qtdeclarative/tar.gz/4332fbbb4c340463dc8cee36dda0c85d932122d8 |
+| Designer／UiTools／Help 等 qttools | 上述 supermodule 的 `613a6fbf0a7998010ab2fda260b64066d66a021d` | https://codeload.github.com/qt/qttools/tar.gz/613a6fbf0a7998010ab2fda260b64066d66a021d |
+| PySide／shiboken 綁定與建置程式 | `v6.12.0` → `f50facb83fc3dc5f3240c854668c7a6dd93871b2` | https://codeload.github.com/pyside/pyside-setup/tar.gz/f50facb83fc3dc5f3240c854668c7a6dd93871b2 |
+
+`qt-sources.json` 保存該官方 Qt 發布版完整的模組 gitlink、各模組固定提交及其來源下載連結；這是來源上位集合，不表示每個模組都被本應用程式打包或使用。各模組的原始授權、內含第三方來源與建置說明仍須依其原始碼處理。
+
+也可以用 Git 取得同一組固定來源：
+
+```text
+git clone https://github.com/qt/qt5.git qt-6.12.0
+cd qt-6.12.0
+git checkout ef25002ed292b132d1ed3246bfcee1d24a9cd966
+git submodule update --init --recursive
+```
+
+單獨下載 supermodule 的 ZIP／tarball 不會包含各 submodule 原始碼；請完成上面的 submodule 步驟，或依 `qt-sources.json` 逐一取得固定模組來源並保留目錄結構。PySide／shiboken 請另外取得表列的來源。套件 METADATA 指向的官方 Qt for Python 原始碼入口仍是 https://code.qt.io/cgit/pyside/pyside-setup.git/ ，本表使用官方 GitHub 鏡像的固定提交供下載與離線追溯。
+
+此表確認官方發布來源位置與版本對應，**未宣稱二進位可逐位元組重建、已核實 wheel 所用完整建置修補與參數，或 LGPL／再散布義務已全部落實**。例如 qtbase 原始 `.cmake.conf` 另含 prerelease 預設欄位，保存原文不代表那就是官方 wheel 使用的完整 build 設定。固定候選的逐檔來源、建置修補／設定、替換驗收及最終再散布仍由後續審閱處理。
 
 ## 如何替換 Qt 程式庫
 

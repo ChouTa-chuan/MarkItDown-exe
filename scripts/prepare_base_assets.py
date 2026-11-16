@@ -3,6 +3,7 @@ import argparse
 from importlib import metadata
 import hashlib
 import json
+import os
 from pathlib import Path, PurePosixPath
 import platform
 import shutil
@@ -14,6 +15,7 @@ import tomllib
 from packaging.utils import canonicalize_name
 from packaging_profiles import ROOT, read_lock, verify_profiles
 from build_provenance import bootloader_notices, is_notice_entry
+from qt_sources import STAGED as QT_SOURCES, stage as stage_qt_sources, public_summary as qt_summary
 
 
 QT_NOTICE = 'qt-lgpl-notice.md'
@@ -48,8 +50,13 @@ def base_guide(version, notices, native):
 
 
 def stage_qt_notice(source, staged):
-    """把 Qt／LGPL 說明放進 licenses/；在 refresh_manifest 之前呼叫才會納入資產雜湊，Linux 與 Windows 建置都適用。"""
+    """在資產 hash 計算前放入 Qt 說明與實際版本／固定來源表；來源或 runtime 不符就失敗。"""
     shutil.copyfile(source/'licenses'/QT_NOTICE, staged/'licenses'/QT_NOTICE)
+    report = stage_qt_sources(source.parents[2], staged/'licenses'/QT_SOURCES)
+    if os.environ.get('GITHUB_ACTIONS') == 'true':
+        message = json.dumps(qt_summary(report), ensure_ascii=False, separators=(',', ':'))
+        print('::notice title=Qt release sources::'+message.replace('%', '%25')
+              .replace('\n', '%0A').replace('\r', '%0D'))
 
 
 def save_json(path, value):
@@ -117,8 +124,10 @@ def prepare(output, root=ROOT, *, native_assets=None):
         original_inventory = json.loads((source/'licenses/windows/inventory.json').read_text())
         original_packages = {item['name']:item for item in original_inventory['packages']}
         for name in sorted(set(runtime) | {'markitdown-desktop','markitdown'}):
-            distribution = metadata.distribution(name); files = []
-            package_root = notice_root/name; package_root.mkdir()
+            distribution = metadata.distribution(name)
+            files = []
+            package_root = notice_root/name
+            package_root.mkdir()
             raw = distribution.read_text('METADATA')
             if raw is None: raise ValueError('缺少實際安裝 METADATA：'+name)
             (package_root/'METADATA').write_bytes(raw.encode('utf-8'))
@@ -131,12 +140,15 @@ def prepare(output, root=ROOT, *, native_assets=None):
                 if not is_notice_entry(path): continue
                 original = Path(distribution.locate_file(entry))
                 if not original.is_file() or original.stat().st_size > 5*1024**2: continue
-                destination = package_root/'original'/Path(*path.parts); destination.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(original, destination); files.append(destination.relative_to(staged).as_posix())
+                destination = package_root/'original'/Path(*path.parts)
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(original, destination)
+                files.append(destination.relative_to(staged).as_posix())
             supplements=[]
             for reference in original_packages.get(name,{}).get('supplemental_sources',[]):
                 original = source/'licenses/windows'/reference['path']
-                destination = staged/'licenses'/reference['path']; destination.parent.mkdir(parents=True,exist_ok=True)
+                destination = staged/'licenses'/reference['path']
+                destination.parent.mkdir(parents=True,exist_ok=True)
                 shutil.copyfile(original,destination)
                 supplements.append(dict(reference,path=destination.relative_to(staged).as_posix()))
             notices.append(dict(name=name,version=distribution.version,notice_files=files,supplemental_sources=supplements))
@@ -156,7 +168,9 @@ def prepare(output, root=ROOT, *, native_assets=None):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description=__doc__); parser.add_argument('--output', type=Path, required=True)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--native-assets', type=Path, help='已離線驗證且與建置平台相符的四語 OCR payload')
-    args = parser.parse_args(); result = prepare(args.output, native_assets=args.native_assets)
+    args = parser.parse_args()
+    result = prepare(args.output, native_assets=args.native_assets)
     print('Prepared base assets:', len(result['runtime_packages']), 'runtime packages;', len(result['assets']), 'assets')
