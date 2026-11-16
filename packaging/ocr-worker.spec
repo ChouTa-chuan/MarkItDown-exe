@@ -20,6 +20,7 @@ analysis=Analysis([str(root/'packaging/ocr_worker_entry.py')],pathex=[str(root/'
     excludes=['PySide6','tkinter','matplotlib','pandas','scipy','torch','tensorflow','magika','markitdown'],noarchive=False)
 sys.path.insert(0, str(root/'scripts'))
 from prepare_worker_assets import native_notices
+from python_archive_inventory import write_pure_manifest
 from bundle_filters import drop_opencv_ffmpeg, drop_os_ucrt, find_vc_redist, official_vc_runtime
 # OCR 只處理圖片：排除 OpenCV 內附的 FFmpeg 影片外掛；須在記錄 binary 來源之前做。
 analysis.binaries, dropped_ffmpeg = drop_opencv_ffmpeg(analysis.binaries)
@@ -38,6 +39,8 @@ if sys.platform == 'win32':
 native_directory=tempfile.TemporaryDirectory(prefix='markitdown-worker-native-')
 native_root=Path(native_directory.name)/'notices'
 native_notices(analysis.binaries,native_root)
+# 純 Python 模組清單與 native manifest 同目錄，下一行的 datas 收集會一併帶入。
+write_pure_manifest(analysis.pure,native_root/'python-modules.json',[root/'src'])
 analysis.datas += [('worker-assets/native/'+path.relative_to(native_root).as_posix(),str(path),'DATA')
                   for path in native_root.rglob('*') if path.is_file()]
 pyz=PYZ(analysis.pure)

@@ -1,8 +1,10 @@
 """以合成包驗證指紋與拒絕條件，不把 fixture 當作 Windows 原生執行。"""
 import json
 from pathlib import Path
+import subprocess
 import sys
 import tempfile
+import zipfile
 from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
@@ -35,6 +37,12 @@ class ProvenanceTests(unittest.TestCase):
         self.native=dict(schema_version=2,files=[dict(file='runtime.dll',source_sha256='0'*64,
                          source_bytes=12,origin='system-native',distributions=[])])
         self.save(self.assets/'native/manifest.json',self.native)
+        self.modules=[dict(name='json',kind='PYMODULE',origin='stdlib',source_sha256='1'*64,source_bytes=5),
+                      dict(name='mystery',kind='PYMODULE',origin='unknown',source_sha256=None,source_bytes=None,
+                           reason='source-unreadable:FileNotFoundError')]
+        self.save(self.assets/'native/python-modules.json',dict(schema_version=1,modules=self.modules))
+        with zipfile.ZipFile(self.bundle/'_internal/base_library.zip','w') as archive:
+            archive.writestr('os.pyc',b'compiled fixture')
 
     def write(self,path,value):
         path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(value)
@@ -63,6 +71,42 @@ class ProvenanceTests(unittest.TestCase):
         self.write(self.bundle/'_internal/cv2/opencv_videoio_ffmpeg500_64.dll', b'should have been excluded')
         with self.assertRaisesRegex(ValueError, 'Excluded binaries present'):
             self.check()
+
+    def test_python_archive_inventory_is_reported_and_summarized(self):
+        report=self.check()
+        archives=report['python_archives']
+        self.assertEqual([row['name'] for row in archives['pure_modules']],['json','mystery'])
+        self.assertEqual([m['name'] for m in archives['base_library']['members']],['os.pyc'])
+        self.assertEqual(archives['base_library']['sha256'],sha256(self.bundle/'_internal/base_library.zip'))
+        self.assertEqual(archives['summary']['by_origin']['stdlib'],1)
+        self.assertEqual(archives['summary']['unknown_names'],['mystery'])
+        self.assertEqual(archives['summary']['base_library_members'],1)
+        library=next(r for r in report['candidate_inventory']['files'] if r['path']=='_internal/base_library.zip')
+        self.assertNotIn('archive-members-not-enumerated',library['review_reasons'])
+        self.assertFalse(report['candidate_inventory']['summary']['runtime_sbom_complete'])
+
+    def test_missing_python_module_manifest_or_base_library_is_rejected(self):
+        (self.assets/'native/python-modules.json').unlink()
+        with self.assertRaisesRegex(ValueError,'Missing or linked'):
+            self.check()
+        self.save(self.assets/'native/python-modules.json',dict(schema_version=1,modules=self.modules))
+        (self.bundle/'_internal/base_library.zip').unlink()
+        with self.assertRaisesRegex(ValueError,'Missing or linked'):
+            self.check()
+
+    def test_python_module_manifest_that_is_empty_is_rejected(self):
+        self.save(self.assets/'native/python-modules.json',dict(schema_version=1,modules=[]))
+        with self.assertRaisesRegex(ValueError,'Invalid or empty'):
+            self.check()
+
+    def test_missing_manifest_makes_cli_report_not_accepted(self):
+        (self.assets/'native/python-modules.json').unlink()
+        script=Path(__file__).resolve().parents[1]/'scripts/check_bundle_provenance.py'
+        report=self.root/'report.json'
+        result=subprocess.run([sys.executable,str(script),'--profile','cpu','--bundle',str(self.bundle),'--report',str(report)],
+                              capture_output=True,text=True,timeout=30)
+        self.assertEqual(result.returncode,1)
+        self.assertFalse(json.loads(report.read_text())['accepted'])
 
     def test_changed_original_is_rejected(self):
         (self.assets/'installed/markitdown-desktop/original/LICENSE.txt').write_bytes(b'changed')
@@ -114,6 +158,13 @@ class ProvenanceTests(unittest.TestCase):
         self.assertTrue(audit(self.bundle,'base','0.19.1')['accepted'])
         profile['local_packages']['extra']='1';self.save(assets/'build-profile.json',profile)
         with self.assertRaisesRegex(ValueError,'Runtime package list mismatch'):audit(self.bundle,'base','0.19.1')
+
+    def test_base_requires_python_module_manifest_in_asset_fingerprints(self):
+        assets,profile=self.base_fixture()
+        del profile['assets']['licenses/native/python-modules.json']
+        self.save(assets/'build-profile.json',profile)
+        with self.assertRaisesRegex(ValueError,'not covered by asset fingerprints'):
+            audit(self.bundle,'base','0.19.1')
 
     def test_final_base_inventory_includes_generated_installer_catalog(self):
         from base_install_catalog import create, CATALOG

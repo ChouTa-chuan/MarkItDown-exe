@@ -104,6 +104,24 @@ class ClassificationTests(unittest.TestCase):
         self.assertEqual((rows['_internal/whatever.bin']['category'], rows['_internal/whatever.bin']['status']),
                          ('unknown', 'gap'))
 
+    def test_enumerated_archive_is_origin_known_only_when_report_lists_members(self):
+        files = [entry('_internal/base_library.zip', b'z', role='archive'),
+                 entry('_internal/other.zip', b'o', role='archive')]
+        data = report(files)
+        data['python_archives'] = dict(base_library=dict(path='_internal/base_library.zip', members=[dict(name='os.pyc')]))
+        rows = {row['path']: row for row in subject.classify(data, {}, {}, {}, {})}
+        self.assertEqual((rows['_internal/base_library.zip']['category'], rows['_internal/base_library.zip']['status']),
+                         ('archive-members-enumerated', 'origin-known'))
+        self.assertEqual((rows['_internal/other.zip']['category'], rows['_internal/other.zip']['status']),
+                         ('archive-members-not-enumerated', 'gap'))
+
+    def test_archive_path_without_members_stays_a_gap(self):
+        for members in ([], None):
+            data = report([entry('_internal/base_library.zip', b'z', role='archive')])
+            data['python_archives'] = dict(base_library=dict(path='_internal/base_library.zip', members=members))
+            row = subject.classify(data, {}, {}, {}, {})[0]
+            self.assertEqual((row['category'], row['status']), ('archive-members-not-enumerated', 'gap'))
+
 
 class EndToEndTests(unittest.TestCase):
     def setUp(self):

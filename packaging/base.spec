@@ -8,6 +8,7 @@ root = Path(SPECPATH).parent
 sys.path.insert(0, str(root/'scripts'))
 from prepare_base_assets import refresh_manifest
 from prepare_worker_assets import native_notices
+from python_archive_inventory import write_pure_manifest
 from bundle_filters import drop_os_ucrt, drop_untracked_openssl, find_vc_redist, official_vc_runtime
 from desktop_app.build_profile import load_profile, verify_assets
 
@@ -52,6 +53,8 @@ if sys.platform == 'win32':
 # 保存此輪真正收集的 binary 來源；更新資產雜湊後再交給 COLLECT。
 native_root = assets/'licenses/native'
 native_notices(analysis.binaries, native_root)
+# 純 Python 模組清單與 native manifest 同目錄；必須在 refresh_manifest 之前寫入，才會納入資產雜湊。
+write_pure_manifest(analysis.pure, native_root/'python-modules.json', [root/'src'])
 refresh_manifest(assets)
 analysis.datas += [('desktop_app/data/'+p.relative_to(assets).as_posix(),str(p),'DATA')
                   for p in native_root.rglob('*') if p.is_file()]
