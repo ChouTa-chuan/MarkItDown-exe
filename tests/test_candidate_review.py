@@ -164,6 +164,18 @@ class ReviewTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'bounded'):
             subject.publish(result, 5)
 
+    def test_large_full_provenance_has_a_separate_bounded_input_budget(self):
+        # CPU 原報告含 ZIP 逐檔資料及冗長授權宣告，不能套用精簡 metadata 的上限。
+        self.report['fixture_padding'] = 'a'*9000
+        self.save(self.reports/'bundle-provenance.json', self.report)
+        with patch.object(subject, 'MAX_JSON', 8192), patch.object(subject, 'MAX_SOURCE_REPORT', 16384):
+            result = self.review()
+            self.assertEqual(subject.decode_parts(subject.encoded_parts(result)), result)
+            self.report['fixture_padding'] = 'a'*20000
+            self.save(self.reports/'bundle-provenance.json', self.report)
+            with self.assertRaisesRegex(ValueError, 'oversized'):
+                self.review()
+
     def test_replay_detects_relabelled_rows_or_changed_source(self):
         result = self.review()
         result['classification']['files'][0]['status'] = 'gap'

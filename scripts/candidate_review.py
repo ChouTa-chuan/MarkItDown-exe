@@ -22,6 +22,8 @@ from candidate_inventory import verify_inventory, component_inventory
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_JSON = 4*1024*1024
+# 完整 CPU provenance 另含套件宣告與 ZIP 清單，會大於精簡公開 metadata。
+MAX_SOURCE_REPORT = 16*1024*1024
 MAX_ENCODED = 96_000
 PART_SIZE = 2900
 
@@ -30,8 +32,8 @@ def canonical(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode('utf-8')
 
 
-def read_json(path):
-    if not path.is_file() or path.is_symlink() or path.stat().st_size > MAX_JSON:
+def read_json(path, max_bytes=MAX_JSON):
+    if not path.is_file() or path.is_symlink() or path.stat().st_size > max_bytes:
         raise ValueError('Missing, linked or oversized review input: '+str(path))
     return json.loads(path.read_text(encoding='utf-8'))
 
@@ -60,7 +62,8 @@ def report_indexes(directory):
         relative = path.relative_to(directory).as_posix()
         if relative.startswith('source-review'):
             continue
-        if path.is_symlink() or path.stat().st_size > MAX_JSON:
+        limit = MAX_SOURCE_REPORT if relative == 'bundle-provenance.json' else MAX_JSON
+        if path.is_symlink() or path.stat().st_size > limit:
             raise ValueError('Unsafe review report: '+relative)
         raw = path.read_bytes()
         digest = hashlib.sha256(raw).hexdigest()
@@ -120,7 +123,7 @@ def make_review(profile, bundle, reports, package, expected, repo=ROOT):
     """重驗同一候選快照後分類；精簡輸入可在 Linux 以同一 Git commit 重跑。"""
     selection = check_source(repo, expected)
     path = reports/'bundle-provenance.json'
-    report = read_json(path)
+    report = read_json(path, max_bytes=MAX_SOURCE_REPORT)
     version = tomllib.loads((repo/'pyproject.toml').read_text(encoding='utf-8'))['project']['version']
     if (report.get('profile') != profile or report.get('source_commit') != expected
             or report.get('source_version') != version or report.get('accepted') is not True
@@ -301,4 +304,12 @@ def main():
 
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except Exception as error:
+        # 原始 traceback 留 job 日誌；公開有界診斷方便判斷驗收在哪裡失敗。
+        if os.environ.get('GITHUB_ACTIONS') == 'true':
+            message = json.dumps(dict(check='candidate-source-review-error',
+                                      error=(type(error).__name__+': '+str(error))[:500]))
+            print('::error::'+message.replace('%', '%25').replace('\n', '%0A').replace('\r', '%0D'))
+        raise
