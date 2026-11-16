@@ -8,7 +8,8 @@ depends on which build profile a package was produced from; the profiles are
 listed separately because their contents differ.
 
 The application's own source code and documentation (src/desktop_app, scripts,
-packaging, tests, docs) are licensed under the MIT License; see LICENSE.
+packaging, tests, docs) are licensed under the MIT License; see LICENSE
+(in the base installed package: _internal/desktop_app/data/licenses/markitdown-desktop/LICENSE).
 That license covers only the project's own work. It does not relicense
 vendor/markitdown, the preserved third-party license texts, test fixtures
 from upstream, or any third-party component inside a built package.

@@ -33,7 +33,8 @@ def load_profile(root=None):
     if not isinstance(profile.get('assets'), dict) or not profile['assets']:
         raise ValueError('缺少資產雜湊清單。')
     required = {'user-guide.md','third-party.md','base-runtime-lock.txt',
-                'licenses/python-runtime/LICENSE.txt','licenses/installed/manifest.json'}
+                'licenses/python-runtime/LICENSE.txt','licenses/installed/manifest.json',
+                'licenses/qt-lgpl-notice.md','licenses/markitdown-desktop/LICENSE'}
     if integrated:
         required |= {'native/manifest.json', 'ocr-four-languages.json'}
     if not required <= profile['assets'].keys():

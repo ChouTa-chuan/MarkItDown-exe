@@ -16,6 +16,42 @@ from packaging_profiles import ROOT, read_lock, verify_profiles
 from build_provenance import bootloader_notices, is_notice_entry
 
 
+QT_NOTICE = 'qt-lgpl-notice.md'
+OWN_LICENSE = 'licenses/markitdown-desktop/LICENSE'
+OWN_LICENSE_LINE = '本程式自有部分採 MIT，全文見 '+OWN_LICENSE+'。'
+QT_NOTICE_LINE = ('Qt／LGPL-3.0 使用說明（授權原文位置、原始碼取得方式、如何替換 Qt 程式庫）見 licenses/'+QT_NOTICE+'。')
+
+
+def stage_own_license(root, staged):
+    """自有程式的 MIT 全文隨包保存；MIT 要求授權聲明附在軟體中。來源檔缺少時必須失敗，不靜默略過。"""
+    original = root/'LICENSE'
+    if not original.is_file():
+        raise FileNotFoundError('缺少自有程式授權原文：'+str(original))
+    destination = staged/OWN_LICENSE
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(original, destination)
+
+
+def base_guide(version, notices, native):
+    """組出隨包 third-party.md 的各行；抽成函式以便測試輸出內容。"""
+    guide = ['# 基本 profile 第三方來源與限制', '', f'程式 {version}；38 個第三方 runtime，另有本地專案與 Python 原授權。',
+             '', 'licenses/installed 保存實際建置環境的 runtime METADATA 與可取得的原始授權；licenses/native 保存實際 Analysis 的系統來源與 copyright。',
+             '', 'Magika 仍使用 CPU ONNX Runtime；沒有 RapidOCR OCR 模型。原生 Tesseract 尚未整合，本包只驗核心功能，未達完整基本版離線 OCR／Windows 發行門檻。',
+             '', QT_NOTICE_LINE,
+             '', OWN_LICENSE_LINE,
+             '', '實際原文與 binary 來源證據不取代完整再散布／Qt 義務或最終 SBOM 審核。部分套件無 wheel 內原文，仍可對照原 Windows 上位授權資料，不宣稱已全部審查。', '', '| 套件 | 版本 |', '| --- | --- |']
+    guide += [f'| {p["name"]} | {p["version"]} |' for p in notices]
+    if native:
+        guide = [line.replace('原生 Tesseract 尚未整合，本包只驗核心功能，未達完整基本版離線 OCR／Windows 發行門檻。',
+                              '已內含 Tesseract 與四語模型，原文／來源位於 native/；Linux 開發包與 Windows 候選分開，完整 Windows 發行仍待驗。') for line in guide]
+    return guide
+
+
+def stage_qt_notice(source, staged):
+    """把 Qt／LGPL 說明放進 licenses/；在 refresh_manifest 之前呼叫才會納入資產雜湊，Linux 與 Windows 建置都適用。"""
+    shutil.copyfile(source/'licenses'/QT_NOTICE, staged/'licenses'/QT_NOTICE)
+
+
 def save_json(path, value):
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
 
@@ -57,21 +93,27 @@ def prepare(output, root=ROOT, *, native_assets=None):
         raise ValueError('基本 build 版本不符。')
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='.base-assets-', dir=output.parent) as temporary:
-        staged = Path(temporary)/'data'; staged.mkdir()
+        staged = Path(temporary)/'data'
+        staged.mkdir()
         source = root/'src/desktop_app/data'
         for name in ['user-guide.md','ocr-models.json','ocr-four-languages.json','worker-health.png','worker-health.json',
                      'setup-chinese.png','setup-chinese.json','setup-japanese.png','setup-japanese.json','setup-korean.png','setup-korean.json']:
             shutil.copyfile(source/name, staged/name)
         for name in ['models','standards','markitdown']:
             shutil.copytree(source/'licenses'/name, staged/'licenses'/name)
+        stage_qt_notice(source, staged)
+        stage_own_license(root, staged)
         if native_assets is not None:
             attach_native(staged, Path(native_assets), target)
         python_license = next((p for p in [Path(sys.base_prefix)/'LICENSE.txt',Path(sysconfig.get_path('stdlib'))/'LICENSE.txt'] if p.is_file()), None)
         if python_license is None: raise ValueError('缺少實際 Python runtime 原授權。')
-        destination = staged/'licenses/python-runtime/LICENSE.txt'; destination.parent.mkdir(parents=True)
+        destination = staged/'licenses/python-runtime/LICENSE.txt'
+        destination.parent.mkdir(parents=True)
         shutil.copyfile(python_license, destination)
         bootloader_notices(staged/'licenses/bootloader')
-        notices = []; notice_root = staged/'licenses/installed'; notice_root.mkdir()
+        notices = []
+        notice_root = staged/'licenses/installed'
+        notice_root.mkdir()
         original_inventory = json.loads((source/'licenses/windows/inventory.json').read_text())
         original_packages = {item['name']:item for item in original_inventory['packages']}
         for name in sorted(set(runtime) | {'markitdown-desktop','markitdown'}):
@@ -100,14 +142,7 @@ def prepare(output, root=ROOT, *, native_assets=None):
             notices.append(dict(name=name,version=distribution.version,notice_files=files,supplemental_sources=supplements))
         save_json(notice_root/'manifest.json', dict(scope='Actual installed runtime metadata/notices, not final redistribution clearance', packages=notices))
         shutil.copyfile(root/profiles[target+'-runtime']['lock'], staged/'base-runtime-lock.txt')
-        guide = ['# 基本 profile 第三方來源與限制', '', f'程式 {installed["markitdown-desktop"]}；38 個第三方 runtime，另有本地專案與 Python 原授權。',
-                 '', 'licenses/installed 保存實際建置環境的 runtime METADATA 與可取得的原始授權；licenses/native 保存實際 Analysis 的系統來源與 copyright。',
-                 '', 'Magika 仍使用 CPU ONNX Runtime；沒有 RapidOCR OCR 模型。原生 Tesseract 尚未整合，本包只驗核心功能，未達完整基本版離線 OCR／Windows 發行門檻。',
-                 '', '實際原文與 binary 來源證據不取代完整再散布／Qt 義務或最終 SBOM 審核。部分套件無 wheel 內原文，仍可對照原 Windows 上位授權資料，不宣稱已全部審查。', '', '| 套件 | 版本 |', '| --- | --- |']
-        guide += [f'| {p["name"]} | {p["version"]} |' for p in notices]
-        if native_assets is not None:
-            guide = [line.replace('原生 Tesseract 尚未整合，本包只驗核心功能，未達完整基本版離線 OCR／Windows 發行門檻。',
-                                 '已內含 Tesseract 與四語模型，原文／來源位於 native/；Linux 開發包與 Windows 候選分開，完整 Windows 發行仍待驗。') for line in guide]
+        guide = base_guide(installed['markitdown-desktop'], notices, native_assets is not None)
         (staged/'third-party.md').write_text('\n'.join(guide)+'\n', encoding='utf-8')
         save_json(staged/'build-profile.json', dict(schema_version=2 if native_assets is not None else 1,id='base',source_version=installed['markitdown-desktop'],
             platform=target,python=platform.python_version(),native_ocr_required=True,native_ocr_integrated=native_assets is not None,
