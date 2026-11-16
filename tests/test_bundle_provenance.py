@@ -142,6 +142,20 @@ class ProvenanceTests(unittest.TestCase):
         (self.bundle/'_internal/runtime.dll').unlink()
         with self.assertRaisesRegex(ValueError,'Missing or linked'):self.check()
 
+    def test_cpython_sidecar_is_verified_by_the_bundle_auditor(self):
+        from cpython_components import write_inventory, REPORT
+        path = self.assets/'native'/REPORT
+        write_inventory(self.native['files'], path, target=sys.platform, version='3.12.10',
+                        license_path=self.assets/'python-runtime/LICENSE.txt', probe=dict(versions={}, files={}))
+        self.native.update(cpython_components=REPORT, cpython_components_sha256=sha256(path))
+        self.save(self.assets/'native/manifest.json', self.native)
+        # 只驗合成清單的檢核接線，applicable 依平台，不把 fixture 當作 Windows 實證。
+        report = self.check()
+        self.assertEqual(report['cpython_components']['applicable'], sys.platform == 'win32')
+        path.write_text('{}')
+        with self.assertRaisesRegex(ValueError, 'inventory fingerprint mismatch'):
+            self.check()
+
     def base_fixture(self):
         import shutil
         assets=self.bundle/'_internal/desktop_app/data'

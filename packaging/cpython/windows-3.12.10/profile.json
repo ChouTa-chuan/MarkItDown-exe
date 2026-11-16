@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "cpython_version": "3.12.10",
+  "platform": "windows",
+  "architecture": "x64",
+  "cpython_commit": "0cc81280367df838c4b199f8f0378837165071c2",
+  "components": {
+    "openssl": {
+      "declared_version": "3.0.16",
+      "notice": "original/openssl.txt",
+      "files": {
+        "libcrypto-3.dll": "library",
+        "libssl-3.dll": "library",
+        "_ssl.pyd": "cpython-extension",
+        "_hashlib.pyd": "cpython-extension"
+      }
+    },
+    "libffi": {
+      "declared_version": "3.4.4",
+      "notice": "original/libffi.txt",
+      "files": {
+        "libffi-8.dll": "library",
+        "_ctypes.pyd": "cpython-extension"
+      }
+    },
+    "sqlite": {
+      "declared_version": "3.49.1.0",
+      "notice": "original/sqlite.txt",
+      "files": {
+        "sqlite3.dll": "library",
+        "_sqlite3.pyd": "cpython-extension"
+      }
+    }
+  },
+  "sources": [
+    {
+      "file": "sources/python.props",
+      "sha256": "fee5e3735ab0dbf3d4929453697d82d16e7c9f114877b8ef791d99ba9922787f",
+      "bytes": 16374,
+      "repository": "python/cpython",
+      "commit": "0cc81280367df838c4b199f8f0378837165071c2",
+      "source_path": "PCbuild/python.props",
+      "url": "https://github.com/python/cpython/blob/0cc81280367df838c4b199f8f0378837165071c2/PCbuild/python.props",
+      "source_sha256": "fee5e3735ab0dbf3d4929453697d82d16e7c9f114877b8ef791d99ba9922787f",
+      "git_blob_sha": "3fba8e09acd0d7c4c779e71f3216244caf6a8eba"
+    },
+    {
+      "file": "sources/regen.targets",
+      "sha256": "5b91106ea4942d048c47c25f1c861b8aa16a05b458e26dad36886060427b2fa3",
+      "bytes": 7855,
+      "repository": "python/cpython",
+      "commit": "0cc81280367df838c4b199f8f0378837165071c2",
+      "source_path": "PCbuild/regen.targets",
+      "url": "https://github.com/python/cpython/blob/0cc81280367df838c4b199f8f0378837165071c2/PCbuild/regen.targets",
+      "source_sha256": "5b91106ea4942d048c47c25f1c861b8aa16a05b458e26dad36886060427b2fa3",
+      "git_blob_sha": "49a226652b17bf9f5fa8580fefe727c96d6ae9d8"
+    },
+    {
+      "file": "sources/get_externals.bat",
+      "sha256": "32c8c7862a6c29b72aa4ff4a0e233b4882991b1f83c391748e3b6aad60742abb",
+      "bytes": 4391,
+      "repository": "python/cpython",
+      "commit": "0cc81280367df838c4b199f8f0378837165071c2",
+      "source_path": "PCbuild/get_externals.bat",
+      "url": "https://github.com/python/cpython/blob/0cc81280367df838c4b199f8f0378837165071c2/PCbuild/get_externals.bat",
+      "source_sha256": "32c8c7862a6c29b72aa4ff4a0e233b4882991b1f83c391748e3b6aad60742abb",
+      "git_blob_sha": "32bb5bf0f77d2596d97f08858cac4a7c280e13b4"
+    },
+    {
+      "file": "sources/main.py",
+      "sha256": "64f8003e62c8b9de7ff2d752eb9096283fbb1bf6682746aea03566648dcda156",
+      "bytes": 20475,
+      "repository": "python/cpython",
+      "commit": "0cc81280367df838c4b199f8f0378837165071c2",
+      "source_path": "PC/layout/main.py",
+      "url": "https://github.com/python/cpython/blob/0cc81280367df838c4b199f8f0378837165071c2/PC/layout/main.py",
+      "source_sha256": "64f8003e62c8b9de7ff2d752eb9096283fbb1bf6682746aea03566648dcda156",
+      "git_blob_sha": "e836caf1167ba5a2d5c3e04e1617f72d884327d3"
+    },
+    {
+      "file": "original/openssl.txt",
+      "sha256": "ed72ce2b51ee58f117e5a021e2e04af158857f40269fbc03491f0b2a99dbcc96",
+      "bytes": 10352,
+      "repository": "python/cpython-bin-deps",
+      "commit": "1174fd43d858425c345b16d631716fb98ba492ea",
+      "source_path": "amd64/LICENSE.txt",
+      "url": "https://github.com/python/cpython-bin-deps/blob/1174fd43d858425c345b16d631716fb98ba492ea/amd64/LICENSE.txt",
+      "source_sha256": "ed72ce2b51ee58f117e5a021e2e04af158857f40269fbc03491f0b2a99dbcc96",
+      "git_blob_sha": "3e705150955c622ca1e9d2c71a9c3dfe2c830fcb"
+    },
+    {
+      "file": "original/libffi.txt",
+      "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388",
+      "bytes": 1132,
+      "repository": "python/cpython-bin-deps",
+      "commit": "94cb9a1c7feb608adf2b9f8fe2dbd6925ffbf90d",
+      "source_path": "LICENSE",
+      "url": "https://github.com/python/cpython-bin-deps/blob/94cb9a1c7feb608adf2b9f8fe2dbd6925ffbf90d/LICENSE",
+      "source_sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388",
+      "git_blob_sha": "75d1bce11f9118ccfd96b24a2e49af078da1b469"
+    },
+    {
+      "file": "original/sqlite.txt",
+      "sha256": "cc65d76f325d884dd49e319acf3764d5513920f34ad18e34347b8dedc6ddd2ec",
+      "bytes": 1484,
+      "repository": "python/cpython-source-deps",
+      "commit": "cb7a3997059739fe9c63b2819aeda7c6907510ef",
+      "source_path": "sqlite3.h",
+      "url": "https://github.com/python/cpython-source-deps/blob/cb7a3997059739fe9c63b2819aeda7c6907510ef/sqlite3.h",
+      "source_sha256": "88da6f1963bc192dfa18a3a48b423cf1fbbb04f903202efe9a78e3a597473e18",
+      "git_blob_sha": "082a9f9dc44e9368cb53ade4048115d3824ded36",
+      "literal_byte_excerpt": {
+        "offset": 0,
+        "length": 1484
+      }
+    }
+  ],
+  "scope": "Pinned official CPython build declarations and literal upstream notice bytes; not binary version certification or redistribution approval"
+}
