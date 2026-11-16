@@ -8,15 +8,13 @@
 
 ## A. 分支與 PR
 
-兩個開啟中的 PR 依序相疊，都以 `main` 為目標。**合併順序 4 → 5，由使用者指示。** 接手請從 PR 5 的分支開新分支。
+| 項目 | 狀態 |
+| --- | --- |
+| `main` | 已合併 PR 1–5（2026-11-16），現行規則、三角色設定與 Python 模組清單都在 main；已設分支保護（只能經 PR、只允許 Merge） |
+| 本階段分支 | `claude/qt-lgpl-notice`，由 main 開出，對應 A3 |
+| 其他分支 | `codex/ai-handoff-workflow-20261112`：內容已採納，不需要合併 |
 
-| PR | 分支 | 內容 | 狀態 |
-| --- | --- | --- | --- |
-| 1–3 | — | 已合併，`main` 為 `747edba` | 已合併 |
-| [4](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/4) | `claude/ci-self-check-and-ms-runtime` | CI 自行檢查排除檔案、原生檔來源與簽章、微軟執行期改用官方來源、AI 輪替規則、Claude 三角色設定 | CI 通過 |
-| [5](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/5) | `claude/python-archive-inventory`（目前最新） | Python 模組來源清單、`base_library.zip` 成員列舉、文件更新 | CI 通過 |
-
-`codex/ai-handoff-workflow-20261112` 的內容已採納，不需要合併。
+依 AGENTS.md「合併時機」，每個編號一個 PR，CI 通過且查驗完成後即合併。接手時仍先看開啟中的 PR。
 
 ## B. 這個階段完成了什麼
 
@@ -31,17 +29,21 @@
 
 **等使用者決定**
 
-1. PR 4、PR 5 的合併時機。
-2. 圖片與影音的支援方式與排程（目前程式只接受文字、Office、HTML、PDF）：建議圖片檔走既有的本機 OCR，影音另做獨立選配元件並使用本機語音辨識；上游的語音轉文字會把音訊送到線上服務，不符合「本機完成」。尚未排入工作。
+1. 圖片與影音的支援方式與排程（目前程式只接受文字、Office、HTML、PDF）：建議圖片檔走既有的本機 OCR，影音另做獨立選配元件並使用本機語音辨識；上游的語音轉文字會把音訊送到線上服務，不符合「本機完成」。尚未排入工作。
 
-**可以直接做的下一步（依序）**
+**整體規劃**（每個編號一個 PR，完成即合併）
 
-1. 查明基本包那 5 個 setuptools 子套件為何被收進來、是否需要隨包（setuptools 為 MIT，授權風險低）。
-2. **A3 Qt／LGPL 隨包說明**：在基本包加入說明檔，寫明 Qt 以 LGPL-3.0 使用、授權原文在包內的位置、對應原始碼的取得方式、如何替換 Qt 程式庫。每個連結都要有依據（可用 `src/desktop_app/data/licenses/windows/inventory.json` 記錄的補充來源），不憑印象寫網址。
-3. 逐檔列出 CPython 隨附第三方元件（OpenSSL、libffi、SQLite）的版本與原文。
-4. 大階段 A 完成後由規劃者整體確認，再評估 `runtime_sbom_complete` 是否有條件改為 true；之後重新產生候選報告並重跑來源分類。
-5. CPU 元件正式發布前重新定版（內容已不同於先前的 1.0.1）。
-6. 準備測試用安裝包與驗收表，再做乾淨 Windows 與人工驗收。GPU 延後。
+| 大階段 | 編號與任務 | 狀態 |
+| --- | --- | --- |
+| A 關閉來源與再散布缺口 | A1 Python 模組清單、A2 文件補記 | 完成（PR 5） |
+| | **A3 Qt／LGPL 隨包說明**：Qt 以 LGPL-3.0 使用、原文位置、原始碼取得方式、如何替換 Qt 程式庫；連結須有依據（`src/desktop_app/data/licenses/windows/inventory.json` 的補充來源） | 進行中 |
+| | A4 查明 5 個 setuptools 子模組為何收進基本包（PyInstaller 的 `pyi_rth_pkgres`／`pyi_rth_setuptools` 執行期掛鉤是線索），能拿掉就拿掉 | 待開始 |
+| | A5 逐檔列出 CPython 隨附元件（OpenSSL、libffi、SQLite）的版本與原文 | 待開始 |
+| | A6 大階段確認：重產候選報告、重跑來源分類、評估 `runtime_sbom_complete` | 待開始 |
+| B 測試版安裝包 | B1 以 CI artifact 產出並附提交、版本、雜湊、隨包原文、限制；B2 驗收表；B3 CPU 元件重新定版；B4 由使用者確認門檻 | 待開始 |
+| C 乾淨機與人工驗收 | C1 乾淨 Windows 10／11 安裝與離線首次啟動；C2 四語、中文路徑、修復移除；C3 人工操作 | 需使用者或實體 Windows |
+| D 功能擴充 | D1 圖片檔走本機 OCR；D2 影音獨立選配元件 | 等使用者決定 |
+| E GPU | 實卡驗收 | 延後 |
 
 **優先順序原則**：先讓基本包可交付；暫不擴充選配元件系統與驗收矩陣。
 
@@ -56,6 +58,7 @@
 | 2026-11-13 | 使用者決定 | 自有程式採 MIT，著作權人「周大詮 (ChouTa-chuan)」，涵蓋以不同 AI 工具產生的全部自有內容 |
 | 2026-11-13 | 使用者同意 | 排除 Qt TLS 外掛與來源不明的 OpenSSL；從 CPU 文字辨識元件排除 OpenCV 內附的 FFmpeg，影音日後另做獨立選配元件；微軟執行期改用官方來源 |
 | 2026-11-14 | 使用者指示 | 專案由 Claude 與 Codex 輪流進行，每個 AI 至少完成一個小階段（PR）才換手；規則見 AGENTS.md「多個 AI 輪替」 |
+| 2026-11-16 | 使用者指示 | 合併 PR 4、PR 5；之後每完成一個編號（如 A4、A5）視為小階段完成即可合併；`main` 已由使用者設定分支保護 |
 | 2026-11-14 | 使用者指示 | Claude 採三角色分工：規劃者（主對話）、編程者 `coder`、查驗者 `reviewer`，流程見 CLAUDE.md；主對話推理強度為中 |
 
 ## 接手指令

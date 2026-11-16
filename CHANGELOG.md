@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-16：依使用者指示合併 PR 4、PR 5；規則改為每完成一個編號即可自行合併該 PR（CI 通過且查驗完成）。使用者已為 `main` 設定分支保護。
+
 - 2026-11-16：PR 5 的 Windows CI 通過並首次輸出 Python 模組清單：基本包 1,715 個模組中 5 個無法歸屬（setuptools 隨附子套件），CPU 元件 562 個全部可歸屬（[紀錄](docs/development-records/runs/python-archive-inventory-ci-2026-11-16/README.md)）。
 
 ### 2026-11-16｜Python 模組來源清單與封存成員列舉；三角色分工啟用
