@@ -6,7 +6,7 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 96 筆。
+共 98 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -18,6 +18,7 @@
 | 2026-11-16 | 證據 | A5b：PR 10 原生 Windows Qt 來源驗證 | 30c9eaf | 接受、Windows已執行 | A5b、PR10、Qt、Windows、原生、來源對應、wheel指紋、annotation、A5c待辦 | [development-records/runs/a5b-pr10-ci-2026-11-16/README.md](development-records/runs/a5b-pr10-ci-2026-11-16/README.md) |
 | 2026-11-16 | 證據 | A5b：Windows 控制端的 Qt 摘要接線 | 5376c99 | 接受 | A5b、Qt、CI、stdout、annotation、控制端、完整回歸 | [development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md](development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md) |
 | 2026-11-16 | 證據 | A5b：Qt 發布來源與版本對應 | bc2f77c | 接受 | A5b、Qt、PySide、shiboken、發布來源、gitlink、Windowswheel、版本宣告、A5c待辦 | [development-records/runs/a5b-qt-source-2026-11-16/README.md](development-records/runs/a5b-qt-source-2026-11-16/README.md) |
+| 2026-11-16 | 證據 | A5c：CPython runtime probe 驗收補強 | afb2062 | 接受 | A5c、CPython、OpenSSL、SQLite、probe_error、接受條件、CLI、缺失原文、反例 | [development-records/runs/a5c-runtime-probe-2026-11-16/README.md](development-records/runs/a5c-runtime-probe-2026-11-16/README.md) |
 | 2026-11-16 | 證據 | Python 模組來源清單的首次 Windows CI 輸出 | c49c729 | 接受、Windows已執行 | Python模組清單、base_library成員、setuptools不明模組 | [development-records/runs/python-archive-inventory-ci-2026-11-16/README.md](development-records/runs/python-archive-inventory-ci-2026-11-16/README.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a3-before-a4.md](history/status/2026-11-16-a3-before-a4.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a4-before-a5.md](history/status/2026-11-16-a4-before-a5.md) |
@@ -25,6 +26,7 @@
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a4-before-windows-ci-result.md](history/status/2026-11-16-a4-before-windows-ci-result.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a5-before-a5b.md](history/status/2026-11-16-a5-before-a5b.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a5-before-windows-ci.md](history/status/2026-11-16-a5-before-windows-ci.md) |
+| 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a5b-before-a5c.md](history/status/2026-11-16-a5b-before-a5c.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a5b-before-source-verification.md](history/status/2026-11-16-a5b-before-source-verification.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a5b-before-windows-ci.md](history/status/2026-11-16-a5b-before-windows-ci.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-ci-self-check-and-ms-runtime.md](history/status/2026-11-16-ci-self-check-and-ms-runtime.md) |

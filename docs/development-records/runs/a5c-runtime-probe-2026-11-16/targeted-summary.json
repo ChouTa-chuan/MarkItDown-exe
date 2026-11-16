@@ -1,0 +1,9 @@
+{
+  "source_commit": "afb2062d4854234356faf2bb959aac634c40f89e",
+  "scope": "Synthetic CPython component, bundle auditor/CLI and candidate inventory tests; not native Windows execution",
+  "run": 68,
+  "assertions_accepted": true,
+  "standalone_process_exit_captured": false,
+  "raw_unittest_summary": "Ran 68 tests in 4.695s\n\nOK",
+  "full_driver_process_exits_captured": true
+}

@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-16",
-  "environment": "Linux · Python3.12.14／Tesseract5.3.4；A5b完整回歸、Windows hosted基本包／CPU及Qt來源對應已驗；原固定候選仍cb8f24d",
-  "tests_passed": 764,
-  "headline": "A5b完成（PR #10）：Qt固定來源與Windows版本／指紋已驗；本輪起點main已合併PR1–9，下一個A5c",
-  "blocker": "A5c的CPython probe接受條件／反例待獨立PR；完整build修補／設定、runtime SBOM、再散布、乾淨機／人工／GPU仍待。",
-  "next": "本輪起點 main 已合併 PR 1–9；A5b（PR #10）已查驗，合併狀態以 PR 為準。下一個 A5c 從最新 main 另開獨立 PR，三項驗收補強與全部 Windows CI 通過後才合併；再接 A6。",
+  "environment": "Linux · Python3.12.14／Tesseract5.3.4；A5c本機完整回歸通過，原生Windows新門檻待CI；原固定候選仍cb8f24d",
+  "tests_passed": 768,
+  "headline": "main已合併PR1–10；A5c探測接受條件與反例已補齊，本機完整回歸通過，Windows新標準待CI",
+  "blocker": "A5c 新接受條件仍待全部 Windows CI；A6 固定候選、完整build修補／設定、SBOM／再散布與實機仍待。",
+  "next": "完成 A5c 獨立 [PR #11](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/11) 的原生 Windows 新接受條件驗證；全 CI 與查驗通過後一般 Merge，再接 A6 固定來源候選／整體審閱。",
   "milestones": [
     {
       "id": "m0",
@@ -257,7 +257,7 @@
     "2026-11-12：0.19.1完整698（697通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與45模組exit0；Tesseract5.3.4／CPython3.12.3與先前基線不同。未對照來源已分類但candidate／gap基本49、CPU47仍待，授權提案未確認，沒有新的Windows執行。",
     "2026-11-13：完整703（702通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與46模組exit0；新增項目為歷史索引測試，沒有新的Windows執行。"
   ],
-  "tests_run": 765,
+  "tests_run": 769,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1287,11 +1287,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "5376c99743ed15ead83ab3f58882be5b78de2ef9",
+    "source_commit": "afb2062d4854234356faf2bb959aac634c40f89e",
     "date_taipei": "2026-11-16",
     "accepted": true,
-    "run": 765,
-    "passed": 764,
+    "run": 769,
+    "passed": 768,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1311,7 +1311,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md"
+    "evidence": "development-records/runs/a5c-runtime-probe-2026-11-16/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2554,7 +2554,7 @@
       "runtime_sbom_complete": false
     },
     "core_extension_locked_wheel_matched": true,
-    "final_head_requires_ci": true,
+    "final_head_requires_ci": false,
     "windows_base_inventory": {
       "files": 1615,
       "bytes": 262639292,
@@ -2603,6 +2603,17 @@
       "unknown_modules": 0,
       "unknown_names": [],
       "base_library_members": 155
+    },
+    "merged": true,
+    "stage_closed": true,
+    "merge_commit": "8993253cbecb56fe1c9794078a2059f3a1ccca63",
+    "final_ci_head": "abddc6f674ff1a48379c9ccb08e10cb44ad8f623",
+    "final_ci_merge_sha": "7dde62bbd78d9d4614dd57fcf44c69447f71eed1",
+    "final_ci_runs": {
+      "linux": 43850657882,
+      "base": 43850657867,
+      "cpu": 43850657893,
+      "history": 43850657865
     }
   },
   "previous_full_regression_764": {
@@ -2633,5 +2644,54 @@
     "clean_machine_accepted": false,
     "release_ready": false,
     "evidence": "development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md"
+  },
+  "previous_full_regression_765": {
+    "source_version": "0.19.1",
+    "architecture_version": "0.4",
+    "source_commit": "afb2062d4854234356faf2bb959aac634c40f89e",
+    "date_taipei": "2026-11-16",
+    "accepted": true,
+    "run": 769,
+    "passed": 768,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 1,
+    "expected_failure_ids": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "mixed_assertions_accepted": true,
+    "mixed_process_exit": 0,
+    "isolated_modules": 51,
+    "isolated_all_exits_zero": true,
+    "python": "3.12.14",
+    "tesseract": "5.3.4",
+    "baseline_environment_identical": false,
+    "windows_executed_this_run": false,
+    "gpu_executed": false,
+    "traditional_chinese_onnx_quality_passed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/a5c-runtime-probe-2026-11-16/README.md"
+  },
+  "a5c_runtime_probe": {
+    "source_commit": "afb2062d4854234356faf2bb959aac634c40f89e",
+    "status": "local-verified-windows-pending",
+    "strict_windows_report_policy": true,
+    "enforced_at_generation": true,
+    "enforced_at_verification": true,
+    "probe_error_key_rejected": true,
+    "rehash_does_not_bypass_cli": true,
+    "missing_openssl_original_rejected": true,
+    "extension_observed_version_documented": true,
+    "libffi_declaration_limit_preserved": true,
+    "targeted_tests_run": 68,
+    "targeted_assertions_accepted": true,
+    "windows_executed": false,
+    "runtime_sbom_complete": false,
+    "redistribution_approved": false,
+    "pr": 11,
+    "evidence": "development-records/runs/a5c-runtime-probe-2026-11-16/README.md",
+    "merge_status_source": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/11"
   }
 }

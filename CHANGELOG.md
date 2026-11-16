@@ -4,6 +4,13 @@
 
 ## 更新中
 
+### 2026-11-16｜A5c：CPython 探測接受條件及反例
+
+- 程式0.19.1／架構0.4不變；相對前版 Windows 清單探測失敗僅保留缺口，本輪要求已收集 OpenSSL／SQLite 皆為匹配來源的 runtime probe，存在 probe_error（含空字串）就拒絕。產生端先保存診斷再失敗，重驗端再強制一次，不因重算 sidecar／native manifest hash 通過 audit／CLI。Windows 本機、CI 與 Windows 清單離線重驗一致。
+- 補齊各元件、錯誤欄位、刪除 OpenSSL 原文與 hash 重綁的 audit／CLI 反例；README 說明 extension observed_version 是所連結元件版本。libffi 僅建置宣告及 Linux 不適用範圍保留，沒有改 schema、固定相依或原文。
+- 相關測試及完整混合／獨立模組回歸通過，數字只記 progress.json；[來源與原始結果](docs/development-records/runs/a5c-runtime-probe-2026-11-16/README.md)已保存。STATUS 先封存後更新，main 基線為已合併 PR 1–10，A5b 合併及最終 CI 來源補入現況資料，D 節使用者直接決定逐筆保留。
+- 新接受條件尚待本 PR 原生 Windows CI，全部通過且查驗完成後才 Merge；A6 固定候選、完整來源／再散布及實機仍待。原固定候選、產品里程碑與發行旗標不提高，沒有產品發行、Release 或 tag。
+
 - 2026-11-16：A5c 強制 Windows 適用清單的 OpenSSL／SQLite runtime probe 完整且匹配，產生與重驗兩端皆拒絕缺口／probe_error，保留失敗診斷；補齊 hash 重綁後 audit／CLI 不接受及缺失 OpenSSL 原文反例，明列 extension observed_version 的元件語意。libffi 與 Linux 不適用範圍保留，完整回歸／Windows CI 待驗。
 
 ### 2026-11-16｜A5b 原生 Windows Qt 查驗完成（PR #10）
