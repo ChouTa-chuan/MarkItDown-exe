@@ -7,6 +7,7 @@
 import hashlib
 from importlib import metadata
 import json
+import os
 import platform
 import re
 from pathlib import Path
@@ -112,3 +113,14 @@ def public_summary(report):
             'catalog_sha256', 'release_source_map_verified', 'binary_reproduction_verified',
             'upstream_build_patch_set_verified', 'redistribution_approved', 'runtime_sbom_complete')
     return {k:report[k] for k in keys}
+
+
+def publish_annotation(report):
+    """控制端重送子程序的小型 Qt 摘要；一般 CLI 不額外輸出 JSON。"""
+    if os.environ.get('GITHUB_ACTIONS') != 'true':
+        return
+    message = json.dumps(public_summary(report), ensure_ascii=False, separators=(',', ':'))
+    if len(message.replace('%', '%25').encode('utf-8')) > 3900:
+        raise ValueError('Qt public summary exceeds annotation budget')
+    print('::notice title=Qt release sources::'+message.replace('%', '%25')
+          .replace('\n', '%0A').replace('\r', '%0D'))

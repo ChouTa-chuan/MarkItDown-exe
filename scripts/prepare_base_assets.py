@@ -3,7 +3,6 @@ import argparse
 from importlib import metadata
 import hashlib
 import json
-import os
 from pathlib import Path, PurePosixPath
 import platform
 import shutil
@@ -15,7 +14,7 @@ import tomllib
 from packaging.utils import canonicalize_name
 from packaging_profiles import ROOT, read_lock, verify_profiles
 from build_provenance import bootloader_notices, is_notice_entry
-from qt_sources import STAGED as QT_SOURCES, stage as stage_qt_sources, public_summary as qt_summary
+from qt_sources import STAGED as QT_SOURCES, stage as stage_qt_sources, publish_annotation as publish_qt_sources
 
 
 QT_NOTICE = 'qt-lgpl-notice.md'
@@ -53,10 +52,7 @@ def stage_qt_notice(source, staged):
     """在資產 hash 計算前放入 Qt 說明與實際版本／固定來源表；來源或 runtime 不符就失敗。"""
     shutil.copyfile(source/'licenses'/QT_NOTICE, staged/'licenses'/QT_NOTICE)
     report = stage_qt_sources(source.parents[2], staged/'licenses'/QT_SOURCES)
-    if os.environ.get('GITHUB_ACTIONS') == 'true':
-        message = json.dumps(qt_summary(report), ensure_ascii=False, separators=(',', ':'))
-        print('::notice title=Qt release sources::'+message.replace('%', '%25')
-              .replace('\n', '%0A').replace('\r', '%0D'))
+    publish_qt_sources(report)
 
 
 def save_json(path, value):

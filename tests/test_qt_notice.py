@@ -4,12 +4,16 @@ prepare() 需要完整隔離的 Windows／Linux 建置環境，無法在一般�
 這裡改驗證它所呼叫的最小單元（stage_*、base_guide、refresh_manifest）。
 """
 import hashlib
+import contextlib
+import io
+import os
 import json
 import shutil
 from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
@@ -86,6 +90,27 @@ class QtNoticeTests(unittest.TestCase):
                 self.assertIn(installed('licenses/installed/'+name+'/original/'+inside), self.text)
             self.assertIn(installed('licenses/installed/'+name+'/METADATA'), self.text)
         self.assertIn(installed(OWN_LICENSE), self.text)
+
+    def test_windows_controller_preserves_and_publishes_the_child_qt_report(self):
+        from run_windows_base_ci import record_qt_sources
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            assets = root/'assets'
+            reports = root/'reports'
+            (assets/'licenses').mkdir(parents=True)
+            reports.mkdir()
+            # 合成 Windows 觀測只測傳遞契約，不作原生 Windows 證據。
+            observed = dict(platform='Windows', qt_version='6.12.0', pyside_version='6.12.0',
+                            shiboken_version='6.12.0', qt_build='fixture', core_extension_sha256='0'*64)
+            report = qt_sources.stage(ROOT, assets/'licenses'/qt_sources.STAGED, observed)
+            stdout = io.StringIO()
+            with patch.dict(os.environ, {'GITHUB_ACTIONS':'true'}), contextlib.redirect_stdout(stdout):
+                record_qt_sources(assets, reports)
+            annotation = stdout.getvalue().strip().split('::', 2)
+            self.assertEqual(annotation[1], 'notice title=Qt release sources')
+            self.assertEqual(json.loads(annotation[2]), qt_sources.public_summary(report))
+            self.assertEqual((assets/'licenses'/qt_sources.STAGED).read_bytes(),
+                             (reports/'qt-release-sources.json').read_bytes())
 
     def test_third_party_markdown_matches_render(self):
         # 原始碼樹的 third-party.md 與 licenses/index.html 由 license_inventory.py 的 render() 產生，兩者必須逐字相同；基本包內的 third-party.md 另由 base_guide() 產生。
