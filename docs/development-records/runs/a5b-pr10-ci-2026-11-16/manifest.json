@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-16",
+  "tested_source": "30c9eaff2685975817e8d15fc16bc33314a37477",
+  "head_commit": "e6ad48f75c734447055e5c100ebb06d4197cfc8c",
+  "program_source": "5376c99743ed15ead83ab3f58882be5b78de2ef9",
+  "pr": 10,
+  "accepted": true,
+  "windows_executed": true,
+  "artifact_downloaded": false,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "keywords": [
+    "A5b",
+    "PR10",
+    "Qt",
+    "Windows",
+    "原生",
+    "來源對應",
+    "wheel指紋",
+    "annotation",
+    "A5c待辦"
+  ],
+  "files": {
+    "README.md": "e54c3c66acd9de426aaa08d0694653d5f2f2a327ea767da2cb0809fea9c6a5f6",
+    "ci-results.json": "2341fd1cfcb8404efa787dd8d9bf956db85e6cb024b9f8eeb99c3c257581fe24"
+  }
+}

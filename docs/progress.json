@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-16",
-  "environment": "Linux · Python3.12.14／Tesseract5.3.4；A5b本機完整回歸與Windows wheel靜態核對通過，Windows原生待CI；原固定候選仍cb8f24d",
+  "environment": "Linux · Python3.12.14／Tesseract5.3.4；A5b完整回歸、Windows hosted基本包／CPU及Qt來源對應已驗；原固定候選仍cb8f24d",
   "tests_passed": 764,
-  "headline": "main已合併PR1–9；A5b Qt固定來源／隨包版本對應已實作，本機完整回歸通過，Windows原生待CI",
-  "blocker": "A5b Windows原生觀測待CI；A5c驗收補強另開PR；完整build修補／設定、runtime SBOM、再散布及實機仍待。",
-  "next": "main 已合併 PR 1–9；本輪 A5b 補齊 Qt 原始碼與版本對應，之後另開 A5c PR 補強 A5 驗收，全部 Windows CI 通過才合併；再接 A6 固定候選整體審閱。",
+  "headline": "A5b完成（PR #10）：Qt固定來源與Windows版本／指紋已驗；本輪起點main已合併PR1–9，下一個A5c",
+  "blocker": "A5c的CPython probe接受條件／反例待獨立PR；完整build修補／設定、runtime SBOM、再散布、乾淨機／人工／GPU仍待。",
+  "next": "本輪起點 main 已合併 PR 1–9；A5b（PR #10）已查驗，合併狀態以 PR 為準。下一個 A5c 從最新 main 另開獨立 PR，三項驗收補強與全部 Windows CI 通過後才合併；再接 A6。",
   "milestones": [
     {
       "id": "m0",
@@ -2501,7 +2501,7 @@
   },
   "a5b_qt_sources": {
     "source_commit": "5376c99743ed15ead83ab3f58882be5b78de2ef9",
-    "status": "local-verified-windows-pending",
+    "status": "verified",
     "version": "6.12.0",
     "qt5_commit": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
     "qtbase_commit": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
@@ -2511,7 +2511,7 @@
     "targeted_tests_run": 9,
     "targeted_tests_passed": 9,
     "linux_observed": true,
-    "windows_executed": false,
+    "windows_executed": true,
     "binary_reproduction_verified": false,
     "upstream_build_patch_set_verified": false,
     "runtime_sbom_complete": false,
@@ -2520,7 +2520,90 @@
     "evidence": "development-records/runs/a5b-qt-source-2026-11-16/README.md",
     "pr": 10,
     "merge_status_source": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/10",
-    "forwarding_evidence": "development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md"
+    "forwarding_evidence": "development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md",
+    "verification_complete": true,
+    "ci_status": "success",
+    "ci_head": "e6ad48f75c734447055e5c100ebb06d4197cfc8c",
+    "ci_merge_sha": "30c9eaff2685975817e8d15fc16bc33314a37477",
+    "ci_runs": {
+      "base": 43847442920,
+      "cpu": 43847443006,
+      "linux": 43847442914,
+      "history": 43847442936
+    },
+    "ci_evidence": "development-records/runs/a5b-pr10-ci-2026-11-16/README.md",
+    "windows_qt_summary": {
+      "check": "qt-release-sources",
+      "version": "6.12.0",
+      "qt5_commit": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+      "qtbase_commit": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+      "pyside_commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+      "observed": {
+        "platform": "Windows",
+        "qt_version": "6.12.0",
+        "pyside_version": "6.12.0",
+        "shiboken_version": "6.12.0",
+        "qt_build": "Qt 6.12.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by MSVC 2022) [Python limited API run time: 3.12.10 built: 3.14.3]",
+        "core_extension_sha256": "6486f6f0a2fec42fc8c652c0b76bb3ad0d44eaccad9c72e577116a075681eebb"
+      },
+      "catalog_sha256": "224e4f7df81b99d1c55310e49beb5a280b10b7a7d15f7b4615872a73bb1725d6",
+      "release_source_map_verified": true,
+      "binary_reproduction_verified": false,
+      "upstream_build_patch_set_verified": false,
+      "redistribution_approved": false,
+      "runtime_sbom_complete": false
+    },
+    "core_extension_locked_wheel_matched": true,
+    "final_head_requires_ci": true,
+    "windows_base_inventory": {
+      "files": 1615,
+      "bytes": 262639292,
+      "unresolved_files": 114,
+      "review_files": 152,
+      "original_notice_files": 111,
+      "packages": 40,
+      "file_inventory_complete": true,
+      "runtime_sbom_complete": false,
+      "redistribution_approved": false,
+      "release_ready": false
+    },
+    "windows_base_python_archives": {
+      "pure_modules": 1556,
+      "by_origin": {
+        "stdlib": 268,
+        "distribution": 1239,
+        "application": 49,
+        "unknown": 0
+      },
+      "unknown_modules": 0,
+      "unknown_names": [],
+      "base_library_members": 155,
+      "build_only_modules_absent": true
+    },
+    "windows_cpu_inventory": {
+      "files": 704,
+      "bytes": 219724730,
+      "unresolved_files": 265,
+      "review_files": 299,
+      "original_notice_files": 290,
+      "packages": 26,
+      "file_inventory_complete": true,
+      "runtime_sbom_complete": false,
+      "redistribution_approved": false,
+      "release_ready": false
+    },
+    "windows_cpu_python_archives": {
+      "pure_modules": 562,
+      "by_origin": {
+        "stdlib": 243,
+        "distribution": 307,
+        "application": 12,
+        "unknown": 0
+      },
+      "unknown_modules": 0,
+      "unknown_names": [],
+      "base_library_members": 155
+    }
   },
   "previous_full_regression_764": {
     "source_version": "0.19.1",

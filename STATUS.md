@@ -12,7 +12,7 @@
 | --- | --- |
 | main／已完成基線 | **main 已合併 PR 1–9，A4／A5 完成（PR #8／#9）**；A5b 起點為 `c51089a258b820b95af51816e516a05300dfb7c4`。使用者確認 A5 的程式、原文、證據、測試已通過 Claude reviewer 查驗 |
 | 本階段分支 | `codex/a5b-qt-source-20261116`，從上述最新 main 另開；未推送別人的分支。A5 本機完整回歸來源仍為 `2104418`，A5b 原始來源為 `bc2f77c`，Qt 摘要接線修正後完整回歸來源為 `5376c99` |
-| 本階段 PR | [A5b PR #10](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/10)，目標 main；本機完整回歸與來源查驗通過，原生 Windows CI 執行中。A5 PR #9 已一般 Merge，最終 head `944ef12` 全部 CI 通過 |
+| 本階段 PR | [A5b PR #10](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/10)，目標 main；本機完整回歸、來源查驗及首輪全部 CI 已通過；合併門檻為最終 head 全 CI 通過且無必修項，即時合併狀態見 PR。A5 PR #9 已一般 Merge，最終 head `944ef12` 全部 CI 通過 |
 | 合併規則 | 一個編號一個 PR；所有 CI 通過且查驗無未解決必修項時，以一般 Merge 合併，不直接推 main、不刪分支、不改寫歷史 |
 
 ## B. 這個階段完成了什麼
@@ -20,18 +20,18 @@
 - **A5b 第一個提交 `c25e3c2` 已完成指定修正**：D 節恢復歷史使用者決定原文；main／next 改為 PR 1–9；A5 CI README 追加最終 head 四個 run，原版先另存、原始 CI JSON 不變。A5c 三項僅列獨立 PR 待辦。
 - **Qt 發布來源對應已實作**：官方 Qt supermodule／qtbase 與 PySide／shiboken tag、固定提交、完整 gitlink、原始版本宣告及鎖定 Windows wheel 有來源依據，不再只列「待補」。基本包隨附 `licenses/qt-sources.json`，離線驗證來源並核對實際載入版本；更新中文 Qt 取得方法、原始碼下載及第三方說明範本。限制保留，未核准再散布。
 - 已補基本包 controller 的 Qt 報告轉存／annotation 重送，避免摘要只留在子程序日誌；[修正與原始完整回歸](docs/development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md)已另存，合成 Windows 觀測僅驗接線。
-- Linux 完整混合及獨立模組回歸正常退出，只有既有 ONNX 繁中 expected failure；[來源／原始結果／靜態 wheel 證據](docs/development-records/runs/a5b-qt-source-2026-11-16/README.md)已保存，計數只見 [progress.json](docs/progress.json)。Windows wheel 的 PE 檢查不冒充 Windows 執行；A5b 原生 Windows 觀測尚待本 PR CI。
+- Linux 完整混合及獨立模組回歸正常退出，只有既有 ONNX 繁中 expected failure；[來源／原始結果／靜態 wheel 證據](docs/development-records/runs/a5b-qt-source-2026-11-16/README.md)已保存，計數只見 [progress.json](docs/progress.json)。Windows wheel 的 PE 檢查不冒充 Windows 執行；**A5b 原生 Windows Qt 觀測與全部 CI 已通過**，[本輪實證](docs/development-records/runs/a5b-pr10-ci-2026-11-16/README.md)已保存；Qt／PySide／shiboken 版本、catalog 與 Core extension 指紋均核對。完整 build 修補／參數及 frozen 獨立探測限制保留。
 
 ## C. 未完成、阻擋與下一步
 
-**本輪 A5b：Qt 本體原始碼位置與版本對應**。main 已合併 PR 1–9；A5 最終 head `944ef12` 全部 CI 與 Claude reviewer 已通過。先完成 A5b，再以新分支／獨立 PR 做 A5c；不在 A5b 改動 A5 的 CI 驗收標準。
+**下一個，交給接手 AI：A5c（A5 驗收補強，獨立 PR）**。本輪起點 main 已合併 PR 1–9；A5b 的來源對應、本機回歸及 Windows 原生查驗已完成（PR #10），最終 head 依全 CI 門檻一般 Merge。接手先看 PR 即時狀態，合併後從最新 main 另開自己的新分支；不在 A5b 追加 A5c 實作。
 
 | 大階段 | 任務 | 現況／下一步 |
 | --- | --- | --- |
 | A 來源與再散布 | A1 模組清單、A2 文件、A3 Qt／自有 MIT 隨包 | 完成（PR #5／#6） |
 | | A4 setuptools 排除 | **完成（PR #8，已合併並通過 Claude reviewer）** |
 | | A5 CPython 隨附元件逐檔版本／原文 | **完成（PR #9，已合併並通過 Claude reviewer）** |
-| | A5b Qt 本體原始碼位置及版本對應 | 來源對應、本機回歸與靜態 Windows wheel 已驗；本 PR Windows CI 待驗 |
+| | A5b Qt 本體原始碼位置及版本對應 | **完成（PR #10）**；來源、本機完整回歸、Windows 原生 Qt 觀測及既有驗收通過；合併狀態以 PR 為準 |
 | | A5c A5 驗收補強 | **待辦，獨立 PR，A5b 不處理**；詳見下列三項，Windows CI 全部通過才合併 |
 | | A6 固定來源候選、重跑來源分類、整體審閱 | A5b／A5c 後，才評估 runtime_sbom_complete；目前保持 false |
 | B 測試版安裝包 | 產物證據、驗收表、CPU 元件重新定版及門檻確認 | 未開始，不在門檻關閉前上傳產品 |

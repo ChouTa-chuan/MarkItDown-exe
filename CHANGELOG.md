@@ -4,6 +4,12 @@
 
 ## 更新中
 
+### 2026-11-16｜A5b 原生 Windows Qt 查驗完成（PR #10）
+
+- 相對前次只有本機與 Windows wheel 靜態證據，現在取得真正 Windows Qt／PySide／shiboken 版本、Qt build 字串、固定來源 catalog 及 Core extension 指紋；實際載入的綁定擴充檔與鎖定 Windows wheel 相符。controller 報告轉存及公開 annotation 接線已驗。
+- Linux、Windows 基本包、CPU 與索引首輪 CI 全部通過，[精確 head／暫時 merge、原始公開摘要、artifact digest／期限](docs/development-records/runs/a5b-pr10-ci-2026-11-16/README.md)另存。最終文件 head 仍須相同全 CI 通過後一般 Merge；數字只記 progress.json。STATUS 先封存後更新，重建視覺進度與歷史索引，D 節使用者決定原文完整保留。
+- 下一個為 A5c 獨立 PR，三項 CPython 驗收補強本輪未實作；A6 固定候選與完整 build 修補／參數、LGPL／SBOM／再散布仍待。程式／架構與產品里程碑不提高，既有固定候選保留，沒有產品發行。
+
 - 2026-11-16：Qt CI 摘要接線修正後完整混合／獨立回歸通過，保存新的來源與原始結果；現況計數及 CI EXPECTED_TESTS 已同步，原有較早結果維持來源不改寫。
 
 - 2026-11-16：A5b 自我查驗發現基本包控制端會擷取子程序 stdout，補上 Qt JSON 報告轉存與 annotation 重送，新增接線測試；保留一般 CLI 行為與原始日誌，不牽涉 A5c。
