@@ -236,17 +236,14 @@ def main():
         print('::'+('notice' if report['accepted'] else 'error')+'::'+message.replace('%','%25').replace('\n','%0A').replace('\r','%0D'))
     else:print(message)
     components = report.get('cpython_components')
-    if components and components.get('applicable'):
+    if components and components.get('applicable') and os.environ.get('GITHUB_ACTIONS') == 'true':
         # 用獨立且有界的 annotation，避免既有原生摘要超過 GitHub 公開註記上限。
         component_message = json.dumps(cpython_summary(report['cpython_components']),
                                        ensure_ascii=False, separators=(',', ':'))
         if len(component_message.encode('utf-8')) > 3900:
             raise ValueError('CPython public summary exceeds annotation budget')
-        if os.environ.get('GITHUB_ACTIONS') == 'true':
-            print('::notice title=CPython components::' + component_message.replace('%', '%25')
-                  .replace('\n', '%0A').replace('\r', '%0D'))
-        else:
-            print(component_message)
+        print('::notice title=CPython components::' + component_message.replace('%', '%25')
+              .replace('\n', '%0A').replace('\r', '%0D'))
     return 0 if report['accepted'] else 1
 
 
