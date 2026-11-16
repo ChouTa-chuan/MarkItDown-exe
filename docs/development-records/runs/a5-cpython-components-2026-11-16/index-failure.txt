@@ -1,0 +1,13 @@
+FAIL: test_repository_index_is_current (test_history_index.HistoryIndexTests.test_repository_index_is_current)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/MarkItDown-a5/tests/test_history_index.py", line 77, in test_repository_index_is_current
+    self.assertEqual((root / subject.OUTPUT).read_text(encoding='utf-8'), subject.render(subject.collect(root)))
+AssertionError: '# 歷史[240 chars]\n共 85 筆。\n\n| 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | [16609 chars] |\n' != '# 歷史[240 chars]\n共 87 筆。\n\n| 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | [16923 chars] |\n'
+Diff is 17341 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 761 tests in 53.524s
+
+FAILED (failures=1, expected failures=1)
+{"expected_count": 761, "run": 761, "failures": 1, "errors": 0, "load_errors": 0, "skipped": 0, "expected_failures": 1, "unexpected_successes": 0, "passed": 759, "accepted": false}

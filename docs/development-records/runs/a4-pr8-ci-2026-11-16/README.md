@@ -44,3 +44,15 @@
 | cpu | windows-cpu-validation-reports／14198745588 | `sha256:daaceaf6ad657cd3cba8b29243b961fdc4497318264ce8ada70e929d7b3d52a4` | 2026-11-23T04:43:36Z |
 
 [返回歷史索引](../../../history-index.md)
+
+## 2026-11-16 A5 補記：為何 unresolved_files 仍為 109
+
+依使用者要求補充，原版 README／manifest 已先另存於 [A5 紀錄](../a5-cpython-components-2026-11-16/README.md)，原始 `ci-results.json` 沒有改動。
+
+`unresolved_files` 與 `python_archives.unknown_modules` 是不同層級。A4 版本的 [candidate_inventory.py](https://github.com/ChouTa-chuan/MarkItDown-exe/blob/e87de4b33073e548802e08a7b37c9934429ca65b/scripts/candidate_inventory.py) 先用 `snapshot()` 列舉包內普通實體檔案，再由 `inventory()` 計算 `sum(not row['owners'] for row in rows)`；它不把 EXE 內每個 PYZ 模組再當成實體檔案。`base.spec` 把 `PYZ(analysis.pure)` 交給 EXE，而 EXE 的 owner 已另行記為 PyInstaller／自有應用程式。
+
+因此排除 setuptools 的 PYZ 模組、讓 `unknown_modules` 由 5 變 0，**不代表實體檔案的 unresolved_files 應由 109 減去 5**。這個計數口徑已由程式碼確認；但僅有總數不能證明前後未對照的實體檔案集合完全相同，也不代表它們已完成授權審查。
+
+**109 的前版基準出處已找到並補存**：A3／[PR #6 Windows base run 43797247571](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43797247571/job/133069447371)，check-run `133069447371` 的 `bundle-provenance` 公開 annotation 記錄 `unresolved_files=109`、PYZ `unknown_modules=5`。該次 head 為 `fc022585a18f7c9758a818b38d1ac0e123c89b3b`，報告來源為暫時 merge `a91280b807d88a59735aabe6c97a345f7df411b7`，完整報告 SHA-256 為 `12bd2bcd25a619d2ecf96099e0046546d3c7fbde00c6e338b9196c82a08a23b3`。公開摘要原值及查詢位置保存於 [a3-109-baseline.json](../a5-cpython-components-2026-11-16/a3-109-baseline.json)。
+
+A4 本輪 `ci-results.json` 的基本包來源是 `dd72bf4c363fc5bf17029c4db63b0cad71895f71`，記錄 `unresolved_files=109`、`unknown_modules=0`。**前版完整逐檔基準：未保存於專案；本次也未取得完整 artifact**，故這裡只確認兩次公開摘要的數值與計數口徑，沒有補造 109 個檔案的逐檔變化。

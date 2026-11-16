@@ -109,6 +109,7 @@ def inventory(bundle, packages, native_files, bootloader, asset_prefix, python_l
     for path in loader_notices:
         explicit.setdefault(path.casefold(), []).append(dict(name='pyinstaller',version=bootloader['version'],evidence='preserved-bootloader-notice'))
     native = {('_internal/'+p['file']).casefold():p for p in native_files}
+    notice_paths.update(path for row in native_files for path in row.get('component_notice_paths', []))
     for row in rows:
         key, name = row['path'].casefold(), Path(row['path']).name.lower()
         found = list(explicit.get(key, owners.get(key, [])))
@@ -128,6 +129,8 @@ def inventory(bundle, packages, native_files, bootloader, asset_prefix, python_l
                 reasons.append('owner-outside-package-notice-table:'+owner['name'])
             if owner['name']=='pyinstaller':notices.update(loader_notices)
         if source and source['origin']=='python-runtime':notices.add(python_notice)
+        if source:
+            notices.update(source.get('component_notice_paths', []))
         # Windows runtime可能隨CPython或wheel取得；來源位置不能當作其授權。
         microsoft = name.endswith('.dll') and name.startswith(('vcruntime','msvcp','concrt','ucrtbase','api-ms-win-crt'))
         if microsoft:
@@ -192,7 +195,8 @@ def component_inventory(directory, contents):
     expected['NOTICE.txt']=(notice.stat().st_size,sha256(notice))
     declared={p.path:(p.size,p.sha256) for p in spec.files}
     if declared!=expected:raise ValueError('CPU descriptor differs from complete bundle inventory')
-    observed={};total=0
+    observed={}
+    total=0
     with zipfile.ZipFile(archive) as source:
         seen=set()
         for entry in source.infolist():
@@ -205,14 +209,16 @@ def component_inventory(directory, contents):
             size,digest=expected[name]
             if entry.file_size!=size or total+size>MAX_BYTES or len(observed)>=MAX_FILES:
                 raise ValueError('ZIP entry size/limit mismatch')
-            actual=hashlib.sha256();count=0
+            actual=hashlib.sha256()
+            count=0
             with source.open(entry) as payload:
                 while block:=payload.read(1024*1024):
                     count+=len(block)
                     if count>size:raise ValueError('ZIP expands beyond declared entry size')
                     actual.update(block)
             if count!=size or actual.hexdigest()!=digest:raise ValueError('ZIP entry fingerprint mismatch')
-            observed[name]=(size,digest);total+=size
+            observed[name]=(size,digest)
+            total+=size
     if observed!=expected or total!=spec.unpacked_bytes:raise ValueError('ZIP missing inventory entry')
     return dict(archive_sha256=spec.package_sha256,descriptor_sha256=sha256(descriptor),
         component_id=spec.component_id,component_version=str(spec.version),

@@ -17,17 +17,21 @@ def prepare(output, project):
     output.mkdir(parents=True)
     runtime_license=next((path for path in (Path(sys.base_prefix)/'LICENSE.txt',Path(sysconfig.get_path('stdlib'))/'LICENSE.txt') if path.is_file()),None)
     if runtime_license is None:raise ValueError('Actual Python runtime license missing')
-    (output/'python-runtime').mkdir();shutil.copyfile(runtime_license,output/'python-runtime/LICENSE.txt')
+    (output/'python-runtime').mkdir()
+    shutil.copyfile(runtime_license,output/'python-runtime/LICENSE.txt')
     shutil.copytree(project/'src/desktop_app/data/licenses',output/'licenses')
     bootloader_notices(output/'bootloader')
-    stored={};packages=[]
+    stored={}
+    packages=[]
     for distribution in sorted(metadata.distributions(),key=lambda value:value.metadata['Name'].lower()):
         name=re.sub('[-_.]+','-',distribution.metadata['Name']).lower()
         paths=[]
         raw=distribution.read_text('METADATA')
         if raw is not None:
-            target=output/'installed'/name/'METADATA';target.parent.mkdir(parents=True,exist_ok=True)
-            target.write_bytes(raw.encode('utf-8'));stored[target.relative_to(output).as_posix()]=hashlib.sha256(target.read_bytes()).hexdigest()
+            target=output/'installed'/name/'METADATA'
+            target.parent.mkdir(parents=True,exist_ok=True)
+            target.write_bytes(raw.encode('utf-8'))
+            stored[target.relative_to(output).as_posix()]=hashlib.sha256(target.read_bytes()).hexdigest()
         for entry in distribution.files or ():
             relative=PurePosixPath(str(entry))
             if relative.is_absolute() or '..' in relative.parts:continue
@@ -35,8 +39,11 @@ def prepare(output, project):
             source=Path(distribution.locate_file(entry))
             if not source.is_file() or source.stat().st_size>5*1024**2:continue
             target=output/'installed'/name/'original'/Path(*relative.parts)
-            target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,target)
-            key=target.relative_to(output).as_posix();stored[key]=hashlib.sha256(target.read_bytes()).hexdigest();paths.append(key)
+            target.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copyfile(source,target)
+            key=target.relative_to(output).as_posix()
+            stored[key]=hashlib.sha256(target.read_bytes()).hexdigest()
+            paths.append(key)
         packages.append(dict(name=name,version=distribution.version,notice_files=paths))
     manifest=dict(scope='Actual installed build-environment notices plus existing locked dependency superset; native final release clearance remains pending',packages=packages,files=stored)
     (output/'installed-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
@@ -56,15 +63,21 @@ def native_notices(binaries, output):
         # Analysis 在 Windows 使用反斜線；跨平台證據一律保存 POSIX 相對路徑。
         destination=destination.replace('\\','/')
         path=Path(source).resolve()
-        if path.is_relative_to(site):origin='installed-wheel';package=None
-        elif path.is_relative_to(interpreter):origin='python-runtime';package=None
+        if path.is_relative_to(site):
+            origin='installed-wheel'
+            package=None
+        elif path.is_relative_to(interpreter):
+            origin='python-runtime'
+            package=None
         else:
-            origin='system-native';package=None
+            origin='system-native'
+            package=None
             for candidate in (str(path),str(path).removeprefix('/usr') if str(path).startswith('/usr/lib/') else '/usr'+str(path)):
                 if sys.platform!='linux':break
                 query=subprocess.run(['dpkg-query','-S',candidate],capture_output=True,text=True,timeout=5)
                 if query.returncode==0:
-                    package=query.stdout.split(': ',1)[0].split(':',1)[0];break
+                    package=query.stdout.split(': ',1)[0].split(':',1)[0]
+                    break
             if package is not None and re.fullmatch('[a-z0-9][a-z0-9.+-]*',package):
                 license_path=Path('/usr/share/doc')/package/'copyright'
                 if license_path.is_file():
@@ -83,10 +96,17 @@ def native_notices(binaries, output):
         row.update(identities.get(path, {}))
     report=dict(schema_version=2,scope='Actual bundled binaries and native package copyright evidence; final Windows/native release clearance remains pending',
                 files=records,native_copyrights=packages)
+    # 此時已有真正 Analysis 來源／PE 身分，才產生逐檔 CPython 元件證據；
+    # Linux 只記不適用，不把系統函式庫當成 Windows CPython 隨附元件。
+    from cpython_components import REPORT, write_inventory
+    write_inventory(records, output/REPORT)
+    report.update(cpython_components=REPORT, cpython_components_sha256=sha256(output/REPORT))
     (output/'manifest.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     return report
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True)
-    args=parser.parse_args();prepare(args.output,Path(__file__).resolve().parents[1])
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--output',type=Path,required=True)
+    args=parser.parse_args()
+    prepare(args.output,Path(__file__).resolve().parents[1])

@@ -19,19 +19,24 @@ import candidate_inventory as subject
 
 class InventoryTests(unittest.TestCase):
     def setUp(self):
-        temporary=tempfile.TemporaryDirectory();self.addCleanup(temporary.cleanup)
+        temporary=tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
         self.root=Path(temporary.name)
         self.write('.hidden',b'hidden')
         self.write('_internal/module/data.txt',b'original data')
 
     def write(self,name,body):
-        path=self.root/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(body);return path
+        path=self.root/name
+        path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_bytes(body)
+        return path
 
     def snapshot(self):
         return dict(files=subject.snapshot(self.root))
 
     def test_all_regular_files_including_hidden_and_empty_have_hashes(self):
-        self.write('empty',b'');rows=subject.snapshot(self.root)
+        self.write('empty',b'')
+        rows=subject.snapshot(self.root)
         self.assertEqual([p['path'] for p in rows],['.hidden','_internal/module/data.txt','empty'])
         for row in rows:
             self.assertEqual(row['bytes'],(self.root/row['path']).stat().st_size)
@@ -39,30 +44,37 @@ class InventoryTests(unittest.TestCase):
         self.assertTrue(subject.verify_inventory(self.root,dict(files=rows)))
 
     def test_changed_bytes_are_rejected_even_with_same_size(self):
-        report=self.snapshot();self.write('.hidden',b'HIDDEN')
+        report=self.snapshot()
+        self.write('.hidden',b'HIDDEN')
         with self.assertRaisesRegex(ValueError,'differs'):subject.verify_inventory(self.root,report)
 
     def test_added_file_is_rejected(self):
-        report=self.snapshot();self.write('new',b'extra')
+        report=self.snapshot()
+        self.write('new',b'extra')
         with self.assertRaisesRegex(ValueError,'differs'):subject.verify_inventory(self.root,report)
 
     def test_missing_file_is_rejected(self):
-        report=self.snapshot();(self.root/'.hidden').unlink()
+        report=self.snapshot()
+        (self.root/'.hidden').unlink()
         with self.assertRaisesRegex(ValueError,'differs'):subject.verify_inventory(self.root,report)
 
     def test_renamed_file_is_rejected(self):
-        report=self.snapshot();(self.root/'.hidden').rename(self.root/'renamed')
+        report=self.snapshot()
+        (self.root/'.hidden').rename(self.root/'renamed')
         with self.assertRaisesRegex(ValueError,'differs'):subject.verify_inventory(self.root,report)
 
     def test_duplicate_entries_and_case_aliases_are_rejected(self):
-        report=self.snapshot();report['files'].append(report['files'][0])
+        report=self.snapshot()
+        report['files'].append(report['files'][0])
         with self.assertRaisesRegex(ValueError,'duplicate'):subject.verify_inventory(self.root,report)
-        self.write('NAME',b'1');self.write('name',b'2')
+        self.write('NAME',b'1')
+        self.write('name',b'2')
         with self.assertRaisesRegex(ValueError,'case alias'):subject.snapshot(self.root)
 
     def test_links_to_file_and_directory_are_rejected(self):
         for target in (self.root/'.hidden',self.root/'_internal'):
-            link=self.root/'link';link.symlink_to(target)
+            link=self.root/'link'
+            link.symlink_to(target)
             with self.assertRaisesRegex(ValueError,'link or reparse'):subject.snapshot(self.root)
             link.unlink()
 
@@ -95,7 +107,9 @@ class InventoryTests(unittest.TestCase):
 
     def test_concurrent_file_change_is_rejected(self):
         def changing(path):
-            digest=sha256(path);path.write_bytes(b'changed while hashing');return digest
+            digest=sha256(path)
+            path.write_bytes(b'changed while hashing')
+            return digest
         with patch.object(subject,'sha256',side_effect=changing),self.assertRaisesRegex(ValueError,'changed while reading'):
             subject.snapshot(self.root)
 
@@ -112,7 +126,8 @@ class InventoryTests(unittest.TestCase):
             self.assertEqual(subject.record_owners(rows),{})
 
     def complete(self):
-        self.write('App.exe',b'entry');meta=self.write('_internal/assets/METADATA',b'metadata')
+        self.write('App.exe',b'entry')
+        meta=self.write('_internal/assets/METADATA',b'metadata')
         notice=self.write('_internal/assets/LICENSE.txt',b'original')
         self.write('_internal/assets/bootloader/COPYING.txt',b'bootloader')
         self.write('_internal/assets/python/LICENSE.txt',b'python')
@@ -126,11 +141,13 @@ class InventoryTests(unittest.TestCase):
             return subject.inventory(self.root,packages,native,loader,'_internal/assets','python/LICENSE.txt','App.exe')
 
     def test_complete_file_list_keeps_unresolved_source_and_archives_pending(self):
-        packages,loader=self.complete();self.write('_internal/base_library.zip',b'archive fixture')
+        packages,loader=self.complete()
+        self.write('_internal/base_library.zip',b'archive fixture')
         report=self.run_inventory(packages,loader)
         self.assertEqual(report['summary']['files'],len(subject.snapshot(self.root)))
         self.assertTrue(report['summary']['file_inventory_complete'])
-        self.assertFalse(report['summary']['runtime_sbom_complete']);self.assertFalse(report['summary']['redistribution_approved'])
+        self.assertFalse(report['summary']['runtime_sbom_complete'])
+        self.assertFalse(report['summary']['redistribution_approved'])
         self.assertFalse(report['summary']['release_ready'])
         archive=next(r for r in report['files'] if r['role']=='archive')
         self.assertIn('archive-members-not-enumerated',archive['review_reasons'])
@@ -149,17 +166,21 @@ class InventoryTests(unittest.TestCase):
         self.assertIn('archive-members-not-enumerated',rows['_internal/other.zip']['review_reasons'])
 
     def test_original_notice_mapping_has_package_version_and_hash(self):
-        packages,loader=self.complete();report=self.run_inventory(packages,loader)
+        packages,loader=self.complete()
+        report=self.run_inventory(packages,loader)
         notice=next(r for r in report['files'] if r['path']=='_internal/assets/LICENSE.txt')
-        self.assertEqual(notice['role'],'original-notice');self.assertEqual(notice['owners'][0]['version'],'0.19.1')
+        self.assertEqual(notice['role'],'original-notice')
+        self.assertEqual(notice['owners'][0]['version'],'0.19.1')
         self.assertEqual(notice['sha256'],packages[0]['notices'][0]['sha256'])
 
     def test_missing_or_changed_package_reference_is_rejected(self):
-        packages,loader=self.complete();packages[0]['metadata_sha256']='0'*64
+        packages,loader=self.complete()
+        packages[0]['metadata_sha256']='0'*64
         with self.assertRaisesRegex(ValueError,'reference mismatch'):self.run_inventory(packages,loader)
 
     def test_microsoft_dll_is_not_cleared_by_python_license_location(self):
-        packages,loader=self.complete();self.write('_internal/VCRUNTIME140.dll',b'fixture')
+        packages,loader=self.complete()
+        self.write('_internal/VCRUNTIME140.dll',b'fixture')
         native=[dict(file='VCRUNTIME140.dll',distributions=[],origin='python-runtime',bytes_changed=False)]
         report=self.run_inventory(packages,loader,native)
         row=next(r for r in report['files'] if r['path']=='_internal/VCRUNTIME140.dll')
@@ -169,7 +190,9 @@ class InventoryTests(unittest.TestCase):
     def test_cli_reverification_and_public_summary_are_bounded(self):
         # 重用已有fixture，不把TestCase匯入模組全域以免discover重複計數。
         from test_bundle_provenance import ProvenanceTests
-        fixture=ProvenanceTests();fixture.setUp();self.addCleanup(fixture.doCleanups)
+        fixture=ProvenanceTests()
+        fixture.setUp()
+        self.addCleanup(fixture.doCleanups)
         script=Path(__file__).resolve().parents[1]/'scripts/check_bundle_provenance.py'
         report=self.root/'first.json'
         output=self.package(fixture.bundle)
@@ -177,8 +200,12 @@ class InventoryTests(unittest.TestCase):
         env={**os.environ,'GITHUB_ACTIONS':'true','GITHUB_SHA':'1'*40}
         result=subprocess.run([*argv,'--report',str(report)],capture_output=True,text=True,env=env,timeout=30)
         self.assertEqual(result.returncode,0,result.stdout+result.stderr)
-        self.assertLess(len(result.stdout.encode()),4000)
-        brief=json.loads(result.stdout.removeprefix('::notice::'))
+        # 每個 annotation 各自有上限；A5 可另附逐檔元件摘要，不能把多個 JSON 當成一個。
+        annotations=[line for line in result.stdout.splitlines() if line.startswith('::notice')]
+        self.assertTrue(annotations)
+        self.assertTrue(all(len(line.encode()) < 4000 for line in annotations))
+        brief=json.loads(next(line.removeprefix('::notice::') for line in annotations
+                              if line.startswith('::notice::')))
         self.assertTrue(brief['inventory']['file_inventory_complete'])
         self.assertFalse(brief['inventory']['runtime_sbom_complete'])
         self.assertTrue(brief['package_inventory']['archive_verified'])
@@ -194,37 +221,47 @@ class InventoryTests(unittest.TestCase):
 
     def package(self,bundle=None):
         from package_cpu_worker import package
-        output=Path(tempfile.mkdtemp());output.rmdir()
+        output=Path(tempfile.mkdtemp())
+        output.rmdir()
         self.addCleanup(shutil.rmtree,output,ignore_errors=True)
         package(bundle or self.root,output)
         return output
 
     def refresh_descriptor_archive_hash(self,output):
-        archive=output/'onnx-cpu-ocr-development.zip';path=output/'component.json'
-        record=json.loads(path.read_text());record.update(package_sha256=sha256(archive),download_bytes=archive.stat().st_size)
+        archive=output/'onnx-cpu-ocr-development.zip'
+        path=output/'component.json'
+        record=json.loads(path.read_text())
+        record.update(package_sha256=sha256(archive),download_bytes=archive.stat().st_size)
         path.write_text(json.dumps(record))
 
     def test_actual_zip_inventory_includes_generated_notice(self):
-        contents=self.snapshot();output=self.package();report=subject.component_inventory(output,contents)
+        contents=self.snapshot()
+        output=self.package()
+        report=subject.component_inventory(output,contents)
         self.assertEqual(report['summary']['files'],len(contents['files'])+1)
         self.assertIn('NOTICE.txt',[row['path'] for row in report['files']])
-        self.assertTrue(report['summary']['archive_verified']);self.assertFalse(report['summary']['redistribution_approved'])
+        self.assertTrue(report['summary']['archive_verified'])
+        self.assertFalse(report['summary']['redistribution_approved'])
         (output/'NOTICE.txt').write_bytes(b'changed notice')
         with self.assertRaisesRegex(ValueError,'descriptor differs'):subject.component_inventory(output,contents)
 
     def test_changed_zip_archive_is_rejected(self):
-        contents=self.snapshot();output=self.package()
+        contents=self.snapshot()
+        output=self.package()
         with (output/'onnx-cpu-ocr-development.zip').open('ab') as file:file.write(b'changed')
         with self.assertRaisesRegex(ValueError,'archive fingerprint mismatch'):subject.component_inventory(output,contents)
 
     def test_extra_zip_entry_is_rejected_even_if_archive_hash_matches(self):
-        contents=self.snapshot();output=self.package()
+        contents=self.snapshot()
+        output=self.package()
         with zipfile.ZipFile(output/'onnx-cpu-ocr-development.zip','a') as archive:archive.writestr('extra',b'extra')
         self.refresh_descriptor_archive_hash(output)
         with self.assertRaisesRegex(ValueError,'Unexpected'):subject.component_inventory(output,contents)
 
     def test_missing_zip_entry_is_rejected_even_if_archive_hash_matches(self):
-        contents=self.snapshot();output=self.package();path=output/'onnx-cpu-ocr-development.zip'
+        contents=self.snapshot()
+        output=self.package()
+        path=output/'onnx-cpu-ocr-development.zip'
         with zipfile.ZipFile(path) as archive:files={p:archive.read(p) for p in archive.namelist() if p!='NOTICE.txt'}
         with zipfile.ZipFile(path,'w') as archive:
             for name,data in files.items():archive.writestr(name,data)

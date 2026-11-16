@@ -14,6 +14,8 @@ from bundle_filters import is_excluded_name
 from native_identity import identity_errors, summarize
 from python_archive_inventory import (load_manifest, summarize as summarize_python,
                                       verify_base_runtime_modules, zip_members)
+from cpython_components import (REPORT as CPYTHON_REPORT, verify_inventory as verify_cpython,
+                                public_summary as cpython_summary)
 
 # 建置時為非 wheel 來源原生檔記錄的身分欄位；原樣帶進報告，缺少的欄位不補造。
 IDENTITY_FIELDS = ('source_directory', 'company', 'product', 'file_version', 'signature_status', 'signer',
@@ -125,6 +127,22 @@ def audit(bundle, profile, expected_version):
                              bytes_changed=digest!=row['source_sha256'], origin=row['origin'],
                              distributions=row['distributions'],
                              **{key: row[key] for key in IDENTITY_FIELDS if key in row}))
+    cpython = None
+    if 'cpython_components' in native:
+        if native['cpython_components'] != CPYTHON_REPORT:
+            raise ValueError('Unexpected CPython inventory path')
+        path = contained_file(native_root, CPYTHON_REPORT)
+        if sha256(path) != native.get('cpython_components_sha256'):
+            raise ValueError('CPython inventory fingerprint mismatch')
+        cpython = verify_cpython(path, native['files'], contained_file(assets, python_license))
+        # 候選清單可逐檔追溯原文，但不因此授予來源擁有者或關閉再散布旗標。
+        notices = {r['file']: native_root.relative_to(bundle).as_posix() + '/' + r['notice']
+                   for r in cpython['files']}
+        for binary in binaries:
+            if binary['file'] in notices:
+                binary['component_notice_paths'] = [notices[binary['file']]]
+    elif sys.platform == 'win32':
+        raise ValueError('Missing Windows CPython component inventory')
     # Python 程式層級清單：spec 寫出的純 Python 模組清單，加上實際 base_library.zip 的成員；缺任一項即拒絕。
     modules = load_manifest(contained_file(native_root, 'python-modules.json'))
     if profile == 'base':
@@ -156,6 +174,7 @@ def audit(bundle, profile, expected_version):
                 bootloader=loader, entry_sha256=sha256(entry), native_files=binaries,
                 transformed_binaries=sum(p['bytes_changed'] for p in binaries),
                 python_archives=python_archives,
+                cpython_components=cpython,
                 candidate_inventory=contents,inventory_reverified=True,excluded_binaries_absent=True,
                 scope='Bundled provenance consistency; CPU package list describes build environment, not runtime closure',
                 pending_review=['Application license', 'Qt obligations', 'Microsoft/native runtimes',
@@ -216,6 +235,15 @@ def main():
     if os.environ.get('GITHUB_ACTIONS')=='true':
         print('::'+('notice' if report['accepted'] else 'error')+'::'+message.replace('%','%25').replace('\n','%0A').replace('\r','%0D'))
     else:print(message)
+    components = report.get('cpython_components')
+    if components and components.get('applicable') and os.environ.get('GITHUB_ACTIONS') == 'true':
+        # 用獨立且有界的 annotation，避免既有原生摘要超過 GitHub 公開註記上限。
+        component_message = json.dumps(cpython_summary(report['cpython_components']),
+                                       ensure_ascii=False, separators=(',', ':'))
+        if len(component_message.encode('utf-8')) > 3900:
+            raise ValueError('CPython public summary exceeds annotation budget')
+        print('::notice title=CPython components::' + component_message.replace('%', '%25')
+              .replace('\n', '%0A').replace('\r', '%0D'))
     return 0 if report['accepted'] else 1
 
 

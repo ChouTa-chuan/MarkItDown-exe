@@ -39,6 +39,13 @@ class ProvenanceTests(unittest.TestCase):
         self.native=dict(schema_version=2,files=[dict(file='runtime.dll',source_sha256='0'*64,
                          source_bytes=12,origin='system-native',distributions=[])])
         self.save(self.assets/'native/manifest.json',self.native)
+        # 跨平台合成 fixture 也提供新清單，讓 Windows 的強制檢核不被舊 fixture 繞過。
+        from cpython_components import write_inventory, REPORT
+        path = self.assets/'native'/REPORT
+        write_inventory(self.native['files'], path, target=sys.platform, version='3.12.10',
+                        license_path=self.assets/'python-runtime/LICENSE.txt', probe=dict(versions={}, files={}))
+        self.native.update(cpython_components=REPORT, cpython_components_sha256=sha256(path))
+        self.save(self.assets/'native/manifest.json', self.native)
         self.modules=[dict(name='json',kind='PYMODULE',origin='stdlib',source_sha256='1'*64,source_bytes=5),
                       dict(name='mystery',kind='PYMODULE',origin='unknown',source_sha256=None,source_bytes=None,
                            reason='source-unreadable:FileNotFoundError')]
@@ -141,6 +148,16 @@ class ProvenanceTests(unittest.TestCase):
     def test_missing_collected_binary_is_rejected(self):
         (self.bundle/'_internal/runtime.dll').unlink()
         with self.assertRaisesRegex(ValueError,'Missing or linked'):self.check()
+
+    def test_cpython_sidecar_is_verified_by_the_bundle_auditor(self):
+        from cpython_components import REPORT
+        path = self.assets/'native'/REPORT
+        # 只驗合成清單的檢核接線，applicable 依平台，不把 fixture 當作 Windows 實證。
+        report = self.check()
+        self.assertEqual(report['cpython_components']['applicable'], sys.platform == 'win32')
+        path.write_text('{}')
+        with self.assertRaisesRegex(ValueError, 'inventory fingerprint mismatch'):
+            self.check()
 
     def base_fixture(self):
         import shutil

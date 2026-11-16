@@ -14,6 +14,9 @@ docs/development-records/logs/*.log -text -whitespace
 docs/development-records/observations/*.json -text
 vendor/** -text
 packaging/** -text
+# A5 保存上游原文／來源；原始 CRLF 與空白不可為了 diff 檢查而改寫。
+packaging/cpython/**/original/** -whitespace
+packaging/cpython/**/sources/** -whitespace
 docs/development-records/** -text
 docs/development-records/runs/**/*.log -whitespace
 docs/development-records/runs/**/*.txt -whitespace
