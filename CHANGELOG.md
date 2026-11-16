@@ -4,6 +4,12 @@
 
 ## 更新中
 
+### 2026-11-16｜A5 Windows 實證完成（PR #9）
+
+- 相對前次只有 Linux 本機結果，Windows 基本包與 CPU 已通過既有驗收及新增逐檔來源／原文查驗；OpenSSL／SQLite 觀測與官方建置版本相符，libffi 仍明列僅建置宣告。實際 source hash 對應建置程序載入的來源檔，不冒充 frozen 候選獨立二進位認證。
+- Linux、Windows 基本包、CPU、索引首輪 CI 全部通過；[原始公開摘要、精確 head／暫時 merge、artifact digest／期限](docs/development-records/runs/a5-pr9-ci-2026-11-16/README.md)另存，最終文件提交仍須全 CI 通過後一般 Merge。現況計數只見 progress.json；新增清單及原文不會自動消除未對照 owner。
+- 現況封存後更新 STATUS、視覺進度與歷史索引，下一個為 A5b Qt 原始碼對應。A4 完成／main 已合併 PR 1–8 與指定 109 基準補註已保留；完整逐檔基準未保存。程式／架構版號、產品里程碑與再散布門檻不提高，無產品發行。
+
 ### 2026-11-16｜A5：逐檔 CPython 元件版本與原文；修正 A4 現況及 109 說明
 
 - 程式0.19.1／架構0.4不變；從已合併 PR 1–8 的 main `e87de4b` 開自己的 A5 分支。相對前版僅有總體 CPython 原授權，現在新增逐檔來源 hash、PE 檔案版本、官方建置宣告、匹配載入檔的 OpenSSL／SQLite 執行期版本，以及每檔對應原文。

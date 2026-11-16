@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-16",
+  "tested_source": "3ef16b67612b6b18a01898675843b4ee8cb4322f",
+  "head_commit": "fc5bb3be682887b2f148e410825aac3a888af804",
+  "program_source": "2104418f08ca64232136278dbdddb70c3ea91897",
+  "pr": 9,
+  "accepted": true,
+  "windows_executed": true,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "artifact_downloaded": false,
+  "keywords": [
+    "A5",
+    "CPython",
+    "OpenSSL",
+    "libffi",
+    "SQLite",
+    "逐檔",
+    "Windows",
+    "PR9",
+    "原文",
+    "來源指紋"
+  ],
+  "files": {
+    "README.md": "94df4976ed0758d58a81ee1bc3b9efeb650f1c61341d0b9cf1472a7305d240dc",
+    "ci-results.json": "f2d73466eaca030a73ce94b5e453cc5a4a8d08759737fec0fcfb97d8f04d1adf"
+  }
+}
