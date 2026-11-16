@@ -129,6 +129,24 @@ def target_rows(native, profile):
     return sorted(result, key=lambda item: item[0]['file'])
 
 
+def require_runtime_probes(report):
+    """Windows 適用清單不接受 OpenSSL／SQLite 只有宣告；本機、CI 與離線重驗一致。
+
+    Linux 不適用清單保持不適用。libffi 沒有支援的查詢 API，不能套用同一門檻。
+    產生端先保存診斷再拒絕，重驗端也執行，避免重算 manifest hash 就能繞過。
+    """
+    if report.get('applicable') is not True:
+        return
+    if 'probe_error' in report:
+        raise ValueError('CPython runtime probe failed: '+str(report['probe_error'])[:160])
+    for row in report['files']:
+        if row['component'] in ('openssl', 'sqlite') and (
+                row.get('version_status') != 'matched-runtime-probe'
+                or row.get('loaded_source_matched') is not True
+                or not row.get('observed_version')):
+            raise ValueError('CPython runtime probe required: '+row['file'])
+
+
 def write_inventory(native, output, *, root=ROOT, target=None, version=None, license_path=None, probe=None):
     """在 native manifest 同目錄寫清單及原文；原生資產後續既有 rglob 會一併納入。"""
     target = sys.platform if target is None else target
@@ -183,6 +201,7 @@ def write_inventory(native, output, *, root=ROOT, target=None, version=None, lic
                 notice='cpython-original/' + component + '.txt'))
         report['components_not_collected'] = sorted(set(COMPONENTS) - {r['component'] for r in report['files']})
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    require_runtime_probes(report)
     return report
 
 
@@ -244,6 +263,7 @@ def verify_inventory(path, native, python_license, *, root=ROOT, target=None):
             raise ValueError('Misleading CPython version status: ' + file)
     if report.get('components_not_collected') != sorted(set(COMPONENTS) - {r['component'] for r in rows.values()}):
         raise ValueError('Incorrect CPython component presence summary')
+    require_runtime_probes(report)
     return report
 
 

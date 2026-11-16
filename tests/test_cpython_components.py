@@ -101,11 +101,14 @@ class ComponentTests(unittest.TestCase):
 
     def test_an_unmatched_loaded_library_cannot_supply_the_observed_version(self):
         self.probe['files']['libssl-3.dll']['sha256'] = '0'*64
-        report = self.write()
+        with self.assertRaisesRegex(ValueError, 'CPython runtime probe required'):
+            self.write()
+        report = json.loads(self.output.read_text())
         row = next(r for r in report['files'] if r['file'] == 'libssl-3.dll')
         self.assertIsNone(row['observed_version'])
         self.assertFalse(row['loaded_source_matched'])
-        self.verify()
+        with self.assertRaisesRegex(ValueError, 'CPython runtime probe required'):
+            self.verify()
         row.update(observed_version='3.0.16', version_status='matched-runtime-probe')
         self.save(report)
         with self.assertRaisesRegex(ValueError, 'Unmatched'):
@@ -118,10 +121,13 @@ class ComponentTests(unittest.TestCase):
 
     def test_probe_failure_is_an_explicit_gap(self):
         with patch.object(subject, 'runtime_probe', side_effect=RuntimeError('fixture failure')):
-            report = self.write(probe=None)
+            with self.assertRaisesRegex(ValueError, 'CPython runtime probe failed'):
+                self.write(probe=None)
+        report = json.loads(self.output.read_text())
         self.assertIn('fixture failure', report['probe_error'])
         self.assertTrue(all(r['observed_version'] is None for r in report['files']))
-        self.verify()
+        with self.assertRaisesRegex(ValueError, 'CPython runtime probe failed'):
+            self.verify()
 
     def test_rehashing_a_modified_notice_cannot_replace_the_pinned_original(self):
         report = self.write()
@@ -132,6 +138,33 @@ class ComponentTests(unittest.TestCase):
         self.save(report)
         with self.assertRaisesRegex(ValueError, 'original notice mismatch'):
             self.verify()
+
+    def test_deleted_bundled_openssl_original_is_rejected(self):
+        self.write()
+        (self.output.parent/'cpython-original/openssl.txt').unlink()
+        with self.assertRaisesRegex(ValueError, 'Missing or linked CPython evidence'):
+            self.verify()
+
+    def test_each_openssl_and_sqlite_file_requires_a_matched_observation(self):
+        report = self.write()
+        for original in report['files']:
+            if original['component'] not in ('openssl', 'sqlite'):
+                continue
+            with self.subTest(file=original['file']):
+                modified = copy.deepcopy(report)
+                row = next(r for r in modified['files'] if r['file'] == original['file'])
+                row.update(observed_version=None, version_status='build-declaration-only')
+                self.save(modified)
+                with self.assertRaisesRegex(ValueError, 'CPython runtime probe required'):
+                    self.verify()
+
+    def test_probe_error_key_is_rejected_even_when_rows_are_matched(self):
+        report = self.write()
+        for error in ('fixture failure', ''):
+            with self.subTest(error=error):
+                self.save(dict(report, probe_error=error))
+                with self.assertRaisesRegex(ValueError, 'CPython runtime probe failed'):
+                    self.verify()
 
     def test_missing_or_duplicated_rows_and_source_hash_changes_are_rejected(self):
         report = self.write()

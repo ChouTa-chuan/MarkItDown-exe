@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-16",
+  "tested_source": "afb2062d4854234356faf2bb959aac634c40f89e",
+  "pr": 11,
+  "accepted": true,
+  "windows_executed": false,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "keywords": [
+    "A5c",
+    "CPython",
+    "OpenSSL",
+    "SQLite",
+    "probe_error",
+    "接受條件",
+    "CLI",
+    "缺失原文",
+    "反例"
+  ],
+  "files": {
+    "README.md": "43350774848b61b9368a663d39e5a61ef4c6763968279787136562b9d08ee453",
+    "isolated-summary.json": "eb3fc52c786b71f0d1ed478ab1102a261c059078e7fcc04fa7d94bdfdee179ef",
+    "mixed-result.json": "f9211ccf6be1b1b80d6d5a7356238ce81ae9cf9bba7962111ab01b2796a8298f",
+    "targeted-summary.json": "8ba3eb3b4b1ce99041dc4d8842f5578e932468991731ffc1895faf9527d179e2"
+  }
+}
