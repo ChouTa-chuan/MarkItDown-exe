@@ -4,6 +4,13 @@
 
 ## 更新中
 
+### 2026-11-16｜A4 Windows CI 補齊；API 阻擋解除
+
+- PR #8 的 Linux、Windows 基本包、Windows CPU 元件與歷史索引首輪 CI 全部通過；相對前次只有 Linux 本機證據，現在有真正 Windows setuptools 排除與既有安裝／跨版／恢復驗收實證。
+- Windows 基本包已沒有原 setuptools namespace，`build_only_modules_absent=true`；CPU 元件維持既有清單。公開摘要、精確 head／暫時 merge、artifact digest／期限存於[本輪紀錄](docs/development-records/runs/a4-pr8-ci-2026-11-16/README.md)，計數只見 progress.json。
+- STATUS 先封存再更新，重建進度頁與歷史索引；最後文件 head 仍須經 CI 才 Merge。A5 接續以實際 Windows CPython patch 版及安裝原文逐檔盤點；不以另一版本的根目錄 LICENSE 或建置 props 代填。
+- 原候選與原始本機證據維持來源，不把 PR 暫時 merge 當可交付新候選。完整 SBOM、Qt 原始碼、再散布及實機驗收仍待；應用／架構版號及產品里程碑不變，沒有產品發行。
+
 - 2026-11-16：使用者發布允許 GitHub API 的新環境後，連線與 PR 建立已恢復；建立 A4 PR #8，更新 STATUS 與進度為 CI 執行中，既有 Linux 證據維持原來源，尚未關閉 A4。
 
 ### 2026-11-16｜A4：查明 setuptools namespace 並排除基本包的建置工具

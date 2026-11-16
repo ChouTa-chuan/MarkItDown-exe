@@ -10,9 +10,9 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | 已核對 PR 1–7 合併；本輪更新後的基線為 `6032f9e`。已設分支保護（只能經 PR、只允許 Merge） |
+| `main` | 本階段起點為 PR 1–7 已合併的 `6032f9e`。A4 經 PR #8 進入 main；目前是否已合併以該 PR 即時狀態核對，分支保護只允許 Merge |
 | 本階段分支 | `codex/a4-setuptools-audit-20261116`，由接手時尚未合併的 PR 6 head `fc02258` 開出，後以 merge 納入最新 main；沒有推送別人的分支。程式／測試提交 `8c26451`，納入 main 的提交 `653ed8e` |
-| 本階段 PR／推送 | 前次成果已推送至 `b46880e`；使用者發布新環境後 API 已恢復，已建立 [PR #8](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/8)，目標 main。CI 執行中，尚未合併；最後純文件同步補記以 Git 歷史及回覆核對 |
+| 本階段 PR／推送 | [PR #8](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/8)，目標 main；head `ca71bfa` 首輪 CI 全部通過，Windows 實際摘要已保存。最後結果文件提交仍依 GitHub 最新 head CI 查驗後 Merge；實際 head／合併狀態以 PR 即時資料核對，避免把純文件提交與受測 source 混淆 |
 | 相依／合併次序 | 父 PR 6 及後來的 PR 7 已合併，不需再疊 PR；本輪 PR 只應包含 A4 差異。A4 Windows／Linux CI 全通過且查驗完成後，以 Merge 合併，不直接推 main |
 | 其他分支 | `codex/ai-handoff-workflow-20261112`：內容已採納，不需要合併 |
 
@@ -24,7 +24,7 @@
 - `base.spec` 與建置後來源檢核共同拒絕 setuptools 子模組再度出現，基本包的公開 CI 摘要新增 `python_archives.build_only_modules_absent`；CPU 元件不改。新增反例驗證重算資產 hash 也不能繞過排除，並拆開修改檔案內原有的分號敘述。
 - Linux 隔離基本包已真正建置及執行：EXE 內嵌 PYZ 沒有 setuptools；空 PATH 下通過既有 frozen core／格式驗收。完整混合與獨立模組回歸通過，原始結果、匯入圖摘要、失敗與限制見[本輪證據](docs/development-records/runs/a4-setuptools-audit-2026-11-16/README.md)，現況數字只見 [progress.json](docs/progress.json)。
 - 自行查驗範圍：比較匯入圖與 EXE 內實際 PYZ、確認兩層拒絕條件、套件邊界不誤擋、CPU 規則不變及原文／模型／候選證據未變。這是 Codex 自行查驗，不是 Claude 子代理查驗；沒有新的必須修正項。
-- **API 已恢復、PR #8 已建立，等待 Windows／Linux CI**，A4 尚未正式關閉。未提高產品里程碑、SBOM 或再散布旗標，沒有發布產品。A3 與 Claude 分工更新已由 PR 6／7 合併，舊 STATUS 已封存於歷史索引。
+- **A4 的 Windows 與 Linux 首輪 CI 全部通過**：原未知 namespace 已不再出現，`build_only_modules_absent=true`，基本包安裝、跨版與程序恢復及 CPU 既有驗收均接受。精確 head／merge、公開摘要、artifact hash／期限與限制見[PR 8 證據](docs/development-records/runs/a4-pr8-ci-2026-11-16/README.md)。最後文件 head 仍須通過 CI 才 Merge；未提高產品里程碑、SBOM 或再散布旗標，也沒有發布產品。
 
 ## C. 未完成、阻擋與下一步
 
@@ -34,14 +34,14 @@
 
 **整體規劃**（每個編號一個 PR，完成即合併）
 
-**本輪最先接續**：追蹤 PR #8 的最新 head 與全部 CI；Windows 公開摘要應沒有 setuptools namespace，`build_only_modules_absent` 為 true，且既有建置／驗收全通過。失敗先修自己的分支，通過且查驗無未解項才 Merge。API 阻擋已解除，不再要求使用者重設相同網域或重複批准。
+**本輪最先接續**：先核對 PR #8 是否已合併；未合併時，確認最新 head 全部 CI 與查驗通過，再以 Merge 合併。已合併就從最新 main 開自己的新分支，執行下表 **A5（下一個，交給 Codex）**。API 阻擋已解除，不再要求使用者重設相同網域或重複批准。
 
 | 大階段 | 編號與任務 | 狀態 |
 | --- | --- | --- |
 | A 關閉來源與再散布缺口 | A1 Python 模組清單、A2 文件補記 | 完成（PR 5） |
 | | A3 Qt／LGPL 隨包說明、自有 MIT 全文隨包 | 完成（PR 6） |
-| | **A4 查明 setuptools 子模組並排除非必要建置工具**；Linux 匯入圖、實際 frozen core 與回歸已驗，Windows 結果不可從 Linux 推定 | **PR #8 CI 中，通過後合併關閉** |
-| | A5 逐檔列出 CPython 隨附元件（OpenSSL、libffi、SQLite）的版本與原文 | 待開始 |
+| | **A4 查明 setuptools 子模組並排除非必要建置工具**；Linux 與 Windows 實際驗證均已接受 | **驗證完成（PR #8；最後文件 CI／合併見 A 節）** |
+| | **A5 逐檔列出 CPython 隨附元件（OpenSSL、libffi、SQLite）的版本與原文**。先讀實際 Windows CPython 安裝授權與 native manifest，對準 Windows runner 的 patch 版，不能用其他平台／版本的 props 直接代填；上游根目錄 LICENSE 不等於完整第三方原文 | **下一個，交給 Codex；PR #8 合併後從 main 開新分支** |
 | | A5b 補上 Qt 本體原始碼的位置與版本對應（需有依據，例如建置時記錄 PySide6 對應的 Qt 版本來源），補上後更新 `qt-lgpl-notice.md` 的「待補」 | 待開始 |
 | | A6 大階段確認：重產候選報告、重跑來源分類、評估 `runtime_sbom_complete` | 待開始 |
 | B 測試版安裝包 | B1 以 CI artifact 產出並附提交、版本、雜湊、隨包原文、限制；B2 驗收表；B3 CPU 元件重新定版；B4 由使用者確認門檻 | 待開始 |
@@ -53,7 +53,7 @@
 
 **有期限的資料**：PR 上的 Windows 報告保留七天，以暫時合併提交執行，不是候選證據，預設不保存。GitHub 的 artifact 儲存主機每次不同，本環境的網路政策通常會擋下，不要依賴下載；需要的資料請讓 CI 寫進公開摘要。
 
-**平台狀態**：使用者將 `api.github.com` 加入並發布後，新環境的有效清單已包含該網域；API HTTP 200、CLI 查詢及建立 PR 均成功。一般沙箱仍連不到環境代理，依 runtime 指引保留原代理／TLS，用獲准的命令方式執行即能連線。前次本機原始日誌位於 `/tmp/markitdown-a4-audit`，可能隨環境更換消失；必要小型結果與 hash 已保存，沒有重跑相同本機回歸冒充新成果。
+**平台狀態**：使用者將 `api.github.com` 加入並發布後，API／CLI 查詢與建立 PR 均成功。一般沙箱仍連不到環境代理，依 runtime 指引保留原代理／TLS，以獲准命令方式執行。CI 日誌儲存主機受限，改讀公開 API annotation；這不是開 PR／合併的阻擋。前次本機原始日誌可能隨環境更換消失，必要小型結果與 hash 已保存；沒有重跑相同本機回歸冒充新成果。
 
 ## D. 近期新增的規則與決定
 
@@ -73,4 +73,4 @@
 
 ## 接手指令
 
-> 請接手 ChouTa-chuan/MarkItDown-exe 的分支 `codex/a4-setuptools-audit-20261116`（若已有 A4 PR，先核對其最新 head）。讀該分支 AGENTS.md 與 STATUS.md，先完成 C 節的 A4 PR／Windows CI；全部通過且查驗完成即可 Merge。A4 關閉後才接 A5。不直接推 main、不推別人的分支；不要因尚無 PR 就忽略此已推送的待審分支。
+> 請接手 ChouTa-chuan/MarkItDown-exe，先列出開啟中的 PR，讀最新分支的 AGENTS.md 與 STATUS.md。確認 PR #8 已合併；若還沒，先完成其最新 head 的 CI 與 Merge。然後從最新 main 開自己的新分支做 C 節 A5，完成後依規則更新現況、推送並開 PR，全部 CI 與查驗通過即可 Merge。不直接推 main，不推別人的分支。

@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-16",
-  "environment": "Linux · Python3.12.14／Tesseract5.3.4；0.19.1全744／50模組exit0；Windows候選仍沿用cb8f24d，A4 Windows CI未執行",
+  "environment": "Linux · Python3.12.14／Tesseract5.3.4；0.19.1全744／50模組exit0；Windows候選仍沿用cb8f24d，A4 Windows PR #8已驗證",
   "tests_passed": 743,
-  "headline": "A4基本包排除setuptools；API已恢復，PR #8正執行Windows與Linux CI",
-  "blocker": "A4 Windows排除效果待PR #8 CI。Qt本體原始碼、CPython隨附元件、runtime SBOM／再散布、乾淨機／人工／GPU仍待。",
-  "next": "確認PR #8全部CI與查驗通過後Merge，再做A5 CPython逐檔清單及A5b Qt來源。",
+  "headline": "A4 Windows與Linux CI通過；基本包已排除setuptools；下一步A5盤點CPython原文",
+  "blocker": "A4已補齊Windows驗證；Qt本體原始碼、CPython隨附元件逐檔原文、runtime SBOM／再散布、乾淨機／人工／GPU仍待。",
+  "next": "PR #8最新head檢查通過後Merge，從main新分支接A5，再做A5b及A6。",
   "milestones": [
     {
       "id": "m0",
@@ -2050,14 +2050,60 @@
     "actual_frozen_pyz_setuptools_modules": 0,
     "linux_unknown_modules": 0,
     "cpu_profile_changed": false,
-    "windows_executed": false,
+    "windows_executed": true,
     "pr_created": true,
-    "merged": false,
-    "stage_closed": false,
     "runtime_sbom_complete": false,
     "evidence": "development-records/runs/a4-setuptools-audit-2026-11-16/README.md",
     "pr": 8,
-    "ci_status": "running",
-    "api_access_restored": true
+    "ci_status": "success",
+    "api_access_restored": true,
+    "verification_complete": true,
+    "merge_status_source": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/8",
+    "ci_head": "ca71bfacbfde64d152dd9f043171303c21c5573e",
+    "ci_merge_sha": "dd72bf4c363fc5bf17029c4db63b0cad71895f71",
+    "ci_runs": {
+      "linux": 43804367945,
+      "base": 43804367902,
+      "cpu": 43804367917,
+      "history": 43804367944
+    },
+    "windows_base_python_archives": {
+      "pure_modules": 1556,
+      "by_origin": {
+        "stdlib": 268,
+        "distribution": 1239,
+        "application": 49,
+        "unknown": 0
+      },
+      "unknown_modules": 0,
+      "unknown_names": [],
+      "base_library_members": 155,
+      "build_only_modules_absent": true
+    },
+    "windows_cpu_python_archives": {
+      "pure_modules": 562,
+      "by_origin": {
+        "stdlib": 243,
+        "distribution": 307,
+        "application": 12,
+        "unknown": 0
+      },
+      "unknown_modules": 0,
+      "unknown_names": [],
+      "base_library_members": 155
+    },
+    "windows_base_inventory": {
+      "files": 1610,
+      "bytes": 262600695,
+      "unresolved_files": 109,
+      "review_files": 147,
+      "original_notice_files": 108,
+      "packages": 40,
+      "file_inventory_complete": true,
+      "runtime_sbom_complete": false,
+      "redistribution_approved": false,
+      "release_ready": false
+    },
+    "ci_evidence": "development-records/runs/a4-pr8-ci-2026-11-16/README.md"
   }
 }

@@ -6,14 +6,16 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 83 筆。
+共 85 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-16 | 證據 | A4：PR 8 首輪 Windows 與 Linux CI 實證 | dd72bf4 | 接受、Windows已執行 | A4、PR8、Windows CI、setuptools排除、API恢復、CPython版本對照 | [development-records/runs/a4-pr8-ci-2026-11-16/README.md](development-records/runs/a4-pr8-ci-2026-11-16/README.md) |
 | 2026-11-16 | 證據 | A4：setuptools 匯入來源與基本包排除驗證 | 8c26451 | 接受 | A4、setuptools、namespace、PyInstaller、基本包排除、Linux frozen、PR API限制 | [development-records/runs/a4-setuptools-audit-2026-11-16/README.md](development-records/runs/a4-setuptools-audit-2026-11-16/README.md) |
 | 2026-11-16 | 證據 | Python 模組來源清單的首次 Windows CI 輸出 | c49c729 | 接受、Windows已執行 | Python模組清單、base_library成員、setuptools不明模組 | [development-records/runs/python-archive-inventory-ci-2026-11-16/README.md](development-records/runs/python-archive-inventory-ci-2026-11-16/README.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a3-before-a4.md](history/status/2026-11-16-a3-before-a4.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a4-before-api-recovery.md](history/status/2026-11-16-a4-before-api-recovery.md) |
+| 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-a4-before-windows-ci-result.md](history/status/2026-11-16-a4-before-windows-ci-result.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-ci-self-check-and-ms-runtime.md](history/status/2026-11-16-ci-self-check-and-ms-runtime.md) |
 | 2026-11-16 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-16-python-archive-inventory.md](history/status/2026-11-16-python-archive-inventory.md) |
 | 2026-11-13 | 證據 | CPU 文字辨識元件排除 FFmpeg 後的 Windows CI | 0b53235 | 接受、Windows已執行 | FFmpeg排除、OpenCV、CPU元件體積、元件版號未重定 | [development-records/runs/ffmpeg-exclusion-ci-2026-11-13/README.md](development-records/runs/ffmpeg-exclusion-ci-2026-11-13/README.md) |
