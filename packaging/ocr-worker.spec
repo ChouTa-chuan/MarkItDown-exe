@@ -20,12 +20,21 @@ analysis=Analysis([str(root/'packaging/ocr_worker_entry.py')],pathex=[str(root/'
     excludes=['PySide6','tkinter','matplotlib','pandas','scipy','torch','tensorflow','magika','markitdown'],noarchive=False)
 sys.path.insert(0, str(root/'scripts'))
 from prepare_worker_assets import native_notices
-from bundle_filters import drop_opencv_ffmpeg
+from bundle_filters import drop_opencv_ffmpeg, drop_os_ucrt, find_vc_redist, official_vc_runtime
 # OCR 只處理圖片：排除 OpenCV 內附的 FFmpeg 影片外掛；須在記錄 binary 來源之前做。
 analysis.binaries, dropped_ffmpeg = drop_opencv_ffmpeg(analysis.binaries)
 # 套件 hook 也可能把它當資料檔收集，兩邊都過濾。
 analysis.datas, dropped_ffmpeg_data = drop_opencv_ffmpeg(analysis.datas)
 print('Excluded OpenCV FFmpeg plugin:', dropped_ffmpeg + dropped_ffmpeg_data)
+# Windows：Universal CRT 由作業系統提供、不隨包；來源不在 CPython 或 wheel 的 VC runtime 改用
+# Visual Studio 可再散布目錄的檔案。必須在記錄 binary 來源之前做。
+if sys.platform == 'win32':
+    import sysconfig
+    analysis.binaries, dropped_ucrt = drop_os_ucrt(analysis.binaries)
+    analysis.binaries, replaced_vc = official_vc_runtime(
+        analysis.binaries, find_vc_redist(), (sys.base_prefix, sysconfig.get_path('purelib')))
+    print('Excluded OS Universal CRT files:', len(dropped_ucrt))
+    print('VC runtime taken from the official redistributable directory:', replaced_vc)
 native_directory=tempfile.TemporaryDirectory(prefix='markitdown-worker-native-')
 native_root=Path(native_directory.name)/'notices'
 native_notices(analysis.binaries,native_root)

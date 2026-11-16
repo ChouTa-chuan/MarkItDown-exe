@@ -46,7 +46,9 @@ def prepare(output, project):
 def native_notices(binaries, output):
     """從實際 Analysis binary 來源保存 Debian 原生授權；wheel／CPython 另有原文。"""
     output.mkdir(parents=True,exist_ok=False)
-    packages={};records=[]
+    packages = {}
+    records = []
+    sources = []
     site=Path(sysconfig.get_path('purelib')).resolve()
     interpreter=Path(sys.base_prefix).resolve()
     owners=distribution_sources()
@@ -73,6 +75,12 @@ def native_notices(binaries, output):
         records.append(dict(file=destination,source_basename=path.name,origin=origin,system_package=package,
                             source_sha256=sha256(path),source_bytes=path.stat().st_size,
                             distributions=owners.get(path,[])))
+        sources.append(path)
+    # 非 wheel 來源的原生檔另記來源目錄、版本資源與簽章，供判定發行者；wheel 來源已有套件對照。
+    from native_identity import describe
+    identities = describe([path for path, row in zip(sources, records) if row['origin'] != 'installed-wheel'])
+    for path, row in zip(sources, records):
+        row.update(identities.get(path, {}))
     report=dict(schema_version=2,scope='Actual bundled binaries and native package copyright evidence; final Windows/native release clearance remains pending',
                 files=records,native_copyrights=packages)
     (output/'manifest.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
