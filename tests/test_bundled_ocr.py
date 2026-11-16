@@ -46,7 +46,7 @@ class BundledOCRTests(unittest.TestCase):
                     sha256=hashlib.sha256(p.read_bytes()).hexdigest(), bytes=p.stat().st_size)
         self.save_native()
         for name in ['user-guide.md', 'third-party.md', 'base-runtime-lock.txt',
-                     'licenses/python-runtime/LICENSE.txt', 'licenses/installed/manifest.json']:
+                     'licenses/python-runtime/LICENSE.txt', 'licenses/installed/manifest.json', 'licenses/qt-lgpl-notice.md', 'licenses/markitdown-desktop/LICENSE']:
             self.put(name, b'Synthetic core metadata')
         self.put('ocr-four-languages.json', json.dumps(self.fixed).encode())
         self.profile = dict(schema_version=2, id='base', source_version='test', runtime_packages={'psutil':'test'},

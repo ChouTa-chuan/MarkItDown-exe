@@ -27,7 +27,7 @@ class BuildProfileTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory(); self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
         files = ['user-guide.md','third-party.md','base-runtime-lock.txt',
-                 'licenses/python-runtime/LICENSE.txt','licenses/installed/manifest.json']
+                 'licenses/python-runtime/LICENSE.txt','licenses/installed/manifest.json','licenses/qt-lgpl-notice.md','licenses/markitdown-desktop/LICENSE']
         self.profile = dict(schema_version=1,id='base',source_version='0.9.0',runtime_packages={'psutil':'7.2.2'},
             local_packages={'markitdown-desktop':'0.9.0','markitdown':'0.1.9'},
             native_ocr_required=True,native_ocr_integrated=False,release_ready=False,notice_packages=3,assets={})
