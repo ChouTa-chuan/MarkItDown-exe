@@ -36,7 +36,7 @@ python scripts/check_isolated_tests.py --expected-count N --output out/isolated
 - 第一次匯入圖匯出在 Analysis 完成後遇到 `getReferers()` 含 `None` 而發生 `AttributeError`，程序 exit 1；過濾空 referer 後重跑 exit 0。這是一次性分析腳本錯誤，沒有修改第三方工具。
 - 第一次準備資產時使用 `PYTHONPATH=src`，讀到 pip 建置留下的本機 egg-info，因缺 METADATA 而 exit 1；移除該命令的 PYTHONPATH，使用實際安裝 wheel 的隔離環境後 exit 0。沒有繞過獨立建置環境檢查。
 - 初次套件下載在正常沙箱無法連到環境代理；保留相同代理與 TLS，經允許的命令升權重試安裝成功。全部仍使用雜湊鎖定。
-- GitHub CLI 的 GraphQL 請求回覆 `Forbidden`；目前沒有可用 GitHub 連接器，環境有效主機清單沒有 `api.github.com`。本次只能推送自己的 Git 分支，尚未建立 PR、未執行 A4 Windows CI，也沒有合併。
+- GitHub CLI 的 GraphQL 請求回覆 `Forbidden`；目前沒有可用 GitHub 連接器，環境有效主機清單沒有 `api.github.com`。本次只能推送自己的 Git 分支，尚未建立 PR、未執行 A4 Windows CI，也沒有合併。[PR 說明稿](PR_BODY.md)已保存，工具恢復後可直接使用；它不是已建立的 PR。
 - A4 的 Windows 排除效果仍須 PR CI 確認（公開 `unknown_names` 與 `build_only_modules_absent`、原生建置及既有自動驗收）。Linux core 成功不取代原 Windows 候選、四語 OCR、乾淨機、人工或 GPU 驗收；runtime SBOM／再散布／發行旗標維持未完成。
 
 [返回歷史索引](../../../history-index.md)

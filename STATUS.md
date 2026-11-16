@@ -12,7 +12,7 @@
 | --- | --- |
 | `main` | 已核對 PR 1–7 合併；本輪更新後的基線為 `6032f9e`。已設分支保護（只能經 PR、只允許 Merge） |
 | 本階段分支 | `codex/a4-setuptools-audit-20261116`，由接手時尚未合併的 PR 6 head `fc02258` 開出，後以 merge 納入最新 main；沒有推送別人的分支。程式／測試提交 `8c26451`，納入 main 的提交 `653ed8e` |
-| 本階段 PR／推送 | A4 實作與 Linux 驗證完成，PR 尚未建立：GitHub CLI 回覆 `Forbidden`，無可用連接器。[建立 A4 PR（head已填、base為main）](https://github.com/ChouTa-chuan/MarkItDown-exe/compare/main...codex/a4-setuptools-audit-20261116?expand=1)；實際推送結果見本輪收工補記 |
+| 本階段 PR／推送 | 程式／證據提交已推送（收工提交 `9178dd0`，push exit 0）；PR 尚未建立：GitHub CLI 回覆 `Forbidden`，無可用連接器。[建立 A4 PR（head已填、base為main）](https://github.com/ChouTa-chuan/MarkItDown-exe/compare/main...codex/a4-setuptools-audit-20261116?expand=1)，[可直接使用的 PR 說明](docs/development-records/runs/a4-setuptools-audit-2026-11-16/PR_BODY.md)。最後純文件同步補記以 Git 歷史及回覆核對 |
 | 相依／合併次序 | 父 PR 6 及後來的 PR 7 已合併，不需再疊 PR；本輪 PR 只應包含 A4 差異。A4 Windows／Linux CI 全通過且查驗完成後，以 Merge 合併，不直接推 main |
 | 其他分支 | `codex/ai-handoff-workflow-20261112`：內容已採納，不需要合併 |
 

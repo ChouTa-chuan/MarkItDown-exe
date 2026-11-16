@@ -26,7 +26,8 @@
     "PR API限制"
   ],
   "files": {
-    "README.md": "4092356a34a5fc68cef1235ba9a27cba0292d126bad9f3a7e9f9ec5293eb93ff",
+    "PR_BODY.md": "5098847cb98a9ec50027455a0666d7b03db64f8ceec86d8f63b8e202a567aea6",
+    "README.md": "4b28af21f60f475fbe4ead6d827718e439755b0df902fd6c541ddcc9ff747450",
     "frozen-acceptance.json": "444278f7c7c81b85b36366cc62641c0d78a0cc96f20176b65232097fbf835d6d",
     "import-audit.json": "a40a85194bca3383fb74cd19984e2045f16086cc60f4b32bee6ecd53ff32dc8f",
     "isolated-summary.json": "9a6b3fa7d451464f401e0aaa9ac8378104ca65b95bc6a91d8ad3bcee43cf3195",
