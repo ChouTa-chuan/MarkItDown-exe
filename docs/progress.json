@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-17",
-  "environment": "Linux 完整回歸／獨立模組與 Windows 基本包固定候選 8285450 已驗；CPU 重送驗證執行中",
+  "environment": "Linux 完整回歸／獨立模組與 Windows 基本包／CPU 固定候選 8285450 已驗；乾淨機／人工／GPU仍待",
   "tests_passed": 781,
-  "headline": "main 起點已合併 PR 1–11；A6 首批檢核與基本包固定來源重分類完成，CPU 重送驗證執行中",
-  "blocker": "CPU 原請求 queued、jobs 為空；重送 43916217757 已執行，尚未取得新版 metadata 實證。完整 SBOM／再散布、Qt build／替換、乾淨機／人工／GPU 亦未關閉。",
-  "next": "先讀 A6 PR 與 CPU run 43912958713／43916217757 的即時結果；成功後保存 8285450 的 CPU metadata、離線重跑及完成整體審閱。最終 head 全 CI 與查驗通過才 Merge，不提前上傳產品。A7 待 A6 完成後綁定自有 MIT 到套件原文表。",
+  "headline": "main 起點已合併 PR 1–11；A6 固定候選、重分類與整體審閱完成，整合 CI／Merge 結果見 PR 12",
+  "blocker": "完整 runtime SBOM／再散布仍未關閉：自有 MIT 套件對照、wheel 內含第三方、Microsoft 條款、Qt build／替換、CPU 原文／模型／GEOS；乾淨機／人工／GPU未驗。",
+  "next": "A6 固定來源與兩種候選證據齊備；先核對 PR 12 最終 head 全 CI 與 Merge 結果，再從最新 main 開自己的 A7 新分支，將自有 MIT 全文綁定套件原文表並補反例。產品門檻未關閉前不交付。",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "既有功能驗收不變；完整回歸見 full_regression，A6 基本包固定來源與審閱見 a6_fixed_candidate_review。CPU 證據、SBOM／再散布、乾淨機／人工／GPU仍待。",
+    "description": "既有功能驗收不變；完整回歸見 full_regression，A6 固定候選與整體審閱見 a6_fixed_candidate_review。完整 SBOM／再散布、乾淨機／人工／GPU仍待。",
     "phases": [
       {
         "id": "a",
@@ -1678,8 +1678,8 @@
     "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
     "source_version": "0.19.1",
     "base_windows_accepted": true,
-    "cpu_windows_accepted": false,
-    "windows_accepted": false,
+    "cpu_windows_accepted": true,
+    "windows_accepted": true,
     "runtime_sbom_complete": false,
     "redistribution_approved": false,
     "release_ready": false,
@@ -1696,8 +1696,21 @@
       "runtime_sbom_complete": false,
       "unresolved_files": 114
     },
-    "cpu_summary": null,
-    "cpu_pending_reason": "Original GitHub request queued without jobs; retry in progress"
+    "cpu_summary": {
+      "bytes": 219724730,
+      "file_inventory_complete": true,
+      "files": 704,
+      "original_notice_files": 290,
+      "packages": 26,
+      "redistribution_approved": false,
+      "release_ready": false,
+      "review_files": 299,
+      "runtime_sbom_complete": false,
+      "unresolved_files": 265
+    },
+    "file_inventory_complete": true,
+    "base_final_catalog_included": true,
+    "cpu_zip_verified": true
   },
   "previous_full_regression_683": {
     "source_version": "0.19.1",
@@ -1785,7 +1798,25 @@
         "repo-blob": 28
       }
     },
-    "cpu": null,
+    "cpu": {
+      "unresolved_declared": 265,
+      "classified": 265,
+      "by_status": {
+        "confirmed": 237,
+        "origin-known": 28
+      },
+      "by_category": {
+        "archive-members-enumerated": 1,
+        "cpython-component-evidence": 8,
+        "cpython-license-text": 1,
+        "cpython-runtime": 17,
+        "empty-file": 1,
+        "installer-generated-record": 6,
+        "microsoft-vc-redist": 2,
+        "project-generated": 5,
+        "repo-blob": 224
+      }
+    },
     "runtime_sbom_complete": false,
     "redistribution_approved": false,
     "release_ready": false,
@@ -3081,15 +3112,15 @@
   },
   "a6_fixed_candidate_review": {
     "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
-    "status": "base-verified-cpu-retry-in-progress",
-    "engineering_review_complete": false,
+    "status": "fixed-candidate-and-review-verified",
+    "engineering_review_complete": true,
     "base_classification_replayed": true,
-    "cpu_classification_replayed": false,
+    "cpu_classification_replayed": true,
     "explicit_source_selection": true,
     "fixed_ci_runs": {
       "base": 43912954070,
-      "cpu": 43912958713,
-      "cpu_retry": 43916217757
+      "cpu": 43916217757,
+      "queued_original_cpu": 43912958713
     },
     "profiles": {
       "base": {
@@ -3149,6 +3180,65 @@
           "unknown_modules": 0,
           "unknown_names": []
         }
+      },
+      "cpu": {
+        "candidate": {
+          "bytes": 92348876,
+          "component_id": "onnx-cpu-ocr",
+          "component_version": "1.0.1",
+          "descriptor_sha256": "2058acdd4050ddeab5b826a35a76093738320745c8a4b3b67fed4936c91f1cb8",
+          "file": "onnx-cpu-ocr-development.zip",
+          "sha256": "11034e5a02aa26797011b98ecf0b2f9f06ab0d734653e42e8453214e78de180d"
+        },
+        "inventory_summary": {
+          "bytes": 219724730,
+          "file_inventory_complete": true,
+          "files": 704,
+          "original_notice_files": 290,
+          "packages": 26,
+          "redistribution_approved": false,
+          "release_ready": false,
+          "review_files": 299,
+          "runtime_sbom_complete": false,
+          "unresolved_files": 265
+        },
+        "classification": {
+          "unresolved_declared": 265,
+          "classified": 265,
+          "by_status": {
+            "confirmed": 237,
+            "origin-known": 28
+          },
+          "by_category": {
+            "archive-members-enumerated": 1,
+            "cpython-component-evidence": 8,
+            "cpython-license-text": 1,
+            "cpython-runtime": 17,
+            "empty-file": 1,
+            "installer-generated-record": 6,
+            "microsoft-vc-redist": 2,
+            "project-generated": 5,
+            "repo-blob": 224
+          }
+        },
+        "review_reasons": {
+          "microsoft-native-redistribution-review": 6,
+          "package-original-notice-pending:flatbuffers": 1,
+          "package-original-notice-pending:rapidocr-onnxruntime": 31,
+          "source-owner-unresolved": 265
+        },
+        "python_archives": {
+          "base_library_members": 155,
+          "by_origin": {
+            "application": 12,
+            "distribution": 307,
+            "stdlib": 243,
+            "unknown": 0
+          },
+          "pure_modules": 562,
+          "unknown_modules": 0,
+          "unknown_names": []
+        }
       }
     },
     "runtime_sbom_complete": false,
@@ -3159,6 +3249,13 @@
     "reviewer": "Codex self-review; no independent Claude review claimed",
     "final_head_requires_ci": true,
     "pr": 12,
-    "pr_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/12"
+    "pr_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/12",
+    "verification_complete": true,
+    "source_classification_replayed": true,
+    "source_gap_or_candidate_rows": {
+      "base": 0,
+      "cpu": 0
+    },
+    "code_source": "8285450226abe1381e6a357e8bd33bff1ad46e0e"
   }
 }

@@ -4,6 +4,14 @@
 
 ## 更新中
 
+### 2026-11-17｜A6 固定基本包／CPU 候選與整體工程審閱完成
+
+- 兩種候選以同一個完整來源提交 8285450 執行 Windows 驗證，既有功能及新增審閱 metadata 均通過；精簡資料完整取回後以固定 Git 樹離線重跑，來源 gap／candidate 列已消除，原 inventory 待審／未對照計數維持原值。
+- CPU 實際完整 provenance 超過前版精簡入口容量，分離上限後成功；原始預檢／審閱失敗、排程異常、前輪基本包實證與修正後結果一併保存，[證據與期限](docs/development-records/runs/a6-fixed-review-2026-11-17/README.md)可追溯。完整回歸數字只見 progress.json。
+- [整體審閱](docs/a6-source-review.md)明列自有 MIT 套件對照、wheel 內含第三方、Microsoft／Qt 與 CPU 原文／模型／GEOS 等待辦；A6 工程審閱完成，完整 SBOM／再散布與 release_ready 仍 false，產品里程碑不提高。
+- STATUS 先封存後更新，D 原文保留，視覺進度與索引同步；最終文件 head 仍依 PR 全 CI／查驗後一般 Merge，下一個 A7 另開分支處理自有 MIT 表對照。程式／架構版號不變，沒有產品發行。
+
+
 ### 2026-11-17｜A6 首批檢核、基本包固定候選與 CPU 排程阻擋
 
 - 相對前版只有 PR 暫時合併驗證，本輪新增固定完整來源 SHA 的 Windows 候選檢查、候選 hash 與可離線重跑的精簡來源審閱資料；CPython 元件觀測／原文及官方 VC 身分證據納入分類，原 inventory 計數與產品核准旗標不改。

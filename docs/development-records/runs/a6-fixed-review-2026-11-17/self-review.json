@@ -5,6 +5,10 @@
   "known_onnx_expected_failure_preserved": true,
   "local_regression_accepted": true,
   "base_fixed_candidate_accepted": true,
-  "cpu_fixed_candidate_accepted": false,
-  "release_ready": false
+  "cpu_fixed_candidate_accepted": true,
+  "release_ready": false,
+  "engineering_review_complete": true,
+  "all_preserved_classifications_replayed": true,
+  "unresolved_mandatory_code_fixes": false,
+  "clean_machine_accepted": false
 }

@@ -1,10 +1,10 @@
 {
   "date": "2026-11-17",
   "tested_source": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
-  "accepted": false,
+  "accepted": true,
   "local_regression_accepted": true,
   "base_fixed_candidate_accepted": true,
-  "cpu_fixed_candidate_accepted": false,
+  "cpu_fixed_candidate_accepted": true,
   "windows_executed": true,
   "runtime_sbom_complete": false,
   "redistribution_approved": false,
@@ -19,7 +19,7 @@
     "整體審閱"
   ],
   "files": {
-    "README.md": "00ca4c84bebfa734ed25158f970295f2de75a677de74f475c1a315f76890e0c8",
+    "README.md": "b0b4889fc99cd2b140dbe9bb541fe1c78a08795aa5aa021f00fd4ff009aee0e0",
     "attempt-e1761f9/base-source-review.json": "2f08f4a2afdba9bf5fedec81ebfb180727fb7a347ef4402201f06b29d17e6063",
     "attempt-e1761f9/fixed-ci.json": "ffc56df29b770f68be3b86f145bd469de758758b6718348e15030b535e11618f",
     "attempt-e1761f9/isolated-summary.json": "de78dcfe1ff1e0bcd3f80ce169499a2f42c89af90ae899e20c2e72af7f086d82",
@@ -27,12 +27,15 @@
     "attempt-e1761f9/self-review.json": "12bf95be45711a4d27e734e1ea3e8be5f52de3dca47221ad5d7a4a87f2e926bb",
     "attempts.json": "88b11552ddd56d33081fbfdf95287aa1de5e07c068515ae623c504c6d7022884",
     "base-source-review.json": "b6cc9736b3c5d2e8290a23b7be6a5dafe1a009ddd22f450e2e8c969408420111",
-    "fixed-ci.json": "46e5ffa9f2ff365975d2bf72db96ea650264229e73c1730dc850f3639a7a7c31",
+    "cpu-source-review.json": "0dba605e3a2e4eceb3737ddf28fcc3b5038052bb8df5efe250c348bd6f89bd59",
+    "fixed-ci.json": "eac721fc6d6303de870628671030a9b3209de2439ae4b994b0a3c33010a92347",
     "historical-replay.json": "9c41332e723fe0f7eb8ba436cf494929b79f9e6b5ee04882b9be3863ee612828",
     "input-budget-check.json": "225e366be909f16db6fecffd0e6b8a32f39d141f8ef537160a2a4b7232b0dd14",
     "isolated-summary.json": "8496ffb657098b17b91bc967cf2e74bc4cb11efe6349c04ad38eaa267e909802",
     "mixed-before-index-refresh.json": "5fdb1b1ab04578642a06f17a9029b61424337d6803cf9fac29e6348bb58f04f2",
     "mixed-result.json": "4456104fb5c20165b2a64e3c3fb5ac3d121907311abdc2825f7d9ecd16351d23",
-    "self-review.json": "e1a256188150ee663a38ddde154039e1d6ef7105587228eeaac01bdc0e3aef6e"
-  }
+    "self-review.json": "6016d237794575d0b660e398e249643ae75997bf18f2fab322a03f053906efd1"
+  },
+  "engineering_review_complete": true,
+  "accepted_scope": "Candidate evidence consistency and engineering review; product gates remain false"
 }
