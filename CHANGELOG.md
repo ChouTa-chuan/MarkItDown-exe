@@ -4,6 +4,15 @@
 
 ## 更新中
 
+### 2026-11-16｜A3：基本包隨附 Qt／LGPL 說明與自有程式 MIT 全文
+
+- 程式0.19.1／架構0.4不變；分支`claude/qt-lgpl-notice`由main開出。
+- 新增`licenses/qt-lgpl-notice.md`並隨基本包安裝：Qt（PySide6／shiboken6 6.12.0）以LGPL-3.0使用、授權原文位置、原始碼取得方式、替換方法。相對前版，Qt授權選擇不再是「待落實」。Qt本體原始碼位置repo內無依據，照實寫「待補」。
+- 根目錄`LICENSE`複製進基本包（先前安裝包沒有自有程式的授權全文）；說明檔與LICENSE列為必要資產。third-party.md改由`license_inventory.py`的render()範本產生，並刪除「尚未選定原始碼授權」的過時說法。
+- 三角色流程：reviewer第一輪找出兩項需修正（指向不存在的LICENSE、只改了產出檔），第二輪確認全部解決；說明檔路徑以11-12的Windows實際安裝清單核對。
+- 驗證：Linux全741：740通過／1既有ONNX繁中品質預期失敗／0跳過，混合及50模組exit0；變異測試確認路徑或範本錯誤會被攔下。**新建置的實際檔案清單待本PR的Windows CI**。
+- 未完成：Qt本體原始碼位置待補；A4、A5、A6。7/12、C04 2/4、C11 2/5不變。
+
 - 2026-11-16：依使用者指示合併 PR 4、PR 5；規則改為每完成一個編號即可自行合併該 PR（CI 通過且查驗完成）。使用者已為 `main` 設定分支保護。
 
 - 2026-11-16：PR 5 的 Windows CI 通過並首次輸出 Python 模組清單：基本包 1,715 個模組中 5 個無法歸屬（setuptools 隨附子套件），CPU 元件 562 個全部可歸屬（[紀錄](docs/development-records/runs/python-archive-inventory-ci-2026-11-16/README.md)）。
