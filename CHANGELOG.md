@@ -4,7 +4,13 @@
 
 ## 更新中
 
-- 2026-11-16：A4 基本包排除建置用 setuptools，加入 spec 與隨包模組清單拒絕檢查及反例測試；CPU 元件不變。凍結程式與完整回歸結果待本階段收工記錄，Windows 效果待 PR CI。
+### 2026-11-16｜A4：查明 setuptools namespace 並排除基本包的建置工具
+
+- 程式／架構版號不變；`codex/a4-setuptools-audit-20261116` 承接 PR 6，並以 merge 納入已合併 PR 6／7 的最新 main，保留另一 AI 的設定與歷史。
+- 實際 Linux 匯入圖重現 urllib3 的選用 backports 匯入經 PyInstaller 別名帶入 setuptools 父套件與編譯工具；相對前版，基本包排除 setuptools，不再只把無來源檔的 namespace 留作 unknown，也不把它們按名稱改列已知套件。建置環境、固定相依、第三方原文與 CPU 元件不變。
+- spec 及隨包來源檢核拒絕 setuptools 根／子模組重新出現，基本包的公開小結新增 `python_archives.build_only_modules_absent`。反例涵蓋 namespace、套件邊界、重算資產 hash 及 CPU 不受影響；修改檔案內的分號敘述一併拆開。
+- 驗證：Linux 隔離基本包真正建置、檢查 EXE 內嵌 PYZ 並執行 frozen core／格式驗收；完整混合及獨立模組回歸通過，計數只見 [progress.json](docs/progress.json)，[小型證據與失敗紀錄](docs/development-records/runs/a4-setuptools-audit-2026-11-16/README.md)已保存。現況封存後更新 STATUS 與自動歷史索引，重建視覺進度頁。
+- 未完成：本環境 GitHub CLI 被拒，A4 PR 尚未建立、Windows CI 未執行、尚未合併；A4 未正式關閉。Qt 本體原始碼、CPython 隨附元件、再散布與實機驗收仍待，沒有提高里程碑或發布產品。
 
 - 2026-11-16：PR 6（A3）合併。依使用者決定，Claude 的規劃者改為子代理 `planner`（Fable 5.2），主對話改為協調者並預設 Opus 5.5（`CLAUDE.md`、`.claude/`；只影響 Claude）。
 

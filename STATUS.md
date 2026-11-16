@@ -10,19 +10,21 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | 已合併 PR 1–6（2026-11-16），A3 已在 main；已設分支保護（只能經 PR、只允許 Merge） |
-| 本階段分支 | `claude/confident-ride-o38ls7`（PR 7）：只調整 Claude 的分工設定（規劃者改為子代理），不屬於任何編號。合併後 Claude 暫停，**下一棒交給 Codex（GPT）**，從 main 開新分支做 A4 |
+| `main` | 已核對 PR 1–7 合併；本輪更新後的基線為 `6032f9e`。已設分支保護（只能經 PR、只允許 Merge） |
+| 本階段分支 | `codex/a4-setuptools-audit-20261116`，由接手時尚未合併的 PR 6 head `fc02258` 開出，後以 merge 納入最新 main；沒有推送別人的分支。程式／測試提交 `8c26451`，納入 main 的提交 `653ed8e` |
+| 本階段 PR／推送 | A4 實作與 Linux 驗證完成，PR 尚未建立：GitHub CLI 回覆 `Forbidden`，無可用連接器。[建立 A4 PR（head已填、base為main）](https://github.com/ChouTa-chuan/MarkItDown-exe/compare/main...codex/a4-setuptools-audit-20261116?expand=1)；實際推送結果見本輪收工補記 |
+| 相依／合併次序 | 父 PR 6 及後來的 PR 7 已合併，不需再疊 PR；本輪 PR 只應包含 A4 差異。A4 Windows／Linux CI 全通過且查驗完成後，以 Merge 合併，不直接推 main |
 | 其他分支 | `codex/ai-handoff-workflow-20261112`：內容已採納，不需要合併 |
 
 依 AGENTS.md「合併時機」，每個編號一個 PR，CI 通過且查驗完成後即合併。接手時仍先看開啟中的 PR。
 
 ## B. 這個階段完成了什麼
 
-- **A3 Qt／LGPL 隨包說明**：基本包新增 `licenses/qt-lgpl-notice.md`，寫明 Qt（PySide6／shiboken6 6.12.0）以 LGPL-3.0 使用、授權原文在安裝後的位置、原始碼取得方式、如何替換 Qt 程式庫。網址只用 repo 內有依據的（`inventory.json` 的 project_urls 與補充來源）；**Qt 本體（qtbase 等）的原始碼位置沒有依據，照實寫「待補」**，在補上之前 LGPL 的對應原始碼義務不算完全關閉。
-- 根目錄 `LICENSE` 複製進基本包的 `licenses/markitdown-desktop/LICENSE`（先前安裝包沒有自有程式的授權全文）；說明檔與 LICENSE 列為必要資產（`build_profile.py`）。
-- `third-party.md` 改由 `scripts/license_inventory.py` 的 render() 範本產生，有逐字比對測試；過時的「尚未選定原始碼授權」已改為 MIT。
-- 依三角色流程：coder 實作、reviewer 兩輪查驗（第一輪兩項需修正已解決）、規劃者跑完整回歸。說明檔中的路徑以 11-12 的 Windows 實際安裝清單核對過。
-- Linux 完整回歸通過，結果記在 `progress.json` 的 `full_regression`。新建置是否真的含這兩個檔案，看 PR 6 的 Windows CI。
+- **A4 setuptools 調查與排除**：已重現 urllib3 的選用 backports 匯入，經 PyInstaller 別名拉入 setuptools 父套件與編譯工具的關係；原 unknown 為無來源檔的 namespace。基本包排除整套建置用 setuptools，保留實際建置環境、原文與鎖定，沒有按模組名猜測授權歸屬。
+- `base.spec` 與建置後來源檢核共同拒絕 setuptools 子模組再度出現，基本包的公開 CI 摘要新增 `python_archives.build_only_modules_absent`；CPU 元件不改。新增反例驗證重算資產 hash 也不能繞過排除，並拆開修改檔案內原有的分號敘述。
+- Linux 隔離基本包已真正建置及執行：EXE 內嵌 PYZ 沒有 setuptools；空 PATH 下通過既有 frozen core／格式驗收。完整混合與獨立模組回歸通過，原始結果、匯入圖摘要、失敗與限制見[本輪證據](docs/development-records/runs/a4-setuptools-audit-2026-11-16/README.md)，現況數字只見 [progress.json](docs/progress.json)。
+- 自行查驗範圍：比較匯入圖與 EXE 內實際 PYZ、確認兩層拒絕條件、套件邊界不誤擋、CPU 規則不變及原文／模型／候選證據未變。這是 Codex 自行查驗，不是 Claude 子代理查驗；沒有新的必須修正項。
+- **A4 Windows CI 未執行、PR 未建立／未合併**，故 A4 尚未正式關閉。未提高產品里程碑、SBOM 或再散布旗標，沒有發布產品。A3 與 Claude 分工更新已由 PR 6／7 合併，舊 STATUS 已封存於歷史索引。
 
 ## C. 未完成、阻擋與下一步
 
@@ -32,11 +34,13 @@
 
 **整體規劃**（每個編號一個 PR，完成即合併）
 
+**本輪最先接續**：使用可存取 GitHub PR API 的環境，核對並推送本分支最新 head、建立 A4 PR（base=main），等待全部 CI；Windows 公開摘要應沒有 setuptools namespace，`build_only_modules_absent` 為 true，且既有建置／驗收全通過。失敗先修自己的分支，通過且查驗無未解項才 Merge。CLI 本輪被拒不代表仍需使用者逐項批准；既有合併授權沿用。
+
 | 大階段 | 編號與任務 | 狀態 |
 | --- | --- | --- |
 | A 關閉來源與再散布缺口 | A1 Python 模組清單、A2 文件補記 | 完成（PR 5） |
 | | A3 Qt／LGPL 隨包說明、自有 MIT 全文隨包 | 完成（PR 6） |
-| | **A4 查明 5 個 setuptools 子模組為何收進基本包**，能拿掉就拿掉。線索：PyInstaller 6.22.3 有 `pyi_rth_pkgres`、`pyi_rth_setuptools` 兩個執行期掛鉤；不明模組為 `setuptools._distutils.compilers`、`.compilers.C`、`.compilers.platform`、`setuptools._vendor`、`setuptools._vendor.jaraco`（PR 5 的 Windows CI 摘要 `python_archives.unknown_names`）。排除會改變打包內容，需確認程式不依賴它們 | **下一個，交給 Codex** |
+| | **A4 查明 setuptools 子模組並排除非必要建置工具**；Linux 匯入圖、實際 frozen core 與回歸已驗，Windows 結果不可從 Linux 推定 | **Codex 已實作；等 PR／Windows CI 通過後合併關閉** |
 | | A5 逐檔列出 CPython 隨附元件（OpenSSL、libffi、SQLite）的版本與原文 | 待開始 |
 | | A5b 補上 Qt 本體原始碼的位置與版本對應（需有依據，例如建置時記錄 PySide6 對應的 Qt 版本來源），補上後更新 `qt-lgpl-notice.md` 的「待補」 | 待開始 |
 | | A6 大階段確認：重產候選報告、重跑來源分類、評估 `runtime_sbom_complete` | 待開始 |
@@ -49,10 +53,13 @@
 
 **有期限的資料**：PR 上的 Windows 報告保留七天，以暫時合併提交執行，不是候選證據，預設不保存。GitHub 的 artifact 儲存主機每次不同，本環境的網路政策通常會擋下，不要依賴下載；需要的資料請讓 CI 寫進公開摘要。
 
+**平台阻擋**：Git 推送可用，但本輪 `gh pr list` 的 GraphQL 請求回覆 `Forbidden`；有效主機清單沒有 `api.github.com`，也沒有可用 GitHub 連接器。尚無 A4 CI run 或 artifact。完整本機日誌／建置產物在 `/tmp/markitdown-a4-audit`，可能隨環境更換消失；已將必要小型結果與 hash 保存入 repo。下一位工具可用時先完成 A4 PR，不重跑已通過的相同本機測試充作新成果。
+
 ## D. 近期新增的規則與決定
 
 | 日期 | 來源 | 內容 |
 | --- | --- | --- |
+| 2026-11-16 | 使用者本輪接手指示 | Codex 從 C 節 A4 開始；更新 STATUS、推送自己的新分支、開 PR；CI 通過即可依 AGENTS 的查驗條件 Merge。不直接推 main、不推別人分支。A4 任務內排除已驗證非必要的 setuptools，不擴及其他打包調整 |
 | 2026-11-12 | 使用者指示 | 工作分支＋PR，不直接推 main；不強制推送；門檻未關閉前不對外交付安裝包（含 CI artifact）；暫不建立 Release 或 tag |
 | 2026-11-13 | 使用者同意 | 現況與歷史分開、自動索引、數字單一來源、階段完成才整體更新、新證據移出 repo（舊證據原地保留）、暫緩擴充元件系統、動到的檔案順手拆開壓縮的程式行 |
 | 2026-11-13 | 使用者決定 | 自有程式採 MIT，著作權人「周大詮 (ChouTa-chuan)」，涵蓋以不同 AI 工具產生的全部自有內容 |
@@ -65,4 +72,4 @@
 
 ## 接手指令
 
-> 請接手 ChouTa-chuan/MarkItDown-exe。先列出開啟中的 PR，切到最新的工作分支（沒有開啟中的 PR 就用 main），讀該分支的 AGENTS.md 與 STATUS.md，從 C 節「可以直接做的下一步」第一項開始；階段完成後依 AGENTS.md 更新現況、推送自己的新分支並開 PR，不直接推送或自行合併 main。
+> 請接手 ChouTa-chuan/MarkItDown-exe 的分支 `codex/a4-setuptools-audit-20261116`（若已有 A4 PR，先核對其最新 head）。讀該分支 AGENTS.md 與 STATUS.md，先完成 C 節的 A4 PR／Windows CI；全部通過且查驗完成即可 Merge。A4 關閉後才接 A5。不直接推 main、不推別人的分支；不要因尚無 PR 就忽略此已推送的待審分支。

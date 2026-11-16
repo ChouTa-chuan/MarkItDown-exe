@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "date_taipei": "2026-11-16",
+  "tested_source": "8c2645156babedbb8152f1113017366997cf3fb0",
+  "accepted": true,
+  "scope": "Linux regression, import graph and base-core frozen acceptance only",
+  "stage_closed": false,
+  "windows_executed": false,
+  "gpu_executed": false,
+  "release_ready": false,
+  "process_exits": {
+    "mixed": 0,
+    "isolated": 0,
+    "base_build": 0,
+    "frozen_acceptance": 0
+  },
+  "ci_run": null,
+  "artifact_expiry": null,
+  "keywords": [
+    "A4",
+    "setuptools",
+    "namespace",
+    "PyInstaller",
+    "基本包排除",
+    "Linux frozen",
+    "PR API限制"
+  ],
+  "files": {
+    "README.md": "4092356a34a5fc68cef1235ba9a27cba0292d126bad9f3a7e9f9ec5293eb93ff",
+    "frozen-acceptance.json": "444278f7c7c81b85b36366cc62641c0d78a0cc96f20176b65232097fbf835d6d",
+    "import-audit.json": "a40a85194bca3383fb74cd19984e2045f16086cc60f4b32bee6ecd53ff32dc8f",
+    "isolated-summary.json": "9a6b3fa7d451464f401e0aaa9ac8378104ca65b95bc6a91d8ad3bcee43cf3195",
+    "mixed-result.json": "ce39d626d599c0518536155e9f1d8ddd62c5d4cf4c014fb8ea4d8639c4797b85"
+  }
+}
