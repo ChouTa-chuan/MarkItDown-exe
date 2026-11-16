@@ -1,7 +1,7 @@
 {
   "updated": "2026-11-16",
   "environment": "Linux · Python3.12.14／Tesseract5.3.4；A5b本機完整回歸與Windows wheel靜態核對通過，Windows原生待CI；原固定候選仍cb8f24d",
-  "tests_passed": 763,
+  "tests_passed": 764,
   "headline": "main已合併PR1–9；A5b Qt固定來源／隨包版本對應已實作，本機完整回歸通過，Windows原生待CI",
   "blocker": "A5b Windows原生觀測待CI；A5c驗收補強另開PR；完整build修補／設定、runtime SBOM、再散布及實機仍待。",
   "next": "main 已合併 PR 1–9；本輪 A5b 補齊 Qt 原始碼與版本對應，之後另開 A5c PR 補強 A5 驗收，全部 Windows CI 通過才合併；再接 A6 固定候選整體審閱。",
@@ -257,7 +257,7 @@
     "2026-11-12：0.19.1完整698（697通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與45模組exit0；Tesseract5.3.4／CPython3.12.3與先前基線不同。未對照來源已分類但candidate／gap基本49、CPU47仍待，授權提案未確認，沒有新的Windows執行。",
     "2026-11-13：完整703（702通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與46模組exit0；新增項目為歷史索引測試，沒有新的Windows執行。"
   ],
-  "tests_run": 764,
+  "tests_run": 765,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1287,11 +1287,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "bc2f77c46de1903877ab1a2ee4e489f2c7559aac",
+    "source_commit": "5376c99743ed15ead83ab3f58882be5b78de2ef9",
     "date_taipei": "2026-11-16",
     "accepted": true,
-    "run": 764,
-    "passed": 763,
+    "run": 765,
+    "passed": 764,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1311,7 +1311,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/a5b-qt-source-2026-11-16/README.md"
+    "evidence": "development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2500,7 +2500,7 @@
     "evidence": "development-records/runs/a5-cpython-components-2026-11-16/README.md"
   },
   "a5b_qt_sources": {
-    "source_commit": "bc2f77c46de1903877ab1a2ee4e489f2c7559aac",
+    "source_commit": "5376c99743ed15ead83ab3f58882be5b78de2ef9",
     "status": "local-verified-windows-pending",
     "version": "6.12.0",
     "qt5_commit": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
@@ -2508,8 +2508,8 @@
     "pyside_commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
     "official_modules_verified": 46,
     "windows_wheel_qt_dlls_static": 76,
-    "targeted_tests_run": 60,
-    "targeted_tests_passed": 60,
+    "targeted_tests_run": 9,
+    "targeted_tests_passed": 9,
     "linux_observed": true,
     "windows_executed": false,
     "binary_reproduction_verified": false,
@@ -2519,6 +2519,36 @@
     "first_corrections_commit": "c25e3c2",
     "evidence": "development-records/runs/a5b-qt-source-2026-11-16/README.md",
     "pr": 10,
-    "merge_status_source": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/10"
+    "merge_status_source": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/10",
+    "forwarding_evidence": "development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md"
+  },
+  "previous_full_regression_764": {
+    "source_version": "0.19.1",
+    "architecture_version": "0.4",
+    "source_commit": "5376c99743ed15ead83ab3f58882be5b78de2ef9",
+    "date_taipei": "2026-11-16",
+    "accepted": true,
+    "run": 765,
+    "passed": 764,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 1,
+    "expected_failure_ids": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "mixed_assertions_accepted": true,
+    "mixed_process_exit": 0,
+    "isolated_modules": 51,
+    "isolated_all_exits_zero": true,
+    "python": "3.12.14",
+    "tesseract": "5.3.4",
+    "baseline_environment_identical": false,
+    "windows_executed_this_run": false,
+    "gpu_executed": false,
+    "traditional_chinese_onnx_quality_passed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md"
   }
 }

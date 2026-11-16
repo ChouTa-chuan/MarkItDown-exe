@@ -11,7 +11,7 @@
 | 項目 | 狀態 |
 | --- | --- |
 | main／已完成基線 | **main 已合併 PR 1–9，A4／A5 完成（PR #8／#9）**；A5b 起點為 `c51089a258b820b95af51816e516a05300dfb7c4`。使用者確認 A5 的程式、原文、證據、測試已通過 Claude reviewer 查驗 |
-| 本階段分支 | `codex/a5b-qt-source-20261116`，從上述最新 main 另開；未推送別人的分支。A5 本機完整回歸來源仍為 `2104418`，A5b 完整回歸來源為 `bc2f77c` |
+| 本階段分支 | `codex/a5b-qt-source-20261116`，從上述最新 main 另開；未推送別人的分支。A5 本機完整回歸來源仍為 `2104418`，A5b 原始來源為 `bc2f77c`，Qt 摘要接線修正後完整回歸來源為 `5376c99` |
 | 本階段 PR | [A5b PR #10](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/10)，目標 main；本機完整回歸與來源查驗通過，原生 Windows CI 執行中。A5 PR #9 已一般 Merge，最終 head `944ef12` 全部 CI 通過 |
 | 合併規則 | 一個編號一個 PR；所有 CI 通過且查驗無未解決必修項時，以一般 Merge 合併，不直接推 main、不刪分支、不改寫歷史 |
 
@@ -19,6 +19,7 @@
 
 - **A5b 第一個提交 `c25e3c2` 已完成指定修正**：D 節恢復歷史使用者決定原文；main／next 改為 PR 1–9；A5 CI README 追加最終 head 四個 run，原版先另存、原始 CI JSON 不變。A5c 三項僅列獨立 PR 待辦。
 - **Qt 發布來源對應已實作**：官方 Qt supermodule／qtbase 與 PySide／shiboken tag、固定提交、完整 gitlink、原始版本宣告及鎖定 Windows wheel 有來源依據，不再只列「待補」。基本包隨附 `licenses/qt-sources.json`，離線驗證來源並核對實際載入版本；更新中文 Qt 取得方法、原始碼下載及第三方說明範本。限制保留，未核准再散布。
+- 已補基本包 controller 的 Qt 報告轉存／annotation 重送，避免摘要只留在子程序日誌；[修正與原始完整回歸](docs/development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md)已另存，合成 Windows 觀測僅驗接線。
 - Linux 完整混合及獨立模組回歸正常退出，只有既有 ONNX 繁中 expected failure；[來源／原始結果／靜態 wheel 證據](docs/development-records/runs/a5b-qt-source-2026-11-16/README.md)已保存，計數只見 [progress.json](docs/progress.json)。Windows wheel 的 PE 檢查不冒充 Windows 執行；A5b 原生 Windows 觀測尚待本 PR CI。
 
 ## C. 未完成、阻擋與下一步

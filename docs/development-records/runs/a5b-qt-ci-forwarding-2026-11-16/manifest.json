@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-16",
+  "tested_source": "5376c99743ed15ead83ab3f58882be5b78de2ef9",
+  "accepted": true,
+  "windows_executed": false,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "keywords": [
+    "A5b",
+    "Qt",
+    "CI",
+    "stdout",
+    "annotation",
+    "控制端",
+    "完整回歸"
+  ],
+  "files": {
+    "README.md": "f7a6f0dfdcacaf102b034438d1a3a2805a99ddef48daa80a9fff649f58ec3c22",
+    "isolated-summary.json": "f6d415c5360c72b1ff5090fd9db8320d06c62e41431cd93bb9db359196f5ea5b",
+    "mixed-result.json": "e61e76d0a7e547de3828a91806ff3f83b9e154962b3b5f4f95fc179076cbf42e"
+  }
+}
