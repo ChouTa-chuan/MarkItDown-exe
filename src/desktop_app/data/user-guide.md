@@ -20,6 +20,8 @@
 
 輸出名稱保留原副檔名再加 .md，例如 報告.pdf → 報告.pdf.md。從不同資料夾加入同名文件時，請分開輸出，避免名稱衝突。來源文件不會被覆寫。
 
+系統需求：64 位元 Windows 10 或 Windows 11。程式使用作業系統內建的 Universal C Runtime，不支援 Windows 8.1 及更早的版本。
+
 支援的開發基線：UTF-8 txt/md、DOCX、PPTX、XLSX、HTML/HTM、文字型 PDF。掃描 PDF 需要相應 OCR 引擎。密碼保護、損壞、不支援格式或引擎缺失會顯示錯誤。
 
 ## 快速與精準

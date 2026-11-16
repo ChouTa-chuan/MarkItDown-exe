@@ -136,6 +136,18 @@ class InventoryTests(unittest.TestCase):
         self.assertIn('archive-members-not-enumerated',archive['review_reasons'])
         self.assertTrue(report['summary']['unresolved_files'])
 
+    def test_enumerated_archive_drops_pending_reason_only_for_that_path(self):
+        packages,loader=self.complete()
+        self.write('_internal/base_library.zip',b'archive fixture')
+        self.write('_internal/other.zip',b'other archive')
+        with patch.object(subject,'record_owners',return_value={}):
+            report=subject.inventory(self.root,packages,(),loader,'_internal/assets','python/LICENSE.txt','App.exe',
+                                     enumerated_archives=['_internal/base_library.zip'])
+        rows={r['path']:r for r in report['files']}
+        self.assertEqual(rows['_internal/base_library.zip']['role'],'archive')
+        self.assertNotIn('archive-members-not-enumerated',rows['_internal/base_library.zip']['review_reasons'])
+        self.assertIn('archive-members-not-enumerated',rows['_internal/other.zip']['review_reasons'])
+
     def test_original_notice_mapping_has_package_version_and_hash(self):
         packages,loader=self.complete();report=self.run_inventory(packages,loader)
         notice=next(r for r in report['files'] if r['path']=='_internal/assets/LICENSE.txt')

@@ -35,6 +35,7 @@ GENERATED = {
     'desktop_app/data/licenses/bootloader/manifest.json': 'scripts/build_provenance.py',
     'desktop_app/data/licenses/installed/manifest.json': 'scripts/prepare_base_assets.py',
     'desktop_app/data/licenses/native/manifest.json': 'scripts/prepare_base_assets.py',
+    'desktop_app/data/licenses/native/python-modules.json': 'scripts/python_archive_inventory.py',
     'desktop_app/data/native/source.json': 'scripts/prepare_bundled_ocr.py',
     'desktop_app/data/native/manifest.json': 'scripts/prepare_bundled_ocr.py',
     'desktop_app/data/third-party.md': 'scripts/prepare_base_assets.py',
@@ -42,6 +43,7 @@ GENERATED = {
     'worker-assets/bootloader/manifest.json': 'scripts/build_provenance.py',
     'worker-assets/installed-manifest.json': 'scripts/prepare_worker_assets.py',
     'worker-assets/native/manifest.json': 'scripts/prepare_worker_assets.py',
+    'worker-assets/native/python-modules.json': 'scripts/python_archive_inventory.py',
 }
 PYTHON_LICENSE = ('desktop_app/data/licenses/python-runtime/LICENSE.txt', 'worker-assets/python-runtime/LICENSE.txt')
 # 僅用來替 system-native 檔案標示「候選」發行者，不構成已確認擁有者。
@@ -106,6 +108,12 @@ def closest(path, candidates):
     return sorted(candidates, key=lambda candidate: (-shared(candidate), candidate.startswith('docs/'), candidate))
 
 
+def enumerated_archive(report, path):
+    """報告列有該封存的路徑，且 members 是非空清單，才算成員已列舉。"""
+    library = (report.get('python_archives') or {}).get('base_library') or {}
+    return library.get('path') == path and isinstance(library.get('members'), list) and bool(library['members'])
+
+
 def classify(report, blobs, members, models, payload):
     """回傳逐檔分類列。report 為 bundle-provenance.json 內容；其餘為各證據索引。"""
     native = {item['file']: item for item in report['native_files']}
@@ -162,6 +170,11 @@ def classify(report, blobs, members, models, payload):
                        evidence=['scripts/prepare_base_assets.py', 'scripts/prepare_worker_assets.py'],
                        note='建置用 CPython 的 LICENSE.txt 複本' + (f'（建置 Python {python}）' if python else '')
                             + '；尚未與 python.org 同版原文獨立比對')
+        elif item['role'] == 'archive' and enumerated_archive(report, path):
+            row.update(category='archive-members-enumerated', status='origin-known',
+                       evidence=['python_archives:base_library'],
+                       note='封存成員已逐項列於報告的 python_archives（名稱、大小、CRC）；'
+                            '成員的上游來源與條款尚未逐檔核對')
         elif item['role'] == 'archive':
             row.update(category='archive-members-not-enumerated', status='gap', evidence=[],
                        note='PyInstaller 產生的 Python 標準庫封存，成員未展開；需另做成員層級 SBOM')

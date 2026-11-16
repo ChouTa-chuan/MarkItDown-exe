@@ -12,6 +12,7 @@ from build_provenance import sha256
 from candidate_inventory import component_inventory, inventory, verify_inventory
 from bundle_filters import is_excluded_name
 from native_identity import identity_errors, summarize
+from python_archive_inventory import load_manifest, summarize as summarize_python, zip_members
 
 # 建置時為非 wheel 來源原生檔記錄的身分欄位；原樣帶進報告，缺少的欄位不補造。
 IDENTITY_FIELDS = ('source_directory', 'company', 'product', 'file_version', 'signature_status', 'signer',
@@ -52,6 +53,9 @@ def audit(bundle, profile, expected_version):
         if build['source_version'] != expected_version:
             raise ValueError('Application version mismatch')
         verify_hashes(assets, build['assets'])
+        # 純 Python 模組清單必須在資產雜湊清單內，否則事後改動它不會被發現。
+        if 'licenses/native/python-modules.json' not in build['assets']:
+            raise ValueError('Python module manifest not covered by asset fingerprints')
         installed = json.loads(contained_file(assets, 'licenses/installed/manifest.json').read_text(encoding='utf-8'))
         metadata_prefix, bootloader = 'licenses/installed/', assets/'licenses/bootloader'
         python_license = 'licenses/python-runtime/LICENSE.txt'
@@ -120,10 +124,20 @@ def audit(bundle, profile, expected_version):
                              bytes_changed=digest!=row['source_sha256'], origin=row['origin'],
                              distributions=row['distributions'],
                              **{key: row[key] for key in IDENTITY_FIELDS if key in row}))
+    # Python 程式層級清單：spec 寫出的純 Python 模組清單，加上實際 base_library.zip 的成員；缺任一項即拒絕。
+    modules = load_manifest(contained_file(native_root, 'python-modules.json'))
+    library_path = '_internal/base_library.zip'
+    library = contained_file(bundle, library_path)
+    members = zip_members(library)
+    python_archives = dict(schema_version=1, pure_modules=modules,
+                           base_library=dict(path=library_path, sha256=sha256(library),
+                                             bytes=library.stat().st_size, members=members),
+                           summary=summarize_python(modules, members))
     entry = contained_file(bundle, 'MarkItDownBase.exe' if profile=='base' else 'MarkItDownOCRWorker.exe')
     prefix=assets.relative_to(bundle).as_posix()
     contents=inventory(bundle,packages,binaries,{**loader,'prefix':bootloader.relative_to(assets).as_posix()},
-                       prefix,python_license,entry.relative_to(bundle).as_posix())
+                       prefix,python_license,entry.relative_to(bundle).as_posix(),
+                       enumerated_archives=[library_path])
     verify_inventory(bundle,contents)
     # 已決定排除的檔案若又出現在候選包，代表排除失效；直接拒絕，不靠人工比對清單。
     forbidden = sorted(row['path'] for row in contents['files']
@@ -135,6 +149,7 @@ def audit(bundle, profile, expected_version):
                 host_platform=sys.platform, packages=packages, packages_without_wheel_notice=pending,
                 bootloader=loader, entry_sha256=sha256(entry), native_files=binaries,
                 transformed_binaries=sum(p['bytes_changed'] for p in binaries),
+                python_archives=python_archives,
                 candidate_inventory=contents,inventory_reverified=True,excluded_binaries_absent=True,
                 scope='Bundled provenance consistency; CPU package list describes build environment, not runtime closure',
                 pending_review=['Application license', 'Qt obligations', 'Microsoft/native runtimes',
@@ -185,6 +200,8 @@ def main():
         brief['excluded_binaries_absent']=report['excluded_binaries_absent']
         brief['non_wheel_native']=summarize(report['native_files'])
         brief['identity_errors']=identity_errors(report['native_files'])
+    if 'python_archives' in report:
+        brief['python_archives']=report['python_archives']['summary']
     if 'package_inventory' in report:
         brief['package_inventory']=report['package_inventory']['summary']
         brief['package_sha256']=report['package_inventory']['archive_sha256']

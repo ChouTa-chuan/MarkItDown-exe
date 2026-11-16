@@ -79,8 +79,12 @@ def record_owners(paths):
     return owners
 
 
-def inventory(bundle, packages, native_files, bootloader, asset_prefix, python_license, entry):
-    """檔案列舉完整與來源／授權審查分開；每個未知項目均可在報告追查。"""
+def inventory(bundle, packages, native_files, bootloader, asset_prefix, python_license, entry, enumerated_archives=()):
+    """檔案列舉完整與來源／授權審查分開；每個未知項目均可在報告追查。
+
+    enumerated_archives：成員已另外逐項列舉的封存檔（相對 bundle 的路徑）；這些檔案不再列「成員未展開」待審原因。
+    """
+    enumerated = {path.casefold() for path in enumerated_archives}
     rows = snapshot(bundle)
     paths = {row['path'].casefold():row for row in rows}
     owners = record_owners(paths)
@@ -134,7 +138,9 @@ def inventory(bundle, packages, native_files, bootloader, asset_prefix, python_l
         if source and source['bytes_changed']:
             reasons.append('native-bytes-transformed')
         if key.endswith(('.pyz','.zip')):
-            role='archive';reasons.append('archive-members-not-enumerated')
+            role='archive'
+            if key not in enumerated:
+                reasons.append('archive-members-not-enumerated')
         elif row['path'] in notice_paths:role='original-notice'
         elif key.endswith('/metadata'):role='package-metadata'
         elif key.endswith(('.exe','.dll','.pyd','.so')) or source:role='native-binary'

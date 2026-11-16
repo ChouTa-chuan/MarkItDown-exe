@@ -4,6 +4,17 @@
 
 ## 更新中
 
+- 2026-11-16：PR 5 的 Windows CI 通過並首次輸出 Python 模組清單：基本包 1,715 個模組中 5 個無法歸屬（setuptools 隨附子套件），CPU 元件 562 個全部可歸屬（[紀錄](docs/development-records/runs/python-archive-inventory-ci-2026-11-16/README.md)）。
+
+### 2026-11-16｜Python 模組來源清單與封存成員列舉；三角色分工啟用
+
+- 程式0.19.1／架構0.4不變；分支`claude/python-archive-inventory`疊在PR 4之上，未合併main。
+- 新增`scripts/python_archive_inventory.py`：建置時記錄每個純Python模組來自標準庫、哪個套件或自有程式，並列舉`base_library.zip`成員；隨包檢核把分類計數寫進CI公開摘要。相對前版，Python程式層級不再是完全沒有清單。
+- 這是首次依三角色流程進行：coder實作、reviewer查驗（七項驗收條件通過，五項建議已修正）、規劃者跑完整回歸。reviewer以真實打包分析試跑：1,655個模組中6個無法歸屬。
+- 文件：來源分類與授權文件補記微軟執行期、OpenSSL、FFmpeg的處理現況；使用說明註明需要64位元Windows 10／11。基本包簽章已確認：28個非wheel原生檔全部有效，自建`tesseract.exe`未簽章屬預期。
+- 驗證：Linux全736：735通過／1既有ONNX繁中品質預期失敗／0跳過，混合及49模組exit0。**Windows上的清單輸出待本階段PR的CI**；未執行GPU或人工驗收。
+- 未完成：Qt／LGPL隨包說明、CPython隨附元件逐檔清單；runtime SBOM旗標維持false。7/12、C04 2/4、C11 2/5不變。
+
 - 2026-11-14：AGENTS.md 新增「多個 AI 輪替」：以 PR 為交棒單位、接手從最新工作分支開新分支、不推送他人分支、共用檔案衝突的處理方式。
 
 - 2026-11-13：簽章查詢修正後，CPU 元件 27 個非 wheel 原生檔全部取得有效簽章（Microsoft 或 Python Software Foundation），原生檔與未對照來源各再少 44 個（[紀錄](docs/development-records/runs/native-signatures-ci-2026-11-13/README.md)）；基本包摘要待讀。
