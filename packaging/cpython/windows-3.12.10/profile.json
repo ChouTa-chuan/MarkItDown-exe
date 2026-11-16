@@ -113,6 +113,17 @@
         "offset": 0,
         "length": 1484
       }
+    },
+    {
+      "file": "sources/patchlevel.h",
+      "sha256": "21499531529d07324f8b4096a23dc7d5c86338c182fb9cc8dd2a272441aabca4",
+      "bytes": 1301,
+      "repository": "python/cpython",
+      "commit": "0cc81280367df838c4b199f8f0378837165071c2",
+      "source_path": "Include/patchlevel.h",
+      "url": "https://github.com/python/cpython/blob/0cc81280367df838c4b199f8f0378837165071c2/Include/patchlevel.h",
+      "source_sha256": "21499531529d07324f8b4096a23dc7d5c86338c182fb9cc8dd2a272441aabca4",
+      "git_blob_sha": "b982ff713da3a81a125130a47bfe5bf87c5766c3"
     }
   ],
   "scope": "Pinned official CPython build declarations and literal upstream notice bytes; not binary version certification or redistribution approval"

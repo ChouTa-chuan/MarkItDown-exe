@@ -64,6 +64,14 @@ class ComponentTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'declaration mismatch'):
             subject.load_profile('3.12.10', self.root)
 
+    def test_renaming_a_profile_cannot_substitute_another_patch_release(self):
+        new = self.root/'packaging/cpython/windows-3.12.11'
+        self.profile_root.rename(new)
+        self.profile['cpython_version'] = '3.12.11'
+        (new/'profile.json').write_text(json.dumps(self.profile))
+        with self.assertRaisesRegex(ValueError, 'source version mismatch'):
+            subject.load_profile('3.12.11', self.root)
+
     def test_x64_sources_are_not_applied_to_another_architecture(self):
         with patch.object(subject.platform, 'machine', return_value='ARM64'):
             with self.assertRaisesRegex(ValueError, 'Windows x64'):

@@ -2,7 +2,7 @@
 
 此處保存對應 **實際 Windows CPython patch 版及 x64** 的官方建置宣告與原文。建置離線讀取 `windows-版本/profile.json`；沒有完全相同的已固定 profile 就失敗，不拿 Linux 或另一 patch 版代填。
 
-`profile.json` 的每筆來源包含不可變 Git commit、來源路徑、SHA-256 及保存大小。`sources/` 保留官方 `python.props`、授權組合規則、外部相依選擇與 Windows 安裝配置的原位元組，用來核對宣告版本及原文來源；這些建置來源不隨應用程式複製。`original/` 才是隨包保存的原文：
+`profile.json` 的每筆來源包含不可變 Git commit、來源路徑、SHA-256 及保存大小。`sources/` 保留官方 `patchlevel.h`、`python.props`、授權組合規則、外部相依選擇與 Windows 安裝配置的原位元組，用來核對實際 patch 版、宣告版本及原文來源；不能只改 JSON／資料夾版本來套用另一版。這些建置來源不隨應用程式複製。`original/` 才是隨包保存的原文：
 
 - OpenSSL：取自該 CPython 外部二進位版本 x64 目錄的完整 `LICENSE.txt`。
 - libffi：取自該 CPython 外部二進位版本的完整 `LICENSE`。

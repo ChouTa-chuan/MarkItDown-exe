@@ -58,6 +58,12 @@ def load_profile(version, root=ROOT):
             raise ValueError('CPython original source fingerprint mismatch: ' + name)
         if not re.fullmatch('[0-9a-f]{40}', row.get('commit', '')):
             raise ValueError('Unpinned CPython external source')
+        if row.get('repository') == 'python/cpython' and row['commit'] != profile['cpython_commit']:
+            raise ValueError('Mixed CPython source commits')
+    header = contained(directory, 'sources/patchlevel.h').read_text(encoding='utf-8')
+    declared_python = re.search(r'^#define\s+PY_VERSION\s+"([^"]+)"', header, re.MULTILINE)
+    if not declared_python or declared_python.group(1) != version:
+        raise ValueError('CPython source version mismatch')
     # 宣告值必須能對到真正保存的 python.props，不能只改 JSON 版本就通過。
     props = ElementTree.parse(contained(directory, 'sources/python.props'))
     ns = {'m': 'http://schemas.microsoft.com/developer/msbuild/2003'}
