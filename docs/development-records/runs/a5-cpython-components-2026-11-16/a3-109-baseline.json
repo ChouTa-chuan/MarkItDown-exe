@@ -1,0 +1,124 @@
+{
+  "retrieved_date_taipei": "2026-11-16",
+  "source": "GitHub public check-run annotation",
+  "pr": 6,
+  "head_sha": "fc022585a18f7c9758a818b38d1ac0e123c89b3b",
+  "run_id": 43797247571,
+  "job_id": 133069447371,
+  "api_path": "repos/ChouTa-chuan/MarkItDown-exe/check-runs/133069447371/annotations",
+  "job_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43797247571/job/133069447371",
+  "payload": {
+    "check": "bundle-provenance",
+    "profile": "base",
+    "source_version": "0.19.1",
+    "accepted": true,
+    "release_ready": false,
+    "report_sha256": "12bd2bcd25a619d2ecf96099e0046546d3c7fbde00c6e338b9196c82a08a23b3",
+    "native_files": 153,
+    "packages": 40,
+    "source_commit": "a91280b807d88a59735aabe6c97a345f7df411b7",
+    "inventory": {
+      "files": 1611,
+      "bytes": 263808818,
+      "unresolved_files": 109,
+      "review_files": 148,
+      "original_notice_files": 108,
+      "packages": 40,
+      "file_inventory_complete": true,
+      "runtime_sbom_complete": false,
+      "redistribution_approved": false,
+      "release_ready": false
+    },
+    "inventory_reverified": true,
+    "excluded_binaries_absent": true,
+    "non_wheel_native": [
+      {
+        "origin": "python-runtime",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+        "company": "Microsoft Corporation",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "files": 2
+      },
+      {
+        "origin": "python-runtime",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+        "company": "Python Software Foundation",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+        "files": 2
+      },
+      {
+        "origin": "python-runtime",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+        "files": 1
+      },
+      {
+        "origin": "python-runtime",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+        "files": 19
+      },
+      {
+        "origin": "python-runtime",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "SQLite3",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+        "files": 1
+      },
+      {
+        "origin": "python-runtime",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "The OpenSSL Project, https://www.openssl.org/",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+        "files": 2
+      },
+      {
+        "origin": "system-native",
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT",
+        "company": "Microsoft Corporation",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "files": 1
+      },
+      {
+        "origin": "system-native",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\base-assets\\native\\bin",
+        "company": "",
+        "signature_status": "NotSigned",
+        "signer": "",
+        "files": 1
+      }
+    ],
+    "identity_errors": {
+      "files": 0,
+      "messages": []
+    },
+    "python_archives": {
+      "pure_modules": 1715,
+      "by_origin": {
+        "stdlib": 277,
+        "distribution": 1384,
+        "application": 49,
+        "unknown": 5
+      },
+      "unknown_modules": 5,
+      "unknown_names": [
+        "setuptools._distutils.compilers",
+        "setuptools._distutils.compilers.C",
+        "setuptools._distutils.compilers.platform",
+        "setuptools._vendor",
+        "setuptools._vendor.jaraco"
+      ],
+      "base_library_members": 155
+    }
+  },
+  "complete_per_file_report_saved": false
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "date_taipei": "2026-11-16",
+  "tested_source": "2104418f08ca64232136278dbdddb70c3ea91897",
+  "accepted": true,
+  "scope": "Linux complete regression and synthetic inventory rejection cases; Windows evidence pending PR CI",
+  "windows_executed": false,
+  "release_ready": false,
+  "keywords": [
+    "A5",
+    "CPython",
+    "OpenSSL",
+    "libffi",
+    "SQLite",
+    "原文",
+    "109基準",
+    "A4現況修正"
+  ],
+  "files": {
+    "README.md": "7406629cd96e675654974343701654c87e67ad06c0588945007fdadcbf9ebb4e",
+    "a3-109-baseline.json": "01eca41fef0bb48902f9da696b93f576a242d35d034b174bc49c34254fece4f4",
+    "a4-README-before-a5.md": "5f8ee9efde2b8d963f063d677e4b75a777d533608e9dbcddb1a377fbe7d74318",
+    "a4-manifest-before-a5.json": "ac65f7adab5790278c60f084631385cf09c041bd1d6a33ab405b82a961bdbdaa",
+    "index-failure.txt": "2523a3cfe0cf3519ae38ee41f4ff4d85314583f0f479f9cd18544d8373e7730d",
+    "isolated-before-index-refresh.json": "907fc1d73f0a6600e97cac8abd6ebf2d71c33469daa5c7634b998f846334e270",
+    "isolated-before-source-version-check.json": "be9f4bdcabd52e70b289950be08c61b8ceec6302ff7b2d395057f6be4c42bd71",
+    "isolated-summary.json": "a48d8f7de2be82f78ec9bf232c43bbc05ee3fc288cf9386315d8259cac8d65dd",
+    "mixed-before-index-refresh.json": "76f01fa28c67944a57114b9e784fcb9a357ab91ae302e45ffeef207e650d5949",
+    "mixed-before-source-version-check.json": "e147990cecef0bbd136ae37b87f16c0e9d28681bbcd046eb08158d25d41a3b9f",
+    "mixed-result.json": "f34a9e4b5077d647ee8308d21a54b2a0274eba0860f5b4dbb516387ffdb7c6a9"
+  },
+  "process_exits": {
+    "mixed": 0,
+    "isolated": 0
+  },
+  "previous_accepted_source": "b52cec1",
+  "previous_index_failure_source": "c37ea5f"
+}

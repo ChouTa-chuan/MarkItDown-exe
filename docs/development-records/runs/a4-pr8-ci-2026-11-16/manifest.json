@@ -18,6 +18,15 @@
   ],
   "files": {
     "ci-results.json": "a4dea537974d165760c746ce7242f927dedb066b88307ddb047a0b3dd980e91f",
-    "README.md": "5f8ee9efde2b8d963f063d677e4b75a777d533608e9dbcddb1a377fbe7d74318"
-  }
+    "README.md": "415a902cdc95dfe30a685ed2a8f25e19d2bc7452bb5df0aefe4afd98bacb5e73"
+  },
+  "amendments": [
+    {
+      "date_taipei": "2026-11-16",
+      "reason": "User-requested A5 clarification of physical-file vs PYZ counts and the 109 baseline; raw CI JSON unchanged",
+      "previous_readme_sha256": "5f8ee9efde2b8d963f063d677e4b75a777d533608e9dbcddb1a377fbe7d74318",
+      "previous_readme": "../a5-cpython-components-2026-11-16/a4-README-before-a5.md",
+      "previous_manifest": "../a5-cpython-components-2026-11-16/a4-manifest-before-a5.json"
+    }
+  ]
 }

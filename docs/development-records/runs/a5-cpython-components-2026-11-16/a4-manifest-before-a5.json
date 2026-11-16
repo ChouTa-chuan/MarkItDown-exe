@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "date_taipei": "2026-11-16",
+  "tested_source": "dd72bf4c363fc5bf17029c4db63b0cad71895f71",
+  "pr_head": "ca71bfacbfde64d152dd9f043171303c21c5573e",
+  "accepted": true,
+  "windows_executed": true,
+  "gpu_executed": false,
+  "release_ready": false,
+  "scope": "PR merge CI acceptance; not fixed-source release candidate or clean-machine acceptance",
+  "keywords": [
+    "A4",
+    "PR8",
+    "Windows CI",
+    "setuptools排除",
+    "API恢復",
+    "CPython版本對照"
+  ],
+  "files": {
+    "ci-results.json": "a4dea537974d165760c746ce7242f927dedb066b88307ddb047a0b3dd980e91f",
+    "README.md": "5f8ee9efde2b8d963f063d677e4b75a777d533608e9dbcddb1a377fbe7d74318"
+  }
+}

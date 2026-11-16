@@ -4,7 +4,12 @@
 
 ## 更新中
 
-- 2026-11-16：A5 實作逐檔 CPython 元件版本／原文清單，固定官方來源並驗證載入檔指紋；相關反例通過，完整回歸及 Windows 實證待本階段驗證。同步處理使用者指定的 A4 合併現況與實體檔案／PYZ 計數說明。
+### 2026-11-16｜A5：逐檔 CPython 元件版本與原文；修正 A4 現況及 109 說明
+
+- 程式0.19.1／架構0.4不變；從已合併 PR 1–8 的 main `e87de4b` 開自己的 A5 分支。相對前版僅有總體 CPython 原授權，現在新增逐檔來源 hash、PE 檔案版本、官方建置宣告、匹配載入檔的 OpenSSL／SQLite 執行期版本，以及每檔對應原文。
+- 固定 Windows CPython patch 版／x64 的官方來源與原文 hash；`patchlevel.h` 防止換標代填，完整 OpenSSL／libffi 原文與 SQLite 原始標頭註記節錄隨包。libffi 只有宣告時不冒充二進位版本認證；來源不符、改原文、改版本或漏檔均有反例。
+- 依使用者要求明列 A4 完成（PR #8、Claude reviewer 已查驗），main 已合併 PR 1–8，next 改為 A5／A5b。A4 README 補註實體檔案與 PYZ 分開計數；找到並保存 PR #6 的 109 基準，完整逐檔基準未保存。原版 README／manifest 先另存，原始 CI JSON 不變。
+- 驗證：完整 Linux 混合與獨立程序回歸通過，現況計數只見 progress.json；索引過期的首次失敗與修正後結果均保存。上游／授權／profiles 檢核通過，Windows 實際版本及隨包原文仍待本 PR CI。SBOM／再散布與產品里程碑不提高，未發布產品。
 
 ### 2026-11-16｜A4 Windows CI 補齊；API 阻擋解除
 
