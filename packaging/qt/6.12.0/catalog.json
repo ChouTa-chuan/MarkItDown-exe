@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "version": "6.12.0",
+  "qt5_commit": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+  "qtbase_commit": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+  "pyside_commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+  "tag": "v6.12.0",
+  "modules": {
+    "qt3d": "ccb75d7928dac2656f407fb78ac30b9965ed7609",
+    "qt5compat": "9c2a1b4c8298c750f8632e2fd19f7a1a539c5f09",
+    "qtactiveqt": "087ebc25c281b8a74f665fd30611c8a93be56848",
+    "qtbase": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+    "qtcanvaspainter": "ab0866ae00c50cfc959b7a82cdfe643a7e5c2f3e",
+    "qtcharts": "56fc191c547f4319253fd72eccf5c4c9458b261c",
+    "qtcoap": "87c76148a75ecf7ecadb2caf3ac30eb7d8b7e24e",
+    "qtconnectivity": "2340c1f3ced364314228d8f64a86e8c7d32717f7",
+    "qtdatavis3d": "f0edfedb1a770f6389d26ad6f2769d5819391360",
+    "qtdeclarative": "4332fbbb4c340463dc8cee36dda0c85d932122d8",
+    "qtdoc": "0c98a846e11c56b0576f98cf8497345ae4adec40",
+    "qtgraphs": "3ef93c85b14a8a759c8c2ad596e2753eb1952666",
+    "qtgrpc": "743a5066f9072e34835a193e045df233a1762e1c",
+    "qthttpserver": "b9b95d5ef79f88948c6f5f6f91742cbeea8cea1e",
+    "qtimageformats": "dc13f2fbff1d579cfb2eb2d9092e3563b4d05b8e",
+    "qtlanguageserver": "c536390c64fbd21ff2981280034be71d714727f8",
+    "qtlocation": "1bf8675f5c11d75faccf66541220d37923e2d682",
+    "qtlottie": "6187542f2e7cd69477d1bf45697135c0f78417f4",
+    "qtmqtt": "f74f931ff303511ebfa54eab8cf1f0ae82be8b33",
+    "qtmultimedia": "6ca885f084a3984749d53bb50a0e08bdc60e86cc",
+    "qtnetworkauth": "d38b832b9b19b0684f6b3539788d610a76ccb99b",
+    "qtopcua": "9e959f7d565913492f7328ca1e0b42d2927ccbcb",
+    "qtopenapi": "c46e62154611707265969a320d3b066db41c0585",
+    "qtpositioning": "6e77a4fa3d773960f6d35197d617df1665797b8a",
+    "qtqa": "35fa4c3c83cf541aeb62b2f06c67db8614feba84",
+    "qtquick3d": "a50a2ff960ca58d4b9f87b7e6a7ddae02e620426",
+    "qtquick3dphysics": "6514607dec860d7a5f2a42619ecac9322cfb91e2",
+    "qtquickeffectmaker": "52a7a47cd549bbb8b128265c7f1d91e77b935eb6",
+    "qtquicktimeline": "645ba346fd8175aa0572d66c917862f8a7c4a966",
+    "qtremoteobjects": "5add069a1b80a345690b911b9c55826a21ca251c",
+    "qtrepotools": "309df8d5eefb86d6a3c8d9cb42fcfbca1c7cd547",
+    "qtscxml": "0b5ce59845cc964efed91b59ecade97e81c30c66",
+    "qtsensors": "b04d15851692519167d5f31215a423e298c2e97b",
+    "qtserialbus": "7e730085399effee86f0fdfa9e6cc650b5a09921",
+    "qtserialport": "beb4c887f3b886447cf86592fa65b8b9c1d6e312",
+    "qtshadertools": "bccd516b990a6396900051470ac86cc27a7042ea",
+    "qtspeech": "332f8a148bf01739140c3a00dd54f3ed98f3b546",
+    "qtsvg": "883a58532078d003cefef0a549bfe9f885ce41f5",
+    "qttasktree": "bb7e5587370bb5073e2d47123beb51ffba5c7fcd",
+    "qttools": "613a6fbf0a7998010ab2fda260b64066d66a021d",
+    "qttranslations": "2811457ceff8f0c24a1c4d14f947a283a17239d0",
+    "qtvirtualkeyboard": "934b432b13cae5c64357a5e98547280bd191f806",
+    "qtwayland": "c4f85cd060e3e80a7d71829defac9cf5a40e8ffa",
+    "qtwebchannel": "621cb3df07d6cf316dd026ec71311368adfe371e",
+    "qtwebsockets": "6aedb199b5d8ee4afa4cfc956ded22bc0a2632e9",
+    "qtwebview": "5774c23849cdad2bcdf71ad8c8bd6946dcae38f0"
+  },
+  "evidence_files": [
+    {
+      "path": "sources/qt5/.gitmodules",
+      "repository": "qt/qt5",
+      "commit": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+      "upstream_path": ".gitmodules",
+      "git_blob": "cfc8b3dedf8f3465b38800dd830a43e0dd23b4d8",
+      "sha256": "f701569cbb324273fd7ddabf16627dbe66f8d1634bfc1304a30579317f779e46",
+      "bytes": 6806,
+      "url": "https://raw.githubusercontent.com/qt/qt5/ef25002ed292b132d1ed3246bfcee1d24a9cd966/.gitmodules"
+    },
+    {
+      "path": "sources/qtbase/.cmake.conf",
+      "repository": "qt/qtbase",
+      "commit": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+      "upstream_path": ".cmake.conf",
+      "git_blob": "b4e790d94c40db86583d6b69db9652ba0bd3051e",
+      "sha256": "e78b439fa15619a942f8b78d9321021778eb44dafba7f7067a1962637a5a4b64",
+      "bytes": 3251,
+      "url": "https://raw.githubusercontent.com/qt/qtbase/025bdad181de241e81bf853c8a2d7bf3d19261a9/.cmake.conf"
+    },
+    {
+      "path": "sources/pyside-setup/sources/pyside6/pyside_version.py",
+      "repository": "pyside/pyside-setup",
+      "commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+      "upstream_path": "sources/pyside6/pyside_version.py",
+      "git_blob": "829efe070f8962762ac0e2cd48dc29b799c8c693",
+      "sha256": "9f2c2aace0f7109044fdf021d367a367c65e4d86ad28868306930051889f5be0",
+      "bytes": 863,
+      "url": "https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/sources/pyside6/pyside_version.py"
+    },
+    {
+      "path": "sources/pyside-setup/sources/shiboken6/shiboken_version.py",
+      "repository": "pyside/pyside-setup",
+      "commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+      "upstream_path": "sources/shiboken6/shiboken_version.py",
+      "git_blob": "033a2e43967dff00ccf23f8fe5b5c4783795c52b",
+      "sha256": "35952ce708b434723fd534018c119706c64bf38be8f5a75c18a57fcd46ff58ea",
+      "bytes": 826,
+      "url": "https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/sources/shiboken6/shiboken_version.py"
+    },
+    {
+      "path": "sources/pyside-setup/CMakeLists.txt",
+      "repository": "pyside/pyside-setup",
+      "commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+      "upstream_path": "CMakeLists.txt",
+      "git_blob": "06620328084743d0d06edcd507ca91fbcca6e7f1",
+      "sha256": "cdd27ba0bca87a4517049ae61f854a67ce5db8d9e4f61bc5fde116ef5b565b0f",
+      "bytes": 1024,
+      "url": "https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/CMakeLists.txt"
+    },
+    {
+      "path": "sources/pyside-setup/sources/pyside6/CMakeLists.txt",
+      "repository": "pyside/pyside-setup",
+      "commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+      "upstream_path": "sources/pyside6/CMakeLists.txt",
+      "git_blob": "bf5a060cfe0927dfe0366ac7ed5917943f46ac7b",
+      "sha256": "7ded9a0bf17f9ad606336e11d706ff71c9123cf00c247501f69c4601d044cf73",
+      "bytes": 1609,
+      "url": "https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/sources/pyside6/CMakeLists.txt"
+    },
+    {
+      "path": "sources/pyside-setup/sources/shiboken6/CMakeLists.txt",
+      "repository": "pyside/pyside-setup",
+      "commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+      "upstream_path": "sources/shiboken6/CMakeLists.txt",
+      "git_blob": "4c992066deaa163ffa4ddce22bd9056ab062aafa",
+      "sha256": "618396ccb6328ec3215797eb0288ab3c04774ecaac49b9cfd59245097c39c92f",
+      "bytes": 561,
+      "url": "https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/sources/shiboken6/CMakeLists.txt"
+    },
+    {
+      "path": "sources/pyside-setup/sources/pyside6/.cmake.conf",
+      "repository": "pyside/pyside-setup",
+      "commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+      "upstream_path": "sources/pyside6/.cmake.conf",
+      "git_blob": "9663d87be5cebf16798fde4a214a60c5cd297541",
+      "sha256": "11adc8623fd3b22c24b3d2d569e6e4e255f320fc6bb6e63453fe29dc07699b81",
+      "bytes": 201,
+      "url": "https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/sources/pyside6/.cmake.conf"
+    },
+    {
+      "path": "sources/pyside-setup/sources/shiboken6/.cmake.conf",
+      "repository": "pyside/pyside-setup",
+      "commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+      "upstream_path": "sources/shiboken6/.cmake.conf",
+      "git_blob": "35b3e21985de77f1b9ff1b21e72b6b259c0a50a9",
+      "sha256": "e42689e0327513bd6c286d8e2c650898213aa1d481dc47909a3feec8ced8c5fb",
+      "bytes": 176,
+      "url": "https://raw.githubusercontent.com/pyside/pyside-setup/f50facb83fc3dc5f3240c854668c7a6dd93871b2/sources/shiboken6/.cmake.conf"
+    },
+    {
+      "path": "official-refs.json",
+      "sha256": "8e749f1f1bbf931aad9e9f6cbd5a4f37134c38f70428c945b164259debea2369",
+      "bytes": 41937
+    }
+  ],
+  "windows_wheels": [
+    {
+      "name": "pyside6-essentials",
+      "version": "6.12.0",
+      "wheel": "pyside6_essentials-6.12.0-cp310-abi3-win_amd64.whl",
+      "wheel_sha256": "c9a95102aa23c1f86516a30d5a9be37552d324eee7e567eb7508973f1218cb42"
+    },
+    {
+      "name": "shiboken6",
+      "version": "6.12.0",
+      "wheel": "shiboken6-6.12.0-cp310-abi3-win_amd64.whl",
+      "wheel_sha256": "a1906cb8116869178c64b6bab52623bbc8b4ceed7b30bfc3c9aa0f6e67f6438e"
+    }
+  ],
+  "scope": "Official release-source correspondence; not a byte-reproducible binary build or completed redistribution review",
+  "redistribution_approved": false,
+  "runtime_sbom_complete": false
+}

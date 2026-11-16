@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-16",
-  "environment": "Linux · Python3.12.3／Tesseract5.3.4；A5本機完整回歸與Windows hosted基本包／CPU逐檔驗證已通過；原固定候選仍cb8f24d",
-  "tests_passed": 760,
-  "headline": "A4完成（PR #8），A5逐檔CPython版本／原文完成（PR #9）；A5起點main已合併PR1–8，接續A5b",
-  "blocker": "A5實證已補齊；libffi仍僅建置宣告；Qt原始碼、runtime SBOM／再散布、乾淨機／人工／GPU仍待。",
-  "next": "接手A5b：Qt本體原始碼位置及版本對應；PR #9最終head全CI通過後一般Merge，合併狀態以PR為準，再開新分支。A6固定候選整體審查仍待。",
+  "environment": "Linux · Python3.12.14／Tesseract5.3.4；A5b完整回歸、Windows hosted基本包／CPU及Qt來源對應已驗；原固定候選仍cb8f24d",
+  "tests_passed": 764,
+  "headline": "A5b完成（PR #10）：Qt固定來源與Windows版本／指紋已驗；本輪起點main已合併PR1–9，下一個A5c",
+  "blocker": "A5c的CPython probe接受條件／反例待獨立PR；完整build修補／設定、runtime SBOM、再散布、乾淨機／人工／GPU仍待。",
+  "next": "本輪起點 main 已合併 PR 1–9；A5b（PR #10）已查驗，合併狀態以 PR 為準。下一個 A5c 從最新 main 另開獨立 PR，三項驗收補強與全部 Windows CI 通過後才合併；再接 A6。",
   "milestones": [
     {
       "id": "m0",
@@ -257,7 +257,7 @@
     "2026-11-12：0.19.1完整698（697通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與45模組exit0；Tesseract5.3.4／CPython3.12.3與先前基線不同。未對照來源已分類但candidate／gap基本49、CPU47仍待，授權提案未確認，沒有新的Windows執行。",
     "2026-11-13：完整703（702通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與46模組exit0；新增項目為歷史索引測試，沒有新的Windows執行。"
   ],
-  "tests_run": 761,
+  "tests_run": 765,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1287,11 +1287,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "2104418f08ca64232136278dbdddb70c3ea91897",
+    "source_commit": "5376c99743ed15ead83ab3f58882be5b78de2ef9",
     "date_taipei": "2026-11-16",
     "accepted": true,
-    "run": 761,
-    "passed": 760,
+    "run": 765,
+    "passed": 764,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1311,7 +1311,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/a5-cpython-components-2026-11-16/README.md"
+    "evidence": "development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2172,7 +2172,7 @@
     },
     "ci_evidence": "development-records/runs/a5-pr9-ci-2026-11-16/README.md",
     "merge_status_source": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/9",
-    "final_documentation_head_requires_ci": true,
+    "final_documentation_head_requires_ci": false,
     "observed_version_scope": "build-interpreter-loaded-source-hash-matched-to-collected-originals",
     "windows_base": {
       "components": {
@@ -2456,6 +2456,182 @@
         "base_library_members": 155
       },
       "provenance_report_sha256": "84f4398c846b908f2520430493e74198b09c2d6a384cf25b2494809a50687501"
+    },
+    "merged": true,
+    "stage_closed": true,
+    "merge_commit": "c51089a258b820b95af51816e516a05300dfb7c4",
+    "reviewer_confirmation": "User confirmed Claude reviewer passed program, originals, evidence and tests on 2026-11-16",
+    "final_ci_head": "944ef1279c82b0d50b8bd6becc961dce976e7ce6",
+    "final_ci_merge_sha": "1c96b7cce8fa2b75ecf40692837ff9f9e3520c63",
+    "final_ci_runs": {
+      "linux": 43824614323,
+      "base": 43824614148,
+      "cpu": 43824614112,
+      "history": 43824614093
     }
+  },
+  "previous_full_regression_761": {
+    "source_version": "0.19.1",
+    "architecture_version": "0.4",
+    "source_commit": "2104418f08ca64232136278dbdddb70c3ea91897",
+    "date_taipei": "2026-11-16",
+    "accepted": true,
+    "run": 761,
+    "passed": 760,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 1,
+    "expected_failure_ids": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "mixed_assertions_accepted": true,
+    "mixed_process_exit": 0,
+    "isolated_modules": 51,
+    "isolated_all_exits_zero": true,
+    "python": "3.12.14",
+    "tesseract": "5.3.4",
+    "baseline_environment_identical": false,
+    "windows_executed_this_run": false,
+    "gpu_executed": false,
+    "traditional_chinese_onnx_quality_passed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/a5-cpython-components-2026-11-16/README.md"
+  },
+  "a5b_qt_sources": {
+    "source_commit": "5376c99743ed15ead83ab3f58882be5b78de2ef9",
+    "status": "verified",
+    "version": "6.12.0",
+    "qt5_commit": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+    "qtbase_commit": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+    "pyside_commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+    "official_modules_verified": 46,
+    "windows_wheel_qt_dlls_static": 76,
+    "targeted_tests_run": 9,
+    "targeted_tests_passed": 9,
+    "linux_observed": true,
+    "windows_executed": true,
+    "binary_reproduction_verified": false,
+    "upstream_build_patch_set_verified": false,
+    "runtime_sbom_complete": false,
+    "redistribution_approved": false,
+    "first_corrections_commit": "c25e3c2",
+    "evidence": "development-records/runs/a5b-qt-source-2026-11-16/README.md",
+    "pr": 10,
+    "merge_status_source": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/10",
+    "forwarding_evidence": "development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md",
+    "verification_complete": true,
+    "ci_status": "success",
+    "ci_head": "e6ad48f75c734447055e5c100ebb06d4197cfc8c",
+    "ci_merge_sha": "30c9eaff2685975817e8d15fc16bc33314a37477",
+    "ci_runs": {
+      "base": 43847442920,
+      "cpu": 43847443006,
+      "linux": 43847442914,
+      "history": 43847442936
+    },
+    "ci_evidence": "development-records/runs/a5b-pr10-ci-2026-11-16/README.md",
+    "windows_qt_summary": {
+      "check": "qt-release-sources",
+      "version": "6.12.0",
+      "qt5_commit": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+      "qtbase_commit": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+      "pyside_commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+      "observed": {
+        "platform": "Windows",
+        "qt_version": "6.12.0",
+        "pyside_version": "6.12.0",
+        "shiboken_version": "6.12.0",
+        "qt_build": "Qt 6.12.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by MSVC 2022) [Python limited API run time: 3.12.10 built: 3.14.3]",
+        "core_extension_sha256": "6486f6f0a2fec42fc8c652c0b76bb3ad0d44eaccad9c72e577116a075681eebb"
+      },
+      "catalog_sha256": "224e4f7df81b99d1c55310e49beb5a280b10b7a7d15f7b4615872a73bb1725d6",
+      "release_source_map_verified": true,
+      "binary_reproduction_verified": false,
+      "upstream_build_patch_set_verified": false,
+      "redistribution_approved": false,
+      "runtime_sbom_complete": false
+    },
+    "core_extension_locked_wheel_matched": true,
+    "final_head_requires_ci": true,
+    "windows_base_inventory": {
+      "files": 1615,
+      "bytes": 262639292,
+      "unresolved_files": 114,
+      "review_files": 152,
+      "original_notice_files": 111,
+      "packages": 40,
+      "file_inventory_complete": true,
+      "runtime_sbom_complete": false,
+      "redistribution_approved": false,
+      "release_ready": false
+    },
+    "windows_base_python_archives": {
+      "pure_modules": 1556,
+      "by_origin": {
+        "stdlib": 268,
+        "distribution": 1239,
+        "application": 49,
+        "unknown": 0
+      },
+      "unknown_modules": 0,
+      "unknown_names": [],
+      "base_library_members": 155,
+      "build_only_modules_absent": true
+    },
+    "windows_cpu_inventory": {
+      "files": 704,
+      "bytes": 219724730,
+      "unresolved_files": 265,
+      "review_files": 299,
+      "original_notice_files": 290,
+      "packages": 26,
+      "file_inventory_complete": true,
+      "runtime_sbom_complete": false,
+      "redistribution_approved": false,
+      "release_ready": false
+    },
+    "windows_cpu_python_archives": {
+      "pure_modules": 562,
+      "by_origin": {
+        "stdlib": 243,
+        "distribution": 307,
+        "application": 12,
+        "unknown": 0
+      },
+      "unknown_modules": 0,
+      "unknown_names": [],
+      "base_library_members": 155
+    }
+  },
+  "previous_full_regression_764": {
+    "source_version": "0.19.1",
+    "architecture_version": "0.4",
+    "source_commit": "5376c99743ed15ead83ab3f58882be5b78de2ef9",
+    "date_taipei": "2026-11-16",
+    "accepted": true,
+    "run": 765,
+    "passed": 764,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 1,
+    "expected_failure_ids": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "mixed_assertions_accepted": true,
+    "mixed_process_exit": 0,
+    "isolated_modules": 51,
+    "isolated_all_exits_zero": true,
+    "python": "3.12.14",
+    "tesseract": "5.3.4",
+    "baseline_environment_identical": false,
+    "windows_executed_this_run": false,
+    "gpu_executed": false,
+    "traditional_chinese_onnx_quality_passed": false,
+    "clean_machine_accepted": false,
+    "release_ready": false,
+    "evidence": "development-records/runs/a5b-qt-ci-forwarding-2026-11-16/README.md"
   }
 }

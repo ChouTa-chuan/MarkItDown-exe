@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-16",
+  "tested_source": "c51089a258b820b95af51816e516a05300dfb7c4",
+  "scope": "user-requested A5b first-commit documentation corrections",
+  "accepted": true,
+  "windows_executed": false,
+  "keywords": [
+    "A5b",
+    "交接",
+    "使用者決定",
+    "A5c",
+    "最終CI",
+    "PR9"
+  ],
+  "files": {
+    "README.md": "2ec8bec8ae9673876edc8d1c6375f7bd24d2ae1ad3ac3c214a944b16a30b435a",
+    "a5-README-before-a5b.md": "94df4976ed0758d58a81ee1bc3b9efeb650f1c61341d0b9cf1472a7305d240dc",
+    "a5-manifest-before-a5b.json": "08e397d980b2f8b26f623adb40dd51136c0312e1beb94ea04724df54feaadf06"
+  }
+}

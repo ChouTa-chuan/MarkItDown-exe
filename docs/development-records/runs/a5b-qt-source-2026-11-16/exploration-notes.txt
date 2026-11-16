@@ -1,0 +1,17 @@
+A5b 來源探索及呼叫修正；不是產品回歸通過紀錄。
+
+1. 嘗試 gh api repos/qt/pyside-setup/git/ref/tags/v6.12.0：HTTP 404。
+   Qt for Python 的官方 GitHub 鏡像為 pyside/pyside-setup；使用該來源取得固定 tag。
+2. 嘗試取得 sources/pyside6/_git_pyside_version.py：HTTP 404。
+   wheel 的該檔是生成結果；來源實際為 sources/pyside6/pyside_version.py 模板。
+3. 初版 load_catalog() 嘗試從模板讀數字時拒絕：
+   ValueError: PySide source version declaration mismatch
+   改查官方 CMakeLists.txt 的 include 路徑，真正版本來自 pyside6/.cmake.conf／shiboken6/.cmake.conf。
+4. 一次查詢的 jq 正規式寫法錯誤：invalid escape sequence "\." in string literal
+   改依已查到的 CMake include 位置取得檔案，未把錯誤輸出當來源證據。
+5. python scripts/packaging_profiles.py --verify 回傳：
+   packaging_profiles.py: error: unrecognized arguments: --verify
+   此工具預設就會驗證；改為不帶 --verify 執行並通過，未放寬檢查。
+6. 啟動完整回歸前曾遇 exec-server transport disconnected；重新確認同一環境可執行後才啟動完整回歸，未把未啟動視為通過。
+
+最終程式來源 bc2f77c46de1903877ab1a2ee4e489f2c7559aac 的混合與獨立模組完整回歸正常退出，數字及原始結果分別見 progress.json、mixed-result.json、isolated-summary.json。

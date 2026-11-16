@@ -27,3 +27,18 @@ A5 的逐檔證據階段完成，後續接 A5b Qt 原始碼對應，再進 A6 �
 [ci-results.json](ci-results.json) 保存 GitHub run／job 狀態、公開 check-run JSON annotation 與 artifact 的 id／digest／到期日；manifest 索引本地檔案 SHA-256。artifact digest 為 GitHub 中繼資料，**本輪未下載或獨立驗證壓縮檔內容**。原始日誌與大型報告仍在各 CI run，artifact 有期限，實際期限逐份見 JSON。此目錄不覆寫本機 A5 或 A4 原始證據。
 
 [返回歷史索引](../../../history-index.md)
+
+## 2026-11-16 A5b 補記：最終 head 的 CI
+
+依使用者指定補充，原版 README／manifest 先另存於 [A5b 交接修正紀錄](../a5b-handoff-corrections-2026-11-16/README.md)，原始 `ci-results.json` 維持首輪來源，沒有改成最終 head 的結果。
+
+最終 head `944ef1279c82b0d50b8bd6becc961dce976e7ce6`（`944ef12`）的四條 CI 均通過，Windows 逐檔摘要已查驗：
+
+| 流程 | 最終 run |
+| --- | --- |
+| Linux 完整回歸 | [43824614323](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43824614323) |
+| Windows 基本包 | [43824614148](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43824614148) |
+| Windows CPU | [43824614112](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43824614112) |
+| 歷史索引 | [43824614093](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43824614093) |
+
+這輪 CI 的暫時 merge 為 `1c96b7cce8fa2b75ecf40692837ff9f9e3520c63`；PR #9 已一般 Merge 為 `c51089a258b820b95af51816e516a05300dfb7c4`。使用者另於本輪確認 A5 的程式、原文、證據、測試已由 Claude reviewer 查驗通過。首輪與最終輪證據來源分開，artifact 限制沿用上述說明。

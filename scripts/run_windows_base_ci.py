@@ -10,7 +10,19 @@ import sys
 import shutil
 import traceback
 
+from qt_sources import STAGED as QT_SOURCES, publish_annotation as publish_qt_sources
+
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def record_qt_sources(assets, reports):
+    """子程序 stdout 只存日誌；控制端須另存 JSON 並公開小型摘要，不能假設註記已送達。"""
+    path = assets/'licenses'/QT_SOURCES
+    if path.stat().st_size > 128*1024:
+        raise ValueError('Qt source report exceeds CI budget')
+    report = json.loads(path.read_text(encoding='utf-8'))
+    shutil.copyfile(path, reports/'qt-release-sources.json')
+    publish_qt_sources(report)
 
 
 def main():
@@ -21,7 +33,8 @@ def main():
     parser.add_argument('--previous-source',type=Path,help='固定真實前版 checkout，另建置並驗基本包跨版重裝／明確回復')
     parser.add_argument('--recovery',action='store_true',help='另驗三個真正程序中斷停點及一般安裝器明確續修')
     args = parser.parse_args()
-    args.inputs=args.inputs.absolute();args.output=args.output.absolute()
+    args.inputs=args.inputs.absolute()
+    args.output=args.output.absolute()
     if args.recovery and (not args.installer or args.previous_source is None):parser.error('--recovery requires --installer and --previous-source')
     if args.previous_source is not None:
         args.previous_source=args.previous_source.absolute()
@@ -64,7 +77,8 @@ def main():
                 for name in ['windows-build.json','build-error.log','acceptance/windows-acceptance.json']:
                     path=previous_output/'reports'/name
                     if path.is_file():
-                        target=reports/'previous-build'/name;target.parent.mkdir(parents=True,exist_ok=True)
+                        target=reports/'previous-build'/name
+                        target.parent.mkdir(parents=True,exist_ok=True)
                         shutil.copyfile(path,target)
             old=json.loads((previous_output/'reports/acceptance/windows-acceptance.json').read_text(encoding='utf-8'))
             if not old['accepted'] or old['source_version']!='0.16.0':raise ValueError('前版實際建置驗收失敗。')
@@ -80,6 +94,7 @@ def main():
              '--build-evidence',args.inputs/'build-evidence.json','--tessdata',args.inputs/'models','--output',native])
         assets = args.output/'base-assets'
         call('base-assets', [python,'scripts/prepare_base_assets.py','--native-assets',native,'--output',assets])
+        record_qt_sources(assets, reports)
         environment['MARKITDOWN_BASE_ASSETS'] = str(assets.resolve())
         call('pyinstaller', [python,'-m','PyInstaller','--noconfirm','--clean','--distpath',args.output/'dist',
                             '--workpath',args.output/'work','packaging/base.spec'])
