@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-17：A6 新增固定來源候選檢查、候選 hash／來源重分類與精簡可重跑審閱 metadata；Windows 工作流只保存報告，不上傳產品。CPython 原文／runtime 與官方 VC 身分證據納入分類，產品核准旗標維持 false；完整回歸及原生固定候選待驗。
+
 - 2026-11-17：A6 第一個提交依使用者指定更新 STATUS A／C 與進度 headline／next 為 main 已合併 PR 1–11，補齊 A5b／A5c 最終 head 的 CI run；記錄兩階段 Claude reviewer 通過。D 節新增前不得重複原文摘要，既有使用者決定不刪不併；A6 候選與分類尚未執行。
 
 ### 2026-11-16｜A5c 原生 Windows 新接受條件查驗完成（PR #11）

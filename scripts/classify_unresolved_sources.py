@@ -27,6 +27,8 @@ import sys
 import zipfile
 from pathlib import Path, PurePosixPath
 
+from cpython_components import numeric_version
+
 UNRESOLVED = 'source-owner-unresolved'
 MODEL_MANIFEST = 'src/desktop_app/data/ocr-four-languages.json'
 NATIVE_PAYLOADS = ('acceptance/native-payload.json',)
@@ -44,6 +46,9 @@ GENERATED = {
     'worker-assets/installed-manifest.json': 'scripts/prepare_worker_assets.py',
     'worker-assets/native/manifest.json': 'scripts/prepare_worker_assets.py',
     'worker-assets/native/python-modules.json': 'scripts/python_archive_inventory.py',
+    'desktop_app/data/licenses/qt-sources.json': 'scripts/qt_sources.py',
+    'desktop_app/data/licenses/native/cpython-components.json': 'scripts/cpython_components.py',
+    'worker-assets/native/cpython-components.json': 'scripts/cpython_components.py',
 }
 PYTHON_LICENSE = ('desktop_app/data/licenses/python-runtime/LICENSE.txt', 'worker-assets/python-runtime/LICENSE.txt')
 # 僅用來替 system-native 檔案標示「候選」發行者，不構成已確認擁有者。
@@ -114,6 +119,58 @@ def enumerated_archive(report, path):
     return library.get('path') == path and isinstance(library.get('members'), list) and bool(library['members'])
 
 
+def component_evidence(report, source, digest):
+    """只採同份報告內可對到原生檔、載入指紋與隨包原文的 A5 證據；不猜同名元件。"""
+    components = report.get('cpython_components') or {}
+    if (components.get('applicable') is not True
+            or source['source_sha256'] != source['bundled_sha256'] or source['bundled_sha256'] != digest):
+        return None
+    record = next((r for r in components.get('files', []) if r['file'] == source['file']), None)
+    if not record or record.get('source_sha256') != source['source_sha256']:
+        return None
+    notice = next((r for r in components.get('notices', []) if r['component'] == record['component']), None)
+    if not notice or notice['path'] != record.get('notice'):
+        return None
+    prefix = ('_internal/desktop_app/data/licenses/native/' if report['profile'] == 'base'
+              else '_internal/worker-assets/native/')
+    path = prefix+notice['path']
+    original = next((r for r in report['candidate_inventory']['files'] if r['path'] == path), None)
+    if (not original or original['sha256'] != notice['sha256'] or original['bytes'] != notice['bytes']
+            or path not in source.get('component_notice_paths', [])):
+        return None
+    if record['component'] == 'libffi':
+        if record.get('observed_version') is not None or record.get('version_status') != 'build-declaration-only':
+            return None
+        return dict(category='cpython-component-evidence', status='origin-known',
+                    evidence=['cpython_components:'+record['file'], path],
+                    note='CPython 隨附元件有固定建置宣告與對應原文；libffi 沒有獨立 runtime 版本認證')
+    if (record.get('component') not in ('openssl', 'sqlite')
+            or record.get('version_status') != 'matched-runtime-probe'
+            or record.get('loaded_source_matched') is not True
+            or record.get('loaded_source_sha256') != source['source_sha256']
+            or not record.get('observed_version') or 'probe_error' in components):
+        return None
+    try:
+        if numeric_version(record['observed_version']) != numeric_version(record.get('declared_version')):
+            return None
+    except ValueError:
+        return None
+    return dict(category='cpython-component-evidence', status='confirmed',
+                evidence=['cpython_components:'+record['file'], path],
+                note='同次建置的元件觀測與來源 hash 匹配，隨包原文 hash 可對照；不等於再散布核准')
+
+
+def signed_vc_source(source, digest):
+    """官方 Redist 路徑、原位元組、版本與 Microsoft 有效簽章必須一起成立；名稱不夠。"""
+    directory = source.get('source_directory', '').replace('\\', '/').lower()
+    return (source['source_sha256'] == source['bundled_sha256'] == digest
+            and source.get('signature_status') == 'Valid'
+            and source.get('company') == 'Microsoft Corporation'
+            and 'O=Microsoft Corporation' in source.get('signer', '')
+            and bool(source.get('file_version'))
+            and re.search(r'/vc/redist/msvc/[^/]+/x64/microsoft\.vc\d+\.crt$', directory))
+
+
 def classify(report, blobs, members, models, payload):
     """回傳逐檔分類列。report 為 bundle-provenance.json 內容；其餘為各證據索引。"""
     native = {item['file']: item for item in report['native_files']}
@@ -144,10 +201,17 @@ def classify(report, blobs, members, models, payload):
                        note='與同次 CI 的 native payload 清單相同；由固定原始碼在 CI 建置')
         elif source and source['origin'] == 'python-runtime':
             unchanged = source['source_sha256'] == source['bundled_sha256'] == digest
+            evidence = component_evidence(report, source, digest)
             row.update(category='cpython-runtime', status='origin-known' if unchanged else 'gap',
                        evidence=['native_files:' + source['file']],
                        note='自建置用 CPython 安裝目錄收集，來源與收集後雜湊相同；'
-                            '其中可能含 CPython 隨附的第三方元件，逐檔上游與條款待核對')
+                            '其中可能含 CPython 隨附的第三方元件；版本／簽章與條款依該列證據個別審閱')
+            if evidence:
+                row.update(evidence)
+        elif source and source['origin'] == 'system-native' and signed_vc_source(source, digest):
+            row.update(category='microsoft-vc-redist', status='origin-known',
+                       evidence=['native_files:'+source['file']],
+                       note='來源為 Visual Studio 官方 Redist 路徑，來源 hash 未改、Microsoft 簽章有效且有版本；逐檔再散布條款仍待審')
         elif source and source['origin'] == 'system-native':
             candidate = next((label for pattern, label in NAME_CANDIDATES if pattern.match(name)), None)
             row.update(category='system-native', status='candidate' if candidate else 'gap',
