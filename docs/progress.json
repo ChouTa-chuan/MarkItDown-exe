@@ -1,9 +1,9 @@
 {
   "updated": "2026-11-17",
-  "environment": "Linux 完整回歸／獨立模組與 Windows 基本包固定候選 8285450 已驗；CPU 固定候選等待 GitHub 排程",
+  "environment": "Linux 完整回歸／獨立模組與 Windows 基本包固定候選 8285450 已驗；CPU 重送驗證執行中",
   "tests_passed": 781,
-  "headline": "main 起點已合併 PR 1–11；A6 首批檢核與基本包固定來源重分類完成，CPU 證據待排程",
-  "blocker": "CPU 固定來源 workflow_dispatch 長時間 queued 且 jobs 為空；新版 metadata 仍未取得 CPU 實證。完整 SBOM／再散布、Qt build／替換、乾淨機／人工／GPU 亦未關閉。",
+  "headline": "main 起點已合併 PR 1–11；A6 首批檢核與基本包固定來源重分類完成，CPU 重送驗證執行中",
+  "blocker": "CPU 原請求 queued、jobs 為空；重送 43916217757 已執行，尚未取得新版 metadata 實證。完整 SBOM／再散布、Qt build／替換、乾淨機／人工／GPU 亦未關閉。",
   "next": "先讀 A6 PR 與 CPU run 43912958713／43916217757 的即時結果；成功後保存 8285450 的 CPU metadata、離線重跑及完成整體審閱。最終 head 全 CI 與查驗通過才 Merge，不提前上傳產品。A7 待 A6 完成後綁定自有 MIT 到套件原文表。",
   "milestones": [
     {
@@ -1697,7 +1697,7 @@
       "unresolved_files": 114
     },
     "cpu_summary": null,
-    "cpu_pending_reason": "GitHub workflow queued without jobs"
+    "cpu_pending_reason": "Original GitHub request queued without jobs; retry in progress"
   },
   "previous_full_regression_683": {
     "source_version": "0.19.1",
@@ -3081,7 +3081,7 @@
   },
   "a6_fixed_candidate_review": {
     "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
-    "status": "base-verified-cpu-scheduling-blocked",
+    "status": "base-verified-cpu-retry-in-progress",
     "engineering_review_complete": false,
     "base_classification_replayed": true,
     "cpu_classification_replayed": false,
