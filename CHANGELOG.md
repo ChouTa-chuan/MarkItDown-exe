@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-17：A6 第一個提交依使用者指定更新 STATUS A／C 與進度 headline／next 為 main 已合併 PR 1–11，補齊 A5b／A5c 最終 head 的 CI run；記錄兩階段 Claude reviewer 通過。D 節新增前不得重複原文摘要，既有使用者決定不刪不併；A6 候選與分類尚未執行。
+
 ### 2026-11-16｜A5c 原生 Windows 新接受條件查驗完成（PR #11）
 
 - 相對前次只有本機反例，Windows 基本包與 CPU 現在都以 A5c 新 policy 建置並通過既有驗收；實際 CPython 摘要中 OpenSSL／SQLite 皆有匹配 runtime 觀測，libffi 僅建置宣告限制保留。拒絕缺口的合成反例與原生正常建置實證分開，不宣稱做過 Windows 故障注入。

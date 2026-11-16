@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "environment": "Linux · Python3.12.14／Tesseract5.3.4；A5c完整回歸、Windows hosted基本包／CPU新接受條件已驗；原固定候選仍cb8f24d",
   "tests_passed": 768,
-  "headline": "A5c完成（PR #11）：探測缺口拒絕與原生Windows新門檻已驗；本輪起點main已合併PR1–10，下一個A6",
+  "headline": "main已合併PR1–11；A5b／A5c經Claude reviewer通過，A6開始固定來源候選與重分類",
   "blocker": "A6固定來源候選／重分類／整體審閱仍待；完整build修補／設定、SBOM／再散布、乾淨機／人工／GPU未關閉。",
-  "next": "A5c（PR #11）已查驗，最終 head 依全 CI 門檻一般 Merge，合併狀態見 PR。本輪起點 main 已合併 PR 1–10；下一個 A6 從最新 main 另開新分支，先固定來源候選，再重分類與整體審閱。",
+  "next": "main 已合併 PR 1–11；A6 從最新 main 開自己的新分支，先固定來源提交及候選證據，再重跑來源分類與整體審閱，不提前關閉 SBOM／再散布門檻。",
   "milestones": [
     {
       "id": "m0",
@@ -2614,7 +2614,8 @@
       "base": 43850657867,
       "cpu": 43850657893,
       "history": 43850657865
-    }
+    },
+    "reviewer_confirmation": "User confirmed Claude reviewer passed with no mandatory fixes on 2026-11-17"
   },
   "previous_full_regression_764": {
     "source_version": "0.19.1",
@@ -2704,7 +2705,7 @@
       "history": 43883657042
     },
     "ci_evidence": "development-records/runs/a5c-pr11-ci-2026-11-16/README.md",
-    "final_head_requires_ci": true,
+    "final_head_requires_ci": false,
     "windows_base_components": {
       "check": "cpython-components",
       "cpython_version": "3.12.10",
@@ -2981,6 +2982,18 @@
       "unknown_modules": 0,
       "unknown_names": [],
       "base_library_members": 155
-    }
+    },
+    "final_ci_head": "d9af4ee04da5dc00a52d7f686a0a2c92eb6cf9d1",
+    "final_ci_runs": {
+      "linux": 43887067525,
+      "base": 43887067612,
+      "cpu": 43887067591,
+      "history": 43887067502
+    },
+    "final_ci_merge_sha": "eb46114eb5634de0369f1ba8324810d1fb72af50",
+    "merged": true,
+    "stage_closed": true,
+    "merge_commit": "e23d383b7f38ac95c4b883513834abfd8f814600",
+    "reviewer_confirmation": "User confirmed Claude reviewer passed with no mandatory fixes on 2026-11-17"
   }
 }

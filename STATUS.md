@@ -1,6 +1,6 @@
 # 現況
 
-更新：2026-11-16（台北）｜程式 0.19.1／架構 0.4
+更新：2026-11-17（台北）｜程式 0.19.1／架構 0.4
 
 開工只需要讀 [AGENTS.md](AGENTS.md) 和這份檔案。測試數、里程碑等數字只記在 [docs/progress.json](docs/progress.json)（[進度頁](docs/progress.html)），這裡不重抄。要追溯過去的做法或失敗，查 [歷史索引](docs/history-index.md)。
 
@@ -10,12 +10,14 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| main／已完成基線 | **main 已合併 PR 1–10，A5b 已完成並一般 Merge（PR #10）**；A5c 起點 `8993253cbecb56fe1c9794078a2059f3a1ccca63`。A4／A5 的 Claude reviewer 結論仍保留其原範圍 |
-| 本階段分支 | `codex/a5c-runtime-probe-20261116`，從最新 main 另開；程式及本機完整回歸來源 `afb2062`，未推送別人分支 |
-| 本階段 PR | [PR #11](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/11)，目標 main；本機回歸、反例與首輪全部 CI 已通過；合併門檻為最終 head 全 CI 且查驗無必修項，即時狀態見 PR |
+| main／已完成基線 | **main 已合併 PR 1–11**，A5b／A5c 已完成並合併（PR #10／#11）；使用者確認兩階段均由 Claude reviewer 查驗通過，沒有必須修正項目。A6 起點 `e23d383b7f38ac95c4b883513834abfd8f814600` |
+| 本階段分支 | `codex/a6-fixed-candidate-20261117`，從最新 main 另開，未推送其他 AI 的分支；A6 尚未執行新驗證 |
+| 本階段 PR | A6 尚未建立；A5b [PR #10](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/10) 與 A5c [PR #11](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/11) 均已合併，最終 head 全 CI 通過 |
 | 合併規則 | 一個編號一個 PR；最終 head 全部 CI 通過、查驗無必修項才一般 Merge，不直接推 main、不刪分支、不改寫歷史 |
 
 ## B. 這個階段完成了什麼
+
+- **A6 第一個提交先修正交接現況**：main 已合併 PR 1–11，A5b／A5c 最終 head 的四條 CI run 補入 progress.json，新增 D 節不重複原文摘要的維護規則；既有使用者決定與原始證據保留。以下 A5c 內容為沿用的已完成基線，A6 新候選／分類尚未執行。
 
 - **A5c 三項已實作**：Windows 適用清單的 OpenSSL／SQLite 不能只有建置宣告；探測例外、無觀測或載入來源不匹配都拒絕。產生端保存原始診斷再失敗，重驗端也強制同一門檻，避免重算 hash 繞過。
 - 補齊各元件列、`probe_error`（含空字串）、刪除 OpenSSL 原文的反例；合成 Windows 清單先驗有效，再在 CI／非 CI 下證明 audit／CLI 拒絕 hash 重綁的探測缺口。合成資料不當 Windows 實證；libffi 仍僅建置宣告，Linux 不適用清單維持不適用。
@@ -25,16 +27,16 @@
 
 ## C. 未完成、阻擋與下一步
 
-**下一個，交給接手 AI：A6 固定來源候選、來源重分類與整體審閱**。A5c（PR #11）的三項、反例與原生 Windows 新門檻已驗；最終 head 仍依全 CI／查驗門檻一般 Merge。接手先核對 PR 即時狀態，合併後從最新 main 另開自己的新分支；先固定來源提交與候選證據，不把 PR 暫時 merge 當交付候選，不提前上傳產品。
+**本輪 A6：固定來源候選、來源重分類與整體審閱**。main 已合併 PR 1–11；A5b／A5c 已由 Claude reviewer 查驗通過且沒有必修項。本輪從上述最新 main 的自己的新分支開始，先固定來源提交與候選證據，再重跑分類；不把 PR 暫時 merge 當交付候選，不提前上傳產品。
 
 | 大階段 | 任務 | 現況／下一步 |
 | --- | --- | --- |
 | A 來源與再散布 | A1 模組清單、A2 文件、A3 Qt／自有 MIT 隨包 | 完成（PR #5／#6） |
 | | A4 setuptools 排除 | **完成（PR #8，已合併並通過 Claude reviewer）** |
 | | A5 CPython 隨附元件逐檔版本／原文 | **完成（PR #9，已合併並通過 Claude reviewer）** |
-| | A5b Qt 本體原始碼位置及版本對應 | **完成（PR #10，已合併）**；Qt 來源、Windows 版本與指紋查驗通過 |
-| | A5c A5 驗收補強 | **完成（PR #11）**；三項、反例、本機回歸及原生 Windows 新門檻皆已查驗；合併狀態見 PR |
-| | A6 固定來源候選、重跑來源分類、整體審閱 | **下一個**；固定來源／候選後重分類及整體審閱，才評估 runtime_sbom_complete，目前 false |
+| | A5b Qt 本體原始碼位置及版本對應 | **完成（PR #10，已合併、Claude reviewer 通過）**；Qt 來源、Windows 版本與指紋查驗通過 |
+| | A5c A5 驗收補強 | **完成（PR #11，已合併、Claude reviewer 通過）**；三項、反例及原生 Windows 新門檻皆已查驗 |
+| | A6 固定來源候選、重跑來源分類、整體審閱 | **本輪開始**；固定來源／候選後重分類及整體審閱，才評估 runtime_sbom_complete，目前 false |
 | B 測試版安裝包 | 產物證據、驗收表、CPU 元件重新定版及門檻確認 | 未開始，不在門檻關閉前上傳產品 |
 | C 乾淨機／人工 | Windows 10／11、離線、四語、中文路徑、修復移除 | 需要使用者或實體 Windows，尚未接受 |
 | D 擴充 | 圖片本機 OCR／影音獨立元件 | 等使用者決定，未排入本輪 |
@@ -77,5 +79,6 @@
 | 2026-11-14–16 | Claude 專用分工 | CLAUDE.md 與 .claude/ 保存其角色與模型；不把工具專用設定視為所有 AI 的規則 |
 | 2026-11-16 | 使用者本輪指示 | A5 已由 Claude reviewer 查驗通過；開始 A5b，第一個提交恢復使用者決定、修正 main 已合併 PR 1–9／next、補 A5 最終四個 CI run；D 節精簡不合併或刪除使用者親自做的決定。指定 A5 README 補註前保存原版及原始 manifest，其他舊證據不變 |
 | 2026-11-16 | 使用者補充 A5c | A5 的 runtime probe 接受條件、缺失 OpenSSL 原文反例與 extension 版本說明列入 C 節待辦；獨立 PR、全部 Windows CI 通過才合併，A5b 不處理 |
+| 2026-11-17 | 使用者決定 | 之後在 D 節新增紀錄時，不要再加原文已涵蓋的摘要列。 |
 
-接手先列 PR，再讀最新分支 AGENTS.md 與 STATUS.md；本輪 A5c，確認其即時合併狀態後，從最新 main 另開分支接 A6；不重做 A4／A5／A5b，不沿用舊 Forbidden 要求重設 API。
+接手先列 PR，再讀最新分支 AGENTS.md 與 STATUS.md；本輪 A6，先固定來源／候選並檢查證據可取得性；不重做 A5b／A5c，不把前階段 CI 當 A6 候選驗收。
