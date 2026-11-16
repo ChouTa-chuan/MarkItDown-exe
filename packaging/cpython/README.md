@@ -13,3 +13,8 @@
 建置會在既有 native 資產目錄加入 `cpython-components.json` 與 `cpython-original/`，並保存實際安裝 CPython 的 `LICENSE.txt` 指紋；建置後重新驗證原文、原生檔覆蓋、版本宣告及 hash。候選清單把各檔連回對應原文，但不因此授予 owner 或把 `runtime_sbom_complete`／`redistribution_approved` 改成 true。Linux 只記不適用。
 
 新增 profile 時先核對新的實際 CPython 版本，從官方固定 commit 取得建置設定與其真正相依原文，保留原始位元組及完整來源。以合成反例、完整回歸及 Windows CI 驗證後再採用；不可只改 JSON 版本或檔名。
+
+
+`_ssl.pyd`、`_hashlib.pyd`、`_sqlite3.pyd` 等 **extension 列的 `observed_version` 是所連結元件（OpenSSL／SQLite）的版本，不是該擴充檔本身的版本**。擴充檔自己的 PE `FileVersion` 另列，通常對應 CPython 版本。
+
+Windows 適用清單在本機 Windows、GitHub Actions 或離線重驗時，都要求每個已收集 OpenSSL／SQLite 檔案為 `matched-runtime-probe`、有觀測值且載入來源指紋相符；出現 `probe_error`（含空值）也拒絕接受。產生端先保存原始診斷再拋錯；重驗端再次檢查，所以重算 sidecar／native manifest hash 不能繞過 `check_bundle_provenance`。libffi 維持僅建置宣告，不假造不存在的查詢；Linux 不適用清單不冒充 Windows。包內原文缺失仍會拒絕。

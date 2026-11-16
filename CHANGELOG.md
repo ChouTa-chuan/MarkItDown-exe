@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-16：A5c 強制 Windows 適用清單的 OpenSSL／SQLite runtime probe 完整且匹配，產生與重驗兩端皆拒絕缺口／probe_error，保留失敗診斷；補齊 hash 重綁後 audit／CLI 不接受及缺失 OpenSSL 原文反例，明列 extension observed_version 的元件語意。libffi 與 Linux 不適用範圍保留，完整回歸／Windows CI 待驗。
+
 ### 2026-11-16｜A5b 原生 Windows Qt 查驗完成（PR #10）
 
 - 相對前次只有本機與 Windows wheel 靜態證據，現在取得真正 Windows Qt／PySide／shiboken 版本、Qt build 字串、固定來源 catalog 及 Core extension 指紋；實際載入的綁定擴充檔與鎖定 Windows wheel 相符。controller 報告轉存及公開 annotation 接線已驗。

@@ -1,5 +1,10 @@
 """以合成包驗證指紋與拒絕條件，不把 fixture 當作 Windows 原生執行。"""
 import json
+import contextlib
+import copy
+import io
+import os
+import shutil
 from pathlib import Path
 import subprocess
 import sys
@@ -12,6 +17,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 from build_provenance import bootloader_notices, distribution_sources, sha256
 from check_bundle_provenance import audit, contained_file
+import check_bundle_provenance as bundle_check
 from prepare_worker_assets import native_notices
 
 
@@ -138,6 +144,57 @@ class ProvenanceTests(unittest.TestCase):
     def test_bootloader_original_is_required(self):
         (self.assets/'bootloader/original/COPYING.txt').unlink()
         with self.assertRaisesRegex(ValueError,'Missing or linked'):self.check()
+
+    def test_runtime_probe_gaps_are_not_accepted_even_after_rehashing_the_sidecar(self):
+        from cpython_components import REPORT, write_inventory
+        self.native['files'] = []
+        for name in ('_ssl.pyd', '_sqlite3.pyd'):
+            self.write(self.bundle/'_internal'/name, ('fixture '+name).encode())
+            path = self.bundle/'_internal'/name
+            self.native['files'].append(dict(file=name, source_basename=name, origin='python-runtime',
+                source_sha256=sha256(path), source_bytes=path.stat().st_size,
+                file_version='3.12.10.0', distributions=[]))
+        staged = self.root/'staged-cpython'
+        staged.mkdir()
+        probe = dict(versions={'openssl':'3.0.16', 'sqlite':'3.49.1'},
+                     files={r['file']:dict(sha256=r['source_sha256']) for r in self.native['files']})
+        original = write_inventory(self.native['files'], staged/REPORT, target='win32', version='3.12.10',
+            license_path=self.assets/'python-runtime/LICENSE.txt', probe=probe)
+        shutil.copytree(staged/'cpython-original', self.assets/'native/cpython-original', dirs_exist_ok=True)
+        path = self.assets/'native'/REPORT
+
+        def bind(report):
+            self.save(path, report)
+            self.native.update(cpython_components=REPORT, cpython_components_sha256=sha256(path))
+            self.save(self.assets/'native/manifest.json', self.native)
+
+        bind(original)
+        # 合成 Windows 清單驗證真實 audit／CLI 接線，不宣稱在 Linux 做過原生探測。
+        with patch.object(sys, 'platform', 'win32'):
+            self.assertTrue(self.check()['accepted'])
+        for index, case in enumerate(('error', 'openssl', 'sqlite', 'unmatched')):
+            broken = copy.deepcopy(original)
+            if case == 'error':
+                broken['probe_error'] = 'fixture probe failed'
+            else:
+                component = 'openssl' if case == 'unmatched' else case
+                row = next(r for r in broken['files'] if r['component'] == component)
+                row.update(observed_version=None, version_status='build-declaration-only')
+                if case == 'unmatched':
+                    row.update(loaded_source_sha256='f'*64, loaded_source_matched=False)
+            bind(broken)
+            for ci in ('true', 'false'):
+                with self.subTest(case=case, github_actions=ci):
+                    report = self.root/f'rejected-{index}-{ci}.json'
+                    argv = ['check_bundle_provenance.py', '--profile', 'cpu', '--bundle', str(self.bundle),
+                            '--report', str(report)]
+                    with patch.object(sys, 'platform', 'win32'), patch.object(sys, 'argv', argv), \
+                            patch.dict(os.environ, {'GITHUB_ACTIONS':ci}), contextlib.redirect_stdout(io.StringIO()):
+                        code = bundle_check.main()
+                    result = json.loads(report.read_text())
+                    self.assertEqual(code, 1)
+                    self.assertFalse(result['accepted'])
+                    self.assertIn('CPython runtime probe', result['error'])
 
     def test_source_digest_missing_or_malformed_is_rejected(self):
         for value in ('', 'z'*64):
