@@ -1,0 +1,669 @@
+{
+  "schema_version": 1,
+  "pr": 8,
+  "head_sha": "ca71bfacbfde64d152dd9f043171303c21c5573e",
+  "base_sha": "6032f9e6bc1b7b2d52af8d23b0c05395d5b3eefe",
+  "ci_merge_sha": "dd72bf4c363fc5bf17029c4db63b0cad71895f71",
+  "runs": {
+    "linux": {
+      "id": 43804367945,
+      "head_sha": "ca71bfacbfde64d152dd9f043171303c21c5573e",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T04:29:05Z",
+      "updated_at": "2026-11-16T04:32:39Z",
+      "run_attempt": 1,
+      "html_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43804367945",
+      "jobs": [
+        {
+          "id": 133091730001,
+          "name": "Ubuntu 24.04 full regression",
+          "head_sha": "ca71bfacbfde64d152dd9f043171303c21c5573e",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-16T04:29:26Z",
+          "completed_at": "2026-11-16T04:32:38Z",
+          "html_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43804367945/job/133091730001"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 14198245287,
+          "name": "linux-regression-reports",
+          "size_in_bytes": 74690,
+          "digest": "sha256:9dc45b63f9613acbefafedd6040f8a0c25e7c5cce2452ee9c35e19cb2c1ed016",
+          "expired": false,
+          "expires_at": "2026-11-30T04:32:35Z"
+        }
+      ]
+    },
+    "base": {
+      "id": 43804367902,
+      "head_sha": "ca71bfacbfde64d152dd9f043171303c21c5573e",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T04:29:05Z",
+      "updated_at": "2026-11-16T04:44:36Z",
+      "run_attempt": 1,
+      "html_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43804367902",
+      "jobs": [
+        {
+          "id": 133091723240,
+          "name": "Fixed Windows OCR inputs",
+          "head_sha": "ca71bfacbfde64d152dd9f043171303c21c5573e",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-16T04:29:24Z",
+          "completed_at": "2026-11-16T04:31:36Z",
+          "html_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43804367902/job/133091723240"
+        },
+        {
+          "id": 133092461999,
+          "name": "Windows 2022 base build and OCR",
+          "head_sha": "ca71bfacbfde64d152dd9f043171303c21c5573e",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-16T04:31:38Z",
+          "completed_at": "2026-11-16T04:44:36Z",
+          "html_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43804367902/job/133092461999"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 14198227351,
+          "name": "windows-base-validation-reports",
+          "size_in_bytes": 2796967,
+          "digest": "sha256:fd7df0cc775cb2235f8fc84a0390b3af43e23c7bb58bf97661c1e60f94eb94d3",
+          "expired": false,
+          "expires_at": "2026-11-23T04:44:29Z"
+        },
+        {
+          "id": 14197669299,
+          "name": "windows-ocr-ci-inputs",
+          "size_in_bytes": 8797000,
+          "digest": "sha256:814510f672bab088a3791252bfeadd0cf5aff44d89cef0cf9add479d9b1d2859",
+          "expired": false,
+          "expires_at": "2026-11-17T04:31:30Z"
+        },
+        {
+          "id": 14197344631,
+          "name": "windows-native-build-reports",
+          "size_in_bytes": 84932,
+          "digest": "sha256:3cd45e9ccb1163e90b8682d87055662f99a4c7aea4d7945b1aac1b4d3bd75d9b",
+          "expired": false,
+          "expires_at": "2026-11-23T04:31:32Z"
+        }
+      ]
+    },
+    "cpu": {
+      "id": 43804367917,
+      "head_sha": "ca71bfacbfde64d152dd9f043171303c21c5573e",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T04:29:05Z",
+      "updated_at": "2026-11-16T04:43:44Z",
+      "run_attempt": 1,
+      "html_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43804367917",
+      "jobs": [
+        {
+          "id": 133091677687,
+          "name": "cpu-component",
+          "head_sha": "ca71bfacbfde64d152dd9f043171303c21c5573e",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-16T04:29:17Z",
+          "completed_at": "2026-11-16T04:43:43Z",
+          "html_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43804367917/job/133091677687"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 14198745588,
+          "name": "windows-cpu-validation-reports",
+          "size_in_bytes": 671659,
+          "digest": "sha256:daaceaf6ad657cd3cba8b29243b961fdc4497318264ce8ada70e929d7b3d52a4",
+          "expired": false,
+          "expires_at": "2026-11-23T04:43:36Z"
+        }
+      ]
+    },
+    "history": {
+      "id": 43804367944,
+      "head_sha": "ca71bfacbfde64d152dd9f043171303c21c5573e",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-16T04:29:05Z",
+      "updated_at": "2026-11-16T04:29:28Z",
+      "run_attempt": 1,
+      "html_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43804367944",
+      "jobs": [
+        {
+          "id": 133091634502,
+          "name": "Index is up to date",
+          "head_sha": "ca71bfacbfde64d152dd9f043171303c21c5573e",
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-16T04:29:09Z",
+          "completed_at": "2026-11-16T04:29:27Z",
+          "html_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43804367944/job/133091634502"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "base": [
+      {
+        "title": "Windows CI actual report",
+        "message": {
+          "result": {
+            "check": "windows-base-build-ci",
+            "commit": "dd72bf4c363fc5bf17029c4db63b0cad71895f71",
+            "build_verified": true,
+            "validation_accepted": true,
+            "clean_machine_accepted": false,
+            "release_ready": false,
+            "installer_accepted": true,
+            "upgrade_accepted": true,
+            "overall_accepted": true,
+            "recovery_accepted": true
+          },
+          "acceptance": {
+            "check": "windows-base-ci",
+            "accepted": true,
+            "windows_executed": true,
+            "clean_machine_accepted": false,
+            "release_ready": false,
+            "source_version": "0.19.1",
+            "python_utf8_mode": true,
+            "gui": {
+              "opened": true,
+              "normal_exit": true,
+              "returncode": 0,
+              "close_requests": 3
+            },
+            "checks_passed": 10
+          },
+          "installer": {
+            "check": "C11-base-installer-smoke",
+            "accepted": true,
+            "windows_executed": true,
+            "install_verified": true,
+            "repair_verified": true,
+            "uninstall_verified": true,
+            "user_data_preserved": true,
+            "shortcut_verified": true,
+            "clean_machine_accepted": false,
+            "upgrade_verified": false,
+            "rollback_verified": false,
+            "full_c11_complete": false,
+            "release_ready": false,
+            "source_version": "0.19.1",
+            "bundle_catalog_sha256": "0483722dc75bace1bc107fadaa842bac4843a3245d6b0ac251c2d41ac6604fff",
+            "catalog_files": 1609,
+            "compiler_sha256": "eb6f4410c8db367a5f74127e8025ad2ccacc0afabbe783959d237df3050f97fb",
+            "compiler_license_sha256": "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c",
+            "installer_sha256": "bed0e0f6649e88c6ce027a8fdb05b5931c95b7b72d0265f5980e738994ce294b",
+            "installed_app_checks": 10,
+            "checks_passed": 6
+          },
+          "upgrade": {
+            "check": "C11-base-cross-version",
+            "accepted": true,
+            "windows_executed": true,
+            "upgrade_verified": true,
+            "rollback_verified": true,
+            "downgrade_blocked": true,
+            "obsolete_files_removed": true,
+            "user_data_preserved": true,
+            "all_profiles_accepted": false,
+            "automatic_failure_rollback": false,
+            "full_c11_complete": false,
+            "clean_machine_accepted": false,
+            "release_ready": false,
+            "source_version": "0.19.1",
+            "previous_version": "0.16.0",
+            "previous_commit": "990e600aed9e26011b77d46dfe5f9e5bb13ecc7a",
+            "compiler_sha256": "eb6f4410c8db367a5f74127e8025ad2ccacc0afabbe783959d237df3050f97fb",
+            "upgraded_app_checks": 10,
+            "rolled_back_app_checks": 10,
+            "checks_passed": 11
+          },
+          "recovery": {
+            "check": "C11-base-interruption-resume",
+            "accepted": true,
+            "windows_executed": true,
+            "process_termination_verified": true,
+            "pending_app_blocked": true,
+            "explicit_resume_required": true,
+            "user_data_preserved": true,
+            "power_loss_accepted": false,
+            "all_profiles_accepted": false,
+            "automatic_failure_rollback": false,
+            "full_c11_complete": false,
+            "clean_machine_accepted": false,
+            "release_ready": false,
+            "test_only_fault_installer": true,
+            "interruption_cases": 3,
+            "resumed_app_checks": [
+              10,
+              10,
+              10
+            ],
+            "retained_inno_temporaries": 0,
+            "temporary_cleanup_complete": true,
+            "cleaned_inno_temporaries": 1,
+            "temporary_cleanup_cases": 3,
+            "unknown_temporary_preserved": true,
+            "locked_temporary_rejected": true,
+            "temporary_cleanup_scope": "ci-owned-fault-installer-artifacts",
+            "source_version": "0.19.1",
+            "previous_version": "0.16.0",
+            "checks_passed": 4
+          }
+        }
+      },
+      {
+        "title": "",
+        "message": {
+          "check": "bundle-provenance",
+          "profile": "base",
+          "source_version": "0.19.1",
+          "accepted": true,
+          "release_ready": false,
+          "report_sha256": "3aa805a0d7e0adcae21c2cb99c3973bcb8fa05b7aebdca87ab2b022722106e89",
+          "native_files": 153,
+          "packages": 40,
+          "source_commit": "dd72bf4c363fc5bf17029c4db63b0cad71895f71",
+          "inventory": {
+            "files": 1610,
+            "bytes": 262600695,
+            "unresolved_files": 109,
+            "review_files": 147,
+            "original_notice_files": 108,
+            "packages": 40,
+            "file_inventory_complete": true,
+            "runtime_sbom_complete": false,
+            "redistribution_approved": false,
+            "release_ready": false
+          },
+          "inventory_reverified": true,
+          "excluded_binaries_absent": true,
+          "non_wheel_native": [
+            {
+              "origin": "python-runtime",
+              "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+              "company": "Microsoft Corporation",
+              "signature_status": "Valid",
+              "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+              "files": 2
+            },
+            {
+              "origin": "python-runtime",
+              "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+              "company": "Python Software Foundation",
+              "signature_status": "Valid",
+              "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+              "files": 2
+            },
+            {
+              "origin": "python-runtime",
+              "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+              "company": "",
+              "signature_status": "Valid",
+              "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+              "files": 1
+            },
+            {
+              "origin": "python-runtime",
+              "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+              "company": "Python Software Foundation",
+              "signature_status": "Valid",
+              "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+              "files": 19
+            },
+            {
+              "origin": "python-runtime",
+              "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+              "company": "SQLite3",
+              "signature_status": "Valid",
+              "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+              "files": 1
+            },
+            {
+              "origin": "python-runtime",
+              "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+              "company": "The OpenSSL Project, https://www.openssl.org/",
+              "signature_status": "Valid",
+              "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+              "files": 2
+            },
+            {
+              "origin": "system-native",
+              "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT",
+              "company": "Microsoft Corporation",
+              "signature_status": "Valid",
+              "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+              "files": 1
+            },
+            {
+              "origin": "system-native",
+              "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\base-assets\\native\\bin",
+              "company": "",
+              "signature_status": "NotSigned",
+              "signer": "",
+              "files": 1
+            }
+          ],
+          "identity_errors": {
+            "files": 0,
+            "messages": []
+          },
+          "python_archives": {
+            "pure_modules": 1556,
+            "by_origin": {
+              "stdlib": 268,
+              "distribution": 1239,
+              "application": 49,
+              "unknown": 0
+            },
+            "unknown_modules": 0,
+            "unknown_names": [],
+            "base_library_members": 155,
+            "build_only_modules_absent": true
+          }
+        }
+      }
+    ],
+    "cpu": [
+      {
+        "title": "",
+        "message": {
+          "check": "windows-cpu-worker-ci",
+          "commit": "dd72bf4c363fc5bf17029c4db63b0cad71895f71",
+          "source_version": "0.19.1",
+          "recorded_at": "2026-11-16T04:29:40.536474+00:00",
+          "accepted": true,
+          "windows_executed": true,
+          "build_verified": true,
+          "checks_passed": 11,
+          "clean_machine_accepted": false,
+          "gpu_executed": false,
+          "traditional_chinese_quality_passed": false,
+          "release_ready": false,
+          "provenance_accepted": true,
+          "controller_unchanged": true,
+          "controller_native_packages": false,
+          "package_sha256": "c952ce7ee825a079cfd6b0874b6db57e44ede08214e4576a59356eff56e52fc3",
+          "actual_providers": [
+            "CPUExecutionProvider",
+            "CPUExecutionProvider",
+            "CPUExecutionProvider"
+          ],
+          "installed_notice_packages": 26,
+          "lifecycle": {
+            "accepted": true,
+            "checks_passed": 8,
+            "scope": "same-version-cpu-component-maintenance",
+            "process_termination_executed": false,
+            "cross_version_executed": false,
+            "clean_machine_accepted": false,
+            "gpu_executed": false,
+            "release_ready": false,
+            "synthetic_data_preserved": true,
+            "archive_unchanged": true,
+            "payload_verified": true,
+            "journals_empty": true
+          },
+          "upgrade": {
+            "accepted": true,
+            "checks_passed": 8,
+            "scope": "cpu-component-cross-version",
+            "windows_executed": true,
+            "transaction_checks_accepted": true,
+            "process_termination_executed": false,
+            "clean_machine_accepted": false,
+            "release_ready": false,
+            "synthetic_data_preserved": true,
+            "archives_unchanged": true,
+            "journals_empty": true,
+            "source_version": "0.19.1",
+            "previous_version": "1.0.0",
+            "current_version": "1.0.1",
+            "actual_ocr_versions": [
+              "1.0.0",
+              "1.0.0",
+              "1.0.1",
+              "1.0.0",
+              "1.0.1"
+            ],
+            "actual_frozen": true,
+            "controller_unchanged": true,
+            "controller_native_packages": false,
+            "package_sha256": {
+              "1.0.0": "5ea43386f9eab0c0e7f6606c5a39645929b58f9ea587ba3b36bdb2b73e08879b",
+              "1.0.1": "c952ce7ee825a079cfd6b0874b6db57e44ede08214e4576a59356eff56e52fc3"
+            },
+            "gpu_executed": false,
+            "traditional_chinese_quality_passed": false,
+            "cross_version_executed": true
+          },
+          "recovery": {
+            "accepted": true,
+            "windows_executed": true,
+            "checks_passed": 6,
+            "process_termination_executed": true,
+            "transaction_checks_accepted": true,
+            "clean_machine_accepted": false,
+            "power_loss_accepted": false,
+            "os_reboot_executed": false,
+            "release_ready": false,
+            "source_version": "0.19.1",
+            "actual_frozen": true,
+            "controller_unchanged": true,
+            "controller_native_packages": false,
+            "gpu_executed": false,
+            "traditional_chinese_quality_passed": false,
+            "cases": [
+              {
+                "operation": "upgrade",
+                "stage": "published",
+                "maintenance_pid": 5684,
+                "recovery_pid": 7868,
+                "termination_exitcode": -15,
+                "active_after_recover": "1.0.0",
+                "version": "1.0.0",
+                "frozen": true
+              },
+              {
+                "operation": "upgrade",
+                "stage": "committed",
+                "maintenance_pid": 1500,
+                "recovery_pid": 1904,
+                "termination_exitcode": -15,
+                "active_after_recover": "1.0.1",
+                "version": "1.0.1",
+                "frozen": true
+              },
+              {
+                "operation": "repair",
+                "stage": "old_moved",
+                "maintenance_pid": 4400,
+                "recovery_pid": 4024,
+                "termination_exitcode": -15,
+                "active_after_recover": "1.0.1",
+                "version": "1.0.1",
+                "frozen": true
+              },
+              {
+                "operation": "repair",
+                "stage": "published",
+                "maintenance_pid": 4928,
+                "recovery_pid": 6748,
+                "termination_exitcode": -15,
+                "active_after_recover": "1.0.1",
+                "version": "1.0.1",
+                "frozen": true
+              },
+              {
+                "operation": "remove",
+                "stage": "old_moved",
+                "maintenance_pid": 1236,
+                "recovery_pid": 7380,
+                "termination_exitcode": -15,
+                "active_after_recover": "1.0.1",
+                "version": "1.0.1",
+                "frozen": true
+              },
+              {
+                "operation": "remove",
+                "stage": "committed",
+                "maintenance_pid": 5756,
+                "recovery_pid": 5064,
+                "termination_exitcode": -15,
+                "active_after_recover": null,
+                "version": "1.0.1",
+                "frozen": true
+              }
+            ]
+          },
+          "previous_source": "fd69854ee19ba031362750072e22a92bf5463a7c"
+        }
+      },
+      {
+        "title": "",
+        "message": {
+          "check": "bundle-provenance",
+          "profile": "cpu",
+          "source_version": "0.19.1",
+          "accepted": true,
+          "release_ready": false,
+          "report_sha256": "5227726094bddc8595b80e626badeeb5b0e4f245aa83f25dc14d0064948516fb",
+          "native_files": 61,
+          "packages": 26,
+          "source_commit": "dd72bf4c363fc5bf17029c4db63b0cad71895f71",
+          "inventory": {
+            "files": 700,
+            "bytes": 219697822,
+            "unresolved_files": 261,
+            "review_files": 295,
+            "original_notice_files": 287,
+            "packages": 26,
+            "file_inventory_complete": true,
+            "runtime_sbom_complete": false,
+            "redistribution_approved": false,
+            "release_ready": false
+          },
+          "inventory_reverified": true,
+          "excluded_binaries_absent": true,
+          "non_wheel_native": [
+            {
+              "origin": "python-runtime",
+              "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+              "company": "Microsoft Corporation",
+              "signature_status": "Valid",
+              "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+              "files": 2
+            },
+            {
+              "origin": "python-runtime",
+              "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+              "company": "Python Software Foundation",
+              "signature_status": "Valid",
+              "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+              "files": 2
+            },
+            {
+              "origin": "python-runtime",
+              "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+              "company": "",
+              "signature_status": "Valid",
+              "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+              "files": 1
+            },
+            {
+              "origin": "python-runtime",
+              "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+              "company": "Python Software Foundation",
+              "signature_status": "Valid",
+              "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+              "files": 17
+            },
+            {
+              "origin": "python-runtime",
+              "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+              "company": "SQLite3",
+              "signature_status": "Valid",
+              "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+              "files": 1
+            },
+            {
+              "origin": "python-runtime",
+              "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+              "company": "The OpenSSL Project, https://www.openssl.org/",
+              "signature_status": "Valid",
+              "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+              "files": 2
+            },
+            {
+              "origin": "system-native",
+              "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT",
+              "company": "Microsoft Corporation",
+              "signature_status": "Valid",
+              "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+              "files": 2
+            }
+          ],
+          "identity_errors": {
+            "files": 0,
+            "messages": []
+          },
+          "python_archives": {
+            "pure_modules": 562,
+            "by_origin": {
+              "stdlib": 243,
+              "distribution": 307,
+              "application": 12,
+              "unknown": 0
+            },
+            "unknown_modules": 0,
+            "unknown_names": [],
+            "base_library_members": 155
+          },
+          "package_inventory": {
+            "files": 701,
+            "bytes": 219698187,
+            "archive_bytes": 92339862,
+            "archive_verified": true,
+            "file_inventory_complete": true,
+            "runtime_sbom_complete": false,
+            "redistribution_approved": false,
+            "release_ready": false
+          },
+          "package_sha256": "c952ce7ee825a079cfd6b0874b6db57e44ede08214e4576a59356eff56e52fc3"
+        }
+      }
+    ],
+    "native_inputs": [
+      {
+        "title": "Windows CI actual report",
+        "message": {
+          "result": {
+            "check": "C03-minimal-source",
+            "source_version": "0.19.1",
+            "cross_build_complete": true,
+            "windows_executed": false,
+            "release_ready": false
+          }
+        }
+      }
+    ]
+  },
+  "raw_log_downloaded": false,
+  "raw_log_blocked_host": "results-receiver.actions.githubusercontent.com",
+  "artifact_bodies_downloaded": false,
+  "product_published": false
+}

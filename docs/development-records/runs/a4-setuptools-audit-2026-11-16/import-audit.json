@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "tested_source": "8c2645156babedbb8152f1113017366997cf3fb0",
+  "date_taipei": "2026-11-16",
+  "host": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "versions": {
+    "pyinstaller": "6.22.3",
+    "pyinstaller-hooks-contrib": "2026.9",
+    "setuptools": "84.2.1",
+    "urllib3": "2.8.0"
+  },
+  "scope": "Linux graph experiment and actual isolated Linux base-core frozen build; not Windows evidence",
+  "graph_experiment": {
+    "before_modules": 1694,
+    "after_modules": 1535,
+    "before_namespace_names": [
+      "setuptools._distutils.compilers",
+      "setuptools._distutils.compilers.C",
+      "setuptools._distutils.compilers.platform",
+      "setuptools._vendor",
+      "setuptools._vendor.jaraco"
+    ],
+    "after_namespace_names": [],
+    "before_graph_selected": [
+      {
+        "name": "setuptools._distutils.compilers",
+        "kind": "NamespacePackage",
+        "incoming": [
+          "setuptools._distutils.compilers.C",
+          "setuptools._distutils.compilers._modified",
+          "setuptools._distutils.compilers._util",
+          "setuptools._distutils.compilers.errors",
+          "setuptools._distutils.compilers.logging",
+          "setuptools._distutils.compilers.platform"
+        ]
+      },
+      {
+        "name": "setuptools._distutils.compilers.C",
+        "kind": "NamespacePackage",
+        "incoming": [
+          "setuptools._distutils._msvccompiler",
+          "setuptools._distutils.ccompiler",
+          "setuptools._distutils.compilers.C",
+          "setuptools._distutils.compilers.C.base",
+          "setuptools._distutils.compilers.C.cygwin",
+          "setuptools._distutils.compilers.C.errors",
+          "setuptools._distutils.compilers.C.msvc",
+          "setuptools._distutils.compilers.C.unix",
+          "setuptools._distutils.compilers.C.zos"
+        ]
+      },
+      {
+        "name": "setuptools._distutils.compilers.platform",
+        "kind": "NamespacePackage",
+        "incoming": [
+          "setuptools._distutils.compilers.C.base",
+          "setuptools._distutils.compilers.C.unix",
+          "setuptools._distutils.compilers.platform.detect",
+          "setuptools._distutils.compilers.platform.macos",
+          "setuptools._distutils.util"
+        ]
+      },
+      {
+        "name": "setuptools._vendor.jaraco",
+        "kind": "AliasNode",
+        "incoming": [
+          "setuptools._reqs",
+          "setuptools._vendor.jaraco.context",
+          "setuptools._vendor.jaraco.functools",
+          "setuptools._vendor.jaraco.text"
+        ]
+      },
+      {
+        "name": "setuptools._vendor.backports",
+        "kind": "AliasNode",
+        "incoming": [
+          "setuptools._vendor.jaraco.context",
+          "urllib3.response",
+          "urllib3.util.request"
+        ]
+      },
+      {
+        "name": "setuptools._vendor.backports",
+        "kind": "Package",
+        "incoming": [
+          "setuptools._vendor.backports",
+          "setuptools._vendor.backports.tarfile"
+        ]
+      },
+      {
+        "name": "setuptools._vendor",
+        "kind": "NamespacePackage",
+        "incoming": [
+          "setuptools._vendor.backports",
+          "setuptools._vendor.jaraco",
+          "setuptools._vendor.more_itertools",
+          "setuptools._vendor.packaging",
+          "setuptools._vendor.tomli",
+          "setuptools._vendor.wheel"
+        ]
+      },
+      {
+        "name": "setuptools",
+        "kind": "Package",
+        "incoming": [
+          "pyi_rth_setuptools.py",
+          "setuptools",
+          "setuptools._core_metadata",
+          "setuptools._discovery",
+          "setuptools._distutils",
+          "setuptools._entry_points",
+          "setuptools._imp",
+          "setuptools._importlib",
+          "setuptools._itertools",
+          "setuptools._normalization",
+          "setuptools._path",
+          "setuptools._reqs",
+          "setuptools._shutil",
+          "setuptools._static",
+          "setuptools._vendor",
+          "setuptools.archive_util",
+          "setuptools.command",
+          "setuptools.command._requirestxt",
+          "setuptools.command.bdist_egg",
+          "setuptools.command.bdist_wheel",
+          "setuptools.command.egg_info",
+          "setuptools.command.setopt",
+          "setuptools.compat",
+          "setuptools.config",
+          "setuptools.config._apply_pyprojecttoml",
+          "setuptools.config.expand",
+          "setuptools.config.setupcfg",
+          "setuptools.depends",
+          "setuptools.discovery",
+          "setuptools.dist",
+          "setuptools.errors",
+          "setuptools.extension",
+          "setuptools.glob",
+          "setuptools.installer",
+          "setuptools.logging",
+          "setuptools.monkey",
+          "setuptools.msvc",
+          "setuptools.unicode_utils",
+          "setuptools.version",
+          "setuptools.warnings",
+          "setuptools.wheel",
+          "setuptools.windows_support"
+        ]
+      },
+      {
+        "name": "setuptools._vendor.jaraco",
+        "kind": "NamespacePackage",
+        "incoming": [
+          "setuptools._vendor.jaraco",
+          "setuptools._vendor.jaraco.text"
+        ]
+      }
+    ],
+    "before_pure_sha256": "1118c66dd03edfd107e3ae76feae95f63dfc096c2250f1fde10ecb92a3135977",
+    "after_pure_sha256": "1a0983f9809cba31bb63ad2fc80f800fda329dfa14e2d0a6e16305c3deb9a148"
+  },
+  "frozen": {
+    "executable_sha256": "5f6fe552f42cf4ef974ed0105f8fcdd767d7b656cbdd823ae73b3caad83e2362",
+    "pure_manifest_sha256": "f182fcfbfb834853be5bf31a3989bee125b67af19d9aaddbe8516946a5a29377",
+    "manifest_modules": 1535,
+    "unknown_names": [],
+    "actual_pyz_entries": 1534,
+    "actual_setuptools_names": [],
+    "runtime_hook_names": [
+      "pyi_rth_cryptography_openssl",
+      "pyi_rth_inspect",
+      "pyi_rth_multiprocessing",
+      "pyi_rth_pkgutil",
+      "pyi_rth_pyside6"
+    ]
+  },
+  "process_exits": {
+    "graph_initial_export": 1,
+    "graph_retry": 0,
+    "graph_excluded": 0,
+    "base_prepare_initial": 1,
+    "base_prepare_retry": 0,
+    "base_build": 0,
+    "frozen_acceptance": 0,
+    "targeted_tests": 0,
+    "mixed_regression": 0,
+    "isolated_regression": 0
+  },
+  "windows_executed": false,
+  "gpu_executed": false,
+  "release_ready": false
+}

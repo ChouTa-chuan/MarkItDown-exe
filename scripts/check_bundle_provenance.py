@@ -12,7 +12,8 @@ from build_provenance import sha256
 from candidate_inventory import component_inventory, inventory, verify_inventory
 from bundle_filters import is_excluded_name
 from native_identity import identity_errors, summarize
-from python_archive_inventory import load_manifest, summarize as summarize_python, zip_members
+from python_archive_inventory import (load_manifest, summarize as summarize_python,
+                                      verify_base_runtime_modules, zip_members)
 
 # 建置時為非 wheel 來源原生檔記錄的身分欄位；原樣帶進報告，缺少的欄位不補造。
 IDENTITY_FIELDS = ('source_directory', 'company', 'product', 'file_version', 'signature_status', 'signer',
@@ -126,6 +127,9 @@ def audit(bundle, profile, expected_version):
                              **{key: row[key] for key in IDENTITY_FIELDS if key in row}))
     # Python 程式層級清單：spec 寫出的純 Python 模組清單，加上實際 base_library.zip 的成員；缺任一項即拒絕。
     modules = load_manifest(contained_file(native_root, 'python-modules.json'))
+    if profile == 'base':
+        # 再驗隨包清單，排除 spec 未生效時不能靠修改分類或隱藏 namespace 通過。
+        verify_base_runtime_modules(modules)
     library_path = '_internal/base_library.zip'
     library = contained_file(bundle, library_path)
     members = zip_members(library)
@@ -133,6 +137,8 @@ def audit(bundle, profile, expected_version):
                            base_library=dict(path=library_path, sha256=sha256(library),
                                              bytes=library.stat().st_size, members=members),
                            summary=summarize_python(modules, members))
+    if profile == 'base':
+        python_archives['summary']['build_only_modules_absent'] = True
     entry = contained_file(bundle, 'MarkItDownBase.exe' if profile=='base' else 'MarkItDownOCRWorker.exe')
     prefix=assets.relative_to(bundle).as_posix()
     contents=inventory(bundle,packages,binaries,{**loader,'prefix':bootloader.relative_to(assets).as_posix()},
