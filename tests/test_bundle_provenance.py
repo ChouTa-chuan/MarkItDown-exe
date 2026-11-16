@@ -17,9 +17,11 @@ from prepare_worker_assets import native_notices
 
 class ProvenanceTests(unittest.TestCase):
     def setUp(self):
-        temporary=tempfile.TemporaryDirectory();self.addCleanup(temporary.cleanup)
+        temporary=tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
         self.root=Path(temporary.name)
-        self.bundle=self.root/'bundle';self.assets=self.bundle/'_internal/worker-assets'
+        self.bundle=self.root/'bundle'
+        self.assets=self.bundle/'_internal/worker-assets'
         self.assets.mkdir(parents=True)
         self.write(self.bundle/'MarkItDownOCRWorker.exe', b'fixture entry')
         self.write(self.bundle/'_internal/runtime.dll', b'collected binary')
@@ -45,7 +47,8 @@ class ProvenanceTests(unittest.TestCase):
             archive.writestr('os.pyc',b'compiled fixture')
 
     def write(self,path,value):
-        path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(value)
+        path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_bytes(value)
 
     def save(self,path,value):
         self.write(path,json.dumps(value).encode())
@@ -55,8 +58,10 @@ class ProvenanceTests(unittest.TestCase):
 
     def test_distinct_source_and_collected_bytes_are_explicit(self):
         report=self.check()
-        self.assertTrue(report['accepted']);self.assertEqual(report['transformed_binaries'],1)
-        self.assertFalse(report['redistribution_approved']);self.assertFalse(report['release_ready'])
+        self.assertTrue(report['accepted'])
+        self.assertEqual(report['transformed_binaries'],1)
+        self.assertFalse(report['redistribution_approved'])
+        self.assertFalse(report['release_ready'])
         self.assertFalse(report['native_execution_performed'])
 
     def test_excluded_binary_in_bundle_is_rejected_and_identity_fields_are_carried(self):
@@ -139,7 +144,8 @@ class ProvenanceTests(unittest.TestCase):
 
     def base_fixture(self):
         import shutil
-        assets=self.bundle/'_internal/desktop_app/data';assets.mkdir(parents=True)
+        assets=self.bundle/'_internal/desktop_app/data'
+        assets.mkdir(parents=True)
         shutil.copytree(self.assets/'installed',assets/'licenses/installed')
         shutil.copytree(self.assets/'bootloader',assets/'licenses/bootloader')
         shutil.copytree(self.assets/'python-runtime',assets/'licenses/python-runtime')
@@ -156,7 +162,8 @@ class ProvenanceTests(unittest.TestCase):
     def test_base_runtime_and_original_metadata_are_checked(self):
         assets,profile=self.base_fixture()
         self.assertTrue(audit(self.bundle,'base','0.19.1')['accepted'])
-        profile['local_packages']['extra']='1';self.save(assets/'build-profile.json',profile)
+        profile['local_packages']['extra']='1'
+        self.save(assets/'build-profile.json',profile)
         with self.assertRaisesRegex(ValueError,'Runtime package list mismatch'):audit(self.bundle,'base','0.19.1')
 
     def test_base_requires_python_module_manifest_in_asset_fingerprints(self):
@@ -165,6 +172,22 @@ class ProvenanceTests(unittest.TestCase):
         self.save(assets/'build-profile.json',profile)
         with self.assertRaisesRegex(ValueError,'not covered by asset fingerprints'):
             audit(self.bundle,'base','0.19.1')
+
+    def test_base_rejects_setuptools_even_with_valid_asset_hash_but_cpu_is_unchanged(self):
+        # 排除檢查需真的接到建置後 audit；即使有人重算資產 hash 也不能放回建置工具。
+        self.modules.append(dict(name='setuptools._vendor', kind='PYMODULE', origin='unknown',
+                                 source_sha256=None, source_bytes=None, reason='namespace-package'))
+        self.save(self.assets/'native/python-modules.json', dict(schema_version=1, modules=self.modules))
+        self.assertTrue(self.check()['accepted'])
+        assets, profile = self.base_fixture()
+        with self.assertRaisesRegex(ValueError, 'Build-only modules present'):
+            audit(self.bundle, 'base', '0.19.1')
+        path = assets/'licenses/native/python-modules.json'
+        self.save(path, dict(schema_version=1, modules=self.modules[:-1]))
+        profile['assets']['licenses/native/python-modules.json'] = sha256(path)
+        self.save(assets/'build-profile.json', profile)
+        result = audit(self.bundle, 'base', '0.19.1')
+        self.assertTrue(result['python_archives']['summary']['build_only_modules_absent'])
 
     def test_final_base_inventory_includes_generated_installer_catalog(self):
         from base_install_catalog import create, CATALOG
@@ -181,9 +204,11 @@ class ProvenanceTests(unittest.TestCase):
         self.assertTrue(verify_inventory(self.bundle,after))
 
     def test_old_native_manifest_and_duplicate_destinations_are_rejected(self):
-        self.native['schema_version']=1;self.save(self.assets/'native/manifest.json',self.native)
+        self.native['schema_version']=1
+        self.save(self.assets/'native/manifest.json',self.native)
         with self.assertRaisesRegex(ValueError,'fingerprints missing'):self.check()
-        self.native['schema_version']=2;self.native['files']*=2
+        self.native['schema_version']=2
+        self.native['files']*=2
         self.save(self.assets/'native/manifest.json',self.native)
         with self.assertRaisesRegex(ValueError,'Duplicate native destination'):self.check()
 
@@ -199,14 +224,17 @@ class ProvenanceTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'Unsafe manifest'):contained_file(self.bundle,name)
 
     def test_symlinks_and_case_aliases_are_rejected(self):
-        self.write(self.bundle/'NAME',b'one');self.write(self.bundle/'name',b'two')
+        self.write(self.bundle/'NAME',b'one')
+        self.write(self.bundle/'name',b'two')
         with self.assertRaisesRegex(ValueError,'case alias'):self.check()
-        (self.bundle/'name').unlink();(self.bundle/'NAME').unlink()
+        (self.bundle/'name').unlink()
+        (self.bundle/'NAME').unlink()
         (self.bundle/'link').symlink_to(self.bundle/'MarkItDownOCRWorker.exe')
         with self.assertRaisesRegex(ValueError,'Bundle link'):self.check()
 
     def test_bootloader_directory_named_notice_preserves_exact_bytes(self):
-        source=self.root/'source';key='pkg.dist-info/licenses/Apache-2.0.txt'
+        source=self.root/'source'
+        key='pkg.dist-info/licenses/Apache-2.0.txt'
         self.write(source/key,b'original\r\nbytes\xff')
         distribution=SimpleNamespace(version='1',files=[key],locate_file=lambda entry:source/entry)
         report=bootloader_notices(self.root/'notices',distribution)
@@ -219,7 +247,8 @@ class ProvenanceTests(unittest.TestCase):
             bootloader_notices(self.root/'empty',SimpleNamespace(files=[],version='1'))
 
     def test_native_source_digest_and_distribution_owner_are_captured(self):
-        source=self.root/'runtime.dll';self.write(source,b'actual source fixture')
+        source=self.root/'runtime.dll'
+        self.write(source,b'actual source fixture')
         dist=SimpleNamespace(metadata={'Name':'Example'},version='2',files=['runtime.dll'],
                              locate_file=lambda entry:self.root/entry)
         with patch('build_provenance.metadata.distributions',return_value=[dist]):
@@ -231,7 +260,8 @@ class ProvenanceTests(unittest.TestCase):
         self.assertEqual(report['files'][0]['distributions'],[dict(name='Example',version='2')])
 
     def test_windows_analysis_destination_is_normalized_before_audit(self):
-        source=self.root/'runtime.dll';self.write(source,b'fixture source')
+        source=self.root/'runtime.dll'
+        self.write(source,b'fixture source')
         with patch('prepare_worker_assets.distribution_sources',return_value={}),patch('prepare_worker_assets.subprocess.run',return_value=SimpleNamespace(returncode=1)):
             report=native_notices([('package.libs\\runtime.dll',str(source),'BINARY')],self.root/'native-windows')
         self.assertEqual(report['files'][0]['file'],'package.libs/runtime.dll')

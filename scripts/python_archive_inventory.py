@@ -34,6 +34,18 @@ ORIGINS = ('stdlib', 'distribution', 'application', 'unknown')
 MAX_UNKNOWN_NAMES = 10
 MAX_NAME_LENGTH = 80
 _DIGEST = re.compile('[0-9a-f]{64}')
+# 基本包不在使用者電腦編譯或安裝 Python 套件；建置環境仍保留 setuptools。
+# 與 base.spec 共用排除根，防止只把 namespace 隱藏成「已知」卻繼續帶入建置工具。
+BASE_EXCLUDED_MODULES = ('setuptools',)
+
+
+def verify_base_runtime_modules(modules):
+    """以完整模組邊界拒絕基本包的建置工具；套件歸屬與 namespace 都不能繞過。"""
+    forbidden = sorted(row['name'] for row in modules
+                       if any(row['name'] == root or row['name'].startswith(root + '.')
+                              for root in BASE_EXCLUDED_MODULES))
+    if forbidden:
+        raise ValueError('Build-only modules present in base runtime: ' + ', '.join(forbidden[:10]))
 
 
 def _resolve_roots(roots):

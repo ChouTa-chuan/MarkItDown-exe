@@ -100,6 +100,23 @@ class PureModuleTests(unittest.TestCase):
         self.assertEqual(subject.load_manifest(output)[0]['name'], 'stray')
 
 
+class BaseRuntimeModuleTests(unittest.TestCase):
+    def test_build_tools_and_namespace_children_are_rejected_regardless_of_origin(self):
+        # 不能靠改 origin 或把 namespace 標成已知套件來掩蓋排除失效。
+        for name in ('setuptools', 'setuptools._vendor', 'setuptools._vendor.jaraco',
+                     'setuptools._distutils.compilers', 'setuptools._distutils.compilers.C',
+                     'setuptools._distutils.compilers.platform'):
+            for origin in ('unknown', 'distribution'):
+                with self.subTest(name=name, origin=origin):
+                    with self.assertRaisesRegex(ValueError, 'Build-only modules present'):
+                        subject.verify_base_runtime_modules([dict(name=name, origin=origin)])
+
+    def test_runtime_modules_and_similar_names_are_preserved(self):
+        subject.verify_base_runtime_modules([dict(name=name) for name in
+                                            ('desktop_app', 'urllib3', 'onnxruntime', 'setuptools_extra',
+                                             'another.setuptools')])
+
+
 class ZipMemberTests(unittest.TestCase):
     def setUp(self):
         temporary = tempfile.TemporaryDirectory()
