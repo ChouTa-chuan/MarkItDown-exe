@@ -505,9 +505,14 @@
           "required_evidence": [
             "qt_attribution、版本、完整建置資訊／來源／原文與替換驗收"
           ],
-          "evidence": [],
+          "evidence": [
+            {
+              "path": "packaging/qt/6.12.0/thirdparty/catalog.json",
+              "sha256": "57386d1721c0d479f2c972c9ae2c65ca9578497eaefeb386f3c1765c1a662630"
+            }
+          ],
           "status": "open",
-          "requires_user_decision": false,
+          "requires_user_decision": true,
           "decision_source": null,
           "gates": [
             "runtime_sbom_complete",

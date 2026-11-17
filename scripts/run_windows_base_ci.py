@@ -12,6 +12,7 @@ import traceback
 
 from cryptography_notice import REPORT as CRYPTO_REPORT, publish as publish_crypto_notice
 from qt_sources import STAGED as QT_SOURCES, publish_annotation as publish_qt_sources
+from check_qt_replacement import publish as publish_qt_replacement
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -107,6 +108,13 @@ def main():
              args.output/'dist/MarkItDownBase/MarkItDownBase.exe','--output',reports/'acceptance'])
         acceptance = json.loads((reports/'acceptance/windows-acceptance.json').read_text(encoding='utf-8'))
         summary['validation_accepted'] = acceptance['accepted']
+        # 替換驗收只改可拋棄副本，正式 bundle 與後續 installer 輸入保持原樣。
+        call('qt-replacement', [python, 'scripts/check_qt_replacement.py', '--bundle',
+             args.output/'dist/MarkItDownBase', '--work', args.output/'qt-replacement-work',
+             '--reports', reports/'qt-replacement'])
+        replacement = json.loads((reports/'qt-replacement/qt-replacement.json').read_text(encoding='utf-8'))
+        publish_qt_replacement(replacement)
+        summary['qt_replacement_accepted'] = replacement['accepted']
         if args.installer:
             installer_args=[python,'scripts/check_windows_base_installer.py','--bundle',
                  args.output/'dist/MarkItDownBase','--output',args.output/'installer-work',
@@ -137,7 +145,8 @@ def main():
              '--bundle',args.output/'dist/MarkItDownBase','--report',reports/'bundle-provenance.json'])
         print((reports/'bundle-provenance.log').read_text(encoding='utf-8'))
         summary['provenance_accepted'] = True
-        summary['overall_accepted']=(summary['provenance_accepted'] and summary['validation_accepted'] and (not args.installer or summary['installer_accepted'])
+        summary['overall_accepted']=(summary['provenance_accepted'] and summary['validation_accepted'] and summary['qt_replacement_accepted']
+                                    and (not args.installer or summary['installer_accepted'])
                                     and (not args.previous_source or summary['upgrade_accepted'])
                                     and (not args.recovery or summary['recovery_accepted']))
     except Exception as exc:

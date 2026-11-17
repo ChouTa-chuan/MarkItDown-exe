@@ -2,9 +2,9 @@
   "updated": "2026-11-18",
   "environment": "Linux 完整混合／獨立模組回歸；A10 hosted Windows 2022 逐檔探測，非乾淨機／GPU／人工驗收",
   "tests_passed": 870,
-  "headline": "A9b OpenSSL 原文隨包與 Windows 版本觀測完成（PR 21）；待最終 CI／Merge 後接 A11",
+  "headline": "A9b 已合併（PR 21，9360a54）；A11 Qt 第三方目錄與替換驗收進行中",
   "blocker": "Microsoft 各複本條款適用及再散布權利仍待 A13 使用者決定；其他來源義務與乾淨機／人工驗收未關閉，兩個 profile 三旗標均 false。",
-  "next": "A9b 最新 head CI／查驗及一般 Merge → 從最新 main 另開 A11 新分支 → A11 完成後停止；不做 A12。",
+  "next": "A11 hosted Windows frozen GUI 替換／移除／還原 → 最終 CI 與查驗 → 一般 Merge 後停止；不做 A12。",
   "milestones": [
     {
       "id": "m0",
@@ -3544,7 +3544,7 @@
             "id": "A9b",
             "title": "cryptography 內含 OpenSSL 原文隨包",
             "status": "done",
-            "note": "原文隨包及 Windows API 版本已驗；最終整合見 PR",
+            "note": "已 Merge 9360a54；最終六條 CI 與查驗通過",
             "pr": 21
           },
           {
@@ -3557,8 +3557,8 @@
           {
             "id": "A11",
             "title": "Qt 內含第三方、建置資訊與可替換驗收",
-            "status": "next",
-            "note": "待指派"
+            "status": "active",
+            "note": "來源與原文、替換驗收已接線；待實際 Windows CI"
           },
           {
             "id": "A12",
@@ -3857,6 +3857,16 @@
         "reasons_covered": 4
       }
     },
-    "redistribution_approved": false
+    "redistribution_approved": false,
+    "merge_commit": "9360a54dc89701ac3b087e2aa30ec719c930e3b5",
+    "final_head": "30e0cb426a6e49b623653e08425a71ed8405f120",
+    "final_ci_runs": [
+      44145942758,
+      44145942706,
+      44145942897,
+      44145942693,
+      44145942855,
+      44145942668
+    ]
   }
 }

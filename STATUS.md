@@ -10,9 +10,9 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | PR 1–20 已合併；A10（PR 20，536f4d6）六項 CI 全成功 |
-| 本輪分支 | `codex/a9b-openssl-notice-20261118`，從最新 main 0b6fc51 開始；A9b 原文／Windows API 證據與本機查驗已完成，最終整合見 PR 21 |
-| 下一棒 | 依使用者指定先完成／Merge A9b，再從最新 main 開自己的 A11 新分支；A11 完成後停，不做 A12 |
+| `main` | PR 1–21 已合併；A9b（PR 21，9360a54）最終 head 六項 CI 成功且證據 replay 通過 |
+| 本輪分支 | `codex/a11-qt-attribution-20261118`，從最新 main 9360a54 開始；A11 原文目錄與 hosted Windows 替換驗收已接線，待實際 CI |
+| 下一棒 | A9b 已 Merge；本輪依指定續做 A11，完成後停，不做 A12 |
 | 固定來源 | `8285450226abe1381e6a357e8bd33bff1ad46e0e`（A6）。**不含 A7**，A12 重新固定前不作為交付依據；A10 PR 探測不是新候選 |
 
 ## B. 這個階段完成了什麼
@@ -33,9 +33,9 @@
 | | A8 義務登記表與旗標判定規則：新增 `packaging/redistribution/obligations.json`（分 base／cpu，每項含 id、對應的 review_reason 或檔案群、所需證據、狀態、使用者決定出處）、`scripts/redistribution_gates.py`、測試與 `docs/redistribution-gates.md`（三旗標定義；寫明 `unresolved_files` 是「無 wheel 擁有者」的計數，不是要歸零的指標）。旗標改由條目推導，不再只是常數。順帶修正 `scripts/license_inventory.py` render() 兩句過時文字（「Tesseract 執行檔尚未隨 Windows 包發佈」「完整 Windows 二進位檔尚未建置」）並重產 `third-party.md`。驗收：以 A6 的 base／cpu source-review 為輸入，每個原生檔與 review_reason 各對到恰好一個條目，未對到者拒絕；標「使用者已核准」卻無決定出處者拒絕；現況輸出三旗標皆 false 並列出未關閉條目；不動 spec、打包內容與既有計數口徑；限制為單一 JSON 加一支檢核腳本，避免過度設計 | 完成（PR 15） |
 | | A8b 義務登記檢核補強：決定出處限固定存檔 D 節的使用者決定列、反向檢查 stale selector、release_ready 綁定 `stage-c-` 證據、結構封閉與 schema 2（使用者決定插入於 A9 之前） | 完成（PR 16） |
 | | A9 基本包 wheel 內含第三方元件目錄（非 Qt、非 Microsoft）：元件名稱、版本、版本依據分級、來源與隨包原文；未知者保持 open | 完成（PR 18） |
-| | A9b cryptography 內含 OpenSSL 原文隨包：A9 查得 `cryptography/hazmat/bindings/_rust.pyd` 有 `OpenSSL 4.0.3` 字串（靜態併入），wheel 未附原文。使用者已同意補：以固定上游來源（OpenSSL 對應版本標籤的 LICENSE 原文，記來源網址、版本依據與 sha256）加入隨包授權資料，接到既有原文管線與目錄（`packaging/embedded/base-windows.json` 的 openssl 元件），補缺檔／改內容反例；版本仍須有依據，不能只憑字串就標成 wheel-declared（可新增分級需先說明）。會改變安裝包內容（使用者已同意） | 工程完成（PR 21）；最終 CI／Merge 見 PR |
+| | A9b cryptography 內含 OpenSSL 原文隨包：A9 查得 `cryptography/hazmat/bindings/_rust.pyd` 有 `OpenSSL 4.0.3` 字串（靜態併入），wheel 未附原文。使用者已同意補：以固定上游來源（OpenSSL 對應版本標籤的 LICENSE 原文，記來源網址、版本依據與 sha256）加入隨包授權資料，接到既有原文管線與目錄（`packaging/embedded/base-windows.json` 的 openssl 元件），補缺檔／改內容反例；版本仍須有依據，不能只憑字串就標成 wheel-declared（可新增分級需先說明）。會改變安裝包內容（使用者已同意） | 完成（PR 21，9360a54）；六項 CI 與查驗通過 |
 | | A10 Microsoft 執行期逐檔對照（基本包 14 檔：根目錄 3、PySide6 5、shiboken6 4、numpy.libs 與 pandas.libs 各 1 個改名的 msvcp140）：收集來源、PE 版本、簽章、與官方 Redist 同名檔雜湊比對、適用條款文件；改名複本單獨標示；review_reason 改由登記表狀態控制。條款是否允許由使用者在 A13 決定 | 完成（PR 20）；Microsoft 義務維持 open，留待 A13 |
-| | A11 Qt 內含第三方（qt_attribution）、建置資訊（`QLibraryInfo.build()` 等）與「可替換 Qt」驗收（hosted Windows CI：替換 DLL 後可啟動、移除 Qt6Core 後啟動失敗，標明非實體機）；更新 `qt-lgpl-notice.md`。LGPL 做法是否足夠由使用者在 A13 決定 | **可開始** |
+| | A11 Qt 內含第三方（qt_attribution）、建置資訊（`QLibraryInfo.build()` 等）與「可替換 Qt」驗收（hosted Windows CI：替換 DLL 後可啟動、移除 Qt6Core 後啟動失敗，標明非實體機）；更新 `qt-lgpl-notice.md`。LGPL 做法是否足夠由使用者在 A13 決定 | **進行中**：獨立分支，待 hosted Windows 實際結果 |
 | | A12 以 A8–A11 完成後的 main 重新固定候選，產出基本包出口報告；`runtime_sbom_complete` 依 A8 定義推導，不得人工改寫。**順帶整理 `docs/progress.json`**：把 `previous_*` 等舊紀錄鍵搬到 `docs/history/`（搬移，不刪除內容；使用者已同意）。**不做打包減量**（使用者決定） | 待開始 |
 | | A13 使用者確認基本包門檻（原 B4 前移）：Microsoft 各複本、Qt LGPL 做法、libffi 僅建置宣告、版本未知的內含元件、Tesseract 與 tessdata、品質限制揭露文字。協調者不得代為決定 | 需使用者 |
 | | A14 CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例） | 待開始（B1 之後） |
@@ -62,7 +62,7 @@
 
 **補充換手來源**
 
-- 使用者已同意補 cryptography 內含 OpenSSL 原文，列為 A9b（見上表）；A10 未處理 A9b，隨包授權內容尚未改動。
+- 使用者已同意補 cryptography 內含 OpenSSL 原文，列為 A9b（見上表）；A9b 已於 PR 21 完成原文隨包。
 - A10 的 Microsoft 條款適用與再散布許可仍由使用者在 A13 決定；官方候選原始檔與 REDIST 全頁已取得；不把原文取得、簽章有效或 hash 相同當成已核准。
 
 **有期限的資料**：PR 上的 Windows 報告保留七天，以暫時合併提交執行，不是候選證據。artifact 儲存主機常被本環境網路政策擋下，需要的資料請讓 CI 寫進公開摘要。
@@ -108,4 +108,4 @@
 | 2026-11-18 | 使用者本輪指示 | 依序做 A9b 與 A11，各自一個 PR；先完成 A9b 並合併，再從最新 main 開新分支做 A11。A9b 已同意原文隨包內容變更；A11 hosted Windows 可替換驗收，base-qt 需 A13 使用者決定；不動 spec、鎖檔與既有計數口徑，不做 A12；A11 完成後先停。 |
 | 2026-11-18 | 使用者補充授權 | 允許必要的 hash 同步：只更新共用目錄（或 A11 的共用來源）的 sha256 引用，其他條目的 status、選擇器、required_evidence、requires_user_decision 一律不變；並在 PR 說明與 CHANGELOG 列出哪些條目只做了 hash 同步。改完重跑 base、cpu 兩個 profile 的 gates，三旗標仍須為 false。 |
 
-A9b 成果、最終 head CI／Merge 見 PR 21；合併後從最新 main 另開自己的 A11 分支，依本輪使用者指示接續，A11 完成後停，不做 A12。
+A9b 已完成並 Merge PR 21（9360a54）；A11 從該最新 main 的自有分支進行，完成後停，不做 A12。

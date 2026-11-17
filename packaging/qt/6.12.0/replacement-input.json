@@ -1,0 +1,14 @@
+{
+  "wheel": "pyqt6_qt6-6.12.0-py3-none-win_amd64.whl",
+  "url": "https://files.pythonhosted.org/packages/31/35/1bf45d60b44c7f942d73cb6455b39974b2c6101ff068f568e4acce6f52cb/pyqt6_qt6-6.12.0-py3-none-win_amd64.whl",
+  "sha256": "a0f3e52fcd014b3d40f4aa856f8cb6843cf13720a2c2f31267f03702bc54d07b",
+  "bytes": 79706707,
+  "member": "PyQt6/Qt6/bin/Qt6Core.dll",
+  "member_sha256": "39175459c4837c8cc0f709a637fb6eadb25d696785109c8393559ec876f02703",
+  "member_bytes": 10472760,
+  "dependencies": [],
+  "version": "6.12.0",
+  "distribution": "PyQt6-Qt6",
+  "scope": "test-only; not installed or shipped",
+  "license_scope": "Wheel provided by Riverbank; only used privately on disposable hosted CI; not added to product"
+}

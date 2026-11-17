@@ -9,6 +9,7 @@ import re
 
 import embedded_components
 import microsoft_runtime
+import qt_components
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT/'packaging/redistribution/obligations.json'
@@ -226,6 +227,13 @@ def assess(report, registry, *, root=ROOT):
                     and paths == [microsoft_runtime.CATALOG_PATH], 'Unexpected Microsoft catalog binding')
             microsoft.append(microsoft_runtime.check_catalog(read_json(root/paths[0]), report=report,
                                                             entry=entry, root=root))
+    qt = []
+    for entry in entries:
+        paths = [ref['path'] for ref in entry['evidence'] if ref['path'] == qt_components.CATALOG]
+        if paths:
+            require(profile == 'base' and entry['id'] == 'base-qt' and len(paths) == 1,
+                    'Unexpected Qt catalog binding')
+            qt.append(qt_components.check_profile(read_json(root/paths[0]), entry=entry, report=report, root=root))
     blocked = {}
     for flag in FLAGS:
         blocked[flag] = [e['id'] for e in entries if flag in e['gates'] and
@@ -240,7 +248,8 @@ def assess(report, registry, *, root=ROOT):
                 unclosed_obligations=[dict(id=e['id'], status=e['status'], title=e['title'],
                                           required_evidence=e['required_evidence']) for e in entries
                                       if any(e['id'] in ids for ids in blocked.values())],
-                coverage=mappings, embedded_catalogs=embedded, microsoft_catalogs=microsoft, input_inventory_summary=report['inventory_summary'],
+                coverage=mappings, embedded_catalogs=embedded, microsoft_catalogs=microsoft,
+                qt_catalogs=qt, input_inventory_summary=report['inventory_summary'],
                 scope='Registry review decision for this source; accepted means valid coverage, not product approval')
 
 

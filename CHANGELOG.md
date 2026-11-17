@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-18：A11 新增固定 Qt 來源的第三方宣告／原文目錄及隨包驗證，保留 source-declared 與編入狀態 unverified 的界線；QLibraryInfo 觀測補 shared／debug／library version。Hosted Windows 真正 frozen GUI 的不同 bytes Core 替換／移除／還原驗收已接線，實際結果待 CI。只改 base-qt 義務（open、requires_user_decision=true），其他條目不變，本次沒有僅 hash 同步的其他條目；spec、鎖檔及計數口徑不變，base／cpu gates 三旗標 false。
+
 ### 2026-11-18｜A9b OpenSSL 原文隨包
 
 - 新增固定 OpenSSL 4.0.3 tag／commit 的 LICENSE 原文與 cryptography 補充來源，接既有 supplemental_sources 管線；準備資產與最終 bundle 重新核對原文、套件綁定、實際 cryptography OpenSSL API 及 `_rust` bytes。
