@@ -84,7 +84,8 @@ def verify(assets, packages, *, root=ROOT):
     require(path.is_file() and not path.is_symlink() and sha(path) == p['notice']['sha256'], 'Bundled OpenSSL original missing or changed')
     report = json.loads((assets/REPORT).read_text(encoding='utf-8'))
     require(report['check'] == 'cryptography-openssl' and report['profile_sha256'] == sha(root/PROFILE)
-            and report['notice_sha256'] == p['notice']['sha256'] and report['redistribution_approved'] is False, 'Invalid bundled OpenSSL report')
+            and report['notice_sha256'] == p['notice']['sha256'] and report['redistribution_approved'] is False
+            and report['openssl_tag'] == p['openssl_tag'] and report['openssl_commit'] == p['openssl_commit'], 'Invalid bundled OpenSSL report')
     validate_observation(report['observed'],p)
     return report
 

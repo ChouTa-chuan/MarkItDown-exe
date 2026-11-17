@@ -40,7 +40,7 @@ base 與 cpu 分開判定；CPU 尚未關閉不妨礙基本包依自己的證據
 
 - **版本依據分級**：`wheel-declared`（wheel 內文字檔或 METADATA 宣告）、`runtime-observed`（實際載入觀測；A9b 使用 cryptography 連結的 OpenSSL API，另記平台與 `_rust` SHA-256，Windows 觀測須對到 A6 檔案）、`unknown`（未知）。`unknown` 的版本欄位必須為 null；所屬條目必須保持 `open`，不得關閉。
 - **檢核範圍**：目錄綁定鎖檔的 wheel 名稱、版本與 sha256；原生檔必須與 A6 輸入一致，且與指定條目完全相同（不多、不少、不重複）；授權原文必須在 `src/desktop_app/data/licenses/windows` 內，hash 與 `inventory.json` 一致。檢核由 `scripts/embedded_components.py` 執行，並被 `redistribution_gates.py` 在組裝判定時呼叫。
-- **不能驗證的部分**：`version_source` 只記 wheel 內的檔案與欄位，repo 內沒有 wheel 本體，無法自動重驗宣告字串；元件清單是否完整、上游網址與授權判斷由人工審閱。這些必須以人工比對 wheel 內容的方式補上，不能因為腳本通過就視為已驗證。
+- **不能驗證的部分**：`wheel-declared` 的 `version_source` 只記 wheel 內的檔案與欄位，repo 內沒有 wheel 本體，無法自動重驗宣告字串；元件清單是否完整、上游網址與授權判斷由人工審閱。這些必須以人工比對 wheel 內容的方式補上，不能因為腳本通過就視為已驗證。
 - **限制**：目錄只是證據與檢核，不改變打包內容，也不代表使用者已同意再散布。
 
 ## Microsoft 執行期目錄（A10）

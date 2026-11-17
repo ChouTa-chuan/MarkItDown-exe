@@ -83,11 +83,13 @@ class CryptographyNoticeTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 notice.load(self.root)
 
-    def test_report_cannot_grant_redistribution(self):
+    def test_report_cannot_grant_redistribution_or_change_source(self):
         path=self.assets/notice.REPORT
-        r=json.loads(path.read_text());r['redistribution_approved']=True;path.write_text(json.dumps(r))
-        with self.assertRaisesRegex(ValueError,'Invalid bundled'):
-            notice.verify(self.assets,self.packages,root=self.root)
+        original=json.loads(path.read_text())
+        for changes in [dict(redistribution_approved=True),dict(openssl_tag='openssl-4.0.2'),dict(openssl_commit='b'*40)]:
+            path.write_text(json.dumps(dict(original,**changes)))
+            with self.assertRaisesRegex(ValueError,'Invalid bundled'):
+                notice.verify(self.assets,self.packages,root=self.root)
 
     def test_supplemental_inventory_binds_original_to_cryptography(self):
         from license_inventory import verify

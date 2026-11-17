@@ -14,7 +14,7 @@
   版本 unknown 的元件，其所屬條目必須保持 open，不得以其他方式關閉。
 
 本模組不做的事（限制，不能當成已驗證）：
-- version_source 只記 wheel 內的檔案路徑與欄位，repo 內沒有 wheel 本體，無法自動重驗宣告的字串是否存在；
+- wheel-declared 的 version_source 只記 wheel 內檔案路徑與欄位；A9b runtime-observed 則核對 Windows API JSON、原生檔與原文 hash。repo 內沒有 wheel 本體，無法自動重驗宣告字串是否存在；
   這一點需要重新下載 wheel 人工比對，之後若要自動化，必須把宣告檔一併保存進 repo。
 - 不判定元件清單是否完整、不判定 upstream 網址是否正確，也不判定授權是否足夠；這些由人工審閱並留在目錄中。
 """
@@ -101,7 +101,8 @@ def check_notice(ref, root, inventory_files, label):
 def check_crypto_observation(component, wheel, proof, source_row, profile):
     """A9b 版本來自真實 Windows API；證據原生檔必須就是 A6 的同一份 bytes。"""
     from cryptography_notice import validate_observation
-    require(proof.get('check') == 'cryptography-openssl' and proof.get('redistribution_approved') is False,
+    require(proof.get('check') == 'cryptography-openssl' and proof.get('redistribution_approved') is False
+            and proof.get('openssl_tag') == profile['openssl_tag'] and proof.get('openssl_commit') == profile['openssl_commit'],
             'Invalid cryptography runtime evidence')
     observed = proof['observed']
     validate_observation(observed,profile)
