@@ -4,6 +4,20 @@
 
 ## 更新中
 
+### 2026-11-17｜A8 義務登記與旗標判定
+
+- 首個提交 fec86c9 先完成 A7 查驗小問題；核心僅新增單一 obligations.json 與一支 redistribution_gates.py，base／cpu 分開對應原生檔與 review_reason，並按證據／決定狀態推導三旗標及列出阻擋條目。
+- 未知／重複對應、無決定出處的使用者核准及證據 hash／quote 不符拒絕；正例證明旗標可依條件變動，實際 A6 輸入的三旗標仍全 false。原始 unresolved_files 等計數不改，規則定義詳見 docs/redistribution-gates.md。
+- 相關反例與完整混合／獨立模組回歸通過，現況數字只記 progress.json；精簡新證據與來源已保存，STATUS 先封存後更新、重建進度頁及索引。最終 head 全 CI／查驗通過才一般 Merge。
+- 只依 C 節勘誤兩句說明並重產 Markdown；未動 spec、套件收集、依賴或原始授權。A8 完成後停止，不展開 A9–A17，產品核准門檻未關閉。
+
+
+- 2026-11-17：A8 新增單一義務登記 JSON 與獨立旗標檢核腳本，逐一驗證 A6 原生檔／review_reason 唯一對應、證據 hash 與使用者決定出處，按條目及相依條件推導三旗標；現況全 false，既有盤點口徑／spec 不動。補正例與反例，更新 C 節指定的兩句說明並重產第三方清單。
+
+- 2026-11-17：A8 首個提交處理 A7 查驗小問題：Windows 預檢改用區分大小寫且嚴格結尾的 `-cmatch '^[0-9a-f]{40}\z'`，分片補保留其餘各片、只改最後 part=N+1 的越界反例；更新 m5 描述，A7 status 維持已合併。
+- `full_regression.baseline_environment_identical` 在 A7 移除：舊布林值未附完整環境清單比較的依據，不能據此宣稱兩輪環境相同或不同。目前保留實測 Python／Tesseract、來源提交與回歸結果，舊欄位仍可由 Git 歷史追溯；本輪不還原沒有比較證據的布林值。
+
+
 - 2026-11-17：PR 13（A7）合併後 Windows 基本包與 CPU 驗證成功。Claude planner 完成大階段 A 整體複查：A1–A7 達成，但三旗標仍 false；依使用者決定續編 A8–A17，門檻確認前移為 A13，A12 不做打包減量並整理 progress.json，CPU 排在 B1 之後（STATUS C、D 節）。
 
 ### 2026-11-17｜A7 自有 MIT 對照、工作流來源傳遞與分片反例

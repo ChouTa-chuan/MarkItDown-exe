@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-17",
+  "tested_source": "5e7fd532a4b97f33ff0aad460d80fb653b48183f",
+  "accepted": true,
+  "accepted_scope": "A8 registry, gate derivation and local regression; no product permission granted",
+  "windows_executed": false,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "profiles": {
+    "base": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "native_files_covered": 153,
+      "review_reasons_covered": 3,
+      "unclosed_obligation_ids": [
+        "base-source-attribution",
+        "base-microsoft",
+        "base-cpython",
+        "base-wheels",
+        "base-archives",
+        "base-qt",
+        "base-tesseract-models",
+        "base-own-mit-binding",
+        "base-redistribution-decision",
+        "base-clean-machine-manual"
+      ],
+      "source_review_sha256": "b6cc9736b3c5d2e8290a23b7be6a5dafe1a009ddd22f450e2e8c969408420111"
+    },
+    "cpu": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "native_files_covered": 61,
+      "review_reasons_covered": 4,
+      "unclosed_obligation_ids": [
+        "cpu-source-attribution",
+        "cpu-microsoft",
+        "cpu-cpython",
+        "cpu-wheels",
+        "cpu-archives",
+        "cpu-geos",
+        "cpu-rapidocr-models",
+        "cpu-flatbuffers",
+        "cpu-redistribution-decision",
+        "cpu-clean-machine-manual"
+      ],
+      "source_review_sha256": "0dba605e3a2e4eceb3737ddf28fcc3b5038052bb8df5efe250c348bd6f89bd59"
+    }
+  },
+  "registry_sha256": "5361043ed50ab5b9c142326dec8648f8594737ccc2eaff59fd901a330f2bd72b",
+  "script_sha256": "95ad7bd1cd10d9c618c83e6bc504995b0be9af6a9c87fd5a59783595fef1e926",
+  "keywords": [
+    "A8",
+    "義務登記",
+    "旗標推導",
+    "唯一對應",
+    "使用者決定出處",
+    "無wheel擁有者"
+  ],
+  "files": {
+    "README.md": "05d9507286e39c64215fb3dc9d659efb110f8866d3e4292b5c51fafd69f5b503",
+    "isolated-summary.json": "0ac6e4b1e316790be4367cdd21b14b20421fc4859ccb356d992593cb8ea2b096",
+    "mixed-result.json": "d37a8a200854de83ec40c2a68147f52f9a1f3588790093c4343be7d102da532b"
+  }
+}

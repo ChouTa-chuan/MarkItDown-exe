@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-17",
-  "environment": "Linux 完整回歸／獨立模組與 A7 Windows 基本包分支驗收已驗；全套固定候選仍 A6 8285450",
-  "tests_passed": 786,
-  "headline": "PR 1–13 已合併（a365f14），合併後 CI 全綠；大階段 A 經 Claude planner 複查，續編 A8–A17",
-  "blocker": "三旗標仍 false 且尚無關閉條件（A8 處理）；基本包 wheel 內含第三方、Microsoft 14 檔、Qt 內含第三方與可替換驗收待 A9–A11，門檻待使用者在 A13 確認；CPU 模型／GEOS 等在 B1 之後；乾淨機／人工／GPU 仍待。",
-  "next": "A8：義務登記表與旗標判定規則（交給 Codex），之後 A9、A10、A11 → A12 → A13（使用者確認門檻）→ B1",
+  "environment": "Linux 完整回歸／獨立模組已驗；A8 只讀 A6 base／cpu 報告，既有 hosted Windows 與候選證據各自保留來源",
+  "tests_passed": 803,
+  "headline": "main 起點 08c4dcb／PR 1–14；A8 義務登記與旗標推導完成，現況三旗標均 false；PR 15",
+  "blocker": "A8 已建立義務與三旗標判定入口；來源閉包、再散布核准與乾淨機／人工條目仍未關閉，三旗標保持 false，不交付產品。",
+  "next": "A8 完成後先停；本輪 PR 最終 CI／Merge 結果為收尾依據，後續 A9–A17 依 STATUS 規劃由使用者交棒，不在本輪展開。",
   "milestones": [
     {
       "id": "m0",
@@ -138,7 +138,7 @@
       "id": "m5",
       "title": "發佈準備",
       "state": "active",
-      "description": "Linux完整回歸、Windows hosted基本包與CPU維護已驗；A5c來源探測新門檻通過，固定候選／SBOM／再散布、乾淨機／人工與發行仍待。",
+      "description": "Linux完整回歸與hosted Windows基本包／CPU已驗，A7自有MIT對照已完成；大階段A續編A8–A17，完整SBOM／再散布與門檻確認、乾淨機／人工／GPU及交付仍待。",
       "checks": [
         {
           "label": "Windows 建置與安裝包",
@@ -257,7 +257,7 @@
     "2026-11-12：0.19.1完整698（697通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與45模組exit0；Tesseract5.3.4／CPython3.12.3與先前基線不同。未對照來源已分類但candidate／gap基本49、CPU47仍待，授權提案未確認，沒有新的Windows執行。",
     "2026-11-13：完整703（702通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與46模組exit0；新增項目為歷史索引測試，沒有新的Windows執行。"
   ],
-  "tests_run": 787,
+  "tests_run": 804,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1287,11 +1287,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "07afa79add13d35ede89af8c332bc6dab1aed15e",
+    "source_commit": "5e7fd532a4b97f33ff0aad460d80fb653b48183f",
     "date_taipei": "2026-11-17",
     "accepted": true,
-    "run": 787,
-    "passed": 786,
+    "run": 804,
+    "passed": 803,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1301,7 +1301,7 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 52,
+    "isolated_modules": 53,
     "isolated_all_exits_zero": true,
     "python": "3.12.14",
     "tesseract": "5.3.4",
@@ -1310,7 +1310,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/a7-mit-binding-2026-11-17/README.md"
+    "evidence": "development-records/runs/a8-gates-2026-11-17/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -3335,5 +3335,76 @@
       "cpu": 44001935923,
       "conclusion": "success"
     }
+  },
+  "previous_full_regression_reference_before_a8": {
+    "source_commit": "07afa79add13d35ede89af8c332bc6dab1aed15e",
+    "progress_git_commit": "08c4dcb4971bae225c654d3dd489d49bbf48da07",
+    "json_pointer": "/full_regression",
+    "sha256": "9863527bc70de6f9a22e2b54186558e8f905780fb2d051f6bcc34d66705ea268"
+  },
+  "a8_redistribution_gates": {
+    "source_commit": "5e7fd532a4b97f33ff0aad460d80fb653b48183f",
+    "base_commit": "08c4dcb4971bae225c654d3dd489d49bbf48da07",
+    "status": "implemented-and-locally-verified",
+    "first_corrections_commit": "fec86c9",
+    "registry": "packaging/redistribution/obligations.json",
+    "script": "scripts/redistribution_gates.py",
+    "source_review_basis": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+    "profiles": {
+      "base": {
+        "flags": {
+          "runtime_sbom_complete": false,
+          "redistribution_approved": false,
+          "release_ready": false
+        },
+        "native_files_covered": 153,
+        "review_reasons_covered": 3,
+        "unclosed_obligation_ids": [
+          "base-source-attribution",
+          "base-microsoft",
+          "base-cpython",
+          "base-wheels",
+          "base-archives",
+          "base-qt",
+          "base-tesseract-models",
+          "base-own-mit-binding",
+          "base-redistribution-decision",
+          "base-clean-machine-manual"
+        ],
+        "source_review_sha256": "b6cc9736b3c5d2e8290a23b7be6a5dafe1a009ddd22f450e2e8c969408420111"
+      },
+      "cpu": {
+        "flags": {
+          "runtime_sbom_complete": false,
+          "redistribution_approved": false,
+          "release_ready": false
+        },
+        "native_files_covered": 61,
+        "review_reasons_covered": 4,
+        "unclosed_obligation_ids": [
+          "cpu-source-attribution",
+          "cpu-microsoft",
+          "cpu-cpython",
+          "cpu-wheels",
+          "cpu-archives",
+          "cpu-geos",
+          "cpu-rapidocr-models",
+          "cpu-flatbuffers",
+          "cpu-redistribution-decision",
+          "cpu-clean-machine-manual"
+        ],
+        "source_review_sha256": "0dba605e3a2e4eceb3737ddf28fcc3b5038052bb8df5efe250c348bd6f89bd59"
+      }
+    },
+    "counts_unchanged": true,
+    "spec_and_collection_unchanged": true,
+    "core_registry_files": 1,
+    "core_checker_scripts": 1,
+    "release_ready": false,
+    "evidence": "development-records/runs/a8-gates-2026-11-17/README.md",
+    "integration_results": "See this stage PR final-head checks",
+    "stop_after_stage": true,
+    "pr": 15,
+    "pr_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/15"
   }
 }
