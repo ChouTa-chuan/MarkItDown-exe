@@ -29,7 +29,7 @@ PE FileVersion 是 DLL 自身版本；wheel、CPython 及 Redist 資料夾的版
 | vcruntime140.dll | 14.42.34438.0 | Valid | CN=Microsoft Windows Software Compatibility Publisher | 不同 | 否 |
 | vcruntime140_1.dll | 14.42.34438.0 | Valid | CN=Microsoft Windows Software Compatibility Publisher | 不同 | 否 |
 
-PySide6 與 shiboken6 的複本，PE 公司欄為 Microsoft Corporation，但簽署者是 The QT Company Oy；這兩個事實分開保留。它們與官方同名 DLL 的 PE 版本相同而完整 hash 不同，不能只憑此推論差異原因或是否符合條款。這些列在檢核輸出的 identity_gaps 中表示「尚待查驗身分」，不表示未取得簽章資料。
+PySide6 與 shiboken6 的複本，PE 公司欄為 Microsoft Corporation，但簽署者是 The QT Company Oy；這兩個事實分開保留。它們與官方同名 DLL 的 PE 版本相同而完整 hash 不同，不能只憑此推論差異原因或是否符合條款。這些列在檢核輸出的 signature_review_files 中表示需 A13 審閱的已知事實；查詢缺資料另列 identity_gaps。工具不以簽署者不同逕行禁止使用者作 A13 決定，也不自動核准。
 
 簽章結果是當時 hosted Windows 的信任鏈判讀。存在 HashMismatch、NotSigned 或查詢缺口時照實保存，不當成 Valid；不把 Linux 解析、mock 或預期失敗當成 Windows 實測。官方 Redist 來源及其簽章／版本也保存在 references 中。
 

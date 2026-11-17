@@ -252,15 +252,21 @@ def check_catalog(catalog, *, report, entry, root=ROOT):
     require(catalog['version_basis'] == 'pe-version-resource', 'Wrong Microsoft version basis')
     natives = {r['file']:r for r in report['classification_input']['report']['native_files']}
     gaps = []
+    signature_review_files = []
     for row in observed['files']:
         require(row['a6_sha256'] == natives[row['file']]['bundled_sha256'], 'Microsoft A6 file hash differs')
         require(row['origin'] == natives[row['file']]['origin']
                 and row['distributions'] == natives[row['file']]['distributions'], 'Microsoft A6 origin differs')
         identity = row['identity']
-        if (not row['matches_a6'] or identity.get('identity_error') or identity.get('company') != 'Microsoft Corporation'
-                or not identity.get('file_version') or identity.get('signature_status') != 'Valid'
-                or 'O=Microsoft Corporation' not in (identity.get('signer') or '')):
+        if (not row['matches_a6'] or identity.get('identity_error') or not identity.get('company')
+                or not identity.get('file_version') or not identity.get('signature_status')
+                or (identity.get('signature_status') == 'Valid' and not identity.get('signer'))):
             gaps.append(row['file'])
+        # 已取得「不同簽署者」是需要審閱的事實，不是查詢缺資料。
+        # 不把 Microsoft 簽署者硬編成再散布許可條件，以免取代 A13 的逐份決定。
+        if (identity.get('signature_status') != 'Valid'
+                or 'O=Microsoft Corporation' not in (identity.get('signer') or '')):
+            signature_review_files.append(row['file'])
     for name, ref in observed['references'].items():
         identity = ref['identity']
         if (identity.get('identity_error') or identity.get('company') != 'Microsoft Corporation'
@@ -273,6 +279,7 @@ def check_catalog(catalog, *, report, entry, root=ROOT):
     if gaps or catalog['unverified_terms']:
         require(entry['status'] == 'open', 'Incomplete Microsoft identity must stay open')
     return dict(catalog=CATALOG_PATH, files=len(names), identity_gaps=gaps,
+                signature_review_files=signature_review_files,
                 renamed_files=[r['file'] for r in observed['files'] if r['renamed']],
                 official_matches=sum(r['matches_official'] for r in observed['files']), legal_approval=False)
 

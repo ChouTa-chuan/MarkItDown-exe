@@ -194,6 +194,24 @@ class MicrosoftProbeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'differs from lock'):
             ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
 
+    def test_known_qt_signer_is_a_review_fact_and_does_not_override_a13(self):
+        self.identities = lambda paths: {p:dict(company='Microsoft Corporation',file_version='14.0',
+                                              signature_status='Valid',signer='CN=The QT Company Oy, O=The QT Company Oy')
+                                         for p in paths}
+        catalog, entry = self.catalog_fixture()
+        # 官方 Redist 身分由 Microsoft 簽署；此反例只改來源複本的簽署者。
+        path = self.root/catalog['probe']['path']
+        observed = json.loads(path.read_text())
+        for ref in observed['references'].values():
+            ref['identity']['signer'] = 'CN=Microsoft, O=Microsoft Corporation'
+        path.write_text(json.dumps(observed))
+        catalog['probe']['sha256'] = ms.digest(path)
+        catalog['references'] = observed['references']
+        result = ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
+        self.assertEqual(result['identity_gaps'],[])
+        self.assertEqual(len(result['signature_review_files']),14)
+        self.assertFalse(result['legal_approval'])
+
     def test_catalog_preserves_a13_user_decision_requirement(self):
         catalog, entry = self.catalog_fixture()
         entry['requires_user_decision'] = False
@@ -255,7 +273,8 @@ class MicrosoftProbeTests(unittest.TestCase):
         qt_signed = [r for r in catalog['files'] if 'O=The QT Company Oy' in r['identity'].get('signer','')]
         self.assertEqual(len(qt_signed),9)
         self.assertTrue(all(r['identity']['signature_status']=='Valid' for r in qt_signed))
-        self.assertEqual(set(result['microsoft_catalogs'][0]['identity_gaps']),{r['file'] for r in qt_signed})
+        self.assertEqual(result['microsoft_catalogs'][0]['identity_gaps'],[])
+        self.assertEqual(set(result['microsoft_catalogs'][0]['signature_review_files']),{r['file'] for r in qt_signed})
 
     def test_probe_refuses_non_windows(self):
         with patch.object(ms.sys,'platform','linux'), self.assertRaisesRegex(ValueError,'requires Windows'):
