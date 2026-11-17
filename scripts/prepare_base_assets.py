@@ -14,23 +14,13 @@ import tomllib
 from packaging.utils import canonicalize_name
 from packaging_profiles import ROOT, read_lock, verify_profiles
 from build_provenance import bootloader_notices, is_notice_entry
+from base_own_license import OWN_PACKAGE, OWN_LICENSE, stage_own_license, verify_own_license
 from qt_sources import STAGED as QT_SOURCES, stage as stage_qt_sources, publish_annotation as publish_qt_sources
 
 
 QT_NOTICE = 'qt-lgpl-notice.md'
-OWN_LICENSE = 'licenses/markitdown-desktop/LICENSE'
 OWN_LICENSE_LINE = '本程式自有部分採 MIT，全文見 '+OWN_LICENSE+'。'
 QT_NOTICE_LINE = ('Qt／LGPL-3.0 使用說明（授權原文位置、原始碼取得方式、如何替換 Qt 程式庫）見 licenses/'+QT_NOTICE+'。')
-
-
-def stage_own_license(root, staged):
-    """自有程式的 MIT 全文隨包保存；MIT 要求授權聲明附在軟體中。來源檔缺少時必須失敗，不靜默略過。"""
-    original = root/'LICENSE'
-    if not original.is_file():
-        raise FileNotFoundError('缺少自有程式授權原文：'+str(original))
-    destination = staged/OWN_LICENSE
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(original, destination)
 
 
 def base_guide(version, notices, native):
@@ -140,6 +130,9 @@ def prepare(output, root=ROOT, *, native_assets=None):
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(original, destination)
                 files.append(destination.relative_to(staged).as_posix())
+            if name == OWN_PACKAGE:
+                # 已隨包的自有 MIT 直接綁入清單，不再複製一份或僅靠名稱略過待審。
+                files.append(OWN_LICENSE)
             supplements=[]
             for reference in original_packages.get(name,{}).get('supplemental_sources',[]):
                 original = source/'licenses/windows'/reference['path']
@@ -148,6 +141,7 @@ def prepare(output, root=ROOT, *, native_assets=None):
                 shutil.copyfile(original,destination)
                 supplements.append(dict(reference,path=destination.relative_to(staged).as_posix()))
             notices.append(dict(name=name,version=distribution.version,notice_files=files,supplemental_sources=supplements))
+        verify_own_license(staged, notices, root=root)
         save_json(notice_root/'manifest.json', dict(scope='Actual installed runtime metadata/notices, not final redistribution clearance', packages=notices))
         shutil.copyfile(root/profiles[target+'-runtime']['lock'], staged/'base-runtime-lock.txt')
         guide = base_guide(installed['markitdown-desktop'], notices, native_assets is not None)
