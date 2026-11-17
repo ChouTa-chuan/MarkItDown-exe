@@ -10,7 +10,7 @@
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2026-11-18 | 證據 | A9b cryptography 內含 OpenSSL 原文 |  |  |  | [development-records/runs/a9b-openssl-2026-11-18/README.md](development-records/runs/a9b-openssl-2026-11-18/README.md) |
+| 2026-11-18 | 證據 | A9b cryptography 內含 OpenSSL 原文 | 7125978 | 接受、Windows已執行 | A9b、cryptography、OpenSSL、LICENSE、runtime-observed、Windows API、原文隨包、共用hash | [development-records/runs/a9b-openssl-2026-11-18/README.md](development-records/runs/a9b-openssl-2026-11-18/README.md) |
 | 2026-11-18 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-18-before-a9b.md](history/status/2026-11-18-before-a9b.md) |
 | 2026-11-17 | 證據 | A10 Microsoft 執行期逐檔對照 | 077d280 | 接受、Windows已執行 | A10、Microsoft、VC runtime、PE版本、簽章、Redist、改名複本、A13、條款原文、來源缺口 | [development-records/runs/a10-microsoft-runtime-2026-11-17/README.md](development-records/runs/a10-microsoft-runtime-2026-11-17/README.md) |
 | 2026-11-17 | 證據 | A6 固定來源候選與審閱紀錄 | 8285450 | 接受、Windows已執行 | A6、固定候選、來源重分類、metadata、CPU排程、完整回歸、整體審閱 | [development-records/runs/a6-fixed-review-2026-11-17/README.md](development-records/runs/a6-fixed-review-2026-11-17/README.md) |
