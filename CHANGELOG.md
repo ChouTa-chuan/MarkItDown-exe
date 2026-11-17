@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- A10：新增唯讀 Windows Microsoft runtime 逐檔探測及公開 metadata；來源變動、漏檔、偽造 hash 比較與截斷反例已驗證。目錄與條款證據仍在蒐集中，尚未關閉義務。
+
 ### 2026-11-17｜A9 基本包 wheel 內含第三方元件目錄
 
 - 變更：新增 `packaging/embedded/base-windows.json` 與 `scripts/embedded_components.py`（由 `redistribution_gates.py` 呼叫），記錄基本包 10 個 wheel 的內含元件、版本依據分級、來源與既有授權原文 hash；`base-wheels` 拆成 10 條，只有 charset-normalizer、psutil 為 evidence_complete；依 STATUS C 節把 `base-tesseract-models` 改為需使用者決定（A13）。
