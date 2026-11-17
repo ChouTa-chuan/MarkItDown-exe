@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-17",
   "environment": "Linux 完整回歸與獨立模組已驗；hosted Windows 基本包／CPU 每個 PR 皆驗（非乾淨機）；固定候選仍為 A6 的 8285450",
-  "tests_passed": 807,
-  "headline": "PR 1–16 已合併；大階段 A（來源與再散布）進行中：A1–A8b 完成，下一步 A9、A10、A11",
-  "blocker": "三旗標（完整 SBOM、可再散布、可發布）皆 false：基本包 wheel 內含第三方、Microsoft 14 檔、Qt 內含第三方與可替換驗收待 A9–A11，門檻待使用者在 A13 確認；可發布需大階段 C 乾淨機與人工驗收。門檻未關閉前不交付 Setup、worker 或模型（含 CI artifact）。",
-  "next": "A9 基本包 wheel 內含第三方元件目錄（Claude coder 進行中）；A10 Microsoft 14 檔、A11 Qt 內含第三方與可替換驗收可平行開始 → A12 重新固定候選 → A13 使用者確認門檻 → B1 測試版",
+  "tests_passed": 835,
+  "headline": "PR 1–17 已合併；A9 內含第三方元件目錄完成（PR 18），大階段 A 進行中",
+  "blocker": "三旗標（完整 SBOM、可再散布、可發布）皆 false：Microsoft 14 檔、Qt 內含第三方與可替換驗收待 A9–A11，門檻待使用者在 A13 確認；可發布需大階段 C 乾淨機與人工驗收。門檻未關閉前不交付 Setup、worker 或模型（含 CI artifact）。",
+  "next": "A10 Microsoft 14 檔、A11 Qt 內含第三方與可替換驗收（可平行）→ A12 重新固定候選 → A13 使用者確認門檻 → B1 測試版；cryptography OpenSSL 原文待使用者決定",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 808,
+  "tests_run": 836,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "0793056",
+    "source_commit": "13a9fb8",
     "date_taipei": "2026-11-17",
     "accepted": true,
-    "run": 808,
-    "passed": 807,
+    "run": 836,
+    "passed": 835,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1313,7 +1313,7 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 53,
+    "isolated_modules": 54,
     "isolated_all_exits_zero": true,
     "python": "3.12.14",
     "tesseract": "5.3.4",
@@ -3537,8 +3537,8 @@
           {
             "id": "A9",
             "title": "基本包 wheel 內含第三方元件目錄",
-            "status": "active",
-            "note": "Claude coder 進行中"
+            "status": "done",
+            "pr": 18
           },
           {
             "id": "A10",
@@ -3676,5 +3676,22 @@
         ]
       }
     ]
+  },
+  "a9_embedded_components": {
+    "source_commit": "13a9fb8",
+    "base_commit": "79ea283",
+    "status": "implemented-and-reviewed",
+    "pr": 18,
+    "catalog": "packaging/embedded/base-windows.json",
+    "script": "scripts/embedded_components.py",
+    "wheels": 10,
+    "components": 54,
+    "native_files": 81,
+    "evidence_complete_entries": [
+      "base-wheels-charset-normalizer",
+      "base-wheels-psutil"
+    ],
+    "flags_all_false": true,
+    "limits": "Facts read from hash-verified Windows wheels without execution; PE import tables, Windows load behaviour and upstream URLs unverified. Pillow string evidence (raqm, fribidi, libaom, dav1d, libyuv) and cryptography static OpenSSL 4.0.3 recorded as unknown."
   }
 }
