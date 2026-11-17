@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-17",
   "environment": "Linux 完整回歸／獨立模組已驗；A8 只讀 A6 base／cpu 報告，既有 hosted Windows 與候選證據各自保留來源",
-  "tests_passed": 803,
-  "headline": "main 起點 08c4dcb／PR 1–14；A8 義務登記與旗標推導完成，現況三旗標均 false；PR 15",
-  "blocker": "A8 已建立義務與三旗標判定入口；來源閉包、再散布核准與乾淨機／人工條目仍未關閉，三旗標保持 false，不交付產品。",
-  "next": "A8 完成後先停；本輪 PR 最終 CI／Merge 結果為收尾依據，後續 A9–A17 依 STATUS 規劃由使用者交棒，不在本輪展開。",
+  "tests_passed": 807,
+  "headline": "PR 1–15 已合併；A8b 補強義務登記檢核（決定出處、反向檢查、release_ready 綁大階段 C、結構封閉），三旗標仍 false",
+  "blocker": "三旗標仍 false：基本包 wheel 內含第三方、Microsoft 14 檔、Qt 內含第三方與可替換驗收待 A9–A11，門檻待使用者在 A13 確認；release_ready 需大階段 C 證據；CPU 在 B1 之後。",
+  "next": "A8b 合併後：A9、A10、A11（互不相依，各自一個 PR）→ A12 → A13（使用者確認門檻）→ B1",
   "milestones": [
     {
       "id": "m0",
@@ -257,7 +257,7 @@
     "2026-11-12：0.19.1完整698（697通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與45模組exit0；Tesseract5.3.4／CPython3.12.3與先前基線不同。未對照來源已分類但candidate／gap基本49、CPU47仍待，授權提案未確認，沒有新的Windows執行。",
     "2026-11-13：完整703（702通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與46模組exit0；新增項目為歷史索引測試，沒有新的Windows執行。"
   ],
-  "tests_run": 804,
+  "tests_run": 808,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1287,11 +1287,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "5e7fd532a4b97f33ff0aad460d80fb653b48183f",
+    "source_commit": "0793056",
     "date_taipei": "2026-11-17",
     "accepted": true,
-    "run": 804,
-    "passed": 803,
+    "run": 808,
+    "passed": 807,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -3345,7 +3345,7 @@
   "a8_redistribution_gates": {
     "source_commit": "5e7fd532a4b97f33ff0aad460d80fb653b48183f",
     "base_commit": "08c4dcb4971bae225c654d3dd489d49bbf48da07",
-    "status": "implemented-and-locally-verified",
+    "status": "merged",
     "first_corrections_commit": "fec86c9",
     "registry": "packaging/redistribution/obligations.json",
     "script": "scripts/redistribution_gates.py",
@@ -3405,6 +3405,46 @@
     "integration_results": "See this stage PR final-head checks",
     "stop_after_stage": true,
     "pr": 15,
-    "pr_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/15"
+    "pr_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/15",
+    "merge_commit": "28bb5ad",
+    "final_ci_runs": {
+      "linux": 44009256392,
+      "base": 44009256347,
+      "cpu": 44009256370,
+      "history": 44009256428,
+      "conclusion": "success"
+    }
+  },
+  "a8b_gate_hardening": {
+    "source_commit": "0793056",
+    "base_commit": "28bb5ad",
+    "status": "implemented-and-locally-verified",
+    "registry_schema_version": 2,
+    "checks": [
+      "decision source limited to docs/history/status archive section D user row",
+      "reverse stale-selector check",
+      "clean-machine closure requires stage-c evidence",
+      "closed key sets"
+    ],
+    "profiles": {
+      "base": {
+        "native_files_covered": 153,
+        "review_reasons_covered": 3,
+        "flags_all_false": true
+      },
+      "cpu": {
+        "native_files_covered": 61,
+        "review_reasons_covered": 4,
+        "flags_all_false": true
+      }
+    },
+    "regression": {
+      "run": 808,
+      "passed": 807,
+      "expected_failures": 1,
+      "isolated_modules": 53,
+      "all_child_exits_zero": true
+    },
+    "limits": "Script cannot verify that a decision row is semantically tied to an entry or authored by the user; stage-c prefix is a format gate. Manual diff review remains required."
   }
 }

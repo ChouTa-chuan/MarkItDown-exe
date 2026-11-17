@@ -10,18 +10,21 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | 本輪起點 `08c4dcb4971bae225c654d3dd489d49bbf48da07`（PR 1–14 已合併，含 planner 文件 PR 14）；A7（PR 13）合併後五項 CI 全成功 |
-| 本輪分支 | `codex/a8-redistribution-gates-20261117`，從最新 main `08c4dcb4971bae225c654d3dd489d49bbf48da07` 開自己的新分支 |
-| 下一棒 | **A8 實作／本機查驗完成，PR 整合結果見本輪 PR；完成後先停** |
-| 本輪 PR | [PR #15](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/15)，最終 head CI／Merge 以該 PR 為準；A8 完成後先停 |
+| `main` | PR 1–15 已合併；A8（PR 15，28bb5ad）五項 CI 全成功，經 Claude reviewer 查驗無必須修正項目 |
+| 本輪分支 | `claude/confident-ride-o38ls7`，由 main 28bb5ad 開出，對應 A8b（Claude 三角色流程：coder 實作、reviewer 查驗、協調者收尾） |
+| 下一棒 | A8b 合併後，A9、A10、A11 可開始（互不相依，各自一個 PR） |
 | 固定來源 | `8285450226abe1381e6a357e8bd33bff1ad46e0e`（A6）。**不含 A7**，A12 重新固定前不作為交付依據 |
 
 ## B. 這個階段完成了什麼
 
-- **A8 首個提交 fec86c9** 已完成 C 節的 A7 小問題：14 處嚴格 SHA 預檢、只有最後一片越界的反例、m5／A7 現況，以及環境相同比較布林值移除的原因。
-- **A8 核心只有單一 JSON 與一支檢核腳本**：逐一對應 base／cpu 原生檔與 review_reason，未知／重複對應、核准卻無決定出處、證據 hash／quote 不符都拒絕。三旗標由條目狀態及相依條件推導，現有 A6 兩種輸入均全 false，unresolved_files 等原始數字不改。
-- [判定定義](docs/redistribution-gates.md)說明三旗標、無 wheel 擁有者計數與人工決定界線；依 C 節修正 render() 兩句過時說明並重產 third-party.md，未改 spec、收集內容、鎖定依賴與原始授權。
-- 相關正反例與完整 Linux 混合／獨立模組回歸通過，只有既有 ONNX 繁中 expected failure、無跳過；[精簡新證據](docs/development-records/runs/a8-gates-2026-11-17/README.md)可追溯，數字只見 [progress.json](docs/progress.json)。最終 PR head CI／Merge 結果見 PR，A8 完成後先停。
+- **A8b 義務登記檢核補強**（`scripts/redistribution_gates.py`，規則見 [判定定義](docs/redistribution-gates.md)）：
+  - 使用者決定出處只接受 `docs/history/status/YYYY-MM-DD-<slug>.md` 固定存檔，quote 必須是該檔 D 節內完整一列、來源欄以「使用者」開頭、日期有效；程式碼區塊內與 `## Data` 這類標題不算 D 節。先前「證據指向 LICENSE、quote='M'」就能讓三旗標全為 true 的繞法已被擋下。
+  - 反向檢查：登記表中輸入沒有的 native_files／review_reasons 選擇器以 stale selector 拒絕。
+  - `*-clean-machine-manual` 關閉時必須有 `docs/development-records/runs/stage-c-` 開頭的證據；該前綴目前不存在，所以 release_ready 在大階段 C 之前不可能為 true。
+  - 登記表各層鍵集合封閉，`schema_version` 升為整數 2；obligations.json 只改版本號。
+  - 文件寫明腳本擋不住的部分：決定列與條目的語意對應、同一列被多個條目引用、stage-c 前綴只是格式門檻，這些仍須人工審查提交內容。
+- 以 A6 兩份輸入實跑：base 原生檔 153／reason 3、cpu 61／4，三旗標皆 false。完整 Linux 混合與獨立模組回歸通過，只有既有 ONNX 繁中 expected failure、無跳過；數字只記 [progress.json](docs/progress.json)。
+- 依三角色流程：coder 實作、reviewer 查驗（無必須修正項目），協調者補上查驗建議的小修正（D 節標題判定、程式碼區塊、日期與整數版本檢查、文件說明）並跑完整回歸。
 
 ## C. 未完成、阻擋與下一步
 
@@ -30,10 +33,11 @@
 | 大階段 | 編號與任務 | 狀態 |
 | --- | --- | --- |
 | A 關閉來源與再散布缺口 | A1–A7（PR 5、6、8–13） | 完成 |
-| | **A8 義務登記表與旗標判定規則**：新增 `packaging/redistribution/obligations.json`（分 base／cpu，每項含 id、對應的 review_reason 或檔案群、所需證據、狀態、使用者決定出處）、`scripts/redistribution_gates.py`、測試與 `docs/redistribution-gates.md`（三旗標定義；寫明 `unresolved_files` 是「無 wheel 擁有者」的計數，不是要歸零的指標）。旗標改由條目推導，不再只是常數。順帶修正 `scripts/license_inventory.py` render() 兩句過時文字（「Tesseract 執行檔尚未隨 Windows 包發佈」「完整 Windows 二進位檔尚未建置」）並重產 `third-party.md`。驗收：以 A6 的 base／cpu source-review 為輸入，每個原生檔與 review_reason 各對到恰好一個條目，未對到者拒絕；標「使用者已核准」卻無決定出處者拒絕；現況輸出三旗標皆 false 並列出未關閉條目；不動 spec、打包內容與既有計數口徑；限制為單一 JSON 加一支檢核腳本，避免過度設計 | **實作／本機查驗完成；整合 CI／Merge 見本輪 PR** |
-| | A9 基本包 wheel 內含第三方元件目錄（非 Qt、非 Microsoft）：numpy、pandas、Pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi、charset-normalizer、psutil 等的內含元件名稱、版本、來源、隨包原文；版本依據分級（wheel 宣告／runtime 觀測／未知），未知者在登記表保持未關閉。cryptography 缺 OpenSSL 原文需補；Pillow 單一 LICENSE 是否涵蓋內含程式庫待查。量大可拆 A9a／A9b | 待開始（A8 後） |
-| | A10 Microsoft 執行期逐檔對照（基本包 14 檔：根目錄 3、PySide6 5、shiboken6 4、numpy.libs 與 pandas.libs 各 1 個改名的 msvcp140）：收集來源、PE 版本、簽章、與官方 Redist 同名檔雜湊比對、適用條款文件；改名複本單獨標示；review_reason 改由登記表狀態控制。條款是否允許由使用者在 A13 決定 | 待開始（A8 後） |
-| | A11 Qt 內含第三方（qt_attribution）、建置資訊（`QLibraryInfo.build()` 等）與「可替換 Qt」驗收（hosted Windows CI：替換 DLL 後可啟動、移除 Qt6Core 後啟動失敗，標明非實體機）；更新 `qt-lgpl-notice.md`。LGPL 做法是否足夠由使用者在 A13 決定 | 待開始（A8 後） |
+| | A8 義務登記表與旗標判定規則：新增 `packaging/redistribution/obligations.json`（分 base／cpu，每項含 id、對應的 review_reason 或檔案群、所需證據、狀態、使用者決定出處）、`scripts/redistribution_gates.py`、測試與 `docs/redistribution-gates.md`（三旗標定義；寫明 `unresolved_files` 是「無 wheel 擁有者」的計數，不是要歸零的指標）。旗標改由條目推導，不再只是常數。順帶修正 `scripts/license_inventory.py` render() 兩句過時文字（「Tesseract 執行檔尚未隨 Windows 包發佈」「完整 Windows 二進位檔尚未建置」）並重產 `third-party.md`。驗收：以 A6 的 base／cpu source-review 為輸入，每個原生檔與 review_reason 各對到恰好一個條目，未對到者拒絕；標「使用者已核准」卻無決定出處者拒絕；現況輸出三旗標皆 false 並列出未關閉條目；不動 spec、打包內容與既有計數口徑；限制為單一 JSON 加一支檢核腳本，避免過度設計 | 完成（PR 15） |
+| | A8b 義務登記檢核補強：決定出處限固定存檔 D 節的使用者決定列、反向檢查 stale selector、release_ready 綁定 `stage-c-` 證據、結構封閉與 schema 2（使用者決定插入於 A9 之前） | 完成（本輪 PR） |
+| | A9 基本包 wheel 內含第三方元件目錄（非 Qt、非 Microsoft）：numpy、pandas、Pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi、charset-normalizer、psutil 等的內含元件名稱、版本、來源、隨包原文；版本依據分級（wheel 宣告／runtime 觀測／未知），未知者在登記表保持未關閉。cryptography 缺 OpenSSL 原文需補；Pillow 單一 LICENSE 是否涵蓋內含程式庫待查。量大可拆 A9a／A9b | **可開始**（A8b 後） |
+| | A10 Microsoft 執行期逐檔對照（基本包 14 檔：根目錄 3、PySide6 5、shiboken6 4、numpy.libs 與 pandas.libs 各 1 個改名的 msvcp140）：收集來源、PE 版本、簽章、與官方 Redist 同名檔雜湊比對、適用條款文件；改名複本單獨標示；review_reason 改由登記表狀態控制。條款是否允許由使用者在 A13 決定 | **可開始**（A8b 後） |
+| | A11 Qt 內含第三方（qt_attribution）、建置資訊（`QLibraryInfo.build()` 等）與「可替換 Qt」驗收（hosted Windows CI：替換 DLL 後可啟動、移除 Qt6Core 後啟動失敗，標明非實體機）；更新 `qt-lgpl-notice.md`。LGPL 做法是否足夠由使用者在 A13 決定 | **可開始**（A8b 後） |
 | | A12 以 A8–A11 完成後的 main 重新固定候選，產出基本包出口報告；`runtime_sbom_complete` 依 A8 定義推導，不得人工改寫。**順帶整理 `docs/progress.json`**：把 `previous_*` 等舊紀錄鍵搬到 `docs/history/`（搬移，不刪除內容；使用者已同意）。**不做打包減量**（使用者決定） | 待開始 |
 | | A13 使用者確認基本包門檻（原 B4 前移）：Microsoft 各複本、Qt LGPL 做法、libffi 僅建置宣告、版本未知的內含元件、Tesseract 與 tessdata、品質限制揭露文字。協調者不得代為決定 | 需使用者 |
 | | A14 CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例） | 待開始（B1 之後） |
@@ -45,7 +49,7 @@
 | D 功能擴充 | D1 圖片檔走本機 OCR；D2 影音獨立選配元件 | 等使用者決定 |
 | E GPU | 實卡驗收 | 延後 |
 
-**執行順序**：A8 → A9、A10、A11（互不相依，各自一個 PR，可交給不同 AI，但都在 A8 之後；A8 不可與它們合併）→ A12 → A13 → B1。CPU 的 A14–A17 排在基本包 B1 之後（使用者決定）。
+**執行順序**：A8 → A8b → A9、A10、A11（互不相依，各自一個 PR，可交給不同 AI，但都在 A8 之後；A8 不可與它們合併）→ A12 → A13 → B1。CPU 的 A14–A17 排在基本包 B1 之後（使用者決定）。
 
 **大階段 B 的進入條件**
 
@@ -55,6 +59,8 @@
 - `release_ready` 在大階段 C 的乾淨機與人工驗收之前維持 false。
 
 **A7 查驗留下的小問題**（已在 A8 第一個提交處理）：兩個 Windows workflow 的 pwsh 預檢共 14 處改用 `-cmatch '^[0-9a-f]{40}\z'`（`-match` 不分大小寫，`$` 允許結尾換行；後面的 Python 檢查會擋，沒有安全缺口）；`tests/test_candidate_review.py` 再加一個「只有越界」的反例（保留其餘各片、把最後一片改成 part=N+1）；`progress.json` 的 m5 描述與 `a7_mit_notice.status` 更新；CHANGELOG 補一句 `full_regression.baseline_environment_identical` 欄位移除的原因（或還原）。
+
+**A9、A10、A11 共同注意事項**（A8 查驗提出）：三者平行修改 `packaging/redistribution/obligations.json` 的不同條目。各自的 PR 要把要在 A13 由使用者決定的條目改為 `requires_user_decision: true`（base：`base-microsoft`、`base-qt`、`base-tesseract-models`；cpu 的 GEOS 與 rapidocr 模型條目留給 A15、A16）。元件細節（名稱、版本、版本依據分級、來源、隨包原文）放在另一個由 `evidence[]` 以路徑加 hash 引用的目錄 JSON，不塞進登記表；原生檔仍只對到一個條目。合併順序依完成先後，後合併者先把 main 合併進自己的分支並重跑 `redistribution_gates.py` 兩個 profile 再合併。
 
 **有期限的資料**：PR 上的 Windows 報告保留七天，以暫時合併提交執行，不是候選證據。artifact 儲存主機常被本環境網路政策擋下，需要的資料請讓 CI 寫進公開摘要。
 
@@ -92,5 +98,7 @@
 | 2026-11-17 | 使用者指示 | A7 完成後先停，大階段 A 的整體複查與剩餘義務的重新規劃，交由 Claude planner 處理。 |
 | 2026-11-17 | 使用者決定 | 採用 Claude planner 的大階段 A 重新規劃：A 續編 A8–A17，使用者確認門檻由原 B4 前移為 A13（B1 之前）；A12 不做打包減量；A12 整理 `docs/progress.json`，把舊紀錄鍵搬到歷史目錄（搬移不刪除）；CPU 的 A14–A17 排在基本包 B1 之後；A8 交給 Codex（GPT） |
 | 2026-11-17 | 使用者本輪指示 | A8 限制為單一 JSON 加一支檢核腳本，不動 spec、打包內容與既有計數口徑；三旗標現況仍為 false。A8 完成後先停，回報使用者。 |
+| 2026-11-17 | 使用者決定 | 在 A9 之前插入 A8b（A8 檢核補強）；GPT 用量已滿，A8b 改由 Claude coder 接手 |
+| 2026-11-17 | 使用者決定 | Claude 角色模型改為：規劃者 `planner` 用 `claude-opus-5-5`、編程者 `coder` 用 `claude-haiku-5-5`、查驗者 `reviewer` 用 `claude-sonnet-5-5`；協調者（主對話）預設 `claude-opus-5-5`；推理強度維持中。原因：Fable 5.2 在使用者方案中無法使用。取代 2026-11-16 planner 用 `claude-fable-5-2` 的設定 |
 
-接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md；本輪 main 起點 08c4dcb（PR 1–14）。A8 完成後先停；本輪 PR 最終 CI／Merge 記錄為收尾依據，後續由使用者交棒，不接續 A9–A17。
+接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。A8b 合併後，A9、A10、A11 可從最新 main 各開新分支進行（見 C 節共同注意事項）；完成後依 AGENTS.md 更新現況、開 PR，CI 通過且查驗完成即可一般 Merge。

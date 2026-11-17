@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "description": "A8 義務登記與旗標判定；原生檔精確匹配，review_reason 獨立精確匹配。file_groups 為人工範圍說明，不是通配規則。狀態需審閱證據及使用者決定，不能由檔案數或套件宣告直接核准。",
   "profiles": {
     "base": {

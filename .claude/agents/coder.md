@@ -1,7 +1,7 @@
 ---
 name: coder
 description: 規劃者指派某個階段的編程工作時使用。依規劃者給的規格與驗收條件實作該階段，並跑基本測試後回報；不負責規劃，也不擴大範圍。
-model: claude-sonnet-5-5
+model: claude-haiku-5-5
 effort: medium
 ---
 

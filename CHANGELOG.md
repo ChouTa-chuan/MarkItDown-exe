@@ -4,6 +4,16 @@
 
 ## 更新中
 
+### 2026-11-17｜A8b 義務登記檢核補強
+
+- 變更：`redistribution_gates.py` 的使用者決定出處只接受 `docs/history/status/` 固定存檔 D 節內完整的使用者決定列（日期有效、程式碼區塊與 `## Data` 類標題不算）；新增 stale selector 反向檢查；`*-clean-machine-manual` 關閉須有 `stage-c-` 證據，release_ready 在大階段 C 前不可能為 true；登記表鍵集合封閉、schema 升為 2（obligations.json 只改版本號）。
+- 相對前版：A8 時「證據指向 LICENSE、quote='M'」即可讓三旗標全為 true，現已拒絕；腳本仍不檢查決定列與條目的語意對應，文件已寫明須人工審查。
+- 驗證：A6 兩份輸入實跑三旗標皆 false（base 153／3、cpu 61／4）；完整 Linux 混合與獨立模組回歸通過，數字見 progress.json。Windows CI 見本輪 PR。
+- 流程：Claude coder 實作、reviewer 查驗無必須修正項目，協調者補小修正。也整理了 CHANGELOG A8 小節後重複的兩條。
+- 未完成：A9–A17、門檻確認（A13）與大階段 B／C。
+
+- 2026-11-17：依使用者決定調整 Claude 角色模型：planner 改 Opus 5.5、coder 改 Haiku 5.5、reviewer 改 Sonnet 5.5，推理強度維持中（`.claude/agents/`、`CLAUDE.md`；只影響 Claude）。
+
 ### 2026-11-17｜A8 義務登記與旗標判定
 
 - 首個提交 fec86c9 先完成 A7 查驗小問題；核心僅新增單一 obligations.json 與一支 redistribution_gates.py，base／cpu 分開對應原生檔與 review_reason，並按證據／決定狀態推導三旗標及列出阻擋條目。
@@ -11,12 +21,7 @@
 - 相關反例與完整混合／獨立模組回歸通過，現況數字只記 progress.json；精簡新證據與來源已保存，STATUS 先封存後更新、重建進度頁及索引。最終 head 全 CI／查驗通過才一般 Merge。
 - 只依 C 節勘誤兩句說明並重產 Markdown；未動 spec、套件收集、依賴或原始授權。A8 完成後停止，不展開 A9–A17，產品核准門檻未關閉。
 
-
-- 2026-11-17：A8 新增單一義務登記 JSON 與獨立旗標檢核腳本，逐一驗證 A6 原生檔／review_reason 唯一對應、證據 hash 與使用者決定出處，按條目及相依條件推導三旗標；現況全 false，既有盤點口徑／spec 不動。補正例與反例，更新 C 節指定的兩句說明並重產第三方清單。
-
-- 2026-11-17：A8 首個提交處理 A7 查驗小問題：Windows 預檢改用區分大小寫且嚴格結尾的 `-cmatch '^[0-9a-f]{40}\z'`，分片補保留其餘各片、只改最後 part=N+1 的越界反例；更新 m5 描述，A7 status 維持已合併。
 - `full_regression.baseline_environment_identical` 在 A7 移除：舊布林值未附完整環境清單比較的依據，不能據此宣稱兩輪環境相同或不同。目前保留實測 Python／Tesseract、來源提交與回歸結果，舊欄位仍可由 Git 歷史追溯；本輪不還原沒有比較證據的布林值。
-
 
 - 2026-11-17：PR 13（A7）合併後 Windows 基本包與 CPU 驗證成功。Claude planner 完成大階段 A 整體複查：A1–A7 達成，但三旗標仍 false；依使用者決定續編 A8–A17，門檻確認前移為 A13，A12 不做打包減量並整理 progress.json，CPU 排在 B1 之後（STATUS C、D 節）。
 
@@ -26,7 +31,6 @@
 - 兩條 Windows 工作流以獨立提交改 step env EXPECTED_SOURCE，pwsh 先驗 SHA；缺片與越界反例使用真正多片資料。基本包自有 MIT 綁入套件原文表，產生／audit 核對來源，重算 hash 仍拒絕缺檔、改內容與錯誤綁定。
 - 完整混合／獨立模組回歸及 Windows 基本包分支驗收通過，數字只見 progress.json；[精簡證據、來源與期限](docs/development-records/runs/a7-mit-binding-2026-11-17/README.md)已保存，不重複複製舊嘗試完整 JSON。STATUS 先封存後更新，視覺進度及索引同步。
 - 程式／架構版號與全套固定候選不改，完整 SBOM／再散布及產品門檻不提高；最終 PR 全 CI／查驗通過後才一般 Merge。A7 完成後停止，剩餘義務整體複查及重新規劃交 Claude planner。
-
 
 - 2026-11-17：A7 將既有自有 MIT 路徑綁入基本包套件原文表，產生與 audit 兩端核對固定來源的原始位元組，拒絕缺檔／改 hash／少綁／重複綁定及錯綁第三方套件；補重算資產 hash 後仍拒絕的反例。安裝路徑及第三方原文不變，CPU 清單與產品核准旗標不提高。
 
@@ -43,14 +47,12 @@
 - [整體審閱](docs/a6-source-review.md)明列自有 MIT 套件對照、wheel 內含第三方、Microsoft／Qt 與 CPU 原文／模型／GEOS 等待辦；A6 工程審閱完成，完整 SBOM／再散布與 release_ready 仍 false，產品里程碑不提高。
 - STATUS 先封存後更新，D 原文保留，視覺進度與索引同步；最終文件 head 仍依 PR 全 CI／查驗後一般 Merge，下一個 A7 另開分支處理自有 MIT 表對照。程式／架構版號不變，沒有產品發行。
 
-
 ### 2026-11-17｜A6 首批檢核、基本包固定候選與 CPU 排程阻擋
 
 - 相對前版只有 PR 暫時合併驗證，本輪新增固定完整來源 SHA 的 Windows 候選檢查、候選 hash 與可離線重跑的精簡來源審閱資料；CPython 元件觀測／原文及官方 VC 身分證據納入分類，原 inventory 計數與產品核准旗標不改。
 - 第一個提交完成指定的 main 已合併 PR 1–11 現況、A5b／A5c 最終 CI run 與 D 節規則；保留所有使用者決定、歷史證據、上游原文與架構快照。
 - 完整 Linux 混合及獨立模組回歸通過，Windows 基本包固定候選與離線分類已驗；[原始結果、失敗紀錄、來源及期限](docs/development-records/runs/a6-fixed-review-2026-11-17/README.md)已保存，現況數字只記 progress.json，進度頁與索引同步。
 - A6 尚未整體完成：CPU 固定候選長時間 queued 且沒有 jobs，重送已開始執行，原請求取消 API／CLI 回覆矛盾；新版 CPU metadata 與整體審閱、PR 全 CI 仍待。A7 自有 MIT 套件對照先列後續，不提前合併或提高 SBOM／再散布門檻，沒有產品發行。
-
 
 - 2026-11-17：A6 第二輪基本包實證通過；CPU 既有驗收通過後，新增審閱入口以精簡 metadata 上限讀取大型完整 provenance 而拒絕。完整來源報告改用獨立有界容量、公開 metadata 上限不放寬，補容量分離反例與公開錯誤摘要；需重新固定同一來源的兩種候選。
 
