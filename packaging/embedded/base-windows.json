@@ -1,0 +1,1294 @@
+{
+  "schema_version": 1,
+  "profile": "base",
+  "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+  "scope": "基本包 Windows（win_amd64, CPython 3.12）wheel 內含第三方元件目錄；不含 Qt／PySide6／shiboken6（A11）與 Microsoft 執行期（A10）。原生檔以 A6 實際入包檔為準：wheel 內其他未入包的檔案不列，包括 numpy 的 lapack_lite 與測試／工具 .pyd（_simd、_umath_tests 等）以及 PIL 的 _imagingmath、_imagingmorph。版本未知、只有字串線索或由 LICENSE／宣告推論不到的內含元件，可以沒有 native_files（它們的歸屬無法逐檔驗證，列入以便保持條目 open）。",
+  "lock": {
+    "path": "packaging/profiles/base-windows-runtime.txt",
+    "sha256": "3e6f43f67a4d514a963284d79490987c9a8dcd3db08ed2f77188e1d04d7e99f0"
+  },
+  "source_review": {
+    "path": "docs/development-records/runs/a6-fixed-review-2026-11-17/base-source-review.json",
+    "sha256": "b6cc9736b3c5d2e8290a23b7be6a5dafe1a009ddd22f450e2e8c969408420111"
+  },
+  "inventory": {
+    "path": "src/desktop_app/data/licenses/windows/inventory.json",
+    "sha256": "7b721890a54453406fc7528f0054d8aad3d0ddefb315afe576aa0e750c0a6107"
+  },
+  "wheels": [
+    {
+      "distribution": "numpy",
+      "version": "2.5.4",
+      "filename": "numpy-2.5.4-cp312-cp312-win_amd64.whl",
+      "sha256": "a7b1b6353e36a7e50de2973a38d705c88ee93adcf120673cee7f45a4a3fa223a",
+      "registry_entry": "base-wheels-numpy",
+      "components": [
+        {
+          "id": "numpy",
+          "name": "NumPy",
+          "kind": "wheel-own",
+          "version": "2.5.4",
+          "version_basis": "wheel-declared",
+          "version_source": "numpy-2.5.4.dist-info/METADATA: Version",
+          "upstream": "https://numpy.org/",
+          "license": "BSD-3-Clause",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+              "sha256": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341"
+            }
+          ],
+          "native_files": [
+            "numpy/_core/_multiarray_tests.cp312-win_amd64.pyd",
+            "numpy/_core/_multiarray_umath.cp312-win_amd64.pyd",
+            "numpy/fft/_pocketfft_umath.cp312-win_amd64.pyd",
+            "numpy/linalg/_umath_linalg.cp312-win_amd64.pyd",
+            "numpy/random/_bounded_integers.cp312-win_amd64.pyd",
+            "numpy/random/_common.cp312-win_amd64.pyd",
+            "numpy/random/_generator.cp312-win_amd64.pyd",
+            "numpy/random/_mt19937.cp312-win_amd64.pyd",
+            "numpy/random/_pcg64.cp312-win_amd64.pyd",
+            "numpy/random/_philox.cp312-win_amd64.pyd",
+            "numpy/random/_sfc64.cp312-win_amd64.pyd",
+            "numpy/random/bit_generator.cp312-win_amd64.pyd",
+            "numpy/random/mtrand.cp312-win_amd64.pyd"
+          ],
+          "note": null
+        },
+        {
+          "id": "openblas",
+          "name": "OpenBLAS（numpy 所附 scipy-openblas64）",
+          "kind": "bundled",
+          "version": "0.3.34.106.0",
+          "version_basis": "wheel-declared",
+          "version_source": "numpy/__config__.py: \"openblas configuration\" 字串（OpenBLAS 0.3.34.106.0）",
+          "upstream": "https://github.com/OpenMathLib/OpenBLAS",
+          "license": "BSD-3-Clause（見 numpy LICENSE.txt 之 OpenBLAS 段落）",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+              "sha256": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341"
+            }
+          ],
+          "native_files": [
+            "numpy.libs/libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll"
+          ],
+          "note": "DLL 本身不含版本文字檔，版本取自 numpy/__config__.py 的宣告字串，未以 DLL 內容驗證。"
+        },
+        {
+          "id": "numpy-lapack",
+          "name": "LAPACK（numpy 宣告為 OpenBLAS 內建）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://github.com/OpenMathLib/OpenBLAS",
+          "license": "見 numpy LICENSE.txt 之 LAPACK 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+              "sha256": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341"
+            }
+          ],
+          "native_files": [],
+          "note": "numpy 只宣告 LAPACK 內建於 OpenBLAS，未列獨立版本。"
+        },
+        {
+          "id": "gcc-runtime-libgfortran",
+          "name": "GCC runtime library（libgfortran）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://gcc.gnu.org/",
+          "license": "GPL 含 GCC Runtime Library Exception（見 numpy LICENSE.txt 之 GCC 段落）",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/LICENSE.txt",
+              "sha256": "a804dff0ead9fadc5293456410bcbfc32bf024be9c4513459663fb7b442d2341"
+            }
+          ],
+          "native_files": [],
+          "note": "numpy 宣告此段落的檔案為 libscipy_openblas DLL，版本未宣告。"
+        },
+        {
+          "id": "numpy-bundled-sources",
+          "name": "numpy 內附第三方原始碼（highway、x86-simd-sort、pocketfft、libdivide、svml、dragon4、pythoncapi-compat、lapack_lite、random 種子演算法）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://github.com/numpy/numpy",
+          "license": "見各自的 LICENSE 檔",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy/ma/LICENSE",
+              "sha256": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy/random/LICENSE.md",
+              "sha256": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy/_core/include/numpy/random/LICENSE.txt",
+              "sha256": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md",
+              "sha256": "8db000e158c162e7249787852d8c69764706502ccee725c06641b31c1e95c8af"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt",
+              "sha256": "19060ef465e1797d682ee0fc3081bd25ab1395e995e43d25c9d13c95d9a3cd6b"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/ma/LICENSE",
+              "sha256": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/LICENSE.md",
+              "sha256": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/distributions/LICENSE.md",
+              "sha256": "cf5619f25b112d5ce7c896efffc8e610bcb345dfadcc19f2c1460aa48fff2c9e"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md",
+              "sha256": "92c10699884321f1c2947fe2a70ab23b0fbf1507f756d89dd08f38c61fc3d4fa"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md",
+              "sha256": "41190663b77bee5302386495a07b7eabfbfa571aa0ae2f11da6764162062fc4f"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/philox/LICENSE.md",
+              "sha256": "322ac46d870c8aeead6c53adcccc839296fb3c8e456eae155081297daf7f8013"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md",
+              "sha256": "28cad82ce1379dc529df30da78ec012d7d0d1d576b03ddcb93388aee53659f59"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md",
+              "sha256": "454ec7350e478e037061850b67395753b425b1cb0a34bbc26290b020bf89d763"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt",
+              "sha256": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING",
+              "sha256": "aea41976c720f91bd19725c16916a1ace40eb1ea42620d340e587a5de4bbcea0"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/highway/LICENSE",
+              "sha256": "d208152e2777ffd0126eacc1bd21c0320d69e4e6b622d21a2a12a47e8ef73763"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt",
+              "sha256": "b0fd592d4ead563148e3977e7b589169d46a5ef2ff133c755a81af880a3fc919"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md",
+              "sha256": "a732977853530066790c42817087f4829b518dd98d340c916acbfd227e39d3cb"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/numpy/wheel/numpy-2.5.4.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE",
+              "sha256": "585483905b13d4b42f800c55ba99e89d6e2e33ccd5f503e201c07531d148ff41"
+            }
+          ],
+          "native_files": [],
+          "note": "這些原始碼的版本未在 numpy 宣告；屬 numpy 內部編入，逐一對應 .pyd 未驗證。"
+        }
+      ]
+    },
+    {
+      "distribution": "pandas",
+      "version": "3.1.0",
+      "filename": "pandas-3.1.0-cp312-cp312-win_amd64.whl",
+      "sha256": "b8c75dbb27c7d170b25c13dd35515da4bb92d40fe8bb3bd2c69a95de2218889b",
+      "registry_entry": "base-wheels-pandas",
+      "components": [
+        {
+          "id": "pandas",
+          "name": "pandas",
+          "kind": "wheel-own",
+          "version": "3.1.0",
+          "version_basis": "wheel-declared",
+          "version_source": "pandas-3.1.0.dist-info/METADATA: Version",
+          "upstream": "https://pandas.pydata.org/",
+          "license": "BSD-3-Clause",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSE",
+              "sha256": "9850f6b5bdef7346503065807b878deb8058b976c5c329f4c4d23bf4796ce9ae"
+            }
+          ],
+          "native_files": [
+            "pandas/_libs/_cyutility.cp312-win_amd64.pyd",
+            "pandas/_libs/_ujson.cp312-win_amd64.pyd",
+            "pandas/_libs/algos.cp312-win_amd64.pyd",
+            "pandas/_libs/arrays.cp312-win_amd64.pyd",
+            "pandas/_libs/byteswap.cp312-win_amd64.pyd",
+            "pandas/_libs/groupby.cp312-win_amd64.pyd",
+            "pandas/_libs/hashing.cp312-win_amd64.pyd",
+            "pandas/_libs/hashtable.cp312-win_amd64.pyd",
+            "pandas/_libs/index.cp312-win_amd64.pyd",
+            "pandas/_libs/indexing.cp312-win_amd64.pyd",
+            "pandas/_libs/internals.cp312-win_amd64.pyd",
+            "pandas/_libs/interval.cp312-win_amd64.pyd",
+            "pandas/_libs/join.cp312-win_amd64.pyd",
+            "pandas/_libs/lib.cp312-win_amd64.pyd",
+            "pandas/_libs/missing.cp312-win_amd64.pyd",
+            "pandas/_libs/ops.cp312-win_amd64.pyd",
+            "pandas/_libs/ops_dispatch.cp312-win_amd64.pyd",
+            "pandas/_libs/pandas_datetime.cp312-win_amd64.pyd",
+            "pandas/_libs/pandas_parser.cp312-win_amd64.pyd",
+            "pandas/_libs/parsers.cp312-win_amd64.pyd",
+            "pandas/_libs/properties.cp312-win_amd64.pyd",
+            "pandas/_libs/reshape.cp312-win_amd64.pyd",
+            "pandas/_libs/sas.cp312-win_amd64.pyd",
+            "pandas/_libs/sparse.cp312-win_amd64.pyd",
+            "pandas/_libs/testing.cp312-win_amd64.pyd",
+            "pandas/_libs/tslib.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/base.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/ccalendar.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/conversion.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/dtypes.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/fields.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/nattype.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/np_datetime.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/offsets.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/parsing.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/period.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/strptime.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/timedeltas.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/timestamps.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/timezones.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/tzconversion.cp312-win_amd64.pyd",
+            "pandas/_libs/tslibs/vectorized.cp312-win_amd64.pyd",
+            "pandas/_libs/window/aggregations.cp312-win_amd64.pyd",
+            "pandas/_libs/window/indexers.cp312-win_amd64.pyd",
+            "pandas/_libs/writers.cp312-win_amd64.pyd"
+          ],
+          "note": null
+        },
+        {
+          "id": "fast-float",
+          "name": "fast_float",
+          "kind": "bundled",
+          "version": "8.2.10",
+          "version_basis": "wheel-declared",
+          "version_source": "pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/ 目錄名",
+          "upstream": "https://github.com/fastfloat/fast_float",
+          "license": "Apache-2.0 OR BSD-3-Clause OR MIT（見三個授權檔）",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-APACHE",
+              "sha256": "097a889aa954d04e088b790b10a4014d6189561d0a6013935a73ce3d4ddaaf06"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-BOOST",
+              "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/subprojects/fast_float-8.2.10/LICENSE-MIT",
+              "sha256": "e562f3f974ced7e69dd1db77b820b36bcf8f30377f1aa105723fba449c53c4e6"
+            }
+          ],
+          "native_files": [],
+          "note": null
+        },
+        {
+          "id": "pandas-bundled-notices",
+          "name": "pandas 內附其他第三方（LICENSES 目錄所列：klib、ultrajson、xsimd、numpy 等）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://github.com/pandas-dev/pandas",
+          "license": "見 LICENSES 目錄各檔",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/BOTTLENECK_LICENCE",
+              "sha256": "053a90e30580f5d9d79817add1567f88b4a3eeb11bcded9ecf74619d17768066"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/DATEUTIL_LICENSE",
+              "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_LICENSE",
+              "sha256": "48216b40b3d1b19452923dd6fd74655bf5c0df9d76b51eb0efade7e0b88bfbcc"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/HAVEN_MIT",
+              "sha256": "87217d0a79195441ab615a3abb3ab6777502e57804ea83f973df975a67ebd720"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/KLIB_LICENSE",
+              "sha256": "7463172c3a23321c1838896eba437f70a6de80ac5a840b2960966c8c5444abf1"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/MUSL_LICENSE",
+              "sha256": "50a343c1ce9e27cd6c58023f13b91d2cd679861fe7fb6bbbbfbec3dcafc3583f"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/NUMPY_LICENSE",
+              "sha256": "81d42da02a56b611c35abc83d2241564b46bec3a5b1960b395d55cebca68fb6f"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PACKAGING_LICENSE",
+              "sha256": "1871330068a18f1f07c3f147a41c008e59f367f217041ca6eb20b0298639a128"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PSF_LICENSE",
+              "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYPERCLIP_LICENSE",
+              "sha256": "eafcd440e3570c6bc7b77dcec15dec398d13bc9b5e897336b221ff81ff19f345"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/PYUPGRADE_LICENSE",
+              "sha256": "70aedcd6928272bd176e4fdc3384af22ee759d006fb15105d994756e4f2d1b7a"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/SAS7BDAT_LICENSE",
+              "sha256": "458d5fd4175825440ad32d6bf6af45d1a19d4adb316b557d869c6560b6692e00"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/STATSBASE_JL_LICENSE",
+              "sha256": "f371ccf0fb892a4cd9f2e550c4b8cf4362793d17028dc642ad55c1e01a41dfe1"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/ULTRAJSON_LICENSE",
+              "sha256": "2bfbb5bb8ec66d136ec62d836ddc0c0019d44ef4d9389f1f6cab1c1109d774a2"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pandas/wheel/pandas-3.1.0.dist-info/licenses/LICENSES/XSIMD_LICENSE",
+              "sha256": "501352acba62cc54e8e3d293754d606f919c9b425b962193c211f9fa29cd9940"
+            }
+          ],
+          "native_files": [],
+          "note": "逐一版本未宣告；_ujson 等 .pyd 與各授權的對應未逐檔驗證。"
+        }
+      ]
+    },
+    {
+      "distribution": "pillow",
+      "version": "13.0.0",
+      "filename": "pillow-13.0.0-cp312-cp312-win_amd64.whl",
+      "sha256": "ff3fe9eb621fbb9db4c4be33ab946f6bac5f98ab50ca8d3260503653656c961b",
+      "registry_entry": "base-wheels-pillow",
+      "components": [
+        {
+          "id": "pillow",
+          "name": "Pillow",
+          "kind": "wheel-own",
+          "version": "13.0.0",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/METADATA: Version",
+          "upstream": "https://python-pillow.org/",
+          "license": "MIT-CMU（見 LICENSE 首段 PIL 與 Pillow 授權）",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [
+            "PIL/_avif.cp312-win_amd64.pyd",
+            "PIL/_imaging.cp312-win_amd64.pyd",
+            "PIL/_imagingcms.cp312-win_amd64.pyd",
+            "PIL/_imagingft.cp312-win_amd64.pyd",
+            "PIL/_imagingtk.cp312-win_amd64.pyd",
+            "PIL/_webp.cp312-win_amd64.pyd"
+          ],
+          "note": null
+        },
+        {
+          "id": "brotli",
+          "name": "Brotli",
+          "kind": "bundled",
+          "version": "1.2.0",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/licenses/LICENSE: \"===== brotli-1.2.0 =====\" 段落標題",
+          "upstream": "https://github.com/google/brotli",
+          "license": "見 LICENSE 中 Brotli 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 Pillow 的 .pyd，逐檔歸屬未驗證。"
+        },
+        {
+          "id": "freetype",
+          "name": "FreeType",
+          "kind": "bundled",
+          "version": "2.14.3",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/licenses/LICENSE: \"===== freetype-2.14.3 =====\" 段落標題",
+          "upstream": "https://freetype.org/",
+          "license": "見 LICENSE 中 FreeType 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 Pillow 的 .pyd，逐檔歸屬未驗證。"
+        },
+        {
+          "id": "harfbuzz",
+          "name": "HarfBuzz",
+          "kind": "bundled",
+          "version": "14.5.0",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/licenses/LICENSE: \"===== harfbuzz-14.5.0 =====\" 段落標題",
+          "upstream": "https://github.com/harfbuzz/harfbuzz",
+          "license": "見 LICENSE 中 HarfBuzz 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 Pillow 的 .pyd，逐檔歸屬未驗證。"
+        },
+        {
+          "id": "lcms2",
+          "name": "Little CMS 2",
+          "kind": "bundled",
+          "version": "2.19.1",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/licenses/LICENSE: \"===== lcms2-2.19.1 =====\" 段落標題",
+          "upstream": "https://www.littlecms.com/",
+          "license": "見 LICENSE 中 Little CMS 2 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 Pillow 的 .pyd，逐檔歸屬未驗證。"
+        },
+        {
+          "id": "libavif",
+          "name": "libavif",
+          "kind": "bundled",
+          "version": "1.4.2",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/licenses/LICENSE: \"===== libavif-1.4.2 =====\" 段落標題",
+          "upstream": "https://github.com/AOMediaCodec/libavif",
+          "license": "見 LICENSE 中 libavif 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 Pillow 的 .pyd，逐檔歸屬未驗證。"
+        },
+        {
+          "id": "libjpeg-turbo",
+          "name": "libjpeg-turbo",
+          "kind": "bundled",
+          "version": "3.2.0",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/licenses/LICENSE: \"===== libjpeg-turbo-3.2.0 =====\" 段落標題",
+          "upstream": "https://libjpeg-turbo.org/",
+          "license": "見 LICENSE 中 libjpeg-turbo 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 Pillow 的 .pyd，逐檔歸屬未驗證。"
+        },
+        {
+          "id": "libpng",
+          "name": "libpng",
+          "kind": "bundled",
+          "version": "1.6.58",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/licenses/LICENSE: \"===== libpng-1.6.58 =====\" 段落標題",
+          "upstream": "https://www.libpng.org/pub/png/libpng.html",
+          "license": "見 LICENSE 中 libpng 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 Pillow 的 .pyd，逐檔歸屬未驗證。"
+        },
+        {
+          "id": "libwebp",
+          "name": "libwebp",
+          "kind": "bundled",
+          "version": "1.6.0",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/licenses/LICENSE: \"===== libwebp-1.6.0 =====\" 段落標題",
+          "upstream": "https://chromium.googlesource.com/webm/libwebp",
+          "license": "見 LICENSE 中 libwebp 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 Pillow 的 .pyd，逐檔歸屬未驗證。"
+        },
+        {
+          "id": "openjpeg",
+          "name": "OpenJPEG",
+          "kind": "bundled",
+          "version": "2.5.4",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/licenses/LICENSE: \"===== openjpeg-2.5.4 =====\" 段落標題",
+          "upstream": "https://www.openjpeg.org/",
+          "license": "見 LICENSE 中 OpenJPEG 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 Pillow 的 .pyd，逐檔歸屬未驗證。"
+        },
+        {
+          "id": "tiff",
+          "name": "libtiff",
+          "kind": "bundled",
+          "version": "4.7.2",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/licenses/LICENSE: \"===== tiff-4.7.2 =====\" 段落標題",
+          "upstream": "https://www.libtiff.org/",
+          "license": "見 LICENSE 中 libtiff 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 Pillow 的 .pyd，逐檔歸屬未驗證。"
+        },
+        {
+          "id": "xz",
+          "name": "XZ Utils（liblzma）",
+          "kind": "bundled",
+          "version": "5.8.4",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/licenses/LICENSE: \"===== xz-5.8.4 =====\" 段落標題",
+          "upstream": "https://tukaani.org/xz/",
+          "license": "見 LICENSE 中 XZ Utils（liblzma） 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 Pillow 的 .pyd，逐檔歸屬未驗證。"
+        },
+        {
+          "id": "zlib-ng",
+          "name": "zlib-ng",
+          "kind": "bundled",
+          "version": "2.3.3",
+          "version_basis": "wheel-declared",
+          "version_source": "pillow-13.0.0.dist-info/licenses/LICENSE: \"===== zlib-ng-2.3.3 =====\" 段落標題",
+          "upstream": "https://github.com/zlib-ng/zlib-ng",
+          "license": "見 LICENSE 中 zlib-ng 段落",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pillow/wheel/pillow-13.0.0.dist-info/licenses/LICENSE",
+              "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 Pillow 的 .pyd，逐檔歸屬未驗證。"
+        },
+        {
+          "id": "raqm",
+          "name": "Raqm（文字排版）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://github.com/HOST-Oman/libraqm",
+          "license": "未知（LICENSE 無 raqm 段落，原文缺）",
+          "notices": [],
+          "native_files": [],
+          "note": "_imagingft.cp312-win_amd64.pyd 含字串 \"raqm_create() failed.\"、\"raqm_set_text() failed\"，顯示 Pillow 文字排版路徑呼叫 raqm；LICENSE 無段落，版本與原文缺。靜態或動態併入未驗證。"
+        },
+        {
+          "id": "fribidi",
+          "name": "FriBidi（雙向文字）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://github.com/fribidi/fribidi",
+          "license": "未知（LICENSE 無 fribidi 段落，原文缺）",
+          "notices": [],
+          "native_files": [],
+          "note": "_imagingft.cp312-win_amd64.pyd 含字串 \"fribidi_version\"、\"fribidi\"、\"HAVE_FRIBIDI\"、\"fribidi-0\"。疑似執行期動態載入（未驗證）；若為動態載入，則不屬於入包的靜態內含元件，需以 PE 匯入表或執行期觀測確認。"
+        },
+        {
+          "id": "libaom",
+          "name": "libaom（AV1 編碼）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://aomedia.googlesource.com/aom/",
+          "license": "未知（LICENSE 無 libaom 段落，原文缺）",
+          "notices": [],
+          "native_files": [],
+          "note": "_avif.cp312-win_amd64.pyd 含字串 \"aom_codec_set_option\"、\"a libaom version strictly greater than 2.0.0 is required\"、\"Detected libaom v3.6.0 bug...\"；版本線索僅來自錯誤訊息，未宣告實際版本。"
+        },
+        {
+          "id": "dav1d",
+          "name": "dav1d（AV1 解碼）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://code.videolan.org/videolan/dav1d",
+          "license": "未知（LICENSE 無 dav1d 段落，原文缺）",
+          "notices": [],
+          "native_files": [],
+          "note": "_avif.cp312-win_amd64.pyd 只含單一字串 \"dav1d\"，證據薄弱；是否真的併入未驗證。"
+        },
+        {
+          "id": "libyuv",
+          "name": "libyuv（影像縮放）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://chromium.googlesource.com/libyuv/libyuv",
+          "license": "未知（LICENSE 無 libyuv 段落，原文缺）",
+          "notices": [],
+          "native_files": [],
+          "note": "_avif.cp312-win_amd64.pyd 含字串 \"avifImageScaleWithLimit requested invalid width scale for libyuv\"；LICENSE 無段落，版本與原文缺。"
+        }
+      ]
+    },
+    {
+      "distribution": "lxml",
+      "version": "6.1.3",
+      "filename": "lxml-6.1.3-cp312-cp312-win_amd64.whl",
+      "sha256": "3e9a00d1c2c30936f7add097c41afc5da6556c580909104aafd382cac92a855c",
+      "registry_entry": "base-wheels-lxml",
+      "components": [
+        {
+          "id": "lxml",
+          "name": "lxml",
+          "kind": "wheel-own",
+          "version": "6.1.3",
+          "version_basis": "wheel-declared",
+          "version_source": "lxml-6.1.3.dist-info/METADATA: Version",
+          "upstream": "https://lxml.de/",
+          "license": "BSD-3-Clause（見 LICENSE.txt 與 LICENSES.txt）",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSE.txt",
+              "sha256": "e7c3ce8d76331b0101cc46790ab43958ea90a364bcf962ed8763d5a818340e69"
+            }
+          ],
+          "native_files": [
+            "lxml/_elementpath.cp312-win_amd64.pyd",
+            "lxml/builder.cp312-win_amd64.pyd",
+            "lxml/etree.cp312-win_amd64.pyd",
+            "lxml/html/_difflib.cp312-win_amd64.pyd",
+            "lxml/html/diff.cp312-win_amd64.pyd",
+            "lxml/objectify.cp312-win_amd64.pyd",
+            "lxml/sax.cp312-win_amd64.pyd"
+          ],
+          "note": null
+        },
+        {
+          "id": "libxml2",
+          "name": "libxml2",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://gitlab.gnome.org/GNOME/libxml2",
+          "license": "MIT（見 LICENSES.txt）",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+              "sha256": "df682c668de65321677b5e4861dca4128a8bad8067f230956e9da3f985b3d398"
+            }
+          ],
+          "native_files": [],
+          "note": "LICENSES.txt 未列版本。etree.cp312-win_amd64.pyd 含字串 \"libxml2 2.15+\"（lxml 文件註解），僅為線索，仍 unknown。"
+        },
+        {
+          "id": "libxslt",
+          "name": "libxslt 與 libexslt",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://gitlab.gnome.org/GNOME/libxslt",
+          "license": "MIT（見 LICENSES.txt）",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+              "sha256": "df682c668de65321677b5e4861dca4128a8bad8067f230956e9da3f985b3d398"
+            }
+          ],
+          "native_files": [],
+          "note": "LICENSES.txt 未列版本。"
+        },
+        {
+          "id": "zlib",
+          "name": "zlib（lxml 所附）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://www.zlib.net/",
+          "license": "zlib license（見 LICENSES.txt）",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+              "sha256": "df682c668de65321677b5e4861dca4128a8bad8067f230956e9da3f985b3d398"
+            }
+          ],
+          "native_files": [],
+          "note": "LICENSES.txt 未列版本。"
+        },
+        {
+          "id": "libiconv",
+          "name": "iconv（libiconv）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://www.gnu.org/software/libiconv/",
+          "license": "LGPL-2.1（見 LICENSES.txt）",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+              "sha256": "df682c668de65321677b5e4861dca4128a8bad8067f230956e9da3f985b3d398"
+            }
+          ],
+          "native_files": [],
+          "note": "LGPL；使用方式（動態連結與替換）的做法待 A13 使用者決定。"
+        }
+      ]
+    },
+    {
+      "distribution": "cryptography",
+      "version": "50.0.2",
+      "filename": "cryptography-50.0.2-cp311-abi3-win_amd64.whl",
+      "sha256": "7afa5a6602a9f29af1f3a2965f831bae7c9d5d597b7cbb716d41ab3b7d89879c",
+      "registry_entry": "base-wheels-cryptography",
+      "components": [
+        {
+          "id": "cryptography",
+          "name": "cryptography",
+          "kind": "wheel-own",
+          "version": "50.0.2",
+          "version_basis": "wheel-declared",
+          "version_source": "cryptography/__about__.py: __version__",
+          "upstream": "https://github.com/pyca/cryptography",
+          "license": "Apache-2.0 OR BSD-3-Clause",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE",
+              "sha256": "3e0c7c091a948b82533ba98fd7cbb40432d6f1a9acbf85f5922d2f99a93ae6bb"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+              "sha256": "aac73b3148f6d1d7111dbca32099f68d26c644c6813ae1e4f05f6579aa2663fe"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD",
+              "sha256": "602c4c7482de6479dd2e9793cda275e5e63d773dacd1eca689232ab7008fb4fb"
+            }
+          ],
+          "native_files": [
+            "cryptography/hazmat/bindings/_rust.pyd"
+          ],
+          "note": null
+        },
+        {
+          "id": "openssl",
+          "name": "OpenSSL（推定靜態併入 _rust.pyd）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://www.openssl.org/",
+          "license": "待查（wheel 內無 OpenSSL 原文）",
+          "notices": [],
+          "native_files": [],
+          "note": "cryptography/hazmat/bindings/_rust.pyd 含字串 \"OpenSSL 4.0.3 29 Sep 2026\"，顯示靜態併入 OpenSSL；wheel 無隨附 OpenSSL 原文。版本依據維持 unknown：字串只是線索，未分析 PE 匯入表，也未驗證與實際連結版本一致。需使用者決定是否補充原文（見回報）。"
+        },
+        {
+          "id": "rust-dependencies",
+          "name": "Rust 相依套件（推定靜態併入 _rust.pyd）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://crates.io/",
+          "license": "待查",
+          "notices": [],
+          "native_files": [],
+          "note": "wheel 內無相依清單與授權，未逐一盤點。"
+        }
+      ]
+    },
+    {
+      "distribution": "onnxruntime",
+      "version": "1.31.1",
+      "filename": "onnxruntime-1.31.1-cp312-cp312-win_amd64.whl",
+      "sha256": "ae8a9a351efda685cc59a66226cdefaa37a126c1d66872ca23a2de9425326130",
+      "registry_entry": "base-wheels-onnxruntime",
+      "components": [
+        {
+          "id": "onnxruntime",
+          "name": "ONNX Runtime",
+          "kind": "wheel-own",
+          "version": "1.31.1",
+          "version_basis": "wheel-declared",
+          "version_source": "onnxruntime-1.31.1.dist-info/METADATA: Version",
+          "upstream": "https://onnxruntime.ai/",
+          "license": "MIT",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/onnxruntime/wheel/onnxruntime/LICENSE",
+              "sha256": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674"
+            }
+          ],
+          "native_files": [
+            "onnxruntime/capi/onnxruntime.dll",
+            "onnxruntime/capi/onnxruntime_providers_shared.dll",
+            "onnxruntime/capi/onnxruntime_pybind11_state.pyd"
+          ],
+          "note": null
+        },
+        {
+          "id": "onnxruntime-third-party-superset",
+          "name": "ONNX Runtime 第三方聲明（建置超集）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://github.com/microsoft/onnxruntime",
+          "license": "見 ThirdPartyNotices.txt 各段",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/onnxruntime/wheel/onnxruntime/ThirdPartyNotices.txt",
+              "sha256": "c53a76501ef60db6f865f20599f220761201ac4057683acefdab37d861b86622"
+            }
+          ],
+          "native_files": [],
+          "note": "ThirdPartyNotices 有 97 段，涵蓋整個建置（含 Intel MKL、Open MPI 等未必連結進此 wheel 的項目）；哪些實際進入三個檔案未驗證，逐段版本未宣告。"
+        }
+      ]
+    },
+    {
+      "distribution": "pypdfium2",
+      "version": "5.14.0",
+      "filename": "pypdfium2-5.14.0-py3-none-win_amd64.whl",
+      "sha256": "149fd5c6397b8df8bf7911a93506eff0be874f877afe7ac936cf5d37d21a6a06",
+      "registry_entry": "base-wheels-pypdfium2",
+      "components": [
+        {
+          "id": "pypdfium2",
+          "name": "pypdfium2（Python 綁定）",
+          "kind": "wheel-own",
+          "version": "5.14.0",
+          "version_basis": "wheel-declared",
+          "version_source": "pypdfium2-5.14.0.dist-info/METADATA: Version",
+          "upstream": "https://github.com/pypdfium2-team/pypdfium2",
+          "license": "BSD-3-Clause（另附 Apache-2.0、CC-BY-4.0 文字）",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/Apache-2.0.txt",
+              "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/BSD-3-Clause.txt",
+              "sha256": "ad9a9e823df025f42389c1812eae28019f657d1ed7b3a4ebfd5010b0736a0da4"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/LICENSES/CC-BY-4.0.txt",
+              "sha256": "f1b1748301cd4274f46733c218d510929661b4990855de5fc645dacd69c4371c"
+            }
+          ],
+          "native_files": [],
+          "note": null
+        },
+        {
+          "id": "pdfium",
+          "name": "PDFium（pdfium-binaries 建置）",
+          "kind": "bundled",
+          "version": "156.0.8076.0",
+          "version_basis": "wheel-declared",
+          "version_source": "pypdfium2_raw/version.json: major 156、minor 0、build 8076、patch 0",
+          "upstream": "https://pdfium.googlesource.com/pdfium/",
+          "license": "BSD-3-Clause（pdfium.txt）與 pdfium-binaries 授權",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium.txt",
+              "sha256": "961eacd9633fff6d051db7208b755e9210e30efac7adec3e6a6d52798f0ccf0e"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/pdfium-binaries.txt",
+              "sha256": "8854f4388f1ca13b3ad9baa42e95f5546b4c0b17109c159256d3eca7be39b09b"
+            }
+          ],
+          "native_files": [
+            "pypdfium2_raw/pdfium.dll"
+          ],
+          "note": null
+        },
+        {
+          "id": "abseil",
+          "name": "Abseil",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://github.com/abseil/abseil-cpp",
+          "license": "見 abseil.txt",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/abseil.txt",
+              "sha256": "f54fff0b905df5b3464527c652a30e903b172d6dcab4d89b5e6f105d5e4a4603"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 pdfium.dll（依 BUILD_LICENSES 列示），版本未宣告。"
+        },
+        {
+          "id": "agg23",
+          "name": "AGG（Anti-Grain Geometry）",
+          "kind": "bundled",
+          "version": "2.3",
+          "version_basis": "wheel-declared",
+          "version_source": "pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/agg23.txt: 版權或標題字樣 \"2.3\"",
+          "upstream": "https://www.antigrain.com/",
+          "license": "見 agg23.txt",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/agg23.txt",
+              "sha256": "c110d3ea2ad77467ce0dcff7d3337e6c8be8049a5103f4b9bd5fd911a77972e5"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 pdfium.dll（依 BUILD_LICENSES 列示）。"
+        },
+        {
+          "id": "fast-float",
+          "name": "fast_float（pdfium 內附）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://github.com/fastfloat/fast_float",
+          "license": "見 fast_float.txt",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/fast_float.txt",
+              "sha256": "bf1b57355feca8fce77ee95f48002f8d4789fb71b30ec7599c06cda4901fbb2b"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 pdfium.dll（依 BUILD_LICENSES 列示），版本未宣告。"
+        },
+        {
+          "id": "freetype",
+          "name": "FreeType",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://freetype.org/",
+          "license": "見 freetype.txt",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/freetype.txt",
+              "sha256": "f4b133e25df1f86ad3ffea453aa0e613f0474f34778dbbb3e437e7b2724937d8"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 pdfium.dll（依 BUILD_LICENSES 列示），版本未宣告。"
+        },
+        {
+          "id": "icu",
+          "name": "ICU",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://icu.unicode.org/",
+          "license": "見 icu.txt",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/icu.txt",
+              "sha256": "93679f4389d53b6835d89843f251844fb9bc455b35bab036d3c8e7abe497a47a"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 pdfium.dll（依 BUILD_LICENSES 列示），版本未宣告。"
+        },
+        {
+          "id": "lcms",
+          "name": "Little CMS",
+          "kind": "bundled",
+          "version": "2.19",
+          "version_basis": "wheel-declared",
+          "version_source": "pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/lcms.txt: 版權或標題字樣 \"2.19\"",
+          "upstream": "https://www.littlecms.com/",
+          "license": "見 lcms.txt",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/lcms.txt",
+              "sha256": "7312b68c5b25e9bf2b828706fb4e29588f22705112f411fd42e1f7d84c3d139a"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 pdfium.dll（依 BUILD_LICENSES 列示）。"
+        },
+        {
+          "id": "libjpeg-turbo",
+          "name": "libjpeg-turbo",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://libjpeg-turbo.org/",
+          "license": "見 libjpeg_turbo.ijg",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.ijg",
+              "sha256": "db16a04128171879c60708d171b88d97345a2dd20f9bfc173680a4497c73f704"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libjpeg_turbo.md",
+              "sha256": "be2b2b5ab168bce87bc3e31f2a5c5adba4b7f6e9e51d618e958d1d46972ebd95"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 pdfium.dll（依 BUILD_LICENSES 列示），版本未宣告。"
+        },
+        {
+          "id": "libopenjpeg",
+          "name": "OpenJPEG",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://www.openjpeg.org/",
+          "license": "見 libopenjpeg.txt",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libopenjpeg.txt",
+              "sha256": "c5ab0890a737c2dfa7ba675036554f6d17741d98629b0c2a145354d00617e6b2"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 pdfium.dll（依 BUILD_LICENSES 列示），版本未宣告。"
+        },
+        {
+          "id": "libpng",
+          "name": "libpng",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://www.libpng.org/pub/png/libpng.html",
+          "license": "見 libpng.txt",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/libpng.txt",
+              "sha256": "452390433ba0f88aa3e2b122c647741b72a0c117cd6ed7a329b49785aecb5511"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 pdfium.dll（依 BUILD_LICENSES 列示），版本未宣告。"
+        },
+        {
+          "id": "llvm-libc",
+          "name": "LLVM libc",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://libc.llvm.org/",
+          "license": "見 llvm-libc.txt",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/llvm-libc.txt",
+              "sha256": "3b6226c32e168c83b891d8d6f0d3c29c2116dc3ef93dc93c307b54f279ecf383"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 pdfium.dll（依 BUILD_LICENSES 列示），版本未宣告。"
+        },
+        {
+          "id": "simdutf",
+          "name": "simdutf",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://github.com/simdutf/simdutf",
+          "license": "見 simdutf.txt",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/simdutf.txt",
+              "sha256": "c172a0ba936ff31230febb5dad869e25cb7c1a07480c7a381be8cf011bb52719"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 pdfium.dll（依 BUILD_LICENSES 列示），版本未宣告。"
+        },
+        {
+          "id": "zlib",
+          "name": "zlib（pdfium 內附）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://www.zlib.net/",
+          "license": "見 zlib.txt",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/pypdfium2/wheel/pypdfium2-5.14.0.dist-info/licenses/data/windows_x64/BUILD_LICENSES/zlib.txt",
+              "sha256": "33fd641c9f3b0e0be64bc78fea9e94807674cdd70c48477599226cb8956565fe"
+            }
+          ],
+          "native_files": [],
+          "note": "靜態併入 pdfium.dll（依 BUILD_LICENSES 列示），版本未宣告。"
+        }
+      ]
+    },
+    {
+      "distribution": "cffi",
+      "version": "2.1.1",
+      "filename": "cffi-2.1.1-cp312-cp312-win_amd64.whl",
+      "sha256": "f53e442b08449d42821fa4a4fba000095af9f62742a500f978a9f557ec44339a",
+      "registry_entry": "base-wheels-cffi",
+      "components": [
+        {
+          "id": "cffi",
+          "name": "cffi",
+          "kind": "wheel-own",
+          "version": "2.1.1",
+          "version_basis": "wheel-declared",
+          "version_source": "cffi/__init__.py: __version__",
+          "upstream": "https://github.com/python-cffi/cffi",
+          "license": "MIT",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/cffi/wheel/cffi-2.1.1.dist-info/licenses/LICENSE",
+              "sha256": "5ba24ddc57067f9249add644c3afc41a5d6dc37e23433ef759d95df370b0af63"
+            }
+          ],
+          "native_files": [
+            "_cffi_backend.cp312-win_amd64.pyd"
+          ],
+          "note": null
+        },
+        {
+          "id": "libffi",
+          "name": "libffi（上游建置慣例併入 _cffi_backend）",
+          "kind": "bundled",
+          "version": null,
+          "version_basis": "unknown",
+          "version_source": null,
+          "upstream": "https://github.com/libffi/libffi",
+          "license": "MIT 類（原文未附，待查）",
+          "notices": [],
+          "native_files": [],
+          "note": "wheel 無 libffi 原文或版本；A13 另有「libffi 僅建置宣告」的使用者確認項目。"
+        }
+      ]
+    },
+    {
+      "distribution": "charset-normalizer",
+      "version": "3.5.2",
+      "filename": "charset_normalizer-3.5.2-cp312-cp312-win_amd64.whl",
+      "sha256": "780fbe7cab297b81dad9fb8dc5eb003c0468ffb0d9e5f65068c53a34661a96bc",
+      "registry_entry": "base-wheels-charset-normalizer",
+      "components": [
+        {
+          "id": "charset-normalizer",
+          "name": "charset-normalizer",
+          "kind": "wheel-own",
+          "version": "3.5.2",
+          "version_basis": "wheel-declared",
+          "version_source": "charset_normalizer-3.5.2.dist-info/METADATA: Version",
+          "upstream": "https://github.com/jawah/charset_normalizer",
+          "license": "MIT",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/charset-normalizer/wheel/charset_normalizer-3.5.2.dist-info/licenses/LICENSE",
+              "sha256": "18577485d3704f1a479ded8e573c0976cfed315fd2fd17983fa988da4c2f70d1"
+            }
+          ],
+          "native_files": [
+            "charset_normalizer/cd.cp312-win_amd64.pyd",
+            "charset_normalizer/md.cp312-win_amd64.pyd"
+          ],
+          "note": null
+        }
+      ]
+    },
+    {
+      "distribution": "psutil",
+      "version": "7.2.2",
+      "filename": "psutil-7.2.2-cp37-abi3-win_amd64.whl",
+      "sha256": "eb7e81434c8d223ec4a219b5fc1c47d0417b12be7ea866e24fb5ad6e84b3d988",
+      "registry_entry": "base-wheels-psutil",
+      "components": [
+        {
+          "id": "psutil",
+          "name": "psutil",
+          "kind": "wheel-own",
+          "version": "7.2.2",
+          "version_basis": "wheel-declared",
+          "version_source": "psutil/__init__.py: __version__ = \"7.2.2\"",
+          "upstream": "https://github.com/giampaolo/psutil",
+          "license": "BSD-3-Clause",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/psutil/wheel/psutil-7.2.2.dist-info/LICENSE",
+              "sha256": "c7adc4d5d1337a548b967421f1fbe258b93033a0417708fd6f4e38f8ecbceb80"
+            }
+          ],
+          "native_files": [
+            "psutil/_psutil_windows.pyd"
+          ],
+          "note": null
+        }
+      ]
+    }
+  ]
+}
