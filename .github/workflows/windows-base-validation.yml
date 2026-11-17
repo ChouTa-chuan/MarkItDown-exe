@@ -117,8 +117,14 @@ jobs:
           python-version: '3.12'
       - name: Verify selected immutable source
         shell: pwsh
+        # 來源輸入只透過環境變數傳入，避免 expression 成為 PowerShell 程式碼。
+        env:
+          EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          python scripts/candidate_review.py --check-source --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+            throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
+          }
+          python scripts/candidate_review.py --check-source --expected-source "$env:EXPECTED_SOURCE"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - uses: actions/download-artifact@v4
         with:
@@ -131,34 +137,70 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Classify and preserve candidate review metadata
         shell: pwsh
+        # 來源輸入只透過環境變數傳入，避免 expression 成為 PowerShell 程式碼。
+        env:
+          EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --profile base --bundle "out/windows/dist/MarkItDownBase" --reports "out/windows/reports" --package-directory "out/windows/installer-work/setup" --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+            throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
+          }
+          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --profile base --bundle "out/windows/dist/MarkItDownBase" --reports "out/windows/reports" --package-directory "out/windows/installer-work/setup" --expected-source "$env:EXPECTED_SOURCE"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       # metadata 每步最多八個 notice，避免平台的每步註記上限造成證據截斷。
       - name: Preserve review metadata page 1
         shell: pwsh
+        # 來源輸入只透過環境變數傳入，避免 expression 成為 PowerShell 程式碼。
+        env:
+          EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 0 --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+            throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
+          }
+          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 0 --expected-source "$env:EXPECTED_SOURCE"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Preserve review metadata page 2
         shell: pwsh
+        # 來源輸入只透過環境變數傳入，避免 expression 成為 PowerShell 程式碼。
+        env:
+          EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 1 --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+            throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
+          }
+          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 1 --expected-source "$env:EXPECTED_SOURCE"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Preserve review metadata page 3
         shell: pwsh
+        # 來源輸入只透過環境變數傳入，避免 expression 成為 PowerShell 程式碼。
+        env:
+          EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 2 --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+            throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
+          }
+          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 2 --expected-source "$env:EXPECTED_SOURCE"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Preserve review metadata page 4
         shell: pwsh
+        # 來源輸入只透過環境變數傳入，避免 expression 成為 PowerShell 程式碼。
+        env:
+          EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 3 --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+            throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
+          }
+          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 3 --expected-source "$env:EXPECTED_SOURCE"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Preserve review metadata page 5
         shell: pwsh
+        # 來源輸入只透過環境變數傳入，避免 expression 成為 PowerShell 程式碼。
+        env:
+          EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 4 --expected-source "${{ inputs.candidate_source || github.sha }}"
+          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+            throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
+          }
+          & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 4 --expected-source "$env:EXPECTED_SOURCE"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Publish actual validation summary
         if: always()

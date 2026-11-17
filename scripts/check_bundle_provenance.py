@@ -11,6 +11,7 @@ import tomllib
 from build_provenance import sha256
 from candidate_inventory import component_inventory, inventory, verify_inventory
 from bundle_filters import is_excluded_name
+from base_own_license import OWN_LICENSE, verify_own_license
 from native_identity import identity_errors, summarize
 from python_archive_inventory import (load_manifest, summarize as summarize_python,
                                       verify_base_runtime_modules, zip_members)
@@ -59,12 +60,15 @@ def audit(bundle, profile, expected_version):
         # 純 Python 模組清單必須在資產雜湊清單內，否則事後改動它不會被發現。
         if 'licenses/native/python-modules.json' not in build['assets']:
             raise ValueError('Python module manifest not covered by asset fingerprints')
+        if OWN_LICENSE not in build['assets']:
+            raise ValueError('Own MIT license not covered by asset fingerprints')
         installed = json.loads(contained_file(assets, 'licenses/installed/manifest.json').read_text(encoding='utf-8'))
         metadata_prefix, bootloader = 'licenses/installed/', assets/'licenses/bootloader'
         python_license = 'licenses/python-runtime/LICENSE.txt'
         expected = {**build['runtime_packages'], **build['local_packages']}
         if {p['name']:p['version'] for p in installed['packages']} != expected:
             raise ValueError('Runtime package list mismatch')
+        verify_own_license(assets, installed['packages'])
     elif profile == 'cpu':
         assets = bundle/'_internal/worker-assets'
         installed = json.loads(contained_file(assets, 'installed-manifest.json').read_text(encoding='utf-8'))

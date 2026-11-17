@@ -4,6 +4,22 @@
 
 ## 更新中
 
+### 2026-11-17｜A7 自有 MIT 對照、工作流來源傳遞與分片反例
+
+- 首個提交修正 A6 合併現況、原排隊 run 最終成功且只有報告 artifact，並以 8285450 成功 run 作基本包審閱依據；A6 attempts.json 不變，原文／模型／架構快照保留。
+- 兩條 Windows 工作流以獨立提交改 step env EXPECTED_SOURCE，pwsh 先驗 SHA；缺片與越界反例使用真正多片資料。基本包自有 MIT 綁入套件原文表，產生／audit 核對來源，重算 hash 仍拒絕缺檔、改內容與錯誤綁定。
+- 完整混合／獨立模組回歸及 Windows 基本包分支驗收通過，數字只見 progress.json；[精簡證據、來源與期限](docs/development-records/runs/a7-mit-binding-2026-11-17/README.md)已保存，不重複複製舊嘗試完整 JSON。STATUS 先封存後更新，視覺進度及索引同步。
+- 程式／架構版號與全套固定候選不改，完整 SBOM／再散布及產品門檻不提高；最終 PR 全 CI／查驗通過後才一般 Merge。A7 完成後停止，剩餘義務整體複查及重新規劃交 Claude planner。
+
+
+- 2026-11-17：A7 將既有自有 MIT 路徑綁入基本包套件原文表，產生與 audit 兩端核對固定來源的原始位元組，拒絕缺檔／改 hash／少綁／重複綁定及錯綁第三方套件；補重算資產 hash 後仍拒絕的反例。安裝路徑及第三方原文不變，CPU 清單與產品核准旗標不提高。
+
+- 2026-11-17：A7 在既有分片 broken 清單加入少一片與 part 編號越界反例；fixture 先確保產生多片，避免缺片只測到空清單。測試方法數不變。
+
+- 2026-11-17：A7 獨立修正兩條 Windows 工作流的來源傳遞：每個使用來源的 pwsh step 設 EXPECTED_SOURCE，先驗完整 SHA 格式及長度，再經環境變數傳給 Python；expression 不再插入命令列。
+
+- 2026-11-17：A7 首個提交修正 PR 12 已合併（7b787d3）、合併後 CI 全綠及下一步；STATUS／A6 README 追加原排隊 run 最終成功且僅報告 artifact 的補註，attempts.json 不變。基本包審閱改以 8285450 成功 run 為準，保存舊資料 hash，不複製舊完整 JSON；A7 完成後停止，後續規劃交 Claude planner。
+
 ### 2026-11-17｜A6 固定基本包／CPU 候選與整體工程審閱完成
 
 - 兩種候選以同一個完整來源提交 8285450 執行 Windows 驗證，既有功能及新增審閱 metadata 均通過；精簡資料完整取回後以固定 Git 樹離線重跑，來源 gap／candidate 列已消除，原 inventory 待審／未對照計數維持原值。

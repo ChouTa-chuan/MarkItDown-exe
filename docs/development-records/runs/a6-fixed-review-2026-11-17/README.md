@@ -20,3 +20,10 @@ CPU 同來源 [43916217757](https://github.com/ChouTa-chuan/MarkItDown-exe/actio
 首次來源檢查因既有 out 暫存未忽略而拒絕；新增根目錄建置暫存忽略規則後，重新選定來源重跑。前一輪 CPU 的既有建置／維護／跨版／恢復驗收通過，但新審閱步驟 exit 1，原始 traceback 未取得。保存的同類完整 CPU 報告超過原精簡入口上限，容量不相容已重現；完整來源與精簡傳輸上限現已分開並有反例，新版 CPU 實證現已通過；實際完整報告容量亦超過原精簡入口限制，來源與公開資料容量分離已驗，但不把推論冒稱前次未取回的原始 traceback。
 
 runtime_sbom_complete、redistribution_approved、release_ready 都維持 false。整體基本包審閱與後續具體缺口見 [A6 審閱](../../../a6-source-review.md)。
+
+
+## 2026-11-17 補註：原排隊 run 的最終結果
+
+[Run 43912958713](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43912958713) 最終為 **completed／success**，來源仍是 8285450。GitHub API artifact 清單只有 windows-cpu-validation-reports 報告（artifact 14256147838，digest `sha256:5e5938919f532e744ec6f1941a8956f2cb796a348a7fe235cd522bbc71ae6482`，期限 2026-11-23T18:19:53Z），沒有 Setup／worker／模型產品 artifact。上面的 queued／取消回覆是當時紀錄，後續不重送。PR 12 已合併（7b787d3），合併後 CI 全綠；使用者確認 A6 Claude reviewer 通過，無必修項。
+
+本次依使用者指示只追加此補註並更新 manifest 的 README hash，不改寫 attempts.json，不另存舊嘗試完整 JSON。補註前 README SHA-256：`b0b4889fc99cd2b140dbe9bb541fe1c78a08795aa5aa021f00fd4ff009aee0e0`；補註前 manifest SHA-256：`7a18604d2ad15ddc077d6967e9062ad16e43a1788ed6a8819ce40dea79238f73`；保持不變的 attempts.json SHA-256：`88b11552ddd56d33081fbfdf95287aa1de5e07c068515ae623c504c6d7022884`。

@@ -10,32 +10,30 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| 本輪 main 起點 | **main 已合併 PR 1–11**，`e23d383b7f38ac95c4b883513834abfd8f814600`；A5b／A5c 已由 Claude reviewer 通過 |
-| 本輪分支 | `codex/a6-fixed-candidate-20261117`，自己的新分支；沒有推送其他 AI 分支或直接推 main |
-| 本輪 PR | A6 [PR #12](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/12) 已建立；固定候選與工程審閱齊備；最終 head CI／Merge 結果以 PR 為準，全部通過且無必修項才一般 Merge |
+| 本輪 main 起點 | **PR 12 已合併（7b787d3），合併後 CI 全綠**；A6 已由 Claude reviewer 查驗通過，沒有必須修正項目 |
+| 本輪分支 | `codex/a7-mit-notice-20261117`，從最新 main `7b787d3dcf1e82fd43873c8c684a0412a38bcfb6` 開自己的新分支；不直接推 main、不推別人分支 |
+| 本輪 PR | A6 [PR #12](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/12) 已合併；A7 [PR #13](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/13) 已建立；指定修正與分支驗收完成，整合 CI／Merge 以該 PR 為準 |
 | 固定來源 | `8285450226abe1381e6a357e8bd33bff1ad46e0e`；基本包與 CPU 均已驗並離線重跑分類，PR 暫時 merge 不取代此候選 |
 
 ## B. 這個階段完成了什麼
 
-- 首個提交 `d098e2c` 已完成使用者三項要求：現況／next／headline 更新至 main 已合併 PR 1–11、補 A5b／A5c 最終 CI run、D 節不重複摘要。既有 D 原文逐列保留。
-- A6 新增固定完整 SHA／乾淨來源檢查、候選指紋、來源重分類與可離線重跑的精簡 metadata。完整來源報告與公開 metadata 使用不同有界容量；缺片／混合來源／改 hash／改候選／提高產品旗標均拒絕。Windows 工作流只新增報告保存，沒有交付產品。
-- Windows **基本包固定候選**成功；[證據](docs/development-records/runs/a6-fixed-review-2026-11-17/README.md)及 [基本包整體審閱](docs/a6-source-review.md)已保存。來源分類與指紋離線重現，舊候選分類亦保持一致。同來源 CPU metadata 已取得且離線重跑；前輪失敗／排隊歷史另存，不當作本輪成功結果。
-- 新版完整 Linux 混合／獨立模組回歸通過，只有既有 ONNX 繁中 expected failure，無跳過；數字只見 [progress.json](docs/progress.json)。保存來源預檢失敗、容量不相容、索引過期與修正後結果。Codex 自我查驗完成可執行範圍，不冒稱新 Claude reviewer。
+- **A7 指定修正已完成**：首個提交 8cd064b 修正 PR 12 已合併（7b787d3）、合併後 CI 全綠與過時敘述；A6 README 追加原排隊 run 最終 completed／success、僅報告 artifact 的補註，attempts.json 不變。
+- 12d3dce 以獨立提交改為 step env EXPECTED_SOURCE，pwsh 先驗完整 SHA 再呼叫工具；edb1d82 加入真正多片的缺片與越界反例。
+- **自有 MIT 對照已修正**：維持原安裝路徑，綁入套件原文表，產生與 audit 兩端核對來源原始位元組。缺檔／改內容、漏綁／重綁、錯綁其他套件的反例即使重算資產 hash 仍拒絕；產品核准旗標維持 false。
+- 完整 Linux 混合及獨立模組回歸通過，只有既有 ONNX 繁中 expected failure、無跳過；Windows [分支驗收 43996798825](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43996798825) 通過，自有套件原文待審原因確實消除。數字只見 [progress.json](docs/progress.json)，[本輪精簡證據](docs/development-records/runs/a7-mit-binding-2026-11-17/README.md)保存新結果、hash 與 run，沒有重複保存舊完整 JSON。
 
 ## C. 未完成、阻擋與下一步
 
-**A6 固定候選、重分類與整體工程審閱已完成**。兩種候選皆以固定 SHA 建置並重跑分類；最終 PR head 仍依 CI／查驗條件合併，SBOM／再散布旗標維持 false。完整來源、run、artifact digest／期限、原始摘要與接手命令入口見證據 README。
+**PR 12 已合併（7b787d3），合併後 CI 全綠；A7 實作、回歸與 Windows 基本包分支查驗完成。** 本輪 PR 最終 head 的整合 CI／Merge 結果以 PR 為準；全部通過、查驗無必修項才一般 Merge。舊固定候選仍 8285450，本輪分支驗收不重新定版全套候選。
 
 | 任務 | 現況／下一步 |
 | --- | --- |
-| A1–A5c | 完成；main 本輪起點已合併 PR 1–11，A5b／A5c Claude reviewer 無必修項 |
-| A6 固定候選與整體審閱 | 基本包 [43912954070](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43912954070) 與 CPU [43916217757](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43916217757) 同來源成功，metadata 完整性與離線重跑通過；原排程異常留紀錄 |
-| A6 PR／合併 | 最終 head 全 CI 通過、無必修項且本輪候選證據齊備才一般 Merge；不直接推 main、不推別人分支、不刪分支 |
-| A7 下一個（交給下一位 AI，尚未開始） | 自有 MIT 全文已隨包，但未綁入 installed package notice 表；A6 結束後另開 PR 補對照及反例，不忽略 review_reason |
-| 其餘再散布 | 基本包優先：wheel 內含第三方來源／版本／原文、Microsoft 逐檔條款、Qt build／替換與靜態連結；CPU 模型／GEOS 另待，不把套件 owner／簽章當權利核准 |
-| B 交付／C 實機／E GPU | 仍待門檻及使用者實機驗收，沒有上傳 Setup／worker／模型或建立 Release／tag |
+| A6／PR 12 | 已合併並通過 Claude reviewer；原排隊 run 43912958713 最終 completed／success、只有報告 artifact，舊 attempts.json 保留原狀 |
+| A7 | 文件、step env／SHA 預檢、多片反例、自有 MIT 綁定及來源重驗均完成；最終整合結果見本輪 PR，維持一般 Merge／不直接推 main／不刪分支 |
+| 下一步 | **A7 完成後先停，交 Claude planner 整體複查大階段 A 及重新規劃剩餘義務。本輪不另開後續階段或重排剩餘義務。** |
+| 既有門檻 | 完整 SBOM／再散布、乾淨機／人工／GPU仍待；ONNX 繁中缺口、RAM 軟性預算保留，沒有產品交付、Release 或 tag |
 
-**平台**：GitHub API 可用；CPU 原排程 API／CLI 狀態回覆矛盾，未確認取消；重送已成功，原請求 43912958713 僅供追溯，後續核對狀態避免重複觸發。日誌／artifact 儲存主機仍受限，必要公開 metadata 經 annotation 保存；只保存報告 JSON，不搬產品。Windows 報告有時效，不能依賴未下載附件。ONNX 繁中缺口、RAM 軟性預算、乾淨機／人工／GPU限制保留。
+**證據與平台**：GitHub API 可用。Windows 完整 JSON 與大型日誌留 CI，repo 只存本輪新結果與精簡 proof；舊嘗試只留 hash 與 run 編號。原 run 43912958713 的 queued 是當時狀態，後續已成功，不重送。
 
 ## D. 新增規則與決定
 
@@ -65,5 +63,7 @@
 | 2026-11-16 | 使用者本輪指示 | A5 已由 Claude reviewer 查驗通過；開始 A5b，第一個提交恢復使用者決定、修正 main 已合併 PR 1–9／next、補 A5 最終四個 CI run；D 節精簡不合併或刪除使用者親自做的決定。指定 A5 README 補註前保存原版及原始 manifest，其他舊證據不變 |
 | 2026-11-16 | 使用者補充 A5c | A5 的 runtime probe 接受條件、缺失 OpenSSL 原文反例與 extension 版本說明列入 C 節待辦；獨立 PR、全部 Windows CI 通過才合併，A5b 不處理 |
 | 2026-11-17 | 使用者決定 | 之後在 D 節新增紀錄時，不要再加原文已涵蓋的摘要列。 |
+| 2026-11-17 | 使用者指示 | 之後不要再保存重複的舊嘗試完整 JSON，只留 hash 與 run 編號。 |
+| 2026-11-17 | 使用者指示 | A7 完成後先停，大階段 A 的整體複查與剩餘義務的重新規劃，交由 Claude planner 處理。 |
 
-接手先列 PR，再讀最新分支 AGENTS.md 與 STATUS.md；本輪 A6，先核對 PR 12 最終 CI／Merge，再接 A7；固定候選仍 8285450，不重做 A5b／A5c，不把 PR 暫時 merge 當候選。
+接手先列 PR，再讀最新分支 AGENTS.md 與 STATUS.md；PR 12 已合併（7b787d3），合併後 CI 全綠。A7 完成後先停，交 Claude planner 整體複查大階段 A 及重新規劃；本輪不接續新階段。

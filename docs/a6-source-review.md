@@ -16,7 +16,7 @@
 
 ## 基本包審閱結果
 
-前一輪同來源成套驗證尚未完成，但基本包已產生可重跑資料（另存於證據目錄的 attempt-e1761f9，明列來源，沒有當成本輪最終成套候選）：
+本節以固定來源 `8285450226abe1381e6a357e8bd33bff1ad46e0e` 的成功 [基本包 run 43912954070](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43912954070) 及其已離線重跑的 base-source-review.json 為準；attempt-e1761f9 只保留作歷史，不作本節現況依據。
 
 - 來源分類沒有僅依檔名推測或完全無證據的列；原 inventory 的待審與未對照計數仍維持原值。CPython、標準庫封存與專案產生檔的 origin-known 不會被自動提升為授權已核准。
 - 套件原文待對照只剩自有 markitdown-desktop。MIT 全文已隨包，問題在於它沒有綁入 installed package notice 表；後續應補對照及反例，不能藉由忽略 review_reason 清除警示。

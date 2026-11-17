@@ -17,6 +17,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 from build_provenance import bootloader_notices, distribution_sources, sha256
 from check_bundle_provenance import audit, contained_file
+from base_own_license import OWN_LICENSE, stage_own_license
 import check_bundle_provenance as bundle_check
 from prepare_worker_assets import native_notices
 
@@ -225,7 +226,8 @@ class ProvenanceTests(unittest.TestCase):
         shutil.copytree(self.assets/'python-runtime',assets/'licenses/python-runtime')
         shutil.copytree(self.assets/'native',assets/'licenses/native')
         installed=json.loads(json.dumps(self.installed))
-        installed['packages'][0]['notice_files']=['licenses/'+p for p in installed['packages'][0]['notice_files']]
+        stage_own_license(Path(__file__).resolve().parents[1], assets)
+        installed['packages'][0]['notice_files']=[OWN_LICENSE]
         self.save(assets/'licenses/installed/manifest.json',installed)
         profile=dict(source_version='0.19.1',runtime_packages={},local_packages={'markitdown-desktop':'0.19.1'},
                      assets={p.relative_to(assets).as_posix():sha256(p) for p in assets.rglob('*') if p.is_file()})
@@ -239,6 +241,70 @@ class ProvenanceTests(unittest.TestCase):
         profile['local_packages']['extra']='1'
         self.save(assets/'build-profile.json',profile)
         with self.assertRaisesRegex(ValueError,'Runtime package list mismatch'):audit(self.bundle,'base','0.19.1')
+
+    def refresh_base_fixture(self, assets, profile, installed):
+        """反例先重綁全部資產 hash，確保測到原文／套件契約而不是舊 hash。"""
+        self.save(assets/'licenses/installed/manifest.json', installed)
+        profile['assets'] = {p.relative_to(assets).as_posix():sha256(p)
+                             for p in assets.rglob('*') if p.is_file() and p.name != 'build-profile.json'}
+        self.save(assets/'build-profile.json', profile)
+
+    def test_base_own_mit_reference_closes_only_its_package_notice_gap(self):
+        assets, profile = self.base_fixture()
+        report = audit(self.bundle, 'base', '0.19.1')
+        own = next(p for p in report['packages'] if p['name'] == 'markitdown-desktop')
+        expected = '_internal/desktop_app/data/'+OWN_LICENSE
+        self.assertEqual([p['path'] for p in own['notices']], [expected])
+        self.assertEqual(own['notices'][0]['sha256'], sha256(Path(__file__).resolve().parents[1]/'LICENSE'))
+        self.assertNotIn('markitdown-desktop', report['packages_without_wheel_notice'])
+        self.assertFalse(any('package-original-notice-pending:markitdown-desktop' in p['review_reasons']
+                             for p in report['candidate_inventory']['files']))
+        self.assertFalse(report['candidate_inventory']['summary']['runtime_sbom_complete'])
+        self.assertFalse(report['redistribution_approved'])
+        self.assertFalse(report['release_ready'])
+
+    def test_base_missing_own_mit_is_rejected_after_asset_hashes_are_rebuilt(self):
+        assets, profile = self.base_fixture()
+        installed = json.loads((assets/'licenses/installed/manifest.json').read_text())
+        (assets/OWN_LICENSE).unlink()
+        self.refresh_base_fixture(assets, profile, installed)
+        with self.assertRaisesRegex(ValueError, 'Own MIT license not covered'):
+            audit(self.bundle, 'base', '0.19.1')
+
+    def test_base_changed_own_mit_is_rejected_after_asset_hashes_are_rebuilt(self):
+        assets, profile = self.base_fixture()
+        installed = json.loads((assets/'licenses/installed/manifest.json').read_text())
+        (assets/OWN_LICENSE).write_bytes(b'changed notice')
+        self.refresh_base_fixture(assets, profile, installed)
+        with self.assertRaisesRegex(ValueError, 'Own MIT original differs'):
+            audit(self.bundle, 'base', '0.19.1')
+
+    def test_base_missing_or_duplicate_own_binding_is_rejected_after_rehash(self):
+        assets, profile = self.base_fixture()
+        installed = json.loads((assets/'licenses/installed/manifest.json').read_text())
+        for notices in ([], [OWN_LICENSE, OWN_LICENSE]):
+            with self.subTest(notices=notices):
+                installed['packages'][0]['notice_files'] = notices
+                self.refresh_base_fixture(assets, profile, installed)
+                with self.assertRaisesRegex(ValueError, 'own MIT notice binding'):
+                    audit(self.bundle, 'base', '0.19.1')
+
+    def test_base_own_mit_cannot_clear_another_package_notice_gap(self):
+        assets, profile = self.base_fixture()
+        installed = json.loads((assets/'licenses/installed/manifest.json').read_text())
+        other = dict(name='foreign', version='1', notice_files=[])
+        installed['packages'].append(other)
+        self.write(assets/'licenses/installed/foreign/METADATA', b'Name: foreign\nVersion: 1\n')
+        profile['runtime_packages']['foreign'] = '1'
+        for references in (dict(notice_files=[OWN_LICENSE]),
+                           dict(notice_files=[OWN_LICENSE.upper()]),
+                           dict(notice_files=[], supplemental_sources=[dict(path=OWN_LICENSE)])):
+            with self.subTest(references=references):
+                other.clear()
+                other.update(name='foreign', version='1', **references)
+                self.refresh_base_fixture(assets, profile, installed)
+                with self.assertRaisesRegex(ValueError, 'bound to another package'):
+                    audit(self.bundle, 'base', '0.19.1')
 
     def test_base_requires_python_module_manifest_in_asset_fingerprints(self):
         assets,profile=self.base_fixture()
