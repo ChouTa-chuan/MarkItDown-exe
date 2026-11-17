@@ -12,6 +12,8 @@
 - 流程：Claude coder 實作、reviewer 查驗無必須修正項目，協調者補小修正。也整理了 CHANGELOG A8 小節後重複的兩條。
 - 未完成：A9–A17、門檻確認（A13）與大階段 B／C。
 
+- 2026-11-17：依使用者決定調整 Claude 角色模型：planner 改 Opus 5.5、coder 改 Haiku 5.5、reviewer 改 Sonnet 5.5，推理強度維持中（`.claude/agents/`、`CLAUDE.md`；只影響 Claude）。
+
 ### 2026-11-17｜A8 義務登記與旗標判定
 
 - 首個提交 fec86c9 先完成 A7 查驗小問題；核心僅新增單一 obligations.json 與一支 redistribution_gates.py，base／cpu 分開對應原生檔與 review_reason，並按證據／決定狀態推導三旗標及列出阻擋條目。

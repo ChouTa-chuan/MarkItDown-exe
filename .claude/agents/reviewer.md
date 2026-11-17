@@ -1,7 +1,7 @@
 ---
 name: reviewer
 description: 完成一個中或小階段後使用。整體檢查該階段的正確性、是否符合規劃、有無遺漏，回報通過項目與問題清單；只檢查，不修改程式碼。
-model: claude-opus-5-5
+model: claude-sonnet-5-5
 effort: medium
 tools: Read, Grep, Glob, Bash
 ---

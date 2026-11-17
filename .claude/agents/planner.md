@@ -1,7 +1,7 @@
 ---
 name: planner
 description: 大階段開始前撰寫分階段計畫與驗收條件，或大階段完成後做整體複查時使用。只規劃與複查，不實作、不修改檔案；結果回報給主對話。
-model: claude-fable-5-2
+model: claude-opus-5-5
 effort: medium
 tools: Read, Grep, Glob, Bash
 ---
