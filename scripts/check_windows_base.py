@@ -179,6 +179,44 @@ def close_windows_child(child, get_handles, request_close, *, timeout=25):
         except subprocess.TimeoutExpired: pass
 
 
+def loaded_qt_core(pid):
+    """讀取本次子程序的實際 DLL 路徑；用 64 位元 handle，避免只驗磁碟上的替換檔。"""
+    import ctypes
+    from ctypes import wintypes
+    kernel = ctypes.WinDLL('kernel32', use_last_error=True)
+    kernel.OpenProcess.argtypes = [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
+    kernel.OpenProcess.restype = wintypes.HANDLE
+    kernel.K32EnumProcessModulesEx.argtypes = [wintypes.HANDLE, ctypes.POINTER(wintypes.HMODULE),
+        wintypes.DWORD, ctypes.POINTER(wintypes.DWORD), wintypes.DWORD]
+    kernel.K32EnumProcessModulesEx.restype = wintypes.BOOL
+    kernel.K32GetModuleFileNameExW.argtypes = [wintypes.HANDLE, wintypes.HMODULE, wintypes.LPWSTR, wintypes.DWORD]
+    kernel.K32GetModuleFileNameExW.restype = wintypes.DWORD
+    kernel.CloseHandle.argtypes = [wintypes.HANDLE]
+    process = kernel.OpenProcess(0x0400 | 0x0010, False, pid)
+    if not process:
+        raise ctypes.WinError(ctypes.get_last_error())
+    try:
+        modules = (wintypes.HMODULE * 2048)()
+        needed = wintypes.DWORD()
+        if (not kernel.K32EnumProcessModulesEx(process, modules, ctypes.sizeof(modules), ctypes.byref(needed), 3)
+                or needed.value > ctypes.sizeof(modules)):
+            raise RuntimeError('Cannot enumerate the frozen child modules')
+        matches = []
+        for module in list(modules)[:needed.value // ctypes.sizeof(wintypes.HMODULE)]:
+            name = ctypes.create_unicode_buffer(32768)
+            count = kernel.K32GetModuleFileNameExW(process, module, name, len(name))
+            if not count or count >= len(name):
+                raise ctypes.WinError(ctypes.get_last_error())
+            path = Path(name.value)
+            if path.name.casefold() == 'qt6core.dll':
+                matches.append(dict(path=str(path.resolve()), sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
+        if len(matches) != 1:
+            raise RuntimeError('Expected exactly one actually loaded Qt6Core.dll')
+        return matches[0]
+    finally:
+        kernel.CloseHandle(process)
+
+
 def gui_check(app, root, output, environment):
     """只控制剛啟動的自身 child 視窗；截圖限該視窗，不擷取桌面或其他程式。"""
     import ctypes
@@ -204,6 +242,7 @@ def gui_check(app, root, output, environment):
                 if handles: break
                 time.sleep(0.2)
             assert handles and child.poll() is None, 'Qt Windows window did not open'
+            core = loaded_qt_core(child.pid)
             from PIL import ImageGrab
             rect = wintypes.RECT()
             user32.GetWindowRect(handles[0], ctypes.byref(rect))
@@ -214,7 +253,8 @@ def gui_check(app, root, output, environment):
                 return list(handles)
             requests = close_windows_child(child,current_handles,
                 lambda handle:user32.PostMessageW(handle,0x0010,0,0))
-            return dict(opened=True,normal_exit=True,returncode=child.returncode,close_requests=requests)
+            return dict(opened=True,normal_exit=True,returncode=child.returncode,close_requests=requests,
+                        qt_core=core)
         finally:
             if child.poll() is None:
                 child.terminate()

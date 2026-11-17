@@ -17,6 +17,7 @@ from packaging_profiles import ROOT, read_lock, verify_profiles
 from build_provenance import bootloader_notices, is_notice_entry
 from base_own_license import OWN_PACKAGE, OWN_LICENSE, stage_own_license, verify_own_license
 from qt_sources import STAGED as QT_SOURCES, stage as stage_qt_sources, publish_annotation as publish_qt_sources
+from qt_components import stage as stage_qt_components
 
 
 QT_NOTICE = 'qt-lgpl-notice.md'
@@ -45,6 +46,7 @@ def stage_qt_notice(source, staged):
     shutil.copyfile(source/'licenses'/QT_NOTICE, staged/'licenses'/QT_NOTICE)
     report = stage_qt_sources(source.parents[2], staged/'licenses'/QT_SOURCES)
     publish_qt_sources(report)
+    stage_qt_components(source.parents[2], staged)
 
 
 def save_json(path, value):

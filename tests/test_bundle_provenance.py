@@ -241,6 +241,8 @@ class ProvenanceTests(unittest.TestCase):
                          version_number=0x40000030,binary='synthetic',binary_sha256=hashlib.sha256(b'synthetic crypto runtime').hexdigest(),api='synthetic fixture')
         self.write(self.bundle/'_internal/cryptography/hazmat/bindings/synthetic',b'synthetic crypto runtime')
         stage(Path(__file__).resolve().parents[1],assets,installed['packages'],observation)
+        from qt_components import stage as stage_qt_components
+        stage_qt_components(Path(__file__).resolve().parents[1], assets)
         self.save(assets/'licenses/installed/manifest.json',installed)
         profile=dict(source_version='0.19.1',runtime_packages={'cryptography':'50.0.2'},local_packages={'markitdown-desktop':'0.19.1'},
                      assets={p.relative_to(assets).as_posix():sha256(p) for p in assets.rglob('*') if p.is_file()})
@@ -267,6 +269,16 @@ class ProvenanceTests(unittest.TestCase):
         (self.bundle/'_internal/cryptography/hazmat/bindings/synthetic').write_bytes(b'different runtime')
         with self.assertRaisesRegex(ValueError,'OpenSSL runtime differs'):
             audit(self.bundle,'base','0.19.1')
+
+    def test_base_qt_original_is_required_even_after_asset_hashes_are_rebuilt(self):
+        from qt_components import load_catalog, STAGED
+        assets, profile = self.base_fixture()
+        installed = json.loads((assets/'licenses/installed/manifest.json').read_text())
+        path = assets/STAGED/load_catalog()['evidence_files'][0]['path']
+        path.unlink()
+        self.refresh_base_fixture(assets, profile, installed)
+        with self.assertRaisesRegex(ValueError, 'Qt original missing'):
+            audit(self.bundle, 'base', '0.19.1')
 
     def test_base_runtime_and_original_metadata_are_checked(self):
         assets,profile=self.base_fixture()

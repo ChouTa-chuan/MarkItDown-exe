@@ -1,0 +1,21 @@
+{
+  "date_taipei": "2026-11-18",
+  "source_commit": "3c166fb0e29ea4219f64c91d4ec9086881601c59",
+  "result": "engineering and hosted Windows verified; final head CI/review/Merge in PR 22",
+  "keywords": [
+    "A11",
+    "Qt",
+    "替換",
+    "qt_attribution"
+  ],
+  "files": {
+    "README.md": "e58f6e37a0ae15d92792c9e135913fc8a39595592a023458673d2a068e6b2939",
+    "ci-reference.json": "d0c66c91fef48937f421a2b5d6265670f9901f40fe8c1888470cdfaaa37cd701",
+    "first-failure.json": "b092cbf6b35c747104743587414fff386e1e206150d418a4acb9570339e73be7",
+    "gates-summary.json": "50b359d6862882bca30acd6fbcc8446b180478be44c035e21e060f0ae90bab25",
+    "isolated-summary.json": "76d90afcb3bf3cc2fd932e004c013a91d30c7b96914c5c9684d5f2baa3980c21",
+    "mixed-result.json": "682c1f011b770949c3badf45c7edddb3be5794332840bdd7721e98a3cf52104f",
+    "windows-qt-sources.json": "f7f87c94812c3b9a813e57d2b5f2089534e5f5dae614cea161833342a6cf459f",
+    "windows-replacement.json": "b50176dcba2da93741de56ea324337dc727675ba6b4f4b5d13275b197f13a618"
+  }
+}

@@ -4,6 +4,16 @@
 
 ## 更新中
 
+
+### 2026-11-18｜A11 Qt 第三方、建置資訊與可替換驗收
+
+- 相對 A9b：新增固定 Qt 來源的 qt_attribution／原始授權目錄，以獨立 evidence 路徑及 SHA 綁定；準備資產與最終 bundle 都驗原文。版本 source-declared 不代表 wheel 宣告或確認編入，無版本與 Mesa 來源缺口保持 unknown。
+- 真正 Windows QLibraryInfo 觀測補 library version／shared／debug；hosted Windows frozen GUI 驗不同 bytes Core 替換、移除 loader 失敗與還原成功，核對實際載入路徑及 hash。測試 wheel／DLL／副本在 reports 外，不上傳產品，不改正式 bundle。
+- 只改 base-qt：evidence 更新、requires_user_decision=true、status 仍 open；LGPL 做法留 A13 決定。其他僅 hash 同步條目：無。spec、鎖檔、原文來源位元組、計數口徑與 A6 固定來源不改；base／cpu gates 三旗標 false。
+- 首輪 Windows run 44153547178 在隔離環境安裝 app 前過早匯入而失敗；已重現、改延後匯入並加無 site-packages 的控制端啟動反例。失敗 run／註記 hash 保存，不重複存完整舊嘗試 JSON；後續失敗也公開小型結果。
+- 缺檔／改原文／錯誤版本分級／錯誤載入 DLL／缺驗收階段及不當提高旗標反例、完整混合與獨立模組回歸通過，來源與數字見 progress.json。真正 Windows 首次成功證據、manifest、限制已保存；最終 head 全 CI／查驗／Merge 見 PR 22。
+- STATUS 先保存再更新，使用者 D 節決定逐筆保留；視覺進度及索引同步。沒有產品交付、Release 或 tag；實體機／乾淨機／GPU 未驗收，ONNX 繁中與 RAM 軟性預算限制維持。本輪到 A11 停止，不做 A12。
+
 ### 2026-11-18｜A9b OpenSSL 原文隨包
 
 - 新增固定 OpenSSL 4.0.3 tag／commit 的 LICENSE 原文與 cryptography 補充來源，接既有 supplemental_sources 管線；準備資產與最終 bundle 重新核對原文、套件綁定、實際 cryptography OpenSSL API 及 `_rust` bytes。

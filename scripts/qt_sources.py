@@ -81,6 +81,9 @@ def observe():
                 pyside_version=metadata.version('pyside6-essentials'),
                 shiboken_version=metadata.version('shiboken6'),
                 qt_build=QtCore.QLibraryInfo.build(),
+                library_version=QtCore.QLibraryInfo.version().toString(),
+                shared_build=QtCore.QLibraryInfo.isSharedBuild(),
+                debug_build=QtCore.QLibraryInfo.isDebugBuild(),
                 core_extension_sha256=sha256(QtCore.__file__))
 
 
