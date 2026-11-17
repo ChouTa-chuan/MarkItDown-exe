@@ -4,6 +4,14 @@
 
 ## 更新中
 
+### 2026-11-17｜A8 義務登記與旗標判定
+
+- 首個提交 fec86c9 先完成 A7 查驗小問題；核心僅新增單一 obligations.json 與一支 redistribution_gates.py，base／cpu 分開對應原生檔與 review_reason，並按證據／決定狀態推導三旗標及列出阻擋條目。
+- 未知／重複對應、無決定出處的使用者核准及證據 hash／quote 不符拒絕；正例證明旗標可依條件變動，實際 A6 輸入的三旗標仍全 false。原始 unresolved_files 等計數不改，規則定義詳見 docs/redistribution-gates.md。
+- 相關反例與完整混合／獨立模組回歸通過，現況數字只記 progress.json；精簡新證據與來源已保存，STATUS 先封存後更新、重建進度頁及索引。最終 head 全 CI／查驗通過才一般 Merge。
+- 只依 C 節勘誤兩句說明並重產 Markdown；未動 spec、套件收集、依賴或原始授權。A8 完成後停止，不展開 A9–A17，產品核准門檻未關閉。
+
+
 - 2026-11-17：A8 新增單一義務登記 JSON 與獨立旗標檢核腳本，逐一驗證 A6 原生檔／review_reason 唯一對應、證據 hash 與使用者決定出處，按條目及相依條件推導三旗標；現況全 false，既有盤點口徑／spec 不動。補正例與反例，更新 C 節指定的兩句說明並重產第三方清單。
 
 - 2026-11-17：A8 首個提交處理 A7 查驗小問題：Windows 預檢改用區分大小寫且嚴格結尾的 `-cmatch '^[0-9a-f]{40}\z'`，分片補保留其餘各片、只改最後 part=N+1 的越界反例；更新 m5 描述，A7 status 維持已合併。
