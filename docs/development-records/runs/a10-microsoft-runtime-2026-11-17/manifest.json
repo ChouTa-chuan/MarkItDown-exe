@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-17",
+  "tested_source": "29e1fc14921eb12ac25385be42a386b6dc764428",
+  "accepted": true,
+  "accepted_scope": "A10 evidence collection and catalog verification only; Microsoft obligation remains open; no legal approval",
+  "windows_executed": true,
+  "probe_ci": {
+    "run": 44063368953,
+    "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44063368953",
+    "head_sha": "36ccf25af1475929a515b4b53b9a60d320072352",
+    "source_commit": "8deea0009f3a4b4a5ba5003bf1df971260eae3dc",
+    "observation_scope": "installed-source-reconstruction",
+    "metadata_sha256": "6ef89b9f71161a5b0105cdb322c51320dc5fb22334bf863789c0ed504cb34c9d",
+    "conclusion": "success",
+    "artifacts": [
+      {
+        "name": "microsoft-runtime-evidence-reports",
+        "digest": "sha256:ae222ee6f9ff73361a99cabe83714d65f8b6446afc56c299af63705c9600def3",
+        "expires_at": "2026-11-24T10:18:45Z"
+      }
+    ],
+    "original_failed_run": {
+      "run": 44060276291,
+      "head_sha": "87a8cc57ca758bd814c8195bee03ddeac6886f29",
+      "step": "Record Microsoft runtime copies without modifying the bundle",
+      "error": "Exit code 1 only; raw log not retrievable, exact cause not established",
+      "artifact": {
+        "name": "windows-base-validation-reports",
+        "digest": "sha256:e4e7288b77c906524b6df0552aab86c05d920955356afc74b93a233818f0d6b8",
+        "expires_at": "2026-11-24T10:13:14Z"
+      }
+    }
+  },
+  "profiles": {
+    "base": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "native_files_covered": 153,
+      "review_reasons_covered": 3,
+      "input_inventory_summary": {
+        "bytes": 262639292,
+        "file_inventory_complete": true,
+        "files": 1615,
+        "original_notice_files": 111,
+        "packages": 40,
+        "redistribution_approved": false,
+        "release_ready": false,
+        "review_files": 152,
+        "runtime_sbom_complete": false,
+        "unresolved_files": 114
+      }
+    },
+    "cpu": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "native_files_covered": 61,
+      "review_reasons_covered": 4,
+      "input_inventory_summary": {
+        "bytes": 219724730,
+        "file_inventory_complete": true,
+        "files": 704,
+        "original_notice_files": 290,
+        "packages": 26,
+        "redistribution_approved": false,
+        "release_ready": false,
+        "review_files": 299,
+        "runtime_sbom_complete": false,
+        "unresolved_files": 265
+      }
+    }
+  },
+  "catalog_sha256": "6b54afd9fbf13fd47c963f11aaaa2baadf3b30de26091fc791648b79bca50756",
+  "registry_sha256": "1b248e97329340b19c0d30cd725047d5612871660a97f43d7fa8a331ffd5fc16",
+  "script_sha256": "16f23b9138aca078960b8248a3599d6e5687062b79f1afdfde89405b50f0f592",
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "keywords": [
+    "A10",
+    "Microsoft",
+    "VC runtime",
+    "PE版本",
+    "簽章",
+    "Redist",
+    "改名複本",
+    "A13",
+    "條款原文",
+    "來源缺口"
+  ],
+  "files": {
+    "README.md": "499858cdba6e4bb6a72c00824fec5ea37f5552e4abb83cf9bae07910c759ce51",
+    "determining-which-dlls-to-redistribute.md": "af7e6df2aaeaedd14046a285749c62a6109327e7a0ab1454593d8eba320aa347",
+    "isolated-summary.json": "39c471d2d9b99c05c73a16f43c702cac3491ad263c520d292b5ab436ad5fc7d9",
+    "mixed-result.json": "e0a21d81c8fa2ee25217032bdbea74134eec05c9074d859958a0b70e022ef471",
+    "redistributing-visual-cpp-files.md": "13a6c4e7c41971dc1a5e5856aa4ed5d606d3fd54b3c971f4ae758203e7b3b39e",
+    "runtime-use-terms-unverified-copy.LICENSE": "da361595dbfaf0318be23241f8386f5e749353172e4b7d43e9709aeb6cc1f572",
+    "vs2022-redist-unverified-excerpt.txt": "1df9136ed423271633e0a49436f10672f81d0d98758efdd80463cb312ebb5bc7",
+    "windows-probe.json": "281abcbe2cf0f35c13b5b602a5e1b7082dbe12e211877615bea9e648f5501dca"
+  }
+}

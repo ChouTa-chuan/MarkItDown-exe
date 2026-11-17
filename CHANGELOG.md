@@ -4,7 +4,13 @@
 
 ## 更新中
 
-- A10：新增唯讀 Windows Microsoft runtime 逐檔探測及公開 metadata；來源變動、漏檔、偽造 hash 比較與截斷反例已驗證。目錄透過 evidence path／hash 綁定，來源 wheel 必須符合原鎖檔；A13 使用者決定不可略過。實際 Windows 目錄與條款證據仍在蒐集中，尚未關閉義務。
+### 2026-11-17｜A10 Microsoft 執行期逐檔證據
+
+- 相對 A9：補上 Microsoft 複本的 Windows PE 版本、簽章及官方 Redist 同名 SHA-256 比較；保留改名複本，來源容器符合原鎖檔。目錄與原始探測／條款位於 packaging/microsoft 及本輪小型證據目錄，以 evidence 路徑加 hash 綁定。
+- 登記只改 base-microsoft，標 requires_user_decision=true，維持 open；官方條款／REDIST 網頁被雲端代理拒絕，未驗證轉載明確標記，不能當成官方原文或散布權利。適用性及許可留待 A13，CPU Microsoft 留給 A16。
+- 相關正反例與完整 Linux 混合／獨立模組回歸通過；原 A6 base／cpu 再跑三旗標均 false，數字與原始 review_reason 不改。數字、來源與新證據見 progress.json；最終 head CI／Merge 及報告 hash／期限見 PR 20。
+- 未動 spec、打包內容、鎖檔與既有計數口徑，未交付 Setup／worker／模型、Release 或 tag。A10 完成後先停；Windows／GPU 實機、RAM 軟性預算與 ONNX 繁中限制保留。
+
 
 ### 2026-11-17｜A9 基本包 wheel 內含第三方元件目錄
 
