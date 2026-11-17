@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-17",
   "environment": "Linux 完整混合／獨立模組回歸；A10 hosted Windows 2022 逐檔探測，非乾淨機／GPU／人工驗收",
-  "tests_passed": 857,
-  "headline": "main 起點 0c3746d（PR 1–18）；A10 Microsoft 逐檔證據保存（PR 20），再散布未核准",
+  "tests_passed": 858,
+  "headline": "A10 逐檔 Windows 證據及回歸已保存（PR 20）；官方條款原文待網域發布後補核",
   "blocker": "Microsoft 條款官網／REDIST 原文待補核且 A13 未決定；其他來源義務與乾淨機／人工驗收仍未關閉，base／cpu 三旗標均 false。",
-  "next": "A10 完成後先停；最終整合結果見 PR 20。後續 A9b（PR 19 記錄同意補 OpenSSL 原文）、A11，再依規劃 A12 → A13 使用者決定 → B1，本輪不接續。",
+  "next": "等待使用者發布 Microsoft 網域設定，補核官方原文並完成 A10 最終 CI／查驗後停下；後續 A9b／A11 另行交棒。",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 858,
+  "tests_run": 859,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "29e1fc14921eb12ac25385be42a386b6dc764428",
+    "source_commit": "077d280bbc6208ff9f0945a9c18496db55874213",
     "date_taipei": "2026-11-17",
     "accepted": true,
-    "run": 858,
-    "passed": 857,
+    "run": 859,
+    "passed": 858,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -3543,8 +3543,8 @@
           {
             "id": "A10",
             "title": "Microsoft 執行期逐檔對照（基本包 14 檔）",
-            "status": "done",
-            "note": "工程證據保存；Microsoft 義務仍 open，A13 待決定",
+            "status": "active",
+            "note": "逐檔工程證據已保存；官方條款原文待補核，尚未結案",
             "pr": 20
           },
           {
@@ -3702,10 +3702,10 @@
     "sha256": "2151b84e463b6ed5b5ea70cfa37bd7a3c47939004d07b4cefaf4f9544b455a66"
   },
   "a10_microsoft_runtime": {
-    "source_commit": "29e1fc14921eb12ac25385be42a386b6dc764428",
+    "source_commit": "077d280bbc6208ff9f0945a9c18496db55874213",
     "base_commit": "0c3746d5e6eaec9fd1bdcea031992139bfa50042",
     "pr": 20,
-    "status": "evidence-preserved-obligation-open",
+    "status": "dll-evidence-verified-official-terms-pending",
     "catalog": "packaging/microsoft/base-windows.json",
     "script": "scripts/microsoft_runtime.py",
     "evidence": "development-records/runs/a10-microsoft-runtime-2026-11-17/README.md",

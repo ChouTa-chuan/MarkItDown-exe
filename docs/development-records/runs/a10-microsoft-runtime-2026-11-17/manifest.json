@@ -1,8 +1,8 @@
 {
   "date": "2026-11-17",
-  "tested_source": "29e1fc14921eb12ac25385be42a386b6dc764428",
+  "tested_source": "077d280bbc6208ff9f0945a9c18496db55874213",
   "accepted": true,
-  "accepted_scope": "A10 evidence collection and catalog verification only; Microsoft obligation remains open; no legal approval",
+  "accepted_scope": "A10 DLL evidence and regression verified; official terms original capture pending, no stage completion or legal approval",
   "windows_executed": true,
   "probe_ci": {
     "run": 44063368953,
@@ -77,7 +77,7 @@
   },
   "catalog_sha256": "6b54afd9fbf13fd47c963f11aaaa2baadf3b30de26091fc791648b79bca50756",
   "registry_sha256": "1b248e97329340b19c0d30cd725047d5612871660a97f43d7fa8a331ffd5fc16",
-  "script_sha256": "16f23b9138aca078960b8248a3599d6e5687062b79f1afdfde89405b50f0f592",
+  "script_sha256": "84b936b82b893349dbf12e5622cbfc1bf07009c81619349bdeae1e3c26cdc7c6",
   "runtime_sbom_complete": false,
   "redistribution_approved": false,
   "release_ready": false,
@@ -94,13 +94,16 @@
     "來源缺口"
   ],
   "files": {
-    "README.md": "2b9ef932e233f62b7a1d1b78630cd97db76417ed6c1ced6c57fcbc2923870951",
+    "README.md": "5d72d7e753b698663fd402e50739efd9ea627d206cbc155092c7a06f7e5fd0a0",
     "determining-which-dlls-to-redistribute.md": "af7e6df2aaeaedd14046a285749c62a6109327e7a0ab1454593d8eba320aa347",
     "isolated-summary.json": "39c471d2d9b99c05c73a16f43c702cac3491ad263c520d292b5ab436ad5fc7d9",
     "mixed-result.json": "e0a21d81c8fa2ee25217032bdbea74134eec05c9074d859958a0b70e022ef471",
     "redistributing-visual-cpp-files.md": "13a6c4e7c41971dc1a5e5856aa4ed5d606d3fd54b3c971f4ae758203e7b3b39e",
+    "regression-final-summary.json": "cf29a95d3ad23ef14373e7be4d4e8b4260bb40e5437d387f8c5045f88ecd82af",
     "runtime-use-terms-unverified-copy.LICENSE": "da361595dbfaf0318be23241f8386f5e749353172e4b7d43e9709aeb6cc1f572",
     "vs2022-redist-unverified-excerpt.txt": "1df9136ed423271633e0a49436f10672f81d0d98758efdd80463cb312ebb5bc7",
     "windows-probe.json": "281abcbe2cf0f35c13b5b602a5e1b7082dbe12e211877615bea9e648f5501dca"
-  }
+  },
+  "official_originals_pending": true,
+  "final_regression": "regression-final-summary.json"
 }

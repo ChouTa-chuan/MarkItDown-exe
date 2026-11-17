@@ -47,6 +47,6 @@ Microsoft 的條款網站與 REDIST 網頁在本環境實際回覆 proxy 403。v
 
 原始首輪 run 44060276291 在新增探測步驟失敗，公開註記只有 exit code 1，原始日誌無法取回；具體原因未證實，不以後續成功改寫它。之後新增有界錯誤摘要與快速來源流程取得真實資料；條款選取也縮限為一份符合標題的原文，未以此推測首輪失敗原因。只留該失敗的 run／artifact hash 與期限，見 probe_ci.original_failed_run。
 
-完整 Linux 混合與獨立模組回歸都通過，只有既有 ONNX 繁中 expected failure、沒有跳過；數字只記 [progress.json](../../../progress.json)，原始精簡結果在本目錄。完整回歸來源為 29e1fc14921eb12ac25385be42a386b6dc764428。最終 PR head 的所有 CI、人工程式查驗、Merge 與報告 artifact 的 hash／期限記在 PR 20；後續重跑僅留 hash 與 run，不重存舊嘗試完整 JSON。
+完整 Linux 混合與獨立模組回歸都通過，只有既有 ONNX 繁中 expected failure、沒有跳過；數字只記 [progress.json](../../../progress.json)，原始精簡結果在本目錄。初次回歸來源為 29e1fc14921eb12ac25385be42a386b6dc764428，原 mixed-result.json／isolated-summary.json 保留不改。查驗後補了「已知簽署者差異不取代 A13」反例，再以 077d280bbc6208ff9f0945a9c18496db55874213 重跑完整混合及獨立模組；新結果見 [最終精簡摘要](regression-final-summary.json)，原始報告只留 hash，不重存舊嘗試完整 JSON。最終 PR head 的所有 CI、人工程式查驗、Merge 與報告 artifact 的 hash／期限記在 PR 20；後續重跑僅留 hash 與 run，不重存舊嘗試完整 JSON。
 
-hosted Windows 非乾淨終端機，沒有 GPU／人工驗收；RAM 仍為軟性預算，ONNX 繁中缺口保留。未交付 Setup、worker 或模型，未建立 Release、預發布或 tag。A10 完成後停止。
+hosted Windows 非乾淨終端機，沒有 GPU／人工驗收；RAM 仍為軟性預算，ONNX 繁中缺口保留。未交付 Setup、worker 或模型，未建立 Release、預發布或 tag。A10 原文補核仍待使用者發布網域設定；完成 A10 後停止。
