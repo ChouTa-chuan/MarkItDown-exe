@@ -43,6 +43,18 @@ base 與 cpu 分開判定；CPU 尚未關閉不妨礙基本包依自己的證據
 - **不能驗證的部分**：`version_source` 只記 wheel 內的檔案與欄位，repo 內沒有 wheel 本體，無法自動重驗宣告字串；元件清單是否完整、上游網址與授權判斷由人工審閱。這些必須以人工比對 wheel 內容的方式補上，不能因為腳本通過就視為已驗證。
 - **限制**：目錄只是證據與檢核，不改變打包內容，也不代表使用者已同意再散布。
 
+## Microsoft 執行期目錄（A10）
+
+基本包的 `base-microsoft.evidence[]` 以路徑與 SHA-256 引用 [packaging/microsoft/base-windows.json](../packaging/microsoft/base-windows.json)。版本、來源容器、逐檔身分、官方 Redist 比較與條款文件引用都放在目錄，不展開到義務登記表。CPU 的同類工作留給 A16。
+
+- `scripts/microsoft_runtime.py` 在 hosted Windows 上唯讀核對已建置 bundle、原始來源及 VS 的 x64 CRT Redist。先確認 source／bundle 與 provenance 的 SHA-256 相同，再查 PE 版本資源及 Authenticode。每份複本各一列，numpy／pandas 改名複本不合併。
+- `version_basis=pe-version-resource` 表示 DLL 自身的 `FileVersion`；wheel、Python 與 Redist 資料夾版本另記，不能互相代替。這是 A10 的 PE 證據分類，不改 A9 元件版本分級。
+- 比較使用官方 Redist 同名 DLL 的**完整檔案** SHA-256；改名複本明記對照名稱。不同版本、簽章或任何位元組差異都會造成不相同；探測不猜測原因，不替換檔案。
+- 目錄綁定 A6 輸入與 Windows 探測的原始結果；後者只有逐檔 bytes 與 A6 相同才可沿用身分觀測。另核對原鎖檔的 wheel container、證據原文的 repo 路徑與 hash；漏檔、觀測資料不同、hash 不符及移除 A13 決定要求都拒絕。
+- 簽章、版本或 A6 對應缺口，以及尚未核對的條款，都不當成已關閉的工程證據；這類條目保持 `open`。具體觀測與限制見 [本輪證據](development-records/runs/a10-microsoft-runtime-2026-11-17/README.md)。Windows 的簽章查詢是當時該 runner 的信任判讀，不代表對軟體授權的核准。
+- A6 原始 `microsoft-native-redistribution-review` 列及其數字保持原樣；判定器依對應條目的狀態列出有效阻擋，不從原盤點刪除 review_reason。`requires_user_decision: true` 保證工程證據齊全也不等於 A13 已同意。
+- 條款原文只作開發證據；來源、標題與適用性分開記錄。未向官方網站驗證的轉載有明確標記，不能冒充本輪下載的官方原文。runtime-use EULA、Visual Studio 的散布權利與 REDIST 清單也不能互相代替；是否適用及允許再散布由使用者在 A13 決定。
+
 ## 執行與驗收
 
 ```bash

@@ -1,0 +1,60 @@
+name: Microsoft runtime evidence
+
+# 只讀鎖定來源、PE 身分與本機既有條款；不建置或上傳 Setup／worker／模型。
+# 完整基本包仍由 Windows base validation 驗證，這個快速流程不取代它。
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/microsoft-runtime-evidence.yml'
+      - 'scripts/microsoft_runtime.py'
+      - 'tests/test_microsoft_runtime.py'
+      - 'packaging/microsoft/**'
+      - 'packaging/redistribution/obligations.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: microsoft-evidence-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUTF8: '1'
+
+jobs:
+  evidence:
+    runs-on: windows-2022
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+      - name: Install original hash-locked build environment
+        shell: pwsh
+        run: |
+          python -m venv out/microsoft-env
+          & out/microsoft-env/Scripts/python.exe -m pip install --require-hashes -r packaging/profiles/base-windows-build.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & out/microsoft-env/Scripts/python.exe -m pip install --no-deps --no-build-isolation ./vendor/markitdown .
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Observe installed sources and compare each to A6 bytes
+        shell: pwsh
+        env:
+          EXPECTED_SOURCE: ${{ github.sha }}
+        run: |
+          if (-not ($env:EXPECTED_SOURCE -cmatch '^[0-9a-f]{40}\z') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+            throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
+          }
+          New-Item -ItemType Directory -Force out/microsoft-reports | Out-Null
+          & out/microsoft-env/Scripts/python.exe scripts/microsoft_runtime.py --installed-sources --expected-source "$env:EXPECTED_SOURCE" --output out/microsoft-reports/microsoft-runtime.json
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: microsoft-runtime-evidence-reports
+          path: out/microsoft-reports/
+          retention-days: 7
+          if-no-files-found: warn

@@ -1,0 +1,55 @@
+{
+  "scope": "Original bytes fetched from Microsoft public sources over verified HTTPS; no redistribution permission inferred",
+  "documents": [
+    {
+      "title": "MICROSOFT VISUAL C++ 2015 - 2022 RUNTIME",
+      "kind": "official-runtime-use-license",
+      "source": "https://visualstudio.microsoft.com/wp-content/uploads/2021/09/Visual-C-Runtime-2015-2022-License-1.docx",
+      "http_status": 200,
+      "bytes": 39644,
+      "snapshot": {
+        "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/official-vc-runtime-2015-2022.docx",
+        "sha256": "f1e3d56ceb2ad68aae0711b910375009e651ac5530fa0760f0dea6e81e54fae1"
+      },
+      "original_format": "docx",
+      "captured_date_taipei": "2026-11-17",
+      "landing_url": "https://visualstudio.microsoft.com/license-terms/vs2022-cruntime/",
+      "landing_sha256": "944a6322f10d322b091665db2aea737b7ee0fb40427b06e75ec0a5b0a947bb7a",
+      "embedded_source_url_verified": true
+    },
+    {
+      "title": "MICROSOFT VISUAL STUDIO ENTERPRISE 2022, VISUAL STUDIO PROFESSIONAL 2022, AND TRIAL EDITION",
+      "kind": "official-visual-studio-license",
+      "source": "https://visualstudio.microsoft.com/wp-content/uploads/2021/11/Visual-Studio-2022-Enterprise-Professional-License-EN.docx",
+      "http_status": 200,
+      "bytes": 63513,
+      "snapshot": {
+        "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/official-vs2022-enterprise-professional.docx",
+        "sha256": "9c0cd52b20db9d081854c75bd1b50c75514b8f8cb09c8cad15e89d90b97b5bf3"
+      },
+      "original_format": "docx",
+      "captured_date_taipei": "2026-11-17",
+      "landing_url": "https://visualstudio.microsoft.com/license-terms/vs2022-ga-proenterprise/",
+      "landing_sha256": "4c949a73ef415f6d540ba44e69b6cc7455781229c3ef182c8958bc9955cd3a7b",
+      "embedded_source_url_verified": true
+    },
+    {
+      "title": "Distributable Code for Visual Studio 2022",
+      "kind": "official-redist-list",
+      "source": "https://learn.microsoft.com/en-us/visualstudio/releases/2022/redistribution",
+      "http_status": 200,
+      "bytes": 62616,
+      "snapshot": {
+        "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/official-vs2022-redist.html",
+        "sha256": "476af70cfdfc26a80338df8264bac5745a9e8b3a37dfd71decbaa56f301c9c22"
+      },
+      "original_format": "html",
+      "captured_date_taipei": "2026-11-17"
+    }
+  ],
+  "notes": [
+    "DOCX originals retained without modification; local paragraph extraction was used only to inspect title/clauses, not saved as an original",
+    "Runtime use rights, VS distribution rights, and REDIST list are separate documents; A13 decides applicability per copy",
+    "Pro/Enterprise guessed URL first returned 404; correct ga-proenterprise URL was found in official license directory. urllib document request returned 403; ordinary curl request to the identical URL returned 200."
+  ]
+}

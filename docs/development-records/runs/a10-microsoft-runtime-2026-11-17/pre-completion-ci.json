@@ -1,0 +1,87 @@
+{
+  "head": "fe7ecb89869c5c6deb4ee77640c9c1e388c8c3f9",
+  "temporary_merge_source": "5260822c5195806427ffad506d8736f94be8c2e2",
+  "all_ci_reviewed": true,
+  "results": {
+    "Linux full regression": {
+      "run": 44066753704,
+      "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44066753704",
+      "head_sha": "fe7ecb89869c5c6deb4ee77640c9c1e388c8c3f9",
+      "conclusion": "success",
+      "artifacts": [
+        {
+          "name": "linux-regression-reports",
+          "digest": "sha256:0ae9b6de78147f858814b63f25566c4a2eac323df40cb7b18325f47c4484900f",
+          "expires_at": "2026-12-01T10:42:20Z"
+        }
+      ]
+    },
+    "Microsoft runtime evidence": {
+      "run": 44066753736,
+      "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44066753736",
+      "head_sha": "fe7ecb89869c5c6deb4ee77640c9c1e388c8c3f9",
+      "conclusion": "success",
+      "microsoft_metadata_sha256": "7abbbadd567c5696abf93c531a796c3c906240290467809bed0cda1be8f35a48",
+      "microsoft_observation_scope": "installed-source-reconstruction",
+      "all_fourteen_match_saved_a6_evidence": true,
+      "artifacts": [
+        {
+          "name": "microsoft-runtime-evidence-reports",
+          "digest": "sha256:463c01ecd2336f9dd110f5fc19d73d55df501fd29af0a14ffe268b0edd3c1592",
+          "expires_at": "2026-11-24T10:40:36Z"
+        }
+      ]
+    },
+    "History index check": {
+      "run": 44066753750,
+      "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44066753750",
+      "head_sha": "fe7ecb89869c5c6deb4ee77640c9c1e388c8c3f9",
+      "conclusion": "success",
+      "artifacts": []
+    },
+    "Windows base validation": {
+      "run": 44066753705,
+      "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44066753705",
+      "head_sha": "fe7ecb89869c5c6deb4ee77640c9c1e388c8c3f9",
+      "conclusion": "success",
+      "source_review_metadata_sha256": "7717efc159987a8c35b4b2716e21727fbb1a9df8bde339647c1c2621b5f3414f",
+      "provenance_report_sha256": "d766c1afda94afa1028d2f3bc1dfca668f87d3eae6e722cd2a71db6b48634800",
+      "microsoft_metadata_sha256": "33b0801409323413ac6f6eea7922a7d71e581ea82f84743330e131031095c9d7",
+      "microsoft_observation_scope": "built-bundle",
+      "all_fourteen_match_saved_a6_evidence": true,
+      "artifacts": [
+        {
+          "name": "windows-base-validation-reports",
+          "digest": "sha256:4e5819fab82689c720de81b75cbe14d4348bc1128966a4696032b3b928cf3d2f",
+          "expires_at": "2026-11-24T10:55:24Z"
+        },
+        {
+          "name": "windows-ocr-ci-inputs",
+          "digest": "sha256:aacd45ceb3043e5866655ccca06fddafe705f0d0b5b2491feccc0b06fa34e98e",
+          "expires_at": "2026-11-18T10:41:03Z"
+        },
+        {
+          "name": "windows-native-build-reports",
+          "digest": "sha256:66ead42200be0a57df63caf85c3ab5333b3be908b0897d0a80b818c3bdcce875",
+          "expires_at": "2026-11-24T10:41:04Z"
+        }
+      ]
+    },
+    "Windows CPU component validation": {
+      "run": 44066753711,
+      "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44066753711",
+      "head_sha": "fe7ecb89869c5c6deb4ee77640c9c1e388c8c3f9",
+      "conclusion": "success",
+      "source_review_metadata_sha256": "bdf4c60e4fffe4f57dab3f478b8517db045984ed20e917990814115061d66a4f",
+      "provenance_report_sha256": "43293be6e0a33c633c4e7a3ae9d1fb9bc0261d2b64d8ff2fe9df60638ae83a38",
+      "artifacts": [
+        {
+          "name": "windows-cpu-validation-reports",
+          "digest": "sha256:057e02f07b1b7e71e5268eace6e5eb8768c359b1fe193d4cf439109701bad144",
+          "expires_at": "2026-11-24T10:55:19Z"
+        }
+      ]
+    }
+  },
+  "scope": "Pre-completion CI verified; later head results belong in PR 20; hashes/run references only, no duplicate original reports"
+}

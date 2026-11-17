@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-17",
-  "environment": "Linux 完整回歸與獨立模組已驗；hosted Windows 基本包／CPU 每個 PR 皆驗（非乾淨機）；固定候選仍為 A6 的 8285450",
-  "tests_passed": 835,
-  "headline": "PR 1–18 已合併；大階段 A 進行中：A1–A9 完成，A10 交給 Codex",
-  "blocker": "三旗標（完整 SBOM、可再散布、可發布）皆 false：Microsoft 14 檔、Qt 內含第三方與可替換驗收待 A9–A11，門檻待使用者在 A13 確認；可發布需大階段 C 乾淨機與人工驗收。門檻未關閉前不交付 Setup、worker 或模型（含 CI artifact）。",
-  "next": "A10 Microsoft 14 檔（Codex）→ A9b OpenSSL 原文隨包（使用者已同意）、A11 Qt → A12 重新固定候選 → A13 使用者確認門檻 → B1 測試版",
+  "environment": "Linux 完整混合／獨立模組回歸；A10 hosted Windows 2022 逐檔探測，非乾淨機／GPU／人工驗收",
+  "tests_passed": 858,
+  "headline": "PR 1–20 已合併；大階段 A 進行中：A1–A10 完成，A9b、A11 待指派",
+  "blocker": "Microsoft 各複本條款適用及再散布權利仍待 A13 使用者決定；其他來源義務與乾淨機／人工驗收未關閉，兩個 profile 三旗標均 false。",
+  "next": "A9b OpenSSL 原文隨包（使用者已同意）、A11 Qt 內含第三方與可替換驗收 → A12 重新固定候選 → A13 使用者確認門檻 → B1 測試版",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 836,
+  "tests_run": 859,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "13a9fb8",
+    "source_commit": "077d280bbc6208ff9f0945a9c18496db55874213",
     "date_taipei": "2026-11-17",
     "accepted": true,
-    "run": 836,
-    "passed": 835,
+    "run": 859,
+    "passed": 858,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1313,7 +1313,7 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 54,
+    "isolated_modules": 55,
     "isolated_all_exits_zero": true,
     "python": "3.12.14",
     "tesseract": "5.3.4",
@@ -1322,7 +1322,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/a8-gates-2026-11-17/README.md"
+    "evidence": "development-records/runs/a10-microsoft-runtime-2026-11-17/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -3544,13 +3544,14 @@
             "id": "A9b",
             "title": "cryptography 內含 OpenSSL 原文隨包",
             "status": "next",
-            "note": "使用者已同意；排在 A10 之後"
+            "note": "使用者已同意"
           },
           {
             "id": "A10",
             "title": "Microsoft 執行期逐檔對照（基本包 14 檔）",
-            "status": "active",
-            "note": "Codex（GPT）進行"
+            "status": "done",
+            "note": "工程證據及官方原文已齊；Microsoft 義務 open，A13 待決定",
+            "pr": 20
           },
           {
             "id": "A11",
@@ -3699,5 +3700,103 @@
     ],
     "flags_all_false": true,
     "limits": "Facts read from hash-verified Windows wheels without execution; PE import tables, Windows load behaviour and upstream URLs unverified. Pillow string evidence (raqm, fribidi, libaom, dav1d, libyuv) and cryptography static OpenSSL 4.0.3 recorded as unknown."
+  },
+  "previous_full_regression_reference_before_a10": {
+    "source_commit": "13a9fb8",
+    "progress_git_commit": "0c3746d5e6eaec9fd1bdcea031992139bfa50042",
+    "json_pointer": "/full_regression",
+    "sha256": "2151b84e463b6ed5b5ea70cfa37bd7a3c47939004d07b4cefaf4f9544b455a66"
+  },
+  "a10_microsoft_runtime": {
+    "source_commit": "077d280bbc6208ff9f0945a9c18496db55874213",
+    "base_commit": "0c3746d5e6eaec9fd1bdcea031992139bfa50042",
+    "pr": 20,
+    "status": "engineering-evidence-and-official-originals-complete",
+    "catalog": "packaging/microsoft/base-windows.json",
+    "script": "scripts/microsoft_runtime.py",
+    "evidence": "development-records/runs/a10-microsoft-runtime-2026-11-17/README.md",
+    "files": 14,
+    "renamed_copies": 2,
+    "matches_a6": 14,
+    "official_hash_matches": 1,
+    "probe_ci": {
+      "run": 44063368953,
+      "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44063368953",
+      "head_sha": "36ccf25af1475929a515b4b53b9a60d320072352",
+      "source_commit": "8deea0009f3a4b4a5ba5003bf1df971260eae3dc",
+      "observation_scope": "installed-source-reconstruction",
+      "metadata_sha256": "6ef89b9f71161a5b0105cdb322c51320dc5fb22334bf863789c0ed504cb34c9d",
+      "conclusion": "success",
+      "artifacts": [
+        {
+          "name": "microsoft-runtime-evidence-reports",
+          "digest": "sha256:ae222ee6f9ff73361a99cabe83714d65f8b6446afc56c299af63705c9600def3",
+          "expires_at": "2026-11-24T10:18:45Z"
+        }
+      ],
+      "original_failed_run": {
+        "run": 44060276291,
+        "head_sha": "87a8cc57ca758bd814c8195bee03ddeac6886f29",
+        "step": "Record Microsoft runtime copies without modifying the bundle",
+        "error": "Exit code 1 only; raw log not retrievable, exact cause not established",
+        "artifact": {
+          "name": "windows-base-validation-reports",
+          "digest": "sha256:e4e7288b77c906524b6df0552aab86c05d920955356afc74b93a233818f0d6b8",
+          "expires_at": "2026-11-24T10:13:14Z"
+        }
+      }
+    },
+    "profiles": {
+      "base": {
+        "flags": {
+          "runtime_sbom_complete": false,
+          "redistribution_approved": false,
+          "release_ready": false
+        },
+        "native_files_covered": 153,
+        "review_reasons_covered": 3,
+        "input_inventory_summary": {
+          "bytes": 262639292,
+          "file_inventory_complete": true,
+          "files": 1615,
+          "original_notice_files": 111,
+          "packages": 40,
+          "redistribution_approved": false,
+          "release_ready": false,
+          "review_files": 152,
+          "runtime_sbom_complete": false,
+          "unresolved_files": 114
+        }
+      },
+      "cpu": {
+        "flags": {
+          "runtime_sbom_complete": false,
+          "redistribution_approved": false,
+          "release_ready": false
+        },
+        "native_files_covered": 61,
+        "review_reasons_covered": 4,
+        "input_inventory_summary": {
+          "bytes": 219724730,
+          "file_inventory_complete": true,
+          "files": 704,
+          "original_notice_files": 290,
+          "packages": 26,
+          "redistribution_approved": false,
+          "release_ready": false,
+          "review_files": 299,
+          "runtime_sbom_complete": false,
+          "unresolved_files": 265
+        }
+      }
+    },
+    "requires_user_decision": true,
+    "obligation_status": "open",
+    "spec_packaging_locks_counts_unchanged": true,
+    "official_terms_webpages_verified": true,
+    "legal_approval": false,
+    "stop_after_stage": true,
+    "official_sources_receipts": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/official-source-receipts.json",
+    "pre_completion_ci": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/pre-completion-ci.json"
   }
 }
