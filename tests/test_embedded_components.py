@@ -66,7 +66,31 @@ class EmbeddedCatalogTests(unittest.TestCase):
 
     def test_version_basis_values_are_used_as_documented(self):
         bases = {c['version_basis'] for w in self.catalog['wheels'] for c in w['components']}
-        self.assertEqual(bases, {'wheel-declared', 'unknown'})
+        self.assertEqual(bases, {'wheel-declared', 'runtime-observed', 'unknown'})
+
+    def test_cryptography_openssl_uses_windows_runtime_api_and_original(self):
+        component=self.component(self.catalog,'cryptography','openssl')
+        proof=gates.read_json(ROOT/component['version_source'])
+        self.assertEqual(component['version_basis'],'runtime-observed')
+        self.assertEqual(proof['observed']['platform'],'win32')
+        self.assertEqual(proof['observed']['version'],component['version'])
+        self.assertTrue(component['notices'])
+
+    def test_cryptography_runtime_proof_rejects_linux_wrong_binary_or_version(self):
+        from cryptography_notice import load
+        component=self.component(self.catalog,'cryptography','openssl')
+        wheel=self.wheel(self.catalog,'cryptography')
+        proof=gates.read_json(ROOT/component['version_source'])
+        native=next(r for r in self.report['classification_input']['report']['native_files']
+                    if r['file']=='cryptography/hazmat/bindings/_rust.pyd')
+        for changes in [dict(platform='linux'),dict(binary_sha256='0'*64),dict(version='4.0.4')]:
+            broken=copy.deepcopy(proof)
+            broken['observed'].update(changes)
+            with self.assertRaises(ValueError):
+                embedded.check_crypto_observation(component,wheel,broken,native,load())
+        catalog=copy.deepcopy(self.catalog)
+        self.component(catalog,'cryptography','openssl')['version_basis']='wheel-declared'
+        self.assertRejects('cannot be wheel-declared',catalog=catalog)
 
     # 反例：原生檔列入與漏列
     def test_rejects_missing_native_file(self):

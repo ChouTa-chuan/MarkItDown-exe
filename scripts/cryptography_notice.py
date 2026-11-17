@@ -30,6 +30,7 @@ def sha(path):
 def load(root=ROOT):
     p = json.loads((root/PROFILE).read_text(encoding='utf-8'))
     require(p['schema_version'] == 1 and p['distribution'] == 'cryptography', 'Invalid cryptography notice profile')
+    require(p['openssl_tag'] == 'openssl-'+p['expected_openssl_version'], 'OpenSSL version and official tag differ')
     source = root/p['notice']['path']
     require(source.is_file() and not source.is_symlink() and sha(source) == p['notice']['sha256'], 'OpenSSL original missing or changed')
     raw = source.read_bytes()

@@ -1,0 +1,26 @@
+{
+  "check": "cryptography-openssl",
+  "schema_version": 1,
+  "observed": {
+    "platform": "win32",
+    "distribution_version": "50.0.2",
+    "version": "4.0.3",
+    "version_text": "OpenSSL 4.0.3 29 Sep 2026",
+    "version_number": 1073741872,
+    "binary": "_rust.pyd",
+    "binary_sha256": "1d4332a447cab13dec8e3a533ad579e0e562b79e40822c931f33769758fc7156",
+    "api": "cryptography.hazmat.backends.openssl.backend: openssl_version_text / openssl_version_number"
+  },
+  "profile_sha256": "ff2b4eedd4d0df650b463c5365284ac9d235ed0916f7d5258024db3aefec4278",
+  "notice_sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
+  "openssl_tag": "openssl-4.0.3",
+  "openssl_commit": "af1775b60dfa141a4ad762585052cabeb9f37e9e",
+  "redistribution_approved": false,
+  "ci": {
+    "run": 44142370284,
+    "check_run": 134248294575,
+    "head_sha": "6187e0e12002863eba0d26f267c099216a4f7ac2",
+    "platform": "windows-2022",
+    "scope": "Native hosted Windows API observation; not a physical end-user machine"
+  }
+}

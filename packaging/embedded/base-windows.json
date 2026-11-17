@@ -835,16 +835,21 @@
         },
         {
           "id": "openssl",
-          "name": "OpenSSL（推定靜態併入 _rust.pyd）",
+          "name": "OpenSSL（cryptography 靜態連結）",
           "kind": "bundled",
-          "version": null,
-          "version_basis": "unknown",
-          "version_source": null,
+          "version": "4.0.3",
+          "version_basis": "runtime-observed",
+          "version_source": "docs/development-records/runs/a9b-openssl-2026-11-18/windows-observation.json",
           "upstream": "https://www.openssl.org/",
-          "license": "待查（wheel 內無 OpenSSL 原文）",
-          "notices": [],
+          "license": "Apache-2.0",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/supplemental/cryptography.txt",
+              "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
+            }
+          ],
           "native_files": [],
-          "note": "cryptography/hazmat/bindings/_rust.pyd 含字串 \"OpenSSL 4.0.3 29 Sep 2026\"，顯示靜態併入 OpenSSL；wheel 無隨附 OpenSSL 原文。版本依據維持 unknown：字串只是線索，未分析 PE 匯入表，也未驗證與實際連結版本一致。需使用者決定是否補充原文（見回報）。"
+          "note": "Windows 真正載入 cryptography OpenSSL 文字／數值 API，_rust.pyd SHA-256 與 A6 完全一致。Linux 觀測另記，不以二進位靜態字串代替版本依據；其他 Rust 相依仍 unknown。"
         },
         {
           "id": "rust-dependencies",
