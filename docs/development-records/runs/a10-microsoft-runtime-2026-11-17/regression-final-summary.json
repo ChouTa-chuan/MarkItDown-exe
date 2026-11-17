@@ -1,0 +1,308 @@
+{
+  "tested_source": "077d280bbc6208ff9f0945a9c18496db55874213",
+  "accepted": true,
+  "scope": "Actual local mixed and isolated regression after separating signer review facts from missing data",
+  "mixed": {
+    "expected_count": 859,
+    "run": 859,
+    "failures": [],
+    "errors": [],
+    "load_errors": [],
+    "skipped": [],
+    "expected_failures": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "unexpected_successes": [],
+    "passed": 858,
+    "accepted": true
+  },
+  "mixed_raw_sha256": "1c8d572669fad95297dea2c6af2d05322909827eeb6f8fed95c590668dbd6213",
+  "isolated_raw_sha256": "953527012840035afa2942394d057a1abf3e07887144166660bf63f5c89ec02b",
+  "isolated": {
+    "modules": 55,
+    "run": 859,
+    "passed": 858,
+    "expected_failures": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "accepted": true,
+    "all_child_exits_zero": true,
+    "records": [
+      {
+        "module": "test_base_installer",
+        "run": 13,
+        "process_exit": 0
+      },
+      {
+        "module": "test_base_recovery",
+        "run": 15,
+        "process_exit": 0
+      },
+      {
+        "module": "test_base_upgrade",
+        "run": 11,
+        "process_exit": 0
+      },
+      {
+        "module": "test_borderless",
+        "run": 14,
+        "process_exit": 0
+      },
+      {
+        "module": "test_build_profile",
+        "run": 16,
+        "process_exit": 0
+      },
+      {
+        "module": "test_bundle_filters",
+        "run": 8,
+        "process_exit": 0
+      },
+      {
+        "module": "test_bundle_provenance",
+        "run": 31,
+        "process_exit": 0
+      },
+      {
+        "module": "test_bundled_ocr",
+        "run": 27,
+        "process_exit": 0
+      },
+      {
+        "module": "test_candidate_inventory",
+        "run": 23,
+        "process_exit": 0
+      },
+      {
+        "module": "test_candidate_review",
+        "run": 11,
+        "process_exit": 0
+      },
+      {
+        "module": "test_component_downloads",
+        "run": 41,
+        "process_exit": 0
+      },
+      {
+        "module": "test_component_lifecycle",
+        "run": 51,
+        "process_exit": 0
+      },
+      {
+        "module": "test_component_management",
+        "run": 23,
+        "process_exit": 0
+      },
+      {
+        "module": "test_component_migration",
+        "run": 29,
+        "process_exit": 0
+      },
+      {
+        "module": "test_component_workers",
+        "run": 23,
+        "process_exit": 0
+      },
+      {
+        "module": "test_components",
+        "run": 43,
+        "process_exit": 0
+      },
+      {
+        "module": "test_core",
+        "run": 16,
+        "process_exit": 0
+      },
+      {
+        "module": "test_cpu_lifecycle_acceptance",
+        "run": 4,
+        "process_exit": 0
+      },
+      {
+        "module": "test_cpu_profiles",
+        "run": 12,
+        "process_exit": 0
+      },
+      {
+        "module": "test_cpu_recovery",
+        "run": 6,
+        "process_exit": 0
+      },
+      {
+        "module": "test_cpu_startup",
+        "run": 3,
+        "process_exit": 0
+      },
+      {
+        "module": "test_cpu_upgrade",
+        "run": 9,
+        "process_exit": 0
+      },
+      {
+        "module": "test_cpython_components",
+        "run": 19,
+        "process_exit": 0
+      },
+      {
+        "module": "test_desktop",
+        "run": 11,
+        "process_exit": 0
+      },
+      {
+        "module": "test_devices",
+        "run": 7,
+        "process_exit": 0
+      },
+      {
+        "module": "test_diagnostics",
+        "run": 4,
+        "process_exit": 0
+      },
+      {
+        "module": "test_embedded_components",
+        "run": 28,
+        "process_exit": 0
+      },
+      {
+        "module": "test_formats",
+        "run": 5,
+        "process_exit": 0
+      },
+      {
+        "module": "test_help_ui",
+        "run": 3,
+        "process_exit": 0
+      },
+      {
+        "module": "test_history_index",
+        "run": 5,
+        "process_exit": 0
+      },
+      {
+        "module": "test_languages",
+        "run": 18,
+        "process_exit": 0
+      },
+      {
+        "module": "test_license_inventory",
+        "run": 9,
+        "process_exit": 0
+      },
+      {
+        "module": "test_managed_conversion",
+        "run": 20,
+        "process_exit": 0
+      },
+      {
+        "module": "test_microsoft_runtime",
+        "run": 23,
+        "process_exit": 0
+      },
+      {
+        "module": "test_minimal_native",
+        "run": 23,
+        "process_exit": 0
+      },
+      {
+        "module": "test_models",
+        "run": 8,
+        "process_exit": 0
+      },
+      {
+        "module": "test_native_assets",
+        "run": 20,
+        "process_exit": 0
+      },
+      {
+        "module": "test_native_identity",
+        "run": 7,
+        "process_exit": 0
+      },
+      {
+        "module": "test_onboarding",
+        "run": 22,
+        "process_exit": 0
+      },
+      {
+        "module": "test_onnx_ocr",
+        "run": 12,
+        "process_exit": 0
+      },
+      {
+        "module": "test_packaging_profiles",
+        "run": 15,
+        "process_exit": 0
+      },
+      {
+        "module": "test_pdf_acceptance",
+        "run": 5,
+        "process_exit": 0
+      },
+      {
+        "module": "test_pdf_pipeline",
+        "run": 19,
+        "process_exit": 0
+      },
+      {
+        "module": "test_python_archive_inventory",
+        "run": 11,
+        "process_exit": 0
+      },
+      {
+        "module": "test_qt_lifecycle",
+        "run": 3,
+        "process_exit": 0
+      },
+      {
+        "module": "test_qt_notice",
+        "run": 9,
+        "process_exit": 0
+      },
+      {
+        "module": "test_quality",
+        "run": 6,
+        "process_exit": 0
+      },
+      {
+        "module": "test_redistribution_gates",
+        "run": 21,
+        "process_exit": 0
+      },
+      {
+        "module": "test_regression_driver",
+        "run": 4,
+        "process_exit": 0
+      },
+      {
+        "module": "test_settings",
+        "run": 13,
+        "process_exit": 0
+      },
+      {
+        "module": "test_source_classification",
+        "run": 14,
+        "process_exit": 0
+      },
+      {
+        "module": "test_table_continuation",
+        "run": 19,
+        "process_exit": 0
+      },
+      {
+        "module": "test_tables",
+        "run": 7,
+        "process_exit": 0
+      },
+      {
+        "module": "test_temporary_cleanup",
+        "run": 14,
+        "process_exit": 0
+      },
+      {
+        "module": "test_windows_ci",
+        "run": 26,
+        "process_exit": 0
+      }
+    ]
+  }
+}

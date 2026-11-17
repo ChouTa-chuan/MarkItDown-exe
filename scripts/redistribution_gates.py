@@ -8,6 +8,7 @@ from pathlib import Path, PurePosixPath
 import re
 
 import embedded_components
+import microsoft_runtime
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT/'packaging/redistribution/obligations.json'
@@ -216,6 +217,15 @@ def assess(report, registry, *, root=ROOT):
                        if ref['path'].startswith(embedded_components.CATALOG_PREFIX)})
     embedded = [embedded_components.check_profile(read_json(root/path), catalog_path=path, entries=entries,
                                                   report=report, root=root) for path in catalogs]
+    # A10 詳情只存目錄與證據；原始 review_reason 計數不改，是否仍阻擋由條目狀態推導。
+    microsoft = []
+    for entry in entries:
+        paths = [ref['path'] for ref in entry['evidence'] if ref['path'].startswith('packaging/microsoft/')]
+        if paths:
+            require(profile == 'base' and entry['id'] == 'base-microsoft'
+                    and paths == [microsoft_runtime.CATALOG_PATH], 'Unexpected Microsoft catalog binding')
+            microsoft.append(microsoft_runtime.check_catalog(read_json(root/paths[0]), report=report,
+                                                            entry=entry, root=root))
     blocked = {}
     for flag in FLAGS:
         blocked[flag] = [e['id'] for e in entries if flag in e['gates'] and
@@ -230,7 +240,7 @@ def assess(report, registry, *, root=ROOT):
                 unclosed_obligations=[dict(id=e['id'], status=e['status'], title=e['title'],
                                           required_evidence=e['required_evidence']) for e in entries
                                       if any(e['id'] in ids for ids in blocked.values())],
-                coverage=mappings, embedded_catalogs=embedded, input_inventory_summary=report['inventory_summary'],
+                coverage=mappings, embedded_catalogs=embedded, microsoft_catalogs=microsoft, input_inventory_summary=report['inventory_summary'],
                 scope='Registry review decision for this source; accepted means valid coverage, not product approval')
 
 

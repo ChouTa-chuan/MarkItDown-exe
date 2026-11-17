@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-17",
+  "tested_source": "077d280bbc6208ff9f0945a9c18496db55874213",
+  "accepted": true,
+  "accepted_scope": "A10 per-file evidence and official-original capture complete; no legal approval; final-head integration recorded in PR 20",
+  "windows_executed": true,
+  "probe_ci": {
+    "run": 44063368953,
+    "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44063368953",
+    "head_sha": "36ccf25af1475929a515b4b53b9a60d320072352",
+    "source_commit": "8deea0009f3a4b4a5ba5003bf1df971260eae3dc",
+    "observation_scope": "installed-source-reconstruction",
+    "metadata_sha256": "6ef89b9f71161a5b0105cdb322c51320dc5fb22334bf863789c0ed504cb34c9d",
+    "conclusion": "success",
+    "artifacts": [
+      {
+        "name": "microsoft-runtime-evidence-reports",
+        "digest": "sha256:ae222ee6f9ff73361a99cabe83714d65f8b6446afc56c299af63705c9600def3",
+        "expires_at": "2026-11-24T10:18:45Z"
+      }
+    ],
+    "original_failed_run": {
+      "run": 44060276291,
+      "head_sha": "87a8cc57ca758bd814c8195bee03ddeac6886f29",
+      "step": "Record Microsoft runtime copies without modifying the bundle",
+      "error": "Exit code 1 only; raw log not retrievable, exact cause not established",
+      "artifact": {
+        "name": "windows-base-validation-reports",
+        "digest": "sha256:e4e7288b77c906524b6df0552aab86c05d920955356afc74b93a233818f0d6b8",
+        "expires_at": "2026-11-24T10:13:14Z"
+      }
+    }
+  },
+  "profiles": {
+    "base": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "native_files_covered": 153,
+      "review_reasons_covered": 3,
+      "input_inventory_summary": {
+        "bytes": 262639292,
+        "file_inventory_complete": true,
+        "files": 1615,
+        "original_notice_files": 111,
+        "packages": 40,
+        "redistribution_approved": false,
+        "release_ready": false,
+        "review_files": 152,
+        "runtime_sbom_complete": false,
+        "unresolved_files": 114
+      }
+    },
+    "cpu": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "native_files_covered": 61,
+      "review_reasons_covered": 4,
+      "input_inventory_summary": {
+        "bytes": 219724730,
+        "file_inventory_complete": true,
+        "files": 704,
+        "original_notice_files": 290,
+        "packages": 26,
+        "redistribution_approved": false,
+        "release_ready": false,
+        "review_files": 299,
+        "runtime_sbom_complete": false,
+        "unresolved_files": 265
+      }
+    }
+  },
+  "catalog_sha256": "4fbb9fc942670e696c07a2462117e709cd78ae7938c0faef4df37713a7fc3796",
+  "registry_sha256": "383c41d673e1899592ee4d921d762a005262d37eba80269d8220dc13275d9431",
+  "script_sha256": "84b936b82b893349dbf12e5622cbfc1bf07009c81619349bdeae1e3c26cdc7c6",
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "keywords": [
+    "A10",
+    "Microsoft",
+    "VC runtime",
+    "PE版本",
+    "簽章",
+    "Redist",
+    "改名複本",
+    "A13",
+    "條款原文",
+    "來源缺口"
+  ],
+  "files": {
+    "README.md": "d7efad397c9476b60fcb6ed6cef1a084ba1b09eac5d942803142bc37c35caedd",
+    "determining-which-dlls-to-redistribute.md": "af7e6df2aaeaedd14046a285749c62a6109327e7a0ab1454593d8eba320aa347",
+    "isolated-summary.json": "39c471d2d9b99c05c73a16f43c702cac3491ad263c520d292b5ab436ad5fc7d9",
+    "mixed-result.json": "e0a21d81c8fa2ee25217032bdbea74134eec05c9074d859958a0b70e022ef471",
+    "official-source-receipts.json": "7f044c85cd21ff949b6b271f8ba4e751ad2c84807f927ca794ed2fb3196fe583",
+    "official-vc-runtime-2015-2022.docx": "f1e3d56ceb2ad68aae0711b910375009e651ac5530fa0760f0dea6e81e54fae1",
+    "official-vs2022-enterprise-professional.docx": "9c0cd52b20db9d081854c75bd1b50c75514b8f8cb09c8cad15e89d90b97b5bf3",
+    "official-vs2022-redist.html": "476af70cfdfc26a80338df8264bac5745a9e8b3a37dfd71decbaa56f301c9c22",
+    "pre-completion-ci.json": "b397a3730abe950782e3ba430d58387731f2f3030d4ad25ec7848c5b3ef7953f",
+    "redistributing-visual-cpp-files.md": "13a6c4e7c41971dc1a5e5856aa4ed5d606d3fd54b3c971f4ae758203e7b3b39e",
+    "regression-final-summary.json": "cf29a95d3ad23ef14373e7be4d4e8b4260bb40e5437d387f8c5045f88ecd82af",
+    "runtime-use-terms-unverified-copy.LICENSE": "da361595dbfaf0318be23241f8386f5e749353172e4b7d43e9709aeb6cc1f572",
+    "vs2022-redist-unverified-excerpt.txt": "1df9136ed423271633e0a49436f10672f81d0d98758efdd80463cb312ebb5bc7",
+    "windows-probe.json": "281abcbe2cf0f35c13b5b602a5e1b7082dbe12e211877615bea9e648f5501dca"
+  },
+  "official_originals_pending": false,
+  "final_regression": "regression-final-summary.json",
+  "official_originals_receipts": "official-source-receipts.json"
+}
