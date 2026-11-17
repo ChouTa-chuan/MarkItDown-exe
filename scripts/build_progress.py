@@ -49,9 +49,28 @@ def validate(data):
             module_ids.add(module['id'])
 
 
+def validate_stage_plan(plan):
+    """全階段規劃只記狀態，不記數字；狀態值域封閉，編號不可重複。"""
+    statuses = {"done", "active", "next", "pending", "user", "deferred"}
+    if not plan.get("title") or not plan.get("stages"):
+        raise ValueError("Stage plan requires a title and stages")
+    seen = set()
+    for stage in plan["stages"]:
+        if not stage.get("title") or not stage.get("items"):
+            raise ValueError("Stage requires a title and items")
+        for item in stage["items"]:
+            if item.get("id") in seen or item.get("status") not in statuses or not item.get("title"):
+                raise ValueError("Invalid or duplicate stage plan item")
+            if item["status"] == "done" and type(item.get("pr")) is not int:
+                raise ValueError("Completed stage plan item needs its PR number")
+            seen.add(item["id"])
+
+
 def build():
     data = json.loads((ROOT / "docs/progress.json").read_text(encoding="utf-8"))
     validate(data)
+    if "stage_plan" in data:
+        validate_stage_plan(data["stage_plan"])
     template = (ROOT / "scripts/progress-template.html").read_text(encoding="utf-8")
     # 跳脫小於號，避免未來標籤文字提前結束內嵌 JSON 的 script 元素。
     encoded = json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")

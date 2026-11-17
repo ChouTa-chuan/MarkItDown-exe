@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-17：線上視覺進度頁新增「全階段規劃」分頁（大階段 A–E 各編號的狀態與 PR，資料在 progress.json 的 `stage_plan`，build_progress.py 驗證狀態值域與已完成項目須有 PR 號）。並依現況更新：m0 打包可行性改為已完成（hosted Windows 建置與安裝已驗）、m5 改列 hosted 建置、門檻、交付、乾淨機各項；更新模組與元件卡片中過時的版本與測試數字；限制改為現行七條（舊版逐輪數字留在 Git 歷史）。C01–C12 維持 7/12。
+
 ### 2026-11-17｜A8b 義務登記檢核補強
 
 - 變更：`redistribution_gates.py` 的使用者決定出處只接受 `docs/history/status/` 固定存檔 D 節內完整的使用者決定列（日期有效、程式碼區塊與 `## Data` 類標題不算）；新增 stale selector 反向檢查；`*-clean-machine-manual` 關閉須有 `stage-c-` 證據，release_ready 在大階段 C 前不可能為 true；登記表鍵集合封閉、schema 升為 2（obligations.json 只改版本號）。
