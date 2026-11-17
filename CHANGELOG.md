@@ -4,6 +4,13 @@
 
 ## 更新中
 
+### 2026-11-17｜A9 基本包 wheel 內含第三方元件目錄
+
+- 變更：新增 `packaging/embedded/base-windows.json` 與 `scripts/embedded_components.py`（由 `redistribution_gates.py` 呼叫），記錄基本包 10 個 wheel 的內含元件、版本依據分級、來源與既有授權原文 hash；`base-wheels` 拆成 10 條，只有 charset-normalizer、psutil 為 evidence_complete；依 STATUS C 節把 `base-tesseract-models` 改為需使用者決定（A13）。
+- 相對前版：A8b 時所有 wheel 原生檔歸在單一 `base-wheels` 條目，現在逐 wheel 對應內含元件並可檢核。
+- 驗證：A6 兩份輸入三旗標皆 false；完整 Linux 混合與獨立模組回歸通過，數字見 progress.json。reviewer 第一輪指出 Pillow 的 `.pyd` 字串顯示內含 raqm、fribidi、libaom、dav1d、libyuv（LICENSE 未列），Pillow 退回 open；第二輪無必須修正。
+- 未完成：cryptography 靜態併入的 OpenSSL（`OpenSSL 4.0.3` 字串）沒有隨附原文，補原文需使用者決定；PE 匯入表、Windows 實機載入行為與 upstream 網址未驗證；A10–A17。
+
 - 2026-11-17：線上視覺進度頁新增「全階段規劃」分頁（大階段 A–E 各編號的狀態與 PR，資料在 progress.json 的 `stage_plan`，build_progress.py 驗證狀態值域與已完成項目須有 PR 號）。並依現況更新：m0 打包可行性改為已完成（hosted Windows 建置與安裝已驗）、m5 改列 hosted 建置、門檻、交付、乾淨機各項；更新模組與元件卡片中過時的版本與測試數字；限制改為現行七條（舊版逐輪數字留在 Git 歷史）。C01–C12 維持 7/12。
 
 ### 2026-11-17｜A8b 義務登記檢核補強

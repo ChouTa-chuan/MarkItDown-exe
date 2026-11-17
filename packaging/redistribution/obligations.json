@@ -105,26 +105,9 @@
           ]
         },
         {
-          "id": "base-wheels",
-          "title": "wheel 內含原生第三方",
+          "id": "base-wheels-numpy",
+          "title": "wheel 內含原生第三方：numpy 2.5.4",
           "native_files": [
-            "PIL/_avif.cp312-win_amd64.pyd",
-            "PIL/_imaging.cp312-win_amd64.pyd",
-            "PIL/_imagingcms.cp312-win_amd64.pyd",
-            "PIL/_imagingft.cp312-win_amd64.pyd",
-            "PIL/_imagingtk.cp312-win_amd64.pyd",
-            "PIL/_webp.cp312-win_amd64.pyd",
-            "_cffi_backend.cp312-win_amd64.pyd",
-            "charset_normalizer/cd.cp312-win_amd64.pyd",
-            "charset_normalizer/md.cp312-win_amd64.pyd",
-            "cryptography/hazmat/bindings/_rust.pyd",
-            "lxml/_elementpath.cp312-win_amd64.pyd",
-            "lxml/builder.cp312-win_amd64.pyd",
-            "lxml/etree.cp312-win_amd64.pyd",
-            "lxml/html/_difflib.cp312-win_amd64.pyd",
-            "lxml/html/diff.cp312-win_amd64.pyd",
-            "lxml/objectify.cp312-win_amd64.pyd",
-            "lxml/sax.cp312-win_amd64.pyd",
             "numpy.libs/libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll",
             "numpy/_core/_multiarray_tests.cp312-win_amd64.pyd",
             "numpy/_core/_multiarray_umath.cp312-win_amd64.pyd",
@@ -138,10 +121,32 @@
             "numpy/random/_philox.cp312-win_amd64.pyd",
             "numpy/random/_sfc64.cp312-win_amd64.pyd",
             "numpy/random/bit_generator.cp312-win_amd64.pyd",
-            "numpy/random/mtrand.cp312-win_amd64.pyd",
-            "onnxruntime/capi/onnxruntime.dll",
-            "onnxruntime/capi/onnxruntime_providers_shared.dll",
-            "onnxruntime/capi/onnxruntime_pybind11_state.pyd",
+            "numpy/random/mtrand.cp312-win_amd64.pyd"
+          ],
+          "review_reasons": [],
+          "file_groups": [],
+          "required_evidence": [
+            "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗",
+            "版本未知的內含元件（numpy-lapack、gcc-runtime-libgfortran、numpy-bundled-sources）需另行查證，查證前保持 open"
+          ],
+          "evidence": [
+            {
+              "path": "packaging/embedded/base-windows.json",
+              "sha256": "ccd7be11ed924d8a089eb513974bd20bed6be6177d1ccd29960589d6d936b45f"
+            }
+          ],
+          "status": "open",
+          "requires_user_decision": false,
+          "decision_source": null,
+          "gates": [
+            "runtime_sbom_complete",
+            "redistribution_approved"
+          ]
+        },
+        {
+          "id": "base-wheels-pandas",
+          "title": "wheel 內含原生第三方：pandas 3.1.0",
+          "native_files": [
             "pandas/_libs/_cyutility.cp312-win_amd64.pyd",
             "pandas/_libs/_ujson.cp312-win_amd64.pyd",
             "pandas/_libs/algos.cp312-win_amd64.pyd",
@@ -186,17 +191,241 @@
             "pandas/_libs/tslibs/vectorized.cp312-win_amd64.pyd",
             "pandas/_libs/window/aggregations.cp312-win_amd64.pyd",
             "pandas/_libs/window/indexers.cp312-win_amd64.pyd",
-            "pandas/_libs/writers.cp312-win_amd64.pyd",
-            "psutil/_psutil_windows.pyd",
+            "pandas/_libs/writers.cp312-win_amd64.pyd"
+          ],
+          "review_reasons": [],
+          "file_groups": [],
+          "required_evidence": [
+            "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗",
+            "版本未知的內含元件（pandas-bundled-notices）需另行查證，查證前保持 open"
+          ],
+          "evidence": [
+            {
+              "path": "packaging/embedded/base-windows.json",
+              "sha256": "ccd7be11ed924d8a089eb513974bd20bed6be6177d1ccd29960589d6d936b45f"
+            }
+          ],
+          "status": "open",
+          "requires_user_decision": false,
+          "decision_source": null,
+          "gates": [
+            "runtime_sbom_complete",
+            "redistribution_approved"
+          ]
+        },
+        {
+          "id": "base-wheels-pillow",
+          "title": "wheel 內含原生第三方：pillow 13.0.0",
+          "native_files": [
+            "PIL/_avif.cp312-win_amd64.pyd",
+            "PIL/_imaging.cp312-win_amd64.pyd",
+            "PIL/_imagingcms.cp312-win_amd64.pyd",
+            "PIL/_imagingft.cp312-win_amd64.pyd",
+            "PIL/_imagingtk.cp312-win_amd64.pyd",
+            "PIL/_webp.cp312-win_amd64.pyd"
+          ],
+          "review_reasons": [],
+          "file_groups": [],
+          "required_evidence": [
+            "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗",
+            "版本未知的內含元件（raqm、fribidi、libaom、dav1d、libyuv）需另行查證，查證前保持 open"
+          ],
+          "evidence": [
+            {
+              "path": "packaging/embedded/base-windows.json",
+              "sha256": "ccd7be11ed924d8a089eb513974bd20bed6be6177d1ccd29960589d6d936b45f"
+            }
+          ],
+          "status": "open",
+          "requires_user_decision": false,
+          "decision_source": null,
+          "gates": [
+            "runtime_sbom_complete",
+            "redistribution_approved"
+          ]
+        },
+        {
+          "id": "base-wheels-lxml",
+          "title": "wheel 內含原生第三方：lxml 6.1.3",
+          "native_files": [
+            "lxml/_elementpath.cp312-win_amd64.pyd",
+            "lxml/builder.cp312-win_amd64.pyd",
+            "lxml/etree.cp312-win_amd64.pyd",
+            "lxml/html/_difflib.cp312-win_amd64.pyd",
+            "lxml/html/diff.cp312-win_amd64.pyd",
+            "lxml/objectify.cp312-win_amd64.pyd",
+            "lxml/sax.cp312-win_amd64.pyd"
+          ],
+          "review_reasons": [],
+          "file_groups": [],
+          "required_evidence": [
+            "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗",
+            "版本未知的內含元件（libxml2、libxslt、zlib、libiconv）需另行查證，查證前保持 open"
+          ],
+          "evidence": [
+            {
+              "path": "packaging/embedded/base-windows.json",
+              "sha256": "ccd7be11ed924d8a089eb513974bd20bed6be6177d1ccd29960589d6d936b45f"
+            }
+          ],
+          "status": "open",
+          "requires_user_decision": false,
+          "decision_source": null,
+          "gates": [
+            "runtime_sbom_complete",
+            "redistribution_approved"
+          ]
+        },
+        {
+          "id": "base-wheels-cryptography",
+          "title": "wheel 內含原生第三方：cryptography 50.0.2",
+          "native_files": [
+            "cryptography/hazmat/bindings/_rust.pyd"
+          ],
+          "review_reasons": [],
+          "file_groups": [],
+          "required_evidence": [
+            "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗",
+            "版本未知的內含元件（openssl、rust-dependencies）需另行查證，查證前保持 open"
+          ],
+          "evidence": [
+            {
+              "path": "packaging/embedded/base-windows.json",
+              "sha256": "ccd7be11ed924d8a089eb513974bd20bed6be6177d1ccd29960589d6d936b45f"
+            }
+          ],
+          "status": "open",
+          "requires_user_decision": false,
+          "decision_source": null,
+          "gates": [
+            "runtime_sbom_complete",
+            "redistribution_approved"
+          ]
+        },
+        {
+          "id": "base-wheels-onnxruntime",
+          "title": "wheel 內含原生第三方：onnxruntime 1.31.1",
+          "native_files": [
+            "onnxruntime/capi/onnxruntime.dll",
+            "onnxruntime/capi/onnxruntime_providers_shared.dll",
+            "onnxruntime/capi/onnxruntime_pybind11_state.pyd"
+          ],
+          "review_reasons": [],
+          "file_groups": [],
+          "required_evidence": [
+            "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗",
+            "版本未知的內含元件（onnxruntime-third-party-superset）需另行查證，查證前保持 open"
+          ],
+          "evidence": [
+            {
+              "path": "packaging/embedded/base-windows.json",
+              "sha256": "ccd7be11ed924d8a089eb513974bd20bed6be6177d1ccd29960589d6d936b45f"
+            }
+          ],
+          "status": "open",
+          "requires_user_decision": false,
+          "decision_source": null,
+          "gates": [
+            "runtime_sbom_complete",
+            "redistribution_approved"
+          ]
+        },
+        {
+          "id": "base-wheels-pypdfium2",
+          "title": "wheel 內含原生第三方：pypdfium2 5.14.0",
+          "native_files": [
             "pypdfium2_raw/pdfium.dll"
           ],
           "review_reasons": [],
           "file_groups": [],
           "required_evidence": [
-            "各原生檔的 wheel、內含元件名稱／版本／來源／原文與版本依據分級；未知者保留未關閉"
+            "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗",
+            "版本未知的內含元件（abseil、fast-float、freetype、icu、libjpeg-turbo、libopenjpeg、libpng、llvm-libc、simdutf、zlib）需另行查證，查證前保持 open"
           ],
-          "evidence": [],
+          "evidence": [
+            {
+              "path": "packaging/embedded/base-windows.json",
+              "sha256": "ccd7be11ed924d8a089eb513974bd20bed6be6177d1ccd29960589d6d936b45f"
+            }
+          ],
           "status": "open",
+          "requires_user_decision": false,
+          "decision_source": null,
+          "gates": [
+            "runtime_sbom_complete",
+            "redistribution_approved"
+          ]
+        },
+        {
+          "id": "base-wheels-cffi",
+          "title": "wheel 內含原生第三方：cffi 2.1.1",
+          "native_files": [
+            "_cffi_backend.cp312-win_amd64.pyd"
+          ],
+          "review_reasons": [],
+          "file_groups": [],
+          "required_evidence": [
+            "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗",
+            "版本未知的內含元件（libffi）需另行查證，查證前保持 open"
+          ],
+          "evidence": [
+            {
+              "path": "packaging/embedded/base-windows.json",
+              "sha256": "ccd7be11ed924d8a089eb513974bd20bed6be6177d1ccd29960589d6d936b45f"
+            }
+          ],
+          "status": "open",
+          "requires_user_decision": false,
+          "decision_source": null,
+          "gates": [
+            "runtime_sbom_complete",
+            "redistribution_approved"
+          ]
+        },
+        {
+          "id": "base-wheels-charset-normalizer",
+          "title": "wheel 內含原生第三方：charset-normalizer 3.5.2",
+          "native_files": [
+            "charset_normalizer/cd.cp312-win_amd64.pyd",
+            "charset_normalizer/md.cp312-win_amd64.pyd"
+          ],
+          "review_reasons": [],
+          "file_groups": [],
+          "required_evidence": [
+            "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗"
+          ],
+          "evidence": [
+            {
+              "path": "packaging/embedded/base-windows.json",
+              "sha256": "ccd7be11ed924d8a089eb513974bd20bed6be6177d1ccd29960589d6d936b45f"
+            }
+          ],
+          "status": "evidence_complete",
+          "requires_user_decision": false,
+          "decision_source": null,
+          "gates": [
+            "runtime_sbom_complete",
+            "redistribution_approved"
+          ]
+        },
+        {
+          "id": "base-wheels-psutil",
+          "title": "wheel 內含原生第三方：psutil 7.2.2",
+          "native_files": [
+            "psutil/_psutil_windows.pyd"
+          ],
+          "review_reasons": [],
+          "file_groups": [],
+          "required_evidence": [
+            "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗"
+          ],
+          "evidence": [
+            {
+              "path": "packaging/embedded/base-windows.json",
+              "sha256": "ccd7be11ed924d8a089eb513974bd20bed6be6177d1ccd29960589d6d936b45f"
+            }
+          ],
+          "status": "evidence_complete",
           "requires_user_decision": false,
           "decision_source": null,
           "gates": [
@@ -292,7 +521,7 @@
           ],
           "evidence": [],
           "status": "open",
-          "requires_user_decision": false,
+          "requires_user_decision": true,
           "decision_source": null,
           "gates": [
             "runtime_sbom_complete",

@@ -7,6 +7,8 @@ import json
 from pathlib import Path, PurePosixPath
 import re
 
+import embedded_components
+
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT/'packaging/redistribution/obligations.json'
 FLAGS = ('runtime_sbom_complete', 'redistribution_approved', 'release_ready')
@@ -209,6 +211,11 @@ def assess(report, registry, *, root=ROOT):
     entries = config['entries']
     mappings = dict(native_files=coverage(native, entries, 'native_files'),
                     review_reasons=coverage(reasons, entries, 'review_reasons'))
+    # 內含元件目錄（A9）：由條目的 evidence 找出目錄，逐一與該 profile 的條目與 A6 輸入對齊。
+    catalogs = sorted({ref['path'] for e in entries for ref in e['evidence']
+                       if ref['path'].startswith(embedded_components.CATALOG_PREFIX)})
+    embedded = [embedded_components.check_profile(read_json(root/path), catalog_path=path, entries=entries,
+                                                  report=report, root=root) for path in catalogs]
     blocked = {}
     for flag in FLAGS:
         blocked[flag] = [e['id'] for e in entries if flag in e['gates'] and
@@ -223,7 +230,7 @@ def assess(report, registry, *, root=ROOT):
                 unclosed_obligations=[dict(id=e['id'], status=e['status'], title=e['title'],
                                           required_evidence=e['required_evidence']) for e in entries
                                       if any(e['id'] in ids for ids in blocked.values())],
-                coverage=mappings, input_inventory_summary=report['inventory_summary'],
+                coverage=mappings, embedded_catalogs=embedded, input_inventory_summary=report['inventory_summary'],
                 scope='Registry review decision for this source; accepted means valid coverage, not product approval')
 
 
