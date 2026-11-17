@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-17：A7 首個提交修正 PR 12 已合併（7b787d3）、合併後 CI 全綠及下一步；STATUS／A6 README 追加原排隊 run 最終成功且僅報告 artifact 的補註，attempts.json 不變。基本包審閱改以 8285450 成功 run 為準，保存舊資料 hash，不複製舊完整 JSON；A7 完成後停止，後續規劃交 Claude planner。
+
 ### 2026-11-17｜A6 固定基本包／CPU 候選與整體工程審閱完成
 
 - 兩種候選以同一個完整來源提交 8285450 執行 Windows 驗證，既有功能及新增審閱 metadata 均通過；精簡資料完整取回後以固定 Git 樹離線重跑，來源 gap／candidate 列已消除，原 inventory 待審／未對照計數維持原值。

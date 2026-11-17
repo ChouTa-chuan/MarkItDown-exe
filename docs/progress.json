@@ -2,9 +2,9 @@
   "updated": "2026-11-17",
   "environment": "Linux 完整回歸／獨立模組與 Windows 基本包／CPU 固定候選 8285450 已驗；乾淨機／人工／GPU仍待",
   "tests_passed": 781,
-  "headline": "main 起點已合併 PR 1–11；A6 固定候選、重分類與整體審閱完成，整合 CI／Merge 結果見 PR 12",
+  "headline": "PR 12 已合併（7b787d3），合併後 CI 全綠；A6 Claude reviewer 通過，A7 開始",
   "blocker": "完整 runtime SBOM／再散布仍未關閉：自有 MIT 套件對照、wheel 內含第三方、Microsoft 條款、Qt build／替換、CPU 原文／模型／GEOS；乾淨機／人工／GPU未驗。",
-  "next": "A6 固定來源與兩種候選證據齊備；先核對 PR 12 最終 head 全 CI 與 Merge 結果，再從最新 main 開自己的 A7 新分支，將自有 MIT 全文綁定套件原文表並補反例。產品門檻未關閉前不交付。",
+  "next": "PR 12 已合併（7b787d3），合併後 CI 全綠；A7 從最新 main 的自己新分支完成 MIT 套件對照、工作流 env／SHA 檢查與分片反例，完成後先停，交 Claude planner 整體複查及重新規劃。",
   "milestones": [
     {
       "id": "m0",
@@ -3256,6 +3256,27 @@
       "base": 0,
       "cpu": 0
     },
-    "code_source": "8285450226abe1381e6a357e8bd33bff1ad46e0e"
+    "code_source": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+    "merged": true,
+    "merge_commit": "7b787d3dcf1e82fd43873c8c684a0412a38bcfb6",
+    "stage_closed": true,
+    "reviewer_confirmation": "使用者 2026-11-17 確認 Claude reviewer 查驗通過，沒有必須修正項目",
+    "post_merge_ci_all_green": true,
+    "post_merge_ci_runs": {
+      "linux": 43922354838,
+      "base": 43922354848,
+      "cpu": 43922354684,
+      "history": 43922354901,
+      "pages": 43922354751
+    },
+    "original_cpu_run_final": {
+      "run": 43912958713,
+      "status": "completed",
+      "conclusion": "success",
+      "reports_only": true,
+      "artifact_id": 14256147838,
+      "artifact_name": "windows-cpu-validation-reports",
+      "artifact_digest": "sha256:5e5938919f532e744ec6f1941a8956f2cb796a348a7fe235cd522bbc71ae6482"
+    }
   }
 }
