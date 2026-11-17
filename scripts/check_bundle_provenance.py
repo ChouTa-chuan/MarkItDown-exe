@@ -12,6 +12,7 @@ from build_provenance import sha256
 from candidate_inventory import component_inventory, inventory, verify_inventory
 from bundle_filters import is_excluded_name
 from base_own_license import OWN_LICENSE, verify_own_license
+from cryptography_notice import verify as verify_crypto_notice
 from native_identity import identity_errors, summarize
 from python_archive_inventory import (load_manifest, summarize as summarize_python,
                                       verify_base_runtime_modules, zip_members)
@@ -69,6 +70,10 @@ def audit(bundle, profile, expected_version):
         if {p['name']:p['version'] for p in installed['packages']} != expected:
             raise ValueError('Runtime package list mismatch')
         verify_own_license(assets, installed['packages'])
+        crypto_report = verify_crypto_notice(assets, installed['packages'])
+        crypto_binary = contained_file(bundle, '_internal/cryptography/hazmat/bindings/'+crypto_report['observed']['binary'])
+        if sha256(crypto_binary) != crypto_report['observed']['binary_sha256']:
+            raise ValueError('Bundled cryptography OpenSSL runtime differs from observation')
     elif profile == 'cpu':
         assets = bundle/'_internal/worker-assets'
         installed = json.loads(contained_file(assets, 'installed-manifest.json').read_text(encoding='utf-8'))

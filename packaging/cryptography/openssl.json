@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "distribution": "cryptography",
+  "distribution_version": "50.0.2",
+  "expected_openssl_version": "4.0.3",
+  "openssl_tag": "openssl-4.0.3",
+  "openssl_commit": "af1775b60dfa141a4ad762585052cabeb9f37e9e",
+  "official_ref": {
+    "path": "packaging/cryptography/openssl-4.0.3-ref.json",
+    "sha256": "e9d278513bbba88580bbbef63e121201d0740369f65f712b5dcb5262d9a3e692"
+  },
+  "notice": {
+    "path": "src/desktop_app/data/licenses/windows/supplemental/cryptography.txt",
+    "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
+    "upstream_path": "LICENSE.txt",
+    "upstream_git_blob": "49cc83d2ee29d13453188217f0e4edd70c7f842f",
+    "url": "https://raw.githubusercontent.com/openssl/openssl/af1775b60dfa141a4ad762585052cabeb9f37e9e/LICENSE.txt"
+  },
+  "scope": "Expected version must be confirmed using the actual cryptography OpenSSL API; no static-string version claim or redistribution approval"
+}

@@ -1,0 +1,39 @@
+{
+  "ref": {
+    "ref": "refs/tags/openssl-4.0.3",
+    "node_id": "MDM6UmVmNzYzNDY3NzpyZWZzL3RhZ3Mvb3BlbnNzbC00LjAuMw==",
+    "url": "https://api.github.com/repos/openssl/openssl/git/refs/tags/openssl-4.0.3",
+    "object": {
+      "sha": "ae89995a4fdd66c460a916dce3950948a0b5a8e6",
+      "type": "tag",
+      "url": "https://api.github.com/repos/openssl/openssl/git/tags/ae89995a4fdd66c460a916dce3950948a0b5a8e6"
+    }
+  },
+  "tags": [
+    {
+      "node_id": "TA_kwDOAHR-9doAKGFlODk5OTVhNGZkZDY2YzQ2MGE5MTZkY2UzOTUwOTQ4YTBiNWE4ZTY",
+      "sha": "ae89995a4fdd66c460a916dce3950948a0b5a8e6",
+      "url": "https://api.github.com/repos/openssl/openssl/git/tags/ae89995a4fdd66c460a916dce3950948a0b5a8e6",
+      "tagger": {
+        "name": "openssl-machine",
+        "email": "openssl-machine@openssl.org",
+        "date": "2026-09-29T13:44:55Z"
+      },
+      "object": {
+        "sha": "af1775b60dfa141a4ad762585052cabeb9f37e9e",
+        "type": "commit",
+        "url": "https://api.github.com/repos/openssl/openssl/git/commits/af1775b60dfa141a4ad762585052cabeb9f37e9e"
+      },
+      "tag": "openssl-4.0.3",
+      "message": "OpenSSL 4.0.3 release tag\n-----BEGIN PGP SIGNATURE-----\n\nwsG7BAABCgBvBYJqu8DpCRBk7XsdzOccskcUAAAAAAAeACBzYWx0QG5vdGF0aW9u\ncy5zZXF1b2lhLXBncC5vcmfl55HUjhJ6R6zX7DE97c5PxVrN+IjuGCiy87gsrsNX\nShYhBMRu0/LL79of2q2kQmTtex3M5xyyAABFcxAAp3TU2P8reHQ1wcGI2NReeMoK\nr1rfX6HQNokVM+9Y7o0bTYKPg0+ul6lmrI5mh0Wigw3FgdO6VwQsjOO6d7iT8bIc\nzK8AgY6Z5aFmDb4ijeszCmXQpZX/Bp3oxCcSFIoROlMKsYz9b84rUqge5lQUdQl7\n0axTe+V4vezdrkiMmHzUD/mAZtTONVoljAW410qYvaUGfn4ECYlSIY4tGDk3A3jj\n1Vee9ICyZU6Q55jxvBauBjZFVFRk5tzE/CzyhIB6LVu6NBmQ7pc2qZsr/cJekfVK\n5xNo7gXJMQ1gjGPlCEMZytow8WFN+TF1/51VrwwHf0A1kJ/KW5+2aeHjXF2oiGE1\nS7W/59S/JA2O4Elpk3oqJzMK1Rjj1nWpmPkpdBdhnYYV1bFvtAlN6aeb3TAh8mJ7\nekJxuccxUG1cHOwvdc4b3tXRA8nvX5rP8gzT6wb7eGAgoP8RQ6wJ4xdN4qdcuSf5\n01GFzw+XHY7Xi9rYxqGBudAAUg55ngL5USzO55420aDA2gu08BheHCMDiSHQbXjM\nodNDueeha0uSHiP++MqWs6tb6XHufH9bneuqa5FA+OqRlmIdFbu0+WyX34ooAFQK\nDqpu6UEK3kff6AAuGTNcIlLZzfNAoxG66P/eIycu+tvxC6zijJuBEFyhPgmwzdbM\niuATvMgeHb5Ov9tXvE0=\n=QH3t\n-----END PGP SIGNATURE-----\n",
+      "verification": {
+        "verified": false,
+        "reason": "unknown_key",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsG7BAABCgBvBYJqu8DpCRBk7XsdzOccskcUAAAAAAAeACBzYWx0QG5vdGF0aW9u\ncy5zZXF1b2lhLXBncC5vcmfl55HUjhJ6R6zX7DE97c5PxVrN+IjuGCiy87gsrsNX\nShYhBMRu0/LL79of2q2kQmTtex3M5xyyAABFcxAAp3TU2P8reHQ1wcGI2NReeMoK\nr1rfX6HQNokVM+9Y7o0bTYKPg0+ul6lmrI5mh0Wigw3FgdO6VwQsjOO6d7iT8bIc\nzK8AgY6Z5aFmDb4ijeszCmXQpZX/Bp3oxCcSFIoROlMKsYz9b84rUqge5lQUdQl7\n0axTe+V4vezdrkiMmHzUD/mAZtTONVoljAW410qYvaUGfn4ECYlSIY4tGDk3A3jj\n1Vee9ICyZU6Q55jxvBauBjZFVFRk5tzE/CzyhIB6LVu6NBmQ7pc2qZsr/cJekfVK\n5xNo7gXJMQ1gjGPlCEMZytow8WFN+TF1/51VrwwHf0A1kJ/KW5+2aeHjXF2oiGE1\nS7W/59S/JA2O4Elpk3oqJzMK1Rjj1nWpmPkpdBdhnYYV1bFvtAlN6aeb3TAh8mJ7\nekJxuccxUG1cHOwvdc4b3tXRA8nvX5rP8gzT6wb7eGAgoP8RQ6wJ4xdN4qdcuSf5\n01GFzw+XHY7Xi9rYxqGBudAAUg55ngL5USzO55420aDA2gu08BheHCMDiSHQbXjM\nodNDueeha0uSHiP++MqWs6tb6XHufH9bneuqa5FA+OqRlmIdFbu0+WyX34ooAFQK\nDqpu6UEK3kff6AAuGTNcIlLZzfNAoxG66P/eIycu+tvxC6zijJuBEFyhPgmwzdbM\niuATvMgeHb5Ov9tXvE0=\n=QH3t\n-----END PGP SIGNATURE-----\n",
+        "payload": "object af1775b60dfa141a4ad762585052cabeb9f37e9e\ntype commit\ntag openssl-4.0.3\ntagger openssl-machine <openssl-machine@openssl.org> 1790689495 +0000\n\nOpenSSL 4.0.3 release tag\n",
+        "verified_at": null
+      }
+    }
+  ],
+  "commit": "af1775b60dfa141a4ad762585052cabeb9f37e9e"
+}

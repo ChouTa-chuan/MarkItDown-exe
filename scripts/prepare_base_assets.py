@@ -11,6 +11,7 @@ import sysconfig
 import tempfile
 import tomllib
 
+from cryptography_notice import stage as stage_crypto_notice
 from packaging.utils import canonicalize_name
 from packaging_profiles import ROOT, read_lock, verify_profiles
 from build_provenance import bootloader_notices, is_notice_entry
@@ -141,6 +142,7 @@ def prepare(output, root=ROOT, *, native_assets=None):
                 shutil.copyfile(original,destination)
                 supplements.append(dict(reference,path=destination.relative_to(staged).as_posix()))
             notices.append(dict(name=name,version=distribution.version,notice_files=files,supplemental_sources=supplements))
+        stage_crypto_notice(root, staged, notices)
         verify_own_license(staged, notices, root=root)
         save_json(notice_root/'manifest.json', dict(scope='Actual installed runtime metadata/notices, not final redistribution clearance', packages=notices))
         shutil.copyfile(root/profiles[target+'-runtime']['lock'], staged/'base-runtime-lock.txt')

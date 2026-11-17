@@ -35,5 +35,16 @@
     "sha256": "d6d46202db973b560d2f521dced9110b3e0a46d9a75e1428dade8b7608dd0cca",
     "bytes": 1770,
     "note": "Original README declares BSD-2-Clause; license text absent from wheel/source root."
+  },
+  {
+    "name": "cryptography",
+    "url": "https://raw.githubusercontent.com/openssl/openssl/af1775b60dfa141a4ad762585052cabeb9f37e9e/LICENSE.txt",
+    "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
+    "bytes": 10175,
+    "component": "OpenSSL",
+    "component_version": "4.0.3",
+    "tag": "openssl-4.0.3",
+    "commit": "af1775b60dfa141a4ad762585052cabeb9f37e9e",
+    "note": "OpenSSL upstream LICENSE original; build must verify actual cryptography runtime OpenSSL version before binding"
   }
 ]

@@ -4,6 +4,13 @@
 
 ## 更新中
 
+### 2026-11-18｜A9b OpenSSL 原文隨包（進行中）
+
+- 新增固定 OpenSSL 4.0.3 tag／commit 的 LICENSE 原文與 cryptography 補充來源，接既有 supplemental_sources 管線；準備資產與最終 bundle 重新核對原文、套件綁定、實際 cryptography OpenSSL API 及 `_rust` bytes。
+- 沿用 runtime-observed 分級，Linux 與 Windows 分別記錄；Windows 證據未取回前不以字串或 Linux 觀測更新 Windows 目錄版本。相關缺檔／改內容／錯綁與 runtime 不符反例已補；完整回歸及最終 CI 待完成。
+- 依使用者明確授權，其他 wheel 條目只機械刷新共用目錄 hash，狀態、選擇器、required_evidence、requires_user_decision 均不變；完整條目清單於本 PR 收尾列出。spec／鎖檔與既有計數程式不變，三旗標維持 false。
+
+
 - 2026-11-17：記錄使用者決定：補上 cryptography 靜態併入的 OpenSSL 授權原文（新增 A9b），A10 換手 Codex（已於 PR 20 完成）。
 
 ### 2026-11-17｜A10 Microsoft 執行期逐檔證據

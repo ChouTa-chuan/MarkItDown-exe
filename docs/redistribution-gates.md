@@ -38,7 +38,7 @@ base 與 cpu 分開判定；CPU 尚未關閉不妨礙基本包依自己的證據
 
 `wheel` 內含的第三方元件（例如 numpy 的 OpenBLAS、Pillow 的 libjpeg-turbo）不寫進登記表，改由 [packaging/embedded/base-windows.json](../packaging/embedded/base-windows.json) 逐一列出：每個 wheel 的原生檔屬於哪個元件、元件版本與其依據、上游來源，以及授權原文的 repo 路徑與 hash。
 
-- **版本依據分級**：`wheel-declared`（wheel 內文字檔或 METADATA 宣告）、`runtime-observed`（實際載入觀測，目前未使用）、`unknown`（未知）。`unknown` 的版本欄位必須為 null；所屬條目必須保持 `open`，不得關閉。
+- **版本依據分級**：`wheel-declared`（wheel 內文字檔或 METADATA 宣告）、`runtime-observed`（實際載入觀測；A9b 使用 cryptography 連結的 OpenSSL API，另記平台與 `_rust` SHA-256，Windows 觀測須對到 A6 檔案）、`unknown`（未知）。`unknown` 的版本欄位必須為 null；所屬條目必須保持 `open`，不得關閉。
 - **檢核範圍**：目錄綁定鎖檔的 wheel 名稱、版本與 sha256；原生檔必須與 A6 輸入一致，且與指定條目完全相同（不多、不少、不重複）；授權原文必須在 `src/desktop_app/data/licenses/windows` 內，hash 與 `inventory.json` 一致。檢核由 `scripts/embedded_components.py` 執行，並被 `redistribution_gates.py` 在組裝判定時呼叫。
 - **不能驗證的部分**：`version_source` 只記 wheel 內的檔案與欄位，repo 內沒有 wheel 本體，無法自動重驗宣告字串；元件清單是否完整、上游網址與授權判斷由人工審閱。這些必須以人工比對 wheel 內容的方式補上，不能因為腳本通過就視為已驗證。
 - **限制**：目錄只是證據與檢核，不改變打包內容，也不代表使用者已同意再散布。
@@ -67,3 +67,9 @@ python scripts/redistribution_gates.py --source-review docs/development-records/
 測試含未知檔／reason、重複對應、缺少決定出處、改證據／決定原文、三旗標的分層與相依、base／cpu 獨立、保留原始計數與 CLI 不覆寫。全關閉的正例使用合成證據，只證明旗標不是常數，不代表實際授權或實機驗收已通過。
 
 A8 不動 spec、依賴或套件收集內容。除 C 節指定的說明文字勘誤外，不改安裝資產；不接續 A9–A17，不交付產品、Release 或 tag，完成後先停。
+
+## A9b OpenSSL 版本與原文的界線
+
+沿用既有 runtime-observed，不新增版本分級。觀測須由實際安裝的 cryptography 呼叫它所連結的 OpenSSL 文字與數值版本 API，兩者一致才可綁定上游同版本 tag 的 LICENSE。二進位靜態字串不是 wheel-declared，CPython ssl 的版本也不能代替 cryptography。Linux 與 Windows 各自記錄；只有 Windows 的 `_rust.pyd` bytes 與 A6 相同才可把該觀測綁入基本包內含元件目錄。
+
+新增原文透過既有 supplemental_sources 管線隨包，並在基本資產與最終 bundle 各驗缺檔、內容 hash 及 cryptography 套件對應。Rust 相依等未查明部分維持 unknown／open，原文補齊不等於核准再散布。

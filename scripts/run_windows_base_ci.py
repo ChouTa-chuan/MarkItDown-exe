@@ -10,6 +10,7 @@ import sys
 import shutil
 import traceback
 
+from cryptography_notice import REPORT as CRYPTO_REPORT, publish as publish_crypto_notice
 from qt_sources import STAGED as QT_SOURCES, publish_annotation as publish_qt_sources
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -95,6 +96,9 @@ def main():
         assets = args.output/'base-assets'
         call('base-assets', [python,'scripts/prepare_base_assets.py','--native-assets',native,'--output',assets])
         record_qt_sources(assets, reports)
+        crypto = assets/CRYPTO_REPORT
+        shutil.copyfile(crypto, reports/'cryptography-openssl.json')
+        publish_crypto_notice(json.loads(crypto.read_text(encoding='utf-8')))
         environment['MARKITDOWN_BASE_ASSETS'] = str(assets.resolve())
         call('pyinstaller', [python,'-m','PyInstaller','--noconfirm','--clean','--distpath',args.output/'dist',
                             '--workpath',args.output/'work','packaging/base.spec'])

@@ -182,7 +182,20 @@
         "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
         "cryptography/wheel/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD"
       ],
-      "supplemental_sources": []
+      "supplemental_sources": [
+        {
+          "name": "cryptography",
+          "url": "https://raw.githubusercontent.com/openssl/openssl/af1775b60dfa141a4ad762585052cabeb9f37e9e/LICENSE.txt",
+          "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
+          "bytes": 10175,
+          "component": "OpenSSL",
+          "component_version": "4.0.3",
+          "tag": "openssl-4.0.3",
+          "commit": "af1775b60dfa141a4ad762585052cabeb9f37e9e",
+          "note": "OpenSSL upstream LICENSE original; build must verify actual cryptography runtime OpenSSL version before binding",
+          "path": "supplemental/cryptography.txt"
+        }
+      ]
     },
     {
       "name": "defusedxml",
@@ -1437,7 +1450,8 @@
     "urllib3/wheel/urllib3-2.8.0.dist-info/licenses/LICENSE.txt": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
     "xlsxwriter/METADATA": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
     "xlsxwriter/wheel/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7",
-    "supplemental/sources.json": "32b829fc5948a633f7ab855d27a811bacc592d83dabd446f221d88280cf37b2d"
+    "supplemental/sources.json": "6b5d97edea4d798d87d8d390c0e81263add43b6cc0f83d3878b536e7de6aa79a",
+    "supplemental/cryptography.txt": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
   },
   "notes": [
     "Cobble wheel has no license text; official source README declares BSD-2-Clause.",

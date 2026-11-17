@@ -1,0 +1,48 @@
+name: Cryptography OpenSSL evidence
+
+# 只觀測實際 Windows cryptography API 與原生檔 hash，不建置或發布產品。
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/cryptography-openssl-evidence.yml'
+      - 'scripts/cryptography_notice.py'
+      - 'packaging/cryptography/**'
+      - 'packaging/embedded/**'
+      - 'src/desktop_app/data/licenses/windows/supplemental/cryptography.txt'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: crypto-evidence-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  evidence:
+    runs-on: windows-2022
+    timeout-minutes: 15
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install locked build dependencies
+        shell: pwsh
+        run: |
+          python -m venv out/crypto-env
+          & out/crypto-env/Scripts/python.exe -m pip install --require-hashes -r packaging/profiles/base-windows-build.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Observe actual cryptography-linked OpenSSL
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force out/crypto-reports | Out-Null
+          & out/crypto-env/Scripts/python.exe scripts/cryptography_notice.py --output out/crypto-reports/cryptography-openssl.json
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cryptography-openssl-evidence-reports
+          path: out/crypto-reports/
+          retention-days: 7
+          if-no-files-found: warn

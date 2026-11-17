@@ -1,4 +1,5 @@
 """以合成包驗證指紋與拒絕條件，不把 fixture 當作 Windows 原生執行。"""
+import hashlib
 import json
 import contextlib
 import copy
@@ -228,12 +229,44 @@ class ProvenanceTests(unittest.TestCase):
         installed=json.loads(json.dumps(self.installed))
         stage_own_license(Path(__file__).resolve().parents[1], assets)
         installed['packages'][0]['notice_files']=[OWN_LICENSE]
+        from cryptography_notice import stage, NOTICE
+        source = Path(__file__).resolve().parents[1]/'src/desktop_app/data/licenses/windows/supplemental/cryptography.txt'
+        destination = assets/NOTICE
+        destination.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(source,destination)
+        self.write(assets/'licenses/installed/cryptography/METADATA',b'Name: cryptography\nVersion: 50.0.2\n')
+        installed['packages'].append(dict(name='cryptography',version='50.0.2',notice_files=[],
+            supplemental_sources=[dict(path=NOTICE,sha256=sha256(destination))]))
+        observation=dict(platform='linux',distribution_version='50.0.2',version='4.0.3',version_text='OpenSSL 4.0.3',
+                         version_number=0x40000030,binary='synthetic',binary_sha256=hashlib.sha256(b'synthetic crypto runtime').hexdigest(),api='synthetic fixture')
+        self.write(self.bundle/'_internal/cryptography/hazmat/bindings/synthetic',b'synthetic crypto runtime')
+        stage(Path(__file__).resolve().parents[1],assets,installed['packages'],observation)
         self.save(assets/'licenses/installed/manifest.json',installed)
-        profile=dict(source_version='0.19.1',runtime_packages={},local_packages={'markitdown-desktop':'0.19.1'},
+        profile=dict(source_version='0.19.1',runtime_packages={'cryptography':'50.0.2'},local_packages={'markitdown-desktop':'0.19.1'},
                      assets={p.relative_to(assets).as_posix():sha256(p) for p in assets.rglob('*') if p.is_file()})
         self.save(assets/'build-profile.json',profile)
         self.write(self.bundle/'MarkItDownBase.exe',b'base fixture entry')
         return assets,profile
+
+    def test_base_crypto_original_missing_or_changed_is_rejected_after_rehash(self):
+        from cryptography_notice import NOTICE
+        assets, profile = self.base_fixture()
+        installed = json.loads((assets/'licenses/installed/manifest.json').read_text())
+        path = assets/NOTICE
+        for content in (None,b'changed original'):
+            if content is None:
+                path.unlink()
+            else:
+                path.write_bytes(content)
+            self.refresh_base_fixture(assets,profile,installed)
+            with self.assertRaisesRegex(ValueError,'OpenSSL original missing or changed'):
+                audit(self.bundle,'base','0.19.1')
+
+    def test_base_crypto_binary_must_match_observed_runtime(self):
+        self.base_fixture()
+        (self.bundle/'_internal/cryptography/hazmat/bindings/synthetic').write_bytes(b'different runtime')
+        with self.assertRaisesRegex(ValueError,'OpenSSL runtime differs'):
+            audit(self.bundle,'base','0.19.1')
 
     def test_base_runtime_and_original_metadata_are_checked(self):
         assets,profile=self.base_fixture()
