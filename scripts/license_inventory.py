@@ -156,7 +156,7 @@ def render(inventory,markdown,html):
       '', '## 另列元件', '',
       '- Microsoft MarkItDown 0.1.9：MIT；來源提交及原始 LICENSE 保留於 vendor/markitdown。',
       '- CPython：實際建置直譯器的 LICENSE.txt 隨包保存在 licenses/python-runtime，不用其他版本文字代替。',
-      '- Tesseract 語言資料：固定提交 Apache-2.0，原文與來源在 licenses/models。Tesseract 執行檔尚未隨 Windows 包發佈。',
+      '- Tesseract 語言資料：固定提交 Apache-2.0，原文與來源在 licenses/models。Tesseract 執行檔與四語模型已在 hosted Windows 基本包候選中建置及驗收，尚未對外交付。',
       '- RapidOCR／PP-OCR 模型：屬固定版本套件，使用其 Apache-2.0 宣告，模型 SHA-256 在 onnx_ocr.py。',
       '- 本應用程式自有程式採 MIT；全文在基本安裝包內的 _internal\\desktop_app\\data\\licenses\\markitdown-desktop\\LICENSE（原始碼樹為根目錄 LICENSE）。MIT 只涵蓋自有部分，不改變上游與第三方元件的授權。',
       '', '## 特別注意', '',
@@ -164,7 +164,7 @@ def render(inventory,markdown,html):
       '- LGPL 路徑需保留動態函式庫替換能力、通知、對應來源取得方式及所需修改資訊；不可把單一封裝方式當成自動合規。',
       '- Cobble：wheel 缺授權全文，保留官方 README 的 BSD-2-Clause 宣告、作者 metadata 及標準 BSD 文字；不代填未知著作權聲明。',
       '- Magika 補充文件是固定官方來源的標準 Apache-2.0 原文，不宣稱該提交是本 wheel 的對應來源版本。',
-      '- 完整 Windows 二進位檔尚未建置，原生 DLL／MS runtime、Qt 義務及最終發佈授權審核仍是發佈門檻。這份清單不是法律認證。',
+      '- Windows 基本包與 CPU 候選已在 hosted CI 建置及驗收；原生 DLL／MS runtime、Qt 義務、再散布與乾淨機／人工驗收仍是交付門檻。這份清單不是法律認證。',
       '', '## 鎖定套件', '', '| 套件 | 版本 | 套件宣告（原文另附） |', '| --- | --- | --- |']
     rows=[]
     for package in inventory['packages']:
