@@ -2,9 +2,9 @@
   "updated": "2026-11-17",
   "environment": "Linux 完整混合／獨立模組回歸；A10 hosted Windows 2022 逐檔探測，非乾淨機／GPU／人工驗收",
   "tests_passed": 858,
-  "headline": "A10 Microsoft 逐檔證據與官方原文補齊（PR 20）；再散布決定留待 A13",
+  "headline": "PR 1–20 已合併；大階段 A 進行中：A1–A10 完成，A9b、A11 待指派",
   "blocker": "Microsoft 各複本條款適用及再散布權利仍待 A13 使用者決定；其他來源義務與乾淨機／人工驗收未關閉，兩個 profile 三旗標均 false。",
-  "next": "完成 PR 20 最新 head CI／查驗及一般 Merge 後先停；後續 A9b／A11 另行交棒，再依規劃 A12 → A13 → B1。",
+  "next": "A9b OpenSSL 原文隨包（使用者已同意）、A11 Qt 內含第三方與可替換驗收 → A12 重新固定候選 → A13 使用者確認門檻 → B1 測試版",
   "milestones": [
     {
       "id": "m0",
@@ -3541,6 +3541,12 @@
             "pr": 18
           },
           {
+            "id": "A9b",
+            "title": "cryptography 內含 OpenSSL 原文隨包",
+            "status": "next",
+            "note": "使用者已同意"
+          },
+          {
             "id": "A10",
             "title": "Microsoft 執行期逐檔對照（基本包 14 檔）",
             "status": "done",
@@ -3551,7 +3557,7 @@
             "id": "A11",
             "title": "Qt 內含第三方、建置資訊與可替換驗收",
             "status": "next",
-            "note": "可開始"
+            "note": "待指派"
           },
           {
             "id": "A12",

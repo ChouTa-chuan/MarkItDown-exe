@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-17：記錄使用者決定：補上 cryptography 靜態併入的 OpenSSL 授權原文（新增 A9b），A10 換手 Codex（已於 PR 20 完成）。
+
 ### 2026-11-17｜A10 Microsoft 執行期逐檔證據
 
 - 相對 A9：補上 Microsoft 複本的 Windows PE 版本、簽章及官方 Redist 同名 SHA-256 比較；保留改名複本，來源容器符合原鎖檔。目錄與原始探測／條款位於 packaging/microsoft 及本輪小型證據目錄，以 evidence 路徑加 hash 綁定。
