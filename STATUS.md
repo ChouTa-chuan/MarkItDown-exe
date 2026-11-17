@@ -12,29 +12,28 @@
 | --- | --- |
 | 本輪 main 起點 | **PR 12 已合併（7b787d3），合併後 CI 全綠**；A6 已由 Claude reviewer 查驗通過，沒有必須修正項目 |
 | 本輪分支 | `codex/a7-mit-notice-20261117`，從最新 main `7b787d3dcf1e82fd43873c8c684a0412a38bcfb6` 開自己的新分支；不直接推 main、不推別人分支 |
-| 本輪 PR | A6 [PR #12](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/12) 已合併；A7 尚未建立，先完成本輪指定修正與自有 MIT 對照 |
+| 本輪 PR | A6 [PR #12](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/12) 已合併；A7 [PR #13](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/13) 已建立；指定修正與分支驗收完成，整合 CI／Merge 以該 PR 為準 |
 | 固定來源 | `8285450226abe1381e6a357e8bd33bff1ad46e0e`；基本包與 CPU 均已驗並離線重跑分類，PR 暫時 merge 不取代此候選 |
 
 ## B. 這個階段完成了什麼
 
-- **A7 首個提交先修正過時文件**：PR 12 已合併（7b787d3），合併後 CI 全綠；使用者確認 A6 已由 Claude reviewer 通過、沒有必修項。A6 基本包審閱改以固定來源 8285450 的成功 run 為準，attempt-e1761f9 保留作歷史。
-- **2026-11-17 補註**：run [43912958713](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43912958713) 最終為 **completed／success**，只產生 windows-cpu-validation-reports 報告 artifact，沒有 Setup／worker／模型產品 artifact。A6 原紀錄的 queued 為當時狀態；本次只追加 README 補註及更新其 manifest hash，已保存的 attempts.json 不改寫，也不複製舊完整 JSON。
-- A6 固定基本包／CPU 候選與分類已驗，證據見 [A6 紀錄](docs/development-records/runs/a6-fixed-review-2026-11-17/README.md)；數字沿用 [progress.json](docs/progress.json) 中標示的來源，本輪 A7 程式／工作流尚未修改、測試尚未執行。
+- **A7 指定修正已完成**：首個提交 8cd064b 修正 PR 12 已合併（7b787d3）、合併後 CI 全綠與過時敘述；A6 README 追加原排隊 run 最終 completed／success、僅報告 artifact 的補註，attempts.json 不變。
+- 12d3dce 以獨立提交改為 step env EXPECTED_SOURCE，pwsh 先驗完整 SHA 再呼叫工具；edb1d82 加入真正多片的缺片與越界反例。
+- **自有 MIT 對照已修正**：維持原安裝路徑，綁入套件原文表，產生與 audit 兩端核對來源原始位元組。缺檔／改內容、漏綁／重綁、錯綁其他套件的反例即使重算資產 hash 仍拒絕；產品核准旗標維持 false。
+- 完整 Linux 混合及獨立模組回歸通過，只有既有 ONNX 繁中 expected failure、無跳過；Windows [分支驗收 43996798825](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43996798825) 通過，自有套件原文待審原因確實消除。數字只見 [progress.json](docs/progress.json)，[本輪精簡證據](docs/development-records/runs/a7-mit-binding-2026-11-17/README.md)保存新結果、hash 與 run，沒有重複保存舊完整 JSON。
 
 ## C. 未完成、阻擋與下一步
 
-**PR 12 已合併（7b787d3），合併後 CI 全綠；本輪 A7 開始。** A6 Claude reviewer 無必修項。固定候選仍 8285450，不以合併後 CI 產物替換候選。
+**PR 12 已合併（7b787d3），合併後 CI 全綠；A7 實作、回歸與 Windows 基本包分支查驗完成。** 本輪 PR 最終 head 的整合 CI／Merge 結果以 PR 為準；全部通過、查驗無必修項才一般 Merge。舊固定候選仍 8285450，本輪分支驗收不重新定版全套候選。
 
 | 任務 | 現況／下一步 |
 | --- | --- |
-| A6／PR 12 | 完成並合併；合併後 Linux、Windows 基本包、CPU、歷史索引與 Pages 均成功。原排隊 run 最終 completed／success，僅報告 artifact，補註不改 attempts.json |
-| A7 自有 MIT 對照 | 本輪處理已隨包 MIT 全文與 installed package notice 表的綁定，補完整性及錯誤套件綁定反例 |
-| A7 工作流補強 | 以獨立提交改 step env EXPECTED_SOURCE，pwsh 先驗完整小寫 SHA，再使用環境變數；不把 expression 直接插進命令列 |
-| A7 分片反例 | broken 清單補少一片與 part 編號越界，維持失敗拒絕條件 |
-| A7 收尾 | 更新現況、完整回歸及 PR CI；全通過且無必修項後一般 Merge。完成後先停，由 Claude planner 整體複查大階段 A 與重新規劃剩餘義務 |
-| 既有產品門檻 | 完整 SBOM／再散布、乾淨機／人工／GPU仍待；本輪不重排剩餘義務，不交付產品、Release 或 tag |
+| A6／PR 12 | 已合併並通過 Claude reviewer；原排隊 run 43912958713 最終 completed／success、只有報告 artifact，舊 attempts.json 保留原狀 |
+| A7 | 文件、step env／SHA 預檢、多片反例、自有 MIT 綁定及來源重驗均完成；最終整合結果見本輪 PR，維持一般 Merge／不直接推 main／不刪分支 |
+| 下一步 | **A7 完成後先停，交 Claude planner 整體複查大階段 A 及重新規劃剩餘義務。本輪不另開後續階段或重排剩餘義務。** |
+| 既有門檻 | 完整 SBOM／再散布、乾淨機／人工／GPU仍待；ONNX 繁中缺口、RAM 軟性預算保留，沒有產品交付、Release 或 tag |
 
-**平台**：GitHub API 可用；run 43912958713 最終成功，先前排隊／取消回覆保留為歷史，不重送。大型原始日誌留 CI，後續舊嘗試只保存 hash 與 run 編號，不複製完整 JSON。ONNX 繁中缺口、RAM 軟性預算、乾淨機／人工／GPU限制保留。
+**證據與平台**：GitHub API 可用。Windows 完整 JSON 與大型日誌留 CI，repo 只存本輪新結果與精簡 proof；舊嘗試只留 hash 與 run 編號。原 run 43912958713 的 queued 是當時狀態，後續已成功，不重送。
 
 ## D. 新增規則與決定
 
@@ -67,4 +66,4 @@
 | 2026-11-17 | 使用者指示 | 之後不要再保存重複的舊嘗試完整 JSON，只留 hash 與 run 編號。 |
 | 2026-11-17 | 使用者指示 | A7 完成後先停，大階段 A 的整體複查與剩餘義務的重新規劃，交由 Claude planner 處理。 |
 
-接手先列 PR，再讀最新分支 AGENTS.md 與 STATUS.md；PR 12 已合併（7b787d3），合併後 CI 全綠。本輪 A7，完成後先停，交由 Claude planner 整體複查與重新規劃；固定候選仍 8285450。
+接手先列 PR，再讀最新分支 AGENTS.md 與 STATUS.md；PR 12 已合併（7b787d3），合併後 CI 全綠。A7 完成後先停，交 Claude planner 整體複查大階段 A 及重新規劃；本輪不接續新階段。

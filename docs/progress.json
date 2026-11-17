@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-17",
-  "environment": "Linux 完整回歸／獨立模組與 Windows 基本包／CPU 固定候選 8285450 已驗；乾淨機／人工／GPU仍待",
-  "tests_passed": 781,
-  "headline": "PR 12 已合併（7b787d3），合併後 CI 全綠；A6 Claude reviewer 通過，A7 開始",
-  "blocker": "完整 runtime SBOM／再散布仍未關閉：自有 MIT 套件對照、wheel 內含第三方、Microsoft 條款、Qt build／替換、CPU 原文／模型／GEOS；乾淨機／人工／GPU未驗。",
-  "next": "PR 12 已合併（7b787d3），合併後 CI 全綠；A7 從最新 main 的自己新分支完成 MIT 套件對照、工作流 env／SHA 檢查與分片反例，完成後先停，交 Claude planner 整體複查及重新規劃。",
+  "environment": "Linux 完整回歸／獨立模組與 A7 Windows 基本包分支驗收已驗；全套固定候選仍 A6 8285450",
+  "tests_passed": 786,
+  "headline": "PR 12 已合併（7b787d3），合併後 CI 全綠；A7 指定修正與分支驗收完成，整合結果見PR 13",
+  "blocker": "A7 已修正自有 MIT 套件對照；完整 SBOM／再散布、Qt／Microsoft／CPU 模型／GEOS、乾淨機／人工／GPU仍待，後續由 Claude planner 整體複查與重新規劃。",
+  "next": "PR 12 已合併（7b787d3），合併後 CI 全綠；A7 完成後先停，由 Claude planner 核對本輪 PR 最終 CI／Merge 後整體複查大階段 A，重新規劃剩餘義務。",
   "milestones": [
     {
       "id": "m0",
@@ -257,7 +257,7 @@
     "2026-11-12：0.19.1完整698（697通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與45模組exit0；Tesseract5.3.4／CPython3.12.3與先前基線不同。未對照來源已分類但candidate／gap基本49、CPU47仍待，授權提案未確認，沒有新的Windows執行。",
     "2026-11-13：完整703（702通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與46模組exit0；新增項目為歷史索引測試，沒有新的Windows執行。"
   ],
-  "tests_run": 782,
+  "tests_run": 787,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1287,11 +1287,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+    "source_commit": "07afa79add13d35ede89af8c332bc6dab1aed15e",
     "date_taipei": "2026-11-17",
     "accepted": true,
-    "run": 782,
-    "passed": 781,
+    "run": 787,
+    "passed": 786,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1305,13 +1305,12 @@
     "isolated_all_exits_zero": true,
     "python": "3.12.14",
     "tesseract": "5.3.4",
-    "baseline_environment_identical": false,
     "windows_executed_this_run": false,
     "gpu_executed": false,
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/a6-fixed-review-2026-11-17/README.md"
+    "evidence": "development-records/runs/a7-mit-binding-2026-11-17/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -3278,5 +3277,57 @@
       "artifact_name": "windows-cpu-validation-reports",
       "artifact_digest": "sha256:5e5938919f532e744ec6f1941a8956f2cb796a348a7fe235cd522bbc71ae6482"
     }
+  },
+  "previous_full_regression_reference_before_a7": {
+    "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+    "progress_git_commit": "7b787d3dcf1e82fd43873c8c684a0412a38bcfb6",
+    "json_pointer": "/full_regression",
+    "sha256": "456b65cb9be4bef075fe3f202b77562a38790073e195e5acd06ca9344ebe93e1",
+    "run": 43922354838
+  },
+  "a7_mit_notice": {
+    "source_commit": "07afa79add13d35ede89af8c332bc6dab1aed15e",
+    "base_commit": "7b787d3dcf1e82fd43873c8c684a0412a38bcfb6",
+    "status": "implemented-and-branch-verified",
+    "first_corrections_commit": "8cd064b",
+    "workflow_env_commit": "12d3dce",
+    "multipart_tests_commit": "edb1d82",
+    "windows_base_run": 43996798825,
+    "windows_executed": true,
+    "env_source_guard_passed": true,
+    "own_mit_bound": true,
+    "own_notice_reason_absent": true,
+    "own_notice_files": 1,
+    "own_notice": {
+      "path": "_internal/desktop_app/data/licenses/markitdown-desktop/LICENSE",
+      "bytes": 1081,
+      "sha256": "93953f882c7d4d5fd708364d5c39525e088ec5da25dbeb8e017dd68a6a03d230"
+    },
+    "inventory_summary": {
+      "bytes": 262639347,
+      "file_inventory_complete": true,
+      "files": 1615,
+      "original_notice_files": 112,
+      "packages": 40,
+      "redistribution_approved": false,
+      "release_ready": false,
+      "review_files": 124,
+      "runtime_sbom_complete": false,
+      "unresolved_files": 113
+    },
+    "review_reasons": {
+      "microsoft-native-redistribution-review": 14,
+      "source-owner-unresolved": 113
+    },
+    "runtime_sbom_complete": false,
+    "redistribution_approved": false,
+    "release_ready": false,
+    "old_attempt_full_json_copied": false,
+    "fixed_candidate_source_unchanged": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+    "evidence": "development-records/runs/a7-mit-binding-2026-11-17/README.md",
+    "integration_results": "See this stage PR final-head checks",
+    "next_owner": "Claude planner; stop after A7",
+    "pr": 13,
+    "pr_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/13"
   }
 }

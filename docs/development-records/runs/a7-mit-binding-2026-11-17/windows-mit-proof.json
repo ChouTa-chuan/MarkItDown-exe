@@ -1,0 +1,45 @@
+{
+  "check": "a7-own-mit-windows-verification",
+  "source_commit": "07afa79add13d35ede89af8c332bc6dab1aed15e",
+  "run_id": 43996798825,
+  "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43996798825",
+  "event": "workflow_dispatch",
+  "conclusion": "success",
+  "env_source_guard_passed": true,
+  "source_review_metadata_sha256": "b1a651e2f0b749cfb0a9a31d7f0c78b4d83201be42eda943702fec733d769f13",
+  "provenance_report_sha256": "8061bab66004f569d2b8ff9575b1e9862c47403d02a93bbd182f2e1e817952bd",
+  "metadata_complete": true,
+  "classification_replayed": true,
+  "own_package": "markitdown-desktop",
+  "own_version": "0.19.1",
+  "own_notice": {
+    "path": "_internal/desktop_app/data/licenses/markitdown-desktop/LICENSE",
+    "bytes": 1081,
+    "sha256": "93953f882c7d4d5fd708364d5c39525e088ec5da25dbeb8e017dd68a6a03d230"
+  },
+  "own_notice_reason_absent": true,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "artifacts": [
+    {
+      "id": 14290860878,
+      "name": "windows-ocr-ci-inputs",
+      "digest": "sha256:7154e77e8ebfe4567dbb9502fd5fcbfaca73c3dea360e9108248ef3f98746080",
+      "expires_at": "2026-11-18T01:38:21Z"
+    },
+    {
+      "id": 14290766168,
+      "name": "windows-native-build-reports",
+      "digest": "sha256:50598ab3ae63509744158b0d90a9af9037915ea98636bee9fe1dda4e0b7523dd",
+      "expires_at": "2026-11-24T01:38:22Z"
+    },
+    {
+      "id": 14290628500,
+      "name": "windows-base-validation-reports",
+      "digest": "sha256:90162789474f0ff9e89d54914a4df8746a00715e22c94d95a509e745ffa99471",
+      "expires_at": "2026-11-24T01:49:53Z"
+    }
+  ],
+  "scope": "A7 branch validation; global fixed release candidate remains A6 8285450; full JSON kept in CI only"
+}

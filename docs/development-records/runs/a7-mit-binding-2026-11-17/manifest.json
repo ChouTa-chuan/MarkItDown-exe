@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-17",
+  "tested_source": "07afa79add13d35ede89af8c332bc6dab1aed15e",
+  "accepted": true,
+  "accepted_scope": "A7 implementation, local regression and Windows base branch validation; final integration is tracked in PR",
+  "windows_executed": true,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "keywords": [
+    "A7",
+    "自有MIT",
+    "套件原文對照",
+    "EXPECTED_SOURCE",
+    "缺片",
+    "越界",
+    "Claude planner"
+  ],
+  "files": {
+    "README.md": "ebcb5caecbf190130f25d550a6806069ff88d399ea0616c03be8eee5383b0388",
+    "isolated-summary.json": "9c849a203d5233bb5c797c76a0d94aec303ff7aff0c9becee8479983858483df",
+    "mixed-result.json": "1a11fcfcfcea7ad2718579ec60a82bdd37d3e0c08b7253992b653a9002c9b7bc",
+    "windows-mit-proof.json": "a72ac41d9b7bdf38378d3669f88657f9ec629c2d79fe1d66f920bc9950e3353c"
+  }
+}
