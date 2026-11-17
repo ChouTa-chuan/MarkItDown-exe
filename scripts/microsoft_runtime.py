@@ -140,6 +140,9 @@ def validate_probe(report):
     for row in report['files']:
         require(row['official_name'] == official_name(row['file']), 'Wrong official filename')
         ref = report['references'][row['official_name']]
+        require(all(isinstance(v,str) and re.fullmatch('[0-9a-f]{64}', v) for v in
+                    (row['sha256'],row['source_sha256'],row['a6_sha256'],row['official_sha256'],ref['sha256'])),
+                'Invalid Microsoft SHA-256')
         require(row['official_sha256'] == ref['sha256'] and type(row['matches_official']) is bool
                 and row['matches_official'] == (row['sha256'] == ref['sha256']), 'Inconsistent official comparison')
         require(row['source_sha256'] == row['sha256'], 'Source bytes differ from bundle')
@@ -187,10 +190,18 @@ def check_catalog(catalog, *, report, entry, root=ROOT):
             and catalog.get('registry_entry') == 'base-microsoft', 'Invalid Microsoft catalog')
     require(entry['requires_user_decision'], 'Microsoft needs A13 user decision')
     require(any(ref['path'] == CATALOG_PATH for ref in entry['evidence']), 'Registry does not reference Microsoft catalog')
-    for ref in [catalog['basis'], catalog['probe'], *[d['snapshot'] for d in catalog['documents']]]:
+    for ref in [catalog['basis'], catalog['probe'], catalog['lock'], *[d['snapshot'] for d in catalog['documents']]]:
         gates.reference({k:ref[k] for k in ('path','sha256')}, root)
     require(catalog['basis']['path'] == BASIS_PATH and catalog['source_commit'] == report['selection']['source_commit'],
             'Microsoft catalog source mismatch')
+    require(catalog['lock']['path'] == 'packaging/profiles/base-windows-runtime.txt', 'Wrong Microsoft wheel lock')
+    from embedded_components import read_lock
+    lock = read_lock(root/catalog['lock']['path'])
+    require(set(catalog['containers']) == {'numpy','pandas','pyside6-essentials','shiboken6'},
+            'Missing Microsoft wheel source container')
+    for dist, container in catalog['containers'].items():
+        require(container['version'] == lock[dist]['version'] and container['sha256'] in lock[dist]['hashes'],
+                'Microsoft wheel container differs from lock: '+dist)
     observed = gates.read_json(root/catalog['probe']['path'])
     validate_probe(observed)
     require(observed['basis'] == {**catalog['basis'], 'source_commit':catalog['source_commit']}, 'Probe basis differs')
@@ -204,14 +215,23 @@ def check_catalog(catalog, *, report, entry, root=ROOT):
     gaps = []
     for row in observed['files']:
         require(row['a6_sha256'] == natives[row['file']]['bundled_sha256'], 'Microsoft A6 file hash differs')
+        require(row['origin'] == natives[row['file']]['origin']
+                and row['distributions'] == natives[row['file']]['distributions'], 'Microsoft A6 origin differs')
         identity = row['identity']
         if (not row['matches_a6'] or identity.get('identity_error') or identity.get('company') != 'Microsoft Corporation'
                 or not identity.get('file_version') or identity.get('signature_status') != 'Valid'
                 or 'O=Microsoft Corporation' not in (identity.get('signer') or '')):
             gaps.append(row['file'])
+    for name, ref in observed['references'].items():
+        identity = ref['identity']
+        if (identity.get('identity_error') or identity.get('company') != 'Microsoft Corporation'
+                or not identity.get('file_version') or identity.get('signature_status') != 'Valid'
+                or 'O=Microsoft Corporation' not in (identity.get('signer') or '')):
+            gaps.append('official:'+name)
     # 所有候選條款均只是供 A13 審閱；條款標題、版本與適用性仍需使用者逐項確認。
     require(catalog['documents'] and catalog['legal_approval'] is False, 'Missing terms or premature legal approval')
-    if gaps:
+    require(type(catalog['unverified_terms']) is bool, 'Missing terms verification limitation')
+    if gaps or catalog['unverified_terms']:
         require(entry['status'] == 'open', 'Incomplete Microsoft identity must stay open')
     return dict(catalog=CATALOG_PATH, files=len(names), identity_gaps=gaps,
                 renamed_files=[r['file'] for r in observed['files'] if r['renamed']],

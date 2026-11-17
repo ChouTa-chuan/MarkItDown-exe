@@ -4,7 +4,7 @@
 
 ## 更新中
 
-- A10：新增唯讀 Windows Microsoft runtime 逐檔探測及公開 metadata；來源變動、漏檔、偽造 hash 比較與截斷反例已驗證。目錄與條款證據仍在蒐集中，尚未關閉義務。
+- A10：新增唯讀 Windows Microsoft runtime 逐檔探測及公開 metadata；來源變動、漏檔、偽造 hash 比較與截斷反例已驗證。目錄透過 evidence path／hash 綁定，來源 wheel 必須符合原鎖檔；A13 使用者決定不可略過。實際 Windows 目錄與條款證據仍在蒐集中，尚未關閉義務。
 
 ### 2026-11-17｜A9 基本包 wheel 內含第三方元件目錄
 

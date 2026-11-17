@@ -123,6 +123,98 @@ class MicrosoftProbeTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 ms.validate_probe(report)
 
+    def catalog_fixture(self):
+        report = self.probe()
+        def pin(name, value):
+            path = self.root/name
+            path.parent.mkdir(parents=True,exist_ok=True)
+            path.write_text(json.dumps(value))
+            return dict(path=name,sha256=ms.digest(path))
+        probe_ref = pin('evidence/probe.json',report)
+        notice = pin('evidence/terms.txt','Synthetic terms, not legal evidence')
+        import embedded_components
+        lock_path = 'packaging/profiles/base-windows-runtime.txt'
+        target = self.root/lock_path
+        target.parent.mkdir(parents=True,exist_ok=True)
+        target.write_bytes((ROOT/lock_path).read_bytes())
+        lock = embedded_components.read_lock(target)
+        containers = {d:dict(version=lock[d]['version'],sha256=sorted(lock[d]['hashes'])[0])
+                      for d in ['numpy','pandas','pyside6-essentials','shiboken6']}
+        catalog = dict(schema_version=1,profile='base',registry_entry='base-microsoft',
+                       source_commit=self.review['selection']['source_commit'],
+                       basis=dict(path=ms.BASIS_PATH,sha256=ms.digest(self.root/ms.BASIS_PATH)),
+                       probe=probe_ref,files=report['files'],references=report['references'],
+                       lock=dict(path=lock_path,sha256=ms.digest(target)),containers=containers,
+                       version_basis='pe-version-resource',documents=[dict(snapshot=notice)],
+                       unverified_terms=False,legal_approval=False)
+        entry = dict(native_files=self.names,requires_user_decision=True,status='evidence_complete',
+                     evidence=[dict(path=ms.CATALOG_PATH,sha256='0'*64)])
+        return catalog, entry
+
+    def test_catalog_binds_fourteen_copies_and_does_not_require_matching_newer_redist(self):
+        catalog, entry = self.catalog_fixture()
+        result = ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
+        self.assertEqual(result['identity_gaps'],[])
+        self.assertEqual(result['official_matches'],0)
+        self.assertFalse(result['legal_approval'])
+
+    def test_catalog_rejects_missing_copy_and_changed_observation(self):
+        for mode in ('missing','changed'):
+            catalog, entry = self.catalog_fixture()
+            if mode == 'missing':
+                catalog['files'].pop()
+            else:
+                catalog['files'][0]['identity']['file_version'] = 'invented'
+            with self.assertRaises(ValueError):
+                ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
+
+    def test_catalog_rejects_changed_terms_and_probe_bytes(self):
+        for target in ('documents','probe'):
+            catalog, entry = self.catalog_fixture()
+            ref = catalog['probe'] if target == 'probe' else catalog['documents'][0]['snapshot']
+            (self.root/ref['path']).write_text('changed')
+            with self.assertRaisesRegex(ValueError,'hash mismatch'):
+                ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
+
+    def test_catalog_cannot_close_with_signature_gap_or_unverified_terms(self):
+        self.identities = lambda paths: {p:dict(identity_error='Signature query failed') for p in paths}
+        catalog, entry = self.catalog_fixture()
+        with self.assertRaisesRegex(ValueError,'must stay open'):
+            ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
+        entry['status'] = 'open'
+        self.assertTrue(ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)['identity_gaps'])
+        catalog['unverified_terms'] = True
+        entry['status'] = 'evidence_complete'
+        with self.assertRaises(ValueError):
+            ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
+
+    def test_catalog_rejects_unlocked_wheel_container(self):
+        catalog, entry = self.catalog_fixture()
+        catalog['containers']['numpy']['sha256'] = '0'*64
+        with self.assertRaisesRegex(ValueError,'differs from lock'):
+            ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
+
+    def test_catalog_preserves_a13_user_decision_requirement(self):
+        catalog, entry = self.catalog_fixture()
+        entry['requires_user_decision'] = False
+        with self.assertRaisesRegex(ValueError,'A13 user decision'):
+            ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
+        entry['requires_user_decision'] = True
+        catalog['legal_approval'] = True
+        with self.assertRaisesRegex(ValueError,'premature legal approval'):
+            ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
+
+    def test_installed_terms_preserve_original_bytes_and_exclude_unrelated_license(self):
+        english = self.root/'Licenses/1033/license.txt'
+        english.parent.mkdir(parents=True)
+        raw = b'MICROSOFT VISUAL STUDIO ENTERPRISE 2022\r\nOriginal terms\r\n'
+        english.write_bytes(raw)
+        (english.parent/'license.other.txt').write_text('Third party license')
+        result = ms.installed_terms(self.redist)
+        self.assertEqual(len(result['documents']),1)
+        import base64
+        self.assertEqual(base64.b64decode(result['documents'][0]['content_base64']),raw)
+
     def test_probe_refuses_non_windows(self):
         with patch.object(ms.sys,'platform','linux'), self.assertRaisesRegex(ValueError,'requires Windows'):
             ms.probe(self.bundle,self.review,root=self.root,redist=self.redist)
