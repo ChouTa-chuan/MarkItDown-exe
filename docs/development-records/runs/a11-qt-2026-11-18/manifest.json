@@ -1,7 +1,7 @@
 {
   "date_taipei": "2026-11-18",
-  "source_commit": "bb22c0eb7f45cdbedee6fba0765f06df1f3e024d",
-  "result": "in-progress",
+  "source_commit": "0a1108a304123deac64c1a2f38581128060b0591",
+  "result": "hosted-windows-evidence-verified; final integration in PR 22",
   "keywords": [
     "A11",
     "Qt",
@@ -9,7 +9,10 @@
     "qt_attribution"
   ],
   "files": {
-    "README.md": "e195be46e88da7b591a02963b936af8a3f955519d396225470b597979fb78d2a",
-    "first-failure.json": "b092cbf6b35c747104743587414fff386e1e206150d418a4acb9570339e73be7"
+    "README.md": "e58f6e37a0ae15d92792c9e135913fc8a39595592a023458673d2a068e6b2939",
+    "ci-reference.json": "d0c66c91fef48937f421a2b5d6265670f9901f40fe8c1888470cdfaaa37cd701",
+    "first-failure.json": "b092cbf6b35c747104743587414fff386e1e206150d418a4acb9570339e73be7",
+    "windows-qt-sources.json": "f7f87c94812c3b9a813e57d2b5f2089534e5f5dae614cea161833342a6cf459f",
+    "windows-replacement.json": "b50176dcba2da93741de56ea324337dc727675ba6b4f4b5d13275b197f13a618"
   }
 }

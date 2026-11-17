@@ -3458,5 +3458,15 @@
     "util/",
     "src/testlib/",
     "src/testinternal/"
-  ]
+  ],
+  "windows_evidence": {
+    "build_info": {
+      "path": "docs/development-records/runs/a11-qt-2026-11-18/windows-qt-sources.json",
+      "sha256": "f7f87c94812c3b9a813e57d2b5f2089534e5f5dae614cea161833342a6cf459f"
+    },
+    "replacement": {
+      "path": "docs/development-records/runs/a11-qt-2026-11-18/windows-replacement.json",
+      "sha256": "b50176dcba2da93741de56ea324337dc727675ba6b4f4b5d13275b197f13a618"
+    }
+  }
 }

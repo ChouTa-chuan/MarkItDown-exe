@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "check": "qt-replacement",
+  "accepted": true,
+  "platform": "win32",
+  "hosted_ci": true,
+  "clean_machine_accepted": false,
+  "physical_machine_accepted": false,
+  "gpu_executed": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "input_sha256": "df3c5c90fdbb3cecf1dc70590ccd3fa709e66bb8626bdadd2c7b7464308a3bac",
+  "phases": {
+    "baseline": {
+      "opened": true,
+      "normal_exit": true,
+      "returncode": 0,
+      "close_requests": 3,
+      "qt_core": {
+        "path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\qt-replacement-work\\bundle\\_internal\\PySide6\\Qt6Core.dll",
+        "sha256": "f57ed38afd95d0306cca9d88d997f639f70c7628a4f1f064eae291d579487121"
+      }
+    },
+    "replaced": {
+      "opened": true,
+      "normal_exit": true,
+      "returncode": 0,
+      "close_requests": 3,
+      "qt_core": {
+        "path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\qt-replacement-work\\bundle\\_internal\\PySide6\\Qt6Core.dll",
+        "sha256": "39175459c4837c8cc0f709a637fb6eadb25d696785109c8393559ec876f02703"
+      }
+    },
+    "missing": {
+      "returncode": 1,
+      "log_sha256": "312d8ef84635bbf8853ac3265e60ca8342a81373c5e403ff0daa9aadae16d4f3",
+      "expected_loader_failure": true
+    },
+    "restored": {
+      "opened": true,
+      "normal_exit": true,
+      "returncode": 0,
+      "close_requests": 3,
+      "qt_core": {
+        "path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\qt-replacement-work\\bundle\\_internal\\PySide6\\Qt6Core.dll",
+        "sha256": "f57ed38afd95d0306cca9d88d997f639f70c7628a4f1f064eae291d579487121"
+      }
+    }
+  },
+  "original_sha256": "f57ed38afd95d0306cca9d88d997f639f70c7628a4f1f064eae291d579487121",
+  "replacement_sha256": "39175459c4837c8cc0f709a637fb6eadb25d696785109c8393559ec876f02703",
+  "active_phase": "restored",
+  "original_bundle_unchanged": true,
+  "ci": {
+    "run": 44155124181,
+    "head": "0a1108a304123deac64c1a2f38581128060b0591",
+    "checkout_commit": "937ce8b43e087fb25c256af1bae1338de9a512a7",
+    "job": 134295223383,
+    "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44155124181",
+    "created_at": "2026-11-17T19:07:13Z",
+    "artifacts": [
+      {
+        "name": "windows-ocr-ci-inputs",
+        "digest": "sha256:5404ce7a963a168669aca40eb3e86e002388bf4e428743656e5b0eda81e74e2d",
+        "expires_at": "2026-11-18T19:09:28Z"
+      },
+      {
+        "name": "windows-base-validation-reports",
+        "digest": "sha256:bc5ee78095affcd45388932b4054209da61ebf8a03b86c640f467e0ba672771c",
+        "expires_at": "2026-11-24T19:23:32Z"
+      },
+      {
+        "name": "windows-native-build-reports",
+        "digest": "sha256:be7ae285eb77f2c35e528b8b1924daa26c839de9e622edf21f8c73b9ab1d4d7c",
+        "expires_at": "2026-11-24T19:09:32Z"
+      }
+    ],
+    "annotation_message_sha256": "013fb5a2fd3b59f6841a41ea13d11d0b32afd2743773ce6cfbf2dc1172fcc240"
+  }
+}

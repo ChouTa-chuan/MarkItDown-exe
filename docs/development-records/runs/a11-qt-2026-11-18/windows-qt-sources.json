@@ -1,0 +1,50 @@
+{
+  "check": "qt-release-sources",
+  "version": "6.12.0",
+  "qt5_commit": "ef25002ed292b132d1ed3246bfcee1d24a9cd966",
+  "qtbase_commit": "025bdad181de241e81bf853c8a2d7bf3d19261a9",
+  "pyside_commit": "f50facb83fc3dc5f3240c854668c7a6dd93871b2",
+  "observed": {
+    "platform": "Windows",
+    "qt_version": "6.12.0",
+    "pyside_version": "6.12.0",
+    "shiboken_version": "6.12.0",
+    "qt_build": "Qt 6.12.0 (x86_64-little_endian-llp64 shared (dynamic) release build; by MSVC 2022) [Python limited API run time: 3.12.10 built: 3.14.3]",
+    "library_version": "6.12.0",
+    "shared_build": true,
+    "debug_build": false,
+    "core_extension_sha256": "6486f6f0a2fec42fc8c652c0b76bb3ad0d44eaccad9c72e577116a075681eebb"
+  },
+  "catalog_sha256": "224e4f7df81b99d1c55310e49beb5a280b10b7a7d15f7b4615872a73bb1725d6",
+  "release_source_map_verified": true,
+  "binary_reproduction_verified": false,
+  "upstream_build_patch_set_verified": false,
+  "redistribution_approved": false,
+  "runtime_sbom_complete": false,
+  "ci": {
+    "run": 44155124181,
+    "head": "0a1108a304123deac64c1a2f38581128060b0591",
+    "checkout_commit": "937ce8b43e087fb25c256af1bae1338de9a512a7",
+    "job": 134295223383,
+    "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44155124181",
+    "created_at": "2026-11-17T19:07:13Z",
+    "artifacts": [
+      {
+        "name": "windows-ocr-ci-inputs",
+        "digest": "sha256:5404ce7a963a168669aca40eb3e86e002388bf4e428743656e5b0eda81e74e2d",
+        "expires_at": "2026-11-18T19:09:28Z"
+      },
+      {
+        "name": "windows-base-validation-reports",
+        "digest": "sha256:bc5ee78095affcd45388932b4054209da61ebf8a03b86c640f467e0ba672771c",
+        "expires_at": "2026-11-24T19:23:32Z"
+      },
+      {
+        "name": "windows-native-build-reports",
+        "digest": "sha256:be7ae285eb77f2c35e528b8b1924daa26c839de9e622edf21f8c73b9ab1d4d7c",
+        "expires_at": "2026-11-24T19:09:32Z"
+      }
+    ],
+    "annotation_message_sha256": "1505d8fdbcff4230f96a656ecd08b0e06fcdda898cb5c48d5968bb7fc3fa4d0f"
+  }
+}

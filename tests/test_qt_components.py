@@ -58,6 +58,12 @@ class QtComponentTests(unittest.TestCase):
             self.save(value)
             with self.assertRaisesRegex(ValueError, 'relabelled'):
                 qt.load_catalog(self.root)
+        value = copy.deepcopy(catalog)
+        mesa = next(r for r in value['native_files'] if r['file'].endswith('opengl32sw.dll'))
+        mesa.update(version='6.12.0', version_basis='release-source-map')
+        self.save(value)
+        with self.assertRaisesRegex(ValueError, 'native source version basis'):
+            qt.load_catalog(self.root)
 
     def test_incomplete_attribution_or_other_release_is_rejected(self):
         catalog = qt.load_catalog(self.root)

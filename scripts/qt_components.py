@@ -86,6 +86,14 @@ def load_catalog(root=ROOT):
             raise ValueError('Qt attribution lacks original notice binding')
     if seen != {(name, i) for name, rows in declarations.items() for i in range(len(rows))}:
         raise ValueError('Qt attribution coverage differs')
+    for row in value['native_files']:
+        if row['file'] == 'PySide6/opengl32sw.dll':
+            valid = row['module'] == 'external-mesa' and row['version'] is None and row['version_basis'] == 'unknown'
+        else:
+            valid = (row['module'] in ('qtbase', 'qtsvg', 'qtimageformats', 'pyside-setup')
+                     and row['version'] == value['version'] and row['version_basis'] == 'release-source-map')
+        if not valid:
+            raise ValueError('Qt native source version basis differs')
     if 'windows_evidence' in value:
         verify_windows_evidence(value, root)
     return value
