@@ -6,10 +6,11 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 113 筆。
+共 114 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-17 | 證據 | A10 Microsoft 執行期逐檔對照 |  |  |  | [development-records/runs/a10-microsoft-runtime-2026-11-17/README.md](development-records/runs/a10-microsoft-runtime-2026-11-17/README.md) |
 | 2026-11-17 | 證據 | A6 固定來源候選與審閱紀錄 | 8285450 | 接受、Windows已執行 | A6、固定候選、來源重分類、metadata、CPU排程、完整回歸、整體審閱 | [development-records/runs/a6-fixed-review-2026-11-17/README.md](development-records/runs/a6-fixed-review-2026-11-17/README.md) |
 | 2026-11-17 | 證據 | A7 自有 MIT 對照與工作流驗證 | 07afa79 | 接受、Windows已執行 | A7、自有MIT、套件原文對照、EXPECTED_SOURCE、缺片、越界、Claude planner | [development-records/runs/a7-mit-binding-2026-11-17/README.md](development-records/runs/a7-mit-binding-2026-11-17/README.md) |
 | 2026-11-17 | 證據 | A8 義務登記與旗標判定驗證 | 5e7fd53 | 接受 | A8、義務登記、旗標推導、唯一對應、使用者決定出處、無wheel擁有者 | [development-records/runs/a8-gates-2026-11-17/README.md](development-records/runs/a8-gates-2026-11-17/README.md) |

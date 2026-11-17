@@ -1,0 +1,561 @@
+{
+  "schema_version": 1,
+  "profile": "base",
+  "registry_entry": "base-microsoft",
+  "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+  "scope": "A10 installed-source reconstruction: fourteen copies hash-identical to A6; actual built-bundle CI is verified separately; no legal approval or package change",
+  "basis": {
+    "path": "docs/development-records/runs/a6-fixed-review-2026-11-17/base-source-review.json",
+    "sha256": "b6cc9736b3c5d2e8290a23b7be6a5dafe1a009ddd22f450e2e8c969408420111"
+  },
+  "probe": {
+    "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/windows-probe.json",
+    "sha256": "281abcbe2cf0f35c13b5b602a5e1b7082dbe12e211877615bea9e648f5501dca"
+  },
+  "lock": {
+    "path": "packaging/profiles/base-windows-runtime.txt",
+    "sha256": "3e6f43f67a4d514a963284d79490987c9a8dcd3db08ed2f77188e1d04d7e99f0"
+  },
+  "version_basis": "pe-version-resource",
+  "containers": {
+    "numpy": {
+      "version": "2.5.4",
+      "filename": "numpy-2.5.4-cp312-cp312-win_amd64.whl",
+      "sha256": "a7b1b6353e36a7e50de2973a38d705c88ee93adcf120673cee7f45a4a3fa223a",
+      "source": "https://files.pythonhosted.org/packages/12/33/fefe62073dc8acfd0f2b9ed7c003af2f50aa61555e113e6db02b8f79f145/numpy-2.5.4-cp312-cp312-win_amd64.whl"
+    },
+    "pandas": {
+      "version": "3.1.0",
+      "filename": "pandas-3.1.0-cp312-cp312-win_amd64.whl",
+      "sha256": "b8c75dbb27c7d170b25c13dd35515da4bb92d40fe8bb3bd2c69a95de2218889b",
+      "source": "https://files.pythonhosted.org/packages/10/72/06aefff8fe5efc5e1ca8bfb2695b648a435358f6dc224d4e40159314181a/pandas-3.1.0-cp312-cp312-win_amd64.whl"
+    },
+    "pyside6-essentials": {
+      "version": "6.12.0",
+      "filename": "pyside6_essentials-6.12.0-cp310-abi3-win_amd64.whl",
+      "sha256": "c9a95102aa23c1f86516a30d5a9be37552d324eee7e567eb7508973f1218cb42",
+      "source": "https://files.pythonhosted.org/packages/03/61/9a7e32a37b224f68506785bfb0f288d516098ec71681782d72b695a6c95d/pyside6_essentials-6.12.0-cp310-abi3-win_amd64.whl"
+    },
+    "shiboken6": {
+      "version": "6.12.0",
+      "filename": "shiboken6-6.12.0-cp310-abi3-win_amd64.whl",
+      "sha256": "a1906cb8116869178c64b6bab52623bbc8b4ceed7b30bfc3c9aa0f6e67f6438e",
+      "source": "https://files.pythonhosted.org/packages/2a/b6/bee97e7a2edeab72aafabb46ee5adc939790a638d107860b4cad7a20e407/shiboken6-6.12.0-cp310-abi3-win_amd64.whl"
+    }
+  },
+  "additional_sources": {
+    "cpython": {
+      "version": "3.12.10",
+      "source": "https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe",
+      "source_build": "https://github.com/python/cpython/tree/0cc81280367df838c4b199f8f0378837165071c2",
+      "scope": "A6 and this probe observe bytes from setup-python installation; original installer was not downloaded/hash-verified in A10"
+    },
+    "redist": {
+      "directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT",
+      "scope": "Read-only VS installed Redist; folder version is not PE version"
+    }
+  },
+  "files": [
+    {
+      "a6_sha256": "f6f1d55bfd64027820ddce48f9cd8cf46d53bfa34047e6acf4ef348d492a05cb",
+      "bytes": 549176,
+      "distributions": [
+        {
+          "name": "PySide6_Essentials",
+          "version": "6.12.0"
+        }
+      ],
+      "file": "PySide6/MSVCP140.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\PySide6"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "msvcp140.dll",
+      "official_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "origin": "installed-wheel",
+      "renamed": false,
+      "sha256": "f6f1d55bfd64027820ddce48f9cd8cf46d53bfa34047e6acf4ef348d492a05cb",
+      "source_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\PySide6\\MSVCP140.dll",
+      "source_sha256": "f6f1d55bfd64027820ddce48f9cd8cf46d53bfa34047e6acf4ef348d492a05cb"
+    },
+    {
+      "a6_sha256": "2be87527c41e1ba8aff48e326e0adcd4743516e0bbcc9304986c726e27de6aca",
+      "bytes": 27448,
+      "distributions": [
+        {
+          "name": "PySide6_Essentials",
+          "version": "6.12.0"
+        }
+      ],
+      "file": "PySide6/MSVCP140_1.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\PySide6"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "msvcp140_1.dll",
+      "official_sha256": "bfad5aef4c63a669e3c140655cdfdf395b6c979b400a447bd5dcb65ed8826c3d",
+      "origin": "installed-wheel",
+      "renamed": false,
+      "sha256": "2be87527c41e1ba8aff48e326e0adcd4743516e0bbcc9304986c726e27de6aca",
+      "source_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\PySide6\\MSVCP140_1.dll",
+      "source_sha256": "2be87527c41e1ba8aff48e326e0adcd4743516e0bbcc9304986c726e27de6aca"
+    },
+    {
+      "a6_sha256": "6a72ed8a87eae1671640bd1ca98eccb989f1772ae46ab84594e385bf6d4ac4fb",
+      "bytes": 271672,
+      "distributions": [
+        {
+          "name": "PySide6_Essentials",
+          "version": "6.12.0"
+        }
+      ],
+      "file": "PySide6/MSVCP140_2.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\PySide6"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "msvcp140_2.dll",
+      "official_sha256": "3ea06f0ee098b4823cb79599df3780e7f23cce52c19aac31d2a0d47efe33a5e9",
+      "origin": "installed-wheel",
+      "renamed": false,
+      "sha256": "6a72ed8a87eae1671640bd1ca98eccb989f1772ae46ab84594e385bf6d4ac4fb",
+      "source_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\PySide6\\MSVCP140_2.dll",
+      "source_sha256": "6a72ed8a87eae1671640bd1ca98eccb989f1772ae46ab84594e385bf6d4ac4fb"
+    },
+    {
+      "a6_sha256": "a36e0cb185eb89533ed96d4568138f86a1315756a8b2644c5963a8ce23e32101",
+      "bytes": 116024,
+      "distributions": [
+        {
+          "name": "PySide6_Essentials",
+          "version": "6.12.0"
+        }
+      ],
+      "file": "PySide6/VCRUNTIME140.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\PySide6"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "vcruntime140.dll",
+      "official_sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "origin": "installed-wheel",
+      "renamed": false,
+      "sha256": "a36e0cb185eb89533ed96d4568138f86a1315756a8b2644c5963a8ce23e32101",
+      "source_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\PySide6\\VCRUNTIME140.dll",
+      "source_sha256": "a36e0cb185eb89533ed96d4568138f86a1315756a8b2644c5963a8ce23e32101"
+    },
+    {
+      "a6_sha256": "302b1e160e858602490a55e32ae2e29ddfc0bec2a188e19550cb655cdaa58f9c",
+      "bytes": 41272,
+      "distributions": [
+        {
+          "name": "PySide6_Essentials",
+          "version": "6.12.0"
+        }
+      ],
+      "file": "PySide6/VCRUNTIME140_1.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\PySide6"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "vcruntime140_1.dll",
+      "official_sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+      "origin": "installed-wheel",
+      "renamed": false,
+      "sha256": "302b1e160e858602490a55e32ae2e29ddfc0bec2a188e19550cb655cdaa58f9c",
+      "source_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\PySide6\\VCRUNTIME140_1.dll",
+      "source_sha256": "302b1e160e858602490a55e32ae2e29ddfc0bec2a188e19550cb655cdaa58f9c"
+    },
+    {
+      "a6_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "bytes": 557728,
+      "distributions": [],
+      "file": "msvcp140.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT"
+      },
+      "matches_a6": true,
+      "matches_official": true,
+      "official_name": "msvcp140.dll",
+      "official_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "origin": "system-native",
+      "renamed": false,
+      "sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "source_path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT\\msvcp140.dll",
+      "source_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9"
+    },
+    {
+      "a6_sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde",
+      "bytes": 575056,
+      "distributions": [
+        {
+          "name": "numpy",
+          "version": "2.5.4"
+        }
+      ],
+      "file": "numpy.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.40.33810.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\numpy.libs"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "msvcp140.dll",
+      "official_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "origin": "installed-wheel",
+      "renamed": true,
+      "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde",
+      "source_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\numpy.libs\\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+      "source_sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde"
+    },
+    {
+      "a6_sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde",
+      "bytes": 575056,
+      "distributions": [
+        {
+          "name": "pandas",
+          "version": "3.1.0"
+        }
+      ],
+      "file": "pandas.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.40.33810.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\pandas.libs"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "msvcp140.dll",
+      "official_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "origin": "installed-wheel",
+      "renamed": true,
+      "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde",
+      "source_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\pandas.libs\\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+      "source_sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde"
+    },
+    {
+      "a6_sha256": "1ba4d7c0a95d375da138a057a57593b33510ad5bda6c5e2686afd68faa5b4231",
+      "bytes": 549176,
+      "distributions": [
+        {
+          "name": "shiboken6",
+          "version": "6.12.0"
+        }
+      ],
+      "file": "shiboken6/MSVCP140.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\shiboken6"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "msvcp140.dll",
+      "official_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "origin": "installed-wheel",
+      "renamed": false,
+      "sha256": "1ba4d7c0a95d375da138a057a57593b33510ad5bda6c5e2686afd68faa5b4231",
+      "source_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\shiboken6\\MSVCP140.dll",
+      "source_sha256": "1ba4d7c0a95d375da138a057a57593b33510ad5bda6c5e2686afd68faa5b4231"
+    },
+    {
+      "a6_sha256": "eea79bc8561325f10ebf50564091ea48a893f9733aaa91962825d1e250992cc3",
+      "bytes": 27448,
+      "distributions": [
+        {
+          "name": "shiboken6",
+          "version": "6.12.0"
+        }
+      ],
+      "file": "shiboken6/MSVCP140_1.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\shiboken6"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "msvcp140_1.dll",
+      "official_sha256": "bfad5aef4c63a669e3c140655cdfdf395b6c979b400a447bd5dcb65ed8826c3d",
+      "origin": "installed-wheel",
+      "renamed": false,
+      "sha256": "eea79bc8561325f10ebf50564091ea48a893f9733aaa91962825d1e250992cc3",
+      "source_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\shiboken6\\MSVCP140_1.dll",
+      "source_sha256": "eea79bc8561325f10ebf50564091ea48a893f9733aaa91962825d1e250992cc3"
+    },
+    {
+      "a6_sha256": "e7be9112ee9a5b9f44b44bff24cb761cca9b1ed7550b612f77b70edfcf5fdabf",
+      "bytes": 116024,
+      "distributions": [
+        {
+          "name": "shiboken6",
+          "version": "6.12.0"
+        }
+      ],
+      "file": "shiboken6/VCRUNTIME140.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\shiboken6"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "vcruntime140.dll",
+      "official_sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "origin": "installed-wheel",
+      "renamed": false,
+      "sha256": "e7be9112ee9a5b9f44b44bff24cb761cca9b1ed7550b612f77b70edfcf5fdabf",
+      "source_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\shiboken6\\VCRUNTIME140.dll",
+      "source_sha256": "e7be9112ee9a5b9f44b44bff24cb761cca9b1ed7550b612f77b70edfcf5fdabf"
+    },
+    {
+      "a6_sha256": "f02cd4a862b85a9a3153d27e15e5a213f5df8e3d77004ed2e87b8a7e8873d97c",
+      "bytes": 41272,
+      "distributions": [
+        {
+          "name": "shiboken6",
+          "version": "6.12.0"
+        }
+      ],
+      "file": "shiboken6/VCRUNTIME140_1.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=The QT Company Oy, O=The QT Company Oy, L=Espoo, S=Uusimaa, C=FI, SERIALNUMBER=2637805-2, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=FI",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\shiboken6"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "vcruntime140_1.dll",
+      "official_sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+      "origin": "installed-wheel",
+      "renamed": false,
+      "sha256": "f02cd4a862b85a9a3153d27e15e5a213f5df8e3d77004ed2e87b8a7e8873d97c",
+      "source_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\microsoft-env\\Lib\\site-packages\\shiboken6\\VCRUNTIME140_1.dll",
+      "source_sha256": "f02cd4a862b85a9a3153d27e15e5a213f5df8e3d77004ed2e87b8a7e8873d97c"
+    },
+    {
+      "a6_sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
+      "bytes": 120400,
+      "distributions": [],
+      "file": "vcruntime140.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.42.34438.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "vcruntime140.dll",
+      "official_sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "origin": "python-runtime",
+      "renamed": false,
+      "sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
+      "source_path": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\vcruntime140.dll",
+      "source_sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4"
+    },
+    {
+      "a6_sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8",
+      "bytes": 49776,
+      "distributions": [],
+      "file": "vcruntime140_1.dll",
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.42.34438.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64"
+      },
+      "matches_a6": true,
+      "matches_official": false,
+      "official_name": "vcruntime140_1.dll",
+      "official_sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+      "origin": "python-runtime",
+      "renamed": false,
+      "sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8",
+      "source_path": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\vcruntime140_1.dll",
+      "source_sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8"
+    }
+  ],
+  "references": {
+    "msvcp140.dll": {
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT"
+      },
+      "path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT\\msvcp140.dll",
+      "sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9"
+    },
+    "msvcp140_1.dll": {
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT"
+      },
+      "path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT\\msvcp140_1.dll",
+      "sha256": "bfad5aef4c63a669e3c140655cdfdf395b6c979b400a447bd5dcb65ed8826c3d"
+    },
+    "msvcp140_2.dll": {
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT"
+      },
+      "path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT\\msvcp140_2.dll",
+      "sha256": "3ea06f0ee098b4823cb79599df3780e7f23cce52c19aac31d2a0d47efe33a5e9"
+    },
+    "vcruntime140.dll": {
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT"
+      },
+      "path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT\\vcruntime140.dll",
+      "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066"
+    },
+    "vcruntime140_1.dll": {
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT"
+      },
+      "path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT\\vcruntime140_1.dll",
+      "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f"
+    }
+  },
+  "documents": [
+    {
+      "kind": "official-deployment-guidance",
+      "source_verified": true,
+      "source": "https://github.com/MicrosoftDocs/cpp-docs/blob/af4947c4bdf5993dcaee98e63d55a2d7a5744d7d/docs/windows/redistributing-visual-cpp-files.md",
+      "snapshot": {
+        "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/redistributing-visual-cpp-files.md",
+        "sha256": "13a6c4e7c41971dc1a5e5856aa4ed5d606d3fd54b3c971f4ae758203e7b3b39e"
+      },
+      "applicability": "Official deployment guidance; not an automatic grant to this project"
+    },
+    {
+      "kind": "official-deployment-guidance",
+      "source_verified": true,
+      "source": "https://github.com/MicrosoftDocs/cpp-docs/blob/af4947c4bdf5993dcaee98e63d55a2d7a5744d7d/docs/windows/determining-which-dlls-to-redistribute.md",
+      "snapshot": {
+        "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/determining-which-dlls-to-redistribute.md",
+        "sha256": "af7e6df2aaeaedd14046a285749c62a6109327e7a0ab1454593d8eba320aa347"
+      },
+      "applicability": "Official deployment guidance; not an automatic grant to this project"
+    },
+    {
+      "kind": "third-party-copy-of-runtime-use-terms",
+      "source_verified": false,
+      "source": "https://github.com/aboutcode-org/scancode-toolkit/blob/e423b48a1fdbff26219fbeafe7e9bdef293b91fc/src/licensedcode/data/licenses/ms-visual-cpp-2015-runtime.LICENSE",
+      "official_url": "https://visualstudio.microsoft.com/license-terms/vs2022-cruntime/",
+      "snapshot": {
+        "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/runtime-use-terms-unverified-copy.LICENSE",
+        "sha256": "da361595dbfaf0318be23241f8386f5e749353172e4b7d43e9709aeb6cc1f572"
+      },
+      "applicability": "Unverified copy, includes ScanCode metadata; runtime-use terms do not establish distribution rights"
+    },
+    {
+      "kind": "third-party-redist-excerpt",
+      "source_verified": false,
+      "source": {
+        "container": "msvc_runtime-14.44.35112-cp311-cp311-win_amd64.whl",
+        "container_sha256": "aba7fbe71897d25ed53fbb7f391e9f50289378a8a9ae218ba18530c663448391",
+        "url": "https://files.pythonhosted.org/packages/ce/92/5a10262c2a489d5854f96d69e287923d6f720c4935dd26634deb7a5426e9/msvc_runtime-14.44.35112-cp311-cp311-win_amd64.whl",
+        "member": "msvc_runtime-14.44.35112.dist-info/licenses/LICENSE",
+        "sha256": "1df9136ed423271633e0a49436f10672f81d0d98758efdd80463cb312ebb5bc7"
+      },
+      "snapshot": {
+        "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/vs2022-redist-unverified-excerpt.txt",
+        "sha256": "1df9136ed423271633e0a49436f10672f81d0d98758efdd80463cb312ebb5bc7"
+      },
+      "applicability": "Excerpt from PyPI msvc_runtime license file, not the full official REDIST page or VS license; unverified at official website"
+    }
+  ],
+  "unverified_terms": true,
+  "legal_approval": false,
+  "pending_a13": [
+    "Choose the applicable license and redistribution basis per copy, including CPython/wheel copies",
+    "The Microsoft runtime-use EULA official webpage and VS2022 REDIST webpage were blocked by cloud proxy (403); do not treat the saved mirror as an authenticated original",
+    "Signature/hash findings and renamed copies do not establish redistribution rights",
+    "Nine PySide6/shiboken6 copies have PE CompanyName Microsoft Corporation but Valid signatures by The QT Company Oy; keep both facts and do not treat them as Microsoft-signed originals or infer the reason for hash differences"
+  ],
+  "limitations": [
+    "Host is GitHub hosted Windows 2022, not a clean end-user machine",
+    "The fixed A6 source remains unchanged; this PR probe is not an A12 candidate",
+    "Full binary hash mismatches against current Redist are recorded; no version equivalence or patch cause is inferred"
+  ]
+}

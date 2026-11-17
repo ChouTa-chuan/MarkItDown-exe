@@ -51,9 +51,14 @@
             "逐檔來源、PE 版本、簽章及官方 Redist 同名 hash 對照；改名複本另列",
             "適用條款與再散布做法，待 A13 或 CPU 門檻確認"
           ],
-          "evidence": [],
+          "evidence": [
+            {
+              "path": "packaging/microsoft/base-windows.json",
+              "sha256": "6b54afd9fbf13fd47c963f11aaaa2baadf3b30de26091fc791648b79bca50756"
+            }
+          ],
           "status": "open",
-          "requires_user_decision": false,
+          "requires_user_decision": true,
           "decision_source": null,
           "gates": [
             "runtime_sbom_complete",

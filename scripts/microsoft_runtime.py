@@ -170,6 +170,8 @@ def collect(files, sources, current, historical, basis, selection, redist, *, ro
 def validate_probe(report):
     require(report.get('check') == 'microsoft-runtime-probe' and report.get('schema_version') == 1
             and report.get('profile') == 'base' and all(report.get(f) is False for f in FLAGS), 'Invalid Microsoft probe')
+    require(report.get('observation_scope') in ('built-bundle','installed-source-reconstruction'),
+            'Missing Microsoft observation scope')
     require(re.fullmatch('[0-9a-f]{40}', report.get('selection', {}).get('source_commit', '')),
             'Missing immutable probe source')
     require(len(report.get('files', [])) == 14 and len({r['file'] for r in report['files']}) == 14,

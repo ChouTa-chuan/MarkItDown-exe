@@ -215,6 +215,48 @@ class MicrosoftProbeTests(unittest.TestCase):
         import base64
         self.assertEqual(base64.b64decode(result['documents'][0]['content_base64']),raw)
 
+    def source_fixture(self, version='1'):
+        from types import SimpleNamespace
+        basis = self.root/ms.BASIS_PATH
+        report = json.loads(basis.read_text())
+        for row in report['classification_input']['report']['native_files']:
+            row.update(origin='installed-wheel',distributions=[dict(name='synthetic',version='1')])
+        basis.write_text(json.dumps(report))
+        return SimpleNamespace(version=version,locate_file=lambda name:self.bundle/'_internal'/name)
+
+    def test_source_reconstruction_is_explicit_and_hash_bound_to_a6(self):
+        dist = self.source_fixture()
+        with patch.object(ms.sys,'platform','win32'), patch.object(ms,'find_vc_redist',return_value=self.redist), \
+             patch.object(ms.importlib.metadata,'distribution',return_value=dist), patch.object(ms,'describe',self.identities):
+            report = ms.probe_sources(self.review['selection'],root=self.root)
+        ms.validate_probe(report)
+        self.assertEqual(report['observation_scope'],'installed-source-reconstruction')
+        self.assertTrue(all(r['matches_a6'] for r in report['files']))
+        self.assertTrue(all(report[f] is False for f in ms.FLAGS))
+
+    def test_source_reconstruction_rejects_other_wheel_version(self):
+        dist = self.source_fixture(version='2')
+        with patch.object(ms.sys,'platform','win32'), patch.object(ms,'find_vc_redist',return_value=self.redist), \
+             patch.object(ms.importlib.metadata,'distribution',return_value=dist), \
+             self.assertRaisesRegex(ValueError,'differs from A6'):
+            ms.probe_sources(self.review['selection'],root=self.root)
+
+    def test_repository_catalog_is_wired_to_gates_and_preserves_qt_signer_findings(self):
+        import redistribution_gates as gates
+        registry = gates.read_json(gates.REGISTRY)
+        report = gates.read_json(ROOT/ms.BASIS_PATH)
+        result = gates.assess(report,registry)
+        self.assertEqual(result['microsoft_catalogs'][0]['files'],14)
+        self.assertTrue(all(result[f] is False for f in ms.FLAGS))
+        entry = next(e for e in registry['profiles']['base']['entries'] if e['id']=='base-microsoft')
+        self.assertTrue(entry['requires_user_decision'])
+        self.assertEqual(entry['status'],'open')
+        catalog = gates.read_json(ROOT/ms.CATALOG_PATH)
+        qt_signed = [r for r in catalog['files'] if 'O=The QT Company Oy' in r['identity'].get('signer','')]
+        self.assertEqual(len(qt_signed),9)
+        self.assertTrue(all(r['identity']['signature_status']=='Valid' for r in qt_signed))
+        self.assertEqual(set(result['microsoft_catalogs'][0]['identity_gaps']),{r['file'] for r in qt_signed})
+
     def test_probe_refuses_non_windows(self):
         with patch.object(ms.sys,'platform','linux'), self.assertRaisesRegex(ValueError,'requires Windows'):
             ms.probe(self.bundle,self.review,root=self.root,redist=self.redist)
