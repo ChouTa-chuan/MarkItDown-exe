@@ -543,19 +543,63 @@
         "sha256": "1df9136ed423271633e0a49436f10672f81d0d98758efdd80463cb312ebb5bc7"
       },
       "applicability": "Excerpt from PyPI msvc_runtime license file, not the full official REDIST page or VS license; unverified at official website"
+    },
+    {
+      "kind": "official-runtime-use-license",
+      "title": "MICROSOFT VISUAL C++ 2015 - 2022 RUNTIME",
+      "source_verified": true,
+      "source": "https://visualstudio.microsoft.com/wp-content/uploads/2021/09/Visual-C-Runtime-2015-2022-License-1.docx",
+      "snapshot": {
+        "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/official-vc-runtime-2015-2022.docx",
+        "sha256": "f1e3d56ceb2ad68aae0711b910375009e651ac5530fa0760f0dea6e81e54fae1"
+      },
+      "applicability": "Official original captured for A13 review; no selection of applicable terms or grant to this project"
+    },
+    {
+      "kind": "official-visual-studio-license",
+      "title": "MICROSOFT VISUAL STUDIO ENTERPRISE 2022, VISUAL STUDIO PROFESSIONAL 2022, AND TRIAL EDITION",
+      "source_verified": true,
+      "source": "https://visualstudio.microsoft.com/wp-content/uploads/2021/11/Visual-Studio-2022-Enterprise-Professional-License-EN.docx",
+      "snapshot": {
+        "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/official-vs2022-enterprise-professional.docx",
+        "sha256": "9c0cd52b20db9d081854c75bd1b50c75514b8f8cb09c8cad15e89d90b97b5bf3"
+      },
+      "applicability": "Official original captured for A13 review; no selection of applicable terms or grant to this project"
+    },
+    {
+      "kind": "official-redist-list",
+      "title": "Distributable Code for Visual Studio 2022",
+      "source_verified": true,
+      "source": "https://learn.microsoft.com/en-us/visualstudio/releases/2022/redistribution",
+      "snapshot": {
+        "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/official-vs2022-redist.html",
+        "sha256": "476af70cfdfc26a80338df8264bac5745a9e8b3a37dfd71decbaa56f301c9c22"
+      },
+      "applicability": "Official original captured for A13 review; no selection of applicable terms or grant to this project"
+    },
+    {
+      "kind": "official-capture-metadata",
+      "source_verified": true,
+      "source": "Local receipt of original Microsoft HTTPS downloads",
+      "snapshot": {
+        "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/official-source-receipts.json",
+        "sha256": "7f044c85cd21ff949b6b271f8ba4e751ad2c84807f927ca794ed2fb3196fe583"
+      },
+      "applicability": "Source metadata only; not a license or legal decision"
     }
   ],
-  "unverified_terms": true,
+  "unverified_terms": false,
   "legal_approval": false,
   "pending_a13": [
     "Choose the applicable license and redistribution basis per copy, including CPython/wheel copies",
-    "The Microsoft runtime-use EULA official webpage and VS2022 REDIST webpage were blocked by cloud proxy (403); do not treat the saved mirror as an authenticated original",
     "Signature/hash findings and renamed copies do not establish redistribution rights",
-    "Nine PySide6/shiboken6 copies have PE CompanyName Microsoft Corporation but Valid signatures by The QT Company Oy; keep both facts and do not treat them as Microsoft-signed originals or infer the reason for hash differences"
+    "Nine PySide6/shiboken6 copies have PE CompanyName Microsoft Corporation but Valid signatures by The QT Company Oy; keep both facts and do not treat them as Microsoft-signed originals or infer the reason for hash differences",
+    "Confirm valid license basis, edition and distribution obligations for each copy using the captured official originals; neither use EULA nor a REDIST listing alone approves this project"
   ],
   "limitations": [
     "Host is GitHub hosted Windows 2022, not a clean end-user machine",
     "The fixed A6 source remains unchanged; this PR probe is not an A12 candidate",
     "Full binary hash mismatches against current Redist are recorded; no version equivalence or patch cause is inferred"
-  ]
+  ],
+  "terms_verification_scope": "false 僅表示本輪已取得所列官方候選條款原始檔；不表示各複本適用性或再散布權利已確認。先前轉載仍保留 source_verified=false 作歷史參考，不作核准依據。"
 }

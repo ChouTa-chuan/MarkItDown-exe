@@ -8,7 +8,7 @@
 
 - 相對 A9：補上 Microsoft 複本的 Windows PE 版本、簽章及官方 Redist 同名 SHA-256 比較；保留改名複本，來源容器符合原鎖檔。目錄與原始探測／條款位於 packaging/microsoft 及本輪小型證據目錄，以 evidence 路徑加 hash 綁定。
 - 查驗時把「簽署者不同的已知事實」與「查詢缺資料」分開，前者列 signature_review_files，不以簽署者必須是 Microsoft 的硬規則取代 A13；有完整資料仍須使用者決定。
-- 登記只改 base-microsoft，標 requires_user_decision=true，維持 open；官方條款／REDIST 網頁被雲端代理拒絕，未驗證轉載明確標記，不能當成官方原文或散布權利。適用性及許可留待 A13，CPU Microsoft 留給 A16。
+- 登記只改 base-microsoft，標 requires_user_decision=true，維持 open；先前代理拒絕問題在使用者發布網域後解除；補存官方 Runtime、VS2022 Enterprise／Professional 原始 DOCX 與 REDIST 全頁，path／hash 引用，舊轉載標記保留，不把原文取得當成散布權利。適用性及許可留待 A13，CPU Microsoft 留給 A16。
 - 相關正反例與完整 Linux 混合／獨立模組回歸通過；原 A6 base／cpu 再跑三旗標均 false，數字與原始 review_reason 不改。數字、來源與新證據見 progress.json；最終 head CI／Merge 及報告 hash／期限見 PR 20。
 - 未動 spec、打包內容、鎖檔與既有計數口徑，未交付 Setup／worker／模型、Release 或 tag。A10 完成後先停；Windows／GPU 實機、RAM 軟性預算與 ONNX 繁中限制保留。
 

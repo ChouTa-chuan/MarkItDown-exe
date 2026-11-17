@@ -2,9 +2,9 @@
   "updated": "2026-11-17",
   "environment": "Linux 完整混合／獨立模組回歸；A10 hosted Windows 2022 逐檔探測，非乾淨機／GPU／人工驗收",
   "tests_passed": 858,
-  "headline": "A10 逐檔 Windows 證據及回歸已保存（PR 20）；官方條款原文待網域發布後補核",
-  "blocker": "Microsoft 條款官網／REDIST 原文待補核且 A13 未決定；其他來源義務與乾淨機／人工驗收仍未關閉，base／cpu 三旗標均 false。",
-  "next": "等待使用者發布 Microsoft 網域設定，補核官方原文並完成 A10 最終 CI／查驗後停下；後續 A9b／A11 另行交棒。",
+  "headline": "A10 Microsoft 逐檔證據與官方原文補齊（PR 20）；再散布決定留待 A13",
+  "blocker": "Microsoft 各複本條款適用及再散布權利仍待 A13 使用者決定；其他來源義務與乾淨機／人工驗收未關閉，兩個 profile 三旗標均 false。",
+  "next": "完成 PR 20 最新 head CI／查驗及一般 Merge 後先停；後續 A9b／A11 另行交棒，再依規劃 A12 → A13 → B1。",
   "milestones": [
     {
       "id": "m0",
@@ -3543,8 +3543,8 @@
           {
             "id": "A10",
             "title": "Microsoft 執行期逐檔對照（基本包 14 檔）",
-            "status": "active",
-            "note": "逐檔工程證據已保存；官方條款原文待補核，尚未結案",
+            "status": "done",
+            "note": "工程證據及官方原文已齊；Microsoft 義務 open，A13 待決定",
             "pr": 20
           },
           {
@@ -3705,7 +3705,7 @@
     "source_commit": "077d280bbc6208ff9f0945a9c18496db55874213",
     "base_commit": "0c3746d5e6eaec9fd1bdcea031992139bfa50042",
     "pr": 20,
-    "status": "dll-evidence-verified-official-terms-pending",
+    "status": "engineering-evidence-and-official-originals-complete",
     "catalog": "packaging/microsoft/base-windows.json",
     "script": "scripts/microsoft_runtime.py",
     "evidence": "development-records/runs/a10-microsoft-runtime-2026-11-17/README.md",
@@ -3787,8 +3787,10 @@
     "requires_user_decision": true,
     "obligation_status": "open",
     "spec_packaging_locks_counts_unchanged": true,
-    "official_terms_webpages_verified": false,
+    "official_terms_webpages_verified": true,
     "legal_approval": false,
-    "stop_after_stage": true
+    "stop_after_stage": true,
+    "official_sources_receipts": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/official-source-receipts.json",
+    "pre_completion_ci": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/pre-completion-ci.json"
   }
 }

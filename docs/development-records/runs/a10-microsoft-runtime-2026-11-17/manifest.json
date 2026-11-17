@@ -2,7 +2,7 @@
   "date": "2026-11-17",
   "tested_source": "077d280bbc6208ff9f0945a9c18496db55874213",
   "accepted": true,
-  "accepted_scope": "A10 DLL evidence and regression verified; official terms original capture pending, no stage completion or legal approval",
+  "accepted_scope": "A10 per-file evidence and official-original capture complete; no legal approval; final-head integration recorded in PR 20",
   "windows_executed": true,
   "probe_ci": {
     "run": 44063368953,
@@ -75,8 +75,8 @@
       }
     }
   },
-  "catalog_sha256": "6b54afd9fbf13fd47c963f11aaaa2baadf3b30de26091fc791648b79bca50756",
-  "registry_sha256": "1b248e97329340b19c0d30cd725047d5612871660a97f43d7fa8a331ffd5fc16",
+  "catalog_sha256": "4fbb9fc942670e696c07a2462117e709cd78ae7938c0faef4df37713a7fc3796",
+  "registry_sha256": "383c41d673e1899592ee4d921d762a005262d37eba80269d8220dc13275d9431",
   "script_sha256": "84b936b82b893349dbf12e5622cbfc1bf07009c81619349bdeae1e3c26cdc7c6",
   "runtime_sbom_complete": false,
   "redistribution_approved": false,
@@ -94,16 +94,22 @@
     "來源缺口"
   ],
   "files": {
-    "README.md": "5d72d7e753b698663fd402e50739efd9ea627d206cbc155092c7a06f7e5fd0a0",
+    "README.md": "d7efad397c9476b60fcb6ed6cef1a084ba1b09eac5d942803142bc37c35caedd",
     "determining-which-dlls-to-redistribute.md": "af7e6df2aaeaedd14046a285749c62a6109327e7a0ab1454593d8eba320aa347",
     "isolated-summary.json": "39c471d2d9b99c05c73a16f43c702cac3491ad263c520d292b5ab436ad5fc7d9",
     "mixed-result.json": "e0a21d81c8fa2ee25217032bdbea74134eec05c9074d859958a0b70e022ef471",
+    "official-source-receipts.json": "7f044c85cd21ff949b6b271f8ba4e751ad2c84807f927ca794ed2fb3196fe583",
+    "official-vc-runtime-2015-2022.docx": "f1e3d56ceb2ad68aae0711b910375009e651ac5530fa0760f0dea6e81e54fae1",
+    "official-vs2022-enterprise-professional.docx": "9c0cd52b20db9d081854c75bd1b50c75514b8f8cb09c8cad15e89d90b97b5bf3",
+    "official-vs2022-redist.html": "476af70cfdfc26a80338df8264bac5745a9e8b3a37dfd71decbaa56f301c9c22",
+    "pre-completion-ci.json": "b397a3730abe950782e3ba430d58387731f2f3030d4ad25ec7848c5b3ef7953f",
     "redistributing-visual-cpp-files.md": "13a6c4e7c41971dc1a5e5856aa4ed5d606d3fd54b3c971f4ae758203e7b3b39e",
     "regression-final-summary.json": "cf29a95d3ad23ef14373e7be4d4e8b4260bb40e5437d387f8c5045f88ecd82af",
     "runtime-use-terms-unverified-copy.LICENSE": "da361595dbfaf0318be23241f8386f5e749353172e4b7d43e9709aeb6cc1f572",
     "vs2022-redist-unverified-excerpt.txt": "1df9136ed423271633e0a49436f10672f81d0d98758efdd80463cb312ebb5bc7",
     "windows-probe.json": "281abcbe2cf0f35c13b5b602a5e1b7082dbe12e211877615bea9e648f5501dca"
   },
-  "official_originals_pending": true,
-  "final_regression": "regression-final-summary.json"
+  "official_originals_pending": false,
+  "final_regression": "regression-final-summary.json",
+  "official_originals_receipts": "official-source-receipts.json"
 }

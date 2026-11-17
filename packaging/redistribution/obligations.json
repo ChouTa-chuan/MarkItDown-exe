@@ -54,7 +54,7 @@
           "evidence": [
             {
               "path": "packaging/microsoft/base-windows.json",
-              "sha256": "6b54afd9fbf13fd47c963f11aaaa2baadf3b30de26091fc791648b79bca50756"
+              "sha256": "4fbb9fc942670e696c07a2462117e709cd78ae7938c0faef4df37713a7fc3796"
             }
           ],
           "status": "open",

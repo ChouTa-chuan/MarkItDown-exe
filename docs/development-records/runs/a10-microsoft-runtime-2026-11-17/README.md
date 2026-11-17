@@ -37,7 +37,7 @@ PySide6 與 shiboken6 的複本，PE 公司欄為 Microsoft Corporation，但簽
 
 官方部署指引的原始 Markdown 取自固定 MicrosoftDocs/cpp-docs 提交；來源與 hash 見目錄 documents。Windows 安裝中找到的候選條款（若有）保留原始位元組與安裝路徑；這是原始文件的保存，不代表已決定適用於所有 wheel 或 CPython 複本。
 
-Microsoft 的條款網站與 REDIST 網頁在本環境實際回覆 proxy 403。vs2022-redist-unverified-excerpt.txt 是 hash 核對的 PyPI msvc_runtime 固定 wheel 內所附節錄，來源及 container／member hash 在目錄中保存；不是完整官方 REDIST 網頁或 Visual Studio 授權全文，也未向官網驗證。runtime-use-terms-unverified-copy.LICENSE 是固定 ScanCode 提交保存的未核對參考副本（連其原本 metadata 一併保存），**不是本輪從 Microsoft 官網取得／驗證的原文**，不可當作已證實適用。官方 runtime-use EULA 與 VS2022 REDIST 網頁仍需補核；base-microsoft 因此保持 open。原始條款屬會影響後續 A13 判讀且可能無法重取的資料，例外保存於這個小型新證據目錄，不加入產品授權資產。
+先前暫停時，Microsoft 的條款網站與 REDIST 網頁回覆 proxy 403；使用者新增網域並發布後，本輪重新連線已取得 HTTP 200，原文補核完成（見下方「官方原文補齊」）。vs2022-redist-unverified-excerpt.txt 是 hash 核對的 PyPI msvc_runtime 固定 wheel 內所附節錄，來源及 container／member hash 在目錄中保存；不是完整官方 REDIST 網頁或 Visual Studio 授權全文，也未向官網驗證。runtime-use-terms-unverified-copy.LICENSE 是固定 ScanCode 提交保存的未核對參考副本（連其原本 metadata 一併保存），**不是本輪從 Microsoft 官網取得／驗證的原文**，不可當作已證實適用。現已補存官方 runtime-use EULA、VS2022 Enterprise／Professional 原始條款與完整 REDIST 網頁；base-microsoft 保持 open 的現況原因是 A13 尚未決定適用條款與再散布權利。原始條款屬會影響後續 A13 判讀且可能無法重取的資料，例外保存於這個小型新證據目錄，不加入產品授權資產。
 
 官方部署指引要求再散布遵守 Visual Studio 授權及相關條款；runtime-use EULA 不能直接代替散布權利。各複本要採哪份條款、是否可再散布及如何處理觀測差異，由使用者在 A13 決定。Codex 沒有代為核准；即使 A10 工程資料保存完成，也不表示 Microsoft 義務已關閉。
 
@@ -49,4 +49,16 @@ Microsoft 的條款網站與 REDIST 網頁在本環境實際回覆 proxy 403。v
 
 完整 Linux 混合與獨立模組回歸都通過，只有既有 ONNX 繁中 expected failure、沒有跳過；數字只記 [progress.json](../../../progress.json)，原始精簡結果在本目錄。初次回歸來源為 29e1fc14921eb12ac25385be42a386b6dc764428，原 mixed-result.json／isolated-summary.json 保留不改。查驗後補了「已知簽署者差異不取代 A13」反例，再以 077d280bbc6208ff9f0945a9c18496db55874213 重跑完整混合及獨立模組；新結果見 [最終精簡摘要](regression-final-summary.json)，原始報告只留 hash，不重存舊嘗試完整 JSON。最終 PR head 的所有 CI、人工程式查驗、Merge 與報告 artifact 的 hash／期限記在 PR 20；後續重跑僅留 hash 與 run，不重存舊嘗試完整 JSON。
 
-hosted Windows 非乾淨終端機，沒有 GPU／人工驗收；RAM 仍為軟性預算，ONNX 繁中缺口保留。未交付 Setup、worker 或模型，未建立 Release、預發布或 tag。A10 原文補核仍待使用者發布網域設定；完成 A10 後停止。
+hosted Windows 非乾淨終端機，沒有 GPU／人工驗收；RAM 仍為軟性預算，ONNX 繁中缺口保留。未交付 Setup、worker 或模型，未建立 Release、預發布或 tag。A10 工程蒐證已完成，最終 head CI／查驗與 Merge 依 PR 20 收尾；A10 完成後停止，不展開其他編號。
+
+## 官方原文補齊（2026-11-17）
+
+網域發布後以新環境實際重新連線，三份正式原文直接從 Microsoft 公開 HTTPS 來源取得並保存原始位元組；原始格式不轉換、不改寫。來源鏈、HTTP 結果、格式、大小及 SHA-256 見 [下載紀錄](official-source-receipts.json)，目錄的 documents 各以 path／hash 引用。DOCX 入口由官方頁面的嵌入 src 核對，未透過 Office 線上檢視器轉存。
+
+- [Visual C++ 2015–2022 Runtime 原文](official-vc-runtime-2015-2022.docx)：安裝／使用條款，不能直接當作本專案的散布核准。
+- [Visual Studio Enterprise／Professional 2022 與 Trial 原文](official-vs2022-enterprise-professional.docx)：保存 Right to Use and Distribute、Distribution Requirements／Restrictions 等原段落；適用版本與持有授權資格仍由 A13 查驗。
+- [Visual Studio 2022 REDIST 全頁原文](official-vs2022-redist.html)：包含 Visual C++ Runtime Files、VC\redist 資料夾及條件，不是先前的第三方節錄。
+
+已人工比對標題與相關條款位置；沒有將任一份文件自動選為所有複本的散布依據。目錄 unverified_terms=false 只表示官方候選原始檔已捕捉，legal_approval 仍 false，base-microsoft 的 status 仍 open、requires_user_decision 仍 true。舊參考副本的未核對標記保留，原始探測、首次失敗與前次回歸 JSON 保持不變。
+
+暫停前 head fe7ecb8 的五條 CI 全成功；兩份 Microsoft 探測（實際 bundle／來源重取）逐欄與 A6 目錄比對一致，Windows base／cpu 的 source-review 公開分片完整重組並 replay 通過。[精簡 CI 引用](pre-completion-ci.json)只保存 run、hash 與 artifact 期限；最終新 head 仍須重新通過全部 CI，不沿用這一輪冒充。新候選的固定來源仍留待 A12，散布決定仍留待 A13。
