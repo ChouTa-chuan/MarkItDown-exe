@@ -207,7 +207,7 @@ class MicrosoftProbeTests(unittest.TestCase):
     def test_installed_terms_preserve_original_bytes_and_exclude_unrelated_license(self):
         english = self.root/'Licenses/1033/license.txt'
         english.parent.mkdir(parents=True)
-        raw = b'MICROSOFT VISUAL STUDIO ENTERPRISE 2022\r\nOriginal terms\r\n'
+        raw = b'MICROSOFT SOFTWARE LICENSE TERMS\r\nMICROSOFT VISUAL STUDIO ENTERPRISE 2022\r\nOriginal terms\r\n'
         english.write_bytes(raw)
         (english.parent/'license.other.txt').write_text('Third party license')
         result = ms.installed_terms(self.redist)

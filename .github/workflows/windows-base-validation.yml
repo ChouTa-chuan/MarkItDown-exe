@@ -146,16 +146,6 @@ jobs:
           }
           & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --profile base --bundle "out/windows/dist/MarkItDownBase" --reports "out/windows/reports" --package-directory "out/windows/installer-work/setup" --expected-source "$env:EXPECTED_SOURCE"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: Record Microsoft runtime copies without modifying the bundle
-        shell: pwsh
-        env:
-          EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
-        run: |
-          if (-not ($env:EXPECTED_SOURCE -cmatch '^[0-9a-f]{40}\z') -or $env:EXPECTED_SOURCE.Length -ne 40) {
-            throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
-          }
-          & "out/windows/build-venv/Scripts/python.exe" scripts/microsoft_runtime.py --bundle "out/windows/dist/MarkItDownBase" --source-review "out/windows/reports/source-review.json" --expected-source "$env:EXPECTED_SOURCE" --output "out/windows/reports/microsoft-runtime.json"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       # metadata 每步最多八個 notice，避免平台的每步註記上限造成證據截斷。
       - name: Preserve review metadata page 1
         shell: pwsh
@@ -211,6 +201,16 @@ jobs:
             throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
           }
           & "out/windows/build-venv/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows/reports/source-review.json" --page 4 --expected-source "$env:EXPECTED_SOURCE"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Record Microsoft runtime copies without modifying the bundle
+        shell: pwsh
+        env:
+          EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
+        run: |
+          if (-not ($env:EXPECTED_SOURCE -cmatch '^[0-9a-f]{40}\z') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+            throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
+          }
+          & "out/windows/build-venv/Scripts/python.exe" scripts/microsoft_runtime.py --bundle "out/windows/dist/MarkItDownBase" --source-review "out/windows/reports/source-review.json" --expected-source "$env:EXPECTED_SOURCE" --output "out/windows/reports/microsoft-runtime.json"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Publish actual validation summary
         if: always()

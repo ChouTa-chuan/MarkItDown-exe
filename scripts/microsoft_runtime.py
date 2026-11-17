@@ -58,7 +58,7 @@ def installed_terms(redist):
     found = []
     seen = set()
     for directory, dirs, files in os.walk(vsroot):
-        dirs[:] = sorted(d for d in dirs if not (Path(directory)/d).is_symlink())
+        dirs[:] = sorted((d for d in dirs if not (Path(directory)/d).is_symlink()), key=lambda d:(d != '1033',d))
         for name in sorted(files):
             if not re.fullmatch(r'(?:license|eula|redist)(?:[._-].*)?\.(?:txt|htm|html|rtf)', name, re.I):
                 continue
@@ -69,13 +69,15 @@ def installed_terms(redist):
             text = raw.decode('utf-16' if raw.startswith((b'\xff\xfe',b'\xfe\xff')) else 'utf-8', errors='replace')
             upper = text.upper()
             sha = hashlib.sha256(raw).hexdigest()
-            if ('MICROSOFT VISUAL STUDIO' in upper and '2022' in upper and sha not in seen):
+            if ('MICROSOFT SOFTWARE LICENSE TERMS' in upper and re.search(
+                    r'MICROSOFT VISUAL STUDIO (?:ENTERPRISE|PROFESSIONAL|COMMUNITY) 2022', upper)
+                    and sha not in seen):
                 found.append(dict(source_path=str(path), sha256=sha, bytes=len(raw),
                                   content_base64=base64.b64encode(raw).decode('ascii')))
                 seen.add(sha)
-                if len(found) == 2:
-                    return dict(installation_root=str(vsroot), documents=found, selection_limit=2)
-    return dict(installation_root=str(vsroot), documents=found, selection_limit=2)
+                if len(found) == 1:
+                    return dict(installation_root=str(vsroot), documents=found, selection_limit=1)
+    return dict(installation_root=str(vsroot), documents=found, selection_limit=1)
 
 
 def probe(bundle, review, *, root=ROOT, redist=None, identity=describe):
@@ -107,10 +109,45 @@ def probe(bundle, review, *, root=ROOT, redist=None, identity=describe):
         require(files[name].is_file() and not files[name].is_symlink(), 'Missing runtime: '+name)
         require(digest(files[name]) == row['bundled_sha256'] == row['source_sha256'] == digest(sources[name]),
                 'Bundle or source differs from provenance: '+name)
+    return collect(files, sources, current, historical, basis, review['selection'], redist,
+                   root=root, identity=identity, scope='built-bundle')
+
+
+def probe_sources(selection, *, root=ROOT):
+    """快速重取已鎖來源；只觀測來源 bytes，不假稱已重建候選或跑安裝驗收。
+
+    A6 hash 相同才能把 PE／簽章觀測對應回 A6；真正 bundle 另由完整 Windows CI 重驗。
+    """
+    require(sys.platform == 'win32', 'Microsoft runtime probe requires Windows')
+    basis = json.loads((root/BASIS_PATH).read_text(encoding='utf-8'))
+    historical = {r['file']:r for r in basis['classification_input']['report']['native_files']}
+    redist = find_vc_redist()
+    require(redist is not None, 'Official VS Redist directory missing')
+    sources = {}
+    for name in targets(root):
+        row = historical[name]
+        if row['origin'] == 'installed-wheel':
+            owner = row['distributions'][0]
+            dist = importlib.metadata.distribution(owner['name'])
+            require(dist.version == owner['version'], 'Source wheel version differs from A6')
+            sources[name] = Path(dist.locate_file(name))
+        elif row['origin'] == 'python-runtime':
+            sources[name] = Path(sys.base_prefix)/PurePosixPath(name).name
+        else:
+            sources[name] = redist/PurePosixPath(name).name
+        require(sources[name].is_file(), 'Missing installed runtime source: '+name)
+    return collect(sources, sources, historical, historical, basis, selection, redist,
+                   root=root, identity=describe, scope='installed-source-reconstruction')
+
+
+def collect(files, sources, current, historical, basis, selection, redist, *, root, identity, scope):
+    available = {p.name.lower():p for p in redist.iterdir() if p.is_file()}
+    refs = {official_name(n):available.get(official_name(n)) for n in files}
+    require(all(refs.values()), 'Official Redist same-name reference missing')
     identities = identity(list(files.values()) + list(refs.values()))
     references = {name: dict(path=str(path), sha256=digest(path), identity=identities[path]) for name, path in refs.items()}
     rows = []
-    for name in names:
+    for name in files:
         row = current[name]
         original = official_name(name)
         actual = digest(files[name])
@@ -122,9 +159,9 @@ def probe(bundle, review, *, root=ROOT, redist=None, identity=describe):
                          official_name=original, official_sha256=references[original]['sha256'],
                          matches_official=actual == references[original]['sha256']))
     return dict(check='microsoft-runtime-probe', schema_version=1, profile='base',
-                selection=review['selection'], basis=dict(path=BASIS_PATH, sha256=digest(root/BASIS_PATH),
+                selection=selection, basis=dict(path=BASIS_PATH, sha256=digest(root/BASIS_PATH),
                                                         source_commit=basis['selection']['source_commit']),
-                runner=dict(os=os.environ.get('RUNNER_OS'), image_version=os.environ.get('ImageVersion')),
+                observation_scope=scope, runner=dict(os=os.environ.get('RUNNER_OS'), image_version=os.environ.get('ImageVersion')),
                 official_redist_directory=str(redist), references=references, files=rows,
                 installed_terms=installed_terms(redist),
                 **{f: False for f in FLAGS})
@@ -240,18 +277,28 @@ def check_catalog(catalog, *, report, entry, root=ROOT):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument('--bundle', required=True, type=Path)
-    parser.add_argument('--source-review', required=True, type=Path)
+    parser.add_argument('--bundle', type=Path)
+    parser.add_argument('--installed-sources', action='store_true')
+    parser.add_argument('--source-review', type=Path)
     parser.add_argument('--expected-source', required=True)
     parser.add_argument('--output', required=True, type=Path)
     args = parser.parse_args()
-    check_source(ROOT, args.expected_source)
-    require(not args.output.exists(), 'Probe output must be new')
-    review = json.loads(args.source_review.read_text(encoding='utf-8'))
-    require(review['selection']['source_commit'] == args.expected_source, 'Review source mismatch')
-    result = probe(args.bundle, review)
-    parts = encoded_parts(result)
+    selection = check_source(ROOT, args.expected_source)
+    require(not args.output.exists() and not args.output.is_symlink(), 'Probe output must be new')
+    if args.installed_sources:
+        require(args.bundle is None and args.source_review is None, 'Source-only mode does not accept a bundle')
+        result = probe_sources(selection)
+    else:
+        require(args.bundle is not None and args.source_review is not None, 'Bundle mode needs its source-review')
+        review = json.loads(args.source_review.read_text(encoding='utf-8'))
+        require(review['selection']['source_commit'] == args.expected_source, 'Review source mismatch')
+        result = probe(args.bundle, review)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+    if os.environ.get('GITHUB_ACTIONS') == 'true':
+        print('::notice title=Microsoft evidence diagnostic::'+json.dumps(dict(check='microsoft-runtime-diagnostic',
+              files=len(result['files']),terms=[{k:d[k] for k in ('source_path','sha256','bytes')}
+              for d in result['installed_terms']['documents']],raw_bytes=len(canonical(result)))))
+    parts = encoded_parts(result)
     if os.environ.get('GITHUB_ACTIONS') == 'true':
         for part in parts:
             print('::notice title=Microsoft runtime evidence::'+json.dumps(part, separators=(',', ':')))
@@ -262,4 +309,12 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as error:
+        if os.environ.get('GITHUB_ACTIONS') == 'true':
+            # 公開摘要保留實際失敗原因；只輸出本工具的錯誤，不讀取環境秘密或原始文件內容。
+            message = (type(error).__name__+': '+str(error))[:1800]
+            message = message.replace('%','%25').replace('\r','%0D').replace('\n','%0A')
+            print('::error title=Microsoft runtime probe failed::'+message)
+        raise
