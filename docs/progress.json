@@ -2,9 +2,9 @@
   "updated": "2026-11-17",
   "environment": "Linux 完整回歸與獨立模組已驗；hosted Windows 基本包／CPU 每個 PR 皆驗（非乾淨機）；固定候選仍為 A6 的 8285450",
   "tests_passed": 835,
-  "headline": "PR 1–17 已合併；A9 內含第三方元件目錄完成（PR 18），大階段 A 進行中",
+  "headline": "PR 1–18 已合併；大階段 A 進行中：A1–A9 完成，A10 交給 Codex",
   "blocker": "三旗標（完整 SBOM、可再散布、可發布）皆 false：Microsoft 14 檔、Qt 內含第三方與可替換驗收待 A9–A11，門檻待使用者在 A13 確認；可發布需大階段 C 乾淨機與人工驗收。門檻未關閉前不交付 Setup、worker 或模型（含 CI artifact）。",
-  "next": "A10 Microsoft 14 檔、A11 Qt 內含第三方與可替換驗收（可平行）→ A12 重新固定候選 → A13 使用者確認門檻 → B1 測試版；cryptography OpenSSL 原文待使用者決定",
+  "next": "A10 Microsoft 14 檔（Codex）→ A9b OpenSSL 原文隨包（使用者已同意）、A11 Qt → A12 重新固定候選 → A13 使用者確認門檻 → B1 測試版",
   "milestones": [
     {
       "id": "m0",
@@ -3541,16 +3541,22 @@
             "pr": 18
           },
           {
+            "id": "A9b",
+            "title": "cryptography 內含 OpenSSL 原文隨包",
+            "status": "next",
+            "note": "使用者已同意；排在 A10 之後"
+          },
+          {
             "id": "A10",
             "title": "Microsoft 執行期逐檔對照（基本包 14 檔）",
-            "status": "next",
-            "note": "可開始"
+            "status": "active",
+            "note": "Codex（GPT）進行"
           },
           {
             "id": "A11",
             "title": "Qt 內含第三方、建置資訊與可替換驗收",
             "status": "next",
-            "note": "可開始"
+            "note": "待指派"
           },
           {
             "id": "A12",

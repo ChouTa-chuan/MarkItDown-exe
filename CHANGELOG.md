@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-17：PR 18（A9）合併。使用者決定補上 cryptography 靜態併入的 OpenSSL 授權原文（新增 A9b，排在 A10 之後），A10 換手交給 Codex（GPT）。
+
 ### 2026-11-17｜A9 基本包 wheel 內含第三方元件目錄
 
 - 變更：新增 `packaging/embedded/base-windows.json` 與 `scripts/embedded_components.py`（由 `redistribution_gates.py` 呼叫），記錄基本包 10 個 wheel 的內含元件、版本依據分級、來源與既有授權原文 hash；`base-wheels` 拆成 10 條，只有 charset-normalizer、psutil 為 evidence_complete；依 STATUS C 節把 `base-tesseract-models` 改為需使用者決定（A13）。
