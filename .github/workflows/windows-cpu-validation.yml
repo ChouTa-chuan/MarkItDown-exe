@@ -51,7 +51,7 @@ jobs:
         env:
           EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+          if (-not ($env:EXPECTED_SOURCE -cmatch '^[0-9a-f]{40}\z') -or $env:EXPECTED_SOURCE.Length -ne 40) {
             throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
           }
           python scripts/candidate_review.py --check-source --expected-source "$env:EXPECTED_SOURCE"
@@ -67,7 +67,7 @@ jobs:
         env:
           EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+          if (-not ($env:EXPECTED_SOURCE -cmatch '^[0-9a-f]{40}\z') -or $env:EXPECTED_SOURCE.Length -ne 40) {
             throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
           }
           & "out/windows-cpu/build-env/Scripts/python.exe" scripts/candidate_review.py --profile cpu --bundle "out/windows-cpu/dist/MarkItDownOCRWorker" --reports "out/windows-cpu/reports" --package-directory "out/windows-cpu/package" --expected-source "$env:EXPECTED_SOURCE"
@@ -79,7 +79,7 @@ jobs:
         env:
           EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+          if (-not ($env:EXPECTED_SOURCE -cmatch '^[0-9a-f]{40}\z') -or $env:EXPECTED_SOURCE.Length -ne 40) {
             throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
           }
           & "out/windows-cpu/build-env/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows-cpu/reports/source-review.json" --page 0 --expected-source "$env:EXPECTED_SOURCE"
@@ -90,7 +90,7 @@ jobs:
         env:
           EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+          if (-not ($env:EXPECTED_SOURCE -cmatch '^[0-9a-f]{40}\z') -or $env:EXPECTED_SOURCE.Length -ne 40) {
             throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
           }
           & "out/windows-cpu/build-env/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows-cpu/reports/source-review.json" --page 1 --expected-source "$env:EXPECTED_SOURCE"
@@ -101,7 +101,7 @@ jobs:
         env:
           EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+          if (-not ($env:EXPECTED_SOURCE -cmatch '^[0-9a-f]{40}\z') -or $env:EXPECTED_SOURCE.Length -ne 40) {
             throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
           }
           & "out/windows-cpu/build-env/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows-cpu/reports/source-review.json" --page 2 --expected-source "$env:EXPECTED_SOURCE"
@@ -112,7 +112,7 @@ jobs:
         env:
           EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+          if (-not ($env:EXPECTED_SOURCE -cmatch '^[0-9a-f]{40}\z') -or $env:EXPECTED_SOURCE.Length -ne 40) {
             throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
           }
           & "out/windows-cpu/build-env/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows-cpu/reports/source-review.json" --page 3 --expected-source "$env:EXPECTED_SOURCE"
@@ -123,7 +123,7 @@ jobs:
         env:
           EXPECTED_SOURCE: ${{ inputs.candidate_source || github.sha }}
         run: |
-          if (-not ($env:EXPECTED_SOURCE -match '^[0-9a-f]{40}$') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+          if (-not ($env:EXPECTED_SOURCE -cmatch '^[0-9a-f]{40}\z') -or $env:EXPECTED_SOURCE.Length -ne 40) {
             throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
           }
           & "out/windows-cpu/build-env/Scripts/python.exe" scripts/candidate_review.py --publish "out/windows-cpu/reports/source-review.json" --page 4 --expected-source "$env:EXPECTED_SOURCE"

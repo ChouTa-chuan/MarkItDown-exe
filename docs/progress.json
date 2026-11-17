@@ -2,9 +2,9 @@
   "updated": "2026-11-17",
   "environment": "Linux 完整回歸／獨立模組與 A7 Windows 基本包分支驗收已驗；全套固定候選仍 A6 8285450",
   "tests_passed": 786,
-  "headline": "PR 1–13 已合併（a365f14），合併後 CI 全綠；大階段 A 經 Claude planner 複查，續編 A8–A17",
+  "headline": "PR 1–13 已合併；A7查驗通過，A8開始義務登記與旗標判定",
   "blocker": "三旗標仍 false 且尚無關閉條件（A8 處理）；基本包 wheel 內含第三方、Microsoft 14 檔、Qt 內含第三方與可替換驗收待 A9–A11，門檻待使用者在 A13 確認；CPU 模型／GEOS 等在 B1 之後；乾淨機／人工／GPU 仍待。",
-  "next": "A8：義務登記表與旗標判定規則（交給 Codex），之後 A9、A10、A11 → A12 → A13（使用者確認門檻）→ B1",
+  "next": "A8從main 08c4dcb的自己新分支開始；單一義務JSON與檢核腳本，驗證A6兩種報告涵蓋性及三旗標仍false，完成後先停。",
   "milestones": [
     {
       "id": "m0",
@@ -138,7 +138,7 @@
       "id": "m5",
       "title": "發佈準備",
       "state": "active",
-      "description": "Linux完整回歸、Windows hosted基本包與CPU維護已驗；A5c來源探測新門檻通過，固定候選／SBOM／再散布、乾淨機／人工與發行仍待。",
+      "description": "Linux完整回歸與hosted Windows基本包／CPU已驗，A7自有MIT對照已完成；大階段A續編A8–A17，完整SBOM／再散布與門檻確認、乾淨機／人工／GPU及交付仍待。",
       "checks": [
         {
           "label": "Windows 建置與安裝包",

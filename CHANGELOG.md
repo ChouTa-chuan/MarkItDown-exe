@@ -4,6 +4,10 @@
 
 ## 更新中
 
+- 2026-11-17：A8 首個提交處理 A7 查驗小問題：Windows 預檢改用區分大小寫且嚴格結尾的 `-cmatch '^[0-9a-f]{40}\z'`，分片補保留其餘各片、只改最後 part=N+1 的越界反例；更新 m5 描述，A7 status 維持已合併。
+- `full_regression.baseline_environment_identical` 在 A7 移除：舊布林值未附完整環境清單比較的依據，不能據此宣稱兩輪環境相同或不同。目前保留實測 Python／Tesseract、來源提交與回歸結果，舊欄位仍可由 Git 歷史追溯；本輪不還原沒有比較證據的布林值。
+
+
 - 2026-11-17：PR 13（A7）合併後 Windows 基本包與 CPU 驗證成功。Claude planner 完成大階段 A 整體複查：A1–A7 達成，但三旗標仍 false；依使用者決定續編 A8–A17，門檻確認前移為 A13，A12 不做打包減量並整理 progress.json，CPU 排在 B1 之後（STATUS C、D 節）。
 
 ### 2026-11-17｜A7 自有 MIT 對照、工作流來源傳遞與分片反例

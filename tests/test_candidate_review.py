@@ -148,6 +148,7 @@ class ReviewTests(unittest.TestCase):
         self.assertIn('candidate-review-part', stdout.getvalue())
         for broken in ([], parts[:-1], parts+[parts[0]],
                        [dict(parts[0], part=len(parts)+1), *parts[1:]],
+                       [*parts[:-1], dict(parts[-1], part=len(parts)+1)],
                        [dict(parts[0], sha256='0'*64), *parts[1:]],
                        [dict(parts[0], source_commit='f'*40), *parts[1:]]):
             with self.assertRaises((ValueError, OSError)):
