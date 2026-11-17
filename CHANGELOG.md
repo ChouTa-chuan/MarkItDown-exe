@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-17：PR 13（A7）合併後 Windows 基本包與 CPU 驗證成功。Claude planner 完成大階段 A 整體複查：A1–A7 達成，但三旗標仍 false；依使用者決定續編 A8–A17，門檻確認前移為 A13，A12 不做打包減量並整理 progress.json，CPU 排在 B1 之後（STATUS C、D 節）。
+
 ### 2026-11-17｜A7 自有 MIT 對照、工作流來源傳遞與分片反例
 
 - 首個提交修正 A6 合併現況、原排隊 run 最終成功且只有報告 artifact，並以 8285450 成功 run 作基本包審閱依據；A6 attempts.json 不變，原文／模型／架構快照保留。

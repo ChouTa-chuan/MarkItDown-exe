@@ -10,30 +10,53 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| 本輪 main 起點 | **PR 12 已合併（7b787d3），合併後 CI 全綠**；A6 已由 Claude reviewer 查驗通過，沒有必須修正項目 |
-| 本輪分支 | `codex/a7-mit-notice-20261117`，從最新 main `7b787d3dcf1e82fd43873c8c684a0412a38bcfb6` 開自己的新分支；不直接推 main、不推別人分支 |
-| 本輪 PR | A6 [PR #12](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/12) 已合併；A7 [PR #13](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/13) 已建立；指定修正與分支驗收完成，整合 CI／Merge 以該 PR 為準 |
-| 固定來源 | `8285450226abe1381e6a357e8bd33bff1ad46e0e`；基本包與 CPU 均已驗並離線重跑分類，PR 暫時 merge 不取代此候選 |
+| `main` | **PR 1–13 已合併**；最新 A7（PR 13，a365f14），合併後五項 CI 全部成功（含 Windows 基本包 44001936064、CPU 44001935923） |
+| 本輪分支 | `claude/confident-ride-o38ls7`：Claude 協調者只改文件，寫入大階段 A 整體複查結果與重新規劃，不屬任何編號 |
+| 下一棒 | **Codex（GPT）從最新 main 開新分支做 A8** |
+| 固定來源 | `8285450226abe1381e6a357e8bd33bff1ad46e0e`（A6）。**不含 A7**，A12 重新固定前不作為交付依據 |
 
 ## B. 這個階段完成了什麼
 
-- **A7 指定修正已完成**：首個提交 8cd064b 修正 PR 12 已合併（7b787d3）、合併後 CI 全綠與過時敘述；A6 README 追加原排隊 run 最終 completed／success、僅報告 artifact 的補註，attempts.json 不變。
-- 12d3dce 以獨立提交改為 step env EXPECTED_SOURCE，pwsh 先驗完整 SHA 再呼叫工具；edb1d82 加入真正多片的缺片與越界反例。
-- **自有 MIT 對照已修正**：維持原安裝路徑，綁入套件原文表，產生與 audit 兩端核對來源原始位元組。缺檔／改內容、漏綁／重綁、錯綁其他套件的反例即使重算資產 hash 仍拒絕；產品核准旗標維持 false。
-- 完整 Linux 混合及獨立模組回歸通過，只有既有 ONNX 繁中 expected failure、無跳過；Windows [分支驗收 43996798825](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/43996798825) 通過，自有套件原文待審原因確實消除。數字只見 [progress.json](docs/progress.json)，[本輪精簡證據](docs/development-records/runs/a7-mit-binding-2026-11-17/README.md)保存新結果、hash 與 run，沒有重複保存舊完整 JSON。
+- **A7 完成**：自有 MIT 綁入套件原文表並有反例；workflow 改以 step env 傳遞來源並預檢 SHA；多片 metadata 補缺片與越界反例。Claude reviewer 查驗無必須修正項目。
+- **大階段 A 整體複查（Claude planner）**：A1–A7 各自目標都達成；但大階段 A 的目標「關閉來源與再散布缺口」**尚未達成**，三個旗標（`runtime_sbom_complete`、`redistribution_approved`、`release_ready`）仍為 false。使用者決定大階段 A 續編 A8–A17（見 C 節）。
+- 複查發現三個結構性問題，已排入計畫：三旗標在工具裡是寫死的 false、沒有關閉條件（A8）；沒有「wheel 內含第三方元件」的資料模型（A9）；`microsoft-native-redistribution-review` 只依檔名加上、沒有清除路徑（A10）。另發現原計畫 B1（產出 CI artifact）排在 B4（使用者確認門檻）之前，與「門檻未關閉前不交付，含 CI artifact」牴觸，已把門檻確認前移為 A13。
 
 ## C. 未完成、阻擋與下一步
 
-**PR 12 已合併（7b787d3），合併後 CI 全綠；A7 實作、回歸與 Windows 基本包分支查驗完成。** 本輪 PR 最終 head 的整合 CI／Merge 結果以 PR 為準；全部通過、查驗無必修項才一般 Merge。舊固定候選仍 8285450，本輪分支驗收不重新定版全套候選。
+**整體規劃**（每個編號一個 PR，CI 通過且查驗完成即合併）
 
-| 任務 | 現況／下一步 |
-| --- | --- |
-| A6／PR 12 | 已合併並通過 Claude reviewer；原排隊 run 43912958713 最終 completed／success、只有報告 artifact，舊 attempts.json 保留原狀 |
-| A7 | 文件、step env／SHA 預檢、多片反例、自有 MIT 綁定及來源重驗均完成；最終整合結果見本輪 PR，維持一般 Merge／不直接推 main／不刪分支 |
-| 下一步 | **A7 完成後先停，交 Claude planner 整體複查大階段 A 及重新規劃剩餘義務。本輪不另開後續階段或重排剩餘義務。** |
-| 既有門檻 | 完整 SBOM／再散布、乾淨機／人工／GPU仍待；ONNX 繁中缺口、RAM 軟性預算保留，沒有產品交付、Release 或 tag |
+| 大階段 | 編號與任務 | 狀態 |
+| --- | --- | --- |
+| A 關閉來源與再散布缺口 | A1–A7（PR 5、6、8–13） | 完成 |
+| | **A8 義務登記表與旗標判定規則**：新增 `packaging/redistribution/obligations.json`（分 base／cpu，每項含 id、對應的 review_reason 或檔案群、所需證據、狀態、使用者決定出處）、`scripts/redistribution_gates.py`、測試與 `docs/redistribution-gates.md`（三旗標定義；寫明 `unresolved_files` 是「無 wheel 擁有者」的計數，不是要歸零的指標）。旗標改由條目推導，不再只是常數。順帶修正 `scripts/license_inventory.py` render() 兩句過時文字（「Tesseract 執行檔尚未隨 Windows 包發佈」「完整 Windows 二進位檔尚未建置」）並重產 `third-party.md`。驗收：以 A6 的 base／cpu source-review 為輸入，每個原生檔與 review_reason 各對到恰好一個條目，未對到者拒絕；標「使用者已核准」卻無決定出處者拒絕；現況輸出三旗標皆 false 並列出未關閉條目；不動 spec、打包內容與既有計數口徑；限制為單一 JSON 加一支檢核腳本，避免過度設計 | **下一個，交給 Codex** |
+| | A9 基本包 wheel 內含第三方元件目錄（非 Qt、非 Microsoft）：numpy、pandas、Pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi、charset-normalizer、psutil 等的內含元件名稱、版本、來源、隨包原文；版本依據分級（wheel 宣告／runtime 觀測／未知），未知者在登記表保持未關閉。cryptography 缺 OpenSSL 原文需補；Pillow 單一 LICENSE 是否涵蓋內含程式庫待查。量大可拆 A9a／A9b | 待開始（A8 後） |
+| | A10 Microsoft 執行期逐檔對照（基本包 14 檔：根目錄 3、PySide6 5、shiboken6 4、numpy.libs 與 pandas.libs 各 1 個改名的 msvcp140）：收集來源、PE 版本、簽章、與官方 Redist 同名檔雜湊比對、適用條款文件；改名複本單獨標示；review_reason 改由登記表狀態控制。條款是否允許由使用者在 A13 決定 | 待開始（A8 後） |
+| | A11 Qt 內含第三方（qt_attribution）、建置資訊（`QLibraryInfo.build()` 等）與「可替換 Qt」驗收（hosted Windows CI：替換 DLL 後可啟動、移除 Qt6Core 後啟動失敗，標明非實體機）；更新 `qt-lgpl-notice.md`。LGPL 做法是否足夠由使用者在 A13 決定 | 待開始（A8 後） |
+| | A12 以 A8–A11 完成後的 main 重新固定候選，產出基本包出口報告；`runtime_sbom_complete` 依 A8 定義推導，不得人工改寫。**順帶整理 `docs/progress.json`**：把 `previous_*` 等舊紀錄鍵搬到 `docs/history/`（搬移，不刪除內容；使用者已同意）。**不做打包減量**（使用者決定） | 待開始 |
+| | A13 使用者確認基本包門檻（原 B4 前移）：Microsoft 各複本、Qt LGPL 做法、libffi 僅建置宣告、版本未知的內含元件、Tesseract 與 tessdata、品質限制揭露文字。協調者不得代為決定 | 需使用者 |
+| | A14 CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例） | 待開始（B1 之後） |
+| | A15 CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認 | 待開始（B1 之後） |
+| | A16 CPU：Shapely／GEOS（LGPL）與 CPU wheel 內含元件（沿用 A9 格式），CPU Microsoft 6 檔（沿用 A10）；LGPL 做法需使用者確認 | 待開始（B1 之後） |
+| | A17 CPU：查明 setuptools、pip、pyinstaller 等建置工具是否真的進了 worker；若要排除屬打包變更，需使用者同意 | 待開始（B1 之後） |
+| B 測試版安裝包 | B1 基本包以 CI artifact 產出（附提交、版本、雜湊、隨包原文、限制），來源為 A12 的固定候選；B2 驗收表；B3 CPU 元件重新定版；B4 使用者確認測試版結果 | 待開始 |
+| C 乾淨機與人工驗收 | C1 乾淨 Windows 10／11 安裝與離線首次啟動；C2 四語、中文路徑、修復移除；C3 人工操作 | 需使用者或實體 Windows |
+| D 功能擴充 | D1 圖片檔走本機 OCR；D2 影音獨立選配元件 | 等使用者決定 |
+| E GPU | 實卡驗收 | 延後 |
 
-**證據與平台**：GitHub API 可用。Windows 完整 JSON 與大型日誌留 CI，repo 只存本輪新結果與精簡 proof；舊嘗試只留 hash 與 run 編號。原 run 43912958713 的 queued 是當時狀態，後續已成功，不重送。
+**執行順序**：A8 → A9、A10、A11（互不相依，各自一個 PR，可交給不同 AI，但都在 A8 之後；A8 不可與它們合併）→ A12 → A13 → B1。CPU 的 A14–A17 排在基本包 B1 之後（使用者決定）。
+
+**大階段 B 的進入條件**
+
+- B1：A8–A13 完成，且基本包 `redistribution_approved` 經使用者決定。CPU 不必先關閉。
+- 可與 A 平行、但不產生可交付產物的準備：B1 workflow 設計（只輸出提交、版本、雜湊、原文清單，不上傳 Setup）、B2 驗收表草稿、限制說明文字。
+- B3：A14–A17 完成並經使用者確認。
+- `release_ready` 在大階段 C 的乾淨機與人工驗收之前維持 false。
+
+**A7 查驗留下的小問題**（A8 第一個提交順手處理）：兩個 Windows workflow 的 pwsh 預檢共 14 處改用 `-cmatch '^[0-9a-f]{40}\z'`（`-match` 不分大小寫，`$` 允許結尾換行；後面的 Python 檢查會擋，沒有安全缺口）；`tests/test_candidate_review.py` 再加一個「只有越界」的反例（保留其餘各片、把最後一片改成 part=N+1）；`progress.json` 的 m5 描述與 `a7_mit_notice.status` 更新；CHANGELOG 補一句 `full_regression.baseline_environment_identical` 欄位移除的原因（或還原）。
+
+**有期限的資料**：PR 上的 Windows 報告保留七天，以暫時合併提交執行，不是候選證據。artifact 儲存主機常被本環境網路政策擋下，需要的資料請讓 CI 寫進公開摘要。
+
+**既有限制**：ONNX 繁中缺口、RAM 軟性預算、Windows 實機／GPU 未驗收；沒有產品交付、Release 或 tag。
 
 ## D. 新增規則與決定
 
@@ -65,5 +88,6 @@
 | 2026-11-17 | 使用者決定 | 之後在 D 節新增紀錄時，不要再加原文已涵蓋的摘要列。 |
 | 2026-11-17 | 使用者指示 | 之後不要再保存重複的舊嘗試完整 JSON，只留 hash 與 run 編號。 |
 | 2026-11-17 | 使用者指示 | A7 完成後先停，大階段 A 的整體複查與剩餘義務的重新規劃，交由 Claude planner 處理。 |
+| 2026-11-17 | 使用者決定 | 採用 Claude planner 的大階段 A 重新規劃：A 續編 A8–A17，使用者確認門檻由原 B4 前移為 A13（B1 之前）；A12 不做打包減量；A12 整理 `docs/progress.json`，把舊紀錄鍵搬到歷史目錄（搬移不刪除）；CPU 的 A14–A17 排在基本包 B1 之後；A8 交給 Codex（GPT） |
 
-接手先列 PR，再讀最新分支 AGENTS.md 與 STATUS.md；PR 12 已合併（7b787d3），合併後 CI 全綠。A7 完成後先停，交 Claude planner 整體複查大階段 A 及重新規劃；本輪不接續新階段。
+接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md；PR 1–13 已合併。Codex 從最新 main 開自己的新分支做 C 節的 A8，第一個提交順手處理「A7 查驗留下的小問題」；完成後依 AGENTS.md 更新現況、開 PR，CI 通過且查驗完成即可一般 Merge。

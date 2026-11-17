@@ -2,9 +2,9 @@
   "updated": "2026-11-17",
   "environment": "Linux 完整回歸／獨立模組與 A7 Windows 基本包分支驗收已驗；全套固定候選仍 A6 8285450",
   "tests_passed": 786,
-  "headline": "PR 12 已合併（7b787d3），合併後 CI 全綠；A7 指定修正與分支驗收完成，整合結果見PR 13",
-  "blocker": "A7 已修正自有 MIT 套件對照；完整 SBOM／再散布、Qt／Microsoft／CPU 模型／GEOS、乾淨機／人工／GPU仍待，後續由 Claude planner 整體複查與重新規劃。",
-  "next": "PR 12 已合併（7b787d3），合併後 CI 全綠；A7 完成後先停，由 Claude planner 核對本輪 PR 最終 CI／Merge 後整體複查大階段 A，重新規劃剩餘義務。",
+  "headline": "PR 1–13 已合併（a365f14），合併後 CI 全綠；大階段 A 經 Claude planner 複查，續編 A8–A17",
+  "blocker": "三旗標仍 false 且尚無關閉條件（A8 處理）；基本包 wheel 內含第三方、Microsoft 14 檔、Qt 內含第三方與可替換驗收待 A9–A11，門檻待使用者在 A13 確認；CPU 模型／GEOS 等在 B1 之後；乾淨機／人工／GPU 仍待。",
+  "next": "A8：義務登記表與旗標判定規則（交給 Codex），之後 A9、A10、A11 → A12 → A13（使用者確認門檻）→ B1",
   "milestones": [
     {
       "id": "m0",
@@ -3288,7 +3288,7 @@
   "a7_mit_notice": {
     "source_commit": "07afa79add13d35ede89af8c332bc6dab1aed15e",
     "base_commit": "7b787d3dcf1e82fd43873c8c684a0412a38bcfb6",
-    "status": "implemented-and-branch-verified",
+    "status": "merged",
     "first_corrections_commit": "8cd064b",
     "workflow_env_commit": "12d3dce",
     "multipart_tests_commit": "edb1d82",
@@ -3325,9 +3325,15 @@
     "old_attempt_full_json_copied": false,
     "fixed_candidate_source_unchanged": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
     "evidence": "development-records/runs/a7-mit-binding-2026-11-17/README.md",
-    "integration_results": "See this stage PR final-head checks",
-    "next_owner": "Claude planner; stop after A7",
+    "integration_results": "PR 13 final head CI all success; post-merge main a365f14 Windows base 44001936064 and CPU 44001935923 success",
+    "next_owner": "Codex: A8",
     "pr": 13,
-    "pr_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/13"
+    "pr_url": "https://github.com/ChouTa-chuan/MarkItDown-exe/pull/13",
+    "merge_commit": "a365f14",
+    "post_merge_windows_runs": {
+      "base": 44001936064,
+      "cpu": 44001935923,
+      "conclusion": "success"
+    }
   }
 }
