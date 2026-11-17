@@ -1,6 +1,7 @@
 """只讀義務登記與 source-review，推導三旗標；不改候選、盤點與原始報告。"""
 import argparse
 import collections
+import datetime
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
@@ -10,6 +11,21 @@ ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT/'packaging/redistribution/obligations.json'
 FLAGS = ('runtime_sbom_complete', 'redistribution_approved', 'release_ready')
 STATUSES = ('open', 'evidence_complete', 'user_approved')
+SCHEMA_VERSION = 2
+# 封閉結構：鍵集合依 obligations.json 實際使用的欄位訂定，未知鍵一律拒絕，避免夾帶未被檢核的資料。
+TOP_KEYS = {'schema_version', 'description', 'profiles'}
+PROFILE_KEYS = {'source_commit', 'entries'}
+ENTRY_REQUIRED = {'id', 'title', 'native_files', 'review_reasons', 'file_groups', 'required_evidence',
+                  'evidence', 'status', 'requires_user_decision', 'gates'}
+ENTRY_KEYS = ENTRY_REQUIRED | {'decision_source'}
+EVIDENCE_KEYS = {'path', 'sha256'}
+DECISION_KEYS = EVIDENCE_KEYS | {'quote'}
+# 決定出處只認固定存檔（STATUS.md 會持續改動，hash 會失效，所以不接受）。
+DECISION_PATH = re.compile(r'docs/history/status/\d{4}-\d{2}-\d{2}-[a-z0-9][a-z0-9-]*\.md')
+# D 節中使用者親自做的決定列：來源欄須以「使用者」開頭。
+DECISION_LINE = re.compile(r'\| \d{4}-\d{2}-\d{2} \| 使用者[^|]*\| .+ \|')
+# 大階段 C（乾淨機與人工驗收）的證據目錄前綴；目前不存在，故 release_ready 在大階段 C 之前不可能為 true。
+STAGE_C_PREFIX = 'docs/development-records/runs/stage-c-'
 
 
 def require(condition, message):
@@ -53,20 +69,60 @@ def reference(ref, root, *, decision=False):
             'Evidence hash mismatch: '+name)
     if decision:
         quote = ref.get('quote')
-        require(isinstance(quote, str) and quote.strip() and quote in path.read_text(encoding='utf-8'),
-                'Missing decision quotation: '+name)
+        require(isinstance(quote, str) and DECISION_PATH.fullmatch(name),
+                'Decision source must be a fixed docs/history/status archive: '+name)
+        require(decision_line_exists(path.read_text(encoding='utf-8'), quote),
+                'Decision quotation is not a user decision row in section D: '+name)
+
+
+def decision_line_exists(text, quote):
+    """quote 必須是存檔 D 節內「完整的一行」，且來源欄以「使用者」開頭。
+
+    只做格式與位置限制，不證明該行真的出自使用者；來源仍須人工查驗。
+    """
+    require(DECISION_LINE.fullmatch(quote) is not None, 'Decision quotation is not a user decision row')
+    try:
+        datetime.date.fromisoformat(quote[2:12])
+    except ValueError:
+        raise ValueError('Decision quotation has an invalid date') from None
+    in_section = False
+    in_fence = False
+    for line in text.split('\n'):
+        line = line.rstrip('\r')
+        # 程式碼區塊內的標題或表格列不算存檔原文，避免藉圍欄偽造 D 節。
+        if line.startswith('```'):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        if line.startswith('## '):
+            in_section = re.match(r'## D(?:[.．\s]|$)', line) is not None
+        elif in_section and line == quote:
+            return True
+    return False
+
+
+def exact_keys(value, allowed, label, required=None):
+    """物件必須是 dict，且鍵集合落在允許集合內（含必要鍵）。"""
+    require(isinstance(value, dict), 'Not an object: '+label)
+    require(set(value) <= allowed and set(value) >= (allowed if required is None else required),
+            'Unexpected or missing keys in '+label+': '+', '.join(sorted(set(value) ^ allowed)))
 
 
 def validate_registry(registry, root):
-    require(registry.get('schema_version') == 1 and set(registry.get('profiles', {})) == {'base', 'cpu'},
+    exact_keys(registry, TOP_KEYS, 'registry')
+    require(type(registry['schema_version']) is int and registry['schema_version'] == SCHEMA_VERSION, 'Unsupported registry schema_version')
+    require(isinstance(registry['profiles'], dict) and set(registry['profiles']) == {'base', 'cpu'},
             'Registry requires base and cpu profiles')
     ids = set()
     for profile, config in registry['profiles'].items():
+        exact_keys(config, PROFILE_KEYS, 'profile '+profile)
         require(isinstance(config.get('source_commit'), str)
                 and re.fullmatch('[0-9a-f]{40}', config['source_commit']), 'Invalid registry source')
         entries = config.get('entries')
         require(isinstance(entries, list) and entries, 'Empty obligations: '+profile)
         for e in entries:
+            exact_keys(e, ENTRY_KEYS, 'obligation entry', ENTRY_REQUIRED)
             identity = e.get('id')
             require(isinstance(identity, str) and re.fullmatch('[a-z0-9-]+', identity)
                     and identity not in ids, 'Invalid/duplicate obligation id')
@@ -84,10 +140,12 @@ def validate_registry(registry, root):
             require(e.get('status') in STATUSES and type(e.get('requires_user_decision')) is bool,
                     'Invalid obligation status: '+identity)
             for ref in e['evidence']:
+                exact_keys(ref, EVIDENCE_KEYS, 'evidence reference')
                 reference(ref, root)
             if e['status'] != 'open':
                 require(e['evidence'], 'Closed status without evidence: '+identity)
             if e.get('decision_source') is not None:
+                exact_keys(e['decision_source'], DECISION_KEYS, 'decision_source')
                 reference(e['decision_source'], root, decision=True)
             if e['status'] == 'user_approved':
                 require(e.get('decision_source') is not None, 'User approval without decision source: '+identity)
@@ -98,17 +156,27 @@ def validate_registry(registry, root):
             mandatory = next((e for e in entries if e['id'] == profile+suffix), None)
             require(mandatory and flag in mandatory['gates'] and mandatory['requires_user_decision'],
                     'Gate missing mandatory user-decision obligation: '+flag)
+        # release_ready 綁定大階段 C：clean-machine-manual 關閉時須有 stage-c- 前綴的實機證據。
+        manual = next(e for e in entries if e['id'] == profile+'-clean-machine-manual')
+        require(manual['status'] == 'open' or any(r['path'].startswith(STAGE_C_PREFIX) for r in manual['evidence']),
+                'Clean-machine closure needs stage-c evidence: '+manual['id'])
         for e in entries:
             require(not e['native_files'] or set(FLAGS[:2]) <= set(e['gates']),
                     'Native obligations must cover source and redistribution: '+e['id'])
 
 
 def coverage(items, entries, key):
-    """兩個獨立軸：每個原生檔、每個 reason 各恰好一個條目；沒有優先順序或兜底。"""
+    """兩個獨立軸：每個原生檔、每個 reason 各恰好一個條目；沒有優先順序或兜底。
+
+    另做反向檢查：登記表的每個選擇器都必須真的出現在輸入中，避免過期選擇器長期殘留。
+    """
     index = collections.defaultdict(list)
     for e in entries:
         for value in e[key]:
             index[safe_name(value) if key == 'native_files' else value].append(e['id'])
+    seen = {safe_name(v) if key == 'native_files' else v for v in items}
+    for name in index:
+        require(name in seen, f'stale selector in {key}: {name}')
     result = {}
     for value in items:
         matches = index[safe_name(value) if key == 'native_files' else value]

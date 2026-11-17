@@ -25,16 +25,30 @@ class GateTests(unittest.TestCase):
     def assess(self, profile='base'):
         return gates.assess(self.reports[profile], self.registry)
 
+    DECISION_ROW = '| 2026-01-02 | 使用者決定 | 合成決定：僅供測試 |'
+    ARCHIVE = 'docs/history/status/2026-01-02-synthetic.md'
+
+    def write(self, name, text):
+        path = self.temp/name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding='utf-8')
+        return dict(path=name, sha256=hashlib.sha256(path.read_bytes()).hexdigest())
+
     def synthetic_closed(self):
         """只以合成證據測條件分層，不改專案中的登記／決定／舊報告。"""
-        (self.temp/'evidence.txt').write_text('synthetic evidence')
-        quote = '合成使用者決定：僅供測試'
-        (self.temp/'decision.md').write_text(quote, encoding='utf-8')
-        proof = dict(path='evidence.txt', sha256=hashlib.sha256((self.temp/'evidence.txt').read_bytes()).hexdigest())
-        decision = dict(path='decision.md', sha256=hashlib.sha256((self.temp/'decision.md').read_bytes()).hexdigest(), quote=quote)
+        proof = self.write('evidence.txt', 'synthetic evidence')
+        stage_c = self.write('docs/development-records/runs/stage-c-synthetic/result.txt', 'synthetic stage C')
+        text = '# 合成存檔\n\n## C. 其他\n\n| x |\n\n## D. 規則與決定\n\n| 日期 | 來源 | 內容 |\n'+self.DECISION_ROW+'\n\n## E. 其他\n'
+        decision = dict(self.write(self.ARCHIVE, text), quote=self.DECISION_ROW)
         for profile in self.registry['profiles'].values():
             for entry in profile['entries']:
-                entry.update(status='user_approved', evidence=[proof], decision_source=decision)
+                evidence = [stage_c] if entry['id'].endswith('-clean-machine-manual') else [proof]
+                entry.update(status='user_approved', evidence=evidence, decision_source=decision)
+
+    def decision_assess(self, text, quote, path=None):
+        """以合成存檔檢查單一決定出處；只有 reference 的決定規則被觸發。"""
+        ref = dict(self.write(path or self.ARCHIVE, text), quote=quote)
+        gates.reference(ref, self.temp, decision=True)
 
     def test_actual_a6_profiles_have_exact_coverage_and_false_flags(self):
         for profile in ('base', 'cpu'):
@@ -83,11 +97,75 @@ class GateTests(unittest.TestCase):
         self.synthetic_closed()
         entry = self.registry['profiles']['base']['entries'][0]
         original = copy.deepcopy(entry['decision_source'])
-        for changes in (dict(sha256='0'*64), dict(quote='沒有記錄的核准'), dict(path='../outside')):
+        for changes in (dict(sha256='0'*64), dict(quote='沒有記錄的核准'), dict(path='../outside'),
+                        dict(path='evidence.txt'), dict(path='STATUS.md')):
             with self.subTest(changes=changes):
                 entry['decision_source'] = dict(original, **changes)
                 with self.assertRaises(ValueError):
                     gates.assess(self.reports['base'], self.registry, root=self.temp)
+
+    def test_decision_source_accepts_only_user_row_in_section_d_of_archive(self):
+        row = self.DECISION_ROW
+        good = '## D. 決定\n'+row+'\n## E\n'
+        self.decision_assess(good, row)
+        outside = '## C. 其他\n'+row+'\n## D. 決定\n| x |\n## E\n'+row+'\n'
+        other_source = '| 2026-01-02 | 協調者 | 合成決定 |'
+        cases = {
+            'substring': (good, row[2:20], None),
+            'single character': (good, 'M', None),
+            'not in section D': (outside, row, None),
+            'source column not user': ('## D. 決定\n'+other_source+'\n', other_source, None),
+            'status file': (good, row, 'STATUS.md'),
+            'not archive path': (good, row, 'docs/history/other/2026-01-02-x.md'),
+            'bad archive name': (good, row, 'docs/history/status/notes.md'),
+            'section named Data': ('## Data\n'+row+'\n', row, None),
+            'inside code fence': ('## C. 其他\n```\n## D. 偽造\n'+row+'\n```\n', row, None),
+            'invalid date': ('## D. 決定\n| 2026-99-99 | 使用者決定 | 合成 |\n', '| 2026-99-99 | 使用者決定 | 合成 |', None),
+        }
+        for name, (text, quote, path) in cases.items():
+            with self.subTest(name=name), self.assertRaises(ValueError):
+                self.decision_assess(text, quote, path)
+
+    def test_stale_registry_selectors_are_rejected(self):
+        entry = next(e for e in self.registry['profiles']['base']['entries'] if e['id']=='base-cpython')
+        entry['native_files'].append('not-in-input.dll')
+        with self.assertRaisesRegex(ValueError, 'stale selector in native_files'):
+            self.assess()
+        entry['native_files'].pop()
+        entry['review_reasons'].append('no-such-reason')
+        with self.assertRaisesRegex(ValueError, 'stale selector in review_reasons'):
+            self.assess()
+
+    def test_clean_machine_closure_needs_stage_c_evidence(self):
+        self.synthetic_closed()
+        entry = next(e for e in self.registry['profiles']['base']['entries'] if e['id']=='base-clean-machine-manual')
+        entry['evidence'] = [self.write('evidence.txt', 'synthetic evidence')]
+        with self.assertRaisesRegex(ValueError, 'stage-c evidence'):
+            gates.assess(self.reports['base'], self.registry, root=self.temp)
+
+    def test_registry_structure_is_closed(self):
+        self.synthetic_closed()
+        def mutate(name):
+            registry = copy.deepcopy(self.registry)
+            entry = registry['profiles']['base']['entries'][0]
+            if name == 'top':
+                registry['unknown_key'] = 1
+            elif name == 'profile':
+                registry['profiles']['base']['unknown_key'] = 1
+            elif name == 'entry':
+                entry['unknown_key'] = 1
+            elif name == 'evidence':
+                entry['evidence'][0]['unknown_key'] = 1
+            elif name == 'decision':
+                entry['decision_source']['unknown_key'] = 1
+            elif name == 'schema':
+                registry['schema_version'] = 1
+            elif name == 'schema-float':
+                registry['schema_version'] = 2.0
+            return registry
+        for name in ('top', 'profile', 'entry', 'evidence', 'decision', 'schema', 'schema-float'):
+            with self.subTest(name=name), self.assertRaises(ValueError):
+                gates.assess(self.reports['base'], mutate(name), root=self.temp)
 
     def test_closed_status_without_evidence_is_rejected(self):
         self.registry['profiles']['base']['entries'][0].update(status='evidence_complete')
