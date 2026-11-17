@@ -1,6 +1,6 @@
 # 現況
 
-更新：2026-11-17（台北）｜程式 0.19.1／架構 0.4
+更新：2026-11-18（台北）｜程式 0.19.1／架構 0.4
 
 開工只需要讀 [AGENTS.md](AGENTS.md) 和這份檔案。測試數、里程碑等數字只記在 [docs/progress.json](docs/progress.json)（[進度頁](docs/progress.html)），這裡不重抄。要追溯過去的做法或失敗，查 [歷史索引](docs/history-index.md)。
 
@@ -11,18 +11,17 @@
 | 項目 | 狀態 |
 | --- | --- |
 | `main` | PR 1–20 已合併；A10（PR 20，536f4d6）六項 CI 全成功 |
-| 本輪分支 | `claude/confident-ride-o38ls7`（PR 19）：只記錄使用者決定（OpenSSL 補原文為 A9b、A10 換手 Codex），已合併 main 解衝突，不屬編號 |
-| 下一棒 | A9b、A11 待指派；A10 正由 Claude reviewer 查驗 |
+| 本輪分支 | `codex/a9b-openssl-notice-20261118`，從最新 main 0b6fc51 開始；A9b 原文／Windows API 證據與本機查驗已完成，最終整合見 PR 21 |
+| 下一棒 | 依使用者指定先完成／Merge A9b，再從最新 main 開自己的 A11 新分支；A11 完成後停，不做 A12 |
 | 固定來源 | `8285450226abe1381e6a357e8bd33bff1ad46e0e`（A6）。**不含 A7**，A12 重新固定前不作為交付依據；A10 PR 探測不是新候選 |
 
 ## B. 這個階段完成了什麼
 
-- **A10 Microsoft 逐檔對照**：[目錄](packaging/microsoft/base-windows.json) 保存來源容器／路徑、PE 版本依據、簽章、官方 Redist 同名完整 SHA-256 比較與條款文件引用；改名複本分列。快速 Windows 來源實測以 bytes 綁定 A6，真正 bundle 由完整 CI 另驗；保留 PE 公司欄為 Microsoft、實際簽署者為 QT Company 的複本，不以差異推論授權結論。
-- `obligations.json` 只改 base-microsoft 的證據引用與 A13 決定要求；細節不塞進登記表。該條目維持 open：官方 Runtime／VS2022 原始 DOCX 及 REDIST 全頁已於網域發布後取回，path／hash 綁入目錄，既有未核對轉載標記保留；適用性及再散布權利留待 A13。CPU Microsoft 留給 A16。
-- 原 A6 base／cpu 重新跑判定器，三旗標皆 false，來源輸入、計數與其他義務未改。原始 review_reason 保留，阻擋由登記狀態推導；漏檔、觀測／證據 hash 變動、非鎖定來源及略過 A13 會拒絕。
-- 本輪 [新證據](docs/development-records/runs/a10-microsoft-runtime-2026-11-17/README.md) 保存原始小型探測及必要條款；後續重跑只記 hash 與 run。完整 Linux 混合／獨立模組回歸通過，只有既有 ONNX 繁中 expected failure、無跳過，數字只見 [progress.json](docs/progress.json)；最終 PR head CI、查驗與合併結果見 PR 20。
-- 網域發布後補核 Microsoft 官方原始條款與 REDIST 全頁；此前 head fe7ecb8 的五條 CI 與兩種 Microsoft 實測資料已完整查驗，新 head 必須另過全部 CI，不能沿用舊結果。
-- 未動 spec、打包內容、鎖檔、既有計數口徑與原始舊證據，沒有產品交付、tag 或 Release。hosted Windows 非乾淨機／人工／GPU 驗收；A10 完成後停止。
+- **A9b OpenSSL 原文隨包**：固定 tag／commit 的 LICENSE 加入既有 supplemental_sources；準備資產與最終 bundle 各驗原文、套件對應、實際 OpenSSL API 及 _rust bytes，位置可從基本包 third-party.md 找到。
+- 真正 hosted Windows API 觀測與 A6 的 _rust.pyd hash 相同，沿用 runtime-observed；不把靜態字串或 Linux 觀測標成 wheel-declared。元件詳情在 [目錄](packaging/embedded/base-windows.json)，Rust 相依仍 unknown、cryptography 義務仍 open。
+- 原 A6 base／cpu gates 皆三旗標 false，計數口徑不變。依使用者授權，其餘共用目錄條目只刷新 SHA，清單見 CHANGELOG 與 [新證據](docs/development-records/runs/a9b-openssl-2026-11-18/README.md)；其他狀態／選擇器／需求與決定旗標不變。
+- 首輪衍生清單未更新的失敗已保留，重建基本包／CPU 授權衍生索引後相關與完整回歸通過；只有既有 ONNX 繁中 expected failure、沒有跳過，數字只記 progress.json。最終 head CI／查驗／Merge 結果見 PR 21。
+- 使用者已同意本原文的隨包內容變更；spec、鎖檔、計數程式與其他原文不變。沒有產品交付、Release 或 tag。A9b 合併後才另開 A11 分支，不做 A12。
 
 ## C. 未完成、阻擋與下一步
 
@@ -34,7 +33,7 @@
 | | A8 義務登記表與旗標判定規則：新增 `packaging/redistribution/obligations.json`（分 base／cpu，每項含 id、對應的 review_reason 或檔案群、所需證據、狀態、使用者決定出處）、`scripts/redistribution_gates.py`、測試與 `docs/redistribution-gates.md`（三旗標定義；寫明 `unresolved_files` 是「無 wheel 擁有者」的計數，不是要歸零的指標）。旗標改由條目推導，不再只是常數。順帶修正 `scripts/license_inventory.py` render() 兩句過時文字（「Tesseract 執行檔尚未隨 Windows 包發佈」「完整 Windows 二進位檔尚未建置」）並重產 `third-party.md`。驗收：以 A6 的 base／cpu source-review 為輸入，每個原生檔與 review_reason 各對到恰好一個條目，未對到者拒絕；標「使用者已核准」卻無決定出處者拒絕；現況輸出三旗標皆 false 並列出未關閉條目；不動 spec、打包內容與既有計數口徑；限制為單一 JSON 加一支檢核腳本，避免過度設計 | 完成（PR 15） |
 | | A8b 義務登記檢核補強：決定出處限固定存檔 D 節的使用者決定列、反向檢查 stale selector、release_ready 綁定 `stage-c-` 證據、結構封閉與 schema 2（使用者決定插入於 A9 之前） | 完成（PR 16） |
 | | A9 基本包 wheel 內含第三方元件目錄（非 Qt、非 Microsoft）：元件名稱、版本、版本依據分級、來源與隨包原文；未知者保持 open | 完成（PR 18） |
-| | A9b cryptography 內含 OpenSSL 原文隨包：A9 查得 `cryptography/hazmat/bindings/_rust.pyd` 有 `OpenSSL 4.0.3` 字串（靜態併入），wheel 未附原文。使用者已同意補：以固定上游來源（OpenSSL 對應版本標籤的 LICENSE 原文，記來源網址、版本依據與 sha256）加入隨包授權資料，接到既有原文管線與目錄（`packaging/embedded/base-windows.json` 的 openssl 元件），補缺檔／改內容反例；版本仍須有依據，不能只憑字串就標成 wheel-declared（可新增分級需先說明）。會改變安裝包內容（使用者已同意） | **可開始**（使用者已同意） |
+| | A9b cryptography 內含 OpenSSL 原文隨包：A9 查得 `cryptography/hazmat/bindings/_rust.pyd` 有 `OpenSSL 4.0.3` 字串（靜態併入），wheel 未附原文。使用者已同意補：以固定上游來源（OpenSSL 對應版本標籤的 LICENSE 原文，記來源網址、版本依據與 sha256）加入隨包授權資料，接到既有原文管線與目錄（`packaging/embedded/base-windows.json` 的 openssl 元件），補缺檔／改內容反例；版本仍須有依據，不能只憑字串就標成 wheel-declared（可新增分級需先說明）。會改變安裝包內容（使用者已同意） | 工程完成（PR 21）；最終 CI／Merge 見 PR |
 | | A10 Microsoft 執行期逐檔對照（基本包 14 檔：根目錄 3、PySide6 5、shiboken6 4、numpy.libs 與 pandas.libs 各 1 個改名的 msvcp140）：收集來源、PE 版本、簽章、與官方 Redist 同名檔雜湊比對、適用條款文件；改名複本單獨標示；review_reason 改由登記表狀態控制。條款是否允許由使用者在 A13 決定 | 完成（PR 20）；Microsoft 義務維持 open，留待 A13 |
 | | A11 Qt 內含第三方（qt_attribution）、建置資訊（`QLibraryInfo.build()` 等）與「可替換 Qt」驗收（hosted Windows CI：替換 DLL 後可啟動、移除 Qt6Core 後啟動失敗，標明非實體機）；更新 `qt-lgpl-notice.md`。LGPL 做法是否足夠由使用者在 A13 決定 | **可開始** |
 | | A12 以 A8–A11 完成後的 main 重新固定候選，產出基本包出口報告；`runtime_sbom_complete` 依 A8 定義推導，不得人工改寫。**順帶整理 `docs/progress.json`**：把 `previous_*` 等舊紀錄鍵搬到 `docs/history/`（搬移，不刪除內容；使用者已同意）。**不做打包減量**（使用者決定） | 待開始 |
@@ -106,5 +105,7 @@
 | 2026-11-17 | 使用者決定 | Claude 角色模型改為：規劃者 `planner` 用 `claude-opus-5-5`、編程者 `coder` 用 `claude-haiku-5-5`、查驗者 `reviewer` 用 `claude-sonnet-5-5`；協調者（主對話）預設 `claude-opus-5-5`；推理強度維持中。原因：Fable 5.2 在使用者方案中無法使用。取代 2026-11-16 planner 用 `claude-fable-5-2` 的設定 |
 | 2026-11-17 | 使用者決定 | cryptography Windows wheel 靜態併入的 OpenSSL 要補授權原文隨包（列為 A9b，會改變安裝包內容）；A10 換手交給 Codex（GPT） |
 | 2026-11-17 | 使用者本輪 A10 指示 | 從最新 main 開自己的新分支做 Microsoft 基本包逐檔證據；細節由 evidence 路徑加 hash 引用目錄，obligations.json 只改 Microsoft 條目並標 A13 使用者決定；base／cpu 三旗標維持 false。不動 spec、打包內容、鎖檔與既有計數，條款是否允許由使用者在 A13 決定。A10 完成後先停。 |
+| 2026-11-18 | 使用者本輪指示 | 依序做 A9b 與 A11，各自一個 PR；先完成 A9b 並合併，再從最新 main 開新分支做 A11。A9b 已同意原文隨包內容變更；A11 hosted Windows 可替換驗收，base-qt 需 A13 使用者決定；不動 spec、鎖檔與既有計數口徑，不做 A12；A11 完成後先停。 |
+| 2026-11-18 | 使用者補充授權 | 允許必要的 hash 同步：只更新共用目錄（或 A11 的共用來源）的 sha256 引用，其他條目的 status、選擇器、required_evidence、requires_user_decision 一律不變；並在 PR 說明與 CHANGELOG 列出哪些條目只做了 hash 同步。改完重跑 base、cpu 兩個 profile 的 gates，三旗標仍須為 false。 |
 
-接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。A10 已合併（PR 20），後續 A9b（OpenSSL 原文隨包，使用者已同意）與 A11 依使用者指派進行；不把 PR 探測取代 A12 固定候選，也不代替 A13 決定。
+A9b 成果、最終 head CI／Merge 見 PR 21；合併後從最新 main 另開自己的 A11 分支，依本輪使用者指示接續，A11 完成後停，不做 A12。

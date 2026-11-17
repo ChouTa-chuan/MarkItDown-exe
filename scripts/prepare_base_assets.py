@@ -11,6 +11,7 @@ import sysconfig
 import tempfile
 import tomllib
 
+from cryptography_notice import stage as stage_crypto_notice, NOTICE as CRYPTO_NOTICE, REPORT as CRYPTO_REPORT
 from packaging.utils import canonicalize_name
 from packaging_profiles import ROOT, read_lock, verify_profiles
 from build_provenance import bootloader_notices, is_notice_entry
@@ -30,6 +31,7 @@ def base_guide(version, notices, native):
              '', 'Magika 仍使用 CPU ONNX Runtime；沒有 RapidOCR OCR 模型。原生 Tesseract 尚未整合，本包只驗核心功能，未達完整基本版離線 OCR／Windows 發行門檻。',
              '', QT_NOTICE_LINE,
              '', OWN_LICENSE_LINE,
+             '', 'cryptography 內含 OpenSSL 的原文見 '+CRYPTO_NOTICE+'，版本與來源紀錄見 '+CRYPTO_REPORT+'。',
              '', '實際原文與 binary 來源證據不取代完整再散布／Qt 義務或最終 SBOM 審核。部分套件無 wheel 內原文，仍可對照原 Windows 上位授權資料，不宣稱已全部審查。', '', '| 套件 | 版本 |', '| --- | --- |']
     guide += [f'| {p["name"]} | {p["version"]} |' for p in notices]
     if native:
@@ -141,6 +143,7 @@ def prepare(output, root=ROOT, *, native_assets=None):
                 shutil.copyfile(original,destination)
                 supplements.append(dict(reference,path=destination.relative_to(staged).as_posix()))
             notices.append(dict(name=name,version=distribution.version,notice_files=files,supplemental_sources=supplements))
+        stage_crypto_notice(root, staged, notices)
         verify_own_license(staged, notices, root=root)
         save_json(notice_root/'manifest.json', dict(scope='Actual installed runtime metadata/notices, not final redistribution clearance', packages=notices))
         shutil.copyfile(root/profiles[target+'-runtime']['lock'], staged/'base-runtime-lock.txt')

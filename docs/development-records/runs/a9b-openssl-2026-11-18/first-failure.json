@@ -1,0 +1,9 @@
+{
+  "source": "6187e0e12002863eba0d26f267c099216a4f7ac2",
+  "linux_run": 44142370426,
+  "cpu_run": 44142369993,
+  "failed_step": "verify upstream/licenses/profiles or CPU build preflight",
+  "cause": "cpu-windows-closure.json missing derived OpenSSL supplement reference after adding original; regeneration fixed it without changing packages, locks or algorithms",
+  "local_failed_report_sha256": "67c1c69bdea4a68dea500a9e38d27d85fbab50376f7fc5cbd7a19b8bbbec2dbf",
+  "failed_test": "test_cpu_profiles.CPUProfileTests.test_independent_worker_and_lean_controller_closures"
+}

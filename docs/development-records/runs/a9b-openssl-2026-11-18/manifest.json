@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-18",
+  "tested_source": "7125978fde73a3b60df8a38b63f85578c4792098",
+  "accepted": true,
+  "accepted_scope": "A9b original binding and runtime-observed Windows version, not full redistribution clearance",
+  "windows_executed": true,
+  "version_observation_ci": {
+    "run": 44142370284,
+    "head": "6187e0e12002863eba0d26f267c099216a4f7ac2",
+    "conclusion": "success",
+    "artifact": {
+      "name": "cryptography-openssl-evidence-reports",
+      "digest": "sha256:b98a08f6e1352cc487689ba6a4ff6f4346cc020b2b2fda4dd465110bf6fb2863",
+      "expires_at": "2026-11-24T17:56:55Z"
+    }
+  },
+  "hash_only_entries": [
+    "base-wheels-numpy",
+    "base-wheels-pandas",
+    "base-wheels-pillow",
+    "base-wheels-lxml",
+    "base-wheels-onnxruntime",
+    "base-wheels-pypdfium2",
+    "base-wheels-cffi",
+    "base-wheels-charset-normalizer",
+    "base-wheels-psutil"
+  ],
+  "profiles": {
+    "base": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "native_covered": 153,
+      "reasons_covered": 3
+    },
+    "cpu": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "native_covered": 61,
+      "reasons_covered": 4
+    }
+  },
+  "registry_sha256": "b68a49fb4dbbe6149c7a6068384ca42816b9f65ed4ba6b143b6f03b1ed7e37fa",
+  "catalog_sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7",
+  "script_sha256": "0b97194c1dbf7d8ba6ab68c361e51e44ddac6769aed023a27a3bd2f6d42fd77e",
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "keywords": [
+    "A9b",
+    "cryptography",
+    "OpenSSL",
+    "LICENSE",
+    "runtime-observed",
+    "Windows API",
+    "原文隨包",
+    "共用hash"
+  ],
+  "files": {
+    "windows-observation.json": "2aba9e5d1becb519d5ae270131db8d8ce44bf0c59a3f7e4595d7f8dcd09a34ed",
+    "mixed-result.json": "7b43927aa636679d5794dab7a19971068c40c3bde22be45add790844193f8d79",
+    "isolated-summary.json": "f44bbd8da6d491a60d587edf6e0bd3d2bb8b771c9024ccb2afdfbff7996e083a",
+    "README.md": "15150e41337fd3f1d8e710d18d46425f1637d5440d2bbbec8ac5639d4b8a701b",
+    "first-failure.json": "361e5140ada00366150b6b060549c2ab0927ac1c69ba698a3aec824d7e93a9fc"
+  }
+}

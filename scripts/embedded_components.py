@@ -14,7 +14,7 @@
   版本 unknown 的元件，其所屬條目必須保持 open，不得以其他方式關閉。
 
 本模組不做的事（限制，不能當成已驗證）：
-- version_source 只記 wheel 內的檔案路徑與欄位，repo 內沒有 wheel 本體，無法自動重驗宣告的字串是否存在；
+- wheel-declared 的 version_source 只記 wheel 內檔案路徑與欄位；A9b runtime-observed 則核對 Windows API JSON、原生檔與原文 hash。repo 內沒有 wheel 本體，無法自動重驗宣告字串是否存在；
   這一點需要重新下載 wheel 人工比對，之後若要自動化，必須把宣告檔一併保存進 repo。
 - 不判定元件清單是否完整、不判定 upstream 網址是否正確，也不判定授權是否足夠；這些由人工審閱並留在目錄中。
 """
@@ -98,6 +98,25 @@ def check_notice(ref, root, inventory_files, label):
     require(inventory_files.get(key) == digest, 'Notice is not recorded in inventory.json: ' + path_text)
 
 
+def check_crypto_observation(component, wheel, proof, source_row, profile):
+    """A9b 版本來自真實 Windows API；證據原生檔必須就是 A6 的同一份 bytes。"""
+    from cryptography_notice import validate_observation
+    require(proof.get('check') == 'cryptography-openssl' and proof.get('redistribution_approved') is False
+            and proof.get('openssl_tag') == profile['openssl_tag'] and proof.get('openssl_commit') == profile['openssl_commit'],
+            'Invalid cryptography runtime evidence')
+    observed = proof['observed']
+    validate_observation(observed,profile)
+    require(observed['platform'] == 'win32' and observed['binary'] == '_rust.pyd',
+            'Cryptography catalog needs Windows runtime evidence')
+    require(observed['distribution_version'] == wheel['version'] and observed['version'] == component['version'],
+            'Cryptography catalog version differs from runtime')
+    require(observed['binary_sha256'] == source_row['source_sha256'] == source_row['bundled_sha256'],
+            'Cryptography runtime evidence differs from A6 binary')
+    require(proof['notice_sha256'] == profile['notice']['sha256']
+            and dict(path=profile['notice']['path'],sha256=profile['notice']['sha256']) in component['notices'],
+            'Cryptography runtime notice binding differs')
+
+
 def check_profile(catalog, *, catalog_path, entries, report, root=ROOT):
     """檢核一份目錄與所屬 profile 的登記條目，回傳摘要；任何不符都拋出 ValueError。
 
@@ -171,6 +190,22 @@ def check_profile(catalog, *, catalog_path, entries, report, root=ROOT):
                         'Declared version is missing: ' + cid)
                 require(isinstance(component['version_source'], str) and component['version_source'].strip(),
                         'Declared version has no source: ' + cid)
+            if dist == 'cryptography' and cid == 'openssl':
+                require(basis in ('unknown','runtime-observed'), 'OpenSSL cannot be wheel-declared from a binary string')
+                if basis == 'runtime-observed':
+                    from cryptography_notice import load as crypto_profile, PROFILE
+                    path_text = component['version_source']
+                    require(path_text.startswith('docs/development-records/runs/') and '..' not in path_text.split('/')
+                            and '\\' not in path_text, 'Invalid cryptography observation path')
+                    entry = next((e for e in entries if e['id']==entry_id),None)
+                    pin = next((r for r in entry['evidence'] if r['path']==path_text),None) if entry else None
+                    require(pin is not None, 'Cryptography observation missing evidence reference')
+                    check_pin(pin,path_text,root,'cryptography runtime observation')
+                    proof=json.loads((root/path_text).read_text(encoding='utf-8'))
+                    require(proof['profile_sha256']==sha_file(root/PROFILE), 'Cryptography profile differs from observation')
+                    native=next(r for r in report['classification_input']['report']['native_files']
+                                if r['file']=='cryptography/hazmat/bindings/_rust.pyd')
+                    check_crypto_observation(component,wheel,proof,native,crypto_profile(root))
             require(isinstance(component['notices'], list), 'Invalid notices list: ' + cid)
             for index, notice in enumerate(component['notices']):
                 check_notice(notice, root, inventory_files, 'notice ' + cid + '[' + str(index) + ']')
