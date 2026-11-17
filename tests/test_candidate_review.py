@@ -137,13 +137,18 @@ class ReviewTests(unittest.TestCase):
 
     def test_metadata_transport_is_complete_hash_checked_and_bounded(self):
         result = self.review()
+        # 確保真的有多片，少一片的反例不能只退化成既有的空清單測試。
+        result['fixture_metadata'] = ''.join(hashlib.sha256(str(i).encode()).hexdigest() for i in range(96))
         parts = subject.encoded_parts(result)
+        self.assertGreater(len(parts), 1)
         self.assertEqual(subject.decode_parts(parts[::-1]), result)
         with patch.dict(os.environ, {'GITHUB_ACTIONS':'true'}), contextlib.redirect_stdout(io.StringIO()) as stdout:
             subject.publish(result)
         self.assertTrue(all(len(line.encode())<3900 for line in stdout.getvalue().splitlines()))
         self.assertIn('candidate-review-part', stdout.getvalue())
-        for broken in ([], parts+[parts[0]], [dict(parts[0], sha256='0'*64), *parts[1:]],
+        for broken in ([], parts[:-1], parts+[parts[0]],
+                       [dict(parts[0], part=len(parts)+1), *parts[1:]],
+                       [dict(parts[0], sha256='0'*64), *parts[1:]],
                        [dict(parts[0], source_commit='f'*40), *parts[1:]]):
             with self.assertRaises((ValueError, OSError)):
                 subject.decode_parts(broken)

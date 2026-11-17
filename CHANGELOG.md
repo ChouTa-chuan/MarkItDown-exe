@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-17：A7 在既有分片 broken 清單加入少一片與 part 編號越界反例；fixture 先確保產生多片，避免缺片只測到空清單。測試方法數不變。
+
 - 2026-11-17：A7 獨立修正兩條 Windows 工作流的來源傳遞：每個使用來源的 pwsh step 設 EXPECTED_SOURCE，先驗完整 SHA 格式及長度，再經環境變數傳給 Python；expression 不再插入命令列。
 
 - 2026-11-17：A7 首個提交修正 PR 12 已合併（7b787d3）、合併後 CI 全綠及下一步；STATUS／A6 README 追加原排隊 run 最終成功且僅報告 artifact 的補註，attempts.json 不變。基本包審閱改以 8285450 成功 run 為準，保存舊資料 hash，不複製舊完整 JSON；A7 完成後停止，後續規劃交 Claude planner。
