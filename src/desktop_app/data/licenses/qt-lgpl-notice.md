@@ -64,7 +64,7 @@ git submodule update --init --recursive
 
 ## Qt 內含第三方的來源宣告
 
-`qt-thirdparty/catalog.json` 列出固定 Qt 6.12.0 的 qtbase、qtsvg、qtimageformats 與 PySide 來源中的 runtime 目錄宣告，排除測試、範例及建置工具；也保留來源中屬其他平台的宣告，不聲稱它們都進入 Windows wheel。qtsvg 在該提交沒有 `qt_attribution.json`。其中名稱、版本、QtUsage、授權宣告與原始授權各可追溯到 `raw/` 的固定提交原文及 hash。
+`qt-thirdparty/catalog.json` 列出固定 Qt 6.12.0 的 qtbase、qtsvg、qtimageformats 與 PySide 來源的宣告上位集合，排除 `tests/`、`examples/`、`cmake/`、`util/`、`src/testlib/`、`src/testinternal/` 目錄；也保留來源中屬其他平台的宣告，不聲稱它們都進入 Windows wheel。qtsvg 在該提交沒有 `qt_attribution.json`。其中名稱、版本、QtUsage、授權宣告與原始授權各可追溯到 `raw/` 的固定提交原文及 hash。
 
 版本依據 `source-declared` 只指來源的 Version 欄位；未提供版本時記 `unknown`。這不是 wheel-declared，也不代表確認靜態編入。`compiled_into_windows_wheel` 保持 unverified，因為 `QLibraryInfo.build()` 不能證明完整編譯選項、system／bundled 選擇或上游修補；`opengl32sw.dll` 的 Mesa 精確版本及來源對應也仍未知。來源與原文取得不代表完整第三方閉包或 LGPL 做法已獲核准；是否足夠留待 A13 使用者決定。
 

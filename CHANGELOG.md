@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-18：A11 首輪 Windows run 44153547178 在宿主控制端過早匯入未安裝的 desktop_app，尚未建立報告目錄即失敗；已本機重現，改為隔離 child 內延後匯入並加無 site-packages 的 bootstrap 反例。另保留失敗時的公開 Qt 小型摘要及可離線重驗的四階段契約；原失敗只記 run 與註記 hash，不重複保存完整舊嘗試 JSON。
+
 - 2026-11-18：A11 新增固定 Qt 來源的第三方宣告／原文目錄及隨包驗證，保留 source-declared 與編入狀態 unverified 的界線；QLibraryInfo 觀測補 shared／debug／library version。Hosted Windows 真正 frozen GUI 的不同 bytes Core 替換／移除／還原驗收已接線，實際結果待 CI。只改 base-qt 義務（open、requires_user_decision=true），其他條目不變，本次沒有僅 hash 同步的其他條目；spec、鎖檔及計數口徑不變，base／cpu gates 三旗標 false。
 
 ### 2026-11-18｜A9b OpenSSL 原文隨包

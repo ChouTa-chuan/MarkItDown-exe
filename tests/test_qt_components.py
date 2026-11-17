@@ -2,9 +2,11 @@
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import sys
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -26,6 +28,11 @@ class QtComponentTests(unittest.TestCase):
         target = self.root/'src/desktop_app/data/licenses/windows'
         target.mkdir(parents=True)
         shutil.copyfile(ROOT/'src/desktop_app/data/licenses/windows/inventory.json', target/'inventory.json')
+        catalog = json.loads((self.root/qt.CATALOG).read_text())
+        for ref in catalog.get('windows_evidence', {}).values():
+            target = self.root/ref['path']
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(ROOT/ref['path'], target)
 
     def save(self, value):
         (self.root/qt.CATALOG).write_text(json.dumps(value), encoding='utf-8')
@@ -109,6 +116,39 @@ class QtComponentTests(unittest.TestCase):
 
 
 class QtReplacementTests(unittest.TestCase):
+    def test_ci_controller_help_runs_before_application_installation(self):
+        # -S 與空 PYTHONPATH 模擬 bootstrap 宿主，不讓開發 venv 的 app 安裝掩蓋匯入錯誤。
+        result = subprocess.run([sys.executable, '-S', str(ROOT/'scripts/run_windows_base_ci.py'), '--help'],
+            env={**os.environ, 'PYTHONPATH':''}, capture_output=True, text=True, timeout=20)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('--inputs', result.stdout)
+
+    def test_saved_report_rejects_missing_phase_wrong_dll_and_elevated_acceptance(self):
+        # 全為合成資料，只檢查保存結果的拒絕條件，不是 Windows 執行證據。
+        def phase(digest):
+            return dict(opened=True, normal_exit=True, returncode=0,
+                qt_core=dict(path='C:/temp/bundle/_internal/PySide6/Qt6Core.dll', sha256=digest))
+        record = dict(member_sha256='2'*64)
+        report = dict(schema_version=1, check='qt-replacement', platform='win32', hosted_ci=True,
+            accepted=True, original_bundle_unchanged=True, original_sha256='1'*64,
+            replacement_sha256='2'*64, input_sha256='3'*64, clean_machine_accepted=False,
+            physical_machine_accepted=False, gpu_executed=False, redistribution_approved=False, release_ready=False,
+            phases=dict(baseline=phase('1'*64), replaced=phase('2'*64), restored=phase('1'*64),
+                missing=dict(returncode=1, expected_loader_failure=True, log_sha256='4'*64)))
+        replacement.validate_report(report, record, '1'*64, '3'*64)
+        for field, changed in [('platform', 'linux'), ('physical_machine_accepted', True),
+                               ('original_bundle_unchanged', False), ('replacement_sha256', '1'*64)]:
+            with self.assertRaisesRegex(ValueError, 'not accepted Windows'):
+                replacement.validate_report(dict(report, **{field:changed}), record, '1'*64, '3'*64)
+        changed = copy.deepcopy(report)
+        changed['phases'].pop('missing')
+        with self.assertRaisesRegex(ValueError, 'phase coverage'):
+            replacement.validate_report(changed, record, '1'*64, '3'*64)
+        changed = copy.deepcopy(report)
+        changed['phases']['replaced']['qt_core']['sha256'] = '1'*64
+        with self.assertRaisesRegex(ValueError, 'successful phase'):
+            replacement.validate_report(changed, record, '1'*64, '3'*64)
+
     def test_only_pinned_wheel_and_member_bytes_are_extracted(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

@@ -7,7 +7,7 @@
     "path": "packaging/qt/6.12.0/catalog.json",
     "sha256": "224e4f7df81b99d1c55310e49beb5a280b10b7a7d15f7b4615872a73bb1725d6"
   },
-  "source_scope": "All runtime-source qt_attribution in qtbase, qtsvg, qtimageformats and PySide; includes other-platform declarations; excludes tests/examples/build tools. qtsvg has none.",
+  "source_scope": "Source-tree upper bound from qtbase, qtsvg, qtimageformats and PySide; includes other-platform declarations and does not establish compiled runtime inclusion. qtsvg has no qt_attribution.json at the pinned commit.",
   "binary_build_configuration_complete": false,
   "thirdparty_runtime_closure_verified": false,
   "redistribution_approved": false,
@@ -3450,5 +3450,13 @@
     "Actual compile options/patch set and system-vs-bundled choices are not available from QLibraryInfo.build()",
     "opengl32sw.dll Mesa exact version/source/license correspondence remains unknown",
     "Source declarations do not prove inclusion or complete runtime closure; LGPL sufficiency requires A13 user decision"
+  ],
+  "excluded_path_prefixes": [
+    "tests/",
+    "examples/",
+    "cmake/",
+    "util/",
+    "src/testlib/",
+    "src/testinternal/"
   ]
 }

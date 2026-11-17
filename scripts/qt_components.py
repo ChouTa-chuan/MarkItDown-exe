@@ -86,7 +86,37 @@ def load_catalog(root=ROOT):
             raise ValueError('Qt attribution lacks original notice binding')
     if seen != {(name, i) for name, rows in declarations.items() for i in range(len(rows))}:
         raise ValueError('Qt attribution coverage differs')
+    if 'windows_evidence' in value:
+        verify_windows_evidence(value, root)
     return value
+
+
+def verify_windows_evidence(value, root):
+    """把實際 hosted Windows 小型結果綁回固定來源；不提高義務或產品旗標。"""
+    from check_qt_replacement import validate_report
+    saved = {}
+    for key in ('replacement', 'build_info'):
+        ref = value['windows_evidence'][key]
+        path = checked_file(root, ref['path'])
+        if sha256(path) != ref['sha256']:
+            raise ValueError('Qt Windows evidence fingerprint differs')
+        saved[key] = json.loads(path.read_text(encoding='utf-8'))
+    original = next(r for r in value['native_files'] if r['file'] == 'PySide6/Qt6Core.dll')
+    profile = value['replacement_input']
+    record = json.loads((root/profile['path']).read_text(encoding='utf-8'))
+    validate_report(saved['replacement'], record, original['bundled_sha256'], profile['sha256'])
+    build = saved['build_info']
+    observed = build['observed']
+    core = next(r for r in value['native_files'] if r['file'] == 'PySide6/QtCore.pyd')
+    if (build.get('check') != 'qt-release-sources' or build.get('release_source_map_verified') is not True
+            or build.get('catalog_sha256') != value['release_catalog']['sha256']
+            or observed.get('platform') != 'Windows' or observed.get('shared_build') is not True
+            or observed.get('debug_build') is not False or not observed.get('qt_build')
+            or any(observed.get(k) != value['version'] for k in ('qt_version', 'library_version', 'pyside_version', 'shiboken_version'))
+            or observed.get('core_extension_sha256') != core['source_sha256']
+            or any(build.get(k) is not False for k in ('binary_reproduction_verified',
+                'upstream_build_patch_set_verified', 'redistribution_approved', 'runtime_sbom_complete'))):
+        raise ValueError('Qt Windows build observation differs')
 
 
 def stage(root, assets):

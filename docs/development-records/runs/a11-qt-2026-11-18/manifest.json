@@ -1,0 +1,15 @@
+{
+  "date_taipei": "2026-11-18",
+  "source_commit": "bb22c0eb7f45cdbedee6fba0765f06df1f3e024d",
+  "result": "in-progress",
+  "keywords": [
+    "A11",
+    "Qt",
+    "替換",
+    "qt_attribution"
+  ],
+  "files": {
+    "README.md": "e195be46e88da7b591a02963b936af8a3f955519d396225470b597979fb78d2a",
+    "first-failure.json": "b092cbf6b35c747104743587414fff386e1e206150d418a4acb9570339e73be7"
+  }
+}

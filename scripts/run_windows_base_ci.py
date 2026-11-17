@@ -109,11 +109,16 @@ def main():
         acceptance = json.loads((reports/'acceptance/windows-acceptance.json').read_text(encoding='utf-8'))
         summary['validation_accepted'] = acceptance['accepted']
         # 替換驗收只改可拋棄副本，正式 bundle 與後續 installer 輸入保持原樣。
-        call('qt-replacement', [python, 'scripts/check_qt_replacement.py', '--bundle',
-             args.output/'dist/MarkItDownBase', '--work', args.output/'qt-replacement-work',
-             '--reports', reports/'qt-replacement'])
-        replacement = json.loads((reports/'qt-replacement/qt-replacement.json').read_text(encoding='utf-8'))
-        publish_qt_replacement(replacement)
+        replacement_path = reports/'qt-replacement/qt-replacement.json'
+        try:
+            call('qt-replacement', [python, 'scripts/check_qt_replacement.py', '--bundle',
+                 args.output/'dist/MarkItDownBase', '--work', args.output/'qt-replacement-work',
+                 '--reports', reports/'qt-replacement'])
+        finally:
+            # 失敗也公開小型結果；artifact 不可下載時仍能看到失敗階段及 loader 原因。
+            if replacement_path.is_file():
+                replacement = json.loads(replacement_path.read_text(encoding='utf-8'))
+                publish_qt_replacement(replacement)
         summary['qt_replacement_accepted'] = replacement['accepted']
         if args.installer:
             installer_args=[python,'scripts/check_windows_base_installer.py','--bundle',

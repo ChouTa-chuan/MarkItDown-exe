@@ -1,0 +1,10 @@
+{
+  "head": "bb22c0eb7f45cdbedee6fba0765f06df1f3e024d",
+  "run": 44153547178,
+  "conclusion": "failure",
+  "job": 134290060933,
+  "annotation_sha256": "e5ccf2b52f972a34c777b87c1c1cb5b87186600890a14f3c5be0ef09dfd7a6bc",
+  "original_failure": "Controller failed before output directory existed; no Windows Qt replacement acceptance ran",
+  "reproduced": "python -S scripts/run_windows_base_ci.py --help: ModuleNotFoundError desktop_app via check_qt_replacement -> check_windows_base",
+  "correction": "Defer check_windows_base import until the isolated Windows child executes; add clean bootstrap test"
+}
