@@ -49,6 +49,35 @@ def targets(root=ROOT):
     return next(e['native_files'] for e in registry['profiles']['base']['entries'] if e['id'] == 'base-microsoft')
 
 
+def installed_terms(redist):
+    """蒐集建置機既有 VS2022 條款原文；不連線下載、不把第三方授權誤列為 VS 條款。
+
+    保存原始位元組供查驗。標題符合仍只是候選文件，適用性留待 A13；未找到即明記空清單。
+    """
+    vsroot = redist.parents[4]
+    found = []
+    seen = set()
+    for directory, dirs, files in os.walk(vsroot):
+        dirs[:] = sorted(d for d in dirs if not (Path(directory)/d).is_symlink())
+        for name in sorted(files):
+            if not re.fullmatch(r'(?:license|eula|redist)(?:[._-].*)?\.(?:txt|htm|html|rtf)', name, re.I):
+                continue
+            path = Path(directory)/name
+            if path.is_symlink() or path.stat().st_size > 64*1024:
+                continue
+            raw = path.read_bytes()
+            text = raw.decode('utf-16' if raw.startswith((b'\xff\xfe',b'\xfe\xff')) else 'utf-8', errors='replace')
+            upper = text.upper()
+            sha = hashlib.sha256(raw).hexdigest()
+            if ('MICROSOFT VISUAL STUDIO' in upper and '2022' in upper and sha not in seen):
+                found.append(dict(source_path=str(path), sha256=sha, bytes=len(raw),
+                                  content_base64=base64.b64encode(raw).decode('ascii')))
+                seen.add(sha)
+                if len(found) == 2:
+                    return dict(installation_root=str(vsroot), documents=found, selection_limit=2)
+    return dict(installation_root=str(vsroot), documents=found, selection_limit=2)
+
+
 def probe(bundle, review, *, root=ROOT, redist=None, identity=describe):
     """逐檔核對 provenance 後才讀身分；A6 不同的位元組明記，不沿用其身分資料。"""
     require(sys.platform == 'win32', 'Microsoft runtime probe requires Windows')
@@ -97,6 +126,7 @@ def probe(bundle, review, *, root=ROOT, redist=None, identity=describe):
                                                         source_commit=basis['selection']['source_commit']),
                 runner=dict(os=os.environ.get('RUNNER_OS'), image_version=os.environ.get('ImageVersion')),
                 official_redist_directory=str(redist), references=references, files=rows,
+                installed_terms=installed_terms(redist),
                 **{f: False for f in FLAGS})
 
 
