@@ -835,7 +835,7 @@
         },
         {
           "id": "openssl",
-          "name": "OpenSSL（cryptography 靜態連結）",
+          "name": "OpenSSL（cryptography 實際 runtime）",
           "kind": "bundled",
           "version": "4.0.3",
           "version_basis": "runtime-observed",
@@ -849,7 +849,7 @@
             }
           ],
           "native_files": [],
-          "note": "Windows 真正載入 cryptography OpenSSL 文字／數值 API，_rust.pyd SHA-256 與 A6 完全一致。Linux 觀測另記，不以二進位靜態字串代替版本依據；其他 Rust 相依仍 unknown。"
+          "note": "Windows 真正載入 cryptography OpenSSL 文字／數值 API，_rust.pyd SHA-256 與 A6 完全一致。Linux 觀測另記，不以二進位靜態字串代替版本依據；其他 Rust 相依仍 unknown。 本輪 API 觀測不另宣稱已驗證全部連結旗標、PE 匯入表或 Rust 內含相依。"
         },
         {
           "id": "rust-dependencies",

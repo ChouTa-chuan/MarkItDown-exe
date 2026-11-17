@@ -137,7 +137,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "2c54e1b7ba43d754bc28196953cec8b8dda8a5c786b0ff7142ee8018a3d87d0c"
+              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
             }
           ],
           "status": "open",
@@ -207,7 +207,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "2c54e1b7ba43d754bc28196953cec8b8dda8a5c786b0ff7142ee8018a3d87d0c"
+              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
             }
           ],
           "status": "open",
@@ -238,7 +238,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "2c54e1b7ba43d754bc28196953cec8b8dda8a5c786b0ff7142ee8018a3d87d0c"
+              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
             }
           ],
           "status": "open",
@@ -270,7 +270,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "2c54e1b7ba43d754bc28196953cec8b8dda8a5c786b0ff7142ee8018a3d87d0c"
+              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
             }
           ],
           "status": "open",
@@ -296,7 +296,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "2c54e1b7ba43d754bc28196953cec8b8dda8a5c786b0ff7142ee8018a3d87d0c"
+              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
             },
             {
               "path": "docs/development-records/runs/a9b-openssl-2026-11-18/windows-observation.json",
@@ -328,7 +328,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "2c54e1b7ba43d754bc28196953cec8b8dda8a5c786b0ff7142ee8018a3d87d0c"
+              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
             }
           ],
           "status": "open",
@@ -354,7 +354,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "2c54e1b7ba43d754bc28196953cec8b8dda8a5c786b0ff7142ee8018a3d87d0c"
+              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
             }
           ],
           "status": "open",
@@ -380,7 +380,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "2c54e1b7ba43d754bc28196953cec8b8dda8a5c786b0ff7142ee8018a3d87d0c"
+              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
             }
           ],
           "status": "open",
@@ -406,7 +406,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "2c54e1b7ba43d754bc28196953cec8b8dda8a5c786b0ff7142ee8018a3d87d0c"
+              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
             }
           ],
           "status": "evidence_complete",
@@ -431,7 +431,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "2c54e1b7ba43d754bc28196953cec8b8dda8a5c786b0ff7142ee8018a3d87d0c"
+              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
             }
           ],
           "status": "evidence_complete",
