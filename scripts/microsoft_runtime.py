@@ -54,7 +54,7 @@ def installed_terms(redist):
 
     保存原始位元組供查驗。標題符合仍只是候選文件，適用性留待 A13；未找到即明記空清單。
     """
-    vsroot = redist.parents[4]
+    vsroot = redist.parents[5]
     found = []
     seen = set()
     for directory, dirs, files in os.walk(vsroot):
@@ -195,8 +195,11 @@ def check_catalog(catalog, *, report, entry, root=ROOT):
     validate_probe(observed)
     require(observed['basis'] == {**catalog['basis'], 'source_commit':catalog['source_commit']}, 'Probe basis differs')
     names = entry['native_files']
-    require(sorted(catalog['files']) == sorted(names) == sorted(r['file'] for r in observed['files']),
+    require(sorted(r['file'] for r in catalog['files']) == sorted(names) == sorted(r['file'] for r in observed['files']),
             'Microsoft native coverage differs')
+    require(catalog['files'] == observed['files'] and catalog['references'] == observed['references'],
+            'Catalog observations differ from the preserved probe')
+    require(catalog['version_basis'] == 'pe-version-resource', 'Wrong Microsoft version basis')
     natives = {r['file']:r for r in report['classification_input']['report']['native_files']}
     gaps = []
     for row in observed['files']:
