@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-18",
-  "environment": "Linux 完整混合／獨立模組回歸；A10 hosted Windows 2022 逐檔探測，非乾淨機／GPU／人工驗收",
-  "tests_passed": 870,
-  "headline": "A9b 已合併（PR 21，9360a54）；A11 Qt 第三方目錄與替換驗收進行中",
-  "blocker": "Microsoft 各複本條款適用及再散布權利仍待 A13 使用者決定；其他來源義務與乾淨機／人工驗收未關閉，兩個 profile 三旗標均 false。",
-  "next": "A11 hosted Windows frozen GUI 替換／移除／還原 → 最終 CI 與查驗 → 一般 Merge 後停止；不做 A12。",
+  "environment": "Linux 完整混合／獨立模組回歸；A11 hosted Windows 2022 frozen GUI Qt 替換及安裝驗證，非實體機／乾淨機／GPU／人工驗收",
+  "tests_passed": 883,
+  "headline": "A9b（PR 21）及 A11（PR 22）工程與 hosted Windows 驗證完成；三旗標 false，本輪到 A11 停止",
+  "blocker": "Qt LGPL 做法、Microsoft 條款及其他再散布門檻仍待 A13 使用者決定；完整編譯設定與未知元件保留缺口，base／cpu 三旗標 false；實機／人工驗收未完成。",
+  "next": "A11 最終 CI／查驗及一般 Merge 見 PR 22；依使用者指示本輪在 A11 停止，不執行 A12。",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 871,
+  "tests_run": 884,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "7125978fde73a3b60df8a38b63f85578c4792098",
+    "source_commit": "3c166fb0e29ea4219f64c91d4ec9086881601c59",
     "date_taipei": "2026-11-18",
     "accepted": true,
-    "run": 871,
-    "passed": 870,
+    "run": 884,
+    "passed": 883,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1313,7 +1313,7 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 56,
+    "isolated_modules": 57,
     "isolated_all_exits_zero": true,
     "python": "3.12.14",
     "tesseract": "5.3.4",
@@ -1322,7 +1322,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/a9b-openssl-2026-11-18/README.md"
+    "evidence": "development-records/runs/a11-qt-2026-11-18/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -3557,8 +3557,9 @@
           {
             "id": "A11",
             "title": "Qt 內含第三方、建置資訊與可替換驗收",
-            "status": "active",
-            "note": "來源與原文、替換驗收已接線；待實際 Windows CI"
+            "status": "done",
+            "note": "工程與 hosted Windows 證據已驗；base-qt 仍 open，A13 使用者決定。最終整合見 PR",
+            "pr": 22
           },
           {
             "id": "A12",
@@ -3868,5 +3869,65 @@
       44145942855,
       44145942668
     ]
+  },
+  "previous_full_regression_reference_before_a11": {
+    "source_commit": "7125978fde73a3b60df8a38b63f85578c4792098",
+    "evidence": "development-records/runs/a9b-openssl-2026-11-18/README.md"
+  },
+  "a11_qt_components": {
+    "source_commit": "3c166fb0e29ea4219f64c91d4ec9086881601c59",
+    "base_commit": "9360a54dc89701ac3b087e2aa30ec719c930e3b5",
+    "pr": 22,
+    "status": "implemented-and-verified",
+    "catalog": "packaging/qt/6.12.0/thirdparty/catalog.json",
+    "evidence": "development-records/runs/a11-qt-2026-11-18/README.md",
+    "native_files": 32,
+    "source_declarations": 84,
+    "original_files": 149,
+    "windows_observation": {
+      "head": "0a1108a304123deac64c1a2f38581128060b0591",
+      "checkout": "937ce8b43e087fb25c256af1bae1338de9a512a7",
+      "run": 44155124181,
+      "conclusion": "success",
+      "artifact": {
+        "name": "windows-base-validation-reports",
+        "digest": "sha256:bc5ee78095affcd45388932b4054209da61ebf8a03b86c640f467e0ba672771c",
+        "expires_at": "2026-11-24T19:23:32Z"
+      }
+    },
+    "first_success_ci_runs": [
+      44155124181,
+      44155124131,
+      44155124182,
+      44155124197,
+      44155124196
+    ],
+    "local_targeted_run": 76,
+    "frozen_gui_replacement_accepted": true,
+    "qt_dlls_match_a6": true,
+    "original_bundle_unchanged": true,
+    "hosted_ci": true,
+    "physical_machine_accepted": false,
+    "clean_machine_accepted": false,
+    "gpu_executed": false,
+    "requires_user_decision": true,
+    "obligation_status": "open",
+    "hash_only_entries": [],
+    "profiles": {
+      "base": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "cpu": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      }
+    },
+    "binary_build_configuration_complete": false,
+    "thirdparty_runtime_closure_verified": false,
+    "redistribution_approved": false,
+    "release_ready": false
   }
 }

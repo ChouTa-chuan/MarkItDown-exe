@@ -1,0 +1,16 @@
+{
+  "source_commit": "3c166fb0e29ea4219f64c91d4ec9086881601c59",
+  "profiles": {
+    "base": {
+      "runtime_sbom_complete": false,
+      "redistribution_approved": false,
+      "release_ready": false
+    },
+    "cpu": {
+      "runtime_sbom_complete": false,
+      "redistribution_approved": false,
+      "release_ready": false
+    }
+  },
+  "input_counts_unchanged": true
+}
