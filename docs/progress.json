@@ -1,16 +1,16 @@
 {
   "updated": "2026-11-17",
-  "environment": "Linux 完整回歸／獨立模組已驗；A8 只讀 A6 base／cpu 報告，既有 hosted Windows 與候選證據各自保留來源",
+  "environment": "Linux 完整回歸與獨立模組已驗；hosted Windows 基本包／CPU 每個 PR 皆驗（非乾淨機）；固定候選仍為 A6 的 8285450",
   "tests_passed": 807,
-  "headline": "PR 1–15 已合併；A8b 補強義務登記檢核（決定出處、反向檢查、release_ready 綁大階段 C、結構封閉），三旗標仍 false",
-  "blocker": "三旗標仍 false：基本包 wheel 內含第三方、Microsoft 14 檔、Qt 內含第三方與可替換驗收待 A9–A11，門檻待使用者在 A13 確認；release_ready 需大階段 C 證據；CPU 在 B1 之後。",
-  "next": "A8b 合併後：A9、A10、A11（互不相依，各自一個 PR）→ A12 → A13（使用者確認門檻）→ B1",
+  "headline": "PR 1–16 已合併；大階段 A（來源與再散布）進行中：A1–A8b 完成，下一步 A9、A10、A11",
+  "blocker": "三旗標（完整 SBOM、可再散布、可發布）皆 false：基本包 wheel 內含第三方、Microsoft 14 檔、Qt 內含第三方與可替換驗收待 A9–A11，門檻待使用者在 A13 確認；可發布需大階段 C 乾淨機與人工驗收。門檻未關閉前不交付 Setup、worker 或模型（含 CI artifact）。",
+  "next": "A9 基本包 wheel 內含第三方元件目錄（Claude coder 進行中）；A10 Microsoft 14 檔、A11 Qt 內含第三方與可替換驗收可平行開始 → A12 重新固定候選 → A13 使用者確認門檻 → B1 測試版",
   "milestones": [
     {
       "id": "m0",
       "title": "規格與調查",
-      "state": "active",
-      "description": "已取得官方原始碼、MIT 授權與雜湊基線；模型及 Windows 打包仍待驗證。",
+      "state": "verified",
+      "description": "已取得官方原始碼、MIT 授權與雜湊基線；hosted Windows 建置、安裝與內含 OCR 模型已證明可行（非乾淨機）。",
       "checks": [
         {
           "label": "產品需求與模組責任文件",
@@ -22,7 +22,7 @@
         },
         {
           "label": "模型與 Windows 打包可行性",
-          "done": false
+          "done": true
         },
         {
           "label": "資源量測原型（Linux）",
@@ -138,19 +138,27 @@
       "id": "m5",
       "title": "發佈準備",
       "state": "active",
-      "description": "Linux完整回歸與hosted Windows基本包／CPU已驗，A7自有MIT對照已完成；大階段A續編A8–A17，完整SBOM／再散布與門檻確認、乾淨機／人工／GPU及交付仍待。",
+      "description": "hosted Windows 基本包與 CPU 元件每個 PR 皆建置驗證；大階段 A 已完成 A1–A8b，完整 SBOM、再散布門檻（A9–A13）、測試版交付、乾淨機／人工／GPU 仍待。",
       "checks": [
         {
-          "label": "Windows 建置與安裝包",
+          "label": "hosted Windows 建置與安裝驗證（GitHub Actions，非乾淨機）",
+          "done": true
+        },
+        {
+          "label": "授權清單與使用說明",
+          "done": true
+        },
+        {
+          "label": "來源與再散布門檻關閉（大階段 A，含使用者確認 A13）",
+          "done": false
+        },
+        {
+          "label": "測試版安裝包交付（大階段 B）",
           "done": false
         },
         {
           "label": "乾淨 Windows 與顯卡驗收",
           "done": false
-        },
-        {
-          "label": "授權清單與使用說明",
-          "done": true
         }
       ]
     }
@@ -161,8 +169,8 @@
       "title": "桌面介面",
       "layer": "介面",
       "state": "partial",
-      "detail": "桌面批次／預覽、首次設定與C08選配管理可操作；0.17.1補入口與測試視窗正常釋放，Windows人工UI待驗。",
-      "evidence": "Linux Qt入口3案、管理23項12輪正常退出；0.17 hosted GUI已驗，新版Windows待驗。"
+      "detail": "桌面批次／預覽、首次設定與 C08 選配管理可操作；Windows 人工 UI 待驗。",
+      "evidence": "Linux Qt 入口與管理測試正常退出；每個 PR 的 hosted Windows 基本包 GUI 開啟／正常退出已驗，人工 UI 待驗。"
     },
     {
       "id": "application",
@@ -209,8 +217,8 @@
       "title": "背景程序",
       "layer": "支援",
       "state": "partial",
-      "detail": "基本profile包含同平台引擎與固定四語；0.19.1 Linux來源回歸與Windows hosted包／安裝已驗，乾淨機與其他選配仍待。",
-      "evidence": "0.19.1 Linux完整684及43模組exit0，Windows hosted基本／CPU另有證據；非乾淨機或發行。"
+      "detail": "基本 profile 包含同平台引擎與固定四語；Linux 完整回歸與每個 PR 的 hosted Windows 基本包／安裝已驗，乾淨機與其他選配仍待。",
+      "evidence": "完整回歸數字見本頁測試數（progress.json full_regression）；Windows hosted 基本／CPU 另有證據；非乾淨機或發行。"
     },
     {
       "id": "settings",
@@ -226,7 +234,7 @@
       "layer": "處理",
       "state": "partial",
       "detail": "Tesseract 內含四語已接上預設解析，Linux 完整自檢真實辨識；明確自備引擎／模型偏好保留。ONNX 日韓／繁體品質與 GPU 未驗。",
-      "evidence": "Linux frozen四語與0.17 Windows四語固定樣本已驗；ONNX繁體／日韓與GPU仍有限制。"
+      "evidence": "Linux frozen 四語與每個 PR 的 hosted Windows 四語固定樣本已驗；ONNX 繁體／日韓與 GPU 仍有限制。"
     },
     {
       "id": "quality",
@@ -234,7 +242,7 @@
       "layer": "輸出",
       "state": "partial",
       "detail": "原稀疏結構缺口已修復；保留 ONNX 繁體品質缺口。字元守恆另配逐格、金額與順序斷言。",
-      "evidence": "0.19.1全684：683通過、1既有ONNX繁中品質預期失敗、0跳過；混合／43模組exit0。"
+      "evidence": "完整回歸：僅 1 項既有 ONNX 繁中品質預期失敗、0 跳過；混合與獨立模組皆 exit 0（數字見本頁測試數）。"
     },
     {
       "id": "exporters",
@@ -246,23 +254,20 @@
     }
   ],
   "limits": [
-    "C01／C02／C05–C08／C10已驗收7/12；C03 3/4、C04 2/4、C09 3/4、C11 2/5；乾淨機、全profile、人工與GPU待驗。既有19/25分開追蹤。",
+    "C01／C02／C05–C08／C10 已驗收 7/12；C03 3/4、C04 2/4、C09 3/4、C11 2/5；乾淨機、全 profile、人工與 GPU 待驗。",
+    "三旗標（完整 SBOM、可再散布、可發布）皆 false；門檻未關閉前不交付 Setup、worker 或模型（含 CI artifact），未建立 Release 或 tag。",
+    "hosted Windows（GitHub Actions）基本包建置／安裝／跨版／中斷續修與 CPU 元件每個 PR 皆驗；不能代替乾淨 Windows、全 profile、人工或 GPU。",
     "Tesseract 日韓／四語合成樣本通過，不代表任意混排／直排／低品質文件準確率；ONNX 繁體缺口與日韓未驗保留，GPU 未實機。",
     "版面與表格完成固定樣本驗收，仍不支援任意混排、掃描表格或續表自動合併；圖表及影像資產未完整重建。",
-    "0.17.2 hosted Windows基本包／安裝／跨版／三停點續修及CI自有產物清理已驗；不能代替乾淨Windows、全profile、人工或GPU。",
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
-    "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。",
-    "0.17.2混合611與36模組正常exit0，ONNX品質預期失敗保留；CI清理只供自身產物，不代表普通Setup任意中斷可自動清理。",
-    "0.19.1完整684：683通過＋1既有ONNX繁中品質預期失敗，0跳過；混合與43模組全exit0。此為Linux來源回歸，Windows／GPU與乾淨機範圍分開。",
-    "2026-11-12：0.19.1完整698（697通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與45模組exit0；Tesseract5.3.4／CPython3.12.3與先前基線不同。未對照來源已分類但candidate／gap基本49、CPU47仍待，授權提案未確認，沒有新的Windows執行。",
-    "2026-11-13：完整703（702通過＋1既有ONNX繁中品質預期失敗，0跳過），混合與46模組exit0；新增項目為歷史索引測試，沒有新的Windows執行。"
+    "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
   "tests_run": 808,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
     "title": "基本安裝包＋選配元件管理",
-    "description": "既有功能驗收不變；完整回歸見 full_regression，A6 固定候選與整體審閱見 a6_fixed_candidate_review。完整 SBOM／再散布、乾淨機／人工／GPU仍待。",
+    "description": "C01–C12 為元件系統導入驗收，目前 7/12，自 0.19.1 起未變（依使用者指示暫不擴充元件系統）。來源與再散布工作在大階段 A，進度見「全階段規劃」。",
     "phases": [
       {
         "id": "a",
@@ -558,24 +563,31 @@
       },
       {
         "id": "regression_0191",
-        "title": "0.19.1完整回歸",
+        "title": "0.19.1 完整回歸",
         "state": "verified",
-        "detail": "固定55套件／四語與三個ONNX模型hash，完整684與43獨立模組皆正常退出；原生teardown有外層退出檢查。",
-        "evidence": "683通過／1既有ONNX繁中品質預期失敗／0跳過；混合及43獨立模組皆exit0。GPU／乾淨機／發行另驗。"
+        "detail": "固定套件、四語與 ONNX 模型 hash；完整混合回歸與所有獨立模組皆正常退出。",
+        "evidence": "數字見本頁測試數；僅 1 項既有 ONNX 繁中品質預期失敗、0 跳過。GPU／乾淨機／發行另驗。"
       },
       {
         "id": "bundle_provenance",
         "title": "隨包原文與原生來源追溯",
         "state": "verified",
         "detail": "Windows基本包與CPU選配：實際啟動器原文、METADATA及Analysis原生來源／收集後指紋已檢核。",
-        "evidence": "最終Windows兩包接受；全684正常退出。技術追溯與普通檔案快照已驗，完整runtime SBOM、Qt／Microsoft／應用授權與再散布待查。"
+        "evidence": "A1–A7 補上 Python 模組清單、排除 setuptools、CPython 元件版本與原文、Qt 原始碼來源、自有 MIT 對照；完整 runtime SBOM 與再散布待 A9–A13。"
       },
       {
         "id": "candidate_inventory",
         "title": "候選完整檔案清單／ZIP核對",
         "state": "verified",
-        "detail": "Windows基本包封裝後1655檔（含catalog）；CPU bundle741／真正ZIP742檔（含NOTICE）全hash重驗。",
-        "evidence": "來源cb8f24d：基本40／CPU build26套件表，原生來源201／106；來源未對照154／303項保留，runtime SBOM／再散布另待。"
+        "detail": "Windows 基本包與 CPU bundle 全檔 hash 重驗；A6 以固定來源 8285450 重產候選報告，分類可離線重跑。",
+        "evidence": "A6：來源分類無 gap／candidate（基本包 confirmed 84＋origin-known 30，CPU 237＋28）；A7 後基本包自有 MIT 已綁入原文表。runtime SBOM／再散布另待。"
+      },
+      {
+        "id": "redistribution_gates",
+        "title": "義務登記與三旗標判定",
+        "state": "partial",
+        "detail": "A8／A8b：base／cpu 每個原生檔與待審原因各對到一個義務條目；三旗標由條目推導，現況皆 false。使用者決定須引用固定存檔 D 節原文，可發布須有大階段 C 證據。",
+        "evidence": "packaging/redistribution/obligations.json；scripts/redistribution_gates.py；docs/redistribution-gates.md"
       }
     ]
   },
@@ -3446,5 +3458,223 @@
       "all_child_exits_zero": true
     },
     "limits": "Script cannot verify that a decision row is semantically tied to an entry or authored by the user; stage-c prefix is a format gate. Manual diff review remains required."
+  },
+  "stage_plan": {
+    "title": "全階段規劃",
+    "description": "依 STATUS.md C 節；每個編號一個 PR，CI 通過且查驗完成即合併。",
+    "stages": [
+      {
+        "id": "A",
+        "title": "A · 關閉來源與再散布缺口",
+        "goal": "讓候選安裝包每個檔案說得出來源、版本與授權義務，作為能否交付測試版的前提。",
+        "items": [
+          {
+            "id": "A1",
+            "title": "Python 模組來源清單",
+            "status": "done",
+            "pr": 5
+          },
+          {
+            "id": "A2",
+            "title": "來源分類與授權文件補記",
+            "status": "done",
+            "pr": 5
+          },
+          {
+            "id": "A3",
+            "title": "Qt／LGPL 隨包說明、自有 MIT 全文隨包",
+            "status": "done",
+            "pr": 6
+          },
+          {
+            "id": "A4",
+            "title": "排除基本包的 setuptools",
+            "status": "done",
+            "pr": 8
+          },
+          {
+            "id": "A5",
+            "title": "CPython 隨附元件逐檔版本與原文",
+            "status": "done",
+            "pr": 9
+          },
+          {
+            "id": "A5b",
+            "title": "Qt 本體原始碼位置與版本對應",
+            "status": "done",
+            "pr": 10
+          },
+          {
+            "id": "A5c",
+            "title": "執行期探測缺口判不接受",
+            "status": "done",
+            "pr": 11
+          },
+          {
+            "id": "A6",
+            "title": "固定候選重產報告、重跑分類、評估 SBOM",
+            "status": "done",
+            "pr": 12
+          },
+          {
+            "id": "A7",
+            "title": "自有 MIT 綁入套件原文表",
+            "status": "done",
+            "pr": 13
+          },
+          {
+            "id": "A8",
+            "title": "義務登記表與三旗標判定規則",
+            "status": "done",
+            "pr": 15
+          },
+          {
+            "id": "A8b",
+            "title": "義務登記檢核補強",
+            "status": "done",
+            "pr": 16
+          },
+          {
+            "id": "A9",
+            "title": "基本包 wheel 內含第三方元件目錄",
+            "status": "active",
+            "note": "Claude coder 進行中"
+          },
+          {
+            "id": "A10",
+            "title": "Microsoft 執行期逐檔對照（基本包 14 檔）",
+            "status": "next",
+            "note": "可開始"
+          },
+          {
+            "id": "A11",
+            "title": "Qt 內含第三方、建置資訊與可替換驗收",
+            "status": "next",
+            "note": "可開始"
+          },
+          {
+            "id": "A12",
+            "title": "重新固定候選、基本包出口報告、整理 progress.json",
+            "status": "pending"
+          },
+          {
+            "id": "A13",
+            "title": "使用者確認基本包門檻",
+            "status": "user",
+            "note": "需使用者決定"
+          },
+          {
+            "id": "A14",
+            "title": "CPU：flatbuffers、rapidocr 原文綁定",
+            "status": "pending",
+            "note": "B1 之後"
+          },
+          {
+            "id": "A15",
+            "title": "CPU：PP-OCR 模型來源與授權",
+            "status": "pending",
+            "note": "B1 之後"
+          },
+          {
+            "id": "A16",
+            "title": "CPU：GEOS（LGPL）與 CPU 內含元件、Microsoft 6 檔",
+            "status": "pending",
+            "note": "B1 之後"
+          },
+          {
+            "id": "A17",
+            "title": "CPU：建置工具是否進入 worker",
+            "status": "pending",
+            "note": "B1 之後"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "title": "B · 測試版安裝包",
+        "goal": "以固定提交產出可交給人安裝測試的候選版本，附版本、雜湊、隨包授權、限制與驗收表。",
+        "items": [
+          {
+            "id": "B1",
+            "title": "基本包以 CI artifact 產出測試版",
+            "status": "pending",
+            "note": "需 A8–A13 完成"
+          },
+          {
+            "id": "B2",
+            "title": "驗收表",
+            "status": "pending"
+          },
+          {
+            "id": "B3",
+            "title": "CPU 元件重新定版",
+            "status": "pending",
+            "note": "需 A14–A17"
+          },
+          {
+            "id": "B4",
+            "title": "使用者確認測試版結果",
+            "status": "user"
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "title": "C · 乾淨機與人工驗收",
+        "goal": "在沒有 Python、沒有開發工具的真正 Windows 上驗證。",
+        "items": [
+          {
+            "id": "C1",
+            "title": "乾淨 Windows 10／11 安裝與離線首次啟動",
+            "status": "user",
+            "note": "需使用者或實體 Windows"
+          },
+          {
+            "id": "C2",
+            "title": "四語 OCR、中文路徑、修復與移除",
+            "status": "user",
+            "note": "需使用者或實體 Windows"
+          },
+          {
+            "id": "C3",
+            "title": "人工操作：拖放、批次、預覽、RAM 設定",
+            "status": "user",
+            "note": "需使用者或實體 Windows"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "title": "D · 功能擴充",
+        "goal": "使用者決定是否排入。",
+        "items": [
+          {
+            "id": "D1",
+            "title": "圖片檔走本機 OCR",
+            "status": "user",
+            "note": "等使用者決定"
+          },
+          {
+            "id": "D2",
+            "title": "影音轉文字獨立選配元件（本機語音辨識）",
+            "status": "user",
+            "note": "等使用者決定"
+          }
+        ]
+      },
+      {
+        "id": "E",
+        "title": "E · GPU",
+        "goal": "實卡推論、VRAM 與 CPU 回退驗收。",
+        "items": [
+          {
+            "id": "E1",
+            "title": "GPU 實卡驗收",
+            "status": "deferred",
+            "note": "延後"
+          }
+        ]
+      }
+    ]
   }
 }

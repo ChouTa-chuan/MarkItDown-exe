@@ -10,9 +10,9 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | PR 1–15 已合併；A8（PR 15，28bb5ad）五項 CI 全成功，經 Claude reviewer 查驗無必須修正項目 |
-| 本輪分支 | `claude/confident-ride-o38ls7`，由 main 28bb5ad 開出，對應 A8b（Claude 三角色流程：coder 實作、reviewer 查驗、協調者收尾） |
-| 下一棒 | A8b 合併後，A9、A10、A11 可開始（互不相依，各自一個 PR） |
+| `main` | PR 1–16 已合併；A8b 與 Claude 角色模型調整在 PR 16（b5a282d），五項 CI 全成功 |
+| 本輪分支 | `claude/confident-ride-o38ls7`：先發布進度頁更新（新增全階段規劃分頁，不屬編號），之後同一分支接 A9（Claude coder） |
+| 下一棒 | A9 由 Claude coder 進行；A10、A11 可平行開始（互不相依，各自一個 PR） |
 | 固定來源 | `8285450226abe1381e6a357e8bd33bff1ad46e0e`（A6）。**不含 A7**，A12 重新固定前不作為交付依據 |
 
 ## B. 這個階段完成了什麼
@@ -34,10 +34,10 @@
 | --- | --- | --- |
 | A 關閉來源與再散布缺口 | A1–A7（PR 5、6、8–13） | 完成 |
 | | A8 義務登記表與旗標判定規則：新增 `packaging/redistribution/obligations.json`（分 base／cpu，每項含 id、對應的 review_reason 或檔案群、所需證據、狀態、使用者決定出處）、`scripts/redistribution_gates.py`、測試與 `docs/redistribution-gates.md`（三旗標定義；寫明 `unresolved_files` 是「無 wheel 擁有者」的計數，不是要歸零的指標）。旗標改由條目推導，不再只是常數。順帶修正 `scripts/license_inventory.py` render() 兩句過時文字（「Tesseract 執行檔尚未隨 Windows 包發佈」「完整 Windows 二進位檔尚未建置」）並重產 `third-party.md`。驗收：以 A6 的 base／cpu source-review 為輸入，每個原生檔與 review_reason 各對到恰好一個條目，未對到者拒絕；標「使用者已核准」卻無決定出處者拒絕；現況輸出三旗標皆 false 並列出未關閉條目；不動 spec、打包內容與既有計數口徑；限制為單一 JSON 加一支檢核腳本，避免過度設計 | 完成（PR 15） |
-| | A8b 義務登記檢核補強：決定出處限固定存檔 D 節的使用者決定列、反向檢查 stale selector、release_ready 綁定 `stage-c-` 證據、結構封閉與 schema 2（使用者決定插入於 A9 之前） | 完成（本輪 PR） |
-| | A9 基本包 wheel 內含第三方元件目錄（非 Qt、非 Microsoft）：numpy、pandas、Pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi、charset-normalizer、psutil 等的內含元件名稱、版本、來源、隨包原文；版本依據分級（wheel 宣告／runtime 觀測／未知），未知者在登記表保持未關閉。cryptography 缺 OpenSSL 原文需補；Pillow 單一 LICENSE 是否涵蓋內含程式庫待查。量大可拆 A9a／A9b | **可開始**（A8b 後） |
-| | A10 Microsoft 執行期逐檔對照（基本包 14 檔：根目錄 3、PySide6 5、shiboken6 4、numpy.libs 與 pandas.libs 各 1 個改名的 msvcp140）：收集來源、PE 版本、簽章、與官方 Redist 同名檔雜湊比對、適用條款文件；改名複本單獨標示；review_reason 改由登記表狀態控制。條款是否允許由使用者在 A13 決定 | **可開始**（A8b 後） |
-| | A11 Qt 內含第三方（qt_attribution）、建置資訊（`QLibraryInfo.build()` 等）與「可替換 Qt」驗收（hosted Windows CI：替換 DLL 後可啟動、移除 Qt6Core 後啟動失敗，標明非實體機）；更新 `qt-lgpl-notice.md`。LGPL 做法是否足夠由使用者在 A13 決定 | **可開始**（A8b 後） |
+| | A8b 義務登記檢核補強：決定出處限固定存檔 D 節的使用者決定列、反向檢查 stale selector、release_ready 綁定 `stage-c-` 證據、結構封閉與 schema 2（使用者決定插入於 A9 之前） | 完成（PR 16） |
+| | A9 基本包 wheel 內含第三方元件目錄（非 Qt、非 Microsoft）：numpy、pandas、Pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi、charset-normalizer、psutil 等的內含元件名稱、版本、來源、隨包原文；版本依據分級（wheel 宣告／runtime 觀測／未知），未知者在登記表保持未關閉。cryptography 缺 OpenSSL 原文需補；Pillow 單一 LICENSE 是否涵蓋內含程式庫待查。量大可拆 A9a／A9b | **可開始** |
+| | A10 Microsoft 執行期逐檔對照（基本包 14 檔：根目錄 3、PySide6 5、shiboken6 4、numpy.libs 與 pandas.libs 各 1 個改名的 msvcp140）：收集來源、PE 版本、簽章、與官方 Redist 同名檔雜湊比對、適用條款文件；改名複本單獨標示；review_reason 改由登記表狀態控制。條款是否允許由使用者在 A13 決定 | **可開始** |
+| | A11 Qt 內含第三方（qt_attribution）、建置資訊（`QLibraryInfo.build()` 等）與「可替換 Qt」驗收（hosted Windows CI：替換 DLL 後可啟動、移除 Qt6Core 後啟動失敗，標明非實體機）；更新 `qt-lgpl-notice.md`。LGPL 做法是否足夠由使用者在 A13 決定 | **可開始** |
 | | A12 以 A8–A11 完成後的 main 重新固定候選，產出基本包出口報告；`runtime_sbom_complete` 依 A8 定義推導，不得人工改寫。**順帶整理 `docs/progress.json`**：把 `previous_*` 等舊紀錄鍵搬到 `docs/history/`（搬移，不刪除內容；使用者已同意）。**不做打包減量**（使用者決定） | 待開始 |
 | | A13 使用者確認基本包門檻（原 B4 前移）：Microsoft 各複本、Qt LGPL 做法、libffi 僅建置宣告、版本未知的內含元件、Tesseract 與 tessdata、品質限制揭露文字。協調者不得代為決定 | 需使用者 |
 | | A14 CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例） | 待開始（B1 之後） |
