@@ -51,7 +51,8 @@ def validate(data):
 
 def validate_stage_plan(plan):
     """全階段規劃只記狀態，不記數字；狀態值域封閉，編號不可重複。"""
-    statuses = {"done", "active", "next", "pending", "user", "deferred"}
+    # decide＝需使用者決定，test＝需使用者實機測試；user 為舊值，保留相容。
+    statuses = {"done", "active", "next", "pending", "decide", "test", "user", "deferred"}
     if not plan.get("title") or not plan.get("stages"):
         raise ValueError("Stage plan requires a title and stages")
     seen = set()

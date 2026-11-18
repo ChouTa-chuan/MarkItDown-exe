@@ -2633,7 +2633,7 @@
   },
   "stage_plan": {
     "title": "全階段規劃",
-    "description": "依 STATUS.md C 節；每個編號一個 PR，CI 通過且查驗完成即合併。",
+    "description": "依 STATUS.md C 節；每個編號一個 PR，CI 通過且查驗完成即合併。「需使用者決定」是回答問題，「需使用者實機測試」才需要安裝。",
     "stages": [
       {
         "id": "A",
@@ -2754,14 +2754,14 @@
           {
             "id": "A12d",
             "title": "wheel 內含元件執行期版本觀測（選配）",
-            "status": "user",
+            "status": "decide",
             "note": "待使用者決定是否做"
           },
           {
             "id": "A13",
             "title": "使用者確認基本包門檻",
-            "status": "user",
-            "note": "A13-0 已同意；其餘待使用者"
+            "status": "decide",
+            "note": "回答 A13-1～A13-7 的問題，不需要安裝；A13-0 已同意"
           },
           {
             "id": "A13b",
@@ -2819,7 +2819,8 @@
           {
             "id": "B4",
             "title": "使用者確認測試版結果",
-            "status": "user"
+            "status": "test",
+            "note": "使用者試用測試版後確認結果"
           }
         ]
       },
@@ -2831,20 +2832,20 @@
           {
             "id": "C1",
             "title": "乾淨 Windows 10／11 安裝與離線首次啟動",
-            "status": "user",
-            "note": "需使用者或實體 Windows"
+            "status": "test",
+            "note": "需使用者在實體 Windows 安裝測試"
           },
           {
             "id": "C2",
             "title": "四語 OCR、中文路徑、修復與移除",
-            "status": "user",
-            "note": "需使用者或實體 Windows"
+            "status": "test",
+            "note": "需使用者在實體 Windows 安裝測試"
           },
           {
             "id": "C3",
             "title": "人工操作：拖放、批次、預覽、RAM 設定",
-            "status": "user",
-            "note": "需使用者或實體 Windows"
+            "status": "test",
+            "note": "需使用者在實體 Windows 安裝測試"
           }
         ]
       },
@@ -2856,13 +2857,13 @@
           {
             "id": "D1",
             "title": "圖片檔走本機 OCR",
-            "status": "user",
+            "status": "decide",
             "note": "等使用者決定"
           },
           {
             "id": "D2",
             "title": "影音轉文字獨立選配元件（本機語音辨識）",
-            "status": "user",
+            "status": "decide",
             "note": "等使用者決定"
           }
         ]
