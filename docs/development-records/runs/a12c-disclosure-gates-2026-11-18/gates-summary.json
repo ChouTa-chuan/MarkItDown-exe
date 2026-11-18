@@ -1,0 +1,168 @@
+{
+  "candidate_source": "2555687eafc931600f30265f7bd290331cd49a0f",
+  "profiles": {
+    "base": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "runtime_sbom_disclosed": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "unknown_components": {
+        "base-cpython": [
+          "cpython/libffi"
+        ],
+        "base-qt": [
+          "pyside/pyside-setup:sources/shiboken6/libshiboken/qt_attribution.json:0",
+          "pyside/pyside-setup:sources/shiboken6/shibokenmodule/files.dir/shibokensupport/signature/qt_attribution.json:0",
+          "qt-native/PySide6/opengl32sw.dll",
+          "qt/qtbase:src/3rdparty/D3D12MemoryAllocator/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/VulkanMemoryAllocator/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/android/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/blake2/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/double-conversion/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/easing/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/emoji-segmenter/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/forkfd/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/freetype/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/freetype/qt_attribution.json:1",
+          "qt/qtbase:src/3rdparty/freetype/qt_attribution.json:2",
+          "qt/qtbase:src/3rdparty/freetype/qt_attribution.json:3",
+          "qt/qtbase:src/3rdparty/gradle/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/harfbuzz-ng/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/icc/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/libjpeg/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/libpng/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/libpsl/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/libpsl/qt_attribution.json:1",
+          "qt/qtbase:src/3rdparty/md4/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/md4c/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/md5/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/pcre2/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/pcre2/qt_attribution.json:1",
+          "qt/qtbase:src/3rdparty/pixman/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/rfc6234/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/sha1/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/sha3/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/sha3/qt_attribution.json:1",
+          "qt/qtbase:src/3rdparty/siphash/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/sqlite/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/tinycbor/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wasm/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/appmenu/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/color-management/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/fractional-scale/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/fullscreen-shell/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/linux-dmabuf/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/linux-dmabuf/qt_attribution.json:1",
+          "qt/qtbase:src/3rdparty/wayland/protocols/pointer-gestures/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/pointer-warp/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/presentation-time/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/scaler/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/session-management/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/tablet/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/text-input/v1/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/text-input/v2/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/text-input/v3/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/viewporter/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/wayland/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/wl-eglstream/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/wlr-data-control/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/wp-primary-selection/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/xdg-activation/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/xdg-decoration/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/xdg-dialog/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/xdg-foreign/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/xdg-output/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/xdg-shell/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/xdg-system-bell/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wayland/protocols/xdg-toplevel-icon/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/wintab/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/xcb/qt_attribution.json:0",
+          "qt/qtbase:src/3rdparty/zlib/qt_attribution.json:0",
+          "qt/qtbase:src/corelib/global/qt_attribution.json:0",
+          "qt/qtbase:src/corelib/kernel/qt_attribution.json:0",
+          "qt/qtbase:src/corelib/mimetypes/3rdparty/qt_attribution.json:0",
+          "qt/qtbase:src/corelib/text/qt_attribution.json:0",
+          "qt/qtbase:src/corelib/text/qt_attribution.json:1",
+          "qt/qtbase:src/dbus/qt_attribution.json:0",
+          "qt/qtbase:src/gui/opengl/qt_attribution.json:0",
+          "qt/qtbase:src/gui/opengl/qt_attribution.json:1",
+          "qt/qtbase:src/gui/painting/qt_attribution.json:0",
+          "qt/qtbase:src/gui/painting/qt_attribution.json:1",
+          "qt/qtbase:src/gui/painting/qt_attribution.json:2",
+          "qt/qtbase:src/gui/rhi/qt_attribution.json:0",
+          "qt/qtbase:src/gui/text/qt_attribution.json:0",
+          "qt/qtbase:src/gui/util/qt_attribution.json:0",
+          "qt/qtbase:src/gui/vulkan/qt_attribution.json:0",
+          "qt/qtbase:src/plugins/platforms/cocoa/qt_attribution.json:0",
+          "qt/qtimageformats:src/3rdparty/libtiff/qt_attribution.json:0",
+          "qt/qtimageformats:src/3rdparty/libwebp/qt_attribution.json:0"
+        ],
+        "base-wheels-cffi": [
+          "cffi/libffi"
+        ],
+        "base-wheels-cryptography": [
+          "cryptography/rust-dependencies"
+        ],
+        "base-wheels-lxml": [
+          "lxml/libiconv",
+          "lxml/libxml2",
+          "lxml/libxslt",
+          "lxml/zlib"
+        ],
+        "base-wheels-numpy": [
+          "numpy/gcc-runtime-libgfortran",
+          "numpy/numpy-bundled-sources",
+          "numpy/numpy-lapack"
+        ],
+        "base-wheels-onnxruntime": [
+          "onnxruntime/onnxruntime-third-party-superset"
+        ],
+        "base-wheels-pandas": [
+          "pandas/pandas-bundled-notices"
+        ],
+        "base-wheels-pillow": [
+          "pillow/dav1d",
+          "pillow/fribidi",
+          "pillow/libaom",
+          "pillow/libyuv",
+          "pillow/raqm"
+        ],
+        "base-wheels-pypdfium2": [
+          "pypdfium2/abseil",
+          "pypdfium2/fast-float",
+          "pypdfium2/freetype",
+          "pypdfium2/icu",
+          "pypdfium2/libjpeg-turbo",
+          "pypdfium2/libopenjpeg",
+          "pypdfium2/libpng",
+          "pypdfium2/llvm-libc",
+          "pypdfium2/simdutf",
+          "pypdfium2/zlib"
+        ]
+      },
+      "accepted_gaps": {},
+      "coverage_unchanged": true,
+      "input_inventory_summary_unchanged": true,
+      "original_blocker_sets_unchanged": true
+    },
+    "cpu": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "runtime_sbom_disclosed": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "unknown_components": {
+        "cpu-cpython": [
+          "cpython/libffi"
+        ]
+      },
+      "accepted_gaps": {},
+      "coverage_unchanged": true,
+      "input_inventory_summary_unchanged": true,
+      "original_blocker_sets_unchanged": true
+    }
+  }
+}

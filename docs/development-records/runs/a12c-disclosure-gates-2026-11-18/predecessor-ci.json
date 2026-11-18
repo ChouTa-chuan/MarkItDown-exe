@@ -1,0 +1,83 @@
+{
+  "pr": 26,
+  "head": "600bafcb30a17c72e8345d16ea742fdd3e5761d1",
+  "merge_commit": "4f3019638e607c0950c23d1f1888dc070697cb4d",
+  "reviewed": true,
+  "runs": {
+    "Windows base validation": {
+      "run": 44257573666,
+      "conclusion": "success",
+      "artifacts": [
+        {
+          "name": "windows-base-validation-reports",
+          "digest": "sha256:0cc8f2181ec2d9c4fd5cee1f508953958fb9d499341b17162766d984eb33cf19",
+          "expires_at": "2026-11-25T07:34:22Z"
+        },
+        {
+          "name": "windows-ocr-ci-inputs",
+          "digest": "sha256:c5f0ad684450ab91685b503f10065178c9ba5c1500900e1c107f6558f642db56",
+          "expires_at": "2026-11-19T07:18:52Z"
+        },
+        {
+          "name": "windows-native-build-reports",
+          "digest": "sha256:fda0151434d9e179ea5b48ad6589ec40dc67a8e0124f861c4fe31b0796810bcf",
+          "expires_at": "2026-11-25T07:18:56Z"
+        }
+      ],
+      "metadata_sha256": "2ea77f7e21c3bcfee8140580d14a3a1ae8570ced408eb777dd4d153953e43a19",
+      "provenance_sha256": "ae7364922aadb330bd0a23496ce3a6b77050e82051cd90de1ca6777889743918",
+      "qt-replacement_sha256": "3e6436d1138e150f885816f295876d4144a4a8a6602657522a22e2a3a7e80bbd",
+      "cryptography-openssl_sha256": "f48c8ff9b62e10f193b3a3c8cc04c3ae4cbadafa625c11f256eaa95674958fa1",
+      "qt-release-sources_sha256": "ad29b5b33e5fb3a6b4640421b02ded4e7768b409cec1631b74365ee796840e79"
+    },
+    "Windows CPU component validation": {
+      "run": 44257574421,
+      "conclusion": "success",
+      "artifacts": [
+        {
+          "name": "windows-cpu-validation-reports",
+          "digest": "sha256:fcc88978f7f456a3beb82349fe28ba0a0bc2368f6edfc32edd45145e5720218c",
+          "expires_at": "2026-11-25T07:30:42Z"
+        }
+      ],
+      "metadata_sha256": "7c7730a68b6032fbe409f7daa9b299dd3eb513f2daf84936effa108be5776353",
+      "provenance_sha256": "adafc48021d0cfec38e22c48f6a98c906b564ce07a3ed073b00bd271b5af2d45"
+    },
+    "Linux full regression": {
+      "run": 44257573653,
+      "conclusion": "success",
+      "artifacts": [
+        {
+          "name": "linux-regression-reports",
+          "digest": "sha256:06c44dfd296278ca60c9b6867a5756097c46bdbc25dcb550886e5ec33382e7a2",
+          "expires_at": "2026-12-02T07:23:38Z"
+        }
+      ]
+    },
+    "Microsoft runtime evidence": {
+      "run": 44257573852,
+      "conclusion": "success",
+      "artifacts": [
+        {
+          "name": "microsoft-runtime-evidence-reports",
+          "digest": "sha256:025a34e743f3017e1e0afe3cc00784b62f6b72391ca0b2027c7777cf0041f10e",
+          "expires_at": "2026-11-25T07:18:21Z"
+        }
+      ]
+    },
+    "History index check": {
+      "run": 44257574201,
+      "conclusion": "success",
+      "artifacts": []
+    }
+  },
+  "pages": {
+    "run": 44260386744,
+    "check": "progress-pages",
+    "url": "https://chouta-chuan.github.io/MarkItDown-exe/",
+    "source_commit": "4f3019638e607c0950c23d1f1888dc070697cb4d",
+    "sha256": "4243963163238f33e44f67c9fcd166ebf13debcaa434799f614223eef8755dde",
+    "http_status": 200,
+    "published": true
+  }
+}
