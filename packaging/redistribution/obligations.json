@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "description": "A8 義務登記與旗標判定；原生檔精確匹配，review_reason 獨立精確匹配。file_groups 為人工範圍說明，不是通配規則。狀態需審閱證據及使用者決定，不能由檔案數或套件宣告直接核准。",
   "profiles": {
     "base": {
@@ -31,7 +31,8 @@
           "decision_source": null,
           "gates": [
             "runtime_sbom_complete"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-microsoft",
@@ -84,7 +85,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-cpython",
@@ -149,7 +151,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-wheels-numpy",
@@ -188,7 +191,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-wheels-pandas",
@@ -258,7 +262,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-wheels-pillow",
@@ -289,7 +294,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-wheels-lxml",
@@ -321,7 +327,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-wheels-cryptography",
@@ -351,7 +358,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-wheels-onnxruntime",
@@ -379,7 +387,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-wheels-pypdfium2",
@@ -405,7 +414,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-wheels-cffi",
@@ -431,7 +441,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-wheels-charset-normalizer",
@@ -457,7 +468,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-wheels-psutil",
@@ -482,7 +494,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-archives",
@@ -516,7 +529,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-qt",
@@ -572,7 +586,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-tesseract-models",
@@ -696,7 +711,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-own-mit-binding",
@@ -726,7 +742,8 @@
           "decision_source": null,
           "gates": [
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-own-license-choice",
@@ -753,7 +770,8 @@
           },
           "gates": [
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-redistribution-decision",
@@ -770,7 +788,8 @@
           "decision_source": null,
           "gates": [
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "base-clean-machine-manual",
@@ -788,7 +807,8 @@
           "decision_source": null,
           "gates": [
             "release_ready"
-          ]
+          ],
+          "accepted_gaps": []
         }
       ]
     },
@@ -812,7 +832,8 @@
           "decision_source": null,
           "gates": [
             "runtime_sbom_complete"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "cpu-microsoft",
@@ -840,7 +861,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "cpu-cpython",
@@ -882,7 +904,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "cpu-wheels",
@@ -928,7 +951,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "cpu-archives",
@@ -949,7 +973,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "cpu-geos",
@@ -973,7 +998,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "cpu-rapidocr-models",
@@ -995,7 +1021,8 @@
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "cpu-flatbuffers",
@@ -1014,7 +1041,8 @@
           "decision_source": null,
           "gates": [
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "cpu-redistribution-decision",
@@ -1031,7 +1059,8 @@
           "decision_source": null,
           "gates": [
             "redistribution_approved"
-          ]
+          ],
+          "accepted_gaps": []
         },
         {
           "id": "cpu-clean-machine-manual",
@@ -1049,7 +1078,8 @@
           "decision_source": null,
           "gates": [
             "release_ready"
-          ]
+          ],
+          "accepted_gaps": []
         }
       ]
     }

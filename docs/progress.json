@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-18",
   "environment": "Linux 完整混合／獨立模組回歸；hosted Windows CI 只做整合驗證，非實體機／乾淨機／GPU／人工驗收",
-  "tests_passed": 886,
-  "headline": "A12b 證據接線與 Community 原文完成（PR 26）；A12c 接續，A13 決定仍待使用者",
-  "blocker": "Qt LGPL 做法、Microsoft 條款及其他再散布門檻仍待 A13 使用者決定；完整編譯設定與未知元件保留缺口，base／cpu 三旗標 false；實機／人工驗收未完成。",
-  "next": "A12b（PR 26）最終 CI／查驗及 Merge → 從最新 main 另開分支做 A12c → A12c 完成後停止。",
+  "tests_passed": 897,
+  "headline": "A12b 已 Merge（PR 26）；A12c 揭露式規則完成（PR 27），A13 決定仍待使用者",
+  "blocker": "A13 使用者決定、實際隨包揭露及重定候選尚待；實際 base／cpu 原三旗標與 disclosed 均 false，實機／人工／GPU 未驗收。",
+  "next": "A12c（PR 27）最終 CI／查驗及 Merge 後停止；等待使用者決定 A12d／A13，A13b 與 B1 尚未開始。",
   "milestones": [
     {
       "id": "m0",
@@ -138,7 +138,7 @@
       "id": "m5",
       "title": "發佈準備",
       "state": "active",
-      "description": "hosted Windows 基本包與 CPU 元件持續整合驗證；已完成 A1–A12 及 A12b 證據接線。揭露式規則 A12c、使用者 A13 決定、測試版交付、乾淨機／人工／GPU 仍待。",
+      "description": "hosted Windows 基本包與 CPU 元件持續整合驗證；已完成 A1–A12、A12b 證據接線與 A12c 揭露式規則。使用者 A13 決定、實際隨包揭露／重定候選、測試版交付與乾淨機／人工／GPU 仍待。",
       "checks": [
         {
           "label": "hosted Windows 建置與安裝驗證（GitHub Actions，非乾淨機）",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 887,
+  "tests_run": 898,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "23da7416048a46ed123275632490fb28a790e289",
+    "source_commit": "1fee37a232a154982fb0aa72f7bce9422f6993e6",
     "date_taipei": "2026-11-18",
     "accepted": true,
-    "run": 887,
-    "passed": 886,
+    "run": 898,
+    "passed": 897,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1322,7 +1322,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/a12b-evidence-wiring-2026-11-18/README.md"
+    "evidence": "development-records/runs/a12c-disclosure-gates-2026-11-18/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2743,14 +2743,15 @@
             "id": "A12b",
             "title": "證據接線與 Community 授權原文",
             "status": "done",
-            "note": "工程證據與 Community 原文已接線；A13 未代決，最終整合見 PR",
+            "note": "已一般 Merge 4f30196；最終五條 CI、查驗及 Pages 通過，A13 未代決",
             "pr": 26
           },
           {
             "id": "A12c",
             "title": "揭露式關閉規則（runtime_sbom_disclosed）",
-            "status": "next",
-            "note": "A12b Merge 後從最新 main 開新分支；完成後停止"
+            "status": "done",
+            "note": "揭露式規則及回歸完成；實際條目狀態與全部旗標不提高，最終整合見 PR；完成後停止",
+            "pr": 27
           },
           {
             "id": "A12d",
@@ -3198,7 +3199,7 @@
     "baseline_commit": "6e6945691f833ecb8d7b470389450349efd33b76",
     "candidate_source": "2555687eafc931600f30265f7bd290331cd49a0f",
     "pr": 26,
-    "status": "implemented-and-verified",
+    "status": "merged-and-verified",
     "origin_known_assessed": 30,
     "evidence": "development-records/runs/a12b-evidence-wiring-2026-11-18/README.md",
     "targeted_run": 23,
@@ -3363,6 +3364,196 @@
     ],
     "user_decisions_unchanged": true,
     "package_contents_changed": false,
-    "community_applicability_assessed": false
+    "community_applicability_assessed": false,
+    "merge_commit": "4f3019638e607c0950c23d1f1888dc070697cb4d",
+    "final_head": "600bafcb30a17c72e8345d16ea742fdd3e5761d1",
+    "ci_runs": {
+      "Windows base validation": 44257573666,
+      "Windows CPU component validation": 44257574421,
+      "Linux full regression": 44257573653,
+      "Microsoft runtime evidence": 44257573852,
+      "History index check": 44257574201
+    },
+    "final_ci_evidence": "development-records/runs/a12c-disclosure-gates-2026-11-18/predecessor-ci.json"
+  },
+  "a12c_disclosure_gates": {
+    "source_commit": "1fee37a232a154982fb0aa72f7bce9422f6993e6",
+    "baseline_commit": "4f3019638e607c0950c23d1f1888dc070697cb4d",
+    "candidate_source": "2555687eafc931600f30265f7bd290331cd49a0f",
+    "pr": 27,
+    "status": "implemented-and-verified",
+    "registry_schema_version": 3,
+    "targeted_run": 76,
+    "evidence": "development-records/runs/a12c-disclosure-gates-2026-11-18/README.md",
+    "profiles": {
+      "base": {
+        "flags": {
+          "runtime_sbom_complete": false,
+          "runtime_sbom_disclosed": false,
+          "redistribution_approved": false,
+          "release_ready": false
+        },
+        "unknown_components": {
+          "base-cpython": [
+            "cpython/libffi"
+          ],
+          "base-qt": [
+            "pyside/pyside-setup:sources/shiboken6/libshiboken/qt_attribution.json:0",
+            "pyside/pyside-setup:sources/shiboken6/shibokenmodule/files.dir/shibokensupport/signature/qt_attribution.json:0",
+            "qt-native/PySide6/opengl32sw.dll",
+            "qt/qtbase:src/3rdparty/D3D12MemoryAllocator/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/VulkanMemoryAllocator/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/android/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/blake2/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/double-conversion/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/easing/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/emoji-segmenter/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/forkfd/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/freetype/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/freetype/qt_attribution.json:1",
+            "qt/qtbase:src/3rdparty/freetype/qt_attribution.json:2",
+            "qt/qtbase:src/3rdparty/freetype/qt_attribution.json:3",
+            "qt/qtbase:src/3rdparty/gradle/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/harfbuzz-ng/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/icc/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/libjpeg/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/libpng/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/libpsl/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/libpsl/qt_attribution.json:1",
+            "qt/qtbase:src/3rdparty/md4/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/md4c/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/md5/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/pcre2/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/pcre2/qt_attribution.json:1",
+            "qt/qtbase:src/3rdparty/pixman/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/rfc6234/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/sha1/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/sha3/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/sha3/qt_attribution.json:1",
+            "qt/qtbase:src/3rdparty/siphash/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/sqlite/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/tinycbor/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wasm/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/appmenu/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/color-management/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/fractional-scale/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/fullscreen-shell/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/linux-dmabuf/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/linux-dmabuf/qt_attribution.json:1",
+            "qt/qtbase:src/3rdparty/wayland/protocols/pointer-gestures/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/pointer-warp/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/presentation-time/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/scaler/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/session-management/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/tablet/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/text-input/v1/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/text-input/v2/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/text-input/v3/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/viewporter/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/wayland/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/wl-eglstream/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/wlr-data-control/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/wp-primary-selection/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-activation/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-decoration/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-dialog/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-foreign/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-output/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-shell/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-system-bell/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-toplevel-icon/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wintab/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/xcb/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/zlib/qt_attribution.json:0",
+            "qt/qtbase:src/corelib/global/qt_attribution.json:0",
+            "qt/qtbase:src/corelib/kernel/qt_attribution.json:0",
+            "qt/qtbase:src/corelib/mimetypes/3rdparty/qt_attribution.json:0",
+            "qt/qtbase:src/corelib/text/qt_attribution.json:0",
+            "qt/qtbase:src/corelib/text/qt_attribution.json:1",
+            "qt/qtbase:src/dbus/qt_attribution.json:0",
+            "qt/qtbase:src/gui/opengl/qt_attribution.json:0",
+            "qt/qtbase:src/gui/opengl/qt_attribution.json:1",
+            "qt/qtbase:src/gui/painting/qt_attribution.json:0",
+            "qt/qtbase:src/gui/painting/qt_attribution.json:1",
+            "qt/qtbase:src/gui/painting/qt_attribution.json:2",
+            "qt/qtbase:src/gui/rhi/qt_attribution.json:0",
+            "qt/qtbase:src/gui/text/qt_attribution.json:0",
+            "qt/qtbase:src/gui/util/qt_attribution.json:0",
+            "qt/qtbase:src/gui/vulkan/qt_attribution.json:0",
+            "qt/qtbase:src/plugins/platforms/cocoa/qt_attribution.json:0",
+            "qt/qtimageformats:src/3rdparty/libtiff/qt_attribution.json:0",
+            "qt/qtimageformats:src/3rdparty/libwebp/qt_attribution.json:0"
+          ],
+          "base-wheels-cffi": [
+            "cffi/libffi"
+          ],
+          "base-wheels-cryptography": [
+            "cryptography/rust-dependencies"
+          ],
+          "base-wheels-lxml": [
+            "lxml/libiconv",
+            "lxml/libxml2",
+            "lxml/libxslt",
+            "lxml/zlib"
+          ],
+          "base-wheels-numpy": [
+            "numpy/gcc-runtime-libgfortran",
+            "numpy/numpy-bundled-sources",
+            "numpy/numpy-lapack"
+          ],
+          "base-wheels-onnxruntime": [
+            "onnxruntime/onnxruntime-third-party-superset"
+          ],
+          "base-wheels-pandas": [
+            "pandas/pandas-bundled-notices"
+          ],
+          "base-wheels-pillow": [
+            "pillow/dav1d",
+            "pillow/fribidi",
+            "pillow/libaom",
+            "pillow/libyuv",
+            "pillow/raqm"
+          ],
+          "base-wheels-pypdfium2": [
+            "pypdfium2/abseil",
+            "pypdfium2/fast-float",
+            "pypdfium2/freetype",
+            "pypdfium2/icu",
+            "pypdfium2/libjpeg-turbo",
+            "pypdfium2/libopenjpeg",
+            "pypdfium2/libpng",
+            "pypdfium2/llvm-libc",
+            "pypdfium2/simdutf",
+            "pypdfium2/zlib"
+          ]
+        },
+        "accepted_gaps": {},
+        "coverage_unchanged": true,
+        "input_inventory_summary_unchanged": true,
+        "original_blocker_sets_unchanged": true
+      },
+      "cpu": {
+        "flags": {
+          "runtime_sbom_complete": false,
+          "runtime_sbom_disclosed": false,
+          "redistribution_approved": false,
+          "release_ready": false
+        },
+        "unknown_components": {
+          "cpu-cpython": [
+            "cpython/libffi"
+          ]
+        },
+        "accepted_gaps": {},
+        "coverage_unchanged": true,
+        "input_inventory_summary_unchanged": true,
+        "original_blocker_sets_unchanged": true
+      }
+    },
+    "synthetic_positive_only": true,
+    "actual_registry_statuses_unchanged": true,
+    "package_contents_changed": false,
+    "actual_user_decisions_added": false,
+    "stop_after_completion": true
   }
 }

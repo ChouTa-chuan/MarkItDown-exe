@@ -1,4 +1,4 @@
-"""只讀義務登記與 source-review，推導三旗標；不改候選、盤點與原始報告。"""
+"""只讀義務登記與 source-review，分開判定完整、揭露、再散布及實機驗收。"""
 import argparse
 import collections
 import datetime
@@ -14,13 +14,14 @@ import qt_components
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT/'packaging/redistribution/obligations.json'
 FLAGS = ('runtime_sbom_complete', 'redistribution_approved', 'release_ready')
+DISCLOSED = 'runtime_sbom_disclosed'
 STATUSES = ('open', 'evidence_complete', 'user_approved')
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 # 封閉結構：鍵集合依 obligations.json 實際使用的欄位訂定，未知鍵一律拒絕，避免夾帶未被檢核的資料。
 TOP_KEYS = {'schema_version', 'description', 'profiles'}
 PROFILE_KEYS = {'source_commit', 'entries'}
 ENTRY_REQUIRED = {'id', 'title', 'native_files', 'review_reasons', 'file_groups', 'required_evidence',
-                  'evidence', 'status', 'requires_user_decision', 'gates'}
+                  'evidence', 'status', 'requires_user_decision', 'gates', 'accepted_gaps'}
 ENTRY_KEYS = ENTRY_REQUIRED | {'decision_source'}
 EVIDENCE_KEYS = {'path', 'sha256'}
 DECISION_KEYS = EVIDENCE_KEYS | {'quote'}
@@ -132,8 +133,9 @@ def validate_registry(registry, root):
                     and identity not in ids, 'Invalid/duplicate obligation id')
             ids.add(identity)
             require(isinstance(e.get('title'), str) and e['title'].strip(), 'Missing obligation title')
-            for key in ('native_files', 'review_reasons', 'file_groups', 'required_evidence', 'evidence', 'gates'):
+            for key in ('native_files', 'review_reasons', 'file_groups', 'required_evidence', 'evidence', 'gates', 'accepted_gaps'):
                 require(isinstance(e.get(key), list), 'Invalid obligation list: '+key)
+            validate_gap_ids(e['accepted_gaps'])
             for key in ('native_files', 'review_reasons', 'file_groups', 'required_evidence', 'gates'):
                 require(all(isinstance(v, str) and v.strip() for v in e[key])
                         and len(e[key]) == len(set(e[key])), 'Invalid/duplicate selectors: '+identity)
@@ -189,6 +191,76 @@ def coverage(items, entries, key):
     return result
 
 
+def validate_gap_ids(values):
+    """元件 id 不是檔案路徑（Qt attribution id 含冒號）；保留原字串、禁止重複及控制字元。"""
+    require(isinstance(values, list) and all(isinstance(v, str) and v.strip() == v and v
+            and len(v) <= 512 and not any(ord(c) < 32 for c in v) for v in values), 'Invalid accepted_gaps')
+    require(len(values) == len(set(values)), 'Duplicate accepted_gaps')
+
+
+def validate_gap_acceptance(entry, unknown, report, root):
+    """未知可保持未決；關閉時必須逐項接受，而且相同 bytes 已在該候選的隨包清單。
+
+    不在此新增／修改揭露檔或決定列。A13b 才能依使用者決定加入真正的隨包檔並重定候選。
+    """
+    gaps = entry['accepted_gaps']
+    if not unknown:
+        require(not gaps, 'accepted_gaps without catalog gaps: '+entry['id'])
+        return
+    if entry['status'] == 'open':
+        require(not gaps, 'Open entry cannot claim accepted_gaps: '+entry['id'])
+        return
+    require(entry['status'] == 'user_approved' and entry['requires_user_decision'] is True
+            and entry.get('decision_source') is not None,
+            'Entry with unknown component must stay open or have a user gap decision: '+entry['id'])
+    # validate_registry 已核對決定的 hash 與固定存檔 D 節原文；此處不取代語意人工查驗。
+    require(set(gaps) == set(unknown), 'accepted_gaps differs from catalog unknown components: '+entry['id'])
+    prefix = 'src/desktop_app/data/licenses/'
+    bundle_prefix = {'base':'_internal/desktop_app/data/licenses/',
+                     'cpu':'_internal/worker-assets/licenses/'}[report['profile']]
+    candidates = {safe_name(row['path']):row['sha256']
+                  for row in report['classification_input']['report']['candidate_inventory']['files']}
+    refs = [ref for ref in entry['evidence'] if ref['path'].startswith(prefix) and ref['path'].endswith('.json')]
+    found = False
+    for ref in refs:
+        data = read_json(root/ref['path'])
+        # inventory 等其他 JSON 不得冒充揭露檔；若明稱接受缺口，結構及內容都須有效。
+        if not isinstance(data, dict) or 'accepted_gaps' not in data:
+            continue
+        exact_keys(data, {'schema_version', 'accepted_gaps'}, 'packaged gap disclosure')
+        require(type(data['schema_version']) is int and data['schema_version'] == 1
+                and isinstance(data['accepted_gaps'], dict), 'Invalid packaged gap disclosure')
+        for key, values in data['accepted_gaps'].items():
+            require(isinstance(key, str) and re.fullmatch('[a-z0-9-]+', key), 'Invalid disclosure obligation id')
+            validate_gap_ids(values)
+        values = data['accepted_gaps'].get(entry['id'])
+        if values is None:
+            # 條目可同時引用其他義務的揭露；至少一份須明確揭露本條目，不能拿他項清單替代。
+            continue
+        require(set(values) == set(unknown), 'Disclosure gaps differ from catalog: '+entry['id'])
+        bundled = bundle_prefix+ref['path'][len(prefix):]
+        require(candidates.get(safe_name(bundled)) == ref['sha256'],
+                'Disclosure absent from candidate or hash differs: '+bundled)
+        found = True
+    require(found, 'Missing packaged gap disclosure: '+entry['id'])
+
+
+def source_gaps(raw, mappings, embedded, qt):
+    """只讀已保存的元件依據，不改原分類／計數；同一 CPython 元件的多份檔案合為一個 id。"""
+    unknown = collections.defaultdict(set)
+    for catalog in embedded:
+        for identity, values in catalog['unknown_by_entry'].items():
+            unknown[identity].update(values)
+    for row in raw.get('cpython_components', {}).get('files', []):
+        if row.get('version_status') in ('unknown', 'build-declaration-only') or not row.get('observed_version'):
+            require(row.get('file') in mappings['native_files'] and isinstance(row.get('component'), str)
+                    and row['component'], 'Unmapped CPython component gap')
+            unknown[mappings['native_files'][row['file']]].add('cpython/'+row['component'])
+    for catalog in qt:
+        unknown['base-qt'].update(catalog['unknown_components'])
+    return {key:sorted(values) for key,values in sorted(unknown.items())}
+
+
 def assess(report, registry, *, root=ROOT):
     validate_registry(registry, root)
     profile = report.get('profile')
@@ -216,8 +288,14 @@ def assess(report, registry, *, root=ROOT):
     # 內含元件目錄（A9）：由條目的 evidence 找出目錄，逐一與該 profile 的條目與 A6 輸入對齊。
     catalogs = sorted({ref['path'] for e in entries for ref in e['evidence']
                        if ref['path'].startswith(embedded_components.CATALOG_PREFIX)})
+    # 已存在的元件目錄不可藉刪掉 evidence 引用來隱藏未知清單。合成測試目錄不存在則不要求。
+    canonical_catalog = embedded_components.CATALOG_PREFIX+profile+'-windows.json'
+    require(not (root/canonical_catalog).is_file() or canonical_catalog in catalogs,
+            'Existing embedded catalog must remain bound')
     embedded = [embedded_components.check_profile(read_json(root/path), catalog_path=path, entries=entries,
-                                                  report=report, root=root) for path in catalogs]
+                                                  report=report, root=root,
+                                                  gap_validator=lambda e,u:validate_gap_acceptance(e,u,report,root))
+                for path in catalogs]
     # A10 詳情只存目錄與證據；原始 review_reason 計數不改，是否仍阻擋由條目狀態推導。
     microsoft = []
     for entry in entries:
@@ -228,23 +306,37 @@ def assess(report, registry, *, root=ROOT):
             microsoft.append(microsoft_runtime.check_catalog(read_json(root/paths[0]), report=report,
                                                             entry=entry, root=root))
     qt = []
+    require(profile != 'base' or not (root/qt_components.CATALOG).is_file()
+            or any(ref['path'] == qt_components.CATALOG for e in entries for ref in e['evidence']),
+            'Existing Qt catalog must remain bound')
     for entry in entries:
         paths = [ref['path'] for ref in entry['evidence'] if ref['path'] == qt_components.CATALOG]
         if paths:
             require(profile == 'base' and entry['id'] == 'base-qt' and len(paths) == 1,
                     'Unexpected Qt catalog binding')
             qt.append(qt_components.check_profile(read_json(root/paths[0]), entry=entry, report=report, root=root))
+    unknown = source_gaps(raw, mappings, embedded, qt)
+    for entry in entries:
+        validate_gap_acceptance(entry, unknown.get(entry['id'], []), report, root)
     blocked = {}
     for flag in FLAGS:
         blocked[flag] = [e['id'] for e in entries if flag in e['gates'] and
                          (e['status'] == 'open' or (flag != FLAGS[0] and e['requires_user_decision']
                                                    and e['status'] != 'user_approved'))]
-    flags = {FLAGS[0]: not blocked[FLAGS[0]]}
-    flags[FLAGS[1]] = flags[FLAGS[0]] and not blocked[FLAGS[1]]
+    # disclosed 只覆蓋來源盤點義務；再散布總決定與 stage C 各由自己的門檻保留。
+    # 接受缺口不會使 strict complete 變 true，亦不會讓 open 的來源條目消失。
+    blocked[DISCLOSED] = sorted(set(blocked[FLAGS[0]]) | {
+        e['id'] for e in entries if e['id'] in unknown and e['status'] == 'open'})
+    blocked[FLAGS[0]] = sorted(set(blocked[FLAGS[0]]) | set(unknown))
+    flags = {FLAGS[0]: not blocked[FLAGS[0]], DISCLOSED:not blocked[DISCLOSED]}
+    flags[FLAGS[1]] = flags[DISCLOSED] and not blocked[FLAGS[1]]
     flags[FLAGS[2]] = flags[FLAGS[1]] and not blocked[FLAGS[2]]
     return dict(check='redistribution-gates', schema_version=1, accepted=True, profile=profile,
                 source_commit=source, **flags, blocked_by_gate=blocked,
-                gate_dependencies={FLAGS[1]: [FLAGS[0]], FLAGS[2]: [FLAGS[1]]},
+                registry_schema_version=SCHEMA_VERSION,
+                gate_dependencies={FLAGS[1]: [DISCLOSED], FLAGS[2]: [FLAGS[1]]},
+                unknown_components=unknown,
+                accepted_gaps={e['id']:sorted(e['accepted_gaps']) for e in entries if e['accepted_gaps']},
                 unclosed_obligations=[dict(id=e['id'], status=e['status'], title=e['title'],
                                           required_evidence=e['required_evidence']) for e in entries
                                       if any(e['id'] in ids for ids in blocked.values())],

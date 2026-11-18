@@ -10,18 +10,18 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | 已包含 A12（PR 23）與後續規劃／進度分類 PR 24、25；本輪基準 6e69456，A12b 最終整合見 PR 26 |
-| 本輪分支 | `codex/a12b-evidence-wiring-20261118`：從 main 6e69456 開啟；A12b 證據接線與完整回歸完成，最終 CI／查驗／Merge 見 PR 26 |
-| 下一棒 | 依使用者指定：A12b（PR 26）Merge 後，從最新 main 另開自己的 A12c 新分支；A12c 完成後停止。A13 各項仍由使用者決定 |
+| `main` | PR 26（A12b）已一般 Merge，main 基準 4f30196；最終五條 CI、Windows metadata／Qt 替換、Pages 已查驗 |
+| 本輪分支 | `codex/a12c-disclosure-gates-20261118`：從最新 main 4f30196 開啟；A12c 規則及完整回歸完成，最終 CI／查驗／Merge 見 PR 27 |
+| 下一棒 | A12c（PR 27）完成後停止，等待使用者。A12d 是否執行及 A13 各項仍由使用者決定；A13b／B1 尚未開始 |
 | 固定來源 | `2555687eafc931600f30265f7bd290331cd49a0f`（A12，含 A7–A11）；base run 44217813413、CPU run 44217816852。舊候選 8285450（A6）保留為歷史 |
 
 ## B. 這個階段完成了什麼
 
-- **A12b 證據接線**：base-source-attribution、base-archives、base-own-mit-binding 以既有 A12 證據改為 evidence_complete；每個 origin-known 列均有來源、版本／hash 對照理由及保留限制，原始分類與計數不改。
-- base-cpython、base-tesseract-models 已補原文／profile／模型／A12 引用且保持 open；CPython 依使用者決定標 requires_user_decision=true。其他原本需使用者決定的條目狀態全不改，沒有代做 A13。
-- 已從 Microsoft 官方下載 VS2022 Community DOCX 原文，保存網址、取得日期／SHA 及白話條款摘要；不判斷使用者、CI 或個別 DLL 是否適用。
-- 修正 cryptography 已有 OpenSSL 版本證據的過時需求、MIT 候選描述、Microsoft limitations 敘述、m5 描述及實際 A12 測試名稱；依使用者指定只補註舊出口報告的人工驗收關閉階段與對應 manifest hash，原版以 Git commit／blob／SHA 保留。
-- gates base／cpu 均 exit 0、三旗標 false；工程阻擋減少，但不以未對照計數歸零取代審閱。完整回歸、來源及數字只記 progress.json，[A12b 新證據](docs/development-records/runs/a12b-evidence-wiring-2026-11-18/README.md)保存原始對照與驗證。沒有更改 spec、鎖檔、打包內容或固定候選。
+- **A12b 已 Merge（PR 26，4f30196）**：既有來源／封存／MIT 工程證據接線完成，Community 官方原文與摘要已保存；工程狀態與條款內容不等於 A13 核准。CI 及部署收據見 [本輪前階段收據](docs/development-records/runs/a12c-disclosure-gates-2026-11-18/predecessor-ci.json)。
+- **A12c 揭露式關閉規則**：schema 3，新增 accepted_gaps 與推導的 runtime_sbom_disclosed。再散布前提改依揭露；嚴格完整仍拒絕任何未知／僅建置宣告缺口，實機驗收另由 release_ready 保留。
+- 目錄缺口逐項對應，關閉必須使用者核准、決定原文、精確清單及同 hash 候選隨包揭露；base／cpu 共用規則。Qt 來源上位集合的編入未證宣告仍是缺口，沒有提高 A11 閉包旗標。
+- 合成正反例與完整回歸通過，來源與數字只記 [progress.json](docs/progress.json)，首次反例修正與 [本輪證據](docs/development-records/runs/a12c-disclosure-gates-2026-11-18/README.md)已保存。實際 A12 base／cpu 原三旗標及 disclosed 都 false，條目狀態、coverage、原始計數與固定候選不變。
+- 沒有真實 A13 決定、隨包揭露檔、spec／鎖檔／打包變更、產品交付、Release 或 tag。最終 head CI／查驗／Merge 見 PR 27。
 
 ## C. 未完成、阻擋與下一步
 
@@ -37,8 +37,8 @@
 | | A10 Microsoft 執行期逐檔對照（基本包 14 檔：根目錄 3、PySide6 5、shiboken6 4、numpy.libs 與 pandas.libs 各 1 個改名的 msvcp140）：收集來源、PE 版本、簽章、與官方 Redist 同名檔雜湊比對、適用條款文件；改名複本單獨標示；review_reason 改由登記表狀態控制。條款是否允許由使用者在 A13 決定 | 完成（PR 20）；Microsoft 義務維持 open，留待 A13 |
 | | A11 Qt 內含第三方（qt_attribution）、建置資訊（`QLibraryInfo.build()` 等）與「可替換 Qt」驗收（hosted Windows CI：替換 DLL 後可啟動、移除 Qt6Core 後啟動失敗，標明非實體機）；更新 `qt-lgpl-notice.md`。LGPL 做法是否足夠由使用者在 A13 決定 | 完成工程與 hosted Windows 驗證（PR 22）；LGPL 仍需 A13 決定，最終整合見 PR |
 | | A12 以 A8–A11 完成後的 main 重新固定候選，產出基本包出口報告；`runtime_sbom_complete` 依 A8 定義推導，不得人工改寫。**順帶整理 `docs/progress.json`**：把 `previous_*` 等舊紀錄鍵搬到 `docs/history/`（搬移，不刪除內容；使用者已同意）。**不做打包減量**（使用者決定） | 完成（PR 23） |
-| | **A12b 證據接線**（使用者已同意）：把已存在的證據接進 `obligations.json`，不改安裝包。(1) `base-source-attribution`、`base-archives`、`base-own-mit-binding` 以既有證據改為 evidence_complete，每條 evidence 用路徑加 hash 引用；30 個 origin-known 列（A12 base-source-review 的 classification）各寫對照理由，存於新證據目錄 `docs/development-records/runs/a12b-evidence-wiring-*/`。(2) `base-cpython`、`base-tesseract-models` 補上 evidence 引用（後者引用 `packaging/native/minimal-windows.json`、minimal-notices、`src/desktop_app/data/ocr-four-languages.json`、A12 classification），狀態維持 open。(3) **`base-cpython` 改為 `requires_user_decision: true`**（使用者同意，供 A13-3）。(4) 從微軟官方取回 **VS2022 Community 授權原文**（記來源網址、取得日期、sha256），存入證據目錄，並寫白話摘要標出與再散布有關的段落（可散布程式碼、使用資格）；只陳述條文，不判斷是否適用。(5) 順帶修正：`base-wheels-cryptography` required_evidence 裡已過時的 openssl 字樣、progress.json m5 描述、`packaging/microsoft/base-windows.json` limitations 的「fixed A6 source」敘述（只改敘述，事實欄位不動並同步 hash）、`base-exit-report.json` 註明 `base-clean-machine-manual` 要到大階段 C、測試名稱 `test_actual_a6_profiles_have_exact_coverage_and_false_flags` 改成符合實際輸入。驗收：gates 重跑 base／cpu exit 0、三旗標 false，runtime_sbom 阻擋清單由 14 條減少並在 PR 列出；改 evidence hash 的反例被拒；完整回歸與 EXPECTED_TESTS 同步；不動 spec、打包內容、鎖檔、既有計數，以及任何已是 `requires_user_decision: true` 條目的狀態 | 完成工程接線與回歸（PR 26）；最終整合見 PR |
-| | **A12c 揭露式關閉規則**（使用者已同意，A13-0）：`runtime_sbom_complete` 維持嚴格（有任何未知元件就是 false）。新增推導旗標 `runtime_sbom_disclosed`：不得有 open 條目；凡含 unknown 或僅建置宣告的條目，必須是 `user_approved`，並且有 `decision_source`、`requires_user_decision: true`、新鍵 `accepted_gaps`（逐一列出被接受的元件 id，必須與目錄的 unknown 清單完全相等），evidence 至少一筆指向隨包揭露檔（例如 `src/desktop_app/data/licenses/known-gaps.json`），且該檔以相同 hash 出現在候選 source-review 中。`redistribution_approved` 的前提由 `runtime_sbom_complete` 改為 `runtime_sbom_disclosed`；gates 輸出列出 accepted_gaps。`embedded_components` 的「unknown 必須 open」改為「open，或符合上述條件的 user_approved」。schema 升為 3、結構仍封閉；規則同時適用 cpu。驗收：合成反例（accepted_gaps 與 unknown 不等、缺 decision_source、缺揭露檔、揭露檔不在候選或 hash 不同）皆拒絕；合成全揭露正例 `runtime_sbom_complete` false、`runtime_sbom_disclosed` 與 `redistribution_approved` true；實際 A12 輸入三旗標仍 false；現有條目狀態不改 | 下一個：A12b Merge 後由 Codex 另開分支 |
+| | **A12b 證據接線**（使用者已同意）：把已存在的證據接進 `obligations.json`，不改安裝包。(1) `base-source-attribution`、`base-archives`、`base-own-mit-binding` 以既有證據改為 evidence_complete，每條 evidence 用路徑加 hash 引用；30 個 origin-known 列（A12 base-source-review 的 classification）各寫對照理由，存於新證據目錄 `docs/development-records/runs/a12b-evidence-wiring-*/`。(2) `base-cpython`、`base-tesseract-models` 補上 evidence 引用（後者引用 `packaging/native/minimal-windows.json`、minimal-notices、`src/desktop_app/data/ocr-four-languages.json`、A12 classification），狀態維持 open。(3) **`base-cpython` 改為 `requires_user_decision: true`**（使用者同意，供 A13-3）。(4) 從微軟官方取回 **VS2022 Community 授權原文**（記來源網址、取得日期、sha256），存入證據目錄，並寫白話摘要標出與再散布有關的段落（可散布程式碼、使用資格）；只陳述條文，不判斷是否適用。(5) 順帶修正：`base-wheels-cryptography` required_evidence 裡已過時的 openssl 字樣、progress.json m5 描述、`packaging/microsoft/base-windows.json` limitations 的「fixed A6 source」敘述（只改敘述，事實欄位不動並同步 hash）、`base-exit-report.json` 註明 `base-clean-machine-manual` 要到大階段 C、測試名稱 `test_actual_a6_profiles_have_exact_coverage_and_false_flags` 改成符合實際輸入。驗收：gates 重跑 base／cpu exit 0、三旗標 false，runtime_sbom 阻擋清單由 14 條減少並在 PR 列出；改 evidence hash 的反例被拒；完整回歸與 EXPECTED_TESTS 同步；不動 spec、打包內容、鎖檔、既有計數，以及任何已是 `requires_user_decision: true` 條目的狀態 | 完成並 Merge（PR 26，4f30196）；五條 CI 與查驗通過 |
+| | **A12c 揭露式關閉規則**（使用者已同意，A13-0）：`runtime_sbom_complete` 維持嚴格（有任何未知元件就是 false）。新增推導旗標 `runtime_sbom_disclosed`：不得有 open 條目；凡含 unknown 或僅建置宣告的條目，必須是 `user_approved`，並且有 `decision_source`、`requires_user_decision: true`、新鍵 `accepted_gaps`（逐一列出被接受的元件 id，必須與目錄的 unknown 清單完全相等），evidence 至少一筆指向隨包揭露檔（例如 `src/desktop_app/data/licenses/known-gaps.json`），且該檔以相同 hash 出現在候選 source-review 中。`redistribution_approved` 的前提由 `runtime_sbom_complete` 改為 `runtime_sbom_disclosed`；gates 輸出列出 accepted_gaps。`embedded_components` 的「unknown 必須 open」改為「open，或符合上述條件的 user_approved」。schema 升為 3、結構仍封閉；規則同時適用 cpu。驗收：合成反例（accepted_gaps 與 unknown 不等、缺 decision_source、缺揭露檔、揭露檔不在候選或 hash 不同）皆拒絕；合成全揭露正例 `runtime_sbom_complete` false、`runtime_sbom_disclosed` 與 `redistribution_approved` true；實際 A12 輸入三旗標仍 false；現有條目狀態不改 | 規則及回歸完成（PR 27）；最終整合見 PR，完成後停止 |
 | | A12d（選配）wheel 內含元件執行期版本觀測：對有版本 API 的元件（例如 lxml 的 libxml2／libxslt、Pillow 的 raqm／fribidi）以 hosted Windows CI 觀測，bytes 綁回 A12 原生檔，改為 runtime-observed；查不到者維持 unknown。不改安裝包 | 待使用者決定是否做（A13-4） |
 | | A13 使用者確認基本包門檻（原 B4 前移），拆成 A13-0～A13-7，每項一列 D 節決定，存檔後供 `decision_source` 引用：A13-0 揭露式關閉規則（**已同意**）；A13-1 Microsoft 14 份複本（根目錄 msvcp140 與官方 Redist 位元組相同；根目錄 vcruntime140／_1 來自 Python 官方安裝、14.42；numpy／pandas 各 1 份改名複本；Qt 9 份由 The Qt Company 簽署）；A13-2 Qt LGPL 做法；A13-3 libffi 僅建置宣告；A13-4 26 個版本未知元件（是否先做 A12d）；A13-5 Tesseract 與四語模型（A12b 接好證據後）；A13-6 測試版限制說明文字（條目要到大階段 C 才能關閉，此處只確認文字）；A13-7 再散布總確認與 B1 散布範圍。協調者與 AI 不得代為決定 | 部分待使用者 |
 | | A14 CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例） | 待開始（B1 之後） |
@@ -116,4 +116,4 @@
 | 2026-11-18 | 使用者決定 | A12b 與 A12c 交給 Codex（GPT）接手，依序各一個 PR |
 | 2026-11-18 | 使用者本輪指示 | A12c 完成後先停，回報使用者。 |
 
-A12b 工程接線與回歸已完成，最終 CI／查驗／Merge 見 PR 26；合併後從最新 main 另開 A12c 新分支，A12c 完成後先停。A13 各項由使用者決定，AI 不代為決定。
+A12b 已一般 Merge（PR 26）；A12c 規則及完整回歸已完成（PR 27），最終 CI／查驗／Merge 見該 PR。依使用者指示，本輪 A12c 完成後停止，不自行開始 A12d／A13／A13b／B1。

@@ -4,6 +4,14 @@
 
 ## 更新中
 
+### 2026-11-18｜A12c 揭露式關閉規則
+
+- 登記 schema 升為 3，每項加入空 accepted_gaps，現有狀態、選擇器、來源及證據引用不變。runtime_sbom_complete 保持嚴格；新增 runtime_sbom_disclosed，redistribution_approved 改依完整揭露及原再散布決定判定，release_ready 仍受大階段 C 限制。
+- 未知／僅建置宣告的 wheel、CPython、Qt 缺口逐項對到 id；關閉須 user_approved、requires_user_decision=true、有效固定使用者決定、精確缺口集合及同 hash 候選隨包揭露。embedded 的 open-only 限制改由同一 gates 規則驗證；移除已存在目錄引用不能隱藏缺口；沒有獨立原生檔的 open 內含元件也不能靠省略來源 gate 繞過 disclosed。
+- 補 base／cpu 合成正例與錯誤清單、決定、揭露內容／路徑／候選 hash 等反例；不建立真實揭露檔、不代作 A13，實際 A12 base／cpu 原三旗標與新增 disclosed 仍 false，coverage／原始計數不變。完整回歸及最終 CI 見本輪證據與 PR。
+- A12b 已在 PR 26 一般 Merge（4f30196），五條 CI、Windows metadata replay、Qt 替換及 Pages 來源／hash 查驗通過；本輪從此最新 main 另開自己的 A12c 分支。A12c 完成後停止，不改 spec、鎖檔或打包內容，不交付產品、Release 或 tag。
+
+
 
 
 ### 2026-11-18｜A12b 既有證據接線與 Community 原文
