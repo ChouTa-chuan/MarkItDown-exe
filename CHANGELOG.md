@@ -4,6 +4,13 @@
 
 ## 更新中
 
+### 2026-11-18｜A12 重新固定候選與基本包出口報告
+
+- 變更：以 workflow_dispatch 在 main 指定 2555687（含 A7–A11）建置固定候選（base run 44217813413、CPU run 44217816852），重組 source-review 並離線 replay；登記表與 embedded／qt／microsoft 目錄改綁新候選，必要 hash 同步只動 sha256 引用；產出基本包出口報告與 A13 待決清單；progress.json 的 25 個 `previous_` 鍵原樣搬到 docs/history/progress-previous.json。
+- 相對前版：固定候選由 A6 的 8285450 改為 2555687；原生檔 bytes 不變，新增 151 個隨包原文檔；`microsoft_runtime.check_catalog` 改為探測基準等於基準檔自身 selection（A10 探測仍以 A6 為基準），候選綁定仍逐檔比對。測試固定輸入改為 A12，A6 保留為 Microsoft 基準的歷史輸入。
+- 驗證：新候選兩份輸入三旗標皆 false；完整 Linux 混合與獨立模組回歸通過，數字見 progress.json。reviewer 查驗無必須修正。
+- 未完成：A13 使用者確認門檻、A14–A17（CPU，B1 之後）、大階段 B／C。
+
 
 ### 2026-11-18｜A11 Qt 第三方、建置資訊與可替換驗收
 

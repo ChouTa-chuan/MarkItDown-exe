@@ -10,18 +10,19 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | A9b 已合併（PR 21，9360a54）；A11 成果、最終 head CI 與 Merge 提交統一記錄於 [PR 22](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/22) |
-| 本輪分支 | `codex/a11-qt-attribution-20261118`，從最新 main 9360a54 開始；A11 原文目錄、真正 hosted Windows frozen GUI 替換與本機查驗已完成；最終整合見 PR 22 |
-| 下一棒 | 本輪到 A11 停止；A12 及後續等待下一輪指示，不自動執行 |
-| 固定來源 | `8285450226abe1381e6a357e8bd33bff1ad46e0e`（A6）。**不含 A7**，A12 重新固定前不作為交付依據；A10 PR 探測不是新候選 |
+| `main` | PR 1–22 已合併；A9b（PR 21）、A11（PR 22）經 Claude reviewer 查驗無必須修正項目 |
+| 本輪分支 | `claude/confident-ride-o38ls7`，由 main 2555687 開出，對應 A12（[PR 23](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/23)；Claude 三角色流程） |
+| 下一棒 | A12 合併後：Claude planner 整體複查大階段 A，整理 A13 待使用者決定清單；A14–A17（CPU）排在 B1 之後 |
+| 固定來源 | **`2555687eafc931600f30265f7bd290331cd49a0f`（A12，含 A7–A11）**；base run 44217813413、CPU run 44217816852。舊候選 8285450（A6）保留為歷史 |
 
 ## B. 這個階段完成了什麼
 
-- **A11 Qt 第三方目錄**：固定 Qt／PySide 來源的 qt_attribution、版本依據、URL／Git blob／SHA 與原文保存於 [獨立目錄](packaging/qt/6.12.0/thirdparty/catalog.json)，接入原文隨包及 bundle 二次驗證；缺檔、改原文、錯誤版本依據等反例通過。
-- 真正 hosted Windows 的 QLibraryInfo build／shared／debug／library version 已保存；frozen GUI 的原版、不同 bytes Core 替換、移除 loader 失敗、還原成功均核對子程序實際載入路徑／SHA，正式 bundle 未變。這不是實體機或乾淨機驗收。
-- base-qt 仍 open，requires_user_decision=true；source-declared 不代表實際編入，來源上位集合含其他平台宣告，Mesa 精確版本／完整編譯選項及修補仍未知，LGPL 做法留 A13 使用者決定。只改本條目，沒有其他僅 hash 同步條目。
-- 原 A6 base／cpu gates 三旗標皆 false，coverage、計數摘要與口徑不變；spec、鎖檔及版本不改。原失敗、真正 Windows 觀測、測試來源見 [A11 證據](docs/development-records/runs/a11-qt-2026-11-18/README.md)，數字只記 progress.json；最終 head CI／查驗／Merge 見 PR 22。
-- A9b 已先完成並合併 PR 21；本輪沒有產品交付、Release 或 tag，到 A11 完成後停止，不做 A12。
+- **A12 重新固定候選**：以 workflow_dispatch 在 main 指定 2555687 建置基本包與 CPU 候選，兩者成功；公開 metadata 重組為 [A12 證據](docs/development-records/runs/a12-fixed-review-2026-11-18/README.md) 的 base／cpu source-review，離線 replay 一致。原生檔 153／61 個 bytes 與 A6 相同；基本包新增的 151 個檔案是 A11 Qt 第三方原文與 A9b OpenSSL 原文，自有 MIT 待對照 reason 已消失。
+- 登記表與 embedded／qt／microsoft 目錄改綁新候選；依使用者同意的「必要 hash 同步」只更新 sha256 引用（embedded 10 條、base-microsoft、base-qt），status、required_evidence、requires_user_decision 未改；`base-own-mit-binding` 移除已消失的 reason，仍 open。
+- Microsoft 探測基準仍為 A6（A10 探測），`check_catalog` 改為「探測基準等於基準檔自身 selection」，候選綁定仍逐檔比對 bytes、origin、distributions 與檔名集合；reviewer 判定為有等效補償的部分放寬。
+- **基本包出口報告**：20 條中已關閉 3、待 A13 決定 5、證據未齊 12；三旗標由 gates 推導，base／cpu 皆 false。A13 待決 7 項整理於出口報告。
+- **progress.json 整理**：25 個 `previous_` 舊紀錄鍵原樣搬到 [docs/history/progress-previous.json](docs/history/progress-previous.json)，逐值驗證無遺失。
+- 完整 Linux 混合與 57 個獨立模組回歸通過，只有既有 ONNX 繁中 expected failure；數字見 [progress.json](docs/progress.json)。依三角色流程：coder 實作、reviewer 查驗無必須修正、協調者收尾。
 
 ## C. 未完成、阻擋與下一步
 
@@ -36,7 +37,7 @@
 | | A9b cryptography 內含 OpenSSL 原文隨包：A9 查得 `cryptography/hazmat/bindings/_rust.pyd` 有 `OpenSSL 4.0.3` 字串（靜態併入），wheel 未附原文。使用者已同意補：以固定上游來源（OpenSSL 對應版本標籤的 LICENSE 原文，記來源網址、版本依據與 sha256）加入隨包授權資料，接到既有原文管線與目錄（`packaging/embedded/base-windows.json` 的 openssl 元件），補缺檔／改內容反例；版本仍須有依據，不能只憑字串就標成 wheel-declared（可新增分級需先說明）。會改變安裝包內容（使用者已同意） | 完成（PR 21，9360a54）；六項 CI 與查驗通過 |
 | | A10 Microsoft 執行期逐檔對照（基本包 14 檔：根目錄 3、PySide6 5、shiboken6 4、numpy.libs 與 pandas.libs 各 1 個改名的 msvcp140）：收集來源、PE 版本、簽章、與官方 Redist 同名檔雜湊比對、適用條款文件；改名複本單獨標示；review_reason 改由登記表狀態控制。條款是否允許由使用者在 A13 決定 | 完成（PR 20）；Microsoft 義務維持 open，留待 A13 |
 | | A11 Qt 內含第三方（qt_attribution）、建置資訊（`QLibraryInfo.build()` 等）與「可替換 Qt」驗收（hosted Windows CI：替換 DLL 後可啟動、移除 Qt6Core 後啟動失敗，標明非實體機）；更新 `qt-lgpl-notice.md`。LGPL 做法是否足夠由使用者在 A13 決定 | 完成工程與 hosted Windows 驗證（PR 22）；LGPL 仍需 A13 決定，最終整合見 PR |
-| | A12 以 A8–A11 完成後的 main 重新固定候選，產出基本包出口報告；`runtime_sbom_complete` 依 A8 定義推導，不得人工改寫。**順帶整理 `docs/progress.json`**：把 `previous_*` 等舊紀錄鍵搬到 `docs/history/`（搬移，不刪除內容；使用者已同意）。**不做打包減量**（使用者決定） | 待開始 |
+| | A12 以 A8–A11 完成後的 main 重新固定候選，產出基本包出口報告；`runtime_sbom_complete` 依 A8 定義推導，不得人工改寫。**順帶整理 `docs/progress.json`**：把 `previous_*` 等舊紀錄鍵搬到 `docs/history/`（搬移，不刪除內容；使用者已同意）。**不做打包減量**（使用者決定） | 完成（PR 23） |
 | | A13 使用者確認基本包門檻（原 B4 前移）：Microsoft 各複本、Qt LGPL 做法、libffi 僅建置宣告、版本未知的內含元件、Tesseract 與 tessdata、品質限制揭露文字。協調者不得代為決定 | 需使用者 |
 | | A14 CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例） | 待開始（B1 之後） |
 | | A15 CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認 | 待開始（B1 之後） |
@@ -108,4 +109,4 @@
 | 2026-11-18 | 使用者本輪指示 | 依序做 A9b 與 A11，各自一個 PR；先完成 A9b 並合併，再從最新 main 開新分支做 A11。A9b 已同意原文隨包內容變更；A11 hosted Windows 可替換驗收，base-qt 需 A13 使用者決定；不動 spec、鎖檔與既有計數口徑，不做 A12；A11 完成後先停。 |
 | 2026-11-18 | 使用者補充授權 | 允許必要的 hash 同步：只更新共用目錄（或 A11 的共用來源）的 sha256 引用，其他條目的 status、選擇器、required_evidence、requires_user_decision 一律不變；並在 PR 說明與 CHANGELOG 列出哪些條目只做了 hash 同步。改完重跑 base、cpu 兩個 profile 的 gates，三旗標仍須為 false。 |
 
-A9b 已 Merge PR 21；A11 工程、Windows 與本機證據已完成，最終 CI／查驗／Merge 見 PR 22。本輪在 A11 停止，不做 A12。
+接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。A12（PR 23）合併後，由 Claude planner 整體複查大階段 A 並整理 A13 待決清單交使用者決定；固定候選為 2555687。不交付產品、不建 Release 或 tag。

@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-18",
   "environment": "Linux 完整混合／獨立模組回歸；A11 hosted Windows 2022 frozen GUI Qt 替換及安裝驗證，非實體機／乾淨機／GPU／人工驗收",
-  "tests_passed": 883,
-  "headline": "A9b（PR 21）及 A11（PR 22）工程與 hosted Windows 驗證完成；三旗標 false，本輪到 A11 停止",
+  "tests_passed": 884,
+  "headline": "PR 1–22 已合併；A12 重新固定候選 2555687 並產出基本包出口報告（PR 23），三旗標仍 false",
   "blocker": "Qt LGPL 做法、Microsoft 條款及其他再散布門檻仍待 A13 使用者決定；完整編譯設定與未知元件保留缺口，base／cpu 三旗標 false；實機／人工驗收未完成。",
-  "next": "A11 最終 CI／查驗及一般 Merge 見 PR 22；依使用者指示本輪在 A11 停止，不執行 A12。",
+  "next": "A12 合併後：Claude planner 整體複查大階段 A，整理 A13 待決清單 → A13 使用者確認基本包門檻 → B1 測試版",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 884,
+  "tests_run": 885,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "3c166fb0e29ea4219f64c91d4ec9086881601c59",
+    "source_commit": "841a65a",
     "date_taipei": "2026-11-18",
     "accepted": true,
-    "run": 884,
-    "passed": 883,
+    "run": 885,
+    "passed": 884,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -2736,13 +2736,14 @@
           {
             "id": "A12",
             "title": "重新固定候選、基本包出口報告、整理 progress.json",
-            "status": "pending"
+            "status": "done",
+            "pr": 23
           },
           {
             "id": "A13",
             "title": "使用者確認基本包門檻",
             "status": "user",
-            "note": "需使用者決定"
+            "note": "需使用者決定（A12 後）"
           },
           {
             "id": "A14",
@@ -3085,5 +3086,86 @@
     "thirdparty_runtime_closure_verified": false,
     "redistribution_approved": false,
     "release_ready": false
+  },
+  "a12_fixed_candidate": {
+    "source_commit": "2555687eafc931600f30265f7bd290331cd49a0f",
+    "status": "exit-report-written",
+    "runs": {
+      "base": {
+        "run": 44217813413,
+        "job": 134512925919,
+        "conclusion": "success",
+        "head_sha": "2555687eafc931600f30265f7bd290331cd49a0f"
+      },
+      "cpu": {
+        "run": 44217816852,
+        "job": 134511947535,
+        "conclusion": "success",
+        "head_sha": "2555687eafc931600f30265f7bd290331cd49a0f"
+      },
+      "event": "workflow_dispatch",
+      "explicitly_pinned": true
+    },
+    "artifacts_recorded_not_downloaded": {
+      "base_validation": "sha256:71847b7e22ae8bcf53178e526c23f50c8e900243be6345abdef2cf5b3adeb76e (2026-11-25T01:59:54Z)",
+      "base_native_build": "sha256:09dde4c03abcf42f6f7b8f47ec13b430b17ed4f214052a6a93a2b8acc564d77a (2026-11-25T01:44:30Z)",
+      "base_ocr_inputs": "sha256:0e5485441409959ebdea21402a8afe3835565abe93b63ffbcb65499d9ebd027d (2026-11-19T01:44:28Z)",
+      "cpu_validation": "sha256:01dae75faba325e83a09c79a2e3410ca4d1b1e20b2a66ca97bad633d2f645472 (2026-11-25T01:58:40Z)"
+    },
+    "fingerprints": {
+      "base_candidate_sha256": "c00435f3806ac50fe1cff880af2e03aa3176b46533d859ba34535d8542ef8b3f",
+      "cpu_candidate_sha256": "0c467903aac804e07dd991910423e824c70df59d6f4406f49c8e695acdd268a9",
+      "base_source_review_sha256": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59",
+      "cpu_source_review_sha256": "6cacb0adb2c2c1f3361c90e695d7d17304866380a627e76ebd431bb72f4be2f7",
+      "base_provenance_report_sha256": "71ed5b9cbdc6c82d1e9c88d48b56f88819ac76a1cedada0a5719875aed0dff3f",
+      "cpu_provenance_report_sha256": "0ae52de508b3cdd60fca2a396990e26107d2ac1118d407fa7aaeb3d94b924362"
+    },
+    "inventory": {
+      "base": {
+        "files": 1767,
+        "native_files": 153,
+        "review_files": 275,
+        "unresolved": 264,
+        "a6_unresolved": 114
+      },
+      "cpu": {
+        "files": 706,
+        "native_files": 61,
+        "review_files": 300,
+        "unresolved": 266,
+        "a6_unresolved": 265
+      }
+    },
+    "flags": {
+      "base": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "cpu": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      }
+    },
+    "base_exit": {
+      "category_counts": {
+        "a13_decision_open": 5,
+        "closed": 3,
+        "evidence_open": 12
+      },
+      "a13_items": 7,
+      "report": "development-records/runs/a12-fixed-review-2026-11-18/base-exit-report.json"
+    },
+    "selector_changes": [
+      "base-own-mit-binding: removed stale review_reasons package-original-notice-pending:markitdown-desktop (status open unchanged)"
+    ],
+    "hash_sync_only": [
+      "embedded base-windows.json (10 entries)",
+      "microsoft base-windows.json (base-microsoft)",
+      "qt thirdparty catalog.json (base-qt)"
+    ],
+    "evidence": "development-records/runs/a12-fixed-review-2026-11-18/README.md",
+    "pr": 23
   }
 }
