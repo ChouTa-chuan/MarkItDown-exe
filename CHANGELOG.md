@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-18：Claude planner 完成大階段 A 第二次複查：A8–A12 通過，但現行旗標規則使含版本未知元件的條目永遠無法關閉，B1 無法進入。使用者同意插入 A12b（證據接線，並把 base-cpython 改為需使用者決定）與 A12c（揭露式關閉規則），A13 拆為 A13-0～A13-7（A13-0 已同意）；A12b、A12c 交給 Codex。
+
 ### 2026-11-18｜A12 重新固定候選與基本包出口報告
 
 - 變更：以 workflow_dispatch 在 main 指定 2555687（含 A7–A11）建置固定候選（base run 44217813413、CPU run 44217816852），重組 source-review 並離線 replay；登記表與 embedded／qt／microsoft 目錄改綁新候選，必要 hash 同步只動 sha256 引用；產出基本包出口報告與 A13 待決清單；progress.json 的 25 個 `previous_` 鍵原樣搬到 docs/history/progress-previous.json。
