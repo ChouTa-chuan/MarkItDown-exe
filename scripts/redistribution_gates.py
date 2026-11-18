@@ -7,6 +7,7 @@ import json
 from pathlib import Path, PurePosixPath
 import re
 
+import candidate_review
 import embedded_components
 import microsoft_runtime
 import qt_components
@@ -324,8 +325,11 @@ def assess(report, registry, *, root=ROOT):
     reasons = collections.Counter()
     for row in files:
         values = row['review_reasons']
-        require(isinstance(values, list) and values and all(isinstance(x, str) and x for x in values)
+        require(isinstance(values, list) and all(isinstance(x, str) and x for x in values)
                 and len(values) == len(set(values)), 'Invalid review_reasons')
+        # 無 reason 的列只允許是隨包揭露檔（A13b），供 accepted_gaps 以相同 hash 核對；其他無 reason 列仍拒絕。
+        require(values or row['path'] in candidate_review.DISCLOSURE_PATHS[profile],
+                'Review row without reason is not a packaged disclosure: '+row['path'])
         reasons.update(values)
     require(dict(reasons) == report.get('review_reasons'), 'Review reason summary differs from input rows')
     entries = config['entries']

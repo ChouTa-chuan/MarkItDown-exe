@@ -256,6 +256,16 @@ class GateTests(unittest.TestCase):
             with self.subTest(path=path), self.assertRaisesRegex(ValueError, 'catalog must remain bound'):
                 gates.assess(self.reports['base'], registry)
 
+    def test_reasonless_review_rows_are_allowed_only_for_packaged_disclosures(self):
+        files = self.reports['base']['classification_input']['report']['candidate_inventory']['files']
+        template = copy.deepcopy(files[0])
+        disclosure = dict(template, path='_internal/desktop_app/data/licenses/known-gaps.json', review_reasons=[])
+        files.append(disclosure)
+        self.assess()
+        files[-1] = dict(template, path='_internal/desktop_app/data/licenses/other.json', review_reasons=[])
+        with self.assertRaisesRegex(ValueError, 'not a packaged disclosure'):
+            self.assess()
+
     def test_actual_gap_lists_remain_unaccepted_and_include_qt_and_libffi(self):
         base = self.assess()
         cpu = self.assess('cpu')
