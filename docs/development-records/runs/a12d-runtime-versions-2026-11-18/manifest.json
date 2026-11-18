@@ -1,0 +1,59 @@
+{
+  "date_taipei": "2026-11-18",
+  "tested_source": "fb4f510844cbfb765bf1b5ffe19682da53c7638a",
+  "candidate_source": "2555687eafc931600f30265f7bd290331cd49a0f",
+  "accepted": true,
+  "accepted_scope": "A12d embedded component runtime version observation for the five APIs listed; not redistribution clearance",
+  "windows_executed": true,
+  "result": "five components runtime-observed on Windows; raqm, fribidi, libexslt, libyuv and the other not_probed items remain unknown",
+  "observation_ci": {
+    "run": 44270551031,
+    "job": 134685784045,
+    "head": "fb4f510844cbfb765bf1b5ffe19682da53c7638a",
+    "conclusion": "success",
+    "workflow": "microsoft-runtime-evidence.yml (workflow_dispatch)",
+    "artifact": {
+      "name": "microsoft-runtime-evidence-reports",
+      "digest": "sha256:a9003fe466f6665ad66d42571d2733b41c3b863fad5396beb7cfaced1af79e62",
+      "size_bytes": 4224,
+      "expires_at": "2026-11-25T08:52:51Z"
+    }
+  },
+  "basis_review": {
+    "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json",
+    "sha256": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59"
+  },
+  "evidence_sha256_in_registry": {
+    "path": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
+    "sha256": "ebcc3abb203f4c512c8202c57291c2896d801db6553946b6c139f7a7c084803e"
+  },
+  "catalog_sha256": "c2fef24fc13d44159fec9e1dee2bd602c0aaeaa3d2b68882a440d3f3d56c70a5",
+  "registry_entries_with_new_evidence": [
+    "base-wheels-lxml",
+    "base-wheels-pillow",
+    "base-wheels-numpy"
+  ],
+  "redistribution_approved": false,
+  "runtime_sbom_complete": false,
+  "release_ready": false,
+  "keywords": [
+    "A12d",
+    "runtime-observed",
+    "Windows API",
+    "lxml",
+    "libxml2",
+    "libxslt",
+    "libexslt",
+    "pillow",
+    "libaom",
+    "dav1d",
+    "numpy",
+    "LAPACK",
+    "receipt"
+  ],
+  "files": {
+    "README.md": "e9770279ecf37ef98f6eb08c38ea8ddd6631cabb9aec966ba7034ac7de2a358b",
+    "annotations.json": "6a39f5e7c5b0b69179caa08d077276679c1a887d38cd32535017eaadb6eccdb7",
+    "embedded-runtime-decoded.json": "ebcc3abb203f4c512c8202c57291c2896d801db6553946b6c139f7a7c084803e"
+  }
+}

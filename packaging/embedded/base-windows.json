@@ -79,9 +79,9 @@
           "id": "numpy-lapack",
           "name": "LAPACK（numpy 宣告為 OpenBLAS 內建）",
           "kind": "bundled",
-          "version": null,
-          "version_basis": "unknown",
-          "version_source": null,
+          "version": "3.12.0",
+          "version_basis": "runtime-observed",
+          "version_source": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
           "upstream": "https://github.com/OpenMathLib/OpenBLAS",
           "license": "見 numpy LICENSE.txt 之 LAPACK 段落",
           "notices": [
@@ -91,7 +91,7 @@
             }
           ],
           "native_files": [],
-          "note": "numpy 只宣告 LAPACK 內建於 OpenBLAS，未列獨立版本。"
+          "note": "A12d：Windows 上 scipy_LAPACKE_ilaver64_ 回報 3.12.0（已核對 USE64BITINT），承載 DLL 為 numpy.libs/libscipy_openblas64_-*.dll，與 openblas 元件同一份 bytes。"
         },
         {
           "id": "gcc-runtime-libgfortran",
@@ -635,7 +635,7 @@
           "license": "未知（LICENSE 無 raqm 段落，原文缺）",
           "notices": [],
           "native_files": [],
-          "note": "_imagingft.cp312-win_amd64.pyd 含字串 \"raqm_create() failed.\"、\"raqm_set_text() failed\"，顯示 Pillow 文字排版路徑呼叫 raqm；LICENSE 無段落，版本與原文缺。靜態或動態併入未驗證。"
+          "note": "_imagingft.cp312-win_amd64.pyd 含字串 \"raqm_create() failed.\"、\"raqm_set_text() failed\"，顯示 Pillow 文字排版路徑呼叫 raqm；LICENSE 無段落，版本與原文缺。靜態或動態併入未驗證。 A12d：Windows 上 PIL.features.version_feature(raqm) 回傳 None，沒有版本值可綁定，維持 unknown。"
         },
         {
           "id": "fribidi",
@@ -648,33 +648,33 @@
           "license": "未知（LICENSE 無 fribidi 段落，原文缺）",
           "notices": [],
           "native_files": [],
-          "note": "_imagingft.cp312-win_amd64.pyd 含字串 \"fribidi_version\"、\"fribidi\"、\"HAVE_FRIBIDI\"、\"fribidi-0\"。疑似執行期動態載入（未驗證）；若為動態載入，則不屬於入包的靜態內含元件，需以 PE 匯入表或執行期觀測確認。"
+          "note": "_imagingft.cp312-win_amd64.pyd 含字串 \"fribidi_version\"、\"fribidi\"、\"HAVE_FRIBIDI\"、\"fribidi-0\"。疑似執行期動態載入（未驗證）；若為動態載入，則不屬於入包的靜態內含元件，需以 PE 匯入表或執行期觀測確認。 A12d：FriBidi 為選配動態載入，DLL 不在 wheel 內，無法以 _imagingft 的 bytes 綁定，設計上保留 unknown。"
         },
         {
           "id": "libaom",
           "name": "libaom（AV1 編碼）",
           "kind": "bundled",
-          "version": null,
-          "version_basis": "unknown",
-          "version_source": null,
+          "version": "3.14.1",
+          "version_basis": "runtime-observed",
+          "version_source": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
           "upstream": "https://aomedia.googlesource.com/aom/",
           "license": "未知（LICENSE 無 libaom 段落，原文缺）",
           "notices": [],
           "native_files": [],
-          "note": "_avif.cp312-win_amd64.pyd 含字串 \"aom_codec_set_option\"、\"a libaom version strictly greater than 2.0.0 is required\"、\"Detected libaom v3.6.0 bug...\"；版本線索僅來自錯誤訊息，未宣告實際版本。"
+          "note": "A12d：Windows 上 PIL._avif.codec_versions() 回報 aom 3.14.1，承載原生檔 _avif.cp312-win_amd64.pyd 與 A12 候選為同一份 bytes。"
         },
         {
           "id": "dav1d",
           "name": "dav1d（AV1 解碼）",
           "kind": "bundled",
-          "version": null,
-          "version_basis": "unknown",
-          "version_source": null,
+          "version": "1.5.3-0-gb546257",
+          "version_basis": "runtime-observed",
+          "version_source": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
           "upstream": "https://code.videolan.org/videolan/dav1d",
           "license": "未知（LICENSE 無 dav1d 段落，原文缺）",
           "notices": [],
           "native_files": [],
-          "note": "_avif.cp312-win_amd64.pyd 只含單一字串 \"dav1d\"，證據薄弱；是否真的併入未驗證。"
+          "note": "A12d：Windows 上 PIL._avif.codec_versions() 回報 dav1d 1.5.3-0-gb546257，承載原生檔同上。"
         },
         {
           "id": "libyuv",
@@ -687,7 +687,7 @@
           "license": "未知（LICENSE 無 libyuv 段落，原文缺）",
           "notices": [],
           "native_files": [],
-          "note": "_avif.cp312-win_amd64.pyd 含字串 \"avifImageScaleWithLimit requested invalid width scale for libyuv\"；LICENSE 無段落，版本與原文缺。"
+          "note": "_avif.cp312-win_amd64.pyd 含字串 \"avifImageScaleWithLimit requested invalid width scale for libyuv\"；LICENSE 無段落，版本與原文缺。 A12d：未取得觀測 API，維持 unknown。"
         }
       ]
     },
@@ -728,9 +728,9 @@
           "id": "libxml2",
           "name": "libxml2",
           "kind": "bundled",
-          "version": null,
-          "version_basis": "unknown",
-          "version_source": null,
+          "version": "2.11.9",
+          "version_basis": "runtime-observed",
+          "version_source": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
           "upstream": "https://gitlab.gnome.org/GNOME/libxml2",
           "license": "MIT（見 LICENSES.txt）",
           "notices": [
@@ -740,11 +740,29 @@
             }
           ],
           "native_files": [],
-          "note": "LICENSES.txt 未列版本。etree.cp312-win_amd64.pyd 含字串 \"libxml2 2.15+\"（lxml 文件註解），僅為線索，仍 unknown。"
+          "note": "A12d：Windows 上 lxml.etree.LIBXML_VERSION 回報 2.11.9，承載原生檔 etree.cp312-win_amd64.pyd 與 A12 候選為同一份 bytes。觀測見證據目錄 embedded-runtime-decoded.json；Linux 環境所見版本不同，不作依據。"
         },
         {
           "id": "libxslt",
-          "name": "libxslt 與 libexslt",
+          "name": "libxslt",
+          "kind": "bundled",
+          "version": "1.1.45",
+          "version_basis": "runtime-observed",
+          "version_source": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
+          "upstream": "https://gitlab.gnome.org/GNOME/libxslt",
+          "license": "MIT（見 LICENSES.txt）",
+          "notices": [
+            {
+              "path": "src/desktop_app/data/licenses/windows/lxml/wheel/lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+              "sha256": "df682c668de65321677b5e4861dca4128a8bad8067f230956e9da3f985b3d398"
+            }
+          ],
+          "native_files": [],
+          "note": "A12d：Windows 上 lxml.etree.LIBXSLT_VERSION 回報 1.1.45，承載原生檔同上。libexslt 另列，版本未由任何 API 取得，仍 unknown。"
+        },
+        {
+          "id": "libexslt",
+          "name": "libexslt",
           "kind": "bundled",
           "version": null,
           "version_basis": "unknown",
@@ -758,7 +776,7 @@
             }
           ],
           "native_files": [],
-          "note": "LICENSES.txt 未列版本。"
+          "note": "由原「libxslt 與 libexslt」拆出。LIBXSLT_VERSION 只回報 libxslt 本體版本，libexslt 的版本未由任何 API 取得，保持 unknown。"
         },
         {
           "id": "zlib",

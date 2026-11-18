@@ -5,6 +5,7 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
+import shutil
 import sys
 import tempfile
 import unittest
@@ -114,6 +115,66 @@ class RuntimeObservationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'missing evidence reference'):
             embedded.check_profile(catalog,catalog_path=runtime.CATALOG,entries=registry['profiles']['base']['entries'],
                                    report=report,root=ROOT)
+
+    def test_real_windows_receipt_binds_the_observed_components_in_the_catalog(self):
+        """真實 A12d 證據：收據解回與證據檔相同，目錄中 runtime-observed 的元件恰為觀測到的項目（含 A9b 的 OpenSSL）。"""
+        evidence = ROOT/'docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json'
+        annotations = json.loads((evidence.parent/'annotations.json').read_text(encoding='utf-8'))
+        receipts = [a for a in annotations if a.get('title') == 'embedded runtime observation']
+        self.assertEqual(len(receipts), 1)
+        self.assertEqual(runtime.decode(json.loads(receipts[0]['message'])), json.loads(evidence.read_text(encoding='utf-8')))
+        catalog = json.loads((ROOT/runtime.CATALOG).read_text(encoding='utf-8'))
+        registry = json.loads((ROOT/'packaging/redistribution/obligations.json').read_text(encoding='utf-8'))
+        report = json.loads((ROOT/catalog['source_review']['path']).read_text(encoding='utf-8'))
+        summary = embedded.check_profile(catalog, catalog_path=runtime.CATALOG,
+                                         entries=registry['profiles']['base']['entries'], report=report, root=ROOT)
+        observed = {w['distribution']+'/'+c['id'] for w in catalog['wheels'] for c in w['components']
+                    if c['version_basis'] == 'runtime-observed'}
+        self.assertEqual(observed, {'lxml/libxml2', 'lxml/libxslt', 'pillow/libaom', 'pillow/dav1d',
+                                    'numpy/numpy-lapack', 'cryptography/openssl'})
+        # 觀測沒有涵蓋的項目保持 unknown：libexslt、raqm、FriBidi 與 libyuv。
+        for identity in ('lxml/libexslt', 'pillow/raqm', 'pillow/fribidi', 'pillow/libyuv'):
+            self.assertIn(identity, summary['unknown_components'])
+
+    def test_catalog_level_rejects_changed_evidence_bytes_in_a_scratch_copy(self):
+        """目錄層反例：在暫存副本改證據檔的 lxml libxml2 原生檔 sha256，repo 內檔案不動。
+
+        第一種只改證據檔：登記條目仍釘住原檔 hash，應先被 hash 不符拒絕。
+        第二種連登記條目的 hash 一起改：證據與 A12 候選 bytes 不符，應由 check_component 拒絕。
+        """
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        scratch = Path(temporary.name)
+        files = ('packaging/embedded/base-windows.json', 'packaging/profiles/base-windows-runtime.txt',
+                 'packaging/redistribution/obligations.json',
+                 'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json',
+                 'docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json')
+        for name in files:
+            (scratch/name).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT/name, scratch/name)
+        shutil.copytree(ROOT/'src/desktop_app/data/licenses/windows', scratch/'src/desktop_app/data/licenses/windows')
+        catalog = json.loads((scratch/runtime.CATALOG).read_text(encoding='utf-8'))
+        registry = json.loads((scratch/'packaging/redistribution/obligations.json').read_text(encoding='utf-8'))
+        entries = registry['profiles']['base']['entries']
+        report = json.loads((scratch/catalog['source_review']['path']).read_text(encoding='utf-8'))
+        evidence_path = 'docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json'
+        proof = json.loads((scratch/evidence_path).read_text(encoding='utf-8'))
+        next(r for r in proof['records'] if r['component'] == 'lxml/libxml2')['binary']['sha256'] = '0'*64
+        (scratch/evidence_path).write_text(json.dumps(proof, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+
+        def check(pins):
+            return embedded.check_profile(catalog, catalog_path=runtime.CATALOG, entries=pins, report=report, root=scratch)
+
+        with self.assertRaisesRegex(ValueError, 'hash mismatch'):
+            check(entries)
+        # 同一份證據檔也被 numpy、pillow 條目釘住，三處 hash 都要同步才能走到候選 bytes 的判定。
+        pinned = copy.deepcopy(entries)
+        for entry in pinned:
+            for ref in entry['evidence']:
+                if ref['path'] == evidence_path:
+                    ref['sha256'] = runtime.sha(scratch/evidence_path)
+        with self.assertRaisesRegex(ValueError, 'candidate bytes'):
+            check(pinned)
 
 
 if __name__ == '__main__':
