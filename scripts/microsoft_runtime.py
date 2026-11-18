@@ -22,7 +22,7 @@ from native_identity import describe
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_PATH = 'packaging/microsoft/base-windows.json'
-BASIS_PATH = 'docs/development-records/runs/a6-fixed-review-2026-11-17/base-source-review.json'
+BASIS_PATH = 'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json'
 MAX_BYTES = 256 * 1024
 MAX_ENCODED = 8 * 2900
 FLAGS = ('runtime_sbom_complete', 'redistribution_approved', 'release_ready')

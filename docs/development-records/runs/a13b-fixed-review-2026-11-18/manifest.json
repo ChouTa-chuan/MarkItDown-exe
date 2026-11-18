@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-18",
+  "tested_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "accepted": false,
+  "accepted_scope": "來源 metadata 重組、離線 replay、揭露檔列核對、目錄與登記表改綁；base gates 目前 exit 1（Microsoft 目錄基準待 2b）；不是再散布核准",
+  "local_regression_accepted": false,
+  "local_regression_note": "discover 914 run／3 failure／6 error／1 expected failure；錯誤與失敗為 Microsoft 目錄基準（待 2b）與歷史索引（待協調者重建），test_known_gaps 因 setUpClass 8 項未執行",
+  "base_run_id": 44295039865,
+  "cpu_run_id": 44295044417,
+  "microsoft_probe_run_id": 44295039865,
+  "base_run_conclusion": "success",
+  "cpu_run_conclusion": "success",
+  "windows_executed": true,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "engineering_review_complete": false,
+  "base_gates_exit": 1,
+  "cpu_gates_exit": 0,
+  "keywords": [
+    "A13b",
+    "2a",
+    "固定候選",
+    "b17d51b",
+    "官方Redist",
+    "vcruntime140",
+    "揭露檔",
+    "known-gaps",
+    "登記表改綁",
+    "BASIS_PATH",
+    "Microsoft探測"
+  ],
+  "files": {
+    "README.md": "e21741a6b7095106917b1b820a80bedbdc96fff0b967703e8523fc6b06d30a06",
+    "base-source-review.json": "f65cdbc9a01d95391032fa991d6d4f0e5dfec10b317b983435ce79bfbeaed295",
+    "cpu-source-review.json": "8bfe8b065c5d08618bf45f162771dad208038130956b853153f7817f503d8cd6",
+    "windows-probe.json": "84fbae28cf51c8f69db4627b0dfea6069c8b4001f31afd7f9a9aa70805ee33d6",
+    "cpu-gates.json": "98a6628d2e7236e6edd2be62e77dd9c4b3dbab432f7172d6f3133de772915981"
+  }
+}

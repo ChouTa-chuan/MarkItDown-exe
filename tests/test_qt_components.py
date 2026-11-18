@@ -99,7 +99,7 @@ class QtComponentTests(unittest.TestCase):
         catalog = qt.load_catalog(self.root)
         registry = json.loads((ROOT/'packaging/redistribution/obligations.json').read_text())
         entry = next(e for e in registry['profiles']['base']['entries'] if e['id'] == 'base-qt')
-        report = json.loads((ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json').read_text())
+        report = json.loads((ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json').read_text())
         result = qt.check_profile(catalog, entry=entry, report=report, root=self.root)
         self.assertFalse(result['thirdparty_runtime_closure_verified'])
         entry['requires_user_decision'] = False

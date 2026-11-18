@@ -275,7 +275,7 @@ class MicrosoftProbeTests(unittest.TestCase):
         import redistribution_gates as gates
         registry = gates.read_json(gates.REGISTRY)
         # 登記表現已綁 A12 候選；A6 基準仍是 A10 探測的歷史輸入，不作為目前接線的來源。
-        report = gates.read_json(ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json')
+        report = gates.read_json(ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json')
         result = gates.assess(report,registry)
         self.assertEqual(result['microsoft_catalogs'][0]['files'],14)
         self.assertTrue(all(result[f] is False for f in ms.FLAGS))

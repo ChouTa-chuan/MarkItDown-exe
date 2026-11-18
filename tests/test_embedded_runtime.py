@@ -147,6 +147,8 @@ class RuntimeObservationTests(unittest.TestCase):
         scratch = Path(temporary.name)
         files = ('packaging/embedded/base-windows.json', 'packaging/profiles/base-windows-runtime.txt',
                  'packaging/redistribution/obligations.json',
+                 'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json',
+                 # A12d 的運行期觀測仍綁 A12 基準審閱（basis_review），暫存副本需保留該檔。
                  'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json',
                  'docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json')
         for name in files:

@@ -264,7 +264,9 @@ class PreservedReplayTests(unittest.TestCase):
         runs = ROOT/'docs/development-records/runs'
         for name in ('a6-fixed-review-2026-11-17/base-source-review.json',
                      'a12-fixed-review-2026-11-18/base-source-review.json',
-                     'a12-fixed-review-2026-11-18/cpu-source-review.json'):
+                     'a12-fixed-review-2026-11-18/cpu-source-review.json',
+                     'a13b-fixed-review-2026-11-18/base-source-review.json',
+                     'a13b-fixed-review-2026-11-18/cpu-source-review.json'):
             with self.subTest(review=name):
                 self.assertTrue(subject.replay(subject.read_json(runs/name), ROOT))
 

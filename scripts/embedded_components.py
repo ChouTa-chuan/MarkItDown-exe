@@ -133,7 +133,7 @@ def check_profile(catalog, *, catalog_path, entries, report, root=ROOT, gap_vali
     source = report.get('selection', {}).get('source_commit')
     require(catalog['source_commit'] == source, 'Catalog source differs from the source-review')
     check_pin(catalog['lock'], LOCK_PATH, root, 'lock')
-    check_pin(catalog['source_review'], 'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json',
+    check_pin(catalog['source_review'], 'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json',
               root, 'source_review')
     check_pin(catalog['inventory'], INVENTORY_KEY, root, 'inventory')
     require(isinstance(catalog['scope'], str) and catalog['scope'].strip(), 'Missing catalog scope')

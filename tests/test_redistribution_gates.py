@@ -28,7 +28,7 @@ def evidence_commit(path):
     """回傳新增該證據檔的提交（歷史上最早的一筆）。
 
     快照型證據（例如 A12b 的 origin-known-review.json）的 supporting_evidence pin，是建立快照當時
-    各檔案的內容，不一定等於登記表的 source_commit（2555687）：Microsoft 目錄在 A12 之後才改寫。
+    各檔案的內容，不一定等於登記表的 source_commit（b17d51b）：Microsoft 目錄在候選之後才改寫。
     因此對照建立該證據的提交，而不是 source_commit。
     """
     relative = Path(path).resolve().relative_to(ROOT).as_posix()
@@ -43,7 +43,7 @@ def evidence_commit(path):
 class GateTests(unittest.TestCase):
     def setUp(self):
         self.registry = gates.read_json(gates.REGISTRY)
-        path = ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18'
+        path = ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18'
         self.reports = {p:gates.read_json(path/(p+'-source-review.json')) for p in ('base', 'cpu')}
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
@@ -114,7 +114,7 @@ class GateTests(unittest.TestCase):
             self.assertEqual(profile, 'base')
             raw['native_files'][0]['distributions'] = [dict(name='sample', version='1')]
             lock = self.write('packaging/profiles/base-windows-runtime.txt', 'sample==1 --hash=sha256:'+'f'*64+'\n')
-            source = self.write('docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json',
+            source = self.write('docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json',
                                 json.dumps(self.reports[profile]))
             inventory = self.write('src/desktop_app/data/licenses/windows/inventory.json', '{"files":{}}')
             def component(cid, kind, unknown=False):
@@ -258,11 +258,15 @@ class GateTests(unittest.TestCase):
 
     def test_reasonless_review_rows_are_allowed_only_for_packaged_disclosures(self):
         files = self.reports['base']['classification_input']['report']['candidate_inventory']['files']
-        template = copy.deepcopy(files[0])
-        disclosure = dict(template, path='_internal/desktop_app/data/licenses/known-gaps.json', review_reasons=[])
-        files.append(disclosure)
-        self.assess()
-        files[-1] = dict(template, path='_internal/desktop_app/data/licenses/other.json', review_reasons=[])
+        disclosure = [r for r in files if r['path'] == '_internal/desktop_app/data/licenses/known-gaps.json']
+        self.assertEqual(len(disclosure), 1)
+        self.assertEqual(disclosure[0]['review_reasons'], [])
+        # 無 reason 的揭露列在列檢查通過；之後的失敗（若有）不得來自該列。
+        try:
+            self.assess()
+        except ValueError as error:
+            self.assertNotIn('not a packaged disclosure', str(error))
+        files.append(dict(disclosure[0], path='_internal/desktop_app/data/licenses/other.json'))
         with self.assertRaisesRegex(ValueError, 'not a packaged disclosure'):
             self.assess()
 
@@ -291,14 +295,16 @@ class GateTests(unittest.TestCase):
         """逐列來源對照是工程證據，不重寫分類器的 origin-known 或替代授權決定。"""
         path = ROOT/'docs/development-records/runs/a12b-evidence-wiring-2026-11-18/origin-known-review.json'
         proof = gates.read_json(path)
-        report = self.reports['base']
+        # 逐列快照釘在建立它的 A12 候選（2555687）；比對對象也必須是同一候選的審閱，
+        # 不能拿目前候選（b17d51b）的位元組與它比對。
+        report = gates.read_json(ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json')
         pin_commit = evidence_commit(path)
-        self.assertEqual(proof['source_commit'], self.reports['base']['selection']['source_commit'])
+        self.assertEqual(proof['source_commit'], '2555687eafc931600f30265f7bd290331cd49a0f')
+        self.assertEqual(proof['source_commit'], report['selection']['source_commit'])
         expected = {r['path']:r for r in report['classification']['files'] if r['status'] == 'origin-known'}
         actual = {r['path']:r for r in proof['rows']}
         self.assertEqual(set(actual), set(expected))
         self.assertEqual(len(proof['rows']), len(expected))
-        self.assertEqual(proof['source_commit'], report['selection']['source_commit'])
         self.assertFalse(proof['redistribution_approved'])
         gates.reference(proof['source_review'], ROOT)
         native = {r['file']:r for r in report['classification_input']['report']['native_files']}
@@ -527,7 +533,7 @@ class GateTests(unittest.TestCase):
             gates.read_json(path)
 
     def test_cli_reads_real_evidence_and_refuses_overwrite_or_partial_output(self):
-        report = ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json'
+        report = ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json'
         output = self.temp/'gates.json'
         command = [sys.executable, str(ROOT/'scripts/redistribution_gates.py'), '--source-review', str(report), '--output', str(output)]
         result = subprocess.run(command, capture_output=True, text=True)

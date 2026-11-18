@@ -30,7 +30,7 @@ import redistribution_gates as gates
 
 ROOT = gates.ROOT
 PROFILE = 'base'
-DEFAULT_REPORT = ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json'
+DEFAULT_REPORT = ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json'
 JSON_PATH = ROOT/'src/desktop_app/data/licenses/known-gaps.json'
 MARKDOWN_PATH = ROOT/'src/desktop_app/data/licenses/known-gaps.md'
 EMBEDDED_CATALOG = ROOT/embedded_components.CATALOG_PREFIX/'base-windows.json'
