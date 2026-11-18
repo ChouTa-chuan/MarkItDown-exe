@@ -32,9 +32,11 @@ def load_profile(root=None):
         raise ValueError('缺少固定相依清單。')
     if not isinstance(profile.get('assets'), dict) or not profile['assets']:
         raise ValueError('缺少資產雜湊清單。')
+    # A13b：已知缺口揭露（JSON 與人讀 MD）與測試版限制說明為必要資產，缺檔即拒絕載入。
     required = {'user-guide.md','third-party.md','base-runtime-lock.txt',
                 'licenses/python-runtime/LICENSE.txt','licenses/installed/manifest.json',
-                'licenses/qt-lgpl-notice.md','licenses/markitdown-desktop/LICENSE'}
+                'licenses/qt-lgpl-notice.md','licenses/markitdown-desktop/LICENSE',
+                'licenses/known-gaps.json','licenses/known-gaps.md','licenses/test-build-limitations.md'}
     if integrated:
         required |= {'native/manifest.json', 'ocr-four-languages.json'}
     if not required <= profile['assets'].keys():

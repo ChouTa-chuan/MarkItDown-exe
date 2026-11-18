@@ -36,7 +36,7 @@ concurrency:
 
 env:
   # 新增或移除測試時，依真正 discovery 結果同步這個數字與交接文件；不為了變綠而放寬。
-  EXPECTED_TESTS: '906'
+  EXPECTED_TESTS: '929'
   PYTHONUTF8: '1'
   PYTHONFAULTHANDLER: '1'
   QT_QPA_PLATFORM: offscreen
@@ -55,7 +55,10 @@ jobs:
         # tee 保留早期失敗日誌，pipefail 保留原命令的非零結果。
         shell: bash
     steps:
+      # 完整歷史（fetch-depth: 0）：歷史快照證據的 pin 要對建立該證據的提交驗證（git log 找出），淺層 checkout 拿不到。
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'

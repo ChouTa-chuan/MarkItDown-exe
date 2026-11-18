@@ -13,10 +13,37 @@ sys.path.insert(0, str(ROOT/'scripts'))
 import redistribution_gates as gates
 
 
+def committed_sha256(commit, path):
+    """取得歷史提交中該路徑的 bytes 並回傳 sha256；git 失敗或提交不存在即拋出例外（不 skip）。
+
+    歷史證據的 pin 是「當時那個提交裡的檔案內容」，所以對提交驗證，而不是對工作樹；
+    工作樹之後改動（例如 base.spec 的打包變更）不應使歷史紀錄失效。
+    """
+    gates.safe_name(path)
+    done = subprocess.run(['git', 'show', f'{commit}:{path}'], cwd=ROOT, capture_output=True, check=True)
+    return hashlib.sha256(done.stdout).hexdigest()
+
+
+def evidence_commit(path):
+    """回傳新增該證據檔的提交（歷史上最早的一筆）。
+
+    快照型證據（例如 A12b 的 origin-known-review.json）的 supporting_evidence pin，是建立快照當時
+    各檔案的內容，不一定等於登記表的 source_commit（b17d51b）：Microsoft 目錄在候選之後才改寫。
+    因此對照建立該證據的提交，而不是 source_commit。
+    """
+    relative = Path(path).resolve().relative_to(ROOT).as_posix()
+    done = subprocess.run(['git', 'log', '--diff-filter=A', '--format=%H', '--', relative],
+                          cwd=ROOT, capture_output=True, text=True, check=True)
+    commits = done.stdout.split()
+    if not commits:
+        raise AssertionError('No commit adds ' + relative)
+    return commits[-1]
+
+
 class GateTests(unittest.TestCase):
     def setUp(self):
         self.registry = gates.read_json(gates.REGISTRY)
-        path = ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18'
+        path = ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18'
         self.reports = {p:gates.read_json(path/(p+'-source-review.json')) for p in ('base', 'cpu')}
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
@@ -87,7 +114,7 @@ class GateTests(unittest.TestCase):
             self.assertEqual(profile, 'base')
             raw['native_files'][0]['distributions'] = [dict(name='sample', version='1')]
             lock = self.write('packaging/profiles/base-windows-runtime.txt', 'sample==1 --hash=sha256:'+'f'*64+'\n')
-            source = self.write('docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json',
+            source = self.write('docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json',
                                 json.dumps(self.reports[profile]))
             inventory = self.write('src/desktop_app/data/licenses/windows/inventory.json', '{"files":{}}')
             def component(cid, kind, unknown=False):
@@ -229,18 +256,37 @@ class GateTests(unittest.TestCase):
             with self.subTest(path=path), self.assertRaisesRegex(ValueError, 'catalog must remain bound'):
                 gates.assess(self.reports['base'], registry)
 
-    def test_actual_gap_lists_remain_unaccepted_and_include_qt_and_libffi(self):
+    def test_reasonless_review_rows_are_allowed_only_for_packaged_disclosures(self):
+        files = self.reports['base']['classification_input']['report']['candidate_inventory']['files']
+        disclosure = [r for r in files if r['path'] == '_internal/desktop_app/data/licenses/known-gaps.json']
+        self.assertEqual(len(disclosure), 1)
+        self.assertEqual(disclosure[0]['review_reasons'], [])
+        # 無 reason 的揭露列在列檢查通過；之後的失敗（若有）不得來自該列。
+        try:
+            self.assess()
+        except ValueError as error:
+            self.assertNotIn('not a packaged disclosure', str(error))
+        files.append(dict(disclosure[0], path='_internal/desktop_app/data/licenses/other.json'))
+        with self.assertRaisesRegex(ValueError, 'not a packaged disclosure'):
+            self.assess()
+
+    def test_actual_gap_lists_are_accepted_exactly_and_include_qt_and_libffi(self):
         base = self.assess()
         cpu = self.assess('cpu')
+        # A13b 2b：base 的決定已寫入，揭露清單與推導的未知集合逐條相等；cpu 仍未決定，不得被接受。
+        self.assertTrue(base['runtime_sbom_disclosed'])
+        self.assertFalse(cpu['runtime_sbom_disclosed'])
+        self.assertEqual(cpu['accepted_gaps'], {})
         for result in (base, cpu):
-            self.assertFalse(result['runtime_sbom_disclosed'])
-            self.assertEqual(result['accepted_gaps'], {})
             self.assertEqual(result['registry_schema_version'], 3)
         self.assertEqual(base['unknown_components']['base-cpython'], ['cpython/libffi'])
         self.assertEqual(cpu['unknown_components']['cpu-cpython'], ['cpython/libffi'])
         self.assertIn('qt-native/PySide6/opengl32sw.dll', base['unknown_components']['base-qt'])
+        for entry, gaps in base['unknown_components'].items():
+            with self.subTest(entry=entry):
+                self.assertEqual(sorted(base['accepted_gaps'][entry]), sorted(gaps))
 
-    def test_actual_a12_profiles_have_exact_coverage_and_false_flags(self):
+    def test_actual_profiles_have_exact_coverage_and_expected_flags(self):
         for profile in ('base', 'cpu'):
             with self.subTest(profile=profile):
                 result = self.assess(profile)
@@ -248,18 +294,65 @@ class GateTests(unittest.TestCase):
                 self.assertEqual(set(result['coverage']['native_files']), {x['file'] for x in native})
                 self.assertEqual(set(result['coverage']['review_reasons']), set(self.reports[profile]['review_reasons']))
                 self.assertTrue(result['unclosed_obligations'])
-                self.assertTrue(all(result[f] is False for f in gates.FLAGS))
+                # 兩 profile 都不得宣告完整盤點或 release；只有 base 的揭露與再散布由使用者決定推導為 true。
+                self.assertIs(result['runtime_sbom_complete'], False)
+                self.assertIs(result['release_ready'], False)
+        base = self.assess('base')
+        self.assertIs(base['runtime_sbom_disclosed'], True)
+        self.assertIs(base['redistribution_approved'], True)
+        cpu = self.assess('cpu')
+        self.assertIs(cpu['runtime_sbom_disclosed'], False)
+        self.assertIs(cpu['redistribution_approved'], False)
+
+    def base_entry(self, identifier):
+        return next(e for e in self.registry['profiles']['base']['entries'] if e['id'] == identifier)
+
+    def test_user_decision_quote_must_be_the_archived_section_d_row(self):
+        self.base_entry('base-microsoft')['decision_source']['quote'] = (
+            '| 2026-11-18 | 使用者 A13 決定 | A13-1（base-microsoft）：改寫過的決定內容 |')
+        with self.assertRaisesRegex(ValueError, 'Decision quotation'):
+            self.assess()
+
+    def test_user_decision_archive_hash_mismatch_is_rejected(self):
+        self.base_entry('base-qt')['decision_source']['sha256'] = 'e'*64
+        with self.assertRaisesRegex(ValueError, 'Evidence hash mismatch'):
+            self.assess()
+
+    def test_accepted_gaps_must_equal_the_derived_unknown_set(self):
+        entry = self.base_entry('base-qt')
+        entry['accepted_gaps'] = entry['accepted_gaps'][1:]
+        with self.assertRaisesRegex(ValueError, 'accepted_gaps differs'):
+            self.assess()
+        self.setUp()
+        self.base_entry('base-qt')['accepted_gaps'].append('synthetic/unknown-extra')
+        with self.assertRaisesRegex(ValueError, 'accepted_gaps differs'):
+            self.assess()
+
+    def test_user_approved_unknown_entry_needs_the_packaged_disclosure_reference(self):
+        entry = self.base_entry('base-wheels-pandas')
+        entry['evidence'] = [ref for ref in entry['evidence'] if not ref['path'].endswith('known-gaps.json')]
+        with self.assertRaisesRegex(ValueError, 'Missing packaged gap disclosure'):
+            self.assess()
+
+    def test_clean_machine_acceptance_stays_open_after_the_decisions(self):
+        self.assertEqual(self.base_entry('base-clean-machine-manual')['status'], 'open')
+        self.assertIs(self.assess()['release_ready'], False)
+
 
     def test_a12b_origin_known_assessment_covers_the_preserved_rows(self):
         """逐列來源對照是工程證據，不重寫分類器的 origin-known 或替代授權決定。"""
         path = ROOT/'docs/development-records/runs/a12b-evidence-wiring-2026-11-18/origin-known-review.json'
         proof = gates.read_json(path)
-        report = self.reports['base']
+        # 逐列快照釘在建立它的 A12 候選（2555687）；比對對象也必須是同一候選的審閱，
+        # 不能拿目前候選（b17d51b）的位元組與它比對。
+        report = gates.read_json(ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json')
+        pin_commit = evidence_commit(path)
+        self.assertEqual(proof['source_commit'], '2555687eafc931600f30265f7bd290331cd49a0f')
+        self.assertEqual(proof['source_commit'], report['selection']['source_commit'])
         expected = {r['path']:r for r in report['classification']['files'] if r['status'] == 'origin-known'}
         actual = {r['path']:r for r in proof['rows']}
         self.assertEqual(set(actual), set(expected))
         self.assertEqual(len(proof['rows']), len(expected))
-        self.assertEqual(proof['source_commit'], report['selection']['source_commit'])
         self.assertFalse(proof['redistribution_approved'])
         gates.reference(proof['source_review'], ROOT)
         native = {r['file']:r for r in report['classification_input']['report']['native_files']}
@@ -269,7 +362,7 @@ class GateTests(unittest.TestCase):
             self.assertTrue(row['reason'].strip())
             self.assertIs(row['source_attribution_assessed'], True)
             for ref in row['supporting_evidence']:
-                gates.reference(ref, ROOT)
+                self.assertEqual(committed_sha256(pin_commit, ref['path']), ref['sha256'], ref['path'])
             if name.removeprefix('_internal/') in native:
                 source = native[name.removeprefix('_internal/')]
                 self.assertEqual(row['details']['source_sha256'], source['source_sha256'])
@@ -278,6 +371,20 @@ class GateTests(unittest.TestCase):
                 self.assertEqual(row['details']['component_evidence']['version_status'], 'build-declaration-only')
                 self.assertIsNone(row['details']['component_evidence']['observed_version'])
                 self.assertEqual(row['remaining_obligation'], 'base-cpython')
+
+    def test_a12b_supporting_pin_counterexamples_are_rejected(self):
+        """反例：記憶體中改掉 pin 的 hash，或指向不存在的提交，比對都必須失敗。"""
+        path = ROOT/'docs/development-records/runs/a12b-evidence-wiring-2026-11-18/origin-known-review.json'
+        proof = gates.read_json(path)
+        commit = evidence_commit(path)
+        ref = next(r for row in proof['rows'] for r in row['supporting_evidence'])
+        self.assertEqual(committed_sha256(commit, ref['path']), ref['sha256'])
+        with self.assertRaises(AssertionError):
+            self.assertEqual(committed_sha256(commit, ref['path']), '0'*64, ref['path'])
+        with self.assertRaises(subprocess.CalledProcessError):
+            committed_sha256('0'*40, ref['path'])
+        with self.assertRaises(ValueError):
+            committed_sha256(commit, '../outside')
 
     def test_newly_wired_evidence_with_changed_hash_is_rejected(self):
         """接好路徑不等於驗收通過；每一類新引用都必須真的檢查 bytes 的 hash。"""
@@ -474,7 +581,7 @@ class GateTests(unittest.TestCase):
             gates.read_json(path)
 
     def test_cli_reads_real_evidence_and_refuses_overwrite_or_partial_output(self):
-        report = ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json'
+        report = ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json'
         output = self.temp/'gates.json'
         command = [sys.executable, str(ROOT/'scripts/redistribution_gates.py'), '--source-review', str(report), '--output', str(output)]
         result = subprocess.run(command, capture_output=True, text=True)

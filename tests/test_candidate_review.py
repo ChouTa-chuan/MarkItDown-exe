@@ -16,6 +16,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 import candidate_review as subject
 from candidate_inventory import snapshot
 
+ROOT = Path(__file__).resolve().parents[1]
+DISCLOSURE = '_internal/desktop_app/data/licenses/known-gaps.json'
+
 
 def digest(raw):
     return hashlib.sha256(raw).hexdigest()
@@ -106,6 +109,43 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(result['packages'][0]['project_urls'], ['Repository, https://example.invalid/repo'])
         for flag in ('runtime_sbom_complete', 'redistribution_approved', 'release_ready'):
             self.assertIs(result[flag], False)
+
+    def add_packaged_disclosure(self, path, raw=b'{"schema_version": 1, "accepted_gaps": {}}\n'):
+        """合成候選加入一個隨包揭露檔（無 review_reason），同步更新 bundle 快照與 bundle-provenance。"""
+        target = self.bundle/path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(raw)
+        previous = {r['path']: r for r in self.report['candidate_inventory']['files']}
+        files = snapshot(self.bundle)
+        for row in files:
+            old = previous.get(row['path'])
+            row.update(role=old['role'] if old else 'data-or-generated',
+                       owners=old['owners'] if old else [],
+                       review_reasons=old['review_reasons'] if old else [])
+        summary = dict(self.report['candidate_inventory']['summary'], files=len(files),
+                       bytes=sum(r['bytes'] for r in files))
+        self.report['candidate_inventory'] = dict(files=files, summary=summary)
+        self.save(self.reports/'bundle-provenance.json', self.report)
+
+    def test_packaged_disclosure_rows_are_kept_without_reason_and_leave_counts_unchanged(self):
+        baseline = self.review()
+        self.add_packaged_disclosure(DISCLOSURE)
+        result = self.review()
+        rows = {r['path']: r for r in result['classification_input']['report']['candidate_inventory']['files']}
+        self.assertIn(DISCLOSURE, rows)
+        self.assertEqual(rows[DISCLOSURE]['review_reasons'], [])
+        self.assertEqual(rows[DISCLOSURE]['sha256'], digest(b'{"schema_version": 1, "accepted_gaps": {}}\n'))
+        self.assertEqual(result['review_reasons'], baseline['review_reasons'])
+        self.assertEqual(result['classification']['classified'], baseline['classification']['classified'])
+        self.assertEqual(result['classification']['by_category'], baseline['classification']['by_category'])
+        self.assertEqual(result['inventory_summary']['unresolved_files'], 3)
+        self.assertTrue(subject.replay(result, self.repo))
+
+    def test_missing_disclosure_is_not_fabricated(self):
+        result = self.review()
+        paths = {r['path'] for r in result['classification_input']['report']['candidate_inventory']['files']}
+        self.assertFalse(paths & subject.DISCLOSURE_PATHS['base'])
+        self.assertTrue(subject.replay(result, self.repo))
 
     def test_wrong_source_or_unaccepted_report_is_rejected(self):
         for field, value in [('source_commit','0'*40), ('accepted',False), ('host_platform','linux'),
@@ -215,6 +255,20 @@ class ReviewTests(unittest.TestCase):
         replay = subprocess.run([sys.executable, script, '--repo', str(self.repo), '--replay',
                                 str(self.reports/'source-review.json')], capture_output=True, text=True)
         self.assertEqual(replay.returncode, 0, replay.stderr)
+
+
+class PreservedReplayTests(unittest.TestCase):
+    """已保存的 A6／A12 審閱不含揭露檔列是正常的；只要求其離線 replay 仍與保存的分類一致。"""
+
+    def test_preserved_a6_and_a12_reviews_still_replay(self):
+        runs = ROOT/'docs/development-records/runs'
+        for name in ('a6-fixed-review-2026-11-17/base-source-review.json',
+                     'a12-fixed-review-2026-11-18/base-source-review.json',
+                     'a12-fixed-review-2026-11-18/cpu-source-review.json',
+                     'a13b-fixed-review-2026-11-18/base-source-review.json',
+                     'a13b-fixed-review-2026-11-18/cpu-source-review.json'):
+            with self.subTest(review=name):
+                self.assertTrue(subject.replay(subject.read_json(runs/name), ROOT))
 
 
 if __name__ == '__main__':

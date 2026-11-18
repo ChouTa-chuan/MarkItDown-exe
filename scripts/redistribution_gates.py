@@ -7,6 +7,7 @@ import json
 from pathlib import Path, PurePosixPath
 import re
 
+import candidate_review
 import embedded_components
 import microsoft_runtime
 import qt_components
@@ -261,27 +262,15 @@ def source_gaps(raw, mappings, embedded, qt):
     return {key:sorted(values) for key,values in sorted(unknown.items())}
 
 
-def assess(report, registry, *, root=ROOT):
-    validate_registry(registry, root)
-    profile = report.get('profile')
-    require(profile in registry['profiles'] and report.get('check') == 'candidate-source-review'
-            and report.get('schema_version') == 1 and report.get('accepted') is True, 'Invalid source-review input')
-    config = registry['profiles'][profile]
-    source = report.get('selection', {}).get('source_commit')
-    require(source == config['source_commit'], 'Source differs from registry basis')
+def collect_catalogs(report, profile, config, root, native, reasons, gap_validator):
+    """讀取並核對 profile 的內含元件目錄（A9）、Microsoft（A10）與 Qt（A11）目錄，回傳對應與未知清單。
+
+    只做對應與核對，不做旗標判定。assess 與揭露檔產生器（scripts/known_gaps.py）共用同一段規則，避免兩套判定。
+    gap_validator：判定時傳入嚴格的 validate_gap_acceptance；推導揭露檔內容時傳入不檢查的版本，
+    否則「產生揭露檔」與「檢核揭露檔」會互相等待。
+    回傳 dict(mappings, embedded, microsoft, qt, unknown)。
+    """
     raw = report['classification_input']['report']
-    require(raw['profile'] == profile and raw['source_commit'] == source, 'Inconsistent source-review identity')
-    native = [r['file'] for r in raw['native_files']]
-    require(native and len({safe_name(n) for n in native}) == len(native), 'Empty or duplicate native files')
-    files = raw['candidate_inventory']['files']
-    require(len({safe_name(r['path']) for r in files}) == len(files), 'Duplicate review paths')
-    reasons = collections.Counter()
-    for row in files:
-        values = row['review_reasons']
-        require(isinstance(values, list) and values and all(isinstance(x, str) and x for x in values)
-                and len(values) == len(set(values)), 'Invalid review_reasons')
-        reasons.update(values)
-    require(dict(reasons) == report.get('review_reasons'), 'Review reason summary differs from input rows')
     entries = config['entries']
     mappings = dict(native_files=coverage(native, entries, 'native_files'),
                     review_reasons=coverage(reasons, entries, 'review_reasons'))
@@ -294,7 +283,7 @@ def assess(report, registry, *, root=ROOT):
             'Existing embedded catalog must remain bound')
     embedded = [embedded_components.check_profile(read_json(root/path), catalog_path=path, entries=entries,
                                                   report=report, root=root,
-                                                  gap_validator=lambda e,u:validate_gap_acceptance(e,u,report,root))
+                                                  gap_validator=gap_validator)
                 for path in catalogs]
     # A10 詳情只存目錄與證據；原始 review_reason 計數不改，是否仍阻擋由條目狀態推導。
     microsoft = []
@@ -316,6 +305,37 @@ def assess(report, registry, *, root=ROOT):
                     'Unexpected Qt catalog binding')
             qt.append(qt_components.check_profile(read_json(root/paths[0]), entry=entry, report=report, root=root))
     unknown = source_gaps(raw, mappings, embedded, qt)
+    return dict(mappings=mappings, embedded=embedded, microsoft=microsoft, qt=qt, unknown=unknown)
+
+
+def assess(report, registry, *, root=ROOT):
+    validate_registry(registry, root)
+    profile = report.get('profile')
+    require(profile in registry['profiles'] and report.get('check') == 'candidate-source-review'
+            and report.get('schema_version') == 1 and report.get('accepted') is True, 'Invalid source-review input')
+    config = registry['profiles'][profile]
+    source = report.get('selection', {}).get('source_commit')
+    require(source == config['source_commit'], 'Source differs from registry basis')
+    raw = report['classification_input']['report']
+    require(raw['profile'] == profile and raw['source_commit'] == source, 'Inconsistent source-review identity')
+    native = [r['file'] for r in raw['native_files']]
+    require(native and len({safe_name(n) for n in native}) == len(native), 'Empty or duplicate native files')
+    files = raw['candidate_inventory']['files']
+    require(len({safe_name(r['path']) for r in files}) == len(files), 'Duplicate review paths')
+    reasons = collections.Counter()
+    for row in files:
+        values = row['review_reasons']
+        require(isinstance(values, list) and all(isinstance(x, str) and x for x in values)
+                and len(values) == len(set(values)), 'Invalid review_reasons')
+        # 無 reason 的列只允許是隨包揭露檔（A13b），供 accepted_gaps 以相同 hash 核對；其他無 reason 列仍拒絕。
+        require(values or row['path'] in candidate_review.DISCLOSURE_PATHS[profile],
+                'Review row without reason is not a packaged disclosure: '+row['path'])
+        reasons.update(values)
+    require(dict(reasons) == report.get('review_reasons'), 'Review reason summary differs from input rows')
+    entries = config['entries']
+    collected = collect_catalogs(report, profile, config, root, native, reasons,
+                                 lambda e, u: validate_gap_acceptance(e, u, report, root))
+    mappings, embedded, microsoft, qt, unknown = (collected[key] for key in ('mappings', 'embedded', 'microsoft', 'qt', 'unknown'))
     for entry in entries:
         validate_gap_acceptance(entry, unknown.get(entry['id'], []), report, root)
     blocked = {}

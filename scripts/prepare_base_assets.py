@@ -21,8 +21,16 @@ from qt_components import stage as stage_qt_components
 
 
 QT_NOTICE = 'qt-lgpl-notice.md'
+# A13b：已知缺口揭露檔（機器讀取的 JSON 與人讀的 MD，由 scripts/known_gaps.py 產生）與測試版限制說明。
+# 必要資產：缺檔或改內容時 build_profile 會拒絕載入。
+KNOWN_GAPS_JSON = 'known-gaps.json'
+KNOWN_GAPS_MD = 'known-gaps.md'
+LIMITATIONS_MD = 'test-build-limitations.md'
+DISCLOSURE_FILES = (KNOWN_GAPS_JSON, KNOWN_GAPS_MD, LIMITATIONS_MD)
 OWN_LICENSE_LINE = '本程式自有部分採 MIT，全文見 '+OWN_LICENSE+'。'
 QT_NOTICE_LINE = ('Qt／LGPL-3.0 使用說明（授權原文位置、原始碼取得方式、如何替換 Qt 程式庫）見 licenses/'+QT_NOTICE+'。')
+DISCLOSURE_LINE = ('已知缺口（版本未知或僅有建置宣告的元件）見 licenses/'+KNOWN_GAPS_MD+'，機器讀取版本為 licenses/'
+                   +KNOWN_GAPS_JSON+'；測試版限制見 licenses/'+LIMITATIONS_MD+'。')
 
 
 def base_guide(version, notices, native):
@@ -31,6 +39,7 @@ def base_guide(version, notices, native):
              '', 'licenses/installed 保存實際建置環境的 runtime METADATA 與可取得的原始授權；licenses/native 保存實際 Analysis 的系統來源與 copyright。',
              '', 'Magika 仍使用 CPU ONNX Runtime；沒有 RapidOCR OCR 模型。原生 Tesseract 尚未整合，本包只驗核心功能，未達完整基本版離線 OCR／Windows 發行門檻。',
              '', QT_NOTICE_LINE,
+             '', DISCLOSURE_LINE,
              '', OWN_LICENSE_LINE,
              '', 'cryptography 內含 OpenSSL 的原文見 '+CRYPTO_NOTICE+'，版本與來源紀錄見 '+CRYPTO_REPORT+'。',
              '', '實際原文與 binary 來源證據不取代完整再散布／Qt 義務或最終 SBOM 審核。部分套件無 wheel 內原文，仍可對照原 Windows 上位授權資料，不宣稱已全部審查。', '', '| 套件 | 版本 |', '| --- | --- |']
@@ -99,6 +108,9 @@ def prepare(output, root=ROOT, *, native_assets=None):
         for name in ['models','standards','markitdown']:
             shutil.copytree(source/'licenses'/name, staged/'licenses'/name)
         stage_qt_notice(source, staged)
+        # 已知缺口揭露與測試版限制：在資產 hash 計算前放入，之後 refresh_manifest 會一併綁定雜湊。
+        for name in DISCLOSURE_FILES:
+            shutil.copyfile(source/'licenses'/name, staged/'licenses'/name)
         stage_own_license(root, staged)
         if native_assets is not None:
             attach_native(staged, Path(native_assets), target)

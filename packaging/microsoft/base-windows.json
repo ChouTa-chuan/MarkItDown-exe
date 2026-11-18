@@ -2,15 +2,15 @@
   "schema_version": 1,
   "profile": "base",
   "registry_entry": "base-microsoft",
-  "source_commit": "2555687eafc931600f30265f7bd290331cd49a0f",
-  "scope": "A10 installed-source reconstruction: fourteen copies hash-identical to A6; actual built-bundle CI is verified separately; no legal approval or package change",
+  "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "scope": "A13b 探測：以 b17d51b 的 A13b base 審閱為基準（CI run 44300296037，job 134787974381，observation_scope installed-source-reconstruction）；14 份複本逐檔與 A6 相同，根目錄 vcruntime140.dll、vcruntime140_1.dll 與官方 Redist 同名檔完整 sha256 相同；無法律批准或打包變更",
   "basis": {
-    "path": "docs/development-records/runs/a6-fixed-review-2026-11-17/base-source-review.json",
-    "sha256": "b6cc9736b3c5d2e8290a23b7be6a5dafe1a009ddd22f450e2e8c969408420111"
+    "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json",
+    "sha256": "f65cdbc9a01d95391032fa991d6d4f0e5dfec10b317b983435ce79bfbeaed295"
   },
   "probe": {
-    "path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/windows-probe.json",
-    "sha256": "281abcbe2cf0f35c13b5b602a5e1b7082dbe12e211877615bea9e648f5501dca"
+    "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/microsoft-probe-7cf098e.json",
+    "sha256": "06ea54ffe310a80ef7b77364167dc8d52bd44c85d69764496056042386de8c3d"
   },
   "lock": {
     "path": "packaging/profiles/base-windows-runtime.txt",
@@ -388,50 +388,50 @@
       "source_sha256": "f02cd4a862b85a9a3153d27e15e5a213f5df8e3d77004ed2e87b8a7e8873d97c"
     },
     {
-      "a6_sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
-      "bytes": 120400,
+      "a6_sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "bytes": 124544,
       "distributions": [],
       "file": "vcruntime140.dll",
       "identity": {
         "company": "Microsoft Corporation",
-        "file_version": "14.42.34438.0",
+        "file_version": "14.44.35211.0",
         "product": "Microsoft® Visual Studio®",
         "signature_status": "Valid",
         "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
-        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64"
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT"
       },
       "matches_a6": true,
-      "matches_official": false,
+      "matches_official": true,
       "official_name": "vcruntime140.dll",
       "official_sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
-      "origin": "python-runtime",
+      "origin": "system-native",
       "renamed": false,
-      "sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
-      "source_path": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\vcruntime140.dll",
-      "source_sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4"
+      "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "source_path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT\\vcruntime140.dll",
+      "source_sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066"
     },
     {
-      "a6_sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8",
-      "bytes": 49776,
+      "a6_sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+      "bytes": 49792,
       "distributions": [],
       "file": "vcruntime140_1.dll",
       "identity": {
         "company": "Microsoft Corporation",
-        "file_version": "14.42.34438.0",
+        "file_version": "14.44.35211.0",
         "product": "Microsoft® Visual Studio®",
         "signature_status": "Valid",
         "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
-        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64"
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT"
       },
       "matches_a6": true,
-      "matches_official": false,
+      "matches_official": true,
       "official_name": "vcruntime140_1.dll",
       "official_sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
-      "origin": "python-runtime",
+      "origin": "system-native",
       "renamed": false,
-      "sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8",
-      "source_path": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\vcruntime140_1.dll",
-      "source_sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8"
+      "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+      "source_path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT\\vcruntime140_1.dll",
+      "source_sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f"
     }
   ],
   "references": {
@@ -598,8 +598,8 @@
   ],
   "limitations": [
     "Host is GitHub hosted Windows 2022, not a clean end-user machine",
-    "A12 pins source 2555687eafc931600f30265f7bd290331cd49a0f. Original probe receipts retain their A6 collection basis; A12b only wires existing evidence and does not rebuild or re-pin a candidate. A13b must probe its own candidate again.",
-    "Full binary hash mismatches against current Redist are recorded; no version equivalence or patch cause is inferred"
+    "A13b pins candidate b17d51b. The probe basis is the A13b base source-review; earlier probes (A10 and A6-based CI) keep their A6 basis as history and are not used for the catalog.",
+    "Full binary hash mismatches against current Redist are recorded (renamed msvcp140 copies and PySide6/shiboken6 copies); no version equivalence or patch cause is inferred"
   ],
   "terms_verification_scope": "false 僅表示本輪已取得所列官方候選條款原始檔；不表示各複本適用性或再散布權利已確認。先前轉載仍保留 source_verified=false 作歷史參考，不作核准依據。"
 }

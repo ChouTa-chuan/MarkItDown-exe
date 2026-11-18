@@ -33,7 +33,7 @@ base 與 cpu 分開判定；CPU 尚未關閉不妨礙基本包依自己的證據
 
 非 open 狀態須有證據引用；引用使用 repo 相對路徑與 SHA-256，決定還須符合上節的出處格式（固定存檔 D 節中完整的一行使用者決定）。已核准卻無出處、引用不存在、hash 不符或 quote 不存在皆拒絕。required_evidence 是審閱清單，語意是否已滿足須由維護者依證據查驗；腳本驗證引用完整性與已記錄的狀態，不判定法律充分性、作者身分或自動產生使用者核准。
 
-登記表綁定該 profile 的來源提交，避免把不同候選的確認直接帶過去。當前基準是 A12 的 2555687（main，含 A7–A11），候選審閱見 [A12 證據](development-records/runs/a12-fixed-review-2026-11-18/README.md)；A6 的 8285450 保留為歷史回歸輸入。A12b 已將來源逐列對照、封存與自有 MIT 綁定三項工程義務改為 evidence_complete；CPython、Microsoft、Qt、Tesseract 與其他未決條目仍維持原狀。A12c 只升 schema 及為每項加入空 accepted_gaps，不改實際狀態，**base／cpu 原三旗標與新增 disclosed 現況均為 false**。
+登記表綁定該 profile 的來源提交，避免把不同候選的確認直接帶過去。當前基準是 A13b 的固定候選 b17d51b（見下節），候選審閱見 [A13b 證據](development-records/runs/a13b-fixed-review-2026-11-18/README.md)；A12 的 2555687 與 A6 的 8285450 保留為歷史回歸輸入。A12b 已將來源逐列對照、封存與自有 MIT 綁定三項工程義務改為 evidence_complete；CPython、Microsoft、Qt、Tesseract 與其他未決條目仍維持原狀。A12c 只升 schema 及為每項加入空 accepted_gaps，不改實際狀態，**base／cpu 原三旗標與新增 disclosed 現況均為 false**。
 
 ## 內含元件目錄（A9）
 
@@ -85,8 +85,8 @@ A12c 不新增實際隨包揭露檔、不寫 A13 決定、不修改現有條目�
 ## 執行與驗收
 
 ```bash
-python scripts/redistribution_gates.py --source-review docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json
-python scripts/redistribution_gates.py --source-review docs/development-records/runs/a12-fixed-review-2026-11-18/cpu-source-review.json
+python scripts/redistribution_gates.py --source-review docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json
+python scripts/redistribution_gates.py --source-review docs/development-records/runs/a13b-fixed-review-2026-11-18/cpu-source-review.json
 ```
 
 有效輸入輸出旗標、各旗標阻擋條目、相依關係與精確對應。exit 0 只表示登記／涵蓋性有效，交付流程必須另檢查對應旗標；未關閉時仍會列出 blockers。錯誤輸入非零退出，指定 `--output` 時只准寫新檔，驗證錯誤不留下部分成功報告。
@@ -113,3 +113,13 @@ A12c 不動 spec、依賴、打包內容或計數口徑，不代做 A13、不交
 - 三個目錄的 sha256 變動，只在登記表對應條目的 `evidence` 更新引用，條目的 status、選擇器、required_evidence 與 requires_user_decision 不變。
 
 A12 的基本包出口報告見 [證據目錄](development-records/runs/a12-fixed-review-2026-11-18/README.md)；三旗標仍由 gates 推導為 false。
+
+## A13b 2b：Microsoft 目錄收回放寬與使用者決定寫入
+
+- **check_catalog 收回放寬**：探測的 `basis.source_commit` 必須等於目錄（登記表）的 `source_commit`，基準檔自身的 selection 也要相同。舊候選（A6、A12）的探測即使雜湊正確也會被拒絕（反例：`test_probe_from_an_old_candidate_basis_is_rejected`）。候選 bytes 仍由逐檔 `a6_sha256`、origin、distributions 與原生檔核對。
+- **探測證據**：`docs/development-records/runs/a13b-fixed-review-2026-11-18/microsoft-probe-7cf098e.json` 為 CI 在 7cf098e 上以 b17d51b 審閱為基準的探測原樣保存；目錄的 `basis` 與 `probe` 引用它。舊的 `windows-probe.json` 是 b17d51b 上以 A6 為基準的探測，保留作歷史。
+- **決定寫入**：`decision_source` 引用 `docs/history/status/2026-11-18-a13-decisions.md` D 節的 A13 逐條列（`quote` 必須是存檔中完整的一行）。base 條目：`base-microsoft`（A13-1）、`base-qt`（A13-2）、`base-cpython`（A13-3）、`base-wheels-cffi`（A13-4）、numpy／pandas／pillow／lxml／cryptography／onnxruntime／pypdfium2（A13-4）、`base-tesseract-models`（A13-5）、`base-redistribution-decision`（A13-7）。`base-clean-machine-manual` 維持 open（A13-6 只確認限制文字，需大階段 C 證據）。
+- **accepted_gaps**：有未知元件的條目，`accepted_gaps` 必須與 `known_gaps.py` 對同一審閱推導的集合完全相等，並引用隨包揭露檔 `src/desktop_app/data/licenses/known-gaps.json`（sha256 與候選中同名列相同）。合計 108 項。含缺口的條目 `requires_user_decision` 為 true。
+- **結果（b17d51b）**：base `runtime_sbom_complete` false、`runtime_sbom_disclosed` true、`redistribution_approved` true、`release_ready` false；cpu 四旗標皆 false。
+- 反例：決定列被改（quote 不在存檔 D 節）、決定存檔 hash 不符、accepted_gaps 少一項或多一項、無揭露檔引用，皆被拒絕。
+

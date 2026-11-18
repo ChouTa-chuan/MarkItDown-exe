@@ -168,16 +168,40 @@ class MicrosoftProbeTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
 
-    def test_probe_basis_must_name_the_catalog_basis_document(self):
-        # A12 起基準可與候選來源不同，但探測記錄的基準路徑、hash 與基準檔自身的 selection 必須一致。
+    def write_probe(self, report, name):
+        path = self.root/name
+        path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_text(json.dumps(report))
+        return dict(path=name,sha256=ms.digest(path))
+
+    def test_probe_basis_source_must_equal_the_catalog_source(self):
+        # A13b 收回放寬：探測記錄的基準來源必須等於目錄（登記表）來源，不能只是基準檔自洽。
         catalog, entry = self.catalog_fixture()
         report = self.probe()
         report['basis']['source_commit'] = 'f'*40
-        path = self.root/'evidence/probe-wrong-basis.json'
-        path.parent.mkdir(parents=True,exist_ok=True)
-        path.write_text(json.dumps(report))
-        catalog['probe'] = dict(path='evidence/probe-wrong-basis.json',sha256=ms.digest(path))
+        catalog['probe'] = self.write_probe(report, 'evidence/probe-wrong-basis.json')
+        with self.assertRaisesRegex(ValueError,'Probe basis source differs'):
+            ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
+
+    def test_probe_basis_document_must_match_its_recorded_hash(self):
+        catalog, entry = self.catalog_fixture()
+        report = self.probe()
+        report['basis']['sha256'] = 'e'*64
+        catalog['probe'] = self.write_probe(report, 'evidence/probe-wrong-hash.json')
         with self.assertRaisesRegex(ValueError,'Probe basis differs'):
+            ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
+
+    def test_probe_from_an_old_candidate_basis_is_rejected(self):
+        # 反例：基準檔換成舊候選（來源 f*40，與目錄來源 a*40 不同）。探測與目錄都綁同一份舊基準，
+        # 雜湊一致也必須拒絕；這正是 A12 放寬曾允許、A13b 收回的情形。
+        old = dict(self.review, selection=dict(source_commit='f'*40))
+        (self.root/ms.BASIS_PATH).write_text(json.dumps(old))
+        catalog, entry = self.catalog_fixture()
+        report = self.probe()
+        self.assertEqual(report['basis']['source_commit'], 'f'*40)
+        catalog['basis'] = dict(path=ms.BASIS_PATH, sha256=ms.digest(self.root/ms.BASIS_PATH))
+        catalog['probe'] = self.write_probe(report, 'evidence/probe-old-candidate.json')
+        with self.assertRaisesRegex(ValueError,'Probe basis source differs'):
             ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
 
     def test_catalog_rejects_changed_terms_and_probe_bytes(self):
@@ -274,14 +298,19 @@ class MicrosoftProbeTests(unittest.TestCase):
     def test_repository_catalog_is_wired_to_gates_and_preserves_qt_signer_findings(self):
         import redistribution_gates as gates
         registry = gates.read_json(gates.REGISTRY)
-        # 登記表現已綁 A12 候選；A6 基準仍是 A10 探測的歷史輸入，不作為目前接線的來源。
-        report = gates.read_json(ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json')
+        # 登記表綁 A13b 候選（b17d51b）；探測基準為同一候選的審閱。A6 與 A10 的探測只作歷史輸入。
+        report = gates.read_json(ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json')
         result = gates.assess(report,registry)
         self.assertEqual(result['microsoft_catalogs'][0]['files'],14)
-        self.assertTrue(all(result[f] is False for f in ms.FLAGS))
+        self.assertFalse(result['runtime_sbom_complete'])
+        self.assertTrue(result['runtime_sbom_disclosed'])
+        self.assertTrue(result['redistribution_approved'])
+        self.assertFalse(result['release_ready'])
         entry = next(e for e in registry['profiles']['base']['entries'] if e['id']=='base-microsoft')
         self.assertTrue(entry['requires_user_decision'])
-        self.assertEqual(entry['status'],'open')
+        # A13-1 決定寫入：條目為 user_approved，決定列引用固定存檔 D 節的原文一行。
+        self.assertEqual(entry['status'],'user_approved')
+        self.assertTrue(entry['decision_source']['quote'].startswith('| 2026-11-18 | 使用者 A13 決定 | A13-1（base-microsoft）'))
         catalog = gates.read_json(ROOT/ms.CATALOG_PATH)
         qt_signed = [r for r in catalog['files'] if 'O=The QT Company Oy' in r['identity'].get('signer','')]
         self.assertEqual(len(qt_signed),9)

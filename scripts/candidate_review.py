@@ -26,6 +26,23 @@ MAX_JSON = 4*1024*1024
 MAX_SOURCE_REPORT = 16*1024*1024
 MAX_ENCODED = 96_000
 PART_SIZE = 2900
+# 隨包揭露檔（A12c／A13b）：candidate_inventory.files 必須含有以相同 hash 出現的這些列，
+# 登記表的 accepted_gaps 才能被 redistribution_gates 核對。這些檔的 review_reasons 為空時，
+# 精簡報告若只保留待審列，就會讓揭露檔從候選證據中消失，所以另外依固定路徑保留。
+# 只保留候選中實際存在的列，不憑空產生；缺檔時 gates 會以 Disclosure absent 拒絕。
+# 修改此清單需同步 scripts/known_gaps.py 的產物與 src/desktop_app/data/licenses/。
+DISCLOSURE_PATHS = {
+    'base': frozenset({
+        '_internal/desktop_app/data/licenses/known-gaps.json',
+        '_internal/desktop_app/data/licenses/known-gaps.md',
+        '_internal/desktop_app/data/licenses/test-build-limitations.md',
+    }),
+    'cpu': frozenset({
+        '_internal/worker-assets/licenses/known-gaps.json',
+        '_internal/worker-assets/licenses/known-gaps.md',
+        '_internal/worker-assets/licenses/test-build-limitations.md',
+    }),
+}
 
 
 def canonical(value):
@@ -145,13 +162,17 @@ def make_review(profile, bundle, reports, package, expected, repo=ROOT):
     if profile == 'base' and (reports/'acceptance/build-profile.json').exists():
         report['python_version'] = read_json(reports/'acceptance/build-profile.json').get('python')
     # 保留所有待審列（不只未對照），其餘已對照實體檔案留原完整報告及 hash。
+    # 待審列以外，另保留隨包揭露檔列（無 review_reason），見 DISCLOSURE_PATHS。
+    # reasons 計數只來自待審列，揭露檔列不改變 review_reasons 摘要與 unresolved 計數。
     pending = [r for r in report['candidate_inventory']['files'] if r['review_reasons']]
+    retained = [r for r in report['candidate_inventory']['files']
+                if r['review_reasons'] or r['path'] in DISCLOSURE_PATHS[profile]]
     reduced = {k:report[k] for k in ('profile', 'source_commit', 'source_version', 'native_files')}
     reduced.update(packages=[dict(name=p['name'], version=p['version']) for p in report['packages']],
                    python_version=report.get('python_version'),
                    cpython_components=report.get('cpython_components'),
                    python_archives=dict(base_library=report['python_archives']['base_library']),
-                   candidate_inventory=dict(files=pending, summary=report['candidate_inventory']['summary']))
+                   candidate_inventory=dict(files=retained, summary=report['candidate_inventory']['summary']))
     model_manifest = json.loads(classifier.git_file(repo, expected, classifier.MODEL_MANIFEST))
     models = {digest:name for name, digest in model_manifest['files'].items()}
     rows = classifier.classify(reduced, classifier.git_blob_index(repo, expected), members, models, payload)

@@ -27,7 +27,8 @@ class BuildProfileTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory(); self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
         files = ['user-guide.md','third-party.md','base-runtime-lock.txt',
-                 'licenses/python-runtime/LICENSE.txt','licenses/installed/manifest.json','licenses/qt-lgpl-notice.md','licenses/markitdown-desktop/LICENSE']
+                 'licenses/python-runtime/LICENSE.txt','licenses/installed/manifest.json','licenses/qt-lgpl-notice.md','licenses/markitdown-desktop/LICENSE',
+                 'licenses/known-gaps.json','licenses/known-gaps.md','licenses/test-build-limitations.md']
         self.profile = dict(schema_version=1,id='base',source_version='0.9.0',runtime_packages={'psutil':'7.2.2'},
             local_packages={'markitdown-desktop':'0.9.0','markitdown':'0.1.9'},
             native_ocr_required=True,native_ocr_integrated=False,release_ready=False,notice_packages=3,assets={})
@@ -63,6 +64,15 @@ class BuildProfileTests(unittest.TestCase):
     def test_missing_required_asset_reference_is_rejected(self):
         del self.profile['assets']['user-guide.md']; self.save()
         with self.assertRaisesRegex(ValueError,'必要手冊'): bp.load_profile()
+
+    def test_disclosure_assets_are_required(self):
+        for name in ['licenses/known-gaps.json', 'licenses/known-gaps.md', 'licenses/test-build-limitations.md']:
+            digest = self.profile['assets'].pop(name)
+            self.save()
+            with self.assertRaisesRegex(ValueError, '必要手冊'): bp.load_profile()
+            self.profile['assets'][name] = digest
+        self.save()
+        self.assertEqual(bp.load_profile(), self.profile)
 
     def test_paths_and_hashes_are_validated(self):
         for name,digest in [('../outside','0'*64),('/absolute','0'*64),('a\\b','0'*64),('a','wrong')]:

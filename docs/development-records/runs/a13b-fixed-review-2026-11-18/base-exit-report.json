@@ -1,0 +1,430 @@
+{
+  "check": "base-exit-report",
+  "schema_version": 2,
+  "profile": "base",
+  "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "selection": {
+    "event": "workflow_dispatch",
+    "explicitly_pinned": true,
+    "ref": "refs/heads/claude/confident-ride-o38ls7",
+    "run_attempt": "1",
+    "run_id": "44295039865",
+    "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+  },
+  "candidate": {
+    "bytes": 102443112,
+    "file": "MarkItDownBase-Setup-0.19.1-windows-x64.exe",
+    "sha256": "b79b75977b1d49589b3108d9363eb96016d2148f813db652468b2da7d7c075fe"
+  },
+  "source_review": {
+    "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json",
+    "sha256": "f65cdbc9a01d95391032fa991d6d4f0e5dfec10b317b983435ce79bfbeaed295"
+  },
+  "gates_output": {
+    "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/base-gates.json",
+    "sha256": "3c36946a2b3fa8fa1e60c784e0084e461da01ad76d5778d89e9ce9d0b6633ca4"
+  },
+  "registry_schema_version": 3,
+  "flags": {
+    "runtime_sbom_complete": false,
+    "runtime_sbom_disclosed": true,
+    "redistribution_approved": true,
+    "release_ready": false
+  },
+  "flags_basis": "由 scripts/redistribution_gates.py 依登記表推導；未人工改寫。",
+  "blocked_by_gate": {
+    "runtime_sbom_complete": [
+      "base-cpython",
+      "base-qt",
+      "base-wheels-cffi",
+      "base-wheels-cryptography",
+      "base-wheels-lxml",
+      "base-wheels-numpy",
+      "base-wheels-onnxruntime",
+      "base-wheels-pandas",
+      "base-wheels-pillow",
+      "base-wheels-pypdfium2"
+    ],
+    "redistribution_approved": [],
+    "release_ready": [
+      "base-clean-machine-manual"
+    ],
+    "runtime_sbom_disclosed": []
+  },
+  "unknown_components": {
+    "base-cpython": 1,
+    "base-qt": 85,
+    "base-wheels-cffi": 1,
+    "base-wheels-cryptography": 1,
+    "base-wheels-lxml": 3,
+    "base-wheels-numpy": 2,
+    "base-wheels-onnxruntime": 1,
+    "base-wheels-pandas": 1,
+    "base-wheels-pillow": 3,
+    "base-wheels-pypdfium2": 10
+  },
+  "accepted_gaps_total": 108,
+  "category_counts": {
+    "evidence_complete": 5,
+    "open": 1,
+    "user_approved": 14
+  },
+  "entries": [
+    {
+      "id": "base-source-attribution",
+      "title": "來源未對照列與來源分類審閱",
+      "status": "evidence_complete",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete"
+      ],
+      "category": "evidence_complete",
+      "evidence_refs": 2,
+      "accepted_gaps": 0
+    },
+    {
+      "id": "base-microsoft",
+      "title": "Microsoft 執行期逐檔來源與適用條款",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 4,
+      "accepted_gaps": 0,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-1（base-microsoft）：選 b。根目錄 vcruntime140.dll、vcruntime140_1.dll 換成 Visual Studio 官方 Redist 版本；numpy／pandas 改名複本與 PySide6／shiboken6 的 9 份照現狀接受並揭露。同意此打包變更。使用者判斷適用 Visual Studio Community 授權 |"
+      }
+    },
+    {
+      "id": "base-cpython",
+      "title": "CPython 與隨附／靜態連結元件",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 6,
+      "accepted_gaps": 1,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-3（base-cpython、base-wheels-cffi）：libffi 僅有建置宣告，接受並在揭露檔註明版本為官方建置宣告 |"
+      }
+    },
+    {
+      "id": "base-wheels-numpy",
+      "title": "wheel 內含原生第三方：numpy 2.5.4",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 3,
+      "accepted_gaps": 2,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+      }
+    },
+    {
+      "id": "base-wheels-pandas",
+      "title": "wheel 內含原生第三方：pandas 3.1.0",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 2,
+      "accepted_gaps": 1,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+      }
+    },
+    {
+      "id": "base-wheels-pillow",
+      "title": "wheel 內含原生第三方：pillow 13.0.0",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 3,
+      "accepted_gaps": 3,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+      }
+    },
+    {
+      "id": "base-wheels-lxml",
+      "title": "wheel 內含原生第三方：lxml 6.1.3",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 3,
+      "accepted_gaps": 3,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+      }
+    },
+    {
+      "id": "base-wheels-cryptography",
+      "title": "wheel 內含原生第三方：cryptography 50.0.2",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 3,
+      "accepted_gaps": 1,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+      }
+    },
+    {
+      "id": "base-wheels-onnxruntime",
+      "title": "wheel 內含原生第三方：onnxruntime 1.31.1",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 2,
+      "accepted_gaps": 1,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+      }
+    },
+    {
+      "id": "base-wheels-pypdfium2",
+      "title": "wheel 內含原生第三方：pypdfium2 5.14.0",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 2,
+      "accepted_gaps": 10,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+      }
+    },
+    {
+      "id": "base-wheels-cffi",
+      "title": "wheel 內含原生第三方：cffi 2.1.1",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 2,
+      "accepted_gaps": 1,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+      }
+    },
+    {
+      "id": "base-wheels-charset-normalizer",
+      "title": "wheel 內含原生第三方：charset-normalizer 3.5.2",
+      "status": "evidence_complete",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_complete",
+      "evidence_refs": 1,
+      "accepted_gaps": 0
+    },
+    {
+      "id": "base-wheels-psutil",
+      "title": "wheel 內含原生第三方：psutil 7.2.2",
+      "status": "evidence_complete",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_complete",
+      "evidence_refs": 1,
+      "accepted_gaps": 0
+    },
+    {
+      "id": "base-archives",
+      "title": "Python 封存與實際 runtime 範圍",
+      "status": "evidence_complete",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_complete",
+      "evidence_refs": 3,
+      "accepted_gaps": 0
+    },
+    {
+      "id": "base-qt",
+      "title": "Qt／PySide／shiboken 內含元件與 LGPL 做法",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 2,
+      "accepted_gaps": 85,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-2（base-qt）：接受現行 LGPL 做法（動態連結、隨包原文與固定上游原始碼連結、hosted Windows 可替換驗收），未知項目接受並揭露 |"
+      }
+    },
+    {
+      "id": "base-tesseract-models",
+      "title": "Tesseract／工具鏈與四語模型",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 25,
+      "accepted_gaps": 0,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-5（base-tesseract-models）：接受 CI 以固定來源靜態建置的 tesseract.exe 5.5.3 與固定提交的四語 tessdata_fast 模型 |"
+      }
+    },
+    {
+      "id": "base-own-mit-binding",
+      "title": "自有 MIT 原文綁定",
+      "status": "evidence_complete",
+      "requires_user_decision": false,
+      "gates": [
+        "redistribution_approved"
+      ],
+      "category": "evidence_complete",
+      "evidence_refs": 3,
+      "accepted_gaps": 0
+    },
+    {
+      "id": "base-own-license-choice",
+      "title": "自有程式採 MIT 的使用者決定",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 1,
+      "accepted_gaps": 0,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-17-a6-before-a7.md",
+        "sha256": "444ac94e17620915fdb0eb4e2bb3520227aab32314dc4cb23b1b2f401d441826",
+        "quote": "| 2026-11-13 | 使用者決定 | 自有程式採 MIT，著作權人「周大詮 (ChouTa-chuan)」，涵蓋以不同 AI 工具產生的全部自有內容 |"
+      }
+    },
+    {
+      "id": "base-redistribution-decision",
+      "title": "使用者確認本 profile 再散布門檻",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "redistribution_approved"
+      ],
+      "category": "user_approved",
+      "evidence_refs": 2,
+      "accepted_gaps": 0,
+      "decision_source": {
+        "path": "docs/history/status/2026-11-18-a13-decisions.md",
+        "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+        "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-7（base-redistribution-decision）：同意 B1 以 CI artifact 公開產出基本包測試版 |"
+      }
+    },
+    {
+      "id": "base-clean-machine-manual",
+      "title": "乾淨機、人工驗收與限制揭露",
+      "status": "open",
+      "requires_user_decision": true,
+      "gates": [
+        "release_ready"
+      ],
+      "category": "open",
+      "evidence_refs": 0,
+      "accepted_gaps": 0
+    }
+  ],
+  "candidate_delta": {
+    "a12_files": 1767,
+    "b_files": 1770,
+    "a12_unresolved": 264,
+    "b_unresolved": 264,
+    "a12_review_reasons": {
+      "microsoft-native-redistribution-review": 14,
+      "source-owner-unresolved": 264
+    },
+    "b_review_reasons": {
+      "microsoft-native-redistribution-review": 14,
+      "source-owner-unresolved": 264
+    },
+    "b_pending_added": 0,
+    "b_pending_removed": 0,
+    "retained_disclosure_rows": [
+      "_internal/desktop_app/data/licenses/known-gaps.json",
+      "_internal/desktop_app/data/licenses/known-gaps.md",
+      "_internal/desktop_app/data/licenses/test-build-limitations.md"
+    ]
+  },
+  "limitations": [
+    "三旗標由登記表與 gates 推導；runtime_sbom_complete 因未知元件（版本未知或僅建置宣告）仍為 false，揭露式關閉不等於完整盤點",
+    "runtime_sbom_disclosed 與 redistribution_approved 為 true 只代表 A13 使用者決定已登記、揭露檔與候選 hash 相符；不是乾淨機或人工驗收",
+    "release_ready 為 false：base-clean-machine-manual 仍為 open，需大階段 C 的乾淨 Windows 10／11 實機與人工驗收證據",
+    "base-clean-machine-manual 的 A13-6 決定只確認限制文字，不能代替大階段 C 證據",
+    "Microsoft 探測為 CI installed-source-reconstruction 觀測（非 built-bundle），候選 bytes 由 b17d51b 的 a6_sha256 逐檔對照",
+    "GPU 未在實卡驗證；ONNX 繁中準確度為已知缺口；RAM 為軟性預算；安裝程式與 tesseract.exe 無程式碼簽章（見 A13-6）",
+    "決定列語意是否真出自使用者仍需人工查驗（見 D 節 2026-11-18 A13 逐條列）"
+  ],
+  "scope": "出口報告：列出 base 每個條目的分類與決定出處；不是乾淨機驗收，不改 spec、打包內容或既有計數。"
+}

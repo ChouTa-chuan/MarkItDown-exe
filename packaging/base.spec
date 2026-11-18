@@ -47,11 +47,13 @@ analysis.binaries, dropped_openssl = drop_untracked_openssl(analysis.binaries)
 print('Excluded untracked OpenSSL binaries:', dropped_openssl)
 # Windows：Universal CRT 由作業系統提供、不隨包；來源不在 CPython 或 wheel 的 VC runtime 改用
 # Visual Studio 可再散布目錄的檔案。必須在記錄 binary 來源之前做。
+# 根目錄的 vcruntime140*.dll 即使來自 CPython 官方安裝，也改用 Redist 版本（A13-1 b）；
+# 子目錄內 wheel 自帶的複本（numpy.libs、PySide6 等）照現狀保留，並在授權揭露中說明。
 if sys.platform == 'win32':
     import sysconfig
     analysis.binaries, dropped_ucrt = drop_os_ucrt(analysis.binaries)
     analysis.binaries, replaced_vc = official_vc_runtime(
-        analysis.binaries, find_vc_redist(), (sys.base_prefix, sysconfig.get_path('purelib')))
+        analysis.binaries, find_vc_redist(), (sys.base_prefix, sysconfig.get_path('purelib')), redist_for_root=True)
     print('Excluded OS Universal CRT files:', len(dropped_ucrt))
     print('VC runtime taken from the official redistributable directory:', replaced_vc)
 # 保存此輪真正收集的 binary 來源；更新資產雜湊後再交給 COLLECT。

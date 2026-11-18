@@ -22,7 +22,7 @@ from native_identity import describe
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_PATH = 'packaging/microsoft/base-windows.json'
-BASIS_PATH = 'docs/development-records/runs/a6-fixed-review-2026-11-17/base-source-review.json'
+BASIS_PATH = 'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json'
 MAX_BYTES = 256 * 1024
 MAX_ENCODED = 8 * 2900
 FLAGS = ('runtime_sbom_complete', 'redistribution_approved', 'release_ready')
@@ -243,9 +243,12 @@ def check_catalog(catalog, *, report, entry, root=ROOT):
                 'Microsoft wheel container differs from lock: '+dist)
     observed = gates.read_json(root/catalog['probe']['path'])
     validate_probe(observed)
-    # A12 起：探測的基準是 A6 的 source-review（A10 與 CI 觀測都在該基準上比對），基準檔自身的 selection 即其來源。
-    # 候選綁定不再要求基準與候選同一 commit，而由下方逐檔 a6_sha256、origin、distributions 與候選 bytes 核對完成。
+    # A13b 收回 A12 的放寬：探測的基準必須就是目錄（登記表）來源的審閱。
+    # 舊候選（例如 A6、A12）的探測基準會與 source_commit 不符，即使 hash 綁定正確也拒絕；
+    # 候選 bytes 的逐檔核對仍由下方 a6_sha256、origin、distributions 與候選原生檔完成。
     basis_source = gates.read_json(root/catalog['basis']['path'])['selection']['source_commit']
+    require(basis_source == catalog['source_commit'] and observed['basis']['source_commit'] == catalog['source_commit'],
+            'Probe basis source differs from the catalog source')
     require(observed['basis'] == {**catalog['basis'], 'source_commit': basis_source}, 'Probe basis differs')
     names = entry['native_files']
     require(sorted(r['file'] for r in catalog['files']) == sorted(names) == sorted(r['file'] for r in observed['files']),
