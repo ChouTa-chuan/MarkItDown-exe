@@ -4,6 +4,15 @@
 
 ## 更新中
 
+### 2026-11-18｜A12d wheel 內含元件執行期版本觀測
+
+- 變更：Codex 新增 `scripts/embedded_runtime.py`、反例與 workflow 觀測（fb4f510，run 44270551031）後中斷；Claude 接續把 libxml2、libxslt、numpy-lapack、libaom、dav1d 改為 runtime-observed，拆出 libexslt（unknown），新增證據目錄，登記表只做必要 hash 同步與證據引用，並改寫三條 required_evidence 描述。
+- 相對前版：基本包 wheel 內含未知元件 26→22；A13b 揭露清單相應縮短。
+- 驗證：觀測收據與證據檔逐位元組一致，承載原生檔 sha256 與 A12 候選相同；gates 兩 profile 四旗標皆 false；完整 Linux 混合與獨立模組回歸通過，數字見 progress.json。reviewer 查驗無必須修正。
+- 未完成：raqm、fribidi、libyuv 等仍 unknown；A13b、B1。
+
+- 2026-11-18：A12d 加入有界 Windows 版本 API 觀測、A12 原生檔 bytes 綁定及反例；先於 hosted Windows 蒐集觀測，未取得證據者不提升版本依據、不改安裝包。
+
 - 2026-11-18：記錄使用者 A13 各項決定：A13-1 選 b（根目錄 2 份 VC runtime 換官方 Redist，其餘揭露）、A13-2／A13-3／A13-5 接受、A13-4 選 b（先做 A12d）、A13-6 同意限制說明草稿、A13-7 同意公開產出測試版；A12d、A13b 交給 Codex。本次不改條目狀態。
 
 - 2026-11-18：修正進度頁「全階段規劃」版面：標題含長英文字（如 A12c 的 runtime_sbom_disclosed）時狀態標籤被擠出卡片；改為標題可斷行、標籤不縮小。

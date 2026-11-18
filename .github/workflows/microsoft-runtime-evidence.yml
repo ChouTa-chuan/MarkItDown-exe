@@ -8,6 +8,9 @@ on:
     paths:
       - '.github/workflows/microsoft-runtime-evidence.yml'
       - 'scripts/microsoft_runtime.py'
+      - 'scripts/embedded_runtime.py'
+      - 'tests/test_embedded_runtime.py'
+      - 'packaging/embedded/**'
       - 'tests/test_microsoft_runtime.py'
       - 'packaging/microsoft/**'
       - 'packaging/redistribution/obligations.json'
@@ -50,6 +53,16 @@ jobs:
           }
           New-Item -ItemType Directory -Force out/microsoft-reports | Out-Null
           & out/microsoft-env/Scripts/python.exe scripts/microsoft_runtime.py --installed-sources --expected-source "$env:EXPECTED_SOURCE" --output out/microsoft-reports/microsoft-runtime.json
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Observe embedded component version APIs against the fixed candidate
+        shell: pwsh
+        env:
+          EXPECTED_SOURCE: ${{ github.sha }}
+        run: |
+          if (-not ($env:EXPECTED_SOURCE -cmatch '^[0-9a-f]{40}\z') -or $env:EXPECTED_SOURCE.Length -ne 40) {
+            throw "EXPECTED_SOURCE must be a full 40-character hexadecimal commit"
+          }
+          & out/microsoft-env/Scripts/python.exe scripts/embedded_runtime.py --expected-source "$env:EXPECTED_SOURCE" --output out/microsoft-reports/embedded-runtime.json
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - uses: actions/upload-artifact@v4
         if: always()

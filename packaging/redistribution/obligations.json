@@ -177,12 +177,16 @@
           "file_groups": [],
           "required_evidence": [
             "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗",
-            "版本未知的內含元件（numpy-lapack、gcc-runtime-libgfortran、numpy-bundled-sources）需另行查證，查證前保持 open"
+            "版本未知的內含元件（gcc-runtime-libgfortran、numpy-bundled-sources；numpy-lapack 已由 A12d Windows 執行期觀測）需另行查證，查證前保持 open"
           ],
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
+              "sha256": "c2fef24fc13d44159fec9e1dee2bd602c0aaeaa3d2b68882a440d3f3d56c70a5"
+            },
+            {
+              "path": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
+              "sha256": "ebcc3abb203f4c512c8202c57291c2896d801db6553946b6c139f7a7c084803e"
             }
           ],
           "status": "open",
@@ -253,7 +257,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
+              "sha256": "c2fef24fc13d44159fec9e1dee2bd602c0aaeaa3d2b68882a440d3f3d56c70a5"
             }
           ],
           "status": "open",
@@ -280,12 +284,16 @@
           "file_groups": [],
           "required_evidence": [
             "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗",
-            "版本未知的內含元件（raqm、fribidi、libaom、dav1d、libyuv）需另行查證，查證前保持 open"
+            "版本未知的內含元件（raqm、fribidi、libyuv；libaom、dav1d 已由 A12d Windows 執行期觀測）需另行查證，查證前保持 open"
           ],
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
+              "sha256": "c2fef24fc13d44159fec9e1dee2bd602c0aaeaa3d2b68882a440d3f3d56c70a5"
+            },
+            {
+              "path": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
+              "sha256": "ebcc3abb203f4c512c8202c57291c2896d801db6553946b6c139f7a7c084803e"
             }
           ],
           "status": "open",
@@ -313,12 +321,16 @@
           "file_groups": [],
           "required_evidence": [
             "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗",
-            "版本未知的內含元件（libxml2、libxslt、zlib、libiconv）需另行查證，查證前保持 open"
+            "版本未知的內含元件（libexslt、zlib、libiconv；libxml2、libxslt 已由 A12d Windows 執行期觀測）需另行查證，查證前保持 open"
           ],
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
+              "sha256": "c2fef24fc13d44159fec9e1dee2bd602c0aaeaa3d2b68882a440d3f3d56c70a5"
+            },
+            {
+              "path": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
+              "sha256": "ebcc3abb203f4c512c8202c57291c2896d801db6553946b6c139f7a7c084803e"
             }
           ],
           "status": "open",
@@ -345,7 +357,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
+              "sha256": "c2fef24fc13d44159fec9e1dee2bd602c0aaeaa3d2b68882a440d3f3d56c70a5"
             },
             {
               "path": "docs/development-records/runs/a9b-openssl-2026-11-18/windows-observation.json",
@@ -378,7 +390,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
+              "sha256": "c2fef24fc13d44159fec9e1dee2bd602c0aaeaa3d2b68882a440d3f3d56c70a5"
             }
           ],
           "status": "open",
@@ -405,7 +417,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
+              "sha256": "c2fef24fc13d44159fec9e1dee2bd602c0aaeaa3d2b68882a440d3f3d56c70a5"
             }
           ],
           "status": "open",
@@ -432,7 +444,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
+              "sha256": "c2fef24fc13d44159fec9e1dee2bd602c0aaeaa3d2b68882a440d3f3d56c70a5"
             }
           ],
           "status": "open",
@@ -459,7 +471,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
+              "sha256": "c2fef24fc13d44159fec9e1dee2bd602c0aaeaa3d2b68882a440d3f3d56c70a5"
             }
           ],
           "status": "evidence_complete",
@@ -485,7 +497,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
+              "sha256": "c2fef24fc13d44159fec9e1dee2bd602c0aaeaa3d2b68882a440d3f3d56c70a5"
             }
           ],
           "status": "evidence_complete",

@@ -41,7 +41,8 @@ class EmbeddedCatalogTests(unittest.TestCase):
         summary = self.check()
         self.assertEqual(summary['wheels'], 10)
         self.assertEqual(summary['native_files'], 81)
-        self.assertEqual(summary['components'], 54)
+        # A12d 把 libxslt 與 libexslt 拆成兩個元件，元件總數由 54 變 55。
+        self.assertEqual(summary['components'], 55)
         # unknown 元件所屬條目必須是 open；evidence_complete 的條目只能是版本已知的 wheel
         closed = {e['id'] for e in self.entries if e['id'].startswith('base-wheels-') and e['status'] != 'open'}
         self.assertEqual(closed, {'base-wheels-charset-normalizer', 'base-wheels-psutil'})
@@ -49,8 +50,11 @@ class EmbeddedCatalogTests(unittest.TestCase):
         self.assertEqual(len(unknown), len(set(unknown)))
 
     def test_pillow_string_evidence_components_stay_unknown(self):
-        """Pillow 的 .pyd 字串顯示的元件沒有版本與原文，條目必須保持 open。"""
-        for cid in ('raqm', 'fribidi', 'libaom', 'dav1d', 'libyuv'):
+        """Pillow 的 .pyd 字串顯示的元件沒有版本與原文，條目必須保持 open。
+
+        libaom、dav1d 已由 A12d Windows 版本 API 觀測，不在此列。
+        """
+        for cid in ('raqm', 'fribidi', 'libyuv'):
             component = self.component(self.catalog, 'pillow', cid)
             self.assertEqual(component['version_basis'], 'unknown')
             self.assertIsNone(component['version'])
@@ -157,7 +161,8 @@ class EmbeddedCatalogTests(unittest.TestCase):
 
     def test_rejects_unknown_basis_that_carries_a_version(self):
         catalog = copy.deepcopy(self.catalog)
-        self.component(catalog, 'numpy', 'numpy-lapack')['version'] = '3.12.0'
+        # numpy-lapack 已觀測；改用仍為 unknown 的 raqm 驗證判定。
+        self.component(catalog, 'pillow', 'raqm')['version'] = '1.0.0'
         self.assertRejects('Unknown version must not carry a version', catalog=catalog)
 
     def test_rejects_declared_basis_without_version_source(self):
