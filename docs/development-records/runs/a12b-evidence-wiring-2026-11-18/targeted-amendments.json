@@ -1,0 +1,19 @@
+{
+  "baseline_commit": "6e6945691f833ecb8d7b470389450349efd33b76",
+  "microsoft_catalog": {
+    "path": "packaging/microsoft/base-windows.json",
+    "original_sha256": "bba34332e80a1b0691edf39013a22cf12b843288896e25b1b40d60b7798c3ed7",
+    "change": "limitations text only; facts unchanged"
+  },
+  "exit_report": {
+    "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-exit-report.json",
+    "original_sha256": "c28d1d559d0812396947c5e73e56463eda4ffa1e5bbfa66524a23217cc29fcb8",
+    "original_git_blob": "415a6f09027708d9603ee92a0c0c659874a09876",
+    "change": "manual closure-stage annotation only; original A12 numerical values preserved"
+  },
+  "original_manifest": {
+    "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/manifest.json",
+    "sha256": "3ddbff9938e912e0eae284cfdac12ce5797d545376911a561c2289b902d80b93",
+    "change": "Only the amended exit-report SHA is refreshed"
+  }
+}

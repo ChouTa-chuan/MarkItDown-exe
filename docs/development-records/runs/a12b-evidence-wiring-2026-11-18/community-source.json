@@ -1,0 +1,25 @@
+{
+  "retrieved_date_taipei": "2026-11-18",
+  "landing": {
+    "requested_url": "https://visualstudio.microsoft.com/license-terms/vs2022-ga-community/",
+    "url": "https://visualstudio.microsoft.com/license-terms/vs2022-ga-community/",
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 236054,
+    "sha256": "282577a681672e0901531315bdcbd53b693f9cc454c43d9f0a9cf6ffcc3e6e95"
+  },
+  "landing_html_saved": false,
+  "document": {
+    "requested_url": "https://visualstudio.microsoft.com/wp-content/uploads/2021/11/Visual-Studio-2022-Community-License-EN.docx",
+    "url": "https://visualstudio.microsoft.com/wp-content/uploads/2021/11/Visual-Studio-2022-Community-License-EN.docx",
+    "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "last_modified": "Tue, 12 Jul 2022 14:15:22 GMT",
+    "bytes": 62859,
+    "sha256": "41a207b10c8ab91d0d2f10a854715f73dca54509581692d2fe179aa3ffcb8540",
+    "retrieved_date_taipei": "2026-11-18"
+  },
+  "file": "official-vs2022-community.docx",
+  "eula_id": "VS_Comm_2022_ENU.1033",
+  "source_link_observation": "官方頁的 Embedded Document iframe 之 src 參數指向同一 visualstudio.microsoft.com 網域 DOCX；未以 Office viewer 當授權來源。",
+  "applicability_assessed": false,
+  "redistribution_approved": false
+}

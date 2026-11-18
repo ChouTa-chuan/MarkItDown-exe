@@ -1,0 +1,157 @@
+{
+  "source_commit": "23da7416048a46ed123275632490fb28a790e289",
+  "profiles": {
+    "base": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "blocked_before": {
+        "runtime_sbom_complete": [
+          "base-source-attribution",
+          "base-microsoft",
+          "base-cpython",
+          "base-wheels-numpy",
+          "base-wheels-pandas",
+          "base-wheels-pillow",
+          "base-wheels-lxml",
+          "base-wheels-cryptography",
+          "base-wheels-onnxruntime",
+          "base-wheels-pypdfium2",
+          "base-wheels-cffi",
+          "base-archives",
+          "base-qt",
+          "base-tesseract-models"
+        ],
+        "redistribution_approved": [
+          "base-microsoft",
+          "base-cpython",
+          "base-wheels-numpy",
+          "base-wheels-pandas",
+          "base-wheels-pillow",
+          "base-wheels-lxml",
+          "base-wheels-cryptography",
+          "base-wheels-onnxruntime",
+          "base-wheels-pypdfium2",
+          "base-wheels-cffi",
+          "base-archives",
+          "base-qt",
+          "base-tesseract-models",
+          "base-own-mit-binding",
+          "base-redistribution-decision"
+        ],
+        "release_ready": [
+          "base-clean-machine-manual"
+        ]
+      },
+      "blocked_after": {
+        "runtime_sbom_complete": [
+          "base-microsoft",
+          "base-cpython",
+          "base-wheels-numpy",
+          "base-wheels-pandas",
+          "base-wheels-pillow",
+          "base-wheels-lxml",
+          "base-wheels-cryptography",
+          "base-wheels-onnxruntime",
+          "base-wheels-pypdfium2",
+          "base-wheels-cffi",
+          "base-qt",
+          "base-tesseract-models"
+        ],
+        "redistribution_approved": [
+          "base-microsoft",
+          "base-cpython",
+          "base-wheels-numpy",
+          "base-wheels-pandas",
+          "base-wheels-pillow",
+          "base-wheels-lxml",
+          "base-wheels-cryptography",
+          "base-wheels-onnxruntime",
+          "base-wheels-pypdfium2",
+          "base-wheels-cffi",
+          "base-qt",
+          "base-tesseract-models",
+          "base-redistribution-decision"
+        ],
+        "release_ready": [
+          "base-clean-machine-manual"
+        ]
+      },
+      "resolved": {
+        "runtime_sbom_complete": [
+          "base-archives",
+          "base-source-attribution"
+        ],
+        "redistribution_approved": [
+          "base-archives",
+          "base-own-mit-binding"
+        ],
+        "release_ready": []
+      },
+      "input_counts_unchanged": true
+    },
+    "cpu": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "blocked_before": {
+        "runtime_sbom_complete": [
+          "cpu-source-attribution",
+          "cpu-microsoft",
+          "cpu-cpython",
+          "cpu-wheels",
+          "cpu-archives",
+          "cpu-geos",
+          "cpu-rapidocr-models"
+        ],
+        "redistribution_approved": [
+          "cpu-microsoft",
+          "cpu-cpython",
+          "cpu-wheels",
+          "cpu-archives",
+          "cpu-geos",
+          "cpu-rapidocr-models",
+          "cpu-flatbuffers",
+          "cpu-redistribution-decision"
+        ],
+        "release_ready": [
+          "cpu-clean-machine-manual"
+        ]
+      },
+      "blocked_after": {
+        "runtime_sbom_complete": [
+          "cpu-source-attribution",
+          "cpu-microsoft",
+          "cpu-cpython",
+          "cpu-wheels",
+          "cpu-archives",
+          "cpu-geos",
+          "cpu-rapidocr-models"
+        ],
+        "redistribution_approved": [
+          "cpu-microsoft",
+          "cpu-cpython",
+          "cpu-wheels",
+          "cpu-archives",
+          "cpu-geos",
+          "cpu-rapidocr-models",
+          "cpu-flatbuffers",
+          "cpu-redistribution-decision"
+        ],
+        "release_ready": [
+          "cpu-clean-machine-manual"
+        ]
+      },
+      "resolved": {
+        "runtime_sbom_complete": [],
+        "redistribution_approved": [],
+        "release_ready": []
+      },
+      "input_counts_unchanged": true
+    }
+  }
+}
