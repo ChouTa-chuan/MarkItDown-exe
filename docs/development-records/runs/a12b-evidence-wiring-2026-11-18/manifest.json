@@ -1,8 +1,8 @@
 {
   "date_taipei": "2026-11-18",
-  "source_commit": "6e6945691f833ecb8d7b470389450349efd33b76",
+  "source_commit": "23da7416048a46ed123275632490fb28a790e289",
   "candidate_source": "2555687eafc931600f30265f7bd290331cd49a0f",
-  "result": "evidence-wired; verification in progress",
+  "result": "evidence wiring and full regression verified; final integration in PR 26",
   "keywords": [
     "A12b",
     "證據接線",
@@ -10,10 +10,13 @@
     "Community"
   ],
   "files": {
-    "README.md": "96159870f8a345f6547489b19deb8ae20246931fb78b4ae083df1dc1c1a756f8",
+    "README.md": "34fa20907156334a26662942b09a33335d02c90225a720baa44e234746bf6784",
     "community-source.json": "9c4b38eefaee0f3ed73ae8de72828ee65577ea2971c09be2f6965c0041097a07",
     "community-summary.md": "795a317b07943189430771fc28a53bdb1200e2da3689958e6a8de8e6826144a7",
     "evidence-assessment.json": "1098fe82c8490e5ea50d2b4b54c3c948ddabcb8565e1a34a48a4a6d9fd21765f",
+    "gates-summary.json": "9b9be8b5e2226d79cd5049d99cea3feea2f3846a280c0e8ca328e16d2378a311",
+    "isolated-summary.json": "13544dbb0a3ec52a81ad9ea99238e778a0487477cccecc19819667388109f54b",
+    "mixed-result.json": "1662bd68f601734c2d4375043904ba2ccd58bc2318bb5d1e2146a0c8e2e2e26a",
     "official-vs2022-community.docx": "41a207b10c8ab91d0d2f10a854715f73dca54509581692d2fe179aa3ffcb8540",
     "origin-known-review.json": "b536a739b7b99575353bc0b5adb52184acae8b383f2deacf2054214771355e68",
     "targeted-amendments.json": "ebf93302d1a0644c92f92541281cb3866ef152fc818362370b48e57765292789"

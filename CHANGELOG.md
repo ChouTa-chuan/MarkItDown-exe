@@ -4,7 +4,16 @@
 
 ## 更新中
 
-- 2026-11-18：A12b 把既有 A12 來源／封存／MIT 證據接入登記表，逐列評估 origin-known；CPython／Tesseract 補引用且維持 open，CPython 依使用者決定標為需 A13 決定。取得官方 VS2022 Community 原文與條款摘要，不判斷適用性。依 C 節定點補註舊出口報告與 manifest hash，原版由 Git commit／blob／SHA 保留；修正 Microsoft limitations、cryptography／MIT 過時文字及測試名稱，不動原始來源事實或打包內容。gates base／cpu 皆 false，完整回歸進行中。
+
+
+### 2026-11-18｜A12b 既有證據接線與 Community 原文
+
+- 把 A12 來源／封存／MIT 證據接進登記表，逐列評估 origin-known 而不改原始分類；只完成三個工程條目，CPython／Tesseract 原文引用補齊但維持 open，CPython 依使用者決定改為需 A13 決定。既有 requires_user_decision=true 條目的狀態全不改。
+- 官方 VS2022 Community DOCX 保存來源網址、取得日期及 SHA，摘要只陳述使用資格、可散布程式碼與要求／限制，不判斷使用者、CI 或 DLL 的適用性，不核准再散布。
+- 修正 cryptography 的過時 openssl 未知需求、MIT 候選描述、m5 與測試名稱；Microsoft 目錄只改 limitations 敘述，原生檔事實不動，base-microsoft 的目錄引用 SHA 同步。其他既有條目僅 hash 同步：無。
+- 依使用者 C 節明確指定，只補註舊 A12 base-exit-report 的 base-clean-machine-manual 到大階段 C 才能關閉，對應 manifest 機械刷新該 SHA；原版 commit／blob／SHA 記在新證據，不重複存舊完整 JSON。A12 原始狀態、數字、來源與其他原始證據不變。
+- 新證據 hash 變異與逐列對照反例、完整混合與獨立模組回歸通過；數字／來源見 progress.json。gates base／cpu 三旗標 false，原 coverage 與 inventory_summary 不變；解除與剩餘阻擋見新證據及 PR 26。spec、鎖檔、打包內容與固定候選不改。
+- STATUS 先存檔再更新，D 節原文保留，補記使用者指定的 A12c 停止點；進度與歷史索引同步。A12b Merge 後才另開 A12c 分支；不交付產品、不建 Release 或 tag，既有 ONNX／RAM／實機限制維持。
 
 - 2026-11-18：進度頁「全階段規劃」把原本的「需使用者」分成「需使用者決定」（A12d、A13、D1、D2，回答問題即可）與「需使用者實機測試」（B4、C1–C3）；`build_progress.py` 保留舊值 user 以相容。
 
