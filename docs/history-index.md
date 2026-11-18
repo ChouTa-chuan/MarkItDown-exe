@@ -6,7 +6,7 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 127 筆。
+共 128 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -17,6 +17,7 @@
 | 2026-11-18 | 證據 | A9b cryptography 內含 OpenSSL 原文 | 7125978 | 接受、Windows已執行 | A9b、cryptography、OpenSSL、LICENSE、runtime-observed、Windows API、原文隨包、共用hash | [development-records/runs/a9b-openssl-2026-11-18/README.md](development-records/runs/a9b-openssl-2026-11-18/README.md) |
 | 2026-11-18 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-18-a11-before-a12.md](history/status/2026-11-18-a11-before-a12.md) |
 | 2026-11-18 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-18-a12-before-a13-plan.md](history/status/2026-11-18-a12-before-a13-plan.md) |
+| 2026-11-18 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-18-a13-decisions.md](history/status/2026-11-18-a13-decisions.md) |
 | 2026-11-18 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-18-before-a11-complete.md](history/status/2026-11-18-before-a11-complete.md) |
 | 2026-11-18 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-18-before-a12b-complete.md](history/status/2026-11-18-before-a12b-complete.md) |
 | 2026-11-18 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-18-before-a12c-complete.md](history/status/2026-11-18-before-a12c-complete.md) |

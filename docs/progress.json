@@ -2,9 +2,9 @@
   "updated": "2026-11-18",
   "environment": "Linux 完整混合／獨立模組回歸；hosted Windows CI 只做整合驗證，非實體機／乾淨機／GPU／人工驗收",
   "tests_passed": 897,
-  "headline": "A12b 已 Merge（PR 26）；A12c 揭露式規則完成（PR 27），A13 決定仍待使用者",
+  "headline": "PR 1–27 已合併；A12b、A12c 完成，使用者已完成 A13 各項決定，下一步 A12d → A13b → B1",
   "blocker": "A13 使用者決定、實際隨包揭露及重定候選尚待；實際 base／cpu 原三旗標與 disclosed 均 false，實機／人工／GPU 未驗收。",
-  "next": "A12c（PR 27）最終 CI／查驗及 Merge 後停止；等待使用者決定 A12d／A13，A13b 與 B1 尚未開始。",
+  "next": "A12d 執行期版本觀測（Codex）→ A13b 加入揭露檔、替換 Microsoft 檔案並重新固定候選（Codex）→ B1 公開產出基本包測試版",
   "milestones": [
     {
       "id": "m0",
@@ -2756,19 +2756,21 @@
           {
             "id": "A12d",
             "title": "wheel 內含元件執行期版本觀測（選配）",
-            "status": "decide",
-            "note": "待使用者決定是否做"
+            "status": "active",
+            "note": "使用者選擇執行；Codex 進行"
           },
           {
             "id": "A13",
             "title": "使用者確認基本包門檻",
-            "status": "decide",
-            "note": "回答 A13-1～A13-7 的問題，不需要安裝；A13-0 已同意"
+            "status": "done",
+            "note": "使用者已逐項決定（D 節）",
+            "pr": 29
           },
           {
             "id": "A13b",
             "title": "依決定調整並重新固定候選",
-            "status": "pending"
+            "status": "next",
+            "note": "A12d 之後；Codex"
           },
           {
             "id": "A14",
