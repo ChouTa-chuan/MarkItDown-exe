@@ -1,0 +1,21 @@
+{
+  "date_taipei": "2026-11-18",
+  "source_commit": "6e6945691f833ecb8d7b470389450349efd33b76",
+  "candidate_source": "2555687eafc931600f30265f7bd290331cd49a0f",
+  "result": "evidence-wired; verification in progress",
+  "keywords": [
+    "A12b",
+    "證據接線",
+    "origin-known",
+    "Community"
+  ],
+  "files": {
+    "README.md": "96159870f8a345f6547489b19deb8ae20246931fb78b4ae083df1dc1c1a756f8",
+    "community-source.json": "9c4b38eefaee0f3ed73ae8de72828ee65577ea2971c09be2f6965c0041097a07",
+    "community-summary.md": "795a317b07943189430771fc28a53bdb1200e2da3689958e6a8de8e6826144a7",
+    "evidence-assessment.json": "1098fe82c8490e5ea50d2b4b54c3c948ddabcb8565e1a34a48a4a6d9fd21765f",
+    "official-vs2022-community.docx": "41a207b10c8ab91d0d2f10a854715f73dca54509581692d2fe179aa3ffcb8540",
+    "origin-known-review.json": "b536a739b7b99575353bc0b5adb52184acae8b383f2deacf2054214771355e68",
+    "targeted-amendments.json": "ebf93302d1a0644c92f92541281cb3866ef152fc818362370b48e57765292789"
+  }
+}

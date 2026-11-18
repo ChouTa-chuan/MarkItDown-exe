@@ -50,7 +50,7 @@ class GateTests(unittest.TestCase):
         ref = dict(self.write(path or self.ARCHIVE, text), quote=quote)
         gates.reference(ref, self.temp, decision=True)
 
-    def test_actual_a6_profiles_have_exact_coverage_and_false_flags(self):
+    def test_actual_a12_profiles_have_exact_coverage_and_false_flags(self):
         for profile in ('base', 'cpu'):
             with self.subTest(profile=profile):
                 result = self.assess(profile)
@@ -59,6 +59,47 @@ class GateTests(unittest.TestCase):
                 self.assertEqual(set(result['coverage']['review_reasons']), set(self.reports[profile]['review_reasons']))
                 self.assertTrue(result['unclosed_obligations'])
                 self.assertTrue(all(result[f] is False for f in gates.FLAGS))
+
+    def test_a12b_origin_known_assessment_covers_the_preserved_rows(self):
+        """逐列來源對照是工程證據，不重寫分類器的 origin-known 或替代授權決定。"""
+        path = ROOT/'docs/development-records/runs/a12b-evidence-wiring-2026-11-18/origin-known-review.json'
+        proof = gates.read_json(path)
+        report = self.reports['base']
+        expected = {r['path']:r for r in report['classification']['files'] if r['status'] == 'origin-known'}
+        actual = {r['path']:r for r in proof['rows']}
+        self.assertEqual(set(actual), set(expected))
+        self.assertEqual(len(proof['rows']), len(expected))
+        self.assertEqual(proof['source_commit'], report['selection']['source_commit'])
+        self.assertFalse(proof['redistribution_approved'])
+        gates.reference(proof['source_review'], ROOT)
+        native = {r['file']:r for r in report['classification_input']['report']['native_files']}
+        for name, row in actual.items():
+            self.assertEqual((row['sha256'], row['category'], row['original_status']),
+                             (expected[name]['sha256'], expected[name]['category'], 'origin-known'))
+            self.assertTrue(row['reason'].strip())
+            self.assertIs(row['source_attribution_assessed'], True)
+            for ref in row['supporting_evidence']:
+                gates.reference(ref, ROOT)
+            if name.removeprefix('_internal/') in native:
+                source = native[name.removeprefix('_internal/')]
+                self.assertEqual(row['details']['source_sha256'], source['source_sha256'])
+                self.assertEqual(row['details']['bundled_sha256'], row['sha256'])
+            if row['category'] == 'cpython-component-evidence':
+                self.assertEqual(row['details']['component_evidence']['version_status'], 'build-declaration-only')
+                self.assertIsNone(row['details']['component_evidence']['observed_version'])
+                self.assertEqual(row['remaining_obligation'], 'base-cpython')
+
+    def test_newly_wired_evidence_with_changed_hash_is_rejected(self):
+        """接好路徑不等於驗收通過；每一類新引用都必須真的檢查 bytes 的 hash。"""
+        for identity in ('base-source-attribution', 'base-archives', 'base-own-mit-binding',
+                         'base-cpython', 'base-tesseract-models', 'base-microsoft'):
+            with self.subTest(identity=identity):
+                registry = copy.deepcopy(self.registry)
+                entry = next(e for e in registry['profiles']['base']['entries'] if e['id'] == identity)
+                self.assertTrue(entry['evidence'])
+                entry['evidence'][-1]['sha256'] = '0'*64
+                with self.assertRaisesRegex(ValueError, 'Evidence hash mismatch'):
+                    gates.assess(self.reports['base'], registry)
 
     def test_new_native_file_is_rejected(self):
         raw = self.reports['base']['classification_input']['report']
@@ -168,7 +209,7 @@ class GateTests(unittest.TestCase):
                 gates.assess(self.reports['base'], mutate(name), root=self.temp)
 
     def test_closed_status_without_evidence_is_rejected(self):
-        self.registry['profiles']['base']['entries'][0].update(status='evidence_complete')
+        self.registry['profiles']['base']['entries'][0].update(status='evidence_complete', evidence=[])
         with self.assertRaisesRegex(ValueError, 'without evidence'):
             self.assess()
 

@@ -16,8 +16,17 @@
           "required_evidence": [
             "逐列來源分類、來源版本與證據對照；可接受有來源依據的非 wheel 檔案，不以未對照計數歸零代替審閱"
           ],
-          "evidence": [],
-          "status": "open",
+          "evidence": [
+            {
+              "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json",
+              "sha256": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59"
+            },
+            {
+              "path": "docs/development-records/runs/a12b-evidence-wiring-2026-11-18/origin-known-review.json",
+              "sha256": "b536a739b7b99575353bc0b5adb52184acae8b383f2deacf2054214771355e68"
+            }
+          ],
+          "status": "evidence_complete",
           "requires_user_decision": false,
           "decision_source": null,
           "gates": [
@@ -54,7 +63,19 @@
           "evidence": [
             {
               "path": "packaging/microsoft/base-windows.json",
-              "sha256": "bba34332e80a1b0691edf39013a22cf12b843288896e25b1b40d60b7798c3ed7"
+              "sha256": "9186ee51264e642df42cd721a0cff3176e819386f764b75a908e58b15b5145a4"
+            },
+            {
+              "path": "docs/development-records/runs/a12b-evidence-wiring-2026-11-18/community-source.json",
+              "sha256": "9c4b38eefaee0f3ed73ae8de72828ee65577ea2971c09be2f6965c0041097a07"
+            },
+            {
+              "path": "docs/development-records/runs/a12b-evidence-wiring-2026-11-18/official-vs2022-community.docx",
+              "sha256": "41a207b10c8ab91d0d2f10a854715f73dca54509581692d2fe179aa3ffcb8540"
+            },
+            {
+              "path": "docs/development-records/runs/a12b-evidence-wiring-2026-11-18/community-summary.md",
+              "sha256": "795a317b07943189430771fc28a53bdb1200e2da3689958e6a8de8e6826144a7"
             }
           ],
           "status": "open",
@@ -100,9 +121,30 @@
           "required_evidence": [
             "CPython 版本、原文、元件／靜態連結來源與版本對照；libffi 建置宣告限制明列"
           ],
-          "evidence": [],
+          "evidence": [
+            {
+              "path": "packaging/cpython/windows-3.12.10/profile.json",
+              "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a"
+            },
+            {
+              "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json",
+              "sha256": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59"
+            },
+            {
+              "path": "packaging/cpython/windows-3.12.10/original/openssl.txt",
+              "sha256": "ed72ce2b51ee58f117e5a021e2e04af158857f40269fbc03491f0b2a99dbcc96"
+            },
+            {
+              "path": "packaging/cpython/windows-3.12.10/original/libffi.txt",
+              "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388"
+            },
+            {
+              "path": "packaging/cpython/windows-3.12.10/original/sqlite.txt",
+              "sha256": "cc65d76f325d884dd49e319acf3764d5513920f34ad18e34347b8dedc6ddd2ec"
+            }
+          ],
           "status": "open",
-          "requires_user_decision": false,
+          "requires_user_decision": true,
           "decision_source": null,
           "gates": [
             "runtime_sbom_complete",
@@ -291,7 +333,7 @@
           "file_groups": [],
           "required_evidence": [
             "逐原生檔對應 wheel 內含元件、版本依據分級與上游來源，依 packaging/embedded/base-windows.json 重驗",
-            "版本未知的內含元件（openssl、rust-dependencies）需另行查證，查證前保持 open"
+            "版本未知的內含元件（rust-dependencies）需另行查證，查證前保持 open"
           ],
           "evidence": [
             {
@@ -454,8 +496,21 @@
           "required_evidence": [
             "PYZ／base_library 成員及來源版本／原文閉包，建置工具是否進入 runtime 需查證"
           ],
-          "evidence": [],
-          "status": "open",
+          "evidence": [
+            {
+              "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json",
+              "sha256": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59"
+            },
+            {
+              "path": "docs/development-records/runs/a12b-evidence-wiring-2026-11-18/evidence-assessment.json",
+              "sha256": "1098fe82c8490e5ea50d2b4b54c3c948ddabcb8565e1a34a48a4a6d9fd21765f"
+            },
+            {
+              "path": "scripts/python_archive_inventory.py",
+              "sha256": "d10994fa9b9fc72970beed61a69da779e4b242a5c6db7adf70c58aea64c1024e"
+            }
+          ],
+          "status": "evidence_complete",
           "requires_user_decision": false,
           "decision_source": null,
           "gates": [
@@ -533,7 +588,108 @@
           "required_evidence": [
             "原生工具與靜態連結工具鏈來源／版本／原文、模型提交／hash／原文與限制"
           ],
-          "evidence": [],
+          "evidence": [
+            {
+              "path": "packaging/native/minimal-windows.json",
+              "sha256": "76d21f28442a2cb0e72e54928e976f110c0c3386661ef5700cf78d3fc6ed45da"
+            },
+            {
+              "path": "src/desktop_app/data/ocr-four-languages.json",
+              "sha256": "e9aa2d459a39bf564310b4b7a24695dd6545087bcf9ae12b77eba6ef1faaac47"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/models/tessdata-fast-Apache-2.0.txt",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            },
+            {
+              "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json",
+              "sha256": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59"
+            },
+            {
+              "path": "packaging/native/minimal-notices/leptonica-LICENSE.txt",
+              "sha256": "87829abb5bbb00b55a107365da89e9a33f86c4250169e5a1e5588505be7d5806"
+            },
+            {
+              "path": "packaging/native/minimal-notices/libpng-LICENSE.txt",
+              "sha256": "bdb0a645ea18c60507d0368379b1ac5474b92255fcc2d115e07486a7672ba526"
+            },
+            {
+              "path": "packaging/native/minimal-notices/zlib-LICENSE.txt",
+              "sha256": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2"
+            },
+            {
+              "path": "packaging/native/minimal-notices/tesseract-LICENSE.txt",
+              "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+            },
+            {
+              "path": "packaging/native/minimal-notices/tesseract-AUTHORS.txt",
+              "sha256": "720862b7253993b348fe15f37ed6e0d4feb0fc8df8324284d75975d54dd29923"
+            },
+            {
+              "path": "packaging/native/minimal-notices/toolchain-COPYING",
+              "sha256": "99a69660981156c21336fdb5661f89341b013c94e4bf9e1c7467b4745718397f"
+            },
+            {
+              "path": "packaging/native/minimal-notices/toolchain-COPYING.MinGW-w64.txt",
+              "sha256": "f38e6194bd3bfa1b654f118e5acefe0aead437bbe669eee43957ccc65a7127f1"
+            },
+            {
+              "path": "packaging/native/minimal-notices/toolchain-COPYING.MinGW-w64-runtime.txt",
+              "sha256": "1db8da07b436c68833c0673ffee3d9fcb2526047f3820b81661865dfedc79a1f"
+            },
+            {
+              "path": "packaging/native/minimal-notices/toolchain-COPYING.winpthreads.txt",
+              "sha256": "63263614cdd29f2f93cba85e992f041b31f9fc7b4033692f31269489a8a1b177"
+            },
+            {
+              "path": "packaging/native/minimal-notices/toolchain-COPYING.winstorecompat.txt",
+              "sha256": "fa7368d1f93d890c173177475d8ec7aff265a7d08f1f364d66f74d138978ce36"
+            },
+            {
+              "path": "packaging/native/minimal-notices/toolchain-LLVM-LICENSE.TXT",
+              "sha256": "8d85c1057d742e597985c7d4e6320b015a9139385cff4cbae06ffc0ebe89afee"
+            },
+            {
+              "path": "packaging/native/minimal-notices/libcxx-LICENSE.TXT",
+              "sha256": "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b"
+            },
+            {
+              "path": "packaging/native/minimal-notices/libcxxabi-LICENSE.TXT",
+              "sha256": "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c"
+            },
+            {
+              "path": "packaging/native/minimal-notices/compiler-rt-LICENSE.TXT",
+              "sha256": "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d"
+            },
+            {
+              "path": "packaging/native/minimal-notices/libunwind-LICENSE.TXT",
+              "sha256": "b5efebcaca80879234098e52d1725e6d9eb8fb96a19fce625d39184b705f7b6d"
+            },
+            {
+              "path": "packaging/native/minimal-notices/mingw-COPYING",
+              "sha256": "99a69660981156c21336fdb5661f89341b013c94e4bf9e1c7467b4745718397f"
+            },
+            {
+              "path": "packaging/native/minimal-notices/recipe-build-llvm.sh.txt",
+              "sha256": "1ea92bd008ccff60f1b14167bfdd1635461e0e3619897734f57df204821fc487"
+            },
+            {
+              "path": "packaging/native/minimal-notices/recipe-build-mingw-w64.sh.txt",
+              "sha256": "cfd4cd14c833c4d0f7a9b5bf646cb828d6f0a948530ea3b064979fe6b34360c3"
+            },
+            {
+              "path": "packaging/native/minimal-notices/recipe-build-libcxx.sh.txt",
+              "sha256": "8af09b1afb92659a976f38897e5cee7ee202428153b6dfc510da88b09079bf7c"
+            },
+            {
+              "path": "packaging/native/minimal-notices/recipe-build-compiler-rt.sh.txt",
+              "sha256": "090356aef7ddadaa597f5f8be51b3d3bec9aa0dc6846f55eb5d296653d945055"
+            },
+            {
+              "path": "packaging/native/minimal-notices/recipe-LICENSE.txt.txt",
+              "sha256": "8e5db0129069005be2a07be3297e198888fd72fad62a13a611504660c6b7e3c7"
+            }
+          ],
           "status": "open",
           "requires_user_decision": true,
           "decision_source": null,
@@ -549,10 +705,23 @@
           "review_reasons": [],
           "file_groups": [],
           "required_evidence": [
-            "本次候選的 MIT 原文、套件綁定與 hash 驗收；A6 候選未包含 A7 修正"
+            "本次候選的 MIT 原文、套件綁定與 hash 驗收；A12 固定候選已包含 A7 修正"
           ],
-          "evidence": [],
-          "status": "open",
+          "evidence": [
+            {
+              "path": "LICENSE",
+              "sha256": "93953f882c7d4d5fd708364d5c39525e088ec5da25dbeb8e017dd68a6a03d230"
+            },
+            {
+              "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json",
+              "sha256": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59"
+            },
+            {
+              "path": "docs/development-records/runs/a12b-evidence-wiring-2026-11-18/evidence-assessment.json",
+              "sha256": "1098fe82c8490e5ea50d2b4b54c3c948ddabcb8565e1a34a48a4a6d9fd21765f"
+            }
+          ],
+          "status": "evidence_complete",
           "requires_user_decision": false,
           "decision_source": null,
           "gates": [

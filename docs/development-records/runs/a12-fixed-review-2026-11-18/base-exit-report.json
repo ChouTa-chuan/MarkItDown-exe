@@ -290,7 +290,8 @@
       ],
       "category": "a13_decision_open",
       "evidence_refs": 0,
-      "a13_note": "乾淨機、人工與限制揭露；屬大階段 C，release_ready 專用，hosted Windows CI 不代替"
+      "a13_note": "A13-6 僅確認限制揭露文字；本條必須到大階段 C 取得乾淨 Windows 與人工驗收紀錄才可關閉，hosted CI 不代替實機／人工。",
+      "closure_stage": "C"
     }
   ],
   "a13_items": [
@@ -348,7 +349,7 @@
       "entries": [
         "base-clean-machine-manual"
       ],
-      "basis": "屬大階段 C；release_ready 之前必須由使用者確認揭露內容"
+      "basis": "只確認限制揭露文字；不提前關閉 base-clean-machine-manual，該條到大階段 C 才能關閉。"
     },
     {
       "id": "A13-7",
@@ -387,5 +388,15 @@
     "base-own-mit-binding 的選擇器已因候選含 A7 修正而過期並移除；狀態仍 open，是否關閉由查驗者決定",
     "Microsoft 目錄的探測基準仍為 A6 source-review（A10 與 CI 觀測皆在該基準上比對），候選綁定由逐檔 bytes 比對完成"
   ],
-  "scope": "出口報告：列出 base 每個條目的分類與 A13 待決事項；不是再散布核准，也不改變 spec、打包內容或既有計數。"
+  "scope": "出口報告：列出 base 每個條目的分類與 A13 待決事項；不是再散布核准，也不改變 spec、打包內容或既有計數。",
+  "amendments": [
+    {
+      "date_taipei": "2026-11-18",
+      "stage": "A12b",
+      "note": "依使用者 C 節指定補註人工驗收的關閉階段。A12 當時的狀態、計數、輸出旗標與原始來源保持不變。",
+      "original_commit": "6e6945691f833ecb8d7b470389450349efd33b76",
+      "original_git_blob": "415a6f09027708d9603ee92a0c0c659874a09876",
+      "original_sha256": "c28d1d559d0812396947c5e73e56463eda4ffa1e5bbfa66524a23217cc29fcb8"
+    }
+  ]
 }

@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-18：A12b 把既有 A12 來源／封存／MIT 證據接入登記表，逐列評估 origin-known；CPython／Tesseract 補引用且維持 open，CPython 依使用者決定標為需 A13 決定。取得官方 VS2022 Community 原文與條款摘要，不判斷適用性。依 C 節定點補註舊出口報告與 manifest hash，原版由 Git commit／blob／SHA 保留；修正 Microsoft limitations、cryptography／MIT 過時文字及測試名稱，不動原始來源事實或打包內容。gates base／cpu 皆 false，完整回歸進行中。
+
 - 2026-11-18：進度頁「全階段規劃」把原本的「需使用者」分成「需使用者決定」（A12d、A13、D1、D2，回答問題即可）與「需使用者實機測試」（B4、C1–C3）；`build_progress.py` 保留舊值 user 以相容。
 
 - 2026-11-18：Claude planner 完成大階段 A 第二次複查：A8–A12 通過，但現行旗標規則使含版本未知元件的條目永遠無法關閉，B1 無法進入。使用者同意插入 A12b（證據接線，並把 base-cpython 改為需使用者決定）與 A12c（揭露式關閉規則），A13 拆為 A13-0～A13-7（A13-0 已同意）；A12b、A12c 交給 Codex。
