@@ -98,6 +98,30 @@ class MicrosoftRuntimeTests(unittest.TestCase):
         trusted = [('vcruntime140.dll', str(self.python / 'vcruntime140.dll'), 'BINARY')]
         self.assertEqual(subject.official_vc_runtime(trusted, None, (self.python, self.site)), (trusted, []))
 
+    def test_root_vc_runtime_from_cpython_is_replaced_only_when_requested(self):
+        (self.redist / 'vcruntime140.dll').write_bytes(b'x')
+        entries = [('vcruntime140.dll', str(self.python / 'vcruntime140.dll'), 'BINARY'),
+                   ('pkg/msvcp140.dll', str(self.site / 'pkg' / 'msvcp140.dll'), 'BINARY'),
+                   ('sub/vcruntime140.dll', str(self.python / 'vcruntime140.dll'), 'BINARY')]
+        # 預設關閉時行為與舊版相同：CPython 安裝下的根目錄複本保持原樣。
+        self.assertEqual(subject.official_vc_runtime(entries, self.redist, (self.python, self.site)), (entries, []))
+        result, replaced = subject.official_vc_runtime(entries, self.redist, (self.python, self.site), redist_for_root=True)
+        # 根目錄（目的路徑沒有目錄分隔）改用 Redist 同名檔，即使來源在 CPython 安裝目錄下。
+        self.assertEqual(result[0], ('vcruntime140.dll', str(self.redist / 'vcruntime140.dll'), 'BINARY'))
+        # wheel 自帶的子目錄複本（即使檔名是 VC runtime）不受影響。
+        self.assertEqual(result[1], entries[1])
+        self.assertEqual(result[2], entries[2])
+        self.assertEqual(replaced, [('vcruntime140.dll', str(self.python / 'vcruntime140.dll'),
+                                     str(self.redist / 'vcruntime140.dll'))])
+
+    def test_root_replacement_without_official_file_is_an_error(self):
+        entries = [('vcruntime140_1.dll', str(self.python / 'vcruntime140_1.dll'), 'BINARY')]
+        with self.assertRaisesRegex(RuntimeError, 'Official VC runtime not found'):
+            subject.official_vc_runtime(entries, self.redist, (self.python, self.site), redist_for_root=True)
+        with self.assertRaisesRegex(RuntimeError, 'Official VC runtime not found'):
+            subject.official_vc_runtime([('vcruntime140.dll', str(self.python / 'vcruntime140.dll'), 'BINARY')],
+                                        None, (self.python, self.site), redist_for_root=True)
+
     def test_newest_redistributable_directory_is_selected(self):
         studio = self.root / 'vs'
         for version in ('14.9.1', '14.44.35112', '14.40.33807'):

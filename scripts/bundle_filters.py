@@ -90,10 +90,14 @@ def find_vc_redist(runner=subprocess.run, vswhere=VSWHERE):
     return candidates[-1] if candidates else None
 
 
-def official_vc_runtime(entries, redist, trusted_roots):
-    """把不是來自受信任位置的 VC runtime 換成可再散布目錄中的同名檔。
+def official_vc_runtime(entries, redist, trusted_roots, redist_for_root=False):
+    """把 VC runtime 換成可再散布目錄中的同名檔。
 
-    trusted_roots：CPython 安裝目錄與 site-packages；位於其下的複本不更動。
+    trusted_roots：CPython 安裝目錄與 site-packages；位於其下的複本預設不更動。
+    redist_for_root=True 時，目的地在 bundle 根目錄（路徑中沒有目錄分隔）的 VC runtime 一律改用
+    可再散布目錄的檔案，即使來源在 CPython 安裝目錄下。原因：根目錄的 vcruntime140 由 CPython 官方
+    安裝提供，使用者決定改用 Visual Studio 官方 Redist 版本（A13-1）。子目錄內（wheel 自帶，
+    例如 numpy.libs、PySide6）的複本不受影響，仍保持原樣。預設 False，行為與舊版相同。
     需要替換卻找不到可再散布目錄或同名檔時直接丟出錯誤，避免默默沿用來源不明的檔案。
     回傳 (新的條目, [(目的路徑, 原來源, 新來源)])。
     """
@@ -104,7 +108,8 @@ def official_vc_runtime(entries, redist, trusted_roots):
         destination = str(entry[0]).replace('\\', '/')
         name = PurePosixPath(destination).name
         source = Path(entry[1])
-        if not VC_RUNTIME.match(name) or any(source.resolve().is_relative_to(root) for root in trusted):
+        at_root = redist_for_root and '/' not in destination
+        if not VC_RUNTIME.match(name) or (not at_root and any(source.resolve().is_relative_to(root) for root in trusted)):
             result.append(entry)
             continue
         official = available.get(name.lower())

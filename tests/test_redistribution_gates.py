@@ -13,6 +13,33 @@ sys.path.insert(0, str(ROOT/'scripts'))
 import redistribution_gates as gates
 
 
+def committed_sha256(commit, path):
+    """取得歷史提交中該路徑的 bytes 並回傳 sha256；git 失敗或提交不存在即拋出例外（不 skip）。
+
+    歷史證據的 pin 是「當時那個提交裡的檔案內容」，所以對提交驗證，而不是對工作樹；
+    工作樹之後改動（例如 base.spec 的打包變更）不應使歷史紀錄失效。
+    """
+    gates.safe_name(path)
+    done = subprocess.run(['git', 'show', f'{commit}:{path}'], cwd=ROOT, capture_output=True, check=True)
+    return hashlib.sha256(done.stdout).hexdigest()
+
+
+def evidence_commit(path):
+    """回傳新增該證據檔的提交（歷史上最早的一筆）。
+
+    快照型證據（例如 A12b 的 origin-known-review.json）的 supporting_evidence pin，是建立快照當時
+    各檔案的內容，不一定等於登記表的 source_commit（2555687）：Microsoft 目錄在 A12 之後才改寫。
+    因此對照建立該證據的提交，而不是 source_commit。
+    """
+    relative = Path(path).resolve().relative_to(ROOT).as_posix()
+    done = subprocess.run(['git', 'log', '--diff-filter=A', '--format=%H', '--', relative],
+                          cwd=ROOT, capture_output=True, text=True, check=True)
+    commits = done.stdout.split()
+    if not commits:
+        raise AssertionError('No commit adds ' + relative)
+    return commits[-1]
+
+
 class GateTests(unittest.TestCase):
     def setUp(self):
         self.registry = gates.read_json(gates.REGISTRY)
@@ -255,6 +282,8 @@ class GateTests(unittest.TestCase):
         path = ROOT/'docs/development-records/runs/a12b-evidence-wiring-2026-11-18/origin-known-review.json'
         proof = gates.read_json(path)
         report = self.reports['base']
+        pin_commit = evidence_commit(path)
+        self.assertEqual(proof['source_commit'], self.reports['base']['selection']['source_commit'])
         expected = {r['path']:r for r in report['classification']['files'] if r['status'] == 'origin-known'}
         actual = {r['path']:r for r in proof['rows']}
         self.assertEqual(set(actual), set(expected))
@@ -269,7 +298,7 @@ class GateTests(unittest.TestCase):
             self.assertTrue(row['reason'].strip())
             self.assertIs(row['source_attribution_assessed'], True)
             for ref in row['supporting_evidence']:
-                gates.reference(ref, ROOT)
+                self.assertEqual(committed_sha256(pin_commit, ref['path']), ref['sha256'], ref['path'])
             if name.removeprefix('_internal/') in native:
                 source = native[name.removeprefix('_internal/')]
                 self.assertEqual(row['details']['source_sha256'], source['source_sha256'])
@@ -278,6 +307,20 @@ class GateTests(unittest.TestCase):
                 self.assertEqual(row['details']['component_evidence']['version_status'], 'build-declaration-only')
                 self.assertIsNone(row['details']['component_evidence']['observed_version'])
                 self.assertEqual(row['remaining_obligation'], 'base-cpython')
+
+    def test_a12b_supporting_pin_counterexamples_are_rejected(self):
+        """反例：記憶體中改掉 pin 的 hash，或指向不存在的提交，比對都必須失敗。"""
+        path = ROOT/'docs/development-records/runs/a12b-evidence-wiring-2026-11-18/origin-known-review.json'
+        proof = gates.read_json(path)
+        commit = evidence_commit(path)
+        ref = next(r for row in proof['rows'] for r in row['supporting_evidence'])
+        self.assertEqual(committed_sha256(commit, ref['path']), ref['sha256'])
+        with self.assertRaises(AssertionError):
+            self.assertEqual(committed_sha256(commit, ref['path']), '0'*64, ref['path'])
+        with self.assertRaises(subprocess.CalledProcessError):
+            committed_sha256('0'*40, ref['path'])
+        with self.assertRaises(ValueError):
+            committed_sha256(commit, '../outside')
 
     def test_newly_wired_evidence_with_changed_hash_is_rejected(self):
         """接好路徑不等於驗收通過；每一類新引用都必須真的檢查 bytes 的 hash。"""
