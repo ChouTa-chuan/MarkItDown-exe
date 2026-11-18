@@ -32,7 +32,7 @@ base 與 cpu 分開判定；CPU 尚未關閉不妨礙基本包依自己的證據
 
 非 open 狀態須有證據引用；引用使用 repo 相對路徑與 SHA-256，決定還須符合上節的出處格式（固定存檔 D 節中完整的一行使用者決定）。已核准卻無出處、引用不存在、hash 不符或 quote 不存在皆拒絕。required_evidence 是審閱清單，語意是否已滿足須由維護者依證據查驗；腳本驗證引用完整性與已記錄的狀態，不判定法律充分性、作者身分或自動產生使用者核准。
 
-登記表綁定該 profile 的來源提交，避免把不同候選的確認直接帶過去。當前基準是 A6 的 8285450，不包含 A7。自有 MIT 授權選擇已有原始使用者決定；但本候選的 MIT 綁定仍是 open，A7 後的新候選須待後續驗收／登記更新。其他現有義務未關閉，**base／cpu 的三旗標現況均為 false**。
+登記表綁定該 profile 的來源提交，避免把不同候選的確認直接帶過去。當前基準是 A12 的 2555687（main，含 A7–A11），候選審閱見 [A12 證據](development-records/runs/a12-fixed-review-2026-11-18/README.md)；A6 的 8285450 保留為歷史回歸輸入。自有 MIT 授權選擇已有原始使用者決定；`base-own-mit-binding` 仍是 open，其 review_reason 選擇器因候選已含 A7 綁定而移除。其他現有義務未關閉，**base／cpu 的三旗標現況均為 false**。
 
 ## 內含元件目錄（A9）
 
@@ -58,8 +58,8 @@ base 與 cpu 分開判定；CPU 尚未關閉不妨礙基本包依自己的證據
 ## 執行與驗收
 
 ```bash
-python scripts/redistribution_gates.py --source-review docs/development-records/runs/a6-fixed-review-2026-11-17/base-source-review.json
-python scripts/redistribution_gates.py --source-review docs/development-records/runs/a6-fixed-review-2026-11-17/cpu-source-review.json
+python scripts/redistribution_gates.py --source-review docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json
+python scripts/redistribution_gates.py --source-review docs/development-records/runs/a12-fixed-review-2026-11-18/cpu-source-review.json
 ```
 
 有效輸入輸出旗標、各旗標阻擋條目、相依關係與精確對應。exit 0 只表示登記／涵蓋性有效，交付流程必須另檢查對應旗標；未關閉時仍會列出 blockers。錯誤輸入非零退出，指定 `--output` 時只准寫新檔，驗證錯誤不留下部分成功報告。
@@ -73,3 +73,16 @@ A8 不動 spec、依賴或套件收集內容。除 C 節指定的說明文字勘
 沿用既有 runtime-observed，不新增版本分級。觀測須由實際安裝的 cryptography 呼叫它所連結的 OpenSSL 文字與數值版本 API，兩者一致才可綁定上游同版本 tag 的 LICENSE。二進位靜態字串不是 wheel-declared，CPython ssl 的版本也不能代替 cryptography。Linux 與 Windows 各自記錄；只有 Windows 的 `_rust.pyd` bytes 與 A6 相同才可把該觀測綁入基本包內含元件目錄。
 
 新增原文透過既有 supplemental_sources 管線隨包，並在基本資產與最終 bundle 各驗缺檔、內容 hash 及 cryptography 套件對應。Rust 相依等未查明部分維持 unknown／open，原文補齊不等於核准再散布。
+
+## A12 重新綁定候選（2555687）
+
+登記表的 `source_commit` 改為 2555687，原生檔與 review_reason 仍各自精確對應；唯一的 stale selector 是 `base-own-mit-binding` 的 `package-original-notice-pending:markitdown-desktop`（A7 綁定後已不存在），僅移除該選擇器，狀態維持 open。
+
+目錄綁定的調整只限於綁定欄位，檔案 bytes 與身分事實不變：
+
+- `packaging/embedded/base-windows.json`：`source_commit` 與 `source_review`（路徑、hash）改指 A12 的 base-source-review.json；`embedded_components.py` 的固定路徑同步。
+- `packaging/qt/6.12.0/thirdparty/catalog.json`：只改 `source_commit`。
+- `packaging/microsoft/base-windows.json`：只改 `source_commit`；`basis` 與 `probe` 不變，仍指 A6 基準與 A10 探測。原因是 CI 探測（A12 候選，見證據目錄）是在 A6 基準上比對的，無法在不重跑 CI 的情況下改成 A12 基準。`check_catalog` 因此改為：探測的基準必須與基準檔自身的 selection 一致；候選綁定仍由逐檔 `a6_sha256`、`origin`、`distributions` 與候選原生檔 bytes 比對完成。
+- 三個目錄的 sha256 變動，只在登記表對應條目的 `evidence` 更新引用，條目的 status、選擇器、required_evidence 與 requires_user_decision 不變。
+
+A12 的基本包出口報告見 [證據目錄](development-records/runs/a12-fixed-review-2026-11-18/README.md)；三旗標仍由 gates 推導為 false。

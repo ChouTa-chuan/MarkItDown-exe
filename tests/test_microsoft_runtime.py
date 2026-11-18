@@ -168,6 +168,18 @@ class MicrosoftProbeTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
 
+    def test_probe_basis_must_name_the_catalog_basis_document(self):
+        # A12 起基準可與候選來源不同，但探測記錄的基準路徑、hash 與基準檔自身的 selection 必須一致。
+        catalog, entry = self.catalog_fixture()
+        report = self.probe()
+        report['basis']['source_commit'] = 'f'*40
+        path = self.root/'evidence/probe-wrong-basis.json'
+        path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_text(json.dumps(report))
+        catalog['probe'] = dict(path='evidence/probe-wrong-basis.json',sha256=ms.digest(path))
+        with self.assertRaisesRegex(ValueError,'Probe basis differs'):
+            ms.check_catalog(catalog,report=self.review,entry=entry,root=self.root)
+
     def test_catalog_rejects_changed_terms_and_probe_bytes(self):
         for target in ('documents','probe'):
             catalog, entry = self.catalog_fixture()
@@ -262,7 +274,8 @@ class MicrosoftProbeTests(unittest.TestCase):
     def test_repository_catalog_is_wired_to_gates_and_preserves_qt_signer_findings(self):
         import redistribution_gates as gates
         registry = gates.read_json(gates.REGISTRY)
-        report = gates.read_json(ROOT/ms.BASIS_PATH)
+        # 登記表現已綁 A12 候選；A6 基準仍是 A10 探測的歷史輸入，不作為目前接線的來源。
+        report = gates.read_json(ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json')
         result = gates.assess(report,registry)
         self.assertEqual(result['microsoft_catalogs'][0]['files'],14)
         self.assertTrue(all(result[f] is False for f in ms.FLAGS))

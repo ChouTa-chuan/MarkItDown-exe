@@ -1,0 +1,213 @@
+{
+  "check": "redistribution-gates",
+  "schema_version": 1,
+  "accepted": true,
+  "profile": "cpu",
+  "source_commit": "2555687eafc931600f30265f7bd290331cd49a0f",
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "blocked_by_gate": {
+    "runtime_sbom_complete": [
+      "cpu-source-attribution",
+      "cpu-microsoft",
+      "cpu-cpython",
+      "cpu-wheels",
+      "cpu-archives",
+      "cpu-geos",
+      "cpu-rapidocr-models"
+    ],
+    "redistribution_approved": [
+      "cpu-microsoft",
+      "cpu-cpython",
+      "cpu-wheels",
+      "cpu-archives",
+      "cpu-geos",
+      "cpu-rapidocr-models",
+      "cpu-flatbuffers",
+      "cpu-redistribution-decision"
+    ],
+    "release_ready": [
+      "cpu-clean-machine-manual"
+    ]
+  },
+  "gate_dependencies": {
+    "redistribution_approved": [
+      "runtime_sbom_complete"
+    ],
+    "release_ready": [
+      "redistribution_approved"
+    ]
+  },
+  "unclosed_obligations": [
+    {
+      "id": "cpu-source-attribution",
+      "status": "open",
+      "title": "來源未對照列與來源分類審閱",
+      "required_evidence": [
+        "逐列來源分類、來源版本與證據對照；可接受有來源依據的非 wheel 檔案，不以未對照計數歸零代替審閱"
+      ]
+    },
+    {
+      "id": "cpu-microsoft",
+      "status": "open",
+      "title": "Microsoft 執行期逐檔來源與適用條款",
+      "required_evidence": [
+        "逐檔來源、PE 版本、簽章及官方 Redist 同名 hash 對照；改名複本另列",
+        "適用條款與再散布做法，待 A13 或 CPU 門檻確認"
+      ]
+    },
+    {
+      "id": "cpu-cpython",
+      "status": "open",
+      "title": "CPython 與隨附／靜態連結元件",
+      "required_evidence": [
+        "CPython 版本、原文、元件／靜態連結來源與版本對照；libffi 建置宣告限制明列"
+      ]
+    },
+    {
+      "id": "cpu-wheels",
+      "status": "open",
+      "title": "wheel 內含原生第三方",
+      "required_evidence": [
+        "各原生檔的 wheel、內含元件名稱／版本／來源／原文與版本依據分級；未知者保留未關閉"
+      ]
+    },
+    {
+      "id": "cpu-archives",
+      "status": "open",
+      "title": "Python 封存與實際 runtime 範圍",
+      "required_evidence": [
+        "PYZ／base_library 成員及來源版本／原文閉包，建置工具是否進入 runtime 需查證"
+      ]
+    },
+    {
+      "id": "cpu-geos",
+      "status": "open",
+      "title": "Shapely／GEOS 與 LGPL 做法",
+      "required_evidence": [
+        "GEOS 版本、來源／原文、建置及 LGPL 來源取得與替換做法"
+      ]
+    },
+    {
+      "id": "cpu-rapidocr-models",
+      "status": "open",
+      "title": "RapidOCR 原文及 PP-OCR 模型",
+      "required_evidence": [
+        "RapidOCR 原文綁定、PP-OCR 模型來源／版本／hash／授權原文與適用範圍"
+      ]
+    },
+    {
+      "id": "cpu-flatbuffers",
+      "status": "open",
+      "title": "flatbuffers 原文綁定",
+      "required_evidence": [
+        "flatbuffers 適用原文與實際候選套件綁定"
+      ]
+    },
+    {
+      "id": "cpu-redistribution-decision",
+      "status": "open",
+      "title": "使用者確認本 profile 再散布門檻",
+      "required_evidence": [
+        "對應候選的門檻確認：Microsoft、適用 LGPL、版本／建置宣告未知處與工具／模型限制，不由協調者代決定"
+      ]
+    },
+    {
+      "id": "cpu-clean-machine-manual",
+      "status": "open",
+      "title": "乾淨機、人工驗收與限制揭露",
+      "required_evidence": [
+        "乾淨 Windows 安裝與離線操作、四語／中文路徑／修復移除、人工操作的驗收紀錄",
+        "ONNX 繁中、RAM 軟性預算、GPU 未驗等限制的使用者確認；hosted CI 不代替乾淨機與人工驗收"
+      ]
+    }
+  ],
+  "coverage": {
+    "native_files": {
+      "Shapely.libs/geos_c-6dd9fd915eef8a7928285416bef1e666.dll": "cpu-geos",
+      "Shapely.libs/msvcp140-0fa7eb792d3fbcf2233e4ea47e9144b9.dll": "cpu-microsoft",
+      "Shapely.libs/geos-bf067cd6ff74ee0ad5f3ff52c7ef08c9.dll": "cpu-geos",
+      "onnxruntime/capi/onnxruntime.dll": "cpu-wheels",
+      "onnxruntime/capi/onnxruntime_providers_shared.dll": "cpu-wheels",
+      "python312.dll": "cpu-cpython",
+      "numpy.libs/libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll": "cpu-wheels",
+      "numpy.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll": "cpu-microsoft",
+      "msvcp140.dll": "cpu-microsoft",
+      "vcruntime140_1.dll": "cpu-microsoft",
+      "vcruntime140.dll": "cpu-microsoft",
+      "select.pyd": "cpu-cpython",
+      "unicodedata.pyd": "cpu-cpython",
+      "_decimal.pyd": "cpu-cpython",
+      "_hashlib.pyd": "cpu-cpython",
+      "_socket.pyd": "cpu-cpython",
+      "_lzma.pyd": "cpu-cpython",
+      "_bz2.pyd": "cpu-cpython",
+      "_multiprocessing.pyd": "cpu-cpython",
+      "pyexpat.pyd": "cpu-cpython",
+      "_ssl.pyd": "cpu-cpython",
+      "_ctypes.pyd": "cpu-cpython",
+      "_queue.pyd": "cpu-cpython",
+      "numpy/_core/_multiarray_umath.cp312-win_amd64.pyd": "cpu-wheels",
+      "_wmi.pyd": "cpu-cpython",
+      "numpy/linalg/_umath_linalg.cp312-win_amd64.pyd": "cpu-wheels",
+      "PIL/_imagingft.cp312-win_amd64.pyd": "cpu-wheels",
+      "PIL/_imaging.cp312-win_amd64.pyd": "cpu-wheels",
+      "PIL/_webp.cp312-win_amd64.pyd": "cpu-wheels",
+      "PIL/_imagingtk.cp312-win_amd64.pyd": "cpu-wheels",
+      "PIL/_avif.cp312-win_amd64.pyd": "cpu-wheels",
+      "PIL/_imagingcms.cp312-win_amd64.pyd": "cpu-wheels",
+      "_elementtree.pyd": "cpu-cpython",
+      "numpy/_core/_multiarray_tests.cp312-win_amd64.pyd": "cpu-wheels",
+      "psutil/_psutil_windows.pyd": "cpu-wheels",
+      "_overlapped.pyd": "cpu-cpython",
+      "_asyncio.pyd": "cpu-cpython",
+      "numpy/random/mtrand.cp312-win_amd64.pyd": "cpu-wheels",
+      "numpy/random/bit_generator.cp312-win_amd64.pyd": "cpu-wheels",
+      "numpy/random/_sfc64.cp312-win_amd64.pyd": "cpu-wheels",
+      "numpy/random/_philox.cp312-win_amd64.pyd": "cpu-wheels",
+      "numpy/random/_pcg64.cp312-win_amd64.pyd": "cpu-wheels",
+      "numpy/random/_mt19937.cp312-win_amd64.pyd": "cpu-wheels",
+      "numpy/random/_generator.cp312-win_amd64.pyd": "cpu-wheels",
+      "numpy/random/_common.cp312-win_amd64.pyd": "cpu-wheels",
+      "numpy/random/_bounded_integers.cp312-win_amd64.pyd": "cpu-wheels",
+      "numpy/fft/_pocketfft_umath.cp312-win_amd64.pyd": "cpu-wheels",
+      "yaml/_yaml.cp312-win_amd64.pyd": "cpu-wheels",
+      "cv2/cv2.pyd": "cpu-wheels",
+      "onnxruntime/capi/onnxruntime_pybind11_state.pyd": "cpu-wheels",
+      "shapely/lib.cp312-win_amd64.pyd": "cpu-geos",
+      "shapely/_geometry_helpers.cp312-win_amd64.pyd": "cpu-geos",
+      "shapely/_geos.cp312-win_amd64.pyd": "cpu-geos",
+      "pyclipper/_pyclipper.cp312-win_amd64.pyd": "cpu-wheels",
+      "_sqlite3.pyd": "cpu-cpython",
+      "MSVCP140_1.dll": "cpu-microsoft",
+      "libcrypto-3.dll": "cpu-cpython",
+      "libssl-3.dll": "cpu-cpython",
+      "libffi-8.dll": "cpu-cpython",
+      "python3.dll": "cpu-cpython",
+      "sqlite3.dll": "cpu-cpython"
+    },
+    "review_reasons": {
+      "microsoft-native-redistribution-review": "cpu-microsoft",
+      "source-owner-unresolved": "cpu-source-attribution",
+      "package-original-notice-pending:rapidocr-onnxruntime": "cpu-rapidocr-models",
+      "package-original-notice-pending:flatbuffers": "cpu-flatbuffers"
+    }
+  },
+  "embedded_catalogs": [],
+  "microsoft_catalogs": [],
+  "qt_catalogs": [],
+  "input_inventory_summary": {
+    "bytes": 219751904,
+    "file_inventory_complete": true,
+    "files": 706,
+    "original_notice_files": 291,
+    "packages": 26,
+    "redistribution_approved": false,
+    "release_ready": false,
+    "review_files": 300,
+    "runtime_sbom_complete": false,
+    "unresolved_files": 266
+  },
+  "scope": "Registry review decision for this source; accepted means valid coverage, not product approval"
+}

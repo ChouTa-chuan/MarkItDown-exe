@@ -243,7 +243,10 @@ def check_catalog(catalog, *, report, entry, root=ROOT):
                 'Microsoft wheel container differs from lock: '+dist)
     observed = gates.read_json(root/catalog['probe']['path'])
     validate_probe(observed)
-    require(observed['basis'] == {**catalog['basis'], 'source_commit':catalog['source_commit']}, 'Probe basis differs')
+    # A12 起：探測的基準是 A6 的 source-review（A10 與 CI 觀測都在該基準上比對），基準檔自身的 selection 即其來源。
+    # 候選綁定不再要求基準與候選同一 commit，而由下方逐檔 a6_sha256、origin、distributions 與候選 bytes 核對完成。
+    basis_source = gates.read_json(root/catalog['basis']['path'])['selection']['source_commit']
+    require(observed['basis'] == {**catalog['basis'], 'source_commit': basis_source}, 'Probe basis differs')
     names = entry['native_files']
     require(sorted(r['file'] for r in catalog['files']) == sorted(names) == sorted(r['file'] for r in observed['files']),
             'Microsoft native coverage differs')

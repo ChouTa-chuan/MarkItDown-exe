@@ -16,7 +16,7 @@ import redistribution_gates as gates
 class GateTests(unittest.TestCase):
     def setUp(self):
         self.registry = gates.read_json(gates.REGISTRY)
-        path = ROOT/'docs/development-records/runs/a6-fixed-review-2026-11-17'
+        path = ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18'
         self.reports = {p:gates.read_json(path/(p+'-source-review.json')) for p in ('base', 'cpu')}
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
@@ -240,7 +240,7 @@ class GateTests(unittest.TestCase):
             gates.read_json(path)
 
     def test_cli_reads_real_evidence_and_refuses_overwrite_or_partial_output(self):
-        report = ROOT/'docs/development-records/runs/a6-fixed-review-2026-11-17/base-source-review.json'
+        report = ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json'
         output = self.temp/'gates.json'
         command = [sys.executable, str(ROOT/'scripts/redistribution_gates.py'), '--source-review', str(report), '--output', str(output)]
         result = subprocess.run(command, capture_output=True, text=True)

@@ -3,7 +3,7 @@
   "description": "A8 義務登記與旗標判定；原生檔精確匹配，review_reason 獨立精確匹配。file_groups 為人工範圍說明，不是通配規則。狀態需審閱證據及使用者決定，不能由檔案數或套件宣告直接核准。",
   "profiles": {
     "base": {
-      "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+      "source_commit": "2555687eafc931600f30265f7bd290331cd49a0f",
       "entries": [
         {
           "id": "base-source-attribution",
@@ -54,7 +54,7 @@
           "evidence": [
             {
               "path": "packaging/microsoft/base-windows.json",
-              "sha256": "4fbb9fc942670e696c07a2462117e709cd78ae7938c0faef4df37713a7fc3796"
+              "sha256": "bba34332e80a1b0691edf39013a22cf12b843288896e25b1b40d60b7798c3ed7"
             }
           ],
           "status": "open",
@@ -137,7 +137,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
+              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
             }
           ],
           "status": "open",
@@ -207,7 +207,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
+              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
             }
           ],
           "status": "open",
@@ -238,7 +238,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
+              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
             }
           ],
           "status": "open",
@@ -270,7 +270,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
+              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
             }
           ],
           "status": "open",
@@ -296,7 +296,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
+              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
             },
             {
               "path": "docs/development-records/runs/a9b-openssl-2026-11-18/windows-observation.json",
@@ -328,7 +328,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
+              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
             }
           ],
           "status": "open",
@@ -354,7 +354,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
+              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
             }
           ],
           "status": "open",
@@ -380,7 +380,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
+              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
             }
           ],
           "status": "open",
@@ -406,7 +406,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
+              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
             }
           ],
           "status": "evidence_complete",
@@ -431,7 +431,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "e9a2be3b1333ac114ba28eb025ea99ca2d518d38cc7a93d2463fc89a548dd1b7"
+              "sha256": "01840e6f48095e4f89aeea7d283f9668754f739bc95547af2e3b0d11d7256360"
             }
           ],
           "status": "evidence_complete",
@@ -508,7 +508,7 @@
           "evidence": [
             {
               "path": "packaging/qt/6.12.0/thirdparty/catalog.json",
-              "sha256": "90a23933e030ee9df6cecfc646ecfddfb3d8a7b9e26d427df08d72e3988a659a"
+              "sha256": "6e622a267c2422e65daa7a703c0f20e9c885a03649906e0f7e0fb6722aadb815"
             }
           ],
           "status": "open",
@@ -546,9 +546,7 @@
           "id": "base-own-mit-binding",
           "title": "自有 MIT 原文綁定",
           "native_files": [],
-          "review_reasons": [
-            "package-original-notice-pending:markitdown-desktop"
-          ],
+          "review_reasons": [],
           "file_groups": [],
           "required_evidence": [
             "本次候選的 MIT 原文、套件綁定與 hash 驗收；A6 候選未包含 A7 修正"
@@ -626,7 +624,7 @@
       ]
     },
     "cpu": {
-      "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+      "source_commit": "2555687eafc931600f30265f7bd290331cd49a0f",
       "entries": [
         {
           "id": "cpu-source-attribution",
