@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-18",
+  "tested_source": "2555687eafc931600f30265f7bd290331cd49a0f",
+  "accepted": true,
+  "accepted_scope": "來源 metadata 重組、離線 replay、登記表與 gates 的一致性；不是再散布核准",
+  "local_regression_accepted": true,
+  "local_regression_note": "完整 discover 885 run／884 passed／1 expected failure（ONNX 繁中）／0 failure；混合回歸與 57 個獨立模組正常退出。首次執行的 test_history_index 失敗已由協調者重建索引解決",
+  "base_run_id": 44217813413,
+  "cpu_run_id": 44217816852,
+  "base_run_conclusion": "success",
+  "cpu_run_conclusion": "success",
+  "windows_executed": true,
+  "runtime_sbom_complete": false,
+  "redistribution_approved": false,
+  "release_ready": false,
+  "engineering_review_complete": false,
+  "keywords": [
+    "A12",
+    "固定候選",
+    "2555687",
+    "來源審閱",
+    "登記表",
+    "出口報告",
+    "A13",
+    "Microsoft探測",
+    "目錄綁定"
+  ],
+  "files": {
+    "README.md": "24fe9af884df9995314d57ec42d2ac06bfef80a1b26300addea6b07d2d971639",
+    "base-source-review.json": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59",
+    "cpu-source-review.json": "6cacb0adb2c2c1f3361c90e695d7d17304866380a627e76ebd431bb72f4be2f7",
+    "windows-probe.json": "a0a52d66ce170d1b0d29fd598fb59998ac0addf8c14ebea8283acb184751b8e3",
+    "base-gates.json": "f316b9f453f3d4895e2ef2f6df3ce0b4c2d6c72f06f8376dbb13a290cf7d558d",
+    "cpu-gates.json": "8c2fe55efaa425d3f08444848c87eb115ef490ebcd69a2628721068132ae75f5",
+    "base-exit-report.json": "c28d1d559d0812396947c5e73e56463eda4ffa1e5bbfa66524a23217cc29fcb8"
+  }
+}

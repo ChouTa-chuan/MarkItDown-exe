@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "profile": "base",
-  "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+  "source_commit": "2555687eafc931600f30265f7bd290331cd49a0f",
   "scope": "基本包 Windows（win_amd64, CPython 3.12）wheel 內含第三方元件目錄；不含 Qt／PySide6／shiboken6（A11）與 Microsoft 執行期（A10）。原生檔以 A6 實際入包檔為準：wheel 內其他未入包的檔案不列，包括 numpy 的 lapack_lite 與測試／工具 .pyd（_simd、_umath_tests 等）以及 PIL 的 _imagingmath、_imagingmorph。版本未知、只有字串線索或由 LICENSE／宣告推論不到的內含元件，可以沒有 native_files（它們的歸屬無法逐檔驗證，列入以便保持條目 open）。",
   "lock": {
     "path": "packaging/profiles/base-windows-runtime.txt",
     "sha256": "3e6f43f67a4d514a963284d79490987c9a8dcd3db08ed2f77188e1d04d7e99f0"
   },
   "source_review": {
-    "path": "docs/development-records/runs/a6-fixed-review-2026-11-17/base-source-review.json",
-    "sha256": "b6cc9736b3c5d2e8290a23b7be6a5dafe1a009ddd22f450e2e8c969408420111"
+    "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json",
+    "sha256": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59"
   },
   "inventory": {
     "path": "src/desktop_app/data/licenses/windows/inventory.json",

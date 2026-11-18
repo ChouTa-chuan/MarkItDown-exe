@@ -2,7 +2,7 @@
   "schema_version": 1,
   "check": "qt-thirdparty-catalog",
   "version": "6.12.0",
-  "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+  "source_commit": "2555687eafc931600f30265f7bd290331cd49a0f",
   "release_catalog": {
     "path": "packaging/qt/6.12.0/catalog.json",
     "sha256": "224e4f7df81b99d1c55310e49beb5a280b10b7a7d15f7b4615872a73bb1725d6"

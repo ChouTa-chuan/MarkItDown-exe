@@ -2,7 +2,7 @@
   "schema_version": 1,
   "profile": "base",
   "registry_entry": "base-microsoft",
-  "source_commit": "8285450226abe1381e6a357e8bd33bff1ad46e0e",
+  "source_commit": "2555687eafc931600f30265f7bd290331cd49a0f",
   "scope": "A10 installed-source reconstruction: fourteen copies hash-identical to A6; actual built-bundle CI is verified separately; no legal approval or package change",
   "basis": {
     "path": "docs/development-records/runs/a6-fixed-review-2026-11-17/base-source-review.json",

@@ -1,0 +1,391 @@
+{
+  "check": "base-exit-report",
+  "schema_version": 1,
+  "profile": "base",
+  "source_commit": "2555687eafc931600f30265f7bd290331cd49a0f",
+  "selection": {
+    "event": "workflow_dispatch",
+    "explicitly_pinned": true,
+    "ref": "refs/heads/main",
+    "run_attempt": "1",
+    "run_id": "44217813413",
+    "source_commit": "2555687eafc931600f30265f7bd290331cd49a0f"
+  },
+  "candidate": {
+    "bytes": 102438267,
+    "file": "MarkItDownBase-Setup-0.19.1-windows-x64.exe",
+    "sha256": "c00435f3806ac50fe1cff880af2e03aa3176b46533d859ba34535d8542ef8b3f"
+  },
+  "source_review": {
+    "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json",
+    "sha256": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59"
+  },
+  "gates_output": {
+    "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-gates.json",
+    "sha256": "f316b9f453f3d4895e2ef2f6df3ce0b4c2d6c72f06f8376dbb13a290cf7d558d"
+  },
+  "flags": {
+    "runtime_sbom_complete": false,
+    "redistribution_approved": false,
+    "release_ready": false
+  },
+  "flags_basis": "由 scripts/redistribution_gates.py 依登記表推導；未人工改寫。blocked_by_gate 條目數：runtime_sbom_complete=14, redistribution_approved=15, release_ready=1",
+  "runtime_sbom_blockers": [
+    "base-source-attribution",
+    "base-microsoft",
+    "base-cpython",
+    "base-wheels-numpy",
+    "base-wheels-pandas",
+    "base-wheels-pillow",
+    "base-wheels-lxml",
+    "base-wheels-cryptography",
+    "base-wheels-onnxruntime",
+    "base-wheels-pypdfium2",
+    "base-wheels-cffi",
+    "base-archives",
+    "base-qt",
+    "base-tesseract-models"
+  ],
+  "category_counts": {
+    "a13_decision_open": 5,
+    "closed": 3,
+    "evidence_open": 12
+  },
+  "entries": [
+    {
+      "id": "base-source-attribution",
+      "title": "來源未對照列與來源分類審閱",
+      "status": "open",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete"
+      ],
+      "category": "evidence_open",
+      "evidence_refs": 0
+    },
+    {
+      "id": "base-microsoft",
+      "title": "Microsoft 執行期逐檔來源與適用條款",
+      "status": "open",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "a13_decision_open",
+      "evidence_refs": 1,
+      "a13_note": "目錄檢核通過（14 份身分無缺口）；9 份 PySide6/shiboken6 複本 PE 為 Microsoft、簽署者為 The QT Company Oy，需逐份決定授權依據；改名的 numpy／pandas 複本單獨列示"
+    },
+    {
+      "id": "base-cpython",
+      "title": "CPython 與隨附／靜態連結元件",
+      "status": "open",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_open",
+      "evidence_refs": 0
+    },
+    {
+      "id": "base-wheels-numpy",
+      "title": "wheel 內含原生第三方：numpy 2.5.4",
+      "status": "open",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_open",
+      "evidence_refs": 1
+    },
+    {
+      "id": "base-wheels-pandas",
+      "title": "wheel 內含原生第三方：pandas 3.1.0",
+      "status": "open",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_open",
+      "evidence_refs": 1
+    },
+    {
+      "id": "base-wheels-pillow",
+      "title": "wheel 內含原生第三方：pillow 13.0.0",
+      "status": "open",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_open",
+      "evidence_refs": 1
+    },
+    {
+      "id": "base-wheels-lxml",
+      "title": "wheel 內含原生第三方：lxml 6.1.3",
+      "status": "open",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_open",
+      "evidence_refs": 1
+    },
+    {
+      "id": "base-wheels-cryptography",
+      "title": "wheel 內含原生第三方：cryptography 50.0.2",
+      "status": "open",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_open",
+      "evidence_refs": 2
+    },
+    {
+      "id": "base-wheels-onnxruntime",
+      "title": "wheel 內含原生第三方：onnxruntime 1.31.1",
+      "status": "open",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_open",
+      "evidence_refs": 1
+    },
+    {
+      "id": "base-wheels-pypdfium2",
+      "title": "wheel 內含原生第三方：pypdfium2 5.14.0",
+      "status": "open",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_open",
+      "evidence_refs": 1
+    },
+    {
+      "id": "base-wheels-cffi",
+      "title": "wheel 內含原生第三方：cffi 2.1.1",
+      "status": "open",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_open",
+      "evidence_refs": 1
+    },
+    {
+      "id": "base-wheels-charset-normalizer",
+      "title": "wheel 內含原生第三方：charset-normalizer 3.5.2",
+      "status": "evidence_complete",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "closed",
+      "evidence_refs": 1
+    },
+    {
+      "id": "base-wheels-psutil",
+      "title": "wheel 內含原生第三方：psutil 7.2.2",
+      "status": "evidence_complete",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "closed",
+      "evidence_refs": 1
+    },
+    {
+      "id": "base-archives",
+      "title": "Python 封存與實際 runtime 範圍",
+      "status": "open",
+      "requires_user_decision": false,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "evidence_open",
+      "evidence_refs": 0
+    },
+    {
+      "id": "base-qt",
+      "title": "Qt／PySide／shiboken 內含元件與 LGPL 做法",
+      "status": "open",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "a13_decision_open",
+      "evidence_refs": 1,
+      "a13_note": "目錄檢核通過；建置設定與修補集未驗（QLibraryInfo.build 不足），opengl32sw.dll（Mesa）版本與來源未知；LGPL 做法須使用者決定"
+    },
+    {
+      "id": "base-tesseract-models",
+      "title": "Tesseract／工具鏈與四語模型",
+      "status": "open",
+      "requires_user_decision": true,
+      "gates": [
+        "runtime_sbom_complete",
+        "redistribution_approved"
+      ],
+      "category": "a13_decision_open",
+      "evidence_refs": 0,
+      "a13_note": "目前無證據引用（evidence 為空）；工程與 A13 決定皆未完成"
+    },
+    {
+      "id": "base-own-mit-binding",
+      "title": "自有 MIT 原文綁定",
+      "status": "open",
+      "requires_user_decision": false,
+      "gates": [
+        "redistribution_approved"
+      ],
+      "category": "evidence_open",
+      "evidence_refs": 0
+    },
+    {
+      "id": "base-own-license-choice",
+      "title": "自有程式採 MIT 的使用者決定",
+      "status": "user_approved",
+      "requires_user_decision": true,
+      "gates": [
+        "redistribution_approved"
+      ],
+      "category": "closed",
+      "evidence_refs": 1
+    },
+    {
+      "id": "base-redistribution-decision",
+      "title": "使用者確認本 profile 再散布門檻",
+      "status": "open",
+      "requires_user_decision": true,
+      "gates": [
+        "redistribution_approved"
+      ],
+      "category": "a13_decision_open",
+      "evidence_refs": 0,
+      "a13_note": "使用者確認本 profile 再散布門檻；協調者不得代為決定"
+    },
+    {
+      "id": "base-clean-machine-manual",
+      "title": "乾淨機、人工驗收與限制揭露",
+      "status": "open",
+      "requires_user_decision": true,
+      "gates": [
+        "release_ready"
+      ],
+      "category": "a13_decision_open",
+      "evidence_refs": 0,
+      "a13_note": "乾淨機、人工與限制揭露；屬大階段 C，release_ready 專用，hosted Windows CI 不代替"
+    }
+  ],
+  "a13_items": [
+    {
+      "id": "A13-1",
+      "topic": "Microsoft VC／UCRT 複本逐份再散布依據",
+      "entries": [
+        "base-microsoft"
+      ],
+      "basis": "14 份複本；9 份為 Qt 簽署；2 份為改名複本；條款以官方原文快照為依據，EULA 與 REDIST 清單不能互相代替"
+    },
+    {
+      "id": "A13-2",
+      "topic": "Qt／PySide6／shiboken6 LGPL 做法是否足夠",
+      "entries": [
+        "base-qt"
+      ],
+      "basis": "替換驗收已在 hosted Windows 完成（A11），但不是乾淨機；Qt 建置設定與 Mesa opengl32sw.dll 版本仍未知"
+    },
+    {
+      "id": "A13-3",
+      "topic": "libffi 僅建置宣告的接受與揭露",
+      "entries": [
+        "base-cpython",
+        "base-wheels-cffi"
+      ],
+      "basis": "CPython _ctypes.pyd 與 cffi _cffi_backend 的 libffi 版本僅有建置宣告，屬 build-declaration-only，不能當作 runtime 觀測"
+    },
+    {
+      "id": "A13-4",
+      "topic": "版本未知元件的接受與揭露（不因決定而關閉）",
+      "entries": [
+        "base-wheels-numpy",
+        "base-wheels-pandas",
+        "base-wheels-pillow",
+        "base-wheels-lxml",
+        "base-wheels-cryptography",
+        "base-wheels-onnxruntime",
+        "base-wheels-pypdfium2",
+        "base-wheels-cffi"
+      ],
+      "basis": "26 項內含元件版本 unknown（含 cryptography Rust 相依、pypdfium2 多數子元件）；規則要求其條目維持 open，決定只能是接受揭露的政策"
+    },
+    {
+      "id": "A13-5",
+      "topic": "Tesseract 執行檔與四語 traineddata 的授權與再散布",
+      "entries": [
+        "base-tesseract-models"
+      ],
+      "basis": "目前沒有任何證據引用；需先補證據，再由使用者決定"
+    },
+    {
+      "id": "A13-6",
+      "topic": "品質限制揭露（ONNX 繁中缺口、RAM 軟性預算、Windows／GPU 實機未驗、非乾淨機）",
+      "entries": [
+        "base-clean-machine-manual"
+      ],
+      "basis": "屬大階段 C；release_ready 之前必須由使用者確認揭露內容"
+    },
+    {
+      "id": "A13-7",
+      "topic": "基本包再散布門檻的使用者確認",
+      "entries": [
+        "base-redistribution-decision"
+      ],
+      "basis": "redistribution_approved 的必要條目；協調者與 AI 不得代為決定"
+    }
+  ],
+  "candidate_delta": {
+    "a6_files": 1615,
+    "a12_files": 1767,
+    "a6_native": 153,
+    "a12_native": 153,
+    "a6_review_files": 152,
+    "a12_review_files": 275,
+    "a6_unresolved": 114,
+    "a12_unresolved": 264,
+    "a6_review_reasons": {
+      "microsoft-native-redistribution-review": 14,
+      "package-original-notice-pending:markitdown-desktop": 27,
+      "source-owner-unresolved": 114
+    },
+    "a12_review_reasons": {
+      "microsoft-native-redistribution-review": 14,
+      "source-owner-unresolved": 264
+    },
+    "pending_added": 151,
+    "pending_removed": 28,
+    "pending_removed_reason": "27 項為 markitdown-desktop 套件原文綁定（A7）後不再適用 package-original-notice-pending；1 項為自有 MIT LICENSE，原 source-owner-unresolved 因 A7 綁定已有套件歸屬"
+  },
+  "limitations": [
+    "三旗標由登記表與 gates 推導；runtime_sbom_complete 因 14 個條目仍阻擋而為 false，不得以本報告人工改寫",
+    "證據狀態（evidence_complete、user_approved）由人工審閱決定；本報告不新增、也不關閉任何條目",
+    "base-own-mit-binding 的選擇器已因候選含 A7 修正而過期並移除；狀態仍 open，是否關閉由查驗者決定",
+    "Microsoft 目錄的探測基準仍為 A6 source-review（A10 與 CI 觀測皆在該基準上比對），候選綁定由逐檔 bytes 比對完成"
+  ],
+  "scope": "出口報告：列出 base 每個條目的分類與 A13 待決事項；不是再散布核准，也不改變 spec、打包內容或既有計數。"
+}

@@ -20,7 +20,7 @@ class EmbeddedCatalogTests(unittest.TestCase):
     def setUp(self):
         self.catalog = gates.read_json(ROOT/CATALOG_PATH)
         self.entries = gates.read_json(gates.REGISTRY)['profiles']['base']['entries']
-        self.report = gates.read_json(ROOT/'docs/development-records/runs/a6-fixed-review-2026-11-17/base-source-review.json')
+        self.report = gates.read_json(ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json')
 
     def check(self, catalog=None, entries=None):
         return embedded.check_profile(catalog if catalog is not None else self.catalog, catalog_path=CATALOG_PATH,
@@ -224,7 +224,7 @@ class GateIntegrationTests(unittest.TestCase):
     """閘門層的整合：目錄存在時，三旗標仍然全部為 false，且 CLI 可以正常退出。"""
 
     def test_base_gate_reports_catalog_and_keeps_flags_false(self):
-        report = gates.read_json(ROOT/'docs/development-records/runs/a6-fixed-review-2026-11-17/base-source-review.json')
+        report = gates.read_json(ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json')
         result = gates.assess(report, gates.read_json(gates.REGISTRY))
         self.assertFalse(result['runtime_sbom_complete'])
         self.assertFalse(result['redistribution_approved'])
@@ -233,7 +233,7 @@ class GateIntegrationTests(unittest.TestCase):
         self.assertEqual(result['embedded_catalogs'][0]['wheels'], 10)
 
     def test_cpu_gate_has_no_catalog_and_still_passes(self):
-        report = gates.read_json(ROOT/'docs/development-records/runs/a6-fixed-review-2026-11-17/cpu-source-review.json')
+        report = gates.read_json(ROOT/'docs/development-records/runs/a12-fixed-review-2026-11-18/cpu-source-review.json')
         result = gates.assess(report, gates.read_json(gates.REGISTRY))
         self.assertEqual(result['embedded_catalogs'], [])
         self.assertFalse(result['runtime_sbom_complete'])
