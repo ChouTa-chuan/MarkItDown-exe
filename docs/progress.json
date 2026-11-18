@@ -2,9 +2,9 @@
   "updated": "2026-11-18",
   "environment": "Linux 完整混合／獨立模組回歸；A11 hosted Windows 2022 frozen GUI Qt 替換及安裝驗證，非實體機／乾淨機／GPU／人工驗收",
   "tests_passed": 884,
-  "headline": "PR 1–22 已合併；A12 重新固定候選 2555687 並產出基本包出口報告（PR 23），三旗標仍 false",
+  "headline": "PR 1–23 已合併；大階段 A 第二次複查：發現旗標規則阻擋 B1，使用者同意插入 A12b 證據接線與 A12c 揭露式關閉規則",
   "blocker": "Qt LGPL 做法、Microsoft 條款及其他再散布門檻仍待 A13 使用者決定；完整編譯設定與未知元件保留缺口，base／cpu 三旗標 false；實機／人工驗收未完成。",
-  "next": "A12 合併後：Claude planner 整體複查大階段 A，整理 A13 待決清單 → A13 使用者確認基本包門檻 → B1 測試版",
+  "next": "A12b 證據接線（Codex）→ A12c 揭露式關閉規則（Codex）→（選配）A12d → A13 使用者逐項決定 → A13b 重新固定候選 → B1 測試版",
   "milestones": [
     {
       "id": "m0",
@@ -2740,10 +2740,33 @@
             "pr": 23
           },
           {
+            "id": "A12b",
+            "title": "證據接線與 Community 授權原文",
+            "status": "active",
+            "note": "Codex 進行"
+          },
+          {
+            "id": "A12c",
+            "title": "揭露式關閉規則（runtime_sbom_disclosed）",
+            "status": "next",
+            "note": "使用者已同意；A12b 之後"
+          },
+          {
+            "id": "A12d",
+            "title": "wheel 內含元件執行期版本觀測（選配）",
+            "status": "user",
+            "note": "待使用者決定是否做"
+          },
+          {
             "id": "A13",
             "title": "使用者確認基本包門檻",
             "status": "user",
-            "note": "需使用者決定（A12 後）"
+            "note": "A13-0 已同意；其餘待使用者"
+          },
+          {
+            "id": "A13b",
+            "title": "依決定調整並重新固定候選",
+            "status": "pending"
           },
           {
             "id": "A14",
