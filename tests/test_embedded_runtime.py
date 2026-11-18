@@ -126,8 +126,10 @@ class RuntimeObservationTests(unittest.TestCase):
         catalog = json.loads((ROOT/runtime.CATALOG).read_text(encoding='utf-8'))
         registry = json.loads((ROOT/'packaging/redistribution/obligations.json').read_text(encoding='utf-8'))
         report = json.loads((ROOT/catalog['source_review']['path']).read_text(encoding='utf-8'))
+        import redistribution_gates as gates
         summary = embedded.check_profile(catalog, catalog_path=runtime.CATALOG,
-                                         entries=registry['profiles']['base']['entries'], report=report, root=ROOT)
+                                         entries=registry['profiles']['base']['entries'], report=report, root=ROOT,
+                                         gap_validator=lambda entry, unknown: gates.validate_gap_acceptance(entry, unknown, report, ROOT))
         observed = {w['distribution']+'/'+c['id'] for w in catalog['wheels'] for c in w['components']
                     if c['version_basis'] == 'runtime-observed'}
         self.assertEqual(observed, {'lxml/libxml2', 'lxml/libxslt', 'pillow/libaom', 'pillow/dav1d',

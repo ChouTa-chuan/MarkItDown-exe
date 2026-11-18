@@ -64,7 +64,7 @@
           "evidence": [
             {
               "path": "packaging/microsoft/base-windows.json",
-              "sha256": "737d7fb037ee42823988fe2183b9246b1f66b54972ebb8f90b207f810836fccc"
+              "sha256": "7cd4033a4987f9c33c945962d47c39bfd230f3d429115d2e986b2a093e3998f0"
             },
             {
               "path": "docs/development-records/runs/a12b-evidence-wiring-2026-11-18/community-source.json",
@@ -79,9 +79,13 @@
               "sha256": "795a317b07943189430771fc28a53bdb1200e2da3689958e6a8de8e6826144a7"
             }
           ],
-          "status": "open",
+          "status": "user_approved",
           "requires_user_decision": true,
-          "decision_source": null,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-1（base-microsoft）：選 b。根目錄 vcruntime140.dll、vcruntime140_1.dll 換成 Visual Studio 官方 Redist 版本；numpy／pandas 改名複本與 PySide6／shiboken6 的 9 份照現狀接受並揭露。同意此打包變更。使用者判斷適用 Visual Studio Community 授權 |"
+          },
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
@@ -143,16 +147,26 @@
             {
               "path": "packaging/cpython/windows-3.12.10/original/sqlite.txt",
               "sha256": "cc65d76f325d884dd49e319acf3764d5513920f34ad18e34347b8dedc6ddd2ec"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/known-gaps.json",
+              "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7"
             }
           ],
-          "status": "open",
+          "status": "user_approved",
           "requires_user_decision": true,
-          "decision_source": null,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-3（base-cpython、base-wheels-cffi）：libffi 僅有建置宣告，接受並在揭露檔註明版本為官方建置宣告 |"
+          },
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
           ],
-          "accepted_gaps": []
+          "accepted_gaps": [
+            "cpython/libffi"
+          ]
         },
         {
           "id": "base-wheels-numpy",
@@ -187,16 +201,27 @@
             {
               "path": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
               "sha256": "ebcc3abb203f4c512c8202c57291c2896d801db6553946b6c139f7a7c084803e"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/known-gaps.json",
+              "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7"
             }
           ],
-          "status": "open",
-          "requires_user_decision": false,
-          "decision_source": null,
+          "status": "user_approved",
+          "requires_user_decision": true,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+          },
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
           ],
-          "accepted_gaps": []
+          "accepted_gaps": [
+            "numpy/gcc-runtime-libgfortran",
+            "numpy/numpy-bundled-sources"
+          ]
         },
         {
           "id": "base-wheels-pandas",
@@ -258,16 +283,26 @@
             {
               "path": "packaging/embedded/base-windows.json",
               "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/known-gaps.json",
+              "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7"
             }
           ],
-          "status": "open",
-          "requires_user_decision": false,
-          "decision_source": null,
+          "status": "user_approved",
+          "requires_user_decision": true,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+          },
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
           ],
-          "accepted_gaps": []
+          "accepted_gaps": [
+            "pandas/pandas-bundled-notices"
+          ]
         },
         {
           "id": "base-wheels-pillow",
@@ -294,16 +329,28 @@
             {
               "path": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
               "sha256": "ebcc3abb203f4c512c8202c57291c2896d801db6553946b6c139f7a7c084803e"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/known-gaps.json",
+              "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7"
             }
           ],
-          "status": "open",
-          "requires_user_decision": false,
-          "decision_source": null,
+          "status": "user_approved",
+          "requires_user_decision": true,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+          },
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
           ],
-          "accepted_gaps": []
+          "accepted_gaps": [
+            "pillow/fribidi",
+            "pillow/libyuv",
+            "pillow/raqm"
+          ]
         },
         {
           "id": "base-wheels-lxml",
@@ -331,16 +378,28 @@
             {
               "path": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
               "sha256": "ebcc3abb203f4c512c8202c57291c2896d801db6553946b6c139f7a7c084803e"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/known-gaps.json",
+              "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7"
             }
           ],
-          "status": "open",
-          "requires_user_decision": false,
-          "decision_source": null,
+          "status": "user_approved",
+          "requires_user_decision": true,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+          },
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
           ],
-          "accepted_gaps": []
+          "accepted_gaps": [
+            "lxml/libexslt",
+            "lxml/libiconv",
+            "lxml/zlib"
+          ]
         },
         {
           "id": "base-wheels-cryptography",
@@ -362,16 +421,26 @@
             {
               "path": "docs/development-records/runs/a9b-openssl-2026-11-18/windows-observation.json",
               "sha256": "2aba9e5d1becb519d5ae270131db8d8ce44bf0c59a3f7e4595d7f8dcd09a34ed"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/known-gaps.json",
+              "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7"
             }
           ],
-          "status": "open",
-          "requires_user_decision": false,
-          "decision_source": null,
+          "status": "user_approved",
+          "requires_user_decision": true,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+          },
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
           ],
-          "accepted_gaps": []
+          "accepted_gaps": [
+            "cryptography/rust-dependencies"
+          ]
         },
         {
           "id": "base-wheels-onnxruntime",
@@ -391,16 +460,26 @@
             {
               "path": "packaging/embedded/base-windows.json",
               "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/known-gaps.json",
+              "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7"
             }
           ],
-          "status": "open",
-          "requires_user_decision": false,
-          "decision_source": null,
+          "status": "user_approved",
+          "requires_user_decision": true,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+          },
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
           ],
-          "accepted_gaps": []
+          "accepted_gaps": [
+            "onnxruntime/onnxruntime-third-party-superset"
+          ]
         },
         {
           "id": "base-wheels-pypdfium2",
@@ -418,16 +497,35 @@
             {
               "path": "packaging/embedded/base-windows.json",
               "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/known-gaps.json",
+              "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7"
             }
           ],
-          "status": "open",
-          "requires_user_decision": false,
-          "decision_source": null,
+          "status": "user_approved",
+          "requires_user_decision": true,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+          },
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
           ],
-          "accepted_gaps": []
+          "accepted_gaps": [
+            "pypdfium2/abseil",
+            "pypdfium2/fast-float",
+            "pypdfium2/freetype",
+            "pypdfium2/icu",
+            "pypdfium2/libjpeg-turbo",
+            "pypdfium2/libopenjpeg",
+            "pypdfium2/libpng",
+            "pypdfium2/llvm-libc",
+            "pypdfium2/simdutf",
+            "pypdfium2/zlib"
+          ]
         },
         {
           "id": "base-wheels-cffi",
@@ -445,16 +543,26 @@
             {
               "path": "packaging/embedded/base-windows.json",
               "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/known-gaps.json",
+              "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7"
             }
           ],
-          "status": "open",
-          "requires_user_decision": false,
-          "decision_source": null,
+          "status": "user_approved",
+          "requires_user_decision": true,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-4（base-wheels-numpy、pandas、pillow、lxml、cryptography、onnxruntime、pypdfium2、cffi）：選 b。先做 A12d 以 Windows 執行期觀測縮短未知清單，剩下的未知元件接受並揭露 |"
+          },
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
           ],
-          "accepted_gaps": []
+          "accepted_gaps": [
+            "cffi/libffi"
+          ]
         },
         {
           "id": "base-wheels-charset-normalizer",
@@ -590,16 +698,110 @@
             {
               "path": "packaging/qt/6.12.0/thirdparty/catalog.json",
               "sha256": "a4b2658cba27d68ed22ad9575c513dc3e5eb5a2ec2f4ab0b686430cfb3f372bb"
+            },
+            {
+              "path": "src/desktop_app/data/licenses/known-gaps.json",
+              "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7"
             }
           ],
-          "status": "open",
+          "status": "user_approved",
           "requires_user_decision": true,
-          "decision_source": null,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-2（base-qt）：接受現行 LGPL 做法（動態連結、隨包原文與固定上游原始碼連結、hosted Windows 可替換驗收），未知項目接受並揭露 |"
+          },
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
           ],
-          "accepted_gaps": []
+          "accepted_gaps": [
+            "pyside/pyside-setup:sources/shiboken6/libshiboken/qt_attribution.json:0",
+            "pyside/pyside-setup:sources/shiboken6/shibokenmodule/files.dir/shibokensupport/signature/qt_attribution.json:0",
+            "qt-native/PySide6/opengl32sw.dll",
+            "qt/qtbase:src/3rdparty/D3D12MemoryAllocator/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/VulkanMemoryAllocator/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/android/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/blake2/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/double-conversion/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/easing/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/emoji-segmenter/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/forkfd/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/freetype/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/freetype/qt_attribution.json:1",
+            "qt/qtbase:src/3rdparty/freetype/qt_attribution.json:2",
+            "qt/qtbase:src/3rdparty/freetype/qt_attribution.json:3",
+            "qt/qtbase:src/3rdparty/gradle/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/harfbuzz-ng/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/icc/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/libjpeg/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/libpng/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/libpsl/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/libpsl/qt_attribution.json:1",
+            "qt/qtbase:src/3rdparty/md4/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/md4c/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/md5/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/pcre2/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/pcre2/qt_attribution.json:1",
+            "qt/qtbase:src/3rdparty/pixman/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/rfc6234/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/sha1/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/sha3/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/sha3/qt_attribution.json:1",
+            "qt/qtbase:src/3rdparty/siphash/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/sqlite/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/tinycbor/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wasm/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/appmenu/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/color-management/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/fractional-scale/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/fullscreen-shell/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/linux-dmabuf/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/linux-dmabuf/qt_attribution.json:1",
+            "qt/qtbase:src/3rdparty/wayland/protocols/pointer-gestures/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/pointer-warp/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/presentation-time/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/scaler/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/session-management/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/tablet/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/text-input/v1/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/text-input/v2/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/text-input/v3/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/viewporter/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/wayland/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/wl-eglstream/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/wlr-data-control/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/wp-primary-selection/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-activation/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-decoration/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-dialog/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-foreign/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-output/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-shell/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-system-bell/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wayland/protocols/xdg-toplevel-icon/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/wintab/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/xcb/qt_attribution.json:0",
+            "qt/qtbase:src/3rdparty/zlib/qt_attribution.json:0",
+            "qt/qtbase:src/corelib/global/qt_attribution.json:0",
+            "qt/qtbase:src/corelib/kernel/qt_attribution.json:0",
+            "qt/qtbase:src/corelib/mimetypes/3rdparty/qt_attribution.json:0",
+            "qt/qtbase:src/corelib/text/qt_attribution.json:0",
+            "qt/qtbase:src/corelib/text/qt_attribution.json:1",
+            "qt/qtbase:src/dbus/qt_attribution.json:0",
+            "qt/qtbase:src/gui/opengl/qt_attribution.json:0",
+            "qt/qtbase:src/gui/opengl/qt_attribution.json:1",
+            "qt/qtbase:src/gui/painting/qt_attribution.json:0",
+            "qt/qtbase:src/gui/painting/qt_attribution.json:1",
+            "qt/qtbase:src/gui/painting/qt_attribution.json:2",
+            "qt/qtbase:src/gui/rhi/qt_attribution.json:0",
+            "qt/qtbase:src/gui/text/qt_attribution.json:0",
+            "qt/qtbase:src/gui/util/qt_attribution.json:0",
+            "qt/qtbase:src/gui/vulkan/qt_attribution.json:0",
+            "qt/qtbase:src/plugins/platforms/cocoa/qt_attribution.json:0",
+            "qt/qtimageformats:src/3rdparty/libtiff/qt_attribution.json:0",
+            "qt/qtimageformats:src/3rdparty/libwebp/qt_attribution.json:0"
+          ]
         },
         {
           "id": "base-tesseract-models",
@@ -717,9 +919,13 @@
               "sha256": "8e5db0129069005be2a07be3297e198888fd72fad62a13a611504660c6b7e3c7"
             }
           ],
-          "status": "open",
+          "status": "user_approved",
           "requires_user_decision": true,
-          "decision_source": null,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-5（base-tesseract-models）：接受 CI 以固定來源靜態建置的 tesseract.exe 5.5.3 與固定提交的四語 tessdata_fast 模型 |"
+          },
           "gates": [
             "runtime_sbom_complete",
             "redistribution_approved"
@@ -794,10 +1000,23 @@
           "required_evidence": [
             "對應候選的門檻確認：Microsoft、適用 LGPL、版本／建置宣告未知處與工具／模型限制，不由協調者代決定"
           ],
-          "evidence": [],
-          "status": "open",
+          "evidence": [
+            {
+              "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json",
+              "sha256": "f65cdbc9a01d95391032fa991d6d4f0e5dfec10b317b983435ce79bfbeaed295"
+            },
+            {
+              "path": "docs/history/status/2026-11-18-a13-decisions.md",
+              "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21"
+            }
+          ],
+          "status": "user_approved",
           "requires_user_decision": true,
-          "decision_source": null,
+          "decision_source": {
+            "path": "docs/history/status/2026-11-18-a13-decisions.md",
+            "sha256": "27fbc2fc8be9f1e86878818794968c596507c774e7401398749d10927a527c21",
+            "quote": "| 2026-11-18 | 使用者 A13 決定 | A13-7（base-redistribution-decision）：同意 B1 以 CI artifact 公開產出基本包測試版 |"
+          },
           "gates": [
             "redistribution_approved"
           ],

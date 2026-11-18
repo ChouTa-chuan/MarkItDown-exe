@@ -23,8 +23,11 @@ class EmbeddedCatalogTests(unittest.TestCase):
         self.report = gates.read_json(ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json')
 
     def check(self, catalog=None, entries=None):
+        # 與 gates 相同的揭露式關閉檢核：未知元件的條目須為 open，或經使用者決定並逐項揭露。
+        validator = lambda entry, unknown: gates.validate_gap_acceptance(entry, unknown, self.report, ROOT)
         return embedded.check_profile(catalog if catalog is not None else self.catalog, catalog_path=CATALOG_PATH,
-                                      entries=entries if entries is not None else self.entries, report=self.report, root=ROOT)
+                                      entries=entries if entries is not None else self.entries, report=self.report, root=ROOT,
+                                      gap_validator=validator)
 
     def assertRejects(self, message, catalog=None, entries=None):
         with self.assertRaisesRegex(ValueError, message):
@@ -43,11 +46,17 @@ class EmbeddedCatalogTests(unittest.TestCase):
         self.assertEqual(summary['native_files'], 81)
         # A12d 把 libxslt 與 libexslt 拆成兩個元件，元件總數由 54 變 55。
         self.assertEqual(summary['components'], 55)
-        # unknown 元件所屬條目必須是 open；evidence_complete 的條目只能是版本已知的 wheel
-        closed = {e['id'] for e in self.entries if e['id'].startswith('base-wheels-') and e['status'] != 'open'}
-        self.assertEqual(closed, {'base-wheels-charset-normalizer', 'base-wheels-psutil'})
+        # evidence_complete 的 wheel 條目只能是版本已知者；含未知元件的條目只能是 open，
+        # 或經使用者決定（user_approved）且 accepted_gaps 與該條目的未知元件完全相等。
+        complete = {e['id'] for e in self.entries if e['id'].startswith('base-wheels-') and e['status'] == 'evidence_complete'}
+        self.assertEqual(complete, {'base-wheels-charset-normalizer', 'base-wheels-psutil'})
         unknown = self.check()['unknown_components']
         self.assertEqual(len(unknown), len(set(unknown)))
+        for entry in self.entries:
+            if entry['id'].startswith('base-wheels-') and entry['status'] != 'evidence_complete':
+                if entry['accepted_gaps']:
+                    self.assertEqual(entry['status'], 'user_approved', entry['id'])
+                    self.assertTrue(entry['requires_user_decision'], entry['id'])
 
     def test_pillow_string_evidence_components_stay_unknown(self):
         """Pillow 的 .pyd 字串顯示的元件沒有版本與原文，條目必須保持 open。
@@ -60,7 +69,9 @@ class EmbeddedCatalogTests(unittest.TestCase):
             self.assertIsNone(component['version'])
             self.assertEqual(component['notices'], [])
         pillow = next(e for e in self.entries if e['id'] == 'base-wheels-pillow')
-        self.assertEqual(pillow['status'], 'open')
+        # 三個未知元件仍無版本；條目經使用者決定，揭露清單必須逐項列出它們。
+        self.assertEqual(pillow['status'], 'user_approved')
+        self.assertEqual(sorted(pillow['accepted_gaps']), ['pillow/fribidi', 'pillow/libyuv', 'pillow/raqm'])
 
     def test_real_catalog_pins_lock_and_wheel_hashes(self):
         lock = embedded.read_lock(ROOT/embedded.LOCK_PATH)
@@ -228,11 +239,13 @@ class EmbeddedCatalogTests(unittest.TestCase):
 class GateIntegrationTests(unittest.TestCase):
     """閘門層的整合：目錄存在時，三旗標仍然全部為 false，且 CLI 可以正常退出。"""
 
-    def test_base_gate_reports_catalog_and_keeps_flags_false(self):
+    def test_base_gate_reports_catalog_and_flags_after_user_decisions(self):
+        # A13b 2b：使用者決定寫入後，base 揭露與再散布旗標為 true；完整盤點與 release 仍為 false。
         report = gates.read_json(ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json')
         result = gates.assess(report, gates.read_json(gates.REGISTRY))
         self.assertFalse(result['runtime_sbom_complete'])
-        self.assertFalse(result['redistribution_approved'])
+        self.assertTrue(result['runtime_sbom_disclosed'])
+        self.assertTrue(result['redistribution_approved'])
         self.assertFalse(result['release_ready'])
         self.assertEqual(result['embedded_catalogs'][0]['catalog'], CATALOG_PATH)
         self.assertEqual(result['embedded_catalogs'][0]['wheels'], 10)

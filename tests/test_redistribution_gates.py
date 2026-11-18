@@ -270,18 +270,23 @@ class GateTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'not a packaged disclosure'):
             self.assess()
 
-    def test_actual_gap_lists_remain_unaccepted_and_include_qt_and_libffi(self):
+    def test_actual_gap_lists_are_accepted_exactly_and_include_qt_and_libffi(self):
         base = self.assess()
         cpu = self.assess('cpu')
+        # A13b 2b：base 的決定已寫入，揭露清單與推導的未知集合逐條相等；cpu 仍未決定，不得被接受。
+        self.assertTrue(base['runtime_sbom_disclosed'])
+        self.assertFalse(cpu['runtime_sbom_disclosed'])
+        self.assertEqual(cpu['accepted_gaps'], {})
         for result in (base, cpu):
-            self.assertFalse(result['runtime_sbom_disclosed'])
-            self.assertEqual(result['accepted_gaps'], {})
             self.assertEqual(result['registry_schema_version'], 3)
         self.assertEqual(base['unknown_components']['base-cpython'], ['cpython/libffi'])
         self.assertEqual(cpu['unknown_components']['cpu-cpython'], ['cpython/libffi'])
         self.assertIn('qt-native/PySide6/opengl32sw.dll', base['unknown_components']['base-qt'])
+        for entry, gaps in base['unknown_components'].items():
+            with self.subTest(entry=entry):
+                self.assertEqual(sorted(base['accepted_gaps'][entry]), sorted(gaps))
 
-    def test_actual_a12_profiles_have_exact_coverage_and_false_flags(self):
+    def test_actual_profiles_have_exact_coverage_and_expected_flags(self):
         for profile in ('base', 'cpu'):
             with self.subTest(profile=profile):
                 result = self.assess(profile)
@@ -289,7 +294,50 @@ class GateTests(unittest.TestCase):
                 self.assertEqual(set(result['coverage']['native_files']), {x['file'] for x in native})
                 self.assertEqual(set(result['coverage']['review_reasons']), set(self.reports[profile]['review_reasons']))
                 self.assertTrue(result['unclosed_obligations'])
-                self.assertTrue(all(result[f] is False for f in gates.FLAGS))
+                # 兩 profile 都不得宣告完整盤點或 release；只有 base 的揭露與再散布由使用者決定推導為 true。
+                self.assertIs(result['runtime_sbom_complete'], False)
+                self.assertIs(result['release_ready'], False)
+        base = self.assess('base')
+        self.assertIs(base['runtime_sbom_disclosed'], True)
+        self.assertIs(base['redistribution_approved'], True)
+        cpu = self.assess('cpu')
+        self.assertIs(cpu['runtime_sbom_disclosed'], False)
+        self.assertIs(cpu['redistribution_approved'], False)
+
+    def base_entry(self, identifier):
+        return next(e for e in self.registry['profiles']['base']['entries'] if e['id'] == identifier)
+
+    def test_user_decision_quote_must_be_the_archived_section_d_row(self):
+        self.base_entry('base-microsoft')['decision_source']['quote'] = (
+            '| 2026-11-18 | 使用者 A13 決定 | A13-1（base-microsoft）：改寫過的決定內容 |')
+        with self.assertRaisesRegex(ValueError, 'Decision quotation'):
+            self.assess()
+
+    def test_user_decision_archive_hash_mismatch_is_rejected(self):
+        self.base_entry('base-qt')['decision_source']['sha256'] = 'e'*64
+        with self.assertRaisesRegex(ValueError, 'Evidence hash mismatch'):
+            self.assess()
+
+    def test_accepted_gaps_must_equal_the_derived_unknown_set(self):
+        entry = self.base_entry('base-qt')
+        entry['accepted_gaps'] = entry['accepted_gaps'][1:]
+        with self.assertRaisesRegex(ValueError, 'accepted_gaps differs'):
+            self.assess()
+        self.setUp()
+        self.base_entry('base-qt')['accepted_gaps'].append('synthetic/unknown-extra')
+        with self.assertRaisesRegex(ValueError, 'accepted_gaps differs'):
+            self.assess()
+
+    def test_user_approved_unknown_entry_needs_the_packaged_disclosure_reference(self):
+        entry = self.base_entry('base-wheels-pandas')
+        entry['evidence'] = [ref for ref in entry['evidence'] if not ref['path'].endswith('known-gaps.json')]
+        with self.assertRaisesRegex(ValueError, 'Missing packaged gap disclosure'):
+            self.assess()
+
+    def test_clean_machine_acceptance_stays_open_after_the_decisions(self):
+        self.assertEqual(self.base_entry('base-clean-machine-manual')['status'], 'open')
+        self.assertIs(self.assess()['release_ready'], False)
+
 
     def test_a12b_origin_known_assessment_covers_the_preserved_rows(self):
         """逐列來源對照是工程證據，不重寫分類器的 origin-known 或替代授權決定。"""
