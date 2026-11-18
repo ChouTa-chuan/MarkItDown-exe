@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-18：修正進度頁「全階段規劃」版面：標題含長英文字（如 A12c 的 runtime_sbom_disclosed）時狀態標籤被擠出卡片；改為標題可斷行、標籤不縮小。
+
 ### 2026-11-18｜A12c 揭露式關閉規則
 
 - 登記 schema 升為 3，每項加入空 accepted_gaps，現有狀態、選擇器、來源及證據引用不變。runtime_sbom_complete 保持嚴格；新增 runtime_sbom_disclosed，redistribution_approved 改依完整揭露及原再散布決定判定，release_ready 仍受大階段 C 限制。
