@@ -1,0 +1,20 @@
+{
+  "date_taipei": "2026-11-18",
+  "tested_source": "1fee37a232a154982fb0aa72f7bce9422f6993e6",
+  "candidate_source": "2555687eafc931600f30265f7bd290331cd49a0f",
+  "result": "schema 3 disclosure rules and full regression verified; final integration in PR 27",
+  "keywords": [
+    "A12c",
+    "accepted_gaps",
+    "runtime_sbom_disclosed",
+    "揭露式關閉"
+  ],
+  "files": {
+    "README.md": "2a9138b385232a8e6cd766f893049afccf6fb088ffe23713a56da2e86cde51fd",
+    "failed-attempts.json": "64d1c0baf180a5691ef7ff45f8c06bdd038b8d965799d6e367855508382c9a67",
+    "gates-summary.json": "878328158f4d7457490e6a9e9a9843f40b202d2b771d71d2ed927e0f3ae5a680",
+    "isolated-summary.json": "65a32ada43f5adf2f8e2fb114a6b641058a0f9a72d6682e948b2b00b8ce64ba1",
+    "mixed-result.json": "a353aade5a8330eeca50228c3acb14871c1b9a1e54cf7ed30be9f01a0b7b4ccb",
+    "predecessor-ci.json": "7001e9cf86c74505f820bba66a389d3c4b98922c9b9f9eda1adaed01bf6a3264"
+  }
+}

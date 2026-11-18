@@ -11,7 +11,7 @@
 - 授權原文：列出的原文路徑必須在 repo 內（src/desktop_app/data/licenses/windows），hash 與 inventory.json 一致，
   缺檔或改內容即拒絕。這是 repo 內可重驗的部分。
 - 版本依據分級只允許 wheel-declared（wheel 內文字檔或 METADATA 宣告）、runtime-observed（實際載入觀測）、unknown。
-  版本 unknown 的元件，其所屬條目必須保持 open，不得以其他方式關閉。
+  版本 unknown 的元件保持 open，或交由 gates 驗證使用者接受及候選隨包揭露；不把接受缺口當成版本已知。
 
 本模組不做的事（限制，不能當成已驗證）：
 - wheel-declared 的 version_source 只記 wheel 內檔案路徑與欄位；A9b runtime-observed 則核對 Windows API JSON、原生檔與原文 hash。repo 內沒有 wheel 本體，無法自動重驗宣告字串是否存在；
@@ -117,12 +117,14 @@ def check_crypto_observation(component, wheel, proof, source_row, profile):
             'Cryptography runtime notice binding differs')
 
 
-def check_profile(catalog, *, catalog_path, entries, report, root=ROOT):
+def check_profile(catalog, *, catalog_path, entries, report, root=ROOT, gap_validator=None):
     """檢核一份目錄與所屬 profile 的登記條目，回傳摘要；任何不符都拋出 ValueError。
 
     catalog_path：目錄在 repo 內的相對路徑（登記條目的 evidence 必須引用它）。
     entries：該 profile 的登記條目（已通過 redistribution_gates 的結構檢查）。
-    report：該 profile 的 A6 source-review。
+    report：該 profile 的固定候選 source-review。
+    gap_validator：gates 提供的揭露式關閉檢核；獨立呼叫未提供時，未知元件仍只能 open。
+    目錄層只產生缺口 id，決定出處與隨包證據的規則集中在 gates，避免兩套判定。
     """
     require(catalog_path.startswith(CATALOG_PREFIX), 'Catalog must live under ' + CATALOG_PREFIX)
     exact_keys(catalog, TOP_KEYS, 'catalog')
@@ -235,9 +237,13 @@ def check_profile(catalog, *, catalog_path, entries, report, root=ROOT):
         require(sorted(entry['native_files']) == info['natives'],
                 'Registry native files differ from the catalog for ' + entry_id)
         if info['unknown']:
-            require(entry['status'] == 'open', 'Entry with unknown component must stay open: ' + entry_id)
+            require(entry['status'] == 'open' or gap_validator is not None,
+                    'Entry with unknown component must stay open without a gap validator: ' + entry_id)
+            if gap_validator is not None:
+                gap_validator(entry, info['unknown'])
     # 目錄涵蓋的原生檔與引用條目的原生檔合計相同，沒有漏列也沒有多列。
     referenced_natives = sorted(n for e in entries if e['id'] in by_entry for n in e['native_files'])
     require(referenced_natives == sorted(seen_natives), 'Catalog natives differ from referenced registry natives')
     return dict(catalog=catalog_path, wheels=len(by_entry), components=component_total,
-                native_files=len(seen_natives), unknown_components=sorted(unknown_components))
+                native_files=len(seen_natives), unknown_components=sorted(unknown_components),
+                unknown_by_entry={key:sorted(value['unknown']) for key,value in by_entry.items() if value['unknown']})

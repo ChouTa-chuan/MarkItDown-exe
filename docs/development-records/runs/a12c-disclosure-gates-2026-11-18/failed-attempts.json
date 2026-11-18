@@ -1,0 +1,25 @@
+{
+  "attempts": [
+    {
+      "stage": "targeted-v1",
+      "log_sha256": "818d711ad4a563536bbef222370e23b04cf09860e1104199a430ff9780fd59e1",
+      "cause": "新增移除目錄引用反例先被 Closed status without evidence 擋下，assertRaisesRegex 因錯誤訊息不同而失敗。",
+      "correction": "只為該反例保留有效但無關 LICENSE 引用，以實際觸發目錄綁定門檻；產品判定邏輯不因反例調整。",
+      "final_targeted_passed": true
+    },
+    {
+      "stage": "document-check-command",
+      "log_sha256": "88b9a634de8b6bc861cd32dd426af560f0c11caa8edeb1036ac832aba0fa2c75",
+      "cause": "額外文件檢查命令誤填不存在的 test_progress 模組；不是完整回歸或產品程式失敗。",
+      "correction": "改跑存在的 test_history_index，並直接以 build_progress.build 驗 schema 及產出 HTML 一致；皆通過。"
+    }
+  ],
+  "interrupted_runs": [
+    {
+      "source_commit": "825d648bace3428d9ee65d1be5876cfcb78fc2ea",
+      "log_sha256": "6c1d17ba53e92862a768ce71fcac8171ca1e6db9f2dfc5dcf0e0394e5a11b4aa",
+      "exit_code": 143,
+      "reason": "查驗補上零獨立原生檔缺口的阻擋規則後，主動結束較早版本重跑；最終版本另做完整混合及獨立驗證。"
+    }
+  ]
+}
