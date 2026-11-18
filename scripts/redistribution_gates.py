@@ -325,7 +325,8 @@ def assess(report, registry, *, root=ROOT):
                                                    and e['status'] != 'user_approved'))]
     # disclosed 只覆蓋來源盤點義務；再散布總決定與 stage C 各由自己的門檻保留。
     # 接受缺口不會使 strict complete 變 true，亦不會讓 open 的來源條目消失。
-    blocked[DISCLOSED] = list(blocked[FLAGS[0]])
+    blocked[DISCLOSED] = sorted(set(blocked[FLAGS[0]]) | {
+        e['id'] for e in entries if e['id'] in unknown and e['status'] == 'open'})
     blocked[FLAGS[0]] = sorted(set(blocked[FLAGS[0]]) | set(unknown))
     flags = {FLAGS[0]: not blocked[FLAGS[0]], DISCLOSED:not blocked[DISCLOSED]}
     flags[FLAGS[1]] = flags[DISCLOSED] and not blocked[FLAGS[1]]

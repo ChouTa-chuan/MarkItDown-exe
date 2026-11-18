@@ -202,6 +202,20 @@ class GateTests(unittest.TestCase):
         entry['evidence'].pop()
         with self.assertRaisesRegex(ValueError, 'Missing packaged gap disclosure'):
             gates.assess(self.reports['base'], self.registry, root=self.temp)
+        # 無獨立原生檔的內含元件也不能靠移除來源 gate，讓 open 缺口被 disclosed 忽略。
+        entry, _ = self.gap_fixture(embedded=True)
+        known = copy.deepcopy(entry)
+        known.update(id='base-known-native', review_reasons=[], accepted_gaps=[],
+                     evidence=[self.write('evidence.txt', 'synthetic evidence')])
+        self.registry['profiles']['base']['entries'].append(known)
+        entry.update(native_files=[], gates=['redistribution_approved'], status='open', accepted_gaps=[])
+        ref = entry['evidence'][0]
+        catalog = gates.read_json(self.temp/ref['path'])
+        catalog['wheels'][0]['components'][0]['native_files'] = []
+        entry['evidence'][0] = self.write(ref['path'], json.dumps(catalog))
+        result = gates.assess(self.reports['base'], self.registry, root=self.temp)
+        self.assertFalse(result['runtime_sbom_disclosed'])
+        self.assertIn(entry['id'], result['blocked_by_gate']['runtime_sbom_disclosed'])
 
     def test_existing_catalog_cannot_be_hidden_by_removing_all_its_references(self):
         for path in ('packaging/embedded/base-windows.json', 'packaging/qt/6.12.0/thirdparty/catalog.json'):

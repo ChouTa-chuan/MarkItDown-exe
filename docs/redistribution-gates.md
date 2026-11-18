@@ -64,7 +64,7 @@ base 與 cpu 分開判定；CPU 尚未關閉不妨礙基本包依自己的證據
 
 對應條目的清單必須與目錄缺口完全相同，JSON 本身亦拒絕重複鍵、未知頂層鍵及無效清單。一般 inventory JSON 或任意授權原文不能冒充揭露。base 候選中必須有 `_internal/desktop_app/data/licenses/<相對檔名>`，cpu 必須有 `_internal/worker-assets/licenses/<相對檔名>`，路徑與實際 prepare_worker_assets 佈局一致；其 SHA 必須等於 repo 揭露檔。同樣資料只留在 repo、未在候選 source-review 的 candidate_inventory.files 保存，不能關閉。來源提交也須等於登記表基準。若重定候選時精簡報告漏掉此檔，須先補齊證據，不使用其他檔案或舊候選 hash 兜底。
 
-已存在的 embedded／Qt 目錄不可藉移除全部 evidence 引用來隱藏缺口。embedded_components 獨立呼叫而沒有 gates 的完整驗證回呼時，未知條目仍只能 open；經 gates 則依同一套規則檢查。CPU 的 CPython 缺口也使用相同接受與 worker 隨包證據規則；CPU wheel 詳細目錄仍由 A16 處理，本輪不擴充該目錄或關閉 CPU 義務。
+已存在的 embedded／Qt 目錄不可藉移除全部 evidence 引用來隱藏缺口。即使某內含元件沒有獨立原生檔、條目誤省略來源 gate，其 open 缺口仍會阻擋 disclosed；不靠手填 gate 隱藏已知缺口。embedded_components 獨立呼叫而沒有 gates 的完整驗證回呼時，未知條目仍只能 open；經 gates 則依同一套規則檢查。CPU 的 CPython 缺口也使用相同接受與 worker 隨包證據規則；CPU wheel 詳細目錄仍由 A16 處理，本輪不擴充該目錄或關閉 CPU 義務。
 
 「不得有 open」適用於影響來源盤點的條目。再散布總決定由 redistribution_approved 另外要求，clean-machine-manual 只屬 release_ready；因此完整揭露且經再散布決定後可以進 B1，但在大階段 C 完成之前仍 release_ready=false。所有來源條目關閉且沒有缺口時 complete／disclosed 都可為 true；有缺口被有效接受時 complete 仍 false、disclosed 才可 true。輸出分開列 unknown_components、accepted_gaps 與各旗標 blockers，不重寫原 input_inventory_summary 或 classification。
 
