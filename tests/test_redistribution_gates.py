@@ -40,15 +40,189 @@ class GateTests(unittest.TestCase):
         stage_c = self.write('docs/development-records/runs/stage-c-synthetic/result.txt', 'synthetic stage C')
         text = '# 合成存檔\n\n## C. 其他\n\n| x |\n\n## D. 規則與決定\n\n| 日期 | 來源 | 內容 |\n'+self.DECISION_ROW+'\n\n## E. 其他\n'
         decision = dict(self.write(self.ARCHIVE, text), quote=self.DECISION_ROW)
-        for profile in self.registry['profiles'].values():
-            for entry in profile['entries']:
-                evidence = [stage_c] if entry['id'].endswith('-clean-machine-manual') else [proof]
-                entry.update(status='user_approved', evidence=evidence, decision_source=decision)
+        for profile in ('base', 'cpu'):
+            source = 'a'*40
+            def entry(suffix, gate_flags, native=None, reasons=None):
+                return dict(id=profile+suffix, title='合成義務', native_files=native or [],
+                            review_reasons=reasons or [], file_groups=[], required_evidence=['合成證據'],
+                            evidence=[stage_c] if suffix == '-clean-machine-manual' else [proof],
+                            status='user_approved', requires_user_decision=True, decision_source=decision,
+                            gates=gate_flags, accepted_gaps=[])
+            self.registry['profiles'][profile] = dict(source_commit=source, entries=[
+                entry('-source', list(gates.FLAGS[:2]), ['test.dll'], ['synthetic-review']),
+                entry('-redistribution-decision', [gates.FLAGS[1]]),
+                entry('-clean-machine-manual', [gates.FLAGS[2]])])
+            self.reports[profile] = dict(check='candidate-source-review', schema_version=1, accepted=True,
+                profile=profile, selection=dict(source_commit=source), review_reasons={'synthetic-review':1},
+                inventory_summary={'synthetic':True}, classification_input=dict(report=dict(
+                    profile=profile, source_commit=source, native_files=[dict(file='test.dll')],
+                    candidate_inventory=dict(files=[dict(path='_internal/test.dll', sha256='1'*64,
+                                                         review_reasons=['synthetic-review'])]))))
 
     def decision_assess(self, text, quote, path=None):
         """以合成存檔檢查單一決定出處；只有 reference 的決定規則被觸發。"""
         ref = dict(self.write(path or self.ARCHIVE, text), quote=quote)
         gates.reference(ref, self.temp, decision=True)
+
+    def gap_fixture(self, profile='base', *, embedded=False):
+        """全為合成資料；包內路徑與真實 base／worker 佈局相同，但不產生產品或真實核准。"""
+        self.synthetic_closed()
+        entry = self.registry['profiles'][profile]['entries'][0]
+        raw = self.reports[profile]['classification_input']['report']
+        identity = 'sample/libfoo' if embedded else 'cpython/libffi'
+        entry['accepted_gaps'] = [identity]
+        raw['cpython_components'] = dict(files=[] if embedded else [dict(
+            file='test.dll', component='libffi', observed_version=None,
+            declared_version='3.4.4', version_status='build-declaration-only')])
+        name = 'src/desktop_app/data/licenses/known-gaps.json'
+        disclosure = self.write(name, json.dumps(dict(schema_version=1, accepted_gaps={entry['id']:[identity]})))
+        entry['evidence'].append(disclosure)
+        prefix = '_internal/desktop_app/data/licenses/' if profile == 'base' else '_internal/worker-assets/licenses/'
+        raw['candidate_inventory']['files'].append(dict(path=prefix+'known-gaps.json',
+            sha256=disclosure['sha256'], review_reasons=['synthetic-review']))
+        self.reports[profile]['review_reasons']['synthetic-review'] += 1
+        next(e for e in self.registry['profiles'][profile]['entries']
+             if e['id'].endswith('-clean-machine-manual'))['status'] = 'open'
+        if embedded:
+            self.assertEqual(profile, 'base')
+            raw['native_files'][0]['distributions'] = [dict(name='sample', version='1')]
+            lock = self.write('packaging/profiles/base-windows-runtime.txt', 'sample==1 --hash=sha256:'+'f'*64+'\n')
+            source = self.write('docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json',
+                                json.dumps(self.reports[profile]))
+            inventory = self.write('src/desktop_app/data/licenses/windows/inventory.json', '{"files":{}}')
+            def component(cid, kind, unknown=False):
+                return dict(id=cid, name=cid, kind=kind, version=None if unknown else '1',
+                    version_basis='unknown' if unknown else 'wheel-declared',
+                    version_source=None if unknown else 'METADATA', upstream='https://example.invalid/source',
+                    license='synthetic', notices=[], native_files=[] if unknown else ['test.dll'], note='合成')
+            catalog = dict(schema_version=1, profile='base', source_commit='a'*40, scope='合成目錄',
+                lock=lock, source_review=source, inventory=inventory, wheels=[dict(distribution='sample', version='1',
+                    filename='sample-1-py3-none-win_amd64.whl', sha256='f'*64, registry_entry=entry['id'],
+                    components=[component('sample', 'wheel-own'), component('libfoo', 'bundled', True)])])
+            entry['evidence'].insert(0, self.write('packaging/embedded/base-windows.json', json.dumps(catalog)))
+        return entry, raw
+
+    def test_schema3_requires_unique_typed_gap_lists(self):
+        for value in (None, {}, 'x', [True], [''], ['x', 'x'], ['x\ny'], [' x']):
+            with self.subTest(value=value):
+                self.synthetic_closed()
+                self.registry['profiles']['base']['entries'][0]['accepted_gaps'] = value
+                with self.assertRaisesRegex(ValueError, 'accepted_gaps'):
+                    gates.assess(self.reports['base'], self.registry, root=self.temp)
+        self.synthetic_closed()
+        del self.registry['profiles']['base']['entries'][0]['accepted_gaps']
+        with self.assertRaisesRegex(ValueError, 'missing keys'):
+            gates.assess(self.reports['base'], self.registry, root=self.temp)
+
+    def test_disclosed_gap_positive_for_base_and_cpu_keeps_strict_complete_false(self):
+        for profile in ('base', 'cpu'):
+            with self.subTest(profile=profile):
+                entry, _ = self.gap_fixture(profile)
+                result = gates.assess(self.reports[profile], self.registry, root=self.temp)
+                self.assertFalse(result['runtime_sbom_complete'])
+                self.assertTrue(result['runtime_sbom_disclosed'])
+                self.assertTrue(result['redistribution_approved'])
+                self.assertFalse(result['release_ready'])
+                self.assertEqual(result['accepted_gaps'], {entry['id']:['cpython/libffi']})
+                self.assertEqual(result['blocked_by_gate']['runtime_sbom_complete'], [entry['id']])
+                self.assertEqual(result['gate_dependencies']['redistribution_approved'], ['runtime_sbom_disclosed'])
+
+    def test_rejects_gap_set_different_from_catalog(self):
+        for profile in ('base', 'cpu'):
+            for values in ([], ['unrelated/id'], ['cpython/libffi', 'extra/id']):
+                with self.subTest(profile=profile, values=values):
+                    entry, _ = self.gap_fixture(profile)
+                    entry['accepted_gaps'] = values
+                    with self.assertRaisesRegex(ValueError, 'differs from catalog'):
+                        gates.assess(self.reports[profile], self.registry, root=self.temp)
+
+    def test_unknown_closure_needs_user_approval_decision_and_requirement(self):
+        for profile in ('base', 'cpu'):
+            for changes in (dict(status='evidence_complete'), dict(decision_source=None),
+                            dict(requires_user_decision=False), dict(status='open')):
+                with self.subTest(profile=profile, changes=changes):
+                    entry, _ = self.gap_fixture(profile)
+                    entry.update(changes)
+                    with self.assertRaises(ValueError):
+                        gates.assess(self.reports[profile], self.registry, root=self.temp)
+
+    def test_rejects_missing_disclosure_or_wrong_candidate_bytes(self):
+        for profile in ('base', 'cpu'):
+            for case in ('missing evidence', 'outside license dir', 'absent candidate', 'wrong hash'):
+                with self.subTest(profile=profile, case=case):
+                    entry, raw = self.gap_fixture(profile)
+                    if case == 'missing evidence':
+                        entry['evidence'].pop()
+                    elif case == 'outside license dir':
+                        entry['evidence'][-1] = self.write('docs/disclosure.json', json.dumps(dict(
+                            schema_version=1, accepted_gaps={entry['id']:entry['accepted_gaps']})))
+                    elif case == 'absent candidate':
+                        raw['candidate_inventory']['files'].pop()
+                        self.reports[profile]['review_reasons']['synthetic-review'] -= 1
+                    else:
+                        raw['candidate_inventory']['files'][-1]['sha256'] = '0'*64
+                    with self.assertRaisesRegex(ValueError, 'disclosure|Disclosure'):
+                        gates.assess(self.reports[profile], self.registry, root=self.temp)
+
+    def test_disclosure_contents_must_list_the_actual_gaps(self):
+        for data in ({'unrelated':'data'}, dict(schema_version=1, accepted_gaps={}),
+                     dict(schema_version=1, accepted_gaps={'base-source':['wrong/id']}),
+                     dict(schema_version=1, accepted_gaps={'base-source':['cpython/libffi']}, extra=True),
+                     dict(schema_version=True, accepted_gaps={'base-source':['cpython/libffi']})):
+            with self.subTest(data=data):
+                entry, raw = self.gap_fixture()
+                ref = self.write(entry['evidence'][-1]['path'], json.dumps(data))
+                entry['evidence'][-1] = ref
+                raw['candidate_inventory']['files'][-1]['sha256'] = ref['sha256']
+                with self.assertRaises(ValueError):
+                    gates.assess(self.reports['base'], self.registry, root=self.temp)
+
+    def test_build_declaration_is_not_made_complete_by_a_version_string(self):
+        entry, raw = self.gap_fixture()
+        raw['cpython_components']['files'][0]['observed_version'] = '3.4.4'
+        result = gates.assess(self.reports['base'], self.registry, root=self.temp)
+        self.assertFalse(result['runtime_sbom_complete'])
+        self.assertEqual(result['unknown_components'][entry['id']], ['cpython/libffi'])
+
+    def test_known_only_entry_cannot_claim_accepted_gaps(self):
+        self.synthetic_closed()
+        self.registry['profiles']['base']['entries'][0]['accepted_gaps'] = ['invented/id']
+        with self.assertRaisesRegex(ValueError, 'without catalog gaps'):
+            gates.assess(self.reports['base'], self.registry, root=self.temp)
+
+    def test_embedded_unknown_can_close_only_through_full_disclosure_validation(self):
+        entry, _ = self.gap_fixture(embedded=True)
+        result = gates.assess(self.reports['base'], self.registry, root=self.temp)
+        self.assertFalse(result['runtime_sbom_complete'])
+        self.assertTrue(result['runtime_sbom_disclosed'])
+        self.assertTrue(result['redistribution_approved'])
+        self.assertEqual(result['unknown_components'], {entry['id']:['sample/libfoo']})
+        entry['evidence'].pop()
+        with self.assertRaisesRegex(ValueError, 'Missing packaged gap disclosure'):
+            gates.assess(self.reports['base'], self.registry, root=self.temp)
+
+    def test_existing_catalog_cannot_be_hidden_by_removing_all_its_references(self):
+        for path in ('packaging/embedded/base-windows.json', 'packaging/qt/6.12.0/thirdparty/catalog.json'):
+            registry = copy.deepcopy(self.registry)
+            for entry in registry['profiles']['base']['entries']:
+                entry['evidence'] = [r for r in entry['evidence'] if r['path'] != path]
+                if not entry['evidence'] and entry['status'] != 'open':
+                    # 留一份有效但無關的工程證據，確定反例測到「隱藏目錄」而非更早的缺證據檢查。
+                    entry['evidence'] = [dict(path='LICENSE',
+                        sha256=hashlib.sha256((ROOT/'LICENSE').read_bytes()).hexdigest())]
+            with self.subTest(path=path), self.assertRaisesRegex(ValueError, 'catalog must remain bound'):
+                gates.assess(self.reports['base'], registry)
+
+    def test_actual_gap_lists_remain_unaccepted_and_include_qt_and_libffi(self):
+        base = self.assess()
+        cpu = self.assess('cpu')
+        for result in (base, cpu):
+            self.assertFalse(result['runtime_sbom_disclosed'])
+            self.assertEqual(result['accepted_gaps'], {})
+            self.assertEqual(result['registry_schema_version'], 3)
+        self.assertEqual(base['unknown_components']['base-cpython'], ['cpython/libffi'])
+        self.assertEqual(cpu['unknown_components']['cpu-cpython'], ['cpython/libffi'])
+        self.assertIn('qt-native/PySide6/opengl32sw.dll', base['unknown_components']['base-qt'])
 
     def test_actual_a12_profiles_have_exact_coverage_and_false_flags(self):
         for profile in ('base', 'cpu'):
@@ -202,7 +376,7 @@ class GateTests(unittest.TestCase):
             elif name == 'schema':
                 registry['schema_version'] = 1
             elif name == 'schema-float':
-                registry['schema_version'] = 2.0
+                registry['schema_version'] = 3.0
             return registry
         for name in ('top', 'profile', 'entry', 'evidence', 'decision', 'schema', 'schema-float'):
             with self.subTest(name=name), self.assertRaises(ValueError):
@@ -222,8 +396,10 @@ class GateTests(unittest.TestCase):
 
     def test_base_does_not_require_cpu_obligations_to_close(self):
         original_cpu = copy.deepcopy(self.registry['profiles']['cpu'])
+        original_report = copy.deepcopy(self.reports['cpu'])
         self.synthetic_closed()
         self.registry['profiles']['cpu'] = original_cpu
+        self.reports['cpu'] = original_report
         base = gates.assess(self.reports['base'], self.registry, root=self.temp)
         cpu = gates.assess(self.reports['cpu'], self.registry, root=self.temp)
         self.assertTrue(all(base[f] is True for f in gates.FLAGS))
@@ -244,6 +420,7 @@ class GateTests(unittest.TestCase):
         e['status'] = 'open'
         result = gates.assess(self.reports['base'], self.registry, root=self.temp)
         self.assertTrue(result['runtime_sbom_complete'])
+        self.assertTrue(result['runtime_sbom_disclosed'])
         self.assertTrue(result['redistribution_approved'])
         self.assertFalse(result['release_ready'])
 

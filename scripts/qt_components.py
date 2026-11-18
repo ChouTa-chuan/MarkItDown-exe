@@ -167,4 +167,8 @@ def check_profile(value, *, entry, report, root=ROOT):
             raise ValueError('Qt native fingerprint differs')
     return dict(catalog=CATALOG, source_declarations=len(value['components']),
                 native_files=len(files), thirdparty_runtime_closure_verified=False,
-                binary_build_configuration_complete=False, redistribution_approved=False)
+                binary_build_configuration_complete=False, redistribution_approved=False,
+                # 來源上位集合尚未證明編入 wheel；逐項列為宣告缺口，不把有版本字串當成閉包完整。
+                unknown_components=sorted({r['id'] for r in value['components']
+                    if r['version_basis'] == 'unknown' or r['compiled_into_windows_wheel'] == 'unverified'}
+                    | {'qt-native/'+r['file'] for r in files if r['version_basis'] == 'unknown'}))
