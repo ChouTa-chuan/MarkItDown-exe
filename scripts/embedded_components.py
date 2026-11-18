@@ -208,6 +208,16 @@ def check_profile(catalog, *, catalog_path, entries, report, root=ROOT, gap_vali
                     native=next(r for r in report['classification_input']['report']['native_files']
                                 if r['file']=='cryptography/hazmat/bindings/_rust.pyd')
                     check_crypto_observation(component,wheel,proof,native,crypto_profile(root))
+            elif basis == 'runtime-observed':
+                from embedded_runtime import check_component
+                path_text = component['version_source']
+                require(path_text.startswith('docs/development-records/runs/') and '..' not in path_text.split('/')
+                        and '\\' not in path_text, 'Invalid embedded runtime observation path')
+                entry = next((e for e in entries if e['id'] == entry_id), None)
+                pin = next((r for r in entry['evidence'] if r['path'] == path_text), None) if entry else None
+                require(pin is not None, 'Embedded runtime observation missing evidence reference')
+                check_pin(pin, path_text, root, 'embedded runtime observation')
+                check_component(component, wheel, json.loads((root/path_text).read_text(encoding='utf-8')), report, root)
             require(isinstance(component['notices'], list), 'Invalid notices list: ' + cid)
             for index, notice in enumerate(component['notices']):
                 check_notice(notice, root, inventory_files, 'notice ' + cid + '[' + str(index) + ']')
