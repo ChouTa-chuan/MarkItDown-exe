@@ -10,15 +10,17 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | PR 1–27 已合併；A12b（PR 26）、A12c（PR 27）經 Claude reviewer 查驗無必須修正項目 |
-| 本輪分支 | `claude/confident-ride-o38ls7`：記錄使用者 A13 各項決定（D 節逐條一列），不屬編號；不關閉任何條目 |
-| 下一棒 | **Codex（GPT）依序做 A12d → A13b**（使用者指定），各一個 PR |
+| `main` | PR 1–29 已合併；PR 29 記錄使用者 A13 各項決定 |
+| 本輪分支 | `claude/confident-ride-o38ls7`：A12d。父提交為 Codex 推送後中斷的 `fb4f510`（分支 `codex/a12d-runtime-versions-20261118`，未開 PR），Claude 從它接續完成，PR 包含 fb4f510 與 Claude 的後續提交 |
+| 下一棒 | A12d 合併後，**A13b 改由 Claude coder 做**（使用者指定） |
 | 固定來源 | `2555687eafc931600f30265f7bd290331cd49a0f`（A12，含 A7–A11）；base run 44217813413、CPU run 44217816852。舊候選 8285450（A6）保留為歷史 |
 
 ## B. 這個階段完成了什麼
 
-- **A12b（PR 26）、A12c（PR 27）已合併並查驗通過**：A12b 以既有證據關閉 base-source-attribution、base-archives、base-own-mit-binding，base-cpython 改為需使用者決定，並保存 VS2022 Community 授權原文與白話摘要（未隨包）。A12c 新增 `runtime_sbom_disclosed` 與 `accepted_gaps`（schema 3）；reviewer 以約 10 種合成攻擊驗證，沒有決定、清單不完整或揭露檔不在候選中都無法讓 `redistribution_approved` 成立。現況三旗標與 `runtime_sbom_disclosed` 皆 false。
-- **使用者完成 A13 各項決定（2026-11-18）**，逐條記在 D 節，本 PR 不改任何條目狀態。條目要等 A13b 把揭露檔與替換檔放進新候選後，才能依 A12c 規則改為 `user_approved`。
+- **A12d wheel 內含元件執行期版本觀測**：Codex 完成觀測腳本 `scripts/embedded_runtime.py`、反例與 workflow（fb4f510），並在 hosted Windows 跑出觀測（run 44270551031）後用量耗盡；Claude reviewer 確認前半段可沿用、觀測已公開在 annotation，Claude coder 接續把觀測接進目錄。
+  - libxml2 2.11.9、libxslt 1.1.45、numpy-lapack 3.12.0、libaom 3.14.1、dav1d 1.5.3-0-gb546257 改為 runtime-observed，承載原生檔 sha256 與 A12 候選相同；libexslt 從 libxslt 拆出並維持 unknown；raqm、fribidi、libyuv 及其他未探測者維持 unknown。基本包 wheel 內含未知元件 26→22。
+  - 證據見 [A12d 證據](docs/development-records/runs/a12d-runtime-versions-2026-11-18/README.md)；登記表只做必要 hash 同步並在 lxml、pillow、numpy 條目新增證據引用，required_evidence 的描述同步改寫；條目狀態不變，四旗標（含 runtime_sbom_disclosed）仍 false。
+- 完整 Linux 混合回歸與 58 個獨立模組通過，只有既有 ONNX 繁中 expected failure；數字見 [progress.json](docs/progress.json)。reviewer 兩次查驗皆無必須修正項目。
 
 ## C. 未完成、阻擋與下一步
 
@@ -36,9 +38,9 @@
 | | A12 以 A8–A11 完成後的 main 重新固定候選，產出基本包出口報告；`runtime_sbom_complete` 依 A8 定義推導，不得人工改寫。**順帶整理 `docs/progress.json`**：把 `previous_*` 等舊紀錄鍵搬到 `docs/history/`（搬移，不刪除內容；使用者已同意）。**不做打包減量**（使用者決定） | 完成（PR 23） |
 | | **A12b 證據接線**（使用者已同意）：把已存在的證據接進 `obligations.json`，不改安裝包。(1) `base-source-attribution`、`base-archives`、`base-own-mit-binding` 以既有證據改為 evidence_complete，每條 evidence 用路徑加 hash 引用；30 個 origin-known 列（A12 base-source-review 的 classification）各寫對照理由，存於新證據目錄 `docs/development-records/runs/a12b-evidence-wiring-*/`。(2) `base-cpython`、`base-tesseract-models` 補上 evidence 引用（後者引用 `packaging/native/minimal-windows.json`、minimal-notices、`src/desktop_app/data/ocr-four-languages.json`、A12 classification），狀態維持 open。(3) **`base-cpython` 改為 `requires_user_decision: true`**（使用者同意，供 A13-3）。(4) 從微軟官方取回 **VS2022 Community 授權原文**（記來源網址、取得日期、sha256），存入證據目錄，並寫白話摘要標出與再散布有關的段落（可散布程式碼、使用資格）；只陳述條文，不判斷是否適用。(5) 順帶修正：`base-wheels-cryptography` required_evidence 裡已過時的 openssl 字樣、progress.json m5 描述、`packaging/microsoft/base-windows.json` limitations 的「fixed A6 source」敘述（只改敘述，事實欄位不動並同步 hash）、`base-exit-report.json` 註明 `base-clean-machine-manual` 要到大階段 C、測試名稱 `test_actual_a6_profiles_have_exact_coverage_and_false_flags` 改成符合實際輸入。驗收：gates 重跑 base／cpu exit 0、三旗標 false，runtime_sbom 阻擋清單由 14 條減少並在 PR 列出；改 evidence hash 的反例被拒；完整回歸與 EXPECTED_TESTS 同步；不動 spec、打包內容、鎖檔、既有計數，以及任何已是 `requires_user_decision: true` 條目的狀態 | 完成並 Merge（PR 26，4f30196）；五條 CI 與查驗通過 |
 | | **A12c 揭露式關閉規則**（使用者已同意，A13-0）：`runtime_sbom_complete` 維持嚴格（有任何未知元件就是 false）。新增推導旗標 `runtime_sbom_disclosed`：不得有 open 條目；凡含 unknown 或僅建置宣告的條目，必須是 `user_approved`，並且有 `decision_source`、`requires_user_decision: true`、新鍵 `accepted_gaps`（逐一列出被接受的元件 id，必須與目錄的 unknown 清單完全相等），evidence 至少一筆指向隨包揭露檔（例如 `src/desktop_app/data/licenses/known-gaps.json`），且該檔以相同 hash 出現在候選 source-review 中。`redistribution_approved` 的前提由 `runtime_sbom_complete` 改為 `runtime_sbom_disclosed`；gates 輸出列出 accepted_gaps。`embedded_components` 的「unknown 必須 open」改為「open，或符合上述條件的 user_approved」。schema 升為 3、結構仍封閉；規則同時適用 cpu。驗收：合成反例（accepted_gaps 與 unknown 不等、缺 decision_source、缺揭露檔、揭露檔不在候選或 hash 不同）皆拒絕；合成全揭露正例 `runtime_sbom_complete` false、`runtime_sbom_disclosed` 與 `redistribution_approved` true；實際 A12 輸入三旗標仍 false；現有條目狀態不改 | 規則及回歸完成（PR 27）；最終整合見 PR，完成後停止 |
-| | **A12d wheel 內含元件執行期版本觀測**（使用者 A13-4 選 b）：對有版本 API 的元件（例如 lxml 的 libxml2／libxslt、Pillow 的 raqm／fribidi，coder 先查哪些真的有 API）以 hosted Windows CI 觀測，比照 A9b 以 bytes 綁回 A12 原生檔，改為 runtime-observed；查不到者維持 unknown。不改安裝包。驗收：每個改為 runtime-observed 的元件都有 Windows 觀測且對應 .pyd／.dll 的 sha256 等於 A12 原生檔；反例（bytes 不符、未觀測卻標已知）被拒；gates 兩 profile exit 0、三旗標 false | **下一個，交給 Codex** |
+| | **A12d wheel 內含元件執行期版本觀測**（使用者 A13-4 選 b）：對有版本 API 的元件（例如 lxml 的 libxml2／libxslt、Pillow 的 raqm／fribidi，coder 先查哪些真的有 API）以 hosted Windows CI 觀測，比照 A9b 以 bytes 綁回 A12 原生檔，改為 runtime-observed；查不到者維持 unknown。不改安裝包。驗收：每個改為 runtime-observed 的元件都有 Windows 觀測且對應 .pyd／.dll 的 sha256 等於 A12 原生檔；反例（bytes 不符、未觀測卻標已知）被拒；gates 兩 profile exit 0、三旗標 false | 完成（本輪 PR） |
 | | A13 使用者確認基本包門檻：A13-0～A13-7 **已由使用者決定（2026-11-18，見 D 節逐條）**。條目改為 `user_approved` 留待 A13b | 決定已記錄 |
-| | **A13b 依決定調整並重新固定候選**（使用者已同意以下打包變更）：(1) 根目錄 `vcruntime140.dll`、`vcruntime140_1.dll` 改用 Visual Studio 官方 Redist 版本（A13-1 b），在 CI 驗證程式仍正常執行；numpy／pandas 改名複本與 Qt 9 份照現狀揭露。(2) 新增隨包揭露檔 `src/desktop_app/data/licenses/known-gaps.json`：依 A12c 規格逐條列出被接受的未知元件（A12d 之後的 wheel unknown、libffi 建置宣告、Qt 85 個未知 attribution 等），並新增測試版限制說明（A13-6 草稿，見 D 節）。(3) 依 D 節決定列寫入各條目的 `decision_source`（引用本輪存檔）、`accepted_gaps`，改為 `user_approved`；每個條目各引用一列，查驗時人工比對條目 id 與範圍。(4) 以 workflow_dispatch 重新固定候選、重組 source-review；在新候選上重跑 Microsoft 探測，把 A12 放寬的 `check_catalog` 收回為「探測基準等於登記表來源」並補反例。(5) gates：base `runtime_sbom_disclosed` 與 `redistribution_approved` 推導為 true（cpu 仍 false），`runtime_sbom_complete` 仍 false，`release_ready` 仍 false（需大階段 C）。不做 B1 上傳 | 待開始（A12d 之後） |
+| | **A13b 依決定調整並重新固定候選**（使用者已同意以下打包變更）：(1) 根目錄 `vcruntime140.dll`、`vcruntime140_1.dll` 改用 Visual Studio 官方 Redist 版本（A13-1 b），在 CI 驗證程式仍正常執行；numpy／pandas 改名複本與 Qt 9 份照現狀揭露。(2) 新增隨包揭露檔 `src/desktop_app/data/licenses/known-gaps.json`：依 A12c 規格逐條列出被接受的未知元件（A12d 之後的 wheel unknown、libffi 建置宣告、Qt 85 個未知 attribution 等），並新增測試版限制說明（A13-6 草稿，見 D 節）。(3) 依 D 節決定列寫入各條目的 `decision_source`（引用本輪存檔）、`accepted_gaps`，改為 `user_approved`；每個條目各引用一列，查驗時人工比對條目 id 與範圍。(4) 以 workflow_dispatch 重新固定候選、重組 source-review；在新候選上重跑 Microsoft 探測，把 A12 放寬的 `check_catalog` 收回為「探測基準等於登記表來源」並補反例。(5) gates：base `runtime_sbom_disclosed` 與 `redistribution_approved` 推導為 true（cpu 仍 false），`runtime_sbom_complete` 仍 false，`release_ready` 仍 false（需大階段 C）。不做 B1 上傳 | **下一個，交給 Claude coder** |
 | | A14 CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例） | 待開始（B1 之後） |
 | | A15 CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認 | 待開始（B1 之後） |
 | | A16 CPU：Shapely／GEOS（LGPL）與 CPU wheel 內含元件（沿用 A9 格式），CPU Microsoft 6 檔（沿用 A10）；LGPL 做法需使用者確認 | 待開始（B1 之後） |
@@ -48,7 +50,7 @@
 | D 功能擴充 | D1 圖片檔走本機 OCR；D2 影音獨立選配元件 | 等使用者決定 |
 | E GPU | 實卡驗收 | 延後 |
 
-**執行順序**：A12d → A13b → B1（公開產出測試版，使用者 A13-7 已同意）。三者各一個 PR，依序合併。CPU 的 A14–A17 仍在 B1 之後。
+**執行順序**：A12d（本輪）→ A13b → B1（公開產出測試版，使用者 A13-7 已同意）。三者各一個 PR，依序合併。CPU 的 A14–A17 仍在 B1 之後。
 
 **大階段 B 的進入條件**
 
@@ -121,5 +123,6 @@
 | 2026-11-18 | 使用者 A13 決定 | A13-6（base-clean-machine-manual）：同意測試版限制說明草稿：測試版非正式版；ONNX 繁中準確度已知缺口（內建 Tesseract 不受影響）；RAM 為軟性預算；未在乾淨 Windows 10／11 實機完整驗收；GPU 未在實卡驗證；部分內含元件版本未知並列於 known-gaps.json；安裝程式與 tesseract.exe 無程式碼簽章；問題回報到 GitHub Issues。該條目仍需大階段 C 證據才能關閉 |
 | 2026-11-18 | 使用者 A13 決定 | A13-7（base-redistribution-decision）：同意 B1 以 CI artifact 公開產出基本包測試版 |
 | 2026-11-18 | 使用者決定 | A12d 與 A13b 交給 Codex（GPT），依序各一個 PR |
+| 2026-11-18 | 使用者決定 | GPT 用量耗盡、A12d 只完成一半：由 Claude reviewer 確認現況後交 Claude coder 收尾；A13b 也改交給 Claude coder |
 
-接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。使用者 A13 各項決定已記錄於 D 節；Codex 從最新 main 開新分支依序做 A12d、A13b（各一個 PR），A13b 完成後先停，B1 另行開始。不建 Release 或 tag。
+接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。A12d 完成後，A13b 由 Claude coder 進行；A13b 完成後先停，B1 另行開始。不建 Release 或 tag。

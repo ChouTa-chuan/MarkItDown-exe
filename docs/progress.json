@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-18",
   "environment": "Linux 完整混合／獨立模組回歸；hosted Windows CI 只做整合驗證，非實體機／乾淨機／GPU／人工驗收",
-  "tests_passed": 897,
-  "headline": "PR 1–27 已合併；A12b、A12c 完成，使用者已完成 A13 各項決定，下一步 A12d → A13b → B1",
+  "tests_passed": 905,
+  "headline": "PR 1–29 已合併；A12d 以 Windows 執行期觀測補上 5 個內含元件版本（未知 26→22），下一步 A13b",
   "blocker": "A13 使用者決定、實際隨包揭露及重定候選尚待；實際 base／cpu 原三旗標與 disclosed 均 false，實機／人工／GPU 未驗收。",
-  "next": "A12d 執行期版本觀測（Codex）→ A13b 加入揭露檔、替換 Microsoft 檔案並重新固定候選（Codex）→ B1 公開產出基本包測試版",
+  "next": "A13b 依使用者決定替換 Microsoft 檔案、加入揭露檔、關閉條目並重新固定候選（Claude coder）→ B1 公開產出基本包測試版",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 898,
+  "tests_run": 906,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "1fee37a232a154982fb0aa72f7bce9422f6993e6",
+    "source_commit": "a7619c8",
     "date_taipei": "2026-11-18",
     "accepted": true,
-    "run": 898,
-    "passed": 897,
+    "run": 906,
+    "passed": 905,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1313,7 +1313,7 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 57,
+    "isolated_modules": 58,
     "isolated_all_exits_zero": true,
     "python": "3.12.14",
     "tesseract": "5.3.4",
@@ -2757,7 +2757,7 @@
             "id": "A12d",
             "title": "wheel 內含元件執行期版本觀測（選配）",
             "status": "active",
-            "note": "使用者選擇執行；Codex 進行"
+            "note": "Codex 前半、Claude 收尾；PR 審查中"
           },
           {
             "id": "A13",
@@ -2770,7 +2770,7 @@
             "id": "A13b",
             "title": "依決定調整並重新固定候選",
             "status": "next",
-            "note": "A12d 之後；Codex"
+            "note": "A12d 之後；Claude coder"
           },
           {
             "id": "A14",
