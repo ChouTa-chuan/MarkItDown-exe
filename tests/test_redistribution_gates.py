@@ -118,6 +118,8 @@ class GateTests(unittest.TestCase):
         for profile in ('base', 'cpu'):
             with self.subTest(profile=profile):
                 entry, _ = self.gap_fixture(profile)
+                entry['evidence'].insert(0, self.write('src/desktop_app/data/licenses/other-gaps.json',
+                    json.dumps(dict(schema_version=1, accepted_gaps={'other-entry':['other/id']}))))
                 result = gates.assess(self.reports[profile], self.registry, root=self.temp)
                 self.assertFalse(result['runtime_sbom_complete'])
                 self.assertTrue(result['runtime_sbom_disclosed'])

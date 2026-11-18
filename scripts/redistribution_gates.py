@@ -234,7 +234,10 @@ def validate_gap_acceptance(entry, unknown, report, root):
             require(isinstance(key, str) and re.fullmatch('[a-z0-9-]+', key), 'Invalid disclosure obligation id')
             validate_gap_ids(values)
         values = data['accepted_gaps'].get(entry['id'])
-        require(values is not None and set(values) == set(unknown), 'Disclosure gaps differ from catalog: '+entry['id'])
+        if values is None:
+            # 條目可同時引用其他義務的揭露；至少一份須明確揭露本條目，不能拿他項清單替代。
+            continue
+        require(set(values) == set(unknown), 'Disclosure gaps differ from catalog: '+entry['id'])
         bundled = bundle_prefix+ref['path'][len(prefix):]
         require(candidates.get(safe_name(bundled)) == ref['sha256'],
                 'Disclosure absent from candidate or hash differs: '+bundled)
