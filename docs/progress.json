@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-18",
   "environment": "Linux 完整混合／獨立模組回歸；hosted Windows CI 只做整合驗證，非實體機／乾淨機／GPU／人工驗收",
-  "tests_passed": 905,
-  "headline": "PR 1–29 已合併；A12d 以 Windows 執行期觀測補上 5 個內含元件版本（未知 26→22），下一步 A13b",
-  "blocker": "A13 使用者決定、實際隨包揭露及重定候選尚待；實際 base／cpu 原三旗標與 disclosed 均 false，實機／人工／GPU 未驗收。",
-  "next": "A13b 依使用者決定替換 Microsoft 檔案、加入揭露檔、關閉條目並重新固定候選（Claude coder）→ B1 公開產出基本包測試版",
+  "tests_passed": 928,
+  "headline": "A13b：依使用者決定換用官方 VC runtime、隨包揭露未知項並關閉條目；基本包「可再散布」首次推導為 true",
+  "blocker": "基本包 release_ready 仍 false：需大階段 C 乾淨 Windows 與人工驗收；runtime_sbom_complete 仍 false（108 個已揭露未知項）；CPU 元件三旗標 false（A14–A17）。",
+  "next": "B1 以 CI artifact 公開產出基本包測試版（來源 b17d51b）；A13c 以新候選重產逐列來源對照；CPU 的 A14–A17 在 B1 之後",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 906,
+  "tests_run": 929,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "a7619c8",
+    "source_commit": "96b7ea5",
     "date_taipei": "2026-11-18",
     "accepted": true,
-    "run": 906,
-    "passed": 905,
+    "run": 929,
+    "passed": 928,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1313,7 +1313,7 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 58,
+    "isolated_modules": 59,
     "isolated_all_exits_zero": true,
     "python": "3.12.14",
     "tesseract": "5.3.4",
@@ -2756,8 +2756,8 @@
           {
             "id": "A12d",
             "title": "wheel 內含元件執行期版本觀測（選配）",
-            "status": "active",
-            "note": "Codex 前半、Claude 收尾；PR 審查中"
+            "status": "done",
+            "pr": 30
           },
           {
             "id": "A13",
@@ -2769,8 +2769,14 @@
           {
             "id": "A13b",
             "title": "依決定調整並重新固定候選",
+            "status": "active",
+            "note": "PR 審查中；Claude coder"
+          },
+          {
+            "id": "A13c",
+            "title": "以 A13b 候選重產逐列來源對照",
             "status": "next",
-            "note": "A12d 之後；Claude coder"
+            "note": "可與 B1 前置平行"
           },
           {
             "id": "A14",
@@ -2807,7 +2813,7 @@
             "id": "B1",
             "title": "基本包以 CI artifact 產出測試版",
             "status": "pending",
-            "note": "需 A8–A13 完成"
+            "note": "使用者已同意公開產出；A13b 之後"
           },
           {
             "id": "B2",
@@ -3557,5 +3563,29 @@
     "package_contents_changed": false,
     "actual_user_decisions_added": false,
     "stop_after_completion": true
+  },
+  "a13b_fixed_candidate": {
+    "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+    "base_run": 44295039865,
+    "cpu_run": 44295044417,
+    "microsoft_probe_run": 44300296037,
+    "first_vc_runtime_validation_run": 44289885218,
+    "flags": {
+      "base": {
+        "runtime_sbom_complete": false,
+        "runtime_sbom_disclosed": true,
+        "redistribution_approved": true,
+        "release_ready": false
+      },
+      "cpu": {
+        "runtime_sbom_complete": false,
+        "runtime_sbom_disclosed": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      }
+    },
+    "accepted_gaps": 108,
+    "user_approved_entries": 13,
+    "evidence": "docs/development-records/runs/a13b-fixed-review-2026-11-18/"
   }
 }

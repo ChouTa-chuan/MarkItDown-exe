@@ -4,6 +4,13 @@
 
 ## 更新中
 
+### 2026-11-18｜A13b 依使用者決定調整並重新固定候選
+
+- 變更：基本包根目錄 vcruntime140／_1 改用 Visual Studio 官方 Redist（A13-1 b，使用者同意的打包變更）；新增隨包 known-gaps.json／known-gaps.md／test-build-limitations.md；候選審閱固定保留揭露檔列；以固定候選 b17d51b 重綁登記表與目錄，Microsoft 探測改以新候選為基準並收回 check_catalog 放寬；依 A13 決定存檔逐條寫入 decision_source 與 accepted_gaps（108），13 條 user_approved。
+- 相對前版：基本包 `runtime_sbom_disclosed` 與 `redistribution_approved` 首次推導為 true；`runtime_sbom_complete`、`release_ready` 仍 false；CPU 全 false。
+- 驗證：Windows CI 基本包建置、驗收、安裝、升級、恢復通過；gates 推導與證據一致；reviewer 特別查驗無必須修正（人工核對決定列對應，合成攻擊皆被拒）；完整 Linux 混合與獨立模組回歸通過，數字見 progress.json。
+- 未完成：A13c 重產逐列來源對照（三個 evidence_complete 條目仍引用 A12 對照，6 列 hash 已變）；B1；大階段 C；CPU A14–A17。
+
 ### 2026-11-18｜A12d wheel 內含元件執行期版本觀測
 
 - 變更：Codex 新增 `scripts/embedded_runtime.py`、反例與 workflow 觀測（fb4f510，run 44270551031）後中斷；Claude 接續把 libxml2、libxslt、numpy-lapack、libaom、dav1d 改為 runtime-observed，拆出 libexslt（unknown），新增證據目錄，登記表只做必要 hash 同步與證據引用，並改寫三條 required_evidence 描述。
