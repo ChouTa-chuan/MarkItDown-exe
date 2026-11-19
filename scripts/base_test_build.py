@@ -1,4 +1,4 @@
-"""B1a：固定候選的測試版組裝與報告；公開上傳留待 planner 複查後的 B1b。
+"""B1b：重建固定候選的基本包、對照內容並準備測試版。
 
 政策從控制端目前的登記／證據讀取，payload 始終 checkout 固定候選。兩者的提交分開記錄，
 不把 workflow 的 GITHUB_SHA 冒充 payload 來源。試跑只輸出文字報告，安裝包留在 runner。
@@ -20,16 +20,19 @@ import tomllib
 import urllib.error
 import urllib.request
 
+import base_content_equivalence as equivalence
+
 ROOT = Path(__file__).resolve().parents[1]
 REPOSITORY = 'ChouTa-chuan/MarkItDown-exe'
 SOURCE = 'b17d51bc99f8402f16b99f98bbe3b3370530bc6c'
 REVIEW = 'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json'
 RETENTION_DAYS = 30
-# 這是使用者指定的階段界線：B1b 必須待 Claude planner 複查，不以 dispatch 勾選取代。
-PUBLIC_UPLOAD_ENABLED = False
+# 只在 B1b 核准的公開期間開啟。完成一次公開後另開 PR 關回。
+PUBLIC_UPLOAD_ENABLED = True
+MAIN_REF = 'refs/heads/main'
 DISCLOSURES = ('known-gaps.json', 'known-gaps.md', 'test-build-limitations.md')
 NATIVE_SOURCE = '_internal/desktop_app/data/native/source.json'
-REPORT_NAMES = {'BUILD-INFO.json', 'LICENSE-FILES.json', 'package-audit.json', 'plan.json', 'SHA256SUMS.txt',
+REPORT_NAMES = {'CONTENT-EQUIVALENCE.json', 'BUILD-INFO.json', 'LICENSE-FILES.json', 'package-audit.json', 'plan.json', 'SHA256SUMS.txt',
                 'README.md', *DISCLOSURES}
 FLAGS = ('runtime_sbom_complete', 'runtime_sbom_disclosed', 'redistribution_approved', 'release_ready')
 EXPECTED_FLAGS = dict(zip(FLAGS, (False, True, True, False)))
@@ -126,17 +129,34 @@ def select_inputs(run_id=None, *, api=api_get, now=None):
     raise ValueError('No unexpired validated OCR input artifact; first rerun Windows base validation, then retry B1a')
 
 
-def make_plan(input_run=None, *, publish=False, root=ROOT, api=api_get):
-    require(type(publish) is bool and (not publish or PUBLIC_UPLOAD_ENABLED),
-            'Public package upload remains disabled until the separate B1b planner review')
+def check_publish_request(publish):
+    require(type(publish) is bool, 'Invalid publish request')
+    if publish:
+        require(os.environ.get('GITHUB_REF') == MAIN_REF, 'Public upload requires refs/heads/main')
+        require(PUBLIC_UPLOAD_ENABLED, 'Public package upload is disabled')
+
+
+def make_plan(input_run=None, *, publish=False, baseline_run=None, retained_review=False, root=ROOT, api=api_get):
+    check_publish_request(publish)
+    require(not baseline_run or re.fullmatch('[1-9][0-9]{0,19}', str(baseline_run)), 'Invalid baseline run')
+    require(not retained_review or (not baseline_run and datetime.now(timezone.utc) >= equivalence.DEADLINE),
+            'Retained review is only available after the deadline and without a saved baseline')
+    if publish:
+        require(os.environ.get('GITHUB_RUN_ATTEMPT') == '1', 'Public run cannot be rerun')
+        require(input_run, 'Public upload requires the explicit fresh main validation run')
     current = policy(root)
     # 版本從固定 Git 樹讀取，不能從可能已推進的控制端版本推測。
     raw = subprocess.check_output(['git', 'show', SOURCE+':pyproject.toml'], cwd=root)
     version = tomllib.loads(raw.decode())['project']['version']
-    return dict(check='base-test-build-plan', schema_version=1, candidate_source=SOURCE, source_version=version,
+    inputs = select_inputs(input_run, api=api)
+    if publish:
+        require(inputs['producer_head'] == current['source_commit'], 'OCR inputs must come from validation of current main')
+    return dict(baseline_run=int(baseline_run or equivalence.BASELINE_RUN), retained_review=retained_review,
+                baseline_artifact=equivalence.SAVED_ARTIFACT if baseline_run else equivalence.BASELINE_ARTIFACT,
+                check='base-test-build-plan', schema_version=1, candidate_source=SOURCE, source_version=version,
                 retention_days=RETENTION_DAYS, publish_requested=publish,
                 public_upload_enabled=PUBLIC_UPLOAD_ENABLED, publish_allowed=publish and PUBLIC_UPLOAD_ENABLED,
-                approval_policy=current, ocr_inputs=select_inputs(input_run, api=api))
+                approval_policy=current, ocr_inputs=inputs)
 
 
 def validate_inputs(inputs, candidate, review):
@@ -181,7 +201,7 @@ def validate_generated_receipt(bundle, inputs, candidate):
     return digest(actual)
 
 
-def assemble(bundle, installer, product, reports, plan, review, *, candidate):
+def assemble(bundle, installer, product, reports, plan, review, *, candidate, comparison):
     """組裝後再由實際檔案重核，報告與產品嚴格分目錄；單元測試使用明標合成 fixture。"""
     require(not product.exists(), 'Use a fresh product directory')
     require(not product.resolve().is_relative_to(reports.resolve())
@@ -234,19 +254,29 @@ def assemble(bundle, installer, product, reports, plan, review, *, candidate):
                 byte_identical_installer_to_original=(digest(installer)==review['candidate']['sha256']),
                 scope='Fixed application source and native/input/original-notice bytes verified; generated metadata and installer may have build differences',
                 package_upload_allowed=plan['publish_allowed'],public_upload_enabled=PUBLIC_UPLOAD_ENABLED)
+    write(product/'CONTENT-EQUIVALENCE.json', comparison)
+    info['content_equivalence_sha256'] = digest(product/'CONTENT-EQUIVALENCE.json')
+    info['content_equivalence_mode'] = comparison['mode']
     write(product/'BUILD-INFO.json', info)
-    (product/'README.md').write_text('# MarkItDown 基本包測試版\n\n來源提交：'+SOURCE+'\n\n版本：'+plan['source_version']+'\n\n安裝包 SHA-256 與目前政策見 BUILD-INFO.json；實際授權目錄清單見 LICENSE-FILES.json。\n限制見 test-build-limitations.md；已知缺口見 known-gaps.json／known-gaps.md。\n',encoding='utf-8')
+    readme = checked_file(ROOT/'docs', 'base-test-build-download.md').read_text(encoding='utf-8')
+    if comparison['mode'] == 'retained-review':
+        readme += ('\n逐檔原始清單已到期。本次使用 repo 內保留的分類、原生檔、原文、模組雜湊及檔案數查驗。'
+                   '這份依據無法確認所有路徑相等或所有檔案內容相同。\n')
+    (product/'README.md').write_text(readme, encoding='utf-8', newline='\n')
     files = {p.name:digest(p) for p in sorted(product.iterdir()) if p.is_file()}
     (product/'SHA256SUMS.txt').write_text(''.join(h+'  '+name+'\n' for name,h in files.items()),encoding='utf-8')
     for name in REPORT_NAMES-{'plan.json', 'package-audit.json', 'README.md'}:
         copy_verified(product/name, reports/name)
-    (reports/'README.md').write_text('# B1a 試跑報告\n\n此 artifact 只有報告，不含安裝包。安裝包仍只留在可拋棄 runner；planner 複查後才另行開始 B1b。\n',encoding='utf-8')
+    (reports/'README.md').write_text(
+        '# 基本包測試版報告\n\n報告內的 SHA256SUMS.txt 對應產品目錄，包括 Setup 與產品 README。'
+        '本報告歸檔有自己的 README，並另外提供組裝稽核及工作流程計畫。\n',
+        encoding='utf-8', newline='\n')
     # 重讀輸出，證明複製後檔案及 manifest 不是只存在記憶體中的宣告。
     for name, expected in files.items():
         require(digest(checked_file(product, name)) == expected, 'Staged product fingerprint differs')
     audit = dict(check='base-test-build-audit',schema_version=1,accepted=True,candidate_source=SOURCE,
                  package_files={p.name:dict(sha256=digest(p),bytes=p.stat().st_size) for p in sorted(product.iterdir())},
-                 license_files=len(license_files),installer_uploaded=False,report_only=not plan['publish_allowed'],
+                 license_files=len(license_files),report_only=not plan['publish_allowed'],
                  package_upload_allowed=plan['publish_allowed'],retention_days=RETENTION_DAYS)
     write(reports/'package-audit.json', audit)
     for path in reports.iterdir():
@@ -255,11 +285,12 @@ def assemble(bundle, installer, product, reports, plan, review, *, candidate):
     return audit
 
 
-def collect(plan_path, inputs, candidate, build, product, reports, *, root=ROOT):
+def collect(plan_path, inputs, candidate, build, product, reports, *, baseline=None, baseline_copy=None, root=ROOT):
     require(sys.platform == 'win32' and os.environ.get('GITHUB_ACTIONS')=='true', 'Real test-build collection requires hosted Windows')
     plan = load(plan_path)
     require(plan['check']=='base-test-build-plan' and plan['approval_policy']==policy(root), 'Approval policy changed during build')
-    require(not plan['publish_requested'] or PUBLIC_UPLOAD_ENABLED, 'B1b public upload is not enabled')
+    check_publish_request(plan['publish_requested'])
+    require(plan['publish_allowed'] is plan['publish_requested'], 'Publish plan is inconsistent')
     review = load(root/REVIEW)
     validate_inputs(inputs,candidate,review)
     build_report = load(build/'reports/windows-build.json')
@@ -284,7 +315,18 @@ def collect(plan_path, inputs, candidate, build, product, reports, *, root=ROOT)
     require(acceptance.get('accepted') is True and acceptance.get('windows_executed') is True,
             'Actual Windows application acceptance incomplete')
     receipt_sha = validate_generated_receipt(build/'dist/MarkItDownBase',inputs,candidate)
-    audit = assemble(build/'dist/MarkItDownBase',installer,product,reports,plan,review,candidate=candidate)
+    bundle = build/'dist/MarkItDownBase'
+    original = None
+    if not plan['retained_review']:
+        origin, original = equivalence.provenance_input(baseline, review, SOURCE)
+        if not plan['publish_requested'] and baseline_copy is not None:
+            baseline_copy.parent.mkdir(parents=True, exist_ok=True)
+            copy_verified(origin, baseline_copy)
+    comparison = equivalence.compare(bundle, provenance, review, original, baseline_run=plan['baseline_run'])
+    audit = assemble(bundle,installer,product,reports,plan,review,candidate=candidate,comparison=comparison)
+    staged = checked_file(product, installer.name)
+    require(digest(staged) == lifecycle['installer_sha256'], 'Staged Setup does not match accepted lifecycle SHA-256')
+    audit['lifecycle_installer_sha256'] = lifecycle['installer_sha256']
     audit['windows_executed'] = True
     audit['hosted_runner'] = True
     audit['clean_machine_accepted'] = False
@@ -299,6 +341,34 @@ def collect(plan_path, inputs, candidate, build, product, reports, *, root=ROOT)
     write(reports/'package-audit.json',audit)
     return audit
 
+
+
+def authorize_upload(plan_path, build, product, reports, *, root=ROOT):
+    """只在上傳前重新核對本輪證據與實際 Setup，避免只依賴 plan 的輸出。"""
+    plan = load(plan_path)
+    require(plan['publish_requested'] is True and plan['publish_allowed'] is True, 'Missing publish intent')
+    check_publish_request(True)
+    require(os.environ.get('GITHUB_RUN_ATTEMPT') == '1', 'Public run cannot be rerun')
+    require(plan['approval_policy'] == policy(root), 'Approval policy changed before upload')
+    info = load(checked_file(product, 'BUILD-INFO.json'))
+    comparison = checked_file(product, 'CONTENT-EQUIVALENCE.json')
+    result = load(comparison)
+    require(result['accepted'] is True and result['candidate_source'] == SOURCE
+            and result['mode'] == ('retained-review' if plan['retained_review'] else 'full-inventory')
+            and result['full_path_set_verified'] is (not plan['retained_review'])
+            and digest(comparison) == info['content_equivalence_sha256']
+            and digest(checked_file(reports, comparison.name)) == info['content_equivalence_sha256'],
+            'Accepted content comparison is missing or changed')
+    audit = load(checked_file(reports, 'package-audit.json'))
+    lifecycle_path = build/'reports/installer/installer-lifecycle.json'
+    lifecycle = load(lifecycle_path)
+    require(audit['accepted'] is True and audit['installer_validation_sha256'] == digest(lifecycle_path)
+            and lifecycle['accepted'] is True, 'Accepted installer lifecycle evidence is missing or changed')
+    require(audit['package_files'] == {p.name: dict(sha256=digest(checked_file(product,p.name)), bytes=p.stat().st_size)
+                                      for p in product.iterdir()}, 'Staged product files differ from accepted audit')
+    installer = checked_file(product, info['installer']['file'])
+    require(lifecycle['installer_sha256'] == info['installer']['sha256'] == digest(installer),
+            'Upload Setup does not match accepted lifecycle SHA-256')
 
 def public_parts(reports):
     """只發布預定的文字報告；不把 installer bytes 或任意目錄打包成註記。"""
@@ -363,9 +433,14 @@ def main():
     mode.add_argument('--plan',action='store_true')
     mode.add_argument('--verify-inputs',action='store_true')
     mode.add_argument('--collect',action='store_true')
+    mode.add_argument('--authorize-upload',action='store_true')
     mode.add_argument('--verify-report-artifact',action='store_true')
     mode.add_argument('--publish-page',type=int,choices=range(4))
     parser.add_argument('--ocr-input-run')
+    parser.add_argument('--baseline-run')
+    parser.add_argument('--baseline',type=Path)
+    parser.add_argument('--baseline-copy',type=Path)
+    parser.add_argument('--retained-review',choices=('true','false'),default='false')
     parser.add_argument('--publish',choices=('true','false'),default='false')
     parser.add_argument('--plan-file',type=Path,required=True)
     parser.add_argument('--inputs',type=Path)
@@ -377,15 +452,20 @@ def main():
     args = parser.parse_args()
     if args.plan:
         require(not args.plan_file.exists(), 'Plan output must be new')
-        plan = make_plan(args.ocr_input_run,publish=args.publish=='true')
+        plan = make_plan(args.ocr_input_run,publish=args.publish=='true',baseline_run=args.baseline_run,
+                         retained_review=args.retained_review=='true')
         args.plan_file.parent.mkdir(parents=True,exist_ok=True)
         write(args.plan_file,plan)
         if os.environ.get('GITHUB_OUTPUT'):
             with Path(os.environ['GITHUB_OUTPUT']).open('a',encoding='utf-8') as stream:
                 for key,value in dict(candidate_source=SOURCE,source_version=plan['source_version'],
                       inputs_run=plan['ocr_inputs']['run_id'],inputs_name=plan['ocr_inputs']['artifact_name'],
+                      baseline_run=plan['baseline_run'], baseline_artifact=plan['baseline_artifact'],
+                      retained_review=str(plan['retained_review']).lower(),
                       publish_allowed=str(plan['publish_allowed']).lower()).items():
                     stream.write(key+'='+str(value)+'\n')
+    elif args.authorize_upload:
+        authorize_upload(args.plan_file,args.build,args.product,args.reports)
     elif args.verify_inputs:
         validate_inputs(args.inputs,args.candidate,load(ROOT/REVIEW))
     elif args.verify_report_artifact:
@@ -393,9 +473,10 @@ def main():
         print('::notice title=B1a actual artifact roundtrip::'+json.dumps(result,separators=(',', ':')))
     elif args.publish_page is not None:
         for part in public_parts(args.reports)[args.publish_page*8:(args.publish_page+1)*8]:
-            print('::notice title=B1a report metadata::'+json.dumps(part,separators=(',', ':')).replace('%','%25'))
+            print('::notice title=B1b report metadata::'+json.dumps(part,separators=(',', ':')).replace('%','%25'))
     else:
-        collect(args.plan_file,args.inputs,args.candidate,args.build,args.product,args.reports)
+        collect(args.plan_file,args.inputs,args.candidate,args.build,args.product,args.reports,
+                baseline=args.baseline,baseline_copy=args.baseline_copy)
     return 0
 
 
@@ -407,5 +488,5 @@ if __name__ == '__main__':
         if os.environ.get('GITHUB_ACTIONS')=='true':
             detail=(type(exc).__name__+': '+str(exc))[:600]
             detail=detail.replace('%','%25').replace('\r','%0D').replace('\n','%0A')
-            print('::error title=B1a collection failure::'+detail,flush=True)
+            print('::error title=B1b collection failure::'+detail,flush=True)
         raise

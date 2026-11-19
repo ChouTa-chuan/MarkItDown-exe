@@ -32,12 +32,12 @@ on:
         required: false
         type: string
       prepare_test_build:
-        description: 'B1a 組裝試跑（固定 b17d51b；只上傳報告）'
+        description: '組裝並對照固定 b17d51b 測試版'
         required: false
         type: boolean
         default: false
       publish_test_build:
-        description: 'B1b 公開上傳（planner 複查前程式明確停用）'
+        description: 'B1b 公開上傳（限 main 的首次執行）'
         required: false
         type: boolean
         default: false
@@ -45,6 +45,14 @@ on:
         description: '既有 Windows validation 的 OCR 輸入 run；空白選最新未到期者'
         required: false
         type: string
+      saved_baseline_run:
+        description: '已備份原始 provenance 的試跑 run；空白使用固定 run 44295039865'
+        required: false
+        type: string
+      retained_review:
+        description: '原始清單到期且未保存時，明確選擇使用較弱的 repo 證據'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -244,7 +252,7 @@ jobs:
           if-no-files-found: warn
 
   b1-test-build:
-    name: B1a fixed candidate test build
+    name: B1b fixed candidate test build
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.prepare_test_build }}
     runs-on: windows-2022
     timeout-minutes: 35
@@ -270,8 +278,10 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           INPUT_RUN: ${{ inputs.ocr_inputs_run }}
           PUBLISH_REQUESTED: ${{ inputs.publish_test_build }}
+          BASELINE_RUN: ${{ inputs.saved_baseline_run }}
+          RETAINED_REVIEW: ${{ inputs.retained_review }}
         run: |
-          python scripts/base_test_build.py --plan --ocr-input-run "$env:INPUT_RUN" --publish "$env:PUBLISH_REQUESTED" --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json"
+          python scripts/base_test_build.py --plan --ocr-input-run "$env:INPUT_RUN" --publish "$env:PUBLISH_REQUESTED" --baseline-run "$env:BASELINE_RUN" --retained-review "$env:RETAINED_REVIEW" --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Checkout immutable application source
         uses: actions/checkout@v4
@@ -286,6 +296,14 @@ jobs:
           run-id: ${{ steps.plan.outputs.inputs_run }}
           name: ${{ steps.plan.outputs.inputs_name }}
           path: out/test-build-inputs
+      - name: Download fixed baseline provenance reports
+        if: ${{ steps.plan.outputs.retained_review == 'false' }}
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.plan.outputs.baseline_run }}
+          name: ${{ steps.plan.outputs.baseline_artifact }}
+          path: out/test-build-baseline
       - name: Verify native input bytes against the fixed candidate
         working-directory: control
         shell: pwsh
@@ -310,7 +328,7 @@ jobs:
         working-directory: control
         shell: pwsh
         run: |
-          & "$env:GITHUB_WORKSPACE/out/test-build-windows/build-venv/Scripts/python.exe" scripts/base_test_build.py --collect --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --candidate "$env:GITHUB_WORKSPACE/candidate" --build "$env:GITHUB_WORKSPACE/out/test-build-windows" --product "$env:GITHUB_WORKSPACE/out/test-build-package" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
+          & "$env:GITHUB_WORKSPACE/out/test-build-windows/build-venv/Scripts/python.exe" scripts/base_test_build.py --collect --baseline "$env:GITHUB_WORKSPACE/out/test-build-baseline" --baseline-copy "$env:GITHUB_WORKSPACE/out/test-build-baseline-backup/bundle-provenance.json" --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --candidate "$env:GITHUB_WORKSPACE/candidate" --build "$env:GITHUB_WORKSPACE/out/test-build-windows" --product "$env:GITHUB_WORKSPACE/out/test-build-package" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Preserve test-build report metadata page 1
         working-directory: control
@@ -336,7 +354,17 @@ jobs:
         run: |
           python scripts/base_test_build.py --publish-page 3 --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      # B1a 只有此文字／JSON 報告 artifact。產品目錄與報告目錄不可互用。
+      # 只有報告式試跑可備份有期限的原件。公開 run 僅有產品與報告兩個 artifact。
+      - name: Preserve verified original provenance from the trial
+        if: ${{ always() && steps.plan.outcome == 'success' && !inputs.publish_test_build && !inputs.retained_review }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: b1b-fixed-baseline-report
+          path: out/test-build-baseline-backup/bundle-provenance.json
+          retention-days: 30
+          if-no-files-found: ignore
+      # 產品目錄與報告目錄不可互用。
+
       - name: Upload test-build reports only
         if: always()
         uses: actions/upload-artifact@v4
@@ -346,6 +374,7 @@ jobs:
           path: |
             out/test-build-reports/plan.json
             out/test-build-reports/BUILD-INFO.json
+            out/test-build-reports/CONTENT-EQUIVALENCE.json
             out/test-build-reports/LICENSE-FILES.json
             out/test-build-reports/package-audit.json
             out/test-build-reports/SHA256SUMS.txt
@@ -367,9 +396,16 @@ jobs:
         run: |
           python scripts/base_test_build.py --verify-report-artifact --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports" --downloaded "$env:GITHUB_WORKSPACE/out/test-build-roundtrip"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      # B1b 由 planner 複查後另行啟用；目前控制端常數拒絕 publish，dispatch 勾選不能繞過。
+      - name: Recheck publication gates and exact staged Setup
+        id: authorize
+        if: ${{ success() && github.ref == 'refs/heads/main' && inputs.publish_test_build && steps.plan.outputs.publish_allowed == 'true' }}
+        working-directory: control
+        shell: pwsh
+        run: |
+          python scripts/base_test_build.py --authorize-upload --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --build "$env:GITHUB_WORKSPACE/out/test-build-windows" --product "$env:GITHUB_WORKSPACE/out/test-build-package" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Upload installer package only when B1b is enabled
-        if: ${{ success() && steps.plan.outputs.publish_allowed == 'true' }}
+        if: ${{ success() && github.ref == 'refs/heads/main' && steps.authorize.outcome == 'success' && steps.plan.outputs.publish_allowed == 'true' }}
         uses: actions/upload-artifact@v4
         with:
           name: MarkItDownBase-test-build
