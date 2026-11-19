@@ -35,9 +35,15 @@ jobs:
           if raw.startswith(b'PK'):
               with zipfile.ZipFile(io.BytesIO(raw)) as z:
                   candidates=[i for i in z.infolist() if not i.is_dir() and i.file_size<8*1024*1024]
-                  text='\n'.join(z.read(i).decode('utf-8',errors='replace') for i in candidates)
+                  apt=[i for i in candidates if 'install native' in i.filename.lower()]
+                  selected=apt or candidates
+                  text='\n'.join(z.read(i).decode('utf-8',errors='replace') for i in selected)
           else:
               text=raw.decode('utf-8',errors='replace')
+          lines=text.splitlines()
+          relevant=[line for line in lines if any(word in line.lower() for word in ('apt-get','hit:','get:','err:','ign:','lock','waiting','unable','failed','sudo','cancel','unpacking','setting up','fetched'))]
+          if relevant:
+              text='\n'.join(relevant)
           payload={'check':'b1a-linux-apt-diagnostic','run':44448506413,'attempt':1,'job':135306399551,'log_sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'tail':text[-2500:]}
           body=json.dumps(payload,separators=(',',':'))
           while len(body.encode())>3600:
