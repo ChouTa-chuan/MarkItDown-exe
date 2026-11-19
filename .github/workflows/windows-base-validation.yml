@@ -1,7 +1,7 @@
 name: Windows base validation
 
 # PR 會以 GitHub 產生的暫時 merge commit 執行，報告中的 commit 即該暫時提交；
-# 要以分支上的固定提交留存證據時，改用 workflow_dispatch 指定分支。兩者都不發布產物。
+# 一般驗證不發布產品。B1b 測試版另外以手動執行選擇，並在上傳前核對 main 與產物證據。
 on:
   push:
     branches: [main]

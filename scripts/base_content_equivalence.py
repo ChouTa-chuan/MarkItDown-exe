@@ -2,10 +2,9 @@
 from datetime import datetime, timezone
 import hashlib
 import json
-from pathlib import Path
 
 from candidate_inventory import verify_inventory
-from candidate_review import canonical, read_json, MAX_SOURCE_REPORT
+from candidate_review import MAX_SOURCE_REPORT, canonical
 
 BASELINE_RUN = 44295039865
 BASELINE_ARTIFACT = 'windows-base-validation-reports'

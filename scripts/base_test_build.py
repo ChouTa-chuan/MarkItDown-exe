@@ -124,9 +124,9 @@ def select_inputs(run_id=None, *, api=api_get, now=None):
         require(len(matches) == 1, 'Ambiguous OCR input artifact')
         artifact = matches[0]
         require(re.fullmatch(r'sha256:[0-9a-f]{64}', artifact.get('digest') or ''), 'Input artifact lacks an integrity digest')
-        return dict(run_id=run['id'], producer_head=run['head_sha'], artifact_name=artifact['name'],
+        return dict(run_id=run['id'], producer_head=run['head_sha'], producer_branch=run.get('head_branch'), artifact_name=artifact['name'],
                     artifact_id=artifact['id'], artifact_digest=artifact['digest'], expires_at=artifact['expires_at'])
-    raise ValueError('No unexpired validated OCR input artifact; first rerun Windows base validation, then retry B1a')
+    raise ValueError('No unexpired validated OCR input artifact; first rerun general Windows base validation')
 
 
 def check_publish_request(publish):
@@ -150,7 +150,8 @@ def make_plan(input_run=None, *, publish=False, baseline_run=None, retained_revi
     version = tomllib.loads(raw.decode())['project']['version']
     inputs = select_inputs(input_run, api=api)
     if publish:
-        require(inputs['producer_head'] == current['source_commit'], 'OCR inputs must come from validation of current main')
+        require(inputs['producer_branch'] == 'main' and inputs['producer_head'] == current['source_commit'],
+                'OCR inputs must come from general validation of current main')
     return dict(baseline_run=int(baseline_run or equivalence.BASELINE_RUN), retained_review=retained_review,
                 baseline_artifact=equivalence.SAVED_ARTIFACT if baseline_run else equivalence.BASELINE_ARTIFACT,
                 check='base-test-build-plan', schema_version=1, candidate_source=SOURCE, source_version=version,
@@ -352,13 +353,14 @@ def authorize_upload(plan_path, build, product, reports, *, root=ROOT):
     require(plan['approval_policy'] == policy(root), 'Approval policy changed before upload')
     info = load(checked_file(product, 'BUILD-INFO.json'))
     comparison = checked_file(product, 'CONTENT-EQUIVALENCE.json')
+    require(digest(comparison) == info['content_equivalence_sha256']
+            and digest(checked_file(reports, comparison.name)) == info['content_equivalence_sha256'],
+            'Accepted content comparison is missing or changed')
     result = load(comparison)
     require(result['accepted'] is True and result['candidate_source'] == SOURCE
             and result['mode'] == ('retained-review' if plan['retained_review'] else 'full-inventory')
-            and result['full_path_set_verified'] is (not plan['retained_review'])
-            and digest(comparison) == info['content_equivalence_sha256']
-            and digest(checked_file(reports, comparison.name)) == info['content_equivalence_sha256'],
-            'Accepted content comparison is missing or changed')
+            and result['full_path_set_verified'] is (not plan['retained_review']),
+            'Accepted content comparison has incorrect scope')
     audit = load(checked_file(reports, 'package-audit.json'))
     lifecycle_path = build/'reports/installer/installer-lifecycle.json'
     lifecycle = load(lifecycle_path)
