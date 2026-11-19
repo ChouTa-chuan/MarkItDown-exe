@@ -1,0 +1,23 @@
+{
+  "date_taipei": "2026-11-19",
+  "tested_source": "9712e889d83619d5a753d1cca838e4634c0c241d",
+  "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "accepted": true,
+  "result": "current source/archives/MIT evidence verified; final integration in PR 33",
+  "keywords": [
+    "A13c",
+    "origin-known",
+    "Redist",
+    "來源對照"
+  ],
+  "files": {
+    "README.md": "0a8d60ec8ab0031c05436642fc392c726888cdb0b785193cb56515d96b2b6f67",
+    "changes-from-a12b.json": "a402d8650404595242d7b921417f661c2d716ccfce6b7f0d5a871bcd60f4bf79",
+    "evidence-assessment.json": "3ac95fa5d8fe76550a34596324649f8768eab458dc95f05aa41da6c23989278a",
+    "failed-attempts.json": "19581e7ef542e911d0e6bdb81990dc2d4e791eecce54e6c29a2ced31a7ee54c9",
+    "gates-summary.json": "38902c4aed02b183f04581d28170816002e5a387faee57252178999429de72cc",
+    "isolated-summary.json": "b8a2f08ed7489834072917eecd51dfd03a8d4ac886b5b5e4fbbdc0947593a0dd",
+    "mixed-result.json": "dec4dc8868488f7879988373c268eb58760fcbc7044564facff8a43812531ee1",
+    "origin-known-review.json": "76ecb46b2586b3045b79071e066328a86436fa3dd3979cf30ab159b3c024bd07"
+  }
+}
