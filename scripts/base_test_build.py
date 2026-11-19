@@ -354,4 +354,12 @@ def main():
 
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except Exception as exc:
+        # artifact／完整日誌不可讀時仍保留本流程的有界錯誤，不輸出環境變數或產品內容。
+        if os.environ.get('GITHUB_ACTIONS')=='true':
+            detail=(type(exc).__name__+': '+str(exc))[:600]
+            detail=detail.replace('%','%25').replace('\r','%0D').replace('\n','%0A')
+            print('::error title=B1a collection failure::'+detail,flush=True)
+        raise
