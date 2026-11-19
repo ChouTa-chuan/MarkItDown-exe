@@ -33,7 +33,7 @@ base 與 cpu 分開判定；CPU 尚未關閉不妨礙基本包依自己的證據
 
 非 open 狀態須有證據引用；引用使用 repo 相對路徑與 SHA-256，決定還須符合上節的出處格式（固定存檔 D 節中完整的一行使用者決定）。已核准卻無出處、引用不存在、hash 不符或 quote 不存在皆拒絕。required_evidence 是審閱清單，語意是否已滿足須由維護者依證據查驗；腳本驗證引用完整性與已記錄的狀態，不判定法律充分性、作者身分或自動產生使用者核准。
 
-登記表綁定該 profile 的來源提交，避免把不同候選的確認直接帶過去。當前基準是 A13b 的固定候選 b17d51b（見下節），候選審閱見 [A13b 證據](development-records/runs/a13b-fixed-review-2026-11-18/README.md)；A12 的 2555687 與 A6 的 8285450 保留為歷史回歸輸入。A12b 已將來源逐列對照、封存與自有 MIT 綁定三項工程義務改為 evidence_complete；CPython、Microsoft、Qt、Tesseract 與其他未決條目仍維持原狀。A12c 只升 schema 及為每項加入空 accepted_gaps，不改實際狀態，**base／cpu 原三旗標與新增 disclosed 現況均為 false**。
+登記表綁定該 profile 的來源提交，避免把不同候選的確認直接帶過去。當前基準是 A13b 的固定候選 b17d51b（見下節），候選審閱見 [A13b 證據](development-records/runs/a13b-fixed-review-2026-11-18/README.md)；A12 的 2555687 與 A6 的 8285450 保留為歷史回歸輸入。A12b 已將來源逐列對照、封存與自有 MIT 綁定三項工程義務改為 evidence_complete；CPython、Microsoft、Qt、Tesseract 與其他未決條目仍維持原狀。A12c 只升 schema 及為每項加入空 accepted_gaps；之後 A13b 依使用者決定接線，現況為 base `runtime_sbom_disclosed` 與 `redistribution_approved` true、`runtime_sbom_complete` 與 `release_ready` false，cpu 四旗標 false（2026-11-19 planner 大階段 A 複查實跑）。
 
 ## 內含元件目錄（A9）
 
@@ -46,7 +46,7 @@ base 與 cpu 分開判定；CPU 尚未關閉不妨礙基本包依自己的證據
 
 ## A12c 揭露式關閉（schema 3）
 
-`accepted_gaps` 是每個登記條目的必要字串陣列，實際登記目前一律為空。不可重複、不可用空白或控制字元冒充 id，也不可用任意 id 接受不存在的缺口。`runtime_sbom_disclosed` 是推導輸出，不是可手填的 entry gate；既有三個 gate 選擇器不變。輸出報告仍用 schema 1，另列 `registry_schema_version: 3`，不更動既有 source-review schema／分類計數。
+`accepted_gaps` 是每個登記條目的必要字串陣列；A13b 後 base 已接受條目合計 108 個元件，其餘條目為空。不可重複、不可用空白或控制字元冒充 id，也不可用任意 id 接受不存在的缺口。`runtime_sbom_disclosed` 是推導輸出，不是可手填的 entry gate；既有三個 gate 選擇器不變。輸出報告仍用 schema 1，另列 `registry_schema_version: 3`，不更動既有 source-review schema／分類計數。
 
 缺口 id 直接從受 hash 綁定的目錄或固定候選取得，不塞完整元件資料進登記表：
 
@@ -64,7 +64,7 @@ base 與 cpu 分開判定；CPU 尚未關閉不妨礙基本包依自己的證據
 
 對應條目的清單必須與目錄缺口完全相同，JSON 本身亦拒絕重複鍵、未知頂層鍵及無效清單。一般 inventory JSON 或任意授權原文不能冒充揭露。base 候選中必須有 `_internal/desktop_app/data/licenses/<相對檔名>`，cpu 必須有 `_internal/worker-assets/licenses/<相對檔名>`，路徑與實際 prepare_worker_assets 佈局一致；其 SHA 必須等於 repo 揭露檔。同樣資料只留在 repo、未在候選 source-review 的 candidate_inventory.files 保存，不能關閉。來源提交也須等於登記表基準。若重定候選時精簡報告漏掉此檔，須先補齊證據，不使用其他檔案或舊候選 hash 兜底。
 
-已存在的 embedded／Qt 目錄不可藉移除全部 evidence 引用來隱藏缺口。即使某內含元件沒有獨立原生檔、條目誤省略來源 gate，其 open 缺口仍會阻擋 disclosed；不靠手填 gate 隱藏已知缺口。embedded_components 獨立呼叫而沒有 gates 的完整驗證回呼時，未知條目仍只能 open；經 gates 則依同一套規則檢查。CPU 的 CPython 缺口也使用相同接受與 worker 隨包證據規則；CPU wheel 詳細目錄仍由 A16 處理，本輪不擴充該目錄或關閉 CPU 義務。
+已存在的 embedded／Qt 目錄不可藉移除全部 evidence 引用來隱藏缺口。即使某內含元件沒有獨立原生檔、條目誤省略來源 gate，其 open 缺口仍會阻擋 disclosed；不靠手填 gate 隱藏已知缺口。embedded_components 獨立呼叫而沒有 gates 的完整驗證回呼時，未知條目仍只能 open；經 gates 則依同一套規則檢查。CPU 的 CPython 缺口也使用相同接受與 worker 隨包證據規則；CPU wheel 詳細目錄仍由 B3c（原 A16）處理，本輪不擴充該目錄或關閉 CPU 義務。
 
 「不得有 open」適用於影響來源盤點的條目。再散布總決定由 redistribution_approved 另外要求，clean-machine-manual 只屬 release_ready；因此完整揭露且經再散布決定後可以進 B1，但在大階段 C 完成之前仍 release_ready=false。所有來源條目關閉且沒有缺口時 complete／disclosed 都可為 true；有缺口被有效接受時 complete 仍 false、disclosed 才可 true。輸出分開列 unknown_components、accepted_gaps 與各旗標 blockers，不重寫原 input_inventory_summary 或 classification。
 
@@ -72,7 +72,7 @@ A12c 不新增實際隨包揭露檔、不寫 A13 決定、不修改現有條目�
 
 ## Microsoft 執行期目錄（A10）
 
-基本包的 `base-microsoft.evidence[]` 以路徑與 SHA-256 引用 [packaging/microsoft/base-windows.json](../packaging/microsoft/base-windows.json)。版本、來源容器、逐檔身分、官方 Redist 比較與條款文件引用都放在目錄，不展開到義務登記表。CPU 的同類工作留給 A16。
+基本包的 `base-microsoft.evidence[]` 以路徑與 SHA-256 引用 [packaging/microsoft/base-windows.json](../packaging/microsoft/base-windows.json)。版本、來源容器、逐檔身分、官方 Redist 比較與條款文件引用都放在目錄，不展開到義務登記表。CPU 的同類工作留給 B3c（原 A16）。
 
 - `scripts/microsoft_runtime.py` 在 hosted Windows 上唯讀核對已建置 bundle、原始來源及 VS 的 x64 CRT Redist。先確認 source／bundle 與 provenance 的 SHA-256 相同，再查 PE 版本資源及 Authenticode。每份複本各一列，numpy／pandas 改名複本不合併。
 - `version_basis=pe-version-resource` 表示 DLL 自身的 `FileVersion`；wheel、Python 與 Redist 資料夾版本另記，不能互相代替。這是 A10 的 PE 證據分類，不改 A9 元件版本分級。

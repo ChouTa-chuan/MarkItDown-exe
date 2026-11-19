@@ -2,9 +2,9 @@
   "updated": "2026-11-19",
   "environment": "Linux 完整混合／獨立模組回歸；hosted Windows 真實固定候選試跑，非實體機／乾淨機／GPU／人工驗收",
   "tests_passed": 940,
-  "headline": "A13c 已 Merge（PR 33）；B1a 報告式真實試跑完成（PR 34），待 Claude planner 複查大階段 A",
-  "blocker": "公開基本包待 Claude planner 複查後的 B1b；runtime_sbom_complete／release_ready 仍 false，乾淨機與人工驗收需大階段 C；CPU B3a–B3d 尚待完成。",
-  "next": "Codex 本輪停止；Claude planner 複查大階段 A 無必須修正後，才另行 B1b 公開產出。輸入 artifact 到期須先重跑一般 Windows validation；本輪未公開安裝包。",
+  "headline": "大階段 A 經 Claude planner 複查完成、無必須修正；下一步 B1b 公開測試版（GPT）與 B2 驗收表平行",
+  "blocker": "B1b 須在 2026-11-25 11:45 UTC 前以固定候選逐檔清單對照重建包；runtime_sbom_complete／release_ready 仍 false，乾淨機與人工驗收需大階段 C（以 B3 後新版本）；CPU B3a–B3d 待完成。",
+  "next": "Codex 做 B1b（逐檔對照、只從 main 公開、公開後關回開關）並平行做 B2；之後 B3a–B3d。",
   "milestones": [
     {
       "id": "m0",
@@ -138,7 +138,7 @@
       "id": "m5",
       "title": "發佈準備",
       "state": "active",
-      "description": "hosted Windows 基本包與 CPU 元件持續整合驗證；已完成 A1–A12、A12b 證據接線與 A12c 揭露式規則。使用者 A13 決定、實際隨包揭露／重定候選、測試版交付與乾淨機／人工／GPU 仍待。",
+      "description": "hosted Windows 基本包與 CPU 元件持續整合驗證；大階段 A（A1–A13c）已完成並經 planner 複查，base 可揭露再散布。測試版公開產出（B1b）、CPU 重新定版、乾淨機／人工／GPU 仍待。",
       "checks": [
         {
           "label": "hosted Windows 建置與安裝驗證（GitHub Actions，非乾淨機）",
@@ -150,7 +150,7 @@
         },
         {
           "label": "來源與再散布門檻關閉（大階段 A，含使用者確認 A13）",
-          "done": false
+          "done": true
         },
         {
           "label": "測試版安裝包交付（大階段 B）",
@@ -2776,7 +2776,7 @@
             "id": "A13c",
             "title": "以 A13b 候選重產逐列來源對照",
             "status": "done",
-            "note": "已一般 Merge e8d8074；最終 CI／查驗及 Pages 通過；整體 A 待 planner 複查",
+            "note": "已 Merge；2026-11-19 Claude planner 複查大階段 A 無必須修正，大階段 A 收尾",
             "pr": 33
           }
         ]
@@ -2796,13 +2796,14 @@
           {
             "id": "B1b",
             "title": "測試版公開產出（artifact 保留 30 天）",
-            "status": "pending",
-            "note": "Claude planner 複查大階段 A 後另行開始；本輪未公開安裝包"
+            "status": "next",
+            "note": "交 Codex；以 A13b 固定候選逐檔清單對照重建包（清單 2026-11-25 到期），只從 main 公開，公開後關回開關"
           },
           {
             "id": "B2",
             "title": "驗收表",
-            "status": "pending"
+            "status": "pending",
+            "note": "交 Codex，與 B1b 平行；綁定大階段 C 所用新版本"
           },
           {
             "id": "B3a",
