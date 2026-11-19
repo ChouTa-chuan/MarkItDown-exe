@@ -8,4 +8,6 @@ base-source-attribution、base-archives、base-own-mit-binding 只刷新 evidenc
 
 封存列舉、pure modules fingerprint 與 MIT 套件綁定以 b17d51b 重新核對；完整 pure TOC 仍在原 A13b CI 報告，不宣稱 PYZ bytecode 反編譯。build_only_modules_absent 沿原規則只表示 setuptools 排除，不能擴寫成所有建置工具都不存在。
 
-來源候選使用既有 A13b Windows base run 44295039865；本輪 PR 的 Windows CI 只是整合驗證，不重新固定候選或改安裝內容。階段完整回歸與最終 PR 查驗完成後補記；不交付產品、Release 或 tag。下一項 B1a 為獨立分支與 PR，試跑只上傳報告，B1b 留待 Claude planner 複查後另行開始。
+來源候選使用既有 A13b Windows base run 44295039865；本輪 PR 的 Windows CI 只是整合驗證，不重新固定候選或改安裝內容。完整混合與獨立模組回歸已通過，數字及來源見 docs/progress.json；最終 head CI run、artifact digest／期限、Windows metadata 查驗與 Merge 見 [PR 33](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/33)，避免為補 CI 通知再觸發反覆建置；不交付產品、Release 或 tag。下一項 B1a 為獨立分支與 PR，試跑只上傳報告，B1b 留待 Claude planner 複查後另行開始。
+
+[本輪 gates 摘要](gates-summary.json) 已逐項比較修改前後的完整輸出，兩 profile 完全一致。首次完整回歸只因索引過期而失敗，fingerprint 與修正見 [紀錄](failed-attempts.json)。原始大型 CI 報告仍留原執行紀錄；本目錄不重複保存舊嘗試完整 JSON。
