@@ -10,10 +10,10 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | PR 1–30 已合併（A12d：PR 30） |
-| 本輪分支 | `claude/confident-ride-o38ls7`：A13b（Claude 三角色流程）。包含第一部分、候選審閱工具修正、2a、2b 四組提交 |
-| 下一棒 | A13b 合併後：B1 以 CI artifact 公開產出基本包測試版（使用者 A13-7 已同意）；A13c（重產逐列對照）可與 B1 前置平行 |
-| 固定來源 | **`b17d51bc99f8402f16b99f98bbe3b3370530bc6c`（A13b）**：base run 44295039865、CPU run 44295044417；Microsoft 探測 run 44300296037（以 b17d51b 審閱為基準）。A12 的 2555687、A6 的 8285450 保留為歷史 |
+| `main` | PR 1–31 已合併；A13b（PR 31，35233ae）七項 CI 全成功，基本包 `redistribution_approved` 由 gates 推導為 true |
+| 本輪分支 | `claude/confident-ride-o38ls7`：只記錄使用者的排程調整與 B1 方式，不屬編號 |
+| 下一棒 | **Codex（GPT）**：A13c 與 B1a（B1 準備，不公開）；完成後交 Claude planner 複查大階段 A，通過後才做 B1b（公開產出） |
+| 固定來源 | `b17d51bc99f8402f16b99f98bbe3b3370530bc6c`（A13b）：base run 44295039865、CPU run 44295044417；Microsoft 探測 run 44300296037。A12 的 2555687、A6 的 8285450 保留為歷史 |
 
 ## B. 這個階段完成了什麼
 
@@ -45,23 +45,27 @@
 | | **A12d wheel 內含元件執行期版本觀測**（使用者 A13-4 選 b）：對有版本 API 的元件（例如 lxml 的 libxml2／libxslt、Pillow 的 raqm／fribidi，coder 先查哪些真的有 API）以 hosted Windows CI 觀測，比照 A9b 以 bytes 綁回 A12 原生檔，改為 runtime-observed；查不到者維持 unknown。不改安裝包。驗收：每個改為 runtime-observed 的元件都有 Windows 觀測且對應 .pyd／.dll 的 sha256 等於 A12 原生檔；反例（bytes 不符、未觀測卻標已知）被拒；gates 兩 profile exit 0、三旗標 false | 完成（本輪 PR） |
 | | A13 使用者確認基本包門檻：A13-0～A13-7 **已由使用者決定（2026-11-18，見 D 節逐條）**。條目改為 `user_approved` 留待 A13b | 決定已記錄 |
 | | **A13b 依決定調整並重新固定候選**（使用者已同意以下打包變更）：(1) 根目錄 `vcruntime140.dll`、`vcruntime140_1.dll` 改用 Visual Studio 官方 Redist 版本（A13-1 b），在 CI 驗證程式仍正常執行；numpy／pandas 改名複本與 Qt 9 份照現狀揭露。(2) 新增隨包揭露檔 `src/desktop_app/data/licenses/known-gaps.json`：依 A12c 規格逐條列出被接受的未知元件（A12d 之後的 wheel unknown、libffi 建置宣告、Qt 85 個未知 attribution 等），並新增測試版限制說明（A13-6 草稿，見 D 節）。(3) 依 D 節決定列寫入各條目的 `decision_source`（引用本輪存檔）、`accepted_gaps`，改為 `user_approved`；每個條目各引用一列，查驗時人工比對條目 id 與範圍。(4) 以 workflow_dispatch 重新固定候選、重組 source-review；在新候選上重跑 Microsoft 探測，把 A12 放寬的 `check_catalog` 收回為「探測基準等於登記表來源」並補反例。(5) gates：base `runtime_sbom_disclosed` 與 `redistribution_approved` 推導為 true（cpu 仍 false），`runtime_sbom_complete` 仍 false，`release_ready` 仍 false（需大階段 C）。不做 B1 上傳 | 完成（本輪 PR） |
-| | **A13c 以 A13b 候選重產逐列來源對照**（reviewer 建議）：`base-source-attribution`、`base-archives`、`base-own-mit-binding` 仍引用 A12 審閱與 A12b `origin-known-review.json`；本候選 30 個 origin-known 列中 6 列 sha256 已變（4 個建置產生檔、2 個根目錄 vcruntime——後兩列 A12b 的理由「來自 CPython、PE 14.42」已不正確，實際 bytes 由 base-microsoft 目錄涵蓋）。以 b17d51b 審閱重產逐列對照並更新三條 evidence；不改條目狀態與旗標。gates 不會偵測此類過期 | 待開始（可與 B1 前置平行） |
-| | A14 CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例） | 待開始（B1 之後） |
-| | A15 CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認 | 待開始（B1 之後） |
-| | A16 CPU：Shapely／GEOS（LGPL）與 CPU wheel 內含元件（沿用 A9 格式），CPU Microsoft 6 檔（沿用 A10）；LGPL 做法需使用者確認 | 待開始（B1 之後） |
-| | A17 CPU：查明 setuptools、pip、pyinstaller 等建置工具是否真的進了 worker；若要排除屬打包變更，需使用者同意 | 待開始（B1 之後） |
-| B 測試版安裝包 | B1 基本包以 CI artifact 產出（附提交、版本、雜湊、隨包原文、限制），來源為 A13b 的固定候選（若 A13 未改變安裝包則仍為 A12 的 2555687）；B2 驗收表；B3 CPU 元件重新定版；B4 使用者確認測試版結果 | 待開始 |
+| | **A13c 以 A13b 候選重產逐列來源對照**（reviewer 建議）：`base-source-attribution`、`base-archives`、`base-own-mit-binding` 仍引用 A12 審閱與 A12b `origin-known-review.json`；本候選 30 個 origin-known 列中 6 列 sha256 已變（4 個建置產生檔、2 個根目錄 vcruntime——後兩列 A12b 的理由「來自 CPython、PE 14.42」已不正確，實際 bytes 由 base-microsoft 目錄涵蓋）。以 b17d51b 審閱重產逐列對照並更新三條 evidence；不改條目狀態與旗標。gates 不會偵測此類過期 | **下一個，交給 Codex**（A 的最後一項；完成後大階段 A 收尾） |
+| B 測試版安裝包 | **B1a 測試版產出準備**：寫好以 CI artifact 產出基本包測試版的流程，來源固定為 A13b 候選 b17d51b，產物附提交、版本、安裝包 sha256、隨包授權原文清單、`known-gaps`、測試版限制說明；artifact 保留 **30 天**（使用者決定）。以 workflow_dispatch 試跑驗證產物內容，**試跑不上傳安裝包**（只上傳報告），不建 Release 或 tag | **下一個，交給 Codex**（可與 A13c 平行；由同一 AI 依序或交錯進行） |
+| | **B1b 測試版公開產出**：Claude planner 複查大階段 A 無必須修正後，以 B1a 流程正式產出並公開上傳安裝包 artifact（保留 30 天） | 待開始（planner 複查通過後） |
+| | B2 驗收表：乾淨機與人工驗收要逐項勾的清單 | 待開始 |
+| | B3a CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例）（原 A14） | 待開始（B1b 之後） |
+| | B3b CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認（原 A15） | 待開始（B1b 之後） |
+| | B3c CPU：Shapely／GEOS（LGPL）與 CPU wheel 內含元件（沿用 A9 格式），CPU Microsoft 6 檔（沿用 A10）；LGPL 做法需使用者確認（原 A16） | 待開始（B1b 之後） |
+| | B3d CPU：查明 setuptools、pip、pyinstaller 等建置工具是否真的進了 worker；若要排除屬打包變更，需使用者同意（原 A17） | 待開始（B1b 之後） |
+| | B3 CPU 元件重新定版（需 B3a–B3d 完成並經使用者確認） | 待開始 |
+| | B4 使用者確認測試版結果 | 需使用者實機測試 |
 | C 乾淨機與人工驗收 | C1 乾淨 Windows 10／11 安裝與離線首次啟動；C2 四語、中文路徑、修復移除；C3 人工操作 | 需使用者或實體 Windows |
 | D 功能擴充 | D1 圖片檔走本機 OCR；D2 影音獨立選配元件 | 等使用者決定 |
 | E GPU | 實卡驗收 | 延後 |
 
-**執行順序**：A13b（本輪）→ B1（使用者已同意以 CI artifact 公開產出基本包測試版；來源為 A13b 固定候選 b17d51b）；A13c 可平行。CPU 的 A14–A17 仍在 B1 之後。
+**執行順序**：A13c 與 B1a（Codex，可平行）→ Claude planner 複查大階段 A → B1b 公開產出 → B2 → B3a–B3d（CPU，原 A14–A17）→ B3 → B4。各編號一個 PR。
 
 **大階段 B 的進入條件**
 
-- B1：base `redistribution_approved` 由 gates 推導為 true（A12c 之後依 `runtime_sbom_disclosed`），且使用者完成 A13 各項決定。CPU 不必先關閉。
-- 可與 A 平行、但不產生可交付產物的準備：B1 workflow 設計（只輸出提交、版本、雜湊、原文清單，不上傳 Setup）、B2 驗收表草稿、限制說明文字。
-- B3：A14–A17 完成並經使用者確認。
+- B1b：base `redistribution_approved` 由 gates 推導為 true（A13b 已達成）、A13c 完成、Claude planner 複查大階段 A 無必須修正。CPU 不必先關閉。
+- B1a 只準備與試跑，不上傳安裝包，可與 A13c 平行。
+- B3：B3a–B3d（原 A14–A17）完成並經使用者確認。
 - `release_ready` 在大階段 C 的乾淨機與人工驗收之前維持 false。
 
 **A7 查驗留下的小問題**（已在 A8 第一個提交處理）：兩個 Windows workflow 的 pwsh 預檢共 14 處改用 `-cmatch '^[0-9a-f]{40}\z'`（`-match` 不分大小寫，`$` 允許結尾換行；後面的 Python 檢查會擋，沒有安全缺口）；`tests/test_candidate_review.py` 再加一個「只有越界」的反例（保留其餘各片、把最後一片改成 part=N+1）；`progress.json` 的 m5 描述與 `a7_mit_notice.status` 更新；CHANGELOG 補一句 `full_regression.baseline_environment_identical` 欄位移除的原因（或還原）。
@@ -129,5 +133,7 @@
 | 2026-11-18 | 使用者 A13 決定 | A13-7（base-redistribution-decision）：同意 B1 以 CI artifact 公開產出基本包測試版 |
 | 2026-11-18 | 使用者決定 | A12d 與 A13b 交給 Codex（GPT），依序各一個 PR |
 | 2026-11-18 | 使用者決定 | GPT 用量耗盡、A12d 只完成一半：由 Claude reviewer 確認現況後交 Claude coder 收尾；A13b 也改交給 Claude coder |
+| 2026-11-19 | 使用者決定 | 重新排程：CPU 的 A14–A17 移入大階段 B，改編號為 B3a（原 A14）、B3b（原 A15）、B3c（原 A16）、B3d（原 A17），作為 B3 的前置；A13c 完成後大階段 A 收尾並交 Claude planner 複查。D 節舊列中的「A14–A17」依此對照 |
+| 2026-11-19 | 使用者決定 | B1 拆成 B1a（準備與試跑，不公開）與 B1b（公開產出）；A13c 與 B1a 可平行，B1b 待 planner 複查大階段 A 無必須修正後才做。測試版以 CI artifact 公開產出、保留 30 天，不建 Release 或 tag。A13c 與 B1a 交給 Codex（GPT） |
 
-接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。A13b 合併後，基本包 redistribution_approved 已由 gates 推導為 true；下一步 B1（公開產出基本包測試版）與 A13c。不建 Release 或 tag。
+接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。Codex 從最新 main 開新分支做 A13c 與 B1a（各一個 PR；B1a 試跑不上傳安裝包）；兩者完成後先停，由 Claude planner 複查大階段 A，通過後才做 B1b。不建 Release 或 tag。
