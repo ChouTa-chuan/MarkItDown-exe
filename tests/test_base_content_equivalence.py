@@ -5,9 +5,11 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+import zipfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 from base_content_equivalence import compare, provenance_input, sha_json, DATA
+from python_archive_inventory import zip_members
 from candidate_inventory import snapshot
 from base_test_build import SOURCE, write
 
@@ -75,6 +77,43 @@ class ContentEquivalenceTests(unittest.TestCase):
         self.put(self.other_generated,b'other manifest')
         with self.assertRaisesRegex(ValueError,'Unexpected changed files: .*python-modules.json'):
             self.check()
+
+    def test_only_confirmed_pinned_record_is_exempt(self):
+        self.put(self.other_generated,b'new install metadata')
+        self.review['classification'] = dict(files=[dict(path=self.other_generated,
+                                                          category='installer-generated-record', status='gap')])
+        with self.assertRaisesRegex(ValueError,'Unexpected changed files'):
+            self.check()
+        self.review['classification']['files'][0]['status']='confirmed'
+        # 固定分類有誤時仍不得把任意非 RECORD 路徑當成例外。
+        with self.assertRaisesRegex(ValueError,'Unexpected changed files'):
+            self.check()
+        record_path = '_internal/example-1.0.dist-info/RECORD'
+        self.put(self.other_generated,b'original manifest')
+        self.put(record_path,b'original record')
+        original = self.rebuilt()
+        self.review['inventory_summary']['files'] = 4
+        self.review['classification']['files'][0]['path'] = record_path
+        self.put(record_path,b'rebuilt record')
+        result = compare(self.bundle,self.rebuilt(),self.review,original)
+        self.assertEqual([r['path'] for r in result['changed_generated_files']],[record_path])
+
+    def test_base_library_rejects_changed_member_paths(self):
+        archive = self.bundle/'_internal/base_library.zip'
+        def zip_with(name,data):
+            with zipfile.ZipFile(archive,'w') as z:
+                z.writestr(name,data)
+        zip_with('same.pyc',b'old')
+        original = self.rebuilt()
+        self.review['inventory_summary']['files'] = 4
+        self.review['classification_input'] = dict(report=dict(python_archives=dict(
+            base_library=dict(members=zip_members(archive)))))
+        zip_with('other.pyc',b'old')
+        with self.assertRaisesRegex(ValueError,'member paths differ'):
+            compare(self.bundle,self.rebuilt(),self.review,original)
+        zip_with('same.pyc',b'new')
+        result = compare(self.bundle,self.rebuilt(),self.review,original)
+        self.assertEqual([r['name'] for r in result['base_library_member_changes']],['same.pyc'])
 
     def test_mismatched_original_provenance_sha_rejected_before_parsing(self):
         self.file.write_bytes(b'not JSON')

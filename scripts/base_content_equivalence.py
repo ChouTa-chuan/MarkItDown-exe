@@ -2,6 +2,7 @@
 from datetime import datetime, timezone
 import hashlib
 import json
+import re
 
 from candidate_inventory import verify_inventory
 from candidate_review import MAX_SOURCE_REPORT, canonical
@@ -96,7 +97,8 @@ def compare(bundle, rebuilt, review, original, *, now=None, baseline_run=BASELIN
     # 安裝工具生成的 RECORD 只接受固定審閱已逐筆確認過的路徑；不接受新的 RECORD 或路徑樣式。
     reasons = dict(GENERATED)
     for row in review.get('classification', {}).get('files', []):
-        if row['category'] == 'installer-generated-record' and row['status'] == 'confirmed':
+        if (row['category'] == 'installer-generated-record' and row['status'] == 'confirmed'
+                and re.fullmatch(r'_internal/[^/]+[.]dist-info/RECORD',row['path'])):
             reasons[row['path']] = 'pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。'
     changes = sorted(name for name in baseline if baseline[name] != current[name])
     unexpected = [name for name in changes if name not in reasons]
