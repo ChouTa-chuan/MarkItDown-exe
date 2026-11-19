@@ -1,0 +1,25 @@
+{
+  "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "profiles": {
+    "base": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "runtime_sbom_disclosed": true,
+        "redistribution_approved": true,
+        "release_ready": false
+      },
+      "all_gate_outputs_identical": true,
+      "input_counts_and_coverage_unchanged": true
+    },
+    "cpu": {
+      "flags": {
+        "runtime_sbom_complete": false,
+        "runtime_sbom_disclosed": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      },
+      "all_gate_outputs_identical": true,
+      "input_counts_and_coverage_unchanged": true
+    }
+  }
+}

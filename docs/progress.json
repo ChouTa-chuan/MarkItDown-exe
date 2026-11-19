@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "environment": "Linux 完整混合／獨立模組回歸；hosted Windows CI 只做整合驗證，非實體機／乾淨機／GPU／人工驗收",
-  "tests_passed": 928,
-  "headline": "PR 1–31 已合併；基本包「可再散布」已推導為 true。A13c 後大階段 A 收尾，CPU 義務移入大階段 B",
+  "tests_passed": 929,
+  "headline": "A13c 當前候選來源對照完成（PR 33）；B1a 準備與試跑中，公開產出仍待 planner",
   "blocker": "基本包 release_ready 仍 false：需大階段 C 乾淨 Windows 與人工驗收；runtime_sbom_complete 仍 false（108 個已揭露未知項）；CPU 元件三旗標 false（A14–A17）。",
-  "next": "A13c 與 B1a（Codex）→ Claude planner 複查大階段 A → B1b 公開產出測試版（artifact 30 天）→ B2 → B3a–B3d → B3 → B4",
+  "next": "完成 B1a 的固定來源組裝與 report-only 試跑；A13c／B1a 各自 Merge 後停止，交 Claude planner 複查，再另行 B1b。",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 929,
+  "tests_run": 930,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "96b7ea5",
-    "date_taipei": "2026-11-18",
+    "source_commit": "9712e889d83619d5a753d1cca838e4634c0c241d",
+    "date_taipei": "2026-11-19",
     "accepted": true,
-    "run": 929,
-    "passed": 928,
+    "run": 930,
+    "passed": 929,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1322,7 +1322,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/a12c-disclosure-gates-2026-11-18/README.md"
+    "evidence": "development-records/runs/a13c-source-attribution-2026-11-19/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2775,8 +2775,9 @@
           {
             "id": "A13c",
             "title": "以 A13b 候選重產逐列來源對照",
-            "status": "next",
-            "note": "Codex；A 的最後一項"
+            "status": "done",
+            "note": "當前逐列來源與封存／MIT 證據已刷新；flags 不改，最終整合見 PR；整體 A 待 planner 複查",
+            "pr": 33
           }
         ]
       },
@@ -3593,5 +3594,40 @@
     "accepted_gaps": 108,
     "user_approved_entries": 13,
     "evidence": "docs/development-records/runs/a13b-fixed-review-2026-11-18/"
+  },
+  "a13c_source_attribution": {
+    "source_commit": "9712e889d83619d5a753d1cca838e4634c0c241d",
+    "baseline_commit": "46f025a8601d3b77d86290f4b96e537c6aa4b11b",
+    "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+    "pr": 33,
+    "status": "implemented-and-verified",
+    "origin_known_assessed": 30,
+    "changed_rows": 6,
+    "evidence": "development-records/runs/a13c-source-attribution-2026-11-19/README.md",
+    "targeted_run": 42,
+    "profiles": {
+      "base": {
+        "flags": {
+          "runtime_sbom_complete": false,
+          "runtime_sbom_disclosed": true,
+          "redistribution_approved": true,
+          "release_ready": false
+        },
+        "all_gate_outputs_identical": true,
+        "input_counts_and_coverage_unchanged": true
+      },
+      "cpu": {
+        "flags": {
+          "runtime_sbom_complete": false,
+          "runtime_sbom_disclosed": false,
+          "redistribution_approved": false,
+          "release_ready": false
+        },
+        "all_gate_outputs_identical": true,
+        "input_counts_and_coverage_unchanged": true
+      }
+    },
+    "states_and_decisions_unchanged": true,
+    "package_contents_changed": false
   }
 }

@@ -4,6 +4,13 @@
 
 ## 更新中
 
+### 2026-11-19｜A13c 重新對照固定候選來源
+
+- 以 A13b 固定候選 b17d51b 的審閱重產所有 origin-known 逐列來源對照；根目錄 vcruntime140／_1 改用實際官方 Redist 14.44、簽章及同名完整 SHA 比較，其餘建置生成列更新當前 hash 與生成腳本的固定提交引用，不再沿用 A12 的 ZIP／manifest／說明檔指紋。
+- base-source-attribution、base-archives、base-own-mit-binding 只刷新 evidence，封存摘要／pure modules fingerprint 與實際套件 MIT 原文綁定改核 b17d51b；保留舊證據原文，狀態、使用者決定、選擇器、計數口徑及 flags 不改。
+- 新增來源證據必須對到當前候選的回歸檢查；兩個 profile gates 與 A13b 相同。完整回歸與最終 PR CI／查驗見 progress.json 及本輪證據。沒有修改安裝內容、Release 或 tag。
+
+
 - 2026-11-19：依使用者決定重新排程：A14–A17 移入大階段 B 改編號 B3a–B3d；B1 拆為 B1a（準備試跑，不公開）與 B1b（planner 複查大階段 A 後公開產出，artifact 保留 30 天）；A13c 與 B1a 交給 Codex。
 
 ### 2026-11-18｜A13b 依使用者決定調整並重新固定候選

@@ -1,0 +1,53 @@
+{
+  "baseline": {
+    "path": "docs/development-records/runs/a12b-evidence-wiring-2026-11-18/origin-known-review.json",
+    "sha256": "b536a739b7b99575353bc0b5adb52184acae8b383f2deacf2054214771355e68"
+  },
+  "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "changed_rows": [
+    {
+      "path": "_internal/base_library.zip",
+      "category_before": "archive-members-enumerated",
+      "category_after": "archive-members-enumerated",
+      "old_sha256": "257ce10a0d53f55a77d9d491a2b4269f9f89a6953788436b3b48a3bc43104315",
+      "new_sha256": "de0d1ec0f126fb0ab2e4834aedae8328b320de7589fbb0b2b225357212841027"
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/native/manifest.json",
+      "category_before": "project-generated",
+      "category_after": "project-generated",
+      "old_sha256": "5cf2793cde90386c743ca7e8a4d2fdfbdf5bb01f81c2cc8413af1ed267f7f499",
+      "new_sha256": "5cb738068b2e3d1120eeede6f3212fb208d80375f5f690e265da7c50211e74e5"
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/native/python-modules.json",
+      "category_before": "project-generated",
+      "category_after": "project-generated",
+      "old_sha256": "446037df6f80ef78144d582b83778aeb2586ca00d9d5601543f460a4c8fa2f74",
+      "new_sha256": "4843524ba43c3ec5dd02addc19f2b6fce6d1f4e5db048bbb09a79e767a91b2c6"
+    },
+    {
+      "path": "_internal/desktop_app/data/third-party.md",
+      "category_before": "project-generated",
+      "category_after": "project-generated",
+      "old_sha256": "bb05faae866603858e7f5a89fdca6c0aee55cac7e31367f8ec5b8e5ec3f5a98d",
+      "new_sha256": "67d0ff3d9387dcc2008526dbc963d835979208e6a14acae3d1cf3462788b37f5"
+    },
+    {
+      "path": "_internal/vcruntime140.dll",
+      "category_before": "cpython-runtime",
+      "category_after": "microsoft-vc-redist",
+      "old_sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
+      "new_sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066"
+    },
+    {
+      "path": "_internal/vcruntime140_1.dll",
+      "category_before": "cpython-runtime",
+      "category_after": "microsoft-vc-redist",
+      "old_sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8",
+      "new_sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f"
+    }
+  ],
+  "unchanged_rows": 24,
+  "boundary": "差異清單只比較已保存的檔案 hash；不臆測 ZIP／生成檔的每一個位元組差異原因。"
+}

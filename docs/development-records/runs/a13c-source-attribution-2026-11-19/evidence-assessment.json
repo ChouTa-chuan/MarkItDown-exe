@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "check": "a13c-current-evidence-assessment",
+  "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "source_review": {
+    "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json",
+    "sha256": "f65cdbc9a01d95391032fa991d6d4f0e5dfec10b317b983435ce79bfbeaed295"
+  },
+  "archives": {
+    "base_library_sha256": "de0d1ec0f126fb0ab2e4834aedae8328b320de7589fbb0b2b225357212841027",
+    "base_library_members": 155,
+    "pure_modules_sha256": "90f39cd8e11292b2fc4c60d7b6c6519b08d2e42cbf8fa3bd1e94d3eceb4766af",
+    "summary": {
+      "base_library_members": 155,
+      "build_only_modules_absent": true,
+      "by_origin": {
+        "application": 49,
+        "distribution": 1239,
+        "stdlib": 268,
+        "unknown": 0
+      },
+      "pure_modules": 1556,
+      "unknown_modules": 0,
+      "unknown_names": []
+    },
+    "supporting_evidence": [
+      {
+        "path": "scripts/python_archive_inventory.py",
+        "sha256": "d10994fa9b9fc72970beed61a69da779e4b242a5c6db7adf70c58aea64c1024e",
+        "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+      },
+      {
+        "path": "scripts/check_bundle_provenance.py",
+        "sha256": "e56ee7adc4f4a5c3d300d21d63e3d489d342b307410c540b82609db1f4878d26",
+        "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+      },
+      {
+        "path": "packaging/base.spec",
+        "sha256": "63c319ac811c2234db3f7b009c30dd24ee503f2240b5135c31e5d03fc06cf582",
+        "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+      }
+    ],
+    "evidence_boundary": "完整 pure TOC 原始明細仍在 A13b CI 報告；repo 保存其 hash 與摘要。build_only_modules_absent 仍只代表既有 setuptools 排除規則，不擴寫成所有建置工具都不存在；不宣稱 PYZ bytecode 反編譯或重新建置一致。"
+  },
+  "own_mit_binding": {
+    "package": "markitdown-desktop",
+    "version": "0.19.1",
+    "metadata_sha256": "4ebc13ea5d8f8fec2d735340c500eb83b1aa6bb58176c89693ddf3a47175a916",
+    "notice": {
+      "bytes": 1081,
+      "path": "_internal/desktop_app/data/licenses/markitdown-desktop/LICENSE",
+      "sha256": "93953f882c7d4d5fd708364d5c39525e088ec5da25dbeb8e017dd68a6a03d230"
+    },
+    "license": {
+      "path": "LICENSE",
+      "sha256": "93953f882c7d4d5fd708364d5c39525e088ec5da25dbeb8e017dd68a6a03d230"
+    },
+    "exactly_one_own_notice": true
+  },
+  "gate_flags_modified": false
+}
