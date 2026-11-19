@@ -184,8 +184,16 @@ class BaseTestBuildTests(unittest.TestCase):
         build.write(root/'plan.json',dict(check='base-test-build-plan',approval_policy=policy,publish_requested=False,source_version='0.19.1'))
         build.write(reports/'windows-build.json',dict(commit='a'*40,**{name:True for name in
                     ('build_verified','validation_accepted','installer_accepted','provenance_accepted','qt_replacement_accepted','overall_accepted')}))
-        (reports/'installer/installer-lifecycle.json').write_text('{}')
-        build.write(reports/'bundle-provenance.json',dict(source_commit='a'*40))
+        installer=root/'build/installer-work/setup/MarkItDownBase-Setup-0.19.1-windows-x64.exe'
+        installer.parent.mkdir(parents=True)
+        installer.write_bytes(b'SYNTHETIC installer, never executed')
+        lifecycle=dict(accepted=True,windows_executed=True,source_version='0.19.1',installer_sha256=build.digest(installer),
+                       install_verified=True,repair_verified=True,uninstall_verified=True)
+        build.write(reports/'installer/installer-lifecycle.json',lifecycle)
+        (reports/'acceptance').mkdir()
+        build.write(reports/'acceptance/windows-acceptance.json',dict(accepted=True,windows_executed=True,checks_passed=5))
+        provenance=dict(source_commit='a'*40,accepted=True,profile='base',source_version='0.19.1')
+        build.write(reports/'bundle-provenance.json',provenance)
         with mock.patch.object(build.sys,'platform','win32'),mock.patch.dict(build.os.environ,{'GITHUB_ACTIONS':'true'}),\
              mock.patch.object(build,'policy',return_value=policy),mock.patch.object(build,'validate_inputs'),\
              mock.patch.object(build,'assemble',side_effect=lambda *a,**kw:dict(accepted=True)):
@@ -193,6 +201,10 @@ class BaseTestBuildTests(unittest.TestCase):
             self.assertTrue(result['windows_executed'])  # 只驗分支契約，此 fixture 不作實際 Windows 證據。
             build.write(reports/'bundle-provenance.json',dict(source_commit=build.SOURCE))
             with self.assertRaisesRegex(ValueError,'workflow source differs'):
+                build.collect(root/'plan.json',None,None,root/'build',None,reports,root=ROOT)
+            build.write(reports/'bundle-provenance.json',provenance)
+            build.write(reports/'installer/installer-lifecycle.json',dict(lifecycle,installer_sha256='0'*64))
+            with self.assertRaisesRegex(ValueError,'Actual tested installer differs'):
                 build.collect(root/'plan.json',None,None,root/'build',None,reports,root=ROOT)
 
     def test_workflow_has_separate_trial_job_and_explicit_text_only_report_paths(self):

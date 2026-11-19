@@ -251,9 +251,26 @@ def collect(plan_path, inputs, candidate, build, product, reports, *, root=ROOT)
     require(provenance['source_commit']==plan['approval_policy']['source_commit']
             and build_report['commit']==plan['approval_policy']['source_commit'],
             'Build/provenance workflow source differs from the controller checkout')
+    require(provenance.get('accepted') is True and provenance.get('profile')=='base'
+            and provenance.get('source_version')==plan['source_version'], 'Invalid built provenance result')
     installer = build/'installer-work/setup'/('MarkItDownBase-Setup-'+plan['source_version']+'-windows-x64.exe')
+    lifecycle = load(build/'reports/installer/installer-lifecycle.json')
+    acceptance = load(build/'reports/acceptance/windows-acceptance.json')
+    require(lifecycle.get('accepted') is True and lifecycle.get('windows_executed') is True
+            and lifecycle.get('source_version')==plan['source_version']
+            and lifecycle.get('installer_sha256')==digest(installer)
+            and all(lifecycle.get(k) is True for k in ('install_verified','repair_verified','uninstall_verified')),
+            'Actual tested installer differs from staged installer or lifecycle incomplete')
+    require(acceptance.get('accepted') is True and acceptance.get('windows_executed') is True,
+            'Actual Windows application acceptance incomplete')
     audit = assemble(build/'dist/MarkItDownBase',installer,product,reports,plan,review,candidate=candidate)
     audit['windows_executed'] = True
+    audit['hosted_runner'] = True
+    audit['clean_machine_accepted'] = False
+    audit['gpu_executed'] = False
+    audit['application_checks_passed'] = acceptance['checks_passed']
+    audit['lifecycle'] = {k:lifecycle[k] for k in ('install_verified','repair_verified','uninstall_verified')}
+    audit['environment'] = {k:build_report.get(k) for k in ('runner_os','image_version','platform')}
     audit['windows_build_report_sha256'] = digest(build/'reports/windows-build.json')
     audit['installer_validation_sha256'] = digest(build/'reports/installer/installer-lifecycle.json')
     write(reports/'package-audit.json',audit)

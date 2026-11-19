@@ -292,10 +292,18 @@ jobs:
           python scripts/base_test_build.py --verify-inputs --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --candidate "$env:GITHUB_WORKSPACE/candidate"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Build and validate the actual fixed Windows installer
+        id: fixed-build
         working-directory: candidate
         shell: pwsh
         run: |
           python scripts/run_windows_base_ci.py --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --output "$env:GITHUB_WORKSPACE/out/test-build-windows" --installer
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Publish actual test-build validation summary
+        if: ${{ always() && steps.fixed-build.outcome != 'skipped' }}
+        working-directory: control
+        shell: pwsh
+        run: |
+          python scripts/publish_windows_ci_summary.py --reports "$env:GITHUB_WORKSPACE/out/test-build-windows/reports" --summary "$env:GITHUB_STEP_SUMMARY"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Assemble product attachments and independently verify reports
         working-directory: control
