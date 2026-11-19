@@ -3682,6 +3682,19 @@
       }
     },
     "clean_machine_accepted": false,
-    "gpu_executed": false
+    "gpu_executed": false,
+    "linux_ci_transport": {
+      "reason": "Regional Ubuntu mirror stalled downloading fonts-noto-cjk",
+      "mirror": "https://archive.ubuntu.com/ubuntu/",
+      "transport_timeout_seconds": 30,
+      "retries": 2,
+      "diagnostic_run": 44451412565,
+      "original_log_sha256": "5c7ec140c21884663c8aa93a25461c176a372943b2b48c20cda82167020479c8",
+      "smoke_run": 44451814192,
+      "smoke_accepted": true,
+      "smoke_log_sha256": "2a9162003be64ff180ba10c13eb58d4ffa9844cdb8f3870aaec81afd85dba109",
+      "packages_and_checks_unchanged": true,
+      "apt_signature_validation_preserved": true
+    }
   }
 }

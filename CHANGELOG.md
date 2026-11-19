@@ -6,6 +6,8 @@
 
 ### 2026-11-19｜B1a 固定來源測試版流程與報告式試跑
 
+- CI 傳輸修正：區域 Ubuntu 鏡像卡在 fonts-noto-cjk 大檔（原 run 44448506413，取消未計通過）；獨立官方鏡像測試 run 44451814192 成功，因此 Linux CI 改用官方 HTTPS archive、30 秒傳輸逾時與兩次重試。APT 簽章、套件及所有驗收項目不變；診斷與最終 CI 收據見 PR 34。
+
 - 變更：在既有 Windows base validation 增加獨立手動模式與控制端，來源固定 b17d51b／Python 3.12.10，重核原生 bytes／原文與實際安裝驗收的 Setup，附來源／版本／SHA、授權目錄清單、known-gaps 與測試版限制。report／product 目錄及上傳清單分開，保留 30 天；公開產品常數明確停用。
 - 相對前版：新增組裝與報告核對流程，不改 spec、鎖檔、安裝內容來源、候選計數與義務狀態。生成 native/source.json 以本次 receipt SHA／固定契約驗證，避免錯比舊 run fingerprint；公開 metadata 保留 CRLF 原始 bytes。
 - 驗證：實際 hosted Windows dispatch 的四語／GUI／中文路徑、Qt 替換、安裝／修復／移除與組裝核對通過，只有報告 artifact；原始組裝失敗的 run／hash 已保存。完整混合與獨立模組回歸及兩 profile gates 見 progress.json／本輪證據，最終 head CI／查驗／Merge 見 PR 34。

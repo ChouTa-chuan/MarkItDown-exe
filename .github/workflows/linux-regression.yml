@@ -65,8 +65,13 @@ jobs:
       - name: Install native OCR, EGL and fonts
         run: |
           mkdir -p out/logs
-          sudo apt-get update 2>&1 | tee out/logs/apt.log
-          sudo apt-get install -y --no-install-recommends tesseract-ocr libegl1 fonts-noto-cjk fonts-dejavu-core 2>&1 | tee -a out/logs/apt.log
+          # 雲端區域鏡像曾卡在 CJK 字型大檔；改用同一 Ubuntu 簽名來源的官方 HTTPS 鏡像。
+          # 保留 APT 簽章驗證與全部套件，僅限定傳輸等待，不跳過依賴或回歸。
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            printf '%s\n' 'https://archive.ubuntu.com/ubuntu/' | sudo tee /etc/apt/apt-mirrors.txt
+          fi
+          sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 update 2>&1 | tee out/logs/apt.log
+          sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y --no-install-recommends tesseract-ocr libegl1 fonts-noto-cjk fonts-dejavu-core 2>&1 | tee -a out/logs/apt.log
           # 如實記錄 runner 提供的版本；apt 的 Tesseract 不保證等於歷史基線 5.5.0。
           { tesseract --version; dpkg-query -W tesseract-ocr libtesseract5 liblept5 libegl1 fonts-noto-cjk fonts-dejavu-core; python --version; } 2>&1 | tee out/logs/environment.log
       - name: Install hash-locked dependencies
