@@ -18,12 +18,18 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           python - <<'PY'
-          import hashlib, io, json, subprocess, zipfile
+          import hashlib, io, json, os, re, subprocess, urllib.parse, zipfile
           # 只讀本 repo、固定已取消 job 的日誌；不建置、不發布產品，不輸出 token。
-          command=['gh','api','repos/ChouTa-chuan/MarkItDown-exe/actions/jobs/135306399551/logs']
-          result=subprocess.run(command,capture_output=True,timeout=90)
-          if result.returncode:
-              print('::error title=B1a diagnostic::'+json.dumps({'error':'Job log fetch failed','stderr_sha256':hashlib.sha256(result.stderr).hexdigest()}))
+          endpoints=['repos/ChouTa-chuan/MarkItDown-exe/actions/runs/44448506413/attempts/1/logs',
+                     'repos/ChouTa-chuan/MarkItDown-exe/actions/jobs/135306399551/logs']
+          for endpoint in endpoints:
+              result=subprocess.run(['gh','api',endpoint],capture_output=True,timeout=90)
+              if result.returncode==0:
+                  break
+              message=result.stderr.decode('utf-8',errors='replace').replace(os.environ['GH_TOKEN'],'[redacted]')
+              message=re.sub(r'https://[^\s]+',lambda m:'https://'+str(urllib.parse.urlsplit(m.group()).hostname)+'/[redacted]',message)
+              print('::notice title=B1a diagnostic request::'+json.dumps({'endpoint':endpoint,'error':message[-500:],'stderr_sha256':hashlib.sha256(result.stderr).hexdigest()}).replace('%','%25'))
+          else:
               raise SystemExit(1)
           raw=result.stdout
           if raw.startswith(b'PK'):
