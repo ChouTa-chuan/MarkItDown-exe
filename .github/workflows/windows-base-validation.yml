@@ -31,9 +31,24 @@ on:
         description: 'A6 固定候選的完整來源 SHA；空白為一般驗證'
         required: false
         type: string
+      prepare_test_build:
+        description: 'B1a 組裝試跑（固定 b17d51b；只上傳報告）'
+        required: false
+        type: boolean
+        default: false
+      publish_test_build:
+        description: 'B1b 公開上傳（planner 複查前程式明確停用）'
+        required: false
+        type: boolean
+        default: false
+      ocr_inputs_run:
+        description: '既有 Windows validation 的 OCR 輸入 run；空白選最新未到期者'
+        required: false
+        type: string
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: windows-base-${{ github.ref }}
@@ -45,6 +60,7 @@ env:
 
 jobs:
   native-inputs:
+    if: ${{ github.event_name != 'workflow_dispatch' || !inputs.prepare_test_build }}
     name: Fixed Windows OCR inputs
     runs-on: ubuntu-24.04
     timeout-minutes: 25
@@ -100,6 +116,7 @@ jobs:
         run: python scripts/publish_windows_ci_summary.py --reports out --summary "$GITHUB_STEP_SUMMARY"
 
   windows-base:
+    if: ${{ github.event_name != 'workflow_dispatch' || !inputs.prepare_test_build }}
     name: Windows 2022 base build and OCR
     needs: native-inputs
     runs-on: windows-2022
@@ -225,3 +242,116 @@ jobs:
           path: out/windows/reports/
           retention-days: 7
           if-no-files-found: warn
+
+  b1-test-build:
+    name: B1a fixed candidate test build
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.prepare_test_build }}
+    runs-on: windows-2022
+    timeout-minutes: 35
+    env:
+      # payload 與政策分開 checkout；不得把 workflow 的 SHA 改寫成 payload 的來源。
+      MARKITDOWN_CANDIDATE_SOURCE: b17d51bc99f8402f16b99f98bbe3b3370530bc6c
+    steps:
+      - name: Checkout current approval and packaging controller
+        uses: actions/checkout@v4
+        with:
+          path: control
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Plan fixed source and validated OCR inputs
+        id: plan
+        working-directory: control
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          INPUT_RUN: ${{ inputs.ocr_inputs_run }}
+          PUBLISH_REQUESTED: ${{ inputs.publish_test_build }}
+        run: |
+          python scripts/base_test_build.py --plan --ocr-input-run "$env:INPUT_RUN" --publish "$env:PUBLISH_REQUESTED" --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Checkout immutable application source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.plan.outputs.candidate_source }}
+          path: candidate
+          persist-credentials: false
+      - name: Download existing validated native inputs
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.plan.outputs.inputs_run }}
+          name: ${{ steps.plan.outputs.inputs_name }}
+          path: out/test-build-inputs
+      - name: Verify native input bytes against the fixed candidate
+        working-directory: control
+        shell: pwsh
+        run: |
+          python scripts/base_test_build.py --verify-inputs --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --candidate "$env:GITHUB_WORKSPACE/candidate"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Build and validate the actual fixed Windows installer
+        working-directory: candidate
+        shell: pwsh
+        run: |
+          python scripts/run_windows_base_ci.py --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --output "$env:GITHUB_WORKSPACE/out/test-build-windows" --installer
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Assemble product attachments and independently verify reports
+        working-directory: control
+        shell: pwsh
+        run: |
+          & "$env:GITHUB_WORKSPACE/out/test-build-windows/build-venv/Scripts/python.exe" scripts/base_test_build.py --collect --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --candidate "$env:GITHUB_WORKSPACE/candidate" --build "$env:GITHUB_WORKSPACE/out/test-build-windows" --product "$env:GITHUB_WORKSPACE/out/test-build-package" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Preserve test-build report metadata page 1
+        working-directory: control
+        shell: pwsh
+        run: |
+          python scripts/base_test_build.py --publish-page 0 --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Preserve test-build report metadata page 2
+        working-directory: control
+        shell: pwsh
+        run: |
+          python scripts/base_test_build.py --publish-page 1 --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Preserve test-build report metadata page 3
+        working-directory: control
+        shell: pwsh
+        run: |
+          python scripts/base_test_build.py --publish-page 2 --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Preserve test-build report metadata page 4
+        working-directory: control
+        shell: pwsh
+        run: |
+          python scripts/base_test_build.py --publish-page 3 --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      # B1a 只有此文字／JSON 報告 artifact。產品目錄與報告目錄不可互用。
+      - name: Upload test-build reports only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: base-test-build-reports
+          # 明確列出文字報告；即使失敗或路徑配置錯誤，也不以寬泛目錄上傳 Setup。
+          path: |
+            out/test-build-reports/plan.json
+            out/test-build-reports/BUILD-INFO.json
+            out/test-build-reports/LICENSE-FILES.json
+            out/test-build-reports/package-audit.json
+            out/test-build-reports/SHA256SUMS.txt
+            out/test-build-reports/README.md
+            out/test-build-reports/known-gaps.json
+            out/test-build-reports/known-gaps.md
+            out/test-build-reports/test-build-limitations.md
+          retention-days: 30
+          if-no-files-found: warn
+      # B1b 由 planner 複查後另行啟用；目前控制端常數拒絕 publish，dispatch 勾選不能繞過。
+      - name: Upload installer package only when B1b is enabled
+        if: ${{ success() && steps.plan.outputs.publish_allowed == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: MarkItDownBase-test-build
+          path: out/test-build-package/
+          retention-days: 30
+          if-no-files-found: error
