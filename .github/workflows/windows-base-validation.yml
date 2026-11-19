@@ -304,6 +304,13 @@ jobs:
           run-id: ${{ steps.plan.outputs.baseline_run }}
           name: ${{ steps.plan.outputs.baseline_artifact }}
           path: out/test-build-baseline
+      - name: Verify original provenance before rebuilding the bundle
+        if: ${{ steps.plan.outputs.retained_review == 'false' }}
+        working-directory: control
+        shell: pwsh
+        run: |
+          python scripts/base_test_build.py --verify-baseline --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --baseline "$env:GITHUB_WORKSPACE/out/test-build-baseline" --baseline-copy "$env:GITHUB_WORKSPACE/out/test-build-baseline-backup/bundle-provenance.json"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Verify native input bytes against the fixed candidate
         working-directory: control
         shell: pwsh
@@ -328,7 +335,7 @@ jobs:
         working-directory: control
         shell: pwsh
         run: |
-          & "$env:GITHUB_WORKSPACE/out/test-build-windows/build-venv/Scripts/python.exe" scripts/base_test_build.py --collect --baseline "$env:GITHUB_WORKSPACE/out/test-build-baseline" --baseline-copy "$env:GITHUB_WORKSPACE/out/test-build-baseline-backup/bundle-provenance.json" --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --candidate "$env:GITHUB_WORKSPACE/candidate" --build "$env:GITHUB_WORKSPACE/out/test-build-windows" --product "$env:GITHUB_WORKSPACE/out/test-build-package" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
+          & "$env:GITHUB_WORKSPACE/out/test-build-windows/build-venv/Scripts/python.exe" scripts/base_test_build.py --collect --baseline "$env:GITHUB_WORKSPACE/out/test-build-baseline" --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --candidate "$env:GITHUB_WORKSPACE/candidate" --build "$env:GITHUB_WORKSPACE/out/test-build-windows" --product "$env:GITHUB_WORKSPACE/out/test-build-package" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Preserve test-build report metadata page 1
         working-directory: control

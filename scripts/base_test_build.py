@@ -260,6 +260,8 @@ def assemble(bundle, installer, product, reports, plan, review, *, candidate, co
     info['content_equivalence_mode'] = comparison['mode']
     write(product/'BUILD-INFO.json', info)
     readme = checked_file(ROOT/'docs', 'base-test-build-download.md').read_text(encoding='utf-8')
+    if not info['byte_identical_installer_to_original']:
+        readme += '\n本次 Setup 的 SHA-256 與 A13b 審閱時的 Setup 不同。\n'
     if comparison['mode'] == 'retained-review':
         readme += ('\n逐檔原始清單已到期。本次使用 repo 內保留的分類、原生檔、原文、模組雜湊及檔案數查驗。'
                    '這份依據無法確認所有路徑相等或所有檔案內容相同。\n')
@@ -286,7 +288,7 @@ def assemble(bundle, installer, product, reports, plan, review, *, candidate, co
     return audit
 
 
-def collect(plan_path, inputs, candidate, build, product, reports, *, baseline=None, baseline_copy=None, root=ROOT):
+def collect(plan_path, inputs, candidate, build, product, reports, *, baseline=None, root=ROOT):
     require(sys.platform == 'win32' and os.environ.get('GITHUB_ACTIONS')=='true', 'Real test-build collection requires hosted Windows')
     plan = load(plan_path)
     require(plan['check']=='base-test-build-plan' and plan['approval_policy']==policy(root), 'Approval policy changed during build')
@@ -319,10 +321,7 @@ def collect(plan_path, inputs, candidate, build, product, reports, *, baseline=N
     bundle = build/'dist/MarkItDownBase'
     original = None
     if not plan['retained_review']:
-        origin, original = equivalence.provenance_input(baseline, review, SOURCE)
-        if not plan['publish_requested'] and baseline_copy is not None:
-            baseline_copy.parent.mkdir(parents=True, exist_ok=True)
-            copy_verified(origin, baseline_copy)
+        _, original = equivalence.provenance_input(baseline, review, SOURCE)
     comparison = equivalence.compare(bundle, provenance, review, original, baseline_run=plan['baseline_run'])
     audit = assemble(bundle,installer,product,reports,plan,review,candidate=candidate,comparison=comparison)
     staged = checked_file(product, installer.name)
@@ -434,6 +433,7 @@ def main():
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument('--plan',action='store_true')
     mode.add_argument('--verify-inputs',action='store_true')
+    mode.add_argument('--verify-baseline',action='store_true')
     mode.add_argument('--collect',action='store_true')
     mode.add_argument('--authorize-upload',action='store_true')
     mode.add_argument('--verify-report-artifact',action='store_true')
@@ -466,6 +466,15 @@ def main():
                       retained_review=str(plan['retained_review']).lower(),
                       publish_allowed=str(plan['publish_allowed']).lower()).items():
                     stream.write(key+'='+str(value)+'\n')
+    elif args.verify_baseline:
+        plan = load(args.plan_file)
+        check_publish_request(plan['publish_requested'])
+        review = load(ROOT/REVIEW)
+        origin, _ = equivalence.provenance_input(args.baseline, review, SOURCE)
+        if not plan['publish_requested'] and args.baseline_copy is not None:
+            args.baseline_copy.parent.mkdir(parents=True, exist_ok=True)
+            copy_verified(origin,args.baseline_copy)
+        print('Verified original provenance SHA-256:', review['provenance_report_sha256'])
     elif args.authorize_upload:
         authorize_upload(args.plan_file,args.build,args.product,args.reports)
     elif args.verify_inputs:
@@ -478,7 +487,7 @@ def main():
             print('::notice title=B1b report metadata::'+json.dumps(part,separators=(',', ':')).replace('%','%25'))
     else:
         collect(args.plan_file,args.inputs,args.candidate,args.build,args.product,args.reports,
-                baseline=args.baseline,baseline_copy=args.baseline_copy)
+                baseline=args.baseline)
     return 0
 
 
