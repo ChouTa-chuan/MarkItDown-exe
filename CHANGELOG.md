@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-19：依使用者決定重新排程：A14–A17 移入大階段 B 改編號 B3a–B3d；B1 拆為 B1a（準備試跑，不公開）與 B1b（planner 複查大階段 A 後公開產出，artifact 保留 30 天）；A13c 與 B1a 交給 Codex。
+
 ### 2026-11-18｜A13b 依使用者決定調整並重新固定候選
 
 - 變更：基本包根目錄 vcruntime140／_1 改用 Visual Studio 官方 Redist（A13-1 b，使用者同意的打包變更）；新增隨包 known-gaps.json／known-gaps.md／test-build-limitations.md；候選審閱固定保留揭露檔列；以固定候選 b17d51b 重綁登記表與目錄，Microsoft 探測改以新候選為基準並收回 check_catalog 放寬；依 A13 決定存檔逐條寫入 decision_source 與 accepted_gaps（108），13 條 user_approved。

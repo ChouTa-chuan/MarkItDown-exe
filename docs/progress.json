@@ -2,9 +2,9 @@
   "updated": "2026-11-18",
   "environment": "Linux 完整混合／獨立模組回歸；hosted Windows CI 只做整合驗證，非實體機／乾淨機／GPU／人工驗收",
   "tests_passed": 928,
-  "headline": "A13b：依使用者決定換用官方 VC runtime、隨包揭露未知項並關閉條目；基本包「可再散布」首次推導為 true",
+  "headline": "PR 1–31 已合併；基本包「可再散布」已推導為 true。A13c 後大階段 A 收尾，CPU 義務移入大階段 B",
   "blocker": "基本包 release_ready 仍 false：需大階段 C 乾淨 Windows 與人工驗收；runtime_sbom_complete 仍 false（108 個已揭露未知項）；CPU 元件三旗標 false（A14–A17）。",
-  "next": "B1 以 CI artifact 公開產出基本包測試版（來源 b17d51b）；A13c 以新候選重產逐列來源對照；CPU 的 A14–A17 在 B1 之後",
+  "next": "A13c 與 B1a（Codex）→ Claude planner 複查大階段 A → B1b 公開產出測試版（artifact 30 天）→ B2 → B3a–B3d → B3 → B4",
   "milestones": [
     {
       "id": "m0",
@@ -2637,7 +2637,7 @@
     "stages": [
       {
         "id": "A",
-        "title": "A · 關閉來源與再散布缺口",
+        "title": "A · 關閉來源與再散布缺口（基本包）",
         "goal": "讓候選安裝包每個檔案說得出來源、版本與授權義務，作為能否交付測試版的前提。",
         "items": [
           {
@@ -2769,38 +2769,14 @@
           {
             "id": "A13b",
             "title": "依決定調整並重新固定候選",
-            "status": "active",
-            "note": "PR 審查中；Claude coder"
+            "status": "done",
+            "pr": 31
           },
           {
             "id": "A13c",
             "title": "以 A13b 候選重產逐列來源對照",
             "status": "next",
-            "note": "可與 B1 前置平行"
-          },
-          {
-            "id": "A14",
-            "title": "CPU：flatbuffers、rapidocr 原文綁定",
-            "status": "pending",
-            "note": "B1 之後"
-          },
-          {
-            "id": "A15",
-            "title": "CPU：PP-OCR 模型來源與授權",
-            "status": "pending",
-            "note": "B1 之後"
-          },
-          {
-            "id": "A16",
-            "title": "CPU：GEOS（LGPL）與 CPU 內含元件、Microsoft 6 檔",
-            "status": "pending",
-            "note": "B1 之後"
-          },
-          {
-            "id": "A17",
-            "title": "CPU：建置工具是否進入 worker",
-            "status": "pending",
-            "note": "B1 之後"
+            "note": "Codex；A 的最後一項"
           }
         ]
       },
@@ -2810,15 +2786,45 @@
         "goal": "以固定提交產出可交給人安裝測試的候選版本，附版本、雜湊、隨包授權、限制與驗收表。",
         "items": [
           {
-            "id": "B1",
-            "title": "基本包以 CI artifact 產出測試版",
+            "id": "B1a",
+            "title": "測試版產出準備與試跑（不公開）",
+            "status": "next",
+            "note": "Codex；可與 A13c 平行"
+          },
+          {
+            "id": "B1b",
+            "title": "測試版公開產出（artifact 保留 30 天）",
             "status": "pending",
-            "note": "使用者已同意公開產出；A13b 之後"
+            "note": "planner 複查大階段 A 後"
           },
           {
             "id": "B2",
             "title": "驗收表",
             "status": "pending"
+          },
+          {
+            "id": "B3a",
+            "title": "CPU：flatbuffers、rapidocr 原文綁定",
+            "status": "pending",
+            "note": "原 A14；B1b 之後"
+          },
+          {
+            "id": "B3b",
+            "title": "CPU：PP-OCR 模型來源與授權",
+            "status": "pending",
+            "note": "原 A15；B1b 之後"
+          },
+          {
+            "id": "B3c",
+            "title": "CPU：GEOS（LGPL）與 CPU 內含元件、Microsoft 6 檔",
+            "status": "pending",
+            "note": "原 A16；B1b 之後"
+          },
+          {
+            "id": "B3d",
+            "title": "CPU：建置工具是否進入 worker",
+            "status": "pending",
+            "note": "原 A17；B1b 之後"
           },
           {
             "id": "B3",
