@@ -51,3 +51,33 @@ jobs:
               body=json.dumps(payload,separators=(',',':'))
           print('::notice title=B1a cancelled Linux apt log::'+body.replace('%','%25'))
           PY
+  apt-mirror-smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Test official signed Ubuntu mirror without changing application inputs
+        id: apt
+        shell: bash
+        run: |
+          mkdir -p out
+          if [ -f /etc/apt/apt-mirrors.txt ]; then
+            printf '%s\n' 'https://archive.ubuntu.com/ubuntu/' | sudo tee /etc/apt/apt-mirrors.txt
+          fi
+          sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 update 2>&1 | tee out/apt.log
+          sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y --no-install-recommends tesseract-ocr libegl1 fonts-noto-cjk fonts-dejavu-core 2>&1 | tee -a out/apt.log
+          dpkg-query -W tesseract-ocr libegl1 fonts-noto-cjk fonts-dejavu-core | tee out/versions.txt
+      - name: Preserve bounded actual mirror result
+        if: always()
+        shell: bash
+        env:
+          APT_OUTCOME: ${{ steps.apt.outcome }}
+        run: |
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          path=Path('out/apt.log')
+          raw=path.read_bytes() if path.is_file() else b''
+          versions=Path('out/versions.txt')
+          record={'check':'b1a-apt-mirror-smoke','accepted':os.environ['APT_OUTCOME']=='success','apt_log_sha256':hashlib.sha256(raw).hexdigest(),'versions':versions.read_text() if versions.is_file() else None,'tail':raw.decode('utf-8',errors='replace')[-2200:]}
+          print('::notice title=B1a official mirror smoke::'+json.dumps(record,separators=(',',':')).replace('%','%25'))
+          PY
