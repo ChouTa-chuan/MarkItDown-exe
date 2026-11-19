@@ -1,0 +1,25 @@
+{
+  "date_taipei": "2026-11-19",
+  "source_commit": "3731dac8deabda462d607154a1c36f98b0cc834c",
+  "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "accepted": true,
+  "result": "Hosted Windows report-only trial and Linux regressions verified; final PR integration pending",
+  "pr": 34,
+  "keywords": [
+    "B1a",
+    "test-build",
+    "報告試跑",
+    "固定候選",
+    "artifact 30 天"
+  ],
+  "files": {
+    "BUILD-INFO.json": "71bfb7a882c1ad93bbce2d0c83cd59fba52deee0e913b52899c97e5e935e4722",
+    "README.md": "610457c69e3be40f119ee354ab69f76e80ec4bb12b02c1bff4b4e6ef064250a6",
+    "attempts.json": "11a3e2bc530722a51aca91b7de61ead65cd92a02345db6a2b219a7549dcf7fa4",
+    "gates-summary.json": "345acabba7e60e7c3198f6114cfedd82c6752f07690b8f3b291f784e19f5350c",
+    "isolated-summary.json": "b3c3a0f2a22c38356280963458ff1481b9217d38a7520ff203dc36cc284c46ed",
+    "mixed-result.json": "0f4e052d55ca4b05e64b111b7eb93e57171fc0dee14d7ff5a55da95c486d7299",
+    "package-audit.json": "6f8be264e6fad9033b26b8a2f77e33668e26c052a103bcae4596c74f8fa264e2",
+    "trial-summary.json": "ddd8f7eb4410d5db6e7105d917e0e44c4d74b1d8340fff31c18bfccf58762c85"
+  }
+}

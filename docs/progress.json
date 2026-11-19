@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-19",
-  "environment": "Linux 完整混合／獨立模組回歸；hosted Windows CI 只做整合驗證，非實體機／乾淨機／GPU／人工驗收",
-  "tests_passed": 929,
-  "headline": "A13c 當前候選來源對照完成（PR 33）；B1a 準備與試跑中，公開產出仍待 planner",
-  "blocker": "基本包 release_ready 仍 false：需大階段 C 乾淨 Windows 與人工驗收；runtime_sbom_complete 仍 false（108 個已揭露未知項）；CPU 元件三旗標 false（A14–A17）。",
-  "next": "完成 B1a 的固定來源組裝與 report-only 試跑；A13c／B1a 各自 Merge 後停止，交 Claude planner 複查，再另行 B1b。",
+  "environment": "Linux 完整混合／獨立模組回歸；hosted Windows 真實固定候選試跑，非實體機／乾淨機／GPU／人工驗收",
+  "tests_passed": 940,
+  "headline": "A13c 已 Merge（PR 33）；B1a 報告式真實試跑完成（PR 34），待 Claude planner 複查大階段 A",
+  "blocker": "公開基本包待 Claude planner 複查後的 B1b；runtime_sbom_complete／release_ready 仍 false，乾淨機與人工驗收需大階段 C；CPU B3a–B3d 尚待完成。",
+  "next": "Codex 本輪停止；Claude planner 複查大階段 A 無必須修正後，才另行 B1b 公開產出。輸入 artifact 到期須先重跑一般 Windows validation；本輪未公開安裝包。",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 930,
+  "tests_run": 941,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "9712e889d83619d5a753d1cca838e4634c0c241d",
+    "source_commit": "3731dac8deabda462d607154a1c36f98b0cc834c",
     "date_taipei": "2026-11-19",
     "accepted": true,
-    "run": 930,
-    "passed": 929,
+    "run": 941,
+    "passed": 940,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1313,7 +1313,7 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 59,
+    "isolated_modules": 60,
     "isolated_all_exits_zero": true,
     "python": "3.12.14",
     "tesseract": "5.3.4",
@@ -1322,7 +1322,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/a13c-source-attribution-2026-11-19/README.md"
+    "evidence": "development-records/runs/b1a-test-build-2026-11-19/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2723,14 +2723,14 @@
             "id": "A10",
             "title": "Microsoft 執行期逐檔對照（基本包 14 檔）",
             "status": "done",
-            "note": "工程證據及官方原文已齊；Microsoft 義務 open，A13 待決定",
+            "note": "工程原文與來源完成；後於 A13 由使用者決定、A13b 已接線",
             "pr": 20
           },
           {
             "id": "A11",
             "title": "Qt 內含第三方、建置資訊與可替換驗收",
             "status": "done",
-            "note": "工程與 hosted Windows 證據已驗；base-qt 仍 open，A13 使用者決定。最終整合見 PR",
+            "note": "工程與 hosted Windows 已驗；LGPL 後於 A13 由使用者接受、A13b 已接線",
             "pr": 22
           },
           {
@@ -2776,7 +2776,7 @@
             "id": "A13c",
             "title": "以 A13b 候選重產逐列來源對照",
             "status": "done",
-            "note": "當前逐列來源與封存／MIT 證據已刷新；flags 不改，最終整合見 PR；整體 A 待 planner 複查",
+            "note": "已一般 Merge e8d8074；最終 CI／查驗及 Pages 通過；整體 A 待 planner 複查",
             "pr": 33
           }
         ]
@@ -2789,14 +2789,15 @@
           {
             "id": "B1a",
             "title": "測試版產出準備與試跑（不公開）",
-            "status": "next",
-            "note": "Codex；可與 A13c 平行"
+            "status": "done",
+            "note": "真實 hosted Windows report-only 試跑通過；只上傳報告，保留 30 天；最終整合見 PR",
+            "pr": 34
           },
           {
             "id": "B1b",
             "title": "測試版公開產出（artifact 保留 30 天）",
             "status": "pending",
-            "note": "planner 複查大階段 A 後"
+            "note": "Claude planner 複查大階段 A 後另行開始；本輪未公開安裝包"
           },
           {
             "id": "B2",
@@ -2831,7 +2832,7 @@
             "id": "B3",
             "title": "CPU 元件重新定版",
             "status": "pending",
-            "note": "需 A14–A17"
+            "note": "需 B3a–B3d 完成並經使用者確認"
           },
           {
             "id": "B4",
@@ -3600,7 +3601,7 @@
     "baseline_commit": "46f025a8601d3b77d86290f4b96e537c6aa4b11b",
     "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
     "pr": 33,
-    "status": "implemented-and-verified",
+    "status": "merged-and-verified",
     "origin_known_assessed": 30,
     "changed_rows": 6,
     "evidence": "development-records/runs/a13c-source-attribution-2026-11-19/README.md",
@@ -3628,6 +3629,59 @@
       }
     },
     "states_and_decisions_unchanged": true,
-    "package_contents_changed": false
+    "package_contents_changed": false,
+    "merge_commit": "e8d8074d10e96ede3f72d0888c92150dc69b8c58",
+    "ci_runs": {
+      "Windows base validation": 44443560627,
+      "Windows CPU component validation": 44443560461,
+      "History index check": 44443560533,
+      "Linux full regression": 44443560565,
+      "Microsoft runtime evidence": 44443560502
+    }
+  },
+  "b1a_test_build": {
+    "source_commit": "3731dac8deabda462d607154a1c36f98b0cc834c",
+    "baseline_commit": "e8d8074d10e96ede3f72d0888c92150dc69b8c58",
+    "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+    "pr": 34,
+    "status": "implemented-and-hosted-trial-verified",
+    "targeted_run": 11,
+    "evidence": "development-records/runs/b1a-test-build-2026-11-19/README.md",
+    "workflow_dispatch_run": 44447627530,
+    "installer": {
+      "file": "MarkItDownBase-Setup-0.19.1-windows-x64.exe",
+      "sha256": "afd7b509f3fcb460a4acf753b094d883450f1b29fe731720a1121055d6c86b53",
+      "bytes": 102439496
+    },
+    "license_files": 319,
+    "original_wheel_notice_checks": 110,
+    "report_artifact": {
+      "id": 14493978008,
+      "name": "base-test-build-reports",
+      "digest": "sha256:9a88aaf20210711d0cea13ab79c05356c3943dbc3e988e39be2b2fafa1072096",
+      "created_at": "2026-11-19T02:59:11Z",
+      "expires_at": "2026-12-19T02:59:10Z",
+      "size_in_bytes": 25981
+    },
+    "report_only": true,
+    "installer_uploaded": false,
+    "public_upload_enabled": false,
+    "retention_days": 30,
+    "profiles": {
+      "base": {
+        "runtime_sbom_complete": false,
+        "runtime_sbom_disclosed": true,
+        "redistribution_approved": true,
+        "release_ready": false
+      },
+      "cpu": {
+        "runtime_sbom_complete": false,
+        "runtime_sbom_disclosed": false,
+        "redistribution_approved": false,
+        "release_ready": false
+      }
+    },
+    "clean_machine_accepted": false,
+    "gpu_executed": false
   }
 }

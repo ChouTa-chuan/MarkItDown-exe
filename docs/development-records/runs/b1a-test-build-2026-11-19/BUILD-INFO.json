@@ -1,0 +1,32 @@
+{
+  "check": "base-test-build",
+  "schema_version": 1,
+  "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "workflow_source": "3731dac8deabda462d607154a1c36f98b0cc834c",
+  "source_version": "0.19.1",
+  "approval_policy": {
+    "source_commit": "3731dac8deabda462d607154a1c36f98b0cc834c",
+    "registry_sha256": "a86a8e044ce2c953927da282e2c98dc5f8c6499c43809f8c984f74d9143b3f2b",
+    "source_review": {
+      "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json",
+      "sha256": "f65cdbc9a01d95391032fa991d6d4f0e5dfec10b317b983435ce79bfbeaed295"
+    },
+    "flags": {
+      "runtime_sbom_complete": false,
+      "runtime_sbom_disclosed": true,
+      "redistribution_approved": true,
+      "release_ready": false
+    }
+  },
+  "retention_days": 30,
+  "installer": {
+    "file": "MarkItDownBase-Setup-0.19.1-windows-x64.exe",
+    "sha256": "afd7b509f3fcb460a4acf753b094d883450f1b29fe731720a1121055d6c86b53",
+    "bytes": 102439496
+  },
+  "fixed_review_installer_sha256": "b79b75977b1d49589b3108d9363eb96016d2148f813db652468b2da7d7c075fe",
+  "byte_identical_installer_to_original": false,
+  "scope": "Fixed application source and native/input/original-notice bytes verified; generated metadata and installer may have build differences",
+  "package_upload_allowed": false,
+  "public_upload_enabled": false
+}

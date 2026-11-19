@@ -1,0 +1,64 @@
+{
+  "check": "base-test-build-audit",
+  "schema_version": 1,
+  "accepted": true,
+  "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "package_files": {
+    "BUILD-INFO.json": {
+      "sha256": "71bfb7a882c1ad93bbce2d0c83cd59fba52deee0e913b52899c97e5e935e4722",
+      "bytes": 1358
+    },
+    "known-gaps.json": {
+      "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7",
+      "bytes": 7000
+    },
+    "known-gaps.md": {
+      "sha256": "1b2bfcf35c82c98376dc404a042e963aa535fb2be0948be83956c9f4050362c1",
+      "bytes": 22878
+    },
+    "LICENSE-FILES.json": {
+      "sha256": "46f373ca484f6e8730e5525d0116edcdb1725e3b091fb8cb39e66cd9998c1f7d",
+      "bytes": 75193
+    },
+    "MarkItDownBase-Setup-0.19.1-windows-x64.exe": {
+      "sha256": "afd7b509f3fcb460a4acf753b094d883450f1b29fe731720a1121055d6c86b53",
+      "bytes": 102439496
+    },
+    "README.md": {
+      "sha256": "19278a3cff2f0b706e6a3cd1d3012d9b2202d22a60b3964bb4b56cb0b1d2eda9",
+      "bytes": 309
+    },
+    "SHA256SUMS.txt": {
+      "sha256": "2c1a26d0f6b050f7c486409a1b36b89ea584198c670219174b4f9603f1a66cc8",
+      "bytes": 614
+    },
+    "test-build-limitations.md": {
+      "sha256": "76ed454b56dc458dd0e9498bc93668ce2333a1f1e231564953da97fde3dc8885",
+      "bytes": 605
+    }
+  },
+  "license_files": 319,
+  "installer_uploaded": false,
+  "report_only": true,
+  "package_upload_allowed": false,
+  "retention_days": 30,
+  "windows_executed": true,
+  "hosted_runner": true,
+  "clean_machine_accepted": false,
+  "gpu_executed": false,
+  "generated_native_source_sha256": "85f909c302a735a4bad813d82ea05834c6b3f0ce2004d55f0881d0eae64f5b14",
+  "native_build_evidence_sha256": "1e3701e8f4bdfbddb2002cadf2ae384bbdd6fe38e7817e5e72c737993d99df15",
+  "application_checks_passed": 10,
+  "lifecycle": {
+    "install_verified": true,
+    "repair_verified": true,
+    "uninstall_verified": true
+  },
+  "environment": {
+    "runner_os": "Windows",
+    "image_version": "20261112.366.7",
+    "platform": "Windows-2022Server-10.0.20348-SP0"
+  },
+  "windows_build_report_sha256": "bf4033e3e76c80a399bd9949ccb47e0d413787b1a9ea6d871e51f700dcc07db4",
+  "installer_validation_sha256": "7b38fc38e84eba5002de5cfb1f7e9428e3eab8a70ce840551784f9a7dbd775dd"
+}

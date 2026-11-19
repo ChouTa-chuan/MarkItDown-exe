@@ -1,0 +1,52 @@
+{
+  "check": "b1a-attempt-receipts",
+  "attempts": [
+    {
+      "run": 44444516138,
+      "source_commit": "8e12e8efeb4463fad0d0461502ff5b2e927d2210",
+      "conclusion": "failure",
+      "failed_step": "Assemble product attachments and independently verify reports",
+      "error": "Detailed original error not preserved; bounded diagnostics added for the next attempt",
+      "annotation_metadata_sha256": "9773112f27dd51fd0aa56ac845be5865758f513e2b82c0f37ed59d8907075a28",
+      "installer_uploaded": false,
+      "artifacts": [
+        {
+          "name": "base-test-build-reports",
+          "digest": "sha256:85d92a566e372629789484515e3fc1ff1130ba5e0c5ed870e6325126b1568e0c",
+          "expires_at": "2026-12-19T02:32:53Z"
+        }
+      ]
+    },
+    {
+      "run": 44445327789,
+      "source_commit": "2fe7c2b2ba16d2c0a955b4a4bf6667e22f65fcaf",
+      "conclusion": "failure",
+      "failed_step": "Assemble product attachments and independently verify reports",
+      "error": "ValueError: Bundled OCR payload differs: _internal/desktop_app/data/native/source.json",
+      "annotation_metadata_sha256": "947be9c398f57fe9348174af1b398036095a2b4b63a754b5668d557b8ef6b573",
+      "installer_uploaded": false,
+      "artifacts": [
+        {
+          "name": "base-test-build-reports",
+          "digest": "sha256:6629d9f46ffa7f66bfe91313f53bc8294cbaa15c8c5218d316d7a93dbb6c575b",
+          "expires_at": "2026-12-19T02:39:30Z"
+        }
+      ]
+    },
+    {
+      "run": 44446452873,
+      "source_commit": "f756dbf8269ae065bee3823726ce53f1cfdebd51",
+      "conclusion": "success",
+      "receipt_sha256": "68c4e51bd5e942c7f4b8ffaf5bb534ed06dc19deb778a3e30085f65a6addb878",
+      "superseded_reason": "Runner staging and public metadata verified; added actual artifact download-and-byte comparison for final code",
+      "installer_uploaded": false
+    }
+  ],
+  "original_logs": "Not preserved; complete log download host denied by environment policy. No signed URL or raw repeated JSON saved.",
+  "correction": "Only generated native/source.json uses exact current receipt structure/hash; native/model/original-notice SHA rules unchanged",
+  "earlier_mixed_result_sha256": "d9488afbab5f8c3bf031518964c39ceca30f051d3620fe3e17aca60650da138a",
+  "earlier_full_regression_sha256": {
+    "mixed": "0f4e052d55ca4b05e64b111b7eb93e57171fc0dee14d7ff5a55da95c486d7299",
+    "isolated": "b3c3a0f2a22c38356280963458ff1481b9217d38a7520ff203dc36cc284c46ed"
+  }
+}

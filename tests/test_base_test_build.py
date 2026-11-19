@@ -162,7 +162,9 @@ class BaseTestBuildTests(unittest.TestCase):
     def test_report_and_product_paths_cannot_overlap_even_on_failure(self):
         for nested in ('same','product-in-reports','reports-in-product'):
             fixture=self.fixture()
-            if nested=='same':fixture['product']=fixture['reports']/'new';fixture['reports']=fixture['product']
+            if nested=='same':
+                fixture['product']=fixture['reports']/'new'
+                fixture['reports']=fixture['product']
             elif nested=='product-in-reports':fixture['product']=fixture['reports']/'new'
             else:fixture['reports']=fixture['product']/'new'
             with self.subTest(nested=nested),self.assertRaisesRegex(ValueError,'disjoint'):

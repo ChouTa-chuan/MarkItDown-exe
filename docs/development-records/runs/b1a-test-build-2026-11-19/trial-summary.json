@@ -1,0 +1,189 @@
+{
+  "check": "b1a-hosted-windows-trial-review",
+  "run": 44447627530,
+  "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44447627530",
+  "workflow_source": "3731dac8deabda462d607154a1c36f98b0cc834c",
+  "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "accepted": true,
+  "workflow": ".github/workflows/windows-base-validation.yml",
+  "report_only": true,
+  "installer_uploaded": false,
+  "release_or_tag_created": false,
+  "installer": {
+    "file": "MarkItDownBase-Setup-0.19.1-windows-x64.exe",
+    "sha256": "afd7b509f3fcb460a4acf753b094d883450f1b29fe731720a1121055d6c86b53",
+    "bytes": 102439496
+  },
+  "original_installer_bit_identical": false,
+  "hosted_windows": true,
+  "clean_machine_accepted": false,
+  "gpu_executed": false,
+  "flags": {
+    "runtime_sbom_complete": false,
+    "runtime_sbom_disclosed": true,
+    "redistribution_approved": true,
+    "release_ready": false
+  },
+  "public_metadata_sha256": "461970a56c1879af9cb899d3dc601d64acf6eac001d4c6017cc1f7ff7b741c96",
+  "report_files": {
+    "BUILD-INFO.json": {
+      "sha256": "71bfb7a882c1ad93bbce2d0c83cd59fba52deee0e913b52899c97e5e935e4722",
+      "bytes": 1358
+    },
+    "LICENSE-FILES.json": {
+      "sha256": "46f373ca484f6e8730e5525d0116edcdb1725e3b091fb8cb39e66cd9998c1f7d",
+      "bytes": 75193
+    },
+    "README.md": {
+      "sha256": "75a6f48936bf0a81ecce80ebacd6787298af05df5dd9c994e6925c6cd26fab52",
+      "bytes": 149
+    },
+    "SHA256SUMS.txt": {
+      "sha256": "2c1a26d0f6b050f7c486409a1b36b89ea584198c670219174b4f9603f1a66cc8",
+      "bytes": 614
+    },
+    "known-gaps.json": {
+      "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7",
+      "bytes": 7000
+    },
+    "known-gaps.md": {
+      "sha256": "1b2bfcf35c82c98376dc404a042e963aa535fb2be0948be83956c9f4050362c1",
+      "bytes": 22878
+    },
+    "package-audit.json": {
+      "sha256": "6f8be264e6fad9033b26b8a2f77e33668e26c052a103bcae4596c74f8fa264e2",
+      "bytes": 2245
+    },
+    "plan.json": {
+      "sha256": "315e668e0e31ec0153f4f5f62a58122c5a1b41075f640f710a7691318e0b4daf",
+      "bytes": 1167
+    },
+    "test-build-limitations.md": {
+      "sha256": "76ed454b56dc458dd0e9498bc93668ce2333a1f1e231564953da97fde3dc8885",
+      "bytes": 605
+    }
+  },
+  "license_files": 319,
+  "original_wheel_notice_checks": 110,
+  "actual_validation": {
+    "result": {
+      "check": "windows-base-build-ci",
+      "commit": "3731dac8deabda462d607154a1c36f98b0cc834c",
+      "build_verified": true,
+      "validation_accepted": true,
+      "clean_machine_accepted": false,
+      "release_ready": false,
+      "installer_accepted": true,
+      "upgrade_accepted": null,
+      "overall_accepted": true,
+      "recovery_accepted": null
+    },
+    "acceptance": {
+      "check": "windows-base-ci",
+      "accepted": true,
+      "windows_executed": true,
+      "clean_machine_accepted": false,
+      "release_ready": false,
+      "source_version": "0.19.1",
+      "python_utf8_mode": true,
+      "gui": {
+        "opened": true,
+        "normal_exit": true,
+        "returncode": 0,
+        "close_requests": 5,
+        "qt_core": {
+          "path": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\markitdown-win-base-lld9_exp\\中文 空格測試\\應用程式\\_internal\\PySide6\\Qt6Core.dll",
+          "sha256": "f57ed38afd95d0306cca9d88d997f639f70c7628a4f1f064eae291d579487121"
+        }
+      },
+      "checks_passed": 10
+    },
+    "installer": {
+      "check": "C11-base-installer-smoke",
+      "accepted": true,
+      "windows_executed": true,
+      "install_verified": true,
+      "repair_verified": true,
+      "uninstall_verified": true,
+      "user_data_preserved": true,
+      "shortcut_verified": true,
+      "clean_machine_accepted": false,
+      "upgrade_verified": false,
+      "rollback_verified": false,
+      "full_c11_complete": false,
+      "release_ready": false,
+      "source_version": "0.19.1",
+      "bundle_catalog_sha256": "9847526d820961640119df1ee8edd1f3db8badc5002e2296ed7d90312005c624",
+      "catalog_files": 1769,
+      "compiler_sha256": "eb6f4410c8db367a5f74127e8025ad2ccacc0afabbe783959d237df3050f97fb",
+      "compiler_license_sha256": "2e5346868c2a18434489824e11d65c3031620f792fefc415d05f19cd441abf5c",
+      "installer_sha256": "afd7b509f3fcb460a4acf753b094d883450f1b29fe731720a1121055d6c86b53",
+      "installed_app_checks": 10,
+      "checks_passed": 6
+    }
+  },
+  "input_artifact": {
+    "run_id": 44304721858,
+    "producer_head": "371599b590c4972e607de38d0df09d25a677fb10",
+    "artifact_name": "windows-ocr-ci-inputs",
+    "artifact_id": 14427199668,
+    "artifact_digest": "sha256:0c998d0462f2954a8cd9147c54c5fa1f1f51bda999408366cb91f95c3399177f",
+    "expires_at": "2026-11-19T12:33:27Z"
+  },
+  "artifacts": [
+    {
+      "id": 14493978008,
+      "name": "base-test-build-reports",
+      "digest": "sha256:9a88aaf20210711d0cea13ab79c05356c3943dbc3e988e39be2b2fafa1072096",
+      "created_at": "2026-11-19T02:59:11Z",
+      "expires_at": "2026-12-19T02:59:10Z",
+      "size_in_bytes": 25981
+    }
+  ],
+  "uploader_package_step": "skipped",
+  "legacy_jobs": "skipped by manual trial mode; not counted as passed",
+  "actual_artifact_roundtrip": {
+    "check": "base-test-build-artifact-roundtrip",
+    "accepted": true,
+    "files": {
+      "BUILD-INFO.json": {
+        "sha256": "71bfb7a882c1ad93bbce2d0c83cd59fba52deee0e913b52899c97e5e935e4722",
+        "bytes": 1358
+      },
+      "LICENSE-FILES.json": {
+        "sha256": "46f373ca484f6e8730e5525d0116edcdb1725e3b091fb8cb39e66cd9998c1f7d",
+        "bytes": 75193
+      },
+      "README.md": {
+        "sha256": "75a6f48936bf0a81ecce80ebacd6787298af05df5dd9c994e6925c6cd26fab52",
+        "bytes": 149
+      },
+      "SHA256SUMS.txt": {
+        "sha256": "2c1a26d0f6b050f7c486409a1b36b89ea584198c670219174b4f9603f1a66cc8",
+        "bytes": 614
+      },
+      "known-gaps.json": {
+        "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7",
+        "bytes": 7000
+      },
+      "known-gaps.md": {
+        "sha256": "1b2bfcf35c82c98376dc404a042e963aa535fb2be0948be83956c9f4050362c1",
+        "bytes": 22878
+      },
+      "package-audit.json": {
+        "sha256": "6f8be264e6fad9033b26b8a2f77e33668e26c052a103bcae4596c74f8fa264e2",
+        "bytes": 2245
+      },
+      "plan.json": {
+        "sha256": "315e668e0e31ec0153f4f5f62a58122c5a1b41075f640f710a7691318e0b4daf",
+        "bytes": 1167
+      },
+      "test-build-limitations.md": {
+        "sha256": "76ed454b56dc458dd0e9498bc93668ce2333a1f1e231564953da97fde3dc8885",
+        "bytes": 605
+      }
+    },
+    "installer_present": false
+  },
+  "artifact_contents_verified_by_hosted_runner": true
+}
