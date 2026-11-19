@@ -386,6 +386,57 @@ class GateTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             committed_sha256(commit, '../outside')
 
+    def test_a13c_attribution_and_engineering_pins_match_the_current_candidate(self):
+        """已關閉的工程義務也要對到當前候選；來源 hash 變動不能只靠舊快照通過。"""
+        folder = ROOT/'docs/development-records/runs/a13c-source-attribution-2026-11-19'
+        proof = gates.read_json(folder/'origin-known-review.json')
+        report = self.reports['base']
+        source = report['selection']['source_commit']
+        self.assertEqual(proof['source_commit'], source)
+        self.assertEqual(source, self.registry['profiles']['base']['source_commit'])
+        gates.reference(proof['source_review'], ROOT)
+        expected = {r['path']:r for r in report['classification']['files'] if r['status']=='origin-known'}
+        actual = {r['path']:r for r in proof['rows']}
+        self.assertEqual(set(actual), set(expected))
+        self.assertEqual(len(proof['rows']), len(expected))
+        native = {r['file']:r for r in report['classification_input']['report']['native_files']}
+        for name, row in actual.items():
+            self.assertEqual((row['sha256'], row['category']), (expected[name]['sha256'], expected[name]['category']))
+            self.assertTrue(row['reason'].strip())
+            for ref in row['supporting_evidence']:
+                self.assertEqual(committed_sha256(ref['source_commit'], ref['path']), ref['sha256'])
+            relative = name.removeprefix('_internal/')
+            if relative in native:
+                self.assertEqual(row['details']['source_sha256'], native[relative]['source_sha256'])
+                self.assertEqual(row['sha256'], native[relative]['bundled_sha256'])
+        for name in ('vcruntime140.dll', 'vcruntime140_1.dll'):
+            row = actual['_internal/'+name]
+            self.assertEqual(row['category'], 'microsoft-vc-redist')
+            self.assertEqual(row['details']['origin'], 'system-native')
+            self.assertEqual(row['details']['file_version'], '14.44.35211.0')
+            self.assertIn('Redist', row['details']['source_directory'])
+            self.assertTrue(row['details']['official_comparison']['matches_official'])
+        changes = gates.read_json(folder/'changes-from-a12b.json')['changed_rows']
+        self.assertEqual({r['path'] for r in changes}, {
+            '_internal/vcruntime140.dll', '_internal/vcruntime140_1.dll', '_internal/base_library.zip',
+            '_internal/desktop_app/data/licenses/native/manifest.json',
+            '_internal/desktop_app/data/licenses/native/python-modules.json',
+            '_internal/desktop_app/data/third-party.md'})
+        assessment = gates.read_json(folder/'evidence-assessment.json')
+        self.assertEqual(assessment['source_commit'], source)
+        self.assertEqual(assessment['archives']['pure_modules_sha256'], report['pure_modules_sha256'])
+        archive = report['classification_input']['report']['python_archives']['base_library']
+        self.assertEqual(assessment['archives']['base_library_sha256'], archive['sha256'])
+        package = next(p for p in report['packages'] if p['name']=='markitdown-desktop')
+        self.assertEqual(assessment['own_mit_binding']['notice'], package['notices'][0])
+        gates.reference(assessment['own_mit_binding']['license'], ROOT)
+        for identity in ('base-source-attribution', 'base-archives', 'base-own-mit-binding'):
+            entry = self.base_entry(identity)
+            self.assertEqual(entry['status'], 'evidence_complete')
+            self.assertTrue(any(r['path']==proof['source_review']['path'] for r in entry['evidence']))
+            self.assertFalse(any('/a12-fixed-review-' in r['path'] or '/a12b-evidence-wiring-' in r['path']
+                                 for r in entry['evidence']))
+
     def test_newly_wired_evidence_with_changed_hash_is_rejected(self):
         """接好路徑不等於驗收通過；每一類新引用都必須真的檢查 bytes 的 hash。"""
         for identity in ('base-source-attribution', 'base-archives', 'base-own-mit-binding',

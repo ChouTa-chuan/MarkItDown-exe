@@ -18,12 +18,12 @@
           ],
           "evidence": [
             {
-              "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json",
-              "sha256": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59"
+              "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json",
+              "sha256": "f65cdbc9a01d95391032fa991d6d4f0e5dfec10b317b983435ce79bfbeaed295"
             },
             {
-              "path": "docs/development-records/runs/a12b-evidence-wiring-2026-11-18/origin-known-review.json",
-              "sha256": "b536a739b7b99575353bc0b5adb52184acae8b383f2deacf2054214771355e68"
+              "path": "docs/development-records/runs/a13c-source-attribution-2026-11-19/origin-known-review.json",
+              "sha256": "76ecb46b2586b3045b79071e066328a86436fa3dd3979cf30ab159b3c024bd07"
             }
           ],
           "status": "evidence_complete",
@@ -631,16 +631,16 @@
           ],
           "evidence": [
             {
-              "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json",
-              "sha256": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59"
-            },
-            {
-              "path": "docs/development-records/runs/a12b-evidence-wiring-2026-11-18/evidence-assessment.json",
-              "sha256": "1098fe82c8490e5ea50d2b4b54c3c948ddabcb8565e1a34a48a4a6d9fd21765f"
-            },
-            {
               "path": "scripts/python_archive_inventory.py",
               "sha256": "d10994fa9b9fc72970beed61a69da779e4b242a5c6db7adf70c58aea64c1024e"
+            },
+            {
+              "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json",
+              "sha256": "f65cdbc9a01d95391032fa991d6d4f0e5dfec10b317b983435ce79bfbeaed295"
+            },
+            {
+              "path": "docs/development-records/runs/a13c-source-attribution-2026-11-19/evidence-assessment.json",
+              "sha256": "3ac95fa5d8fe76550a34596324649f8768eab458dc95f05aa41da6c23989278a"
             }
           ],
           "status": "evidence_complete",
@@ -947,12 +947,12 @@
               "sha256": "93953f882c7d4d5fd708364d5c39525e088ec5da25dbeb8e017dd68a6a03d230"
             },
             {
-              "path": "docs/development-records/runs/a12-fixed-review-2026-11-18/base-source-review.json",
-              "sha256": "9b9b299653f094251190e97156ba6f3c6abdab62d718830b0480b4569e1b8b59"
+              "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json",
+              "sha256": "f65cdbc9a01d95391032fa991d6d4f0e5dfec10b317b983435ce79bfbeaed295"
             },
             {
-              "path": "docs/development-records/runs/a12b-evidence-wiring-2026-11-18/evidence-assessment.json",
-              "sha256": "1098fe82c8490e5ea50d2b4b54c3c948ddabcb8565e1a34a48a4a6d9fd21765f"
+              "path": "docs/development-records/runs/a13c-source-attribution-2026-11-19/evidence-assessment.json",
+              "sha256": "3ac95fa5d8fe76550a34596324649f8768eab458dc95f05aa41da6c23989278a"
             }
           ],
           "status": "evidence_complete",

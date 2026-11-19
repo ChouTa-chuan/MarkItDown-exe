@@ -1,0 +1,1049 @@
+{
+  "schema_version": 2,
+  "check": "a13c-origin-known-attribution",
+  "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "reviewed_at_commit": "46f025a8601d3b77d86290f4b96e537c6aa4b11b",
+  "source_review": {
+    "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json",
+    "sha256": "f65cdbc9a01d95391032fa991d6d4f0e5dfec10b317b983435ce79bfbeaed295"
+  },
+  "scope": "本候選逐列來源對照；不改來源分類、計數、狀態、既有使用者決定或旗標",
+  "gate_flags_modified": false,
+  "rows": [
+    {
+      "path": "_internal/_asyncio.pyd",
+      "sha256": "c77de90cad749087a0c5dc5e19d78d24f6ef44e7e5ac19b8420cfc0cea62395d",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:_asyncio.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_asyncio.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_asyncio.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "c77de90cad749087a0c5dc5e19d78d24f6ef44e7e5ac19b8420cfc0cea62395d",
+        "bundled_sha256": "c77de90cad749087a0c5dc5e19d78d24f6ef44e7e5ac19b8420cfc0cea62395d",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/_bz2.pyd",
+      "sha256": "65f610646d10d5babea080e060d244b546ec52c54012e5e937dc72dcc2e2e7bc",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:_bz2.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_bz2.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_bz2.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "65f610646d10d5babea080e060d244b546ec52c54012e5e937dc72dcc2e2e7bc",
+        "bundled_sha256": "65f610646d10d5babea080e060d244b546ec52c54012e5e937dc72dcc2e2e7bc",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/_ctypes.pyd",
+      "sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81",
+      "category": "cpython-component-evidence",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "cpython_components:_ctypes.pyd",
+        "_internal/desktop_app/data/licenses/native/cpython-original/libffi.txt"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_ctypes.pyd 的來源／包內 bytes 及載入來源對上本候選；libffi 3.4.4 仍是固定 CPython 官方建置宣告，非執行期版本。原文與來源可追溯；既有 A13-3 接受及隨包揭露保持原樣。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        },
+        {
+          "path": "packaging/cpython/windows-3.12.10/original/libffi.txt",
+          "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_ctypes.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81",
+        "bundled_sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+        "component_evidence": {
+          "component": "libffi",
+          "declared_version": "3.4.4",
+          "file": "_ctypes.pyd",
+          "file_version": "3.12.10",
+          "loaded_source_matched": true,
+          "loaded_source_sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81",
+          "notice": "cpython-original/libffi.txt",
+          "observed_version": null,
+          "role": "cpython-extension",
+          "source_bytes": 127480,
+          "source_sha256": "0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81",
+          "version_status": "build-declaration-only"
+        }
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/_decimal.pyd",
+      "sha256": "aeacfead2befcc0768063a037bb64bd32109ae09cb144e5f571b04dd7965db9d",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:_decimal.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_decimal.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_decimal.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "aeacfead2befcc0768063a037bb64bd32109ae09cb144e5f571b04dd7965db9d",
+        "bundled_sha256": "aeacfead2befcc0768063a037bb64bd32109ae09cb144e5f571b04dd7965db9d",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/_elementtree.pyd",
+      "sha256": "5009a9a53c03ef8387443b5cf6ce08e5c3a79727466a0b931c5bbca915bf89ca",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:_elementtree.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_elementtree.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_elementtree.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "5009a9a53c03ef8387443b5cf6ce08e5c3a79727466a0b931c5bbca915bf89ca",
+        "bundled_sha256": "5009a9a53c03ef8387443b5cf6ce08e5c3a79727466a0b931c5bbca915bf89ca",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/_lzma.pyd",
+      "sha256": "e3deecc1f59a3b811c608861decd84de1e8df8bafd5e2b39188861318c5a38cf",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:_lzma.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_lzma.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_lzma.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "e3deecc1f59a3b811c608861decd84de1e8df8bafd5e2b39188861318c5a38cf",
+        "bundled_sha256": "e3deecc1f59a3b811c608861decd84de1e8df8bafd5e2b39188861318c5a38cf",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/_multiprocessing.pyd",
+      "sha256": "2c636df7059cb0dd7e978dd735c7c5c8ddb09cf94754cf9e232296b96c5c545a",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:_multiprocessing.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_multiprocessing.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_multiprocessing.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "2c636df7059cb0dd7e978dd735c7c5c8ddb09cf94754cf9e232296b96c5c545a",
+        "bundled_sha256": "2c636df7059cb0dd7e978dd735c7c5c8ddb09cf94754cf9e232296b96c5c545a",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/_overlapped.pyd",
+      "sha256": "662126ff80c3a1b4cedf74074029c12ae4743e6d3b37376e39ac70aacb7d4d3c",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:_overlapped.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_overlapped.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_overlapped.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "662126ff80c3a1b4cedf74074029c12ae4743e6d3b37376e39ac70aacb7d4d3c",
+        "bundled_sha256": "662126ff80c3a1b4cedf74074029c12ae4743e6d3b37376e39ac70aacb7d4d3c",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/_queue.pyd",
+      "sha256": "48e76e0ad63f6932b4a77b5819f41c1e7595636ca8d9e824f0943a14b8bb5035",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:_queue.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_queue.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_queue.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "48e76e0ad63f6932b4a77b5819f41c1e7595636ca8d9e824f0943a14b8bb5035",
+        "bundled_sha256": "48e76e0ad63f6932b4a77b5819f41c1e7595636ca8d9e824f0943a14b8bb5035",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/_socket.pyd",
+      "sha256": "3efa4636cf9e350856f6927d67a4c2564bf9bd2758a00bbf17d3aece5b60016d",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:_socket.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_socket.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_socket.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "3efa4636cf9e350856f6927d67a4c2564bf9bd2758a00bbf17d3aece5b60016d",
+        "bundled_sha256": "3efa4636cf9e350856f6927d67a4c2564bf9bd2758a00bbf17d3aece5b60016d",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/_uuid.pyd",
+      "sha256": "acce4f281d7ffb2dec0997527faf25b1df62ad7bd3032c568ddcf65c90edc867",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:_uuid.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_uuid.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_uuid.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "acce4f281d7ffb2dec0997527faf25b1df62ad7bd3032c568ddcf65c90edc867",
+        "bundled_sha256": "acce4f281d7ffb2dec0997527faf25b1df62ad7bd3032c568ddcf65c90edc867",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/_wmi.pyd",
+      "sha256": "a980f1e7a29842bd946863fc2693fbeb555a9dc0f9e1630dfed9a2fcdef3ece2",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:_wmi.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_wmi.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_wmi.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "a980f1e7a29842bd946863fc2693fbeb555a9dc0f9e1630dfed9a2fcdef3ece2",
+        "bundled_sha256": "a980f1e7a29842bd946863fc2693fbeb555a9dc0f9e1630dfed9a2fcdef3ece2",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/_zoneinfo.pyd",
+      "sha256": "76f1439cda82ab6976df6ba505c4079444703f6d44d8b0259ce59c0ff4279fb4",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:_zoneinfo.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "_zoneinfo.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "_zoneinfo.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "76f1439cda82ab6976df6ba505c4079444703f6d44d8b0259ce59c0ff4279fb4",
+        "bundled_sha256": "76f1439cda82ab6976df6ba505c4079444703f6d44d8b0259ce59c0ff4279fb4",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/base_library.zip",
+      "sha256": "de0d1ec0f126fb0ab2e4834aedae8328b320de7589fbb0b2b225357212841027",
+      "category": "archive-members-enumerated",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "python_archives:base_library"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": true,
+      "reason": "base_library.zip 為本次 PyInstaller 建置封存，改用 b17d51b 的 ZIP hash 及實際成員列舉（名稱／大小／CRC）。封存摘要與 pure modules fingerprint 亦以本候選重核；不推定兩次 byte 差異原因、不宣稱已反編譯或重新逐位元重建。",
+      "related_obligation": "base-archives",
+      "details": {
+        "archive_sha256": "de0d1ec0f126fb0ab2e4834aedae8328b320de7589fbb0b2b225357212841027",
+        "members": 155,
+        "pure_modules_sha256": "90f39cd8e11292b2fc4c60d7b6c6519b08d2e42cbf8fa3bd1e94d3eceb4766af",
+        "summary": {
+          "base_library_members": 155,
+          "build_only_modules_absent": true,
+          "by_origin": {
+            "application": 49,
+            "distribution": 1239,
+            "stdlib": 268,
+            "unknown": 0
+          },
+          "pure_modules": 1556,
+          "unknown_modules": 0,
+          "unknown_names": []
+        }
+      },
+      "supporting_evidence": [
+        {
+          "path": "scripts/python_archive_inventory.py",
+          "sha256": "d10994fa9b9fc72970beed61a69da779e4b242a5c6db7adf70c58aea64c1024e",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        },
+        {
+          "path": "packaging/base.spec",
+          "sha256": "63c319ac811c2234db3f7b009c30dd24ee503f2240b5135c31e5d03fc06cf582",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "related_obligation_status": "evidence_complete"
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/bootloader/manifest.json",
+      "sha256": "5b9756b8845f7b9822c954d5292528f90d8d5ecab45f33b8aa7243c07b851604",
+      "category": "project-generated",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "scripts/build_provenance.py"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "build_provenance.bootloader_notices 依實際 PyInstaller distribution 保存原文清單與 hash。 本列使用 b17d51b 審閱保存的當前 hash；生成來源與分類可追溯，精簡報告未內嵌此整份生成檔，不宣稱另做了位元組重建。",
+      "related_obligation": "base-source-attribution",
+      "details": {
+        "generator_paths": [
+          "scripts/build_provenance.py"
+        ],
+        "artifact_sha256": "5b9756b8845f7b9822c954d5292528f90d8d5ecab45f33b8aa7243c07b851604",
+        "full_generated_content_embedded": false
+      },
+      "supporting_evidence": [
+        {
+          "path": "scripts/build_provenance.py",
+          "sha256": "628066064d9664a3c5a5f99e16a525f82055b690a996082e32600de90cd5f410",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "related_obligation_status": "evidence_complete"
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/installed/manifest.json",
+      "sha256": "d8061c57bc71cbd27ab28ce48351e47a8a2d16d34a6b765a1e90ed3faf4da698",
+      "category": "project-generated",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "scripts/prepare_base_assets.py"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "prepare_base_assets.prepare 依實際隔離環境的 runtime METADATA、原文與補充來源產生套件表。 本列使用 b17d51b 審閱保存的當前 hash；生成來源與分類可追溯，精簡報告未內嵌此整份生成檔，不宣稱另做了位元組重建。",
+      "related_obligation": "base-source-attribution",
+      "details": {
+        "generator_paths": [
+          "scripts/prepare_base_assets.py"
+        ],
+        "artifact_sha256": "d8061c57bc71cbd27ab28ce48351e47a8a2d16d34a6b765a1e90ed3faf4da698",
+        "full_generated_content_embedded": false
+      },
+      "supporting_evidence": [
+        {
+          "path": "scripts/prepare_base_assets.py",
+          "sha256": "d877a007daeda21f9c16ce92ec8cbf2f1b09a4b401d213b197cfb68a2b56e15e",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "related_obligation_status": "evidence_complete"
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/native/cpython-components.json",
+      "sha256": "892479a9ff0c8b7f1d0dcfc5f69b601dd7f3b69a0053981ada06a5c1001cd6ea",
+      "category": "project-generated",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "scripts/cpython_components.py"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "cpython_components.write_inventory 記錄實際 CPython 原生元件的載入來源、版本依據與原文；不把 libffi 建置宣告改稱執行期觀測。 本列使用 b17d51b 審閱保存的當前 hash；生成來源與分類可追溯，精簡報告未內嵌此整份生成檔，不宣稱另做了位元組重建。",
+      "related_obligation": "base-source-attribution",
+      "details": {
+        "generator_paths": [
+          "scripts/cpython_components.py",
+          "packaging/cpython/windows-3.12.10/profile.json"
+        ],
+        "artifact_sha256": "892479a9ff0c8b7f1d0dcfc5f69b601dd7f3b69a0053981ada06a5c1001cd6ea",
+        "full_generated_content_embedded": false
+      },
+      "supporting_evidence": [
+        {
+          "path": "scripts/cpython_components.py",
+          "sha256": "fdd9ba3d2427f04f2b9fd030a78a062310b57b0670a4ebf76ce58bbbc297eb7e",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        },
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "related_obligation_status": "evidence_complete"
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/native/manifest.json",
+      "sha256": "5cb738068b2e3d1120eeede6f3212fb208d80375f5f690e265da7c50211e74e5",
+      "category": "project-generated",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "scripts/prepare_base_assets.py"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": true,
+      "reason": "base.spec 呼叫 prepare_worker_assets.native_notices 記錄實際 Analysis 來源與 bytes；本候選根目錄 VC runtime 已為官方 Redist。分類器的 prepare_base_assets 指向整體資產管線，實際原生列由 native_notices 產生。 本列使用 b17d51b 審閱保存的當前 hash；生成來源與分類可追溯，精簡報告未內嵌此整份生成檔，不宣稱另做了位元組重建。",
+      "related_obligation": "base-source-attribution",
+      "details": {
+        "generator_paths": [
+          "packaging/base.spec",
+          "scripts/prepare_worker_assets.py",
+          "scripts/prepare_base_assets.py"
+        ],
+        "artifact_sha256": "5cb738068b2e3d1120eeede6f3212fb208d80375f5f690e265da7c50211e74e5",
+        "full_generated_content_embedded": false
+      },
+      "supporting_evidence": [
+        {
+          "path": "packaging/base.spec",
+          "sha256": "63c319ac811c2234db3f7b009c30dd24ee503f2240b5135c31e5d03fc06cf582",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        },
+        {
+          "path": "scripts/prepare_worker_assets.py",
+          "sha256": "025ef251020d690f0f6c63a1a3ed388673ea15e264ca4096d828a4ec718f41e0",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        },
+        {
+          "path": "scripts/prepare_base_assets.py",
+          "sha256": "d877a007daeda21f9c16ce92ec8cbf2f1b09a4b401d213b197cfb68a2b56e15e",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "related_obligation_status": "evidence_complete"
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/native/python-modules.json",
+      "sha256": "4843524ba43c3ec5dd02addc19f2b6fce6d1f4e5db048bbb09a79e767a91b2c6",
+      "category": "project-generated",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "scripts/python_archive_inventory.py"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": true,
+      "reason": "base.spec 呼叫 python_archive_inventory.write_pure_manifest 記錄實際 pure modules 的來源／hash，再綁入資產 manifest。保存的摘要與 pure_modules fingerprint 可追溯，但不宣稱復原完整 PYZ bytecode。 本列使用 b17d51b 審閱保存的當前 hash；生成來源與分類可追溯，精簡報告未內嵌此整份生成檔，不宣稱另做了位元組重建。",
+      "related_obligation": "base-source-attribution",
+      "details": {
+        "generator_paths": [
+          "packaging/base.spec",
+          "scripts/python_archive_inventory.py"
+        ],
+        "artifact_sha256": "4843524ba43c3ec5dd02addc19f2b6fce6d1f4e5db048bbb09a79e767a91b2c6",
+        "full_generated_content_embedded": false
+      },
+      "supporting_evidence": [
+        {
+          "path": "packaging/base.spec",
+          "sha256": "63c319ac811c2234db3f7b009c30dd24ee503f2240b5135c31e5d03fc06cf582",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        },
+        {
+          "path": "scripts/python_archive_inventory.py",
+          "sha256": "d10994fa9b9fc72970beed61a69da779e4b242a5c6db7adf70c58aea64c1024e",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "related_obligation_status": "evidence_complete"
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/python-runtime/LICENSE.txt",
+      "sha256": "e502c6b880ff58d614901495a9009c136539cd0b1e2a2abb8fc00b934c203419",
+      "category": "cpython-license-text",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "scripts/prepare_base_assets.py",
+        "scripts/prepare_worker_assets.py"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "prepare_base_assets 從實際 CPython 3.12.10 安裝目錄複製 LICENSE.txt；本候選 python_license_sha256 與包內列相同。來源及原文完整性可追溯，隨附元件的既有決定與揭露不變。",
+      "related_obligation": "base-cpython",
+      "details": {
+        "python_license_sha256": "e502c6b880ff58d614901495a9009c136539cd0b1e2a2abb8fc00b934c203419"
+      },
+      "supporting_evidence": [
+        {
+          "path": "scripts/prepare_base_assets.py",
+          "sha256": "d877a007daeda21f9c16ce92ec8cbf2f1b09a4b401d213b197cfb68a2b56e15e",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/desktop_app/data/third-party.md",
+      "sha256": "67d0ff3d9387dcc2008526dbc963d835979208e6a14acae3d1cf3462788b37f5",
+      "category": "project-generated",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "scripts/prepare_base_assets.py"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": true,
+      "reason": "prepare_base_assets.base_guide／prepare 依實際 runtime、原文位置及測試版揭露產生此基本包說明；不以原始碼樹中的上位清單代替候選生成文字。 本列使用 b17d51b 審閱保存的當前 hash；生成來源與分類可追溯，精簡報告未內嵌此整份生成檔，不宣稱另做了位元組重建。",
+      "related_obligation": "base-source-attribution",
+      "details": {
+        "generator_paths": [
+          "scripts/prepare_base_assets.py"
+        ],
+        "artifact_sha256": "67d0ff3d9387dcc2008526dbc963d835979208e6a14acae3d1cf3462788b37f5",
+        "full_generated_content_embedded": false
+      },
+      "supporting_evidence": [
+        {
+          "path": "scripts/prepare_base_assets.py",
+          "sha256": "d877a007daeda21f9c16ce92ec8cbf2f1b09a4b401d213b197cfb68a2b56e15e",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "related_obligation_status": "evidence_complete"
+    },
+    {
+      "path": "_internal/libffi-8.dll",
+      "sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a",
+      "category": "cpython-component-evidence",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "cpython_components:libffi-8.dll",
+        "_internal/desktop_app/data/licenses/native/cpython-original/libffi.txt"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "libffi-8.dll 的來源／包內 bytes 及載入來源對上本候選；libffi 3.4.4 仍是固定 CPython 官方建置宣告，非執行期版本。原文與來源可追溯；既有 A13-3 接受及隨包揭露保持原樣。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        },
+        {
+          "path": "packaging/cpython/windows-3.12.10/original/libffi.txt",
+          "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "libffi-8.dll",
+        "origin": "python-runtime",
+        "source_sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a",
+        "bundled_sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": null,
+        "file_version": null,
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+        "component_evidence": {
+          "component": "libffi",
+          "declared_version": "3.4.4",
+          "file": "libffi-8.dll",
+          "file_version": null,
+          "loaded_source_matched": true,
+          "loaded_source_sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a",
+          "notice": "cpython-original/libffi.txt",
+          "observed_version": null,
+          "role": "library",
+          "source_bytes": 39696,
+          "source_sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a",
+          "version_status": "build-declaration-only"
+        }
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/msvcp140.dll",
+      "sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "category": "microsoft-vc-redist",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:msvcp140.dll"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "msvcp140.dll 的官方 VC143 Redist 來源、PE 14.44.35211.0、有效簽章及與官方同名檔的完整 SHA 比較均由本候選及 Microsoft 新基準探測覆核；不更改既有批准。",
+      "related_obligation": "base-microsoft",
+      "supporting_evidence": [
+        {
+          "path": "packaging/microsoft/base-windows.json",
+          "sha256": "7cd4033a4987f9c33c945962d47c39bfd230f3d429115d2e986b2a093e3998f0",
+          "source_commit": "46f025a8601d3b77d86290f4b96e537c6aa4b11b"
+        },
+        {
+          "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/microsoft-probe-7cf098e.json",
+          "sha256": "06ea54ffe310a80ef7b77364167dc8d52bd44c85d69764496056042386de8c3d",
+          "source_commit": "46f025a8601d3b77d86290f4b96e537c6aa4b11b"
+        }
+      ],
+      "details": {
+        "file": "msvcp140.dll",
+        "origin": "system-native",
+        "source_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+        "bundled_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT",
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "official_comparison": {
+          "official_name": "msvcp140.dll",
+          "official_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+          "matches_official": true
+        }
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/pyexpat.pyd",
+      "sha256": "d615e193d1affcdbfe504e90d3621cbdcff94bf72b79d899126534507fd6d27a",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:pyexpat.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "pyexpat.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "pyexpat.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "d615e193d1affcdbfe504e90d3621cbdcff94bf72b79d899126534507fd6d27a",
+        "bundled_sha256": "d615e193d1affcdbfe504e90d3621cbdcff94bf72b79d899126534507fd6d27a",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/python3.dll",
+      "sha256": "fb975a606e7fbf74f64260e3f60c3490b4f74a183c0926fd6ed1ac4c52ac7b1c",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:python3.dll"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "python3.dll 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "python3.dll",
+        "origin": "python-runtime",
+        "source_sha256": "fb975a606e7fbf74f64260e3f60c3490b4f74a183c0926fd6ed1ac4c52ac7b1c",
+        "bundled_sha256": "fb975a606e7fbf74f64260e3f60c3490b4f74a183c0926fd6ed1ac4c52ac7b1c",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/python312.dll",
+      "sha256": "9a0e3435aaa680d868150f87ab3e388ad2eebc22f87e036155c7b4eda8cd2120",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:python312.dll"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "python312.dll 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "python312.dll",
+        "origin": "python-runtime",
+        "source_sha256": "9a0e3435aaa680d868150f87ab3e388ad2eebc22f87e036155c7b4eda8cd2120",
+        "bundled_sha256": "9a0e3435aaa680d868150f87ab3e388ad2eebc22f87e036155c7b4eda8cd2120",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/select.pyd",
+      "sha256": "d4d7181b11db0bd22a6cd5cda6f8583d1f5c77615fd0a6ca33350619d6e0438a",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:select.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "select.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "select.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "d4d7181b11db0bd22a6cd5cda6f8583d1f5c77615fd0a6ca33350619d6e0438a",
+        "bundled_sha256": "d4d7181b11db0bd22a6cd5cda6f8583d1f5c77615fd0a6ca33350619d6e0438a",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/unicodedata.pyd",
+      "sha256": "208ee1cd3cbad0828433ca7246b05be2b1ff5569983d27d296c0b38888585488",
+      "category": "cpython-runtime",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:unicodedata.pyd"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": false,
+      "reason": "unicodedata.pyd 對到本候選的 CPython 3.12.10 安裝來源；PE 3.12.10、Python Software Foundation 身分與 Valid 簽章已保存，來源／包內 SHA 相同。只核對來源，不重作 base-cpython 的既有使用者決定。",
+      "related_obligation": "base-cpython",
+      "supporting_evidence": [
+        {
+          "path": "packaging/cpython/windows-3.12.10/profile.json",
+          "sha256": "19b3233091aef557f418a3ea254327536491c6bbe8801795bf04ad7620d36f6a",
+          "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+        }
+      ],
+      "details": {
+        "file": "unicodedata.pyd",
+        "origin": "python-runtime",
+        "source_sha256": "208ee1cd3cbad0828433ca7246b05be2b1ff5569983d27d296c0b38888585488",
+        "bundled_sha256": "208ee1cd3cbad0828433ca7246b05be2b1ff5569983d27d296c0b38888585488",
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\DLLs",
+        "company": "Python Software Foundation",
+        "file_version": "3.12.10",
+        "signature_status": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/vcruntime140.dll",
+      "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "category": "microsoft-vc-redist",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:vcruntime140.dll"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": true,
+      "reason": "vcruntime140.dll 來自 Visual Studio 官方 VC143 Redist；PE 14.44.35211.0、Microsoft 有效簽章，來源／包內／官方同名檔完整 SHA 相同。根目錄 vcruntime140／_1 已依 A13-1 改用此來源，不再套用 A12b 的 CPython 來源及 14.42 理由。Microsoft 決定仍由既有 base-microsoft 引用承擔，本逐列對照不新增核准。",
+      "related_obligation": "base-microsoft",
+      "supporting_evidence": [
+        {
+          "path": "packaging/microsoft/base-windows.json",
+          "sha256": "7cd4033a4987f9c33c945962d47c39bfd230f3d429115d2e986b2a093e3998f0",
+          "source_commit": "46f025a8601d3b77d86290f4b96e537c6aa4b11b"
+        },
+        {
+          "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/microsoft-probe-7cf098e.json",
+          "sha256": "06ea54ffe310a80ef7b77364167dc8d52bd44c85d69764496056042386de8c3d",
+          "source_commit": "46f025a8601d3b77d86290f4b96e537c6aa4b11b"
+        }
+      ],
+      "details": {
+        "file": "vcruntime140.dll",
+        "origin": "system-native",
+        "source_sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+        "bundled_sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT",
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "official_comparison": {
+          "official_name": "vcruntime140.dll",
+          "official_sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+          "matches_official": true
+        }
+      },
+      "related_obligation_status": "user_approved"
+    },
+    {
+      "path": "_internal/vcruntime140_1.dll",
+      "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+      "category": "microsoft-vc-redist",
+      "original_status": "origin-known",
+      "classification_evidence": [
+        "native_files:vcruntime140_1.dll"
+      ],
+      "source_attribution_assessed": true,
+      "changed_since_a12b": true,
+      "reason": "vcruntime140_1.dll 來自 Visual Studio 官方 VC143 Redist；PE 14.44.35211.0、Microsoft 有效簽章，來源／包內／官方同名檔完整 SHA 相同。根目錄 vcruntime140／_1 已依 A13-1 改用此來源，不再套用 A12b 的 CPython 來源及 14.42 理由。Microsoft 決定仍由既有 base-microsoft 引用承擔，本逐列對照不新增核准。",
+      "related_obligation": "base-microsoft",
+      "supporting_evidence": [
+        {
+          "path": "packaging/microsoft/base-windows.json",
+          "sha256": "7cd4033a4987f9c33c945962d47c39bfd230f3d429115d2e986b2a093e3998f0",
+          "source_commit": "46f025a8601d3b77d86290f4b96e537c6aa4b11b"
+        },
+        {
+          "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/microsoft-probe-7cf098e.json",
+          "sha256": "06ea54ffe310a80ef7b77364167dc8d52bd44c85d69764496056042386de8c3d",
+          "source_commit": "46f025a8601d3b77d86290f4b96e537c6aa4b11b"
+        }
+      ],
+      "details": {
+        "file": "vcruntime140_1.dll",
+        "origin": "system-native",
+        "source_sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+        "bundled_sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT",
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35211.0",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "official_comparison": {
+          "official_name": "vcruntime140_1.dll",
+          "official_sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+          "matches_official": true
+        }
+      },
+      "related_obligation_status": "user_approved"
+    }
+  ]
+}
