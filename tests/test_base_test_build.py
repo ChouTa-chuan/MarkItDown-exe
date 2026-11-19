@@ -299,7 +299,7 @@ class BaseTestBuildTests(unittest.TestCase):
         for name in build.REPORT_NAMES:self.assertIn('out/test-build-reports/'+name,report_upload)
         self.assertNotIn('.exe',report_upload)
         self.assertNotIn('/actions/workflows/windows-build.yml/dispatches',text)
-        self.assertIn('ref: ${{ steps.plan.outputs.candidate_source }}',job)
+        self.assertIn('ref: ${{ env.MARKITDOWN_CANDIDATE_SOURCE }}',job)
         self.assertIn('MARKITDOWN_CANDIDATE_SOURCE: '+build.SOURCE,job)
         self.assertIn("python-version: '3.12.10'",job)
 

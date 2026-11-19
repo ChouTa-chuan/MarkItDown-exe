@@ -260,6 +260,12 @@ jobs:
       # payload 與政策分開 checkout；不得把 workflow 的 SHA 改寫成 payload 的來源。
       MARKITDOWN_CANDIDATE_SOURCE: b17d51bc99f8402f16b99f98bbe3b3370530bc6c
     steps:
+      # 還原固定審閱使用的工作區與建置路徑，避免本機 wheel 的 direct_url.json 因子資料夾重寫。
+      - name: Checkout immutable application source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.MARKITDOWN_CANDIDATE_SOURCE }}
+          persist-credentials: false
       - name: Checkout current approval and packaging controller
         uses: actions/checkout@v4
         with:
@@ -283,12 +289,6 @@ jobs:
         run: |
           python scripts/base_test_build.py --plan --ocr-input-run "$env:INPUT_RUN" --publish "$env:PUBLISH_REQUESTED" --baseline-run "$env:BASELINE_RUN" --retained-review "$env:RETAINED_REVIEW" --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: Checkout immutable application source
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ steps.plan.outputs.candidate_source }}
-          path: candidate
-          persist-credentials: false
       - name: Download existing validated native inputs
         uses: actions/download-artifact@v4
         with:
@@ -315,27 +315,26 @@ jobs:
         working-directory: control
         shell: pwsh
         run: |
-          python scripts/base_test_build.py --verify-inputs --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --candidate "$env:GITHUB_WORKSPACE/candidate"
+          python scripts/base_test_build.py --verify-inputs --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --candidate "$env:GITHUB_WORKSPACE"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Build and validate the actual fixed Windows installer
         id: fixed-build
-        working-directory: candidate
         shell: pwsh
         run: |
-          python scripts/run_windows_base_ci.py --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --output "$env:GITHUB_WORKSPACE/out/test-build-windows" --installer
+          python scripts/run_windows_base_ci.py --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --output "$env:GITHUB_WORKSPACE/out/windows" --installer
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Publish actual test-build validation summary
         if: ${{ always() && steps.fixed-build.outcome != 'skipped' }}
         working-directory: control
         shell: pwsh
         run: |
-          python scripts/publish_windows_ci_summary.py --reports "$env:GITHUB_WORKSPACE/out/test-build-windows/reports" --summary "$env:GITHUB_STEP_SUMMARY"
+          python scripts/publish_windows_ci_summary.py --reports "$env:GITHUB_WORKSPACE/out/windows/reports" --summary "$env:GITHUB_STEP_SUMMARY"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Assemble product attachments and independently verify reports
         working-directory: control
         shell: pwsh
         run: |
-          & "$env:GITHUB_WORKSPACE/out/test-build-windows/build-venv/Scripts/python.exe" scripts/base_test_build.py --collect --baseline "$env:GITHUB_WORKSPACE/out/test-build-baseline" --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --candidate "$env:GITHUB_WORKSPACE/candidate" --build "$env:GITHUB_WORKSPACE/out/test-build-windows" --product "$env:GITHUB_WORKSPACE/out/test-build-package" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
+          & "$env:GITHUB_WORKSPACE/out/windows/build-venv/Scripts/python.exe" scripts/base_test_build.py --collect --baseline "$env:GITHUB_WORKSPACE/out/test-build-baseline" --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --inputs "$env:GITHUB_WORKSPACE/out/test-build-inputs" --candidate "$env:GITHUB_WORKSPACE" --build "$env:GITHUB_WORKSPACE/out/windows" --product "$env:GITHUB_WORKSPACE/out/test-build-package" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Preserve test-build report metadata page 1
         working-directory: control
@@ -409,7 +408,7 @@ jobs:
         working-directory: control
         shell: pwsh
         run: |
-          python scripts/base_test_build.py --authorize-upload --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --build "$env:GITHUB_WORKSPACE/out/test-build-windows" --product "$env:GITHUB_WORKSPACE/out/test-build-package" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
+          python scripts/base_test_build.py --authorize-upload --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --build "$env:GITHUB_WORKSPACE/out/windows" --product "$env:GITHUB_WORKSPACE/out/test-build-package" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Upload installer package only when B1b is enabled
         if: ${{ success() && github.ref == 'refs/heads/main' && steps.authorize.outcome == 'success' && steps.plan.outputs.publish_allowed == 'true' }}

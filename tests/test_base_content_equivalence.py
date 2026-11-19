@@ -87,7 +87,7 @@ class ContentEquivalenceTests(unittest.TestCase):
 
     def test_retained_review_rejects_early_use_and_discloses_weaker_scope(self):
         rows = self.original['candidate_inventory']['files']
-        kept = [r for r in rows if r['path'] != self.other_generated]
+        kept = [dict(r, category='repo-blob', status='confirmed') for r in rows if r['path'] != self.other_generated]
         self.review.update(classification=dict(files=kept), packages=[],
                            classification_input=dict(report=dict(native_files=[],candidate_inventory=dict(files=[]))))
         kwargs = dict(bundle=self.bundle,rebuilt=self.rebuilt(),review=self.review,original=None)
