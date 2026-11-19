@@ -1,0 +1,18 @@
+{
+  "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "profiles": {
+    "base": {
+      "runtime_sbom_complete": false,
+      "runtime_sbom_disclosed": true,
+      "redistribution_approved": true,
+      "release_ready": false
+    },
+    "cpu": {
+      "runtime_sbom_complete": false,
+      "runtime_sbom_disclosed": false,
+      "redistribution_approved": false,
+      "release_ready": false
+    }
+  },
+  "registry_unchanged_from_a13c": true
+}
