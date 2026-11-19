@@ -112,8 +112,13 @@ class ContentEquivalenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'member paths differ'):
             compare(self.bundle,self.rebuilt(),self.review,original)
         zip_with('same.pyc',b'new')
+        with self.assertRaisesRegex(ValueError,'member size or CRC differs'):
+            compare(self.bundle,self.rebuilt(),self.review,original)
+        with zipfile.ZipFile(archive,'w') as z:
+            z.writestr(zipfile.ZipInfo('same.pyc',(1980,1,1,0,0,0)),b'old')
         result = compare(self.bundle,self.rebuilt(),self.review,original)
-        self.assertEqual([r['name'] for r in result['base_library_member_changes']],['same.pyc'])
+        self.assertEqual(result['base_library_member_changes'],[])
+        self.assertEqual([r['path'] for r in result['changed_generated_files']],['_internal/base_library.zip'])
 
     def test_mismatched_original_provenance_sha_rejected_before_parsing(self):
         self.file.write_bytes(b'not JSON')

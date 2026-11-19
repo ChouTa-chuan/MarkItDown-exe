@@ -20,7 +20,7 @@ GENERATED = {
     DATA+'licenses/native/manifest.json': '記錄本次 PyInstaller 收集的本機來源目錄；DLL 本身仍逐檔對照。',
     DATA+'build-profile.json': '記錄本次生成資產的 SHA-256；固定版本與資產內容由建置驗收重核。',
     'MarkItDownBase.exe': 'PyInstaller 產生的程式入口。Windows 封裝會寫入建置時間及 PE checksum，模組來源清單 SHA-256 另行核對。',
-    '_internal/base_library.zip': 'PyInstaller 從固定 CPython 重建的啟動 bytecode ZIP。另與原清單核對成員名稱，並列大小或 CRC 差異。',
+    '_internal/base_library.zip': 'PyInstaller 從固定 CPython 重建的啟動 bytecode ZIP。成員名稱、大小和 CRC 必須與原清單相同。',
     'base-install-catalog.json': '安裝器從本次 bundle 生成路徑及指紋索引，跟隨生成資產差異。',
 }
 
@@ -115,6 +115,8 @@ def compare(bundle, rebuilt, review, original, *, now=None, baseline_run=BASELIN
             raise ValueError('Rebuilt base_library.zip member paths differ')
         archive_delta = [dict(name=name, original=old[name], rebuilt=new[name])
                          for name in sorted(old) if old[name] != new[name]]
+        if archive_delta:
+            raise ValueError('Rebuilt base_library.zip member size or CRC differs')
     return dict(check='base-content-equivalence', schema_version=1, accepted=True, mode=mode,
                 candidate_source=review['selection']['source_commit'], counts=counts, pure_modules_sha256=pure_sha,
                 original_provenance_sha256=review['provenance_report_sha256'] if original is not None else None,
