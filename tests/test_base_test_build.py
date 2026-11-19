@@ -161,10 +161,11 @@ class BaseTestBuildTests(unittest.TestCase):
     def test_public_report_parts_are_complete_bounded_and_contain_no_product_bytes(self):
         fixture=self.fixture()
         build.assemble(**fixture)
+        (fixture['reports']/'README.md').write_bytes(b'# CRLF report\r\n\r\nExact Windows bytes\r\n')
         parts=build.public_parts(fixture['reports'])
         files=build.decode_parts(list(reversed(parts)))
         self.assertEqual(set(files),build.REPORT_NAMES)
-        for name,text in files.items():self.assertEqual(text,(fixture['reports']/name).read_text())
+        for name,text in files.items():self.assertEqual(text.encode('utf-8'),(fixture['reports']/name).read_bytes())
         cases=(parts[:-1],[dict(p,sha256='0'*64) for p in parts],
                [dict(p,part=len(parts)+1) if i==0 else p for i,p in enumerate(parts)])
         for case in cases:

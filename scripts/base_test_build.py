@@ -52,7 +52,7 @@ def load(path):
 
 
 def write(path, value):
-    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2)+'\n', encoding='utf-8', newline='\n')
 
 
 def copy_verified(source, target):
@@ -283,7 +283,8 @@ def public_parts(reports):
     for path in sorted(reports.iterdir()):
         require(path.name in REPORT_NAMES and path.is_file() and not path.is_symlink(), 'Unsafe public report file')
         require(path.stat().st_size <= 256*1024, 'Oversized report attachment')
-        files[path.name] = path.read_text(encoding='utf-8')
+        # bytes 解碼保留 Windows 原始 CRLF；read_text 的換行正規化會使重組後 SHA 不同。
+        files[path.name] = path.read_bytes().decode('utf-8')
     raw = json.dumps(files,ensure_ascii=False,sort_keys=True,separators=(',', ':')).encode()
     require(len(raw) <= 512*1024, 'Report metadata too large')
     data = base64.b64encode(gzip.compress(raw,mtime=0)).decode()
