@@ -2814,7 +2814,7 @@
             "id": "B3b",
             "title": "CPU：PP-OCR 模型來源與授權",
             "status": "pending",
-            "note": "原 A15；B1b 之後"
+            "note": "原 A15；B1b 之後；含繁中識別模型評估"
           },
           {
             "id": "B3c",

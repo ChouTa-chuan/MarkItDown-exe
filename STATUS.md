@@ -46,7 +46,7 @@
 | | **B1b 測試版公開產出**：Claude planner 複查大階段 A 無必須修正後，以 B1a 流程正式產出並公開上傳安裝包 artifact（保留 30 天） | 待開始（planner 複查通過後） |
 | | B2 驗收表：乾淨機與人工驗收要逐項勾的清單 | 待開始 |
 | | B3a CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例）（原 A14） | 待開始（B1b 之後） |
-| | B3b CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認（原 A15） | 待開始（B1b 之後） |
+| | B3b CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認（原 A15）。**另評估改用繁體中文識別模型以解決 ONNX 繁中已知缺口**（`tests/test_onnx_ocr.py` 的 `test_traditional_chinese_quality_known_gap` 預期失敗）：候選為 PP-OCRv5、PP-OCRv6 的繁中能力與專用 chinese_cht_PP-OCRv3_rec（需查證授權、ONNX 可用性與大小），以該固定繁中測試圖比較準確度；台灣聯發科 Breeze2 屬 3B／8B 多模態大型語言模型（Llama 社群授權），不適合 CPU 選配元件，若要採用改列大階段 E 或另立 GPU 選配元件。換模型屬更換模型與打包內容，需使用者同意；評估結果列表交使用者選擇 | 待開始（B1b 之後） |
 | | B3c CPU：Shapely／GEOS（LGPL）與 CPU wheel 內含元件（沿用 A9 格式），CPU Microsoft 6 檔（沿用 A10）；LGPL 做法需使用者確認（原 A16） | 待開始（B1b 之後） |
 | | B3d CPU：查明 setuptools、pip、pyinstaller 等建置工具是否真的進了 worker；若要排除屬打包變更，需使用者同意（原 A17） | 待開始（B1b 之後） |
 | | B3 CPU 元件重新定版（需 B3a–B3d 完成並經使用者確認） | 待開始 |
@@ -131,5 +131,6 @@
 | 2026-11-18 | 使用者決定 | GPT 用量耗盡、A12d 只完成一半：由 Claude reviewer 確認現況後交 Claude coder 收尾；A13b 也改交給 Claude coder |
 | 2026-11-19 | 使用者決定 | 重新排程：CPU 的 A14–A17 移入大階段 B，改編號為 B3a（原 A14）、B3b（原 A15）、B3c（原 A16）、B3d（原 A17），作為 B3 的前置；A13c 完成後大階段 A 收尾並交 Claude planner 複查。D 節舊列中的「A14–A17」依此對照 |
 | 2026-11-19 | 使用者決定 | B1 拆成 B1a（準備與試跑，不公開）與 B1b（公開產出）；A13c 與 B1a 可平行，B1b 待 planner 複查大階段 A 無必須修正後才做。測試版以 CI artifact 公開產出、保留 30 天，不建 Release 或 tag。A13c 與 B1a 交給 Codex（GPT） |
+| 2026-11-19 | 使用者決定 | B3b 加入評估：以繁體中文識別模型（PP-OCRv5／v6 繁中、chinese_cht_PP-OCRv3_rec 等）解決 ONNX 繁中已知缺口；實際更換模型仍需使用者同意 |
 
 接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。A13c 已 Merge（PR 33）；B1a 最終 CI／技術查驗／Merge 見 PR 34。兩項完成後 Codex 停止，下一棒 Claude planner 複查大階段 A，通過後才另開 B1b。既有 OCR 輸入 artifact 只有一天期限，失效先重跑一般驗證。不建 Release／tag，本輪未公開安裝包。
