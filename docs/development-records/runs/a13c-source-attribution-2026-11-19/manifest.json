@@ -1,0 +1,19 @@
+{
+  "date_taipei": "2026-11-19",
+  "tested_source": "9ea7d09",
+  "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "result": "current source evidence wired; full regression pending",
+  "keywords": [
+    "A13c",
+    "origin-known",
+    "Redist",
+    "來源對照"
+  ],
+  "files": {
+    "README.md": "b2447c63058722c51ae0d1fa7094969fde2bd335e5ceaf0788532786b5580ecb",
+    "changes-from-a12b.json": "a402d8650404595242d7b921417f661c2d716ccfce6b7f0d5a871bcd60f4bf79",
+    "evidence-assessment.json": "3ac95fa5d8fe76550a34596324649f8768eab458dc95f05aa41da6c23989278a",
+    "failed-attempts.json": "a116807283e203f19214bac140d4c6a312712fc11053b0129133c58e3243e412",
+    "origin-known-review.json": "76ecb46b2586b3045b79071e066328a86436fa3dd3979cf30ab159b3c024bd07"
+  }
+}

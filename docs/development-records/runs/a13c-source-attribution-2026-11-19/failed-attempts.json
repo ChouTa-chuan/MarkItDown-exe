@@ -1,0 +1,10 @@
+{
+  "attempts": [
+    {
+      "stage": "initial-mixed-regression",
+      "log_sha256": "8b2a7e9fd46c966a61c6331fe69bd3484d2fe6324415ef310690292372a62483",
+      "cause": "新增證據目錄後尚未重新產生歷史索引；新增的 repository_index_is_current 測試偵測到索引過期。",
+      "correction": "重新產生歷史索引，再以同一套完整回歸驗證；不放寬測試。"
+    }
+  ]
+}
