@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "environment": "Linux 完整混合／獨立模組回歸；hosted Windows 真實固定候選試跑，非實體機／乾淨機／GPU／人工驗收",
-  "tests_passed": 940,
-  "headline": "大階段 A 經 Claude planner 複查完成、無必須修正；下一步 B1b 公開測試版（GPT）與 B2 驗收表平行",
+  "tests_passed": 950,
+  "headline": "B1b 完整逐檔對照於期限前完成，與 B2 驗收表待 Claude reviewer",
   "blocker": "B1b 須在 2026-11-25 11:45 UTC 前以固定候選逐檔清單對照重建包；runtime_sbom_complete／release_ready 仍 false，乾淨機與人工驗收需大階段 C（以 B3 後新版本）；CPU B3a–B3d 待完成。",
-  "next": "Codex 做 B1b（逐檔對照、只從 main 公開、公開後關回開關）並平行做 B2；之後 B3a–B3d。",
+  "next": "查驗 B1b（PR 38）與 B2（PR 37）。B1b 合併後先從 main 取得有效 OCR 輸入，再公開一次並關回開關。",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 941,
+  "tests_run": 951,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "3731dac8deabda462d607154a1c36f98b0cc834c",
-    "date_taipei": "2026-11-19",
+    "source_commit": "d300a7ea3679b710ccfbf6aa228f5368864e9b5a",
+    "date_taipei": "2026-11-20",
     "accepted": true,
-    "run": 941,
-    "passed": 940,
+    "run": 951,
+    "passed": 950,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1313,7 +1313,7 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 60,
+    "isolated_modules": 61,
     "isolated_all_exits_zero": true,
     "python": "3.12.14",
     "tesseract": "5.3.4",
@@ -1322,7 +1322,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/b1a-test-build-2026-11-19/README.md"
+    "evidence": "development-records/runs/b1b-content-equivalence-2026-11-20/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2797,13 +2797,15 @@
             "id": "B1b",
             "title": "測試版公開產出（artifact 保留 30 天）",
             "status": "next",
-            "note": "交 Codex；以 A13b 固定候選逐檔清單對照重建包（清單 2026-11-25 到期），只從 main 公開，公開後關回開關"
+            "note": "期限前完成完整逐檔對照，待 reviewer。合併後從 main 公開一次，再關回開關。",
+            "pr": 38
           },
           {
             "id": "B2",
             "title": "驗收表",
-            "status": "pending",
-            "note": "交 Codex，與 B1b 平行；綁定大階段 C 所用新版本"
+            "status": "done",
+            "note": "獨立文件 PR 等 Claude reviewer。實機驗收使用 B3 後的新包。",
+            "pr": 37
           },
           {
             "id": "B3a",
@@ -3697,5 +3699,36 @@
       "packages_and_checks_unchanged": true,
       "apt_signature_validation_preserved": true
     }
+  },
+  "b1b_content_equivalence": {
+    "pr": 38,
+    "trial_run": 44613509068,
+    "trial_source": "89743721ca3e01df9e8bd01037b8fe8fb883d02b",
+    "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+    "mode": "full-inventory",
+    "verified": true,
+    "candidate_files": 1770,
+    "generated_exceptions": 19,
+    "content_equivalence_sha256": "6bba8202463951aca111e454d39a87c16c2754f0891ad9f88bc2781cd729c866",
+    "public_dispatch_completed": false,
+    "report_artifacts": [
+      {
+        "id": 14574091880,
+        "name": "base-test-build-reports",
+        "digest": "sha256:fcbfe46e2de3f8b3bc316c84c7ce07ed8b2e4504652939f001d413dec4e9c006",
+        "size_in_bytes": 29523,
+        "created_at": "2026-11-19T21:00:03Z",
+        "expires_at": "2026-12-19T21:00:03Z"
+      },
+      {
+        "id": 14573053407,
+        "name": "b1b-fixed-baseline-report",
+        "digest": "sha256:e842bc8fd6337e5437a2b53afdc6f1290694e0242456c21cdd7b1add0c163cd5",
+        "size_in_bytes": 196948,
+        "created_at": "2026-11-19T21:00:02Z",
+        "expires_at": "2026-12-19T21:00:02Z"
+      }
+    ],
+    "evidence": "development-records/runs/b1b-content-equivalence-2026-11-20/README.md"
   }
 }

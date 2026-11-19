@@ -1,0 +1,29 @@
+{
+  "tested_source": "d300a7ea3679b710ccfbf6aa228f5368864e9b5a",
+  "mixed": {
+    "expected_count": 951,
+    "run": 951,
+    "failures": [],
+    "errors": [],
+    "load_errors": [],
+    "skipped": [],
+    "expected_failures": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "unexpected_successes": [],
+    "passed": 950,
+    "accepted": true
+  },
+  "isolated": {
+    "scope": "Actual per-module normal subprocess exits; mixed-process acceptance is recorded separately",
+    "source_version": "0.19.1",
+    "modules": 61,
+    "run": 951,
+    "passed": 950,
+    "expected_failures": [
+      "test_onnx_ocr.OnnxIntegrationTests.test_traditional_chinese_quality_known_gap"
+    ],
+    "accepted": true,
+    "all_child_exits_zero": true
+  }
+}
