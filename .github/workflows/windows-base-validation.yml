@@ -260,7 +260,8 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          # A13b 固定候選的 python312.dll PE 版本；避免 minor 選擇器日後漂移。
+          python-version: '3.12.10'
       - name: Plan fixed source and validated OCR inputs
         id: plan
         working-directory: control

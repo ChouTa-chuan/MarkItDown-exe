@@ -9,7 +9,7 @@
 - **應用程式來源**固定為 A13b 候選 `b17d51bc99f8402f16b99f98bbe3b3370530bc6c`，版本從該提交的 `pyproject.toml` 讀取；`candidate_source` 舊參數不能改變 B1a 的來源。
 - **控制端**為 dispatch 的工作分支提交，包含本流程與目前的義務登記表。兩份 checkout 分開；報告分別記錄 payload 與 workflow 提交，不覆寫 `GITHUB_SHA`。固定候選的舊 provenance 報告 `source_commit` 指的是 workflow SHA，控制端會依此語意驗證，payload 則以獨立 `git rev-parse HEAD` 核對。
 - 控制端重跑實際 gates，必須仍為 base `redistribution_approved`／`runtime_sbom_disclosed` true、`runtime_sbom_complete`／`release_ready` false。不得從流程勾選取代義務判定。
-- 重建固定程式來源不保證安裝包逐位元相同：生成 metadata、路徑與封裝可能不同。每次記錄實際安裝包 SHA-256 與是否等於 A13b 原安裝包。原生相依檔、Tesseract／四語模型及 wheel 隨包原文必須與固定候選的 SHA 相同，不能以版本號相同替代。
+- 重建固定程式來源不保證安裝包逐位元相同：生成 metadata、路徑與封裝可能不同。每次記錄實際安裝包 SHA-256 與是否等於 A13b 原安裝包。原生相依檔、Tesseract／四語模型及 wheel 隨包原文必須與固定候選的 SHA 相同，不能以版本號相同替代。B1a 的 Python 固定為候選 PE 證據中的 3.12.10；若 runner 的官方 Redist 改變，仍依 bytes 檢查拒絕，不自動換候選。
 
 ## 試跑方式與輸入期限
 
@@ -19,7 +19,7 @@
 - `publish_test_build: false`
 - `ocr_inputs_run`：指定一個已成功的一般 Windows base validation run；空白會選最新仍有未過期輸入的成功 run。
 
-OCR 輸入沿用既有驗證的 `windows-ocr-ci-inputs`（保留一天），避免本次試跑另外上傳 executable／模型 artifact。先核對 workflow、成功狀態、artifact digest 與期限，下載後再逐份核對固定候選的 Tesseract／四語模型 SHA 與建置來源契約。輸入過期時先重跑一般驗證以準備輸入，再試跑；不得忽略錯誤或改用不同 bytes。
+OCR 輸入沿用既有驗證的 `windows-ocr-ci-inputs`（保留一天），避免本次試跑另外上傳 executable／模型 artifact。先核對 workflow、成功狀態、artifact digest 與期限，下載後再逐份核對固定候選的 Tesseract／四語模型 SHA 與建置來源契約。輸入過期時先重跑一般驗證以準備輸入，再試跑；不得忽略錯誤或改用不同 bytes。生成的 `native/source.json` 含本次輸入 receipt 的 hash，不能要求與舊 run 相同；它改以完整結構、實際 receipt SHA、固定來源契約及 UTF-8 manifest 核對，沒有放寬執行檔、模型、DLL 或原文的 SHA 檢查。
 
 Hosted Windows 2022 會實際建置固定候選、執行既有四語 OCR／GUI／中文路徑驗收、Qt 可替換驗收，以及安裝／修復／移除。此試跑不另跑跨版本升級與中斷恢復；一般 PR CI 仍跑它們。Hosted runner 不是乾淨實體 Windows 10／11，也不是 GPU 實卡驗收，不能關閉大階段 C。
 

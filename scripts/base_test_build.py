@@ -28,6 +28,7 @@ RETENTION_DAYS = 30
 # 這是使用者指定的階段界線：B1b 必須待 Claude planner 複查，不以 dispatch 勾選取代。
 PUBLIC_UPLOAD_ENABLED = False
 DISCLOSURES = ('known-gaps.json', 'known-gaps.md', 'test-build-limitations.md')
+NATIVE_SOURCE = '_internal/desktop_app/data/native/source.json'
 REPORT_NAMES = {'BUILD-INFO.json', 'LICENSE-FILES.json', 'package-audit.json', 'plan.json', 'SHA256SUMS.txt',
                 'README.md', *DISCLOSURES}
 FLAGS = ('runtime_sbom_complete', 'runtime_sbom_disclosed', 'redistribution_approved', 'release_ready')
@@ -165,6 +166,21 @@ def checked_file(root, relative):
     return path
 
 
+def validate_generated_receipt(bundle, inputs, candidate):
+    """source.json 綁本次輸入 receipt，不應要求另一次 CI 的時間／路徑產生相同 hash。
+
+    只對這個固定生成檔改用結構與本次原始 receipt SHA 比對；Tesseract、模型與原文仍驗舊候選 bytes。
+    windows_executed=false 是該交叉建置輸入的原始語意，不代表本次 Windows 驗收未執行。
+    """
+    receipt = load(inputs/'build-evidence.json')
+    expected = dict(kind='ci-rebuilt-windows-minimal', evidence_sha256=digest(inputs/'build-evidence.json'),
+                    source_contract_sha256=digest(candidate/'packaging/native/minimal-windows.json'),
+                    upstream_version='5.5.3', windows_executed=False, windows_utf8_manifest=receipt['windows_utf8_manifest'])
+    actual = checked_file(bundle, NATIVE_SOURCE)
+    require(load(actual)==expected, 'Generated native receipt is not bound to the actual verified inputs')
+    return digest(actual)
+
+
 def assemble(bundle, installer, product, reports, plan, review, *, candidate):
     """組裝後再由實際檔案重核，報告與產品嚴格分目錄；單元測試使用明標合成 fixture。"""
     require(not product.exists(), 'Use a fresh product directory')
@@ -181,6 +197,10 @@ def assemble(bundle, installer, product, reports, plan, review, *, candidate):
                 'Bundled native bytes differ from the fixed candidate: '+row['file'])
     for row in review['classification']['files']:
         if row['category'] in ('pinned-model', 'project-native-payload'):
+            if row['path']==NATIVE_SOURCE:
+                # collect 另以 validate_generated_receipt 核對本次來源；此處僅例外這一個固定生成檔。
+                checked_file(bundle, NATIVE_SOURCE)
+                continue
             require(digest(checked_file(bundle, row['path'])) == row['sha256'], 'Bundled OCR payload differs: '+row['path'])
     # 套件原文的 hash 必須與固定候選相同；生成清單另以本次實際 bytes 列舉，不假稱逐位元重建。
     for package in review['packages']:
@@ -263,11 +283,14 @@ def collect(plan_path, inputs, candidate, build, product, reports, *, root=ROOT)
             'Actual tested installer differs from staged installer or lifecycle incomplete')
     require(acceptance.get('accepted') is True and acceptance.get('windows_executed') is True,
             'Actual Windows application acceptance incomplete')
+    receipt_sha = validate_generated_receipt(build/'dist/MarkItDownBase',inputs,candidate)
     audit = assemble(build/'dist/MarkItDownBase',installer,product,reports,plan,review,candidate=candidate)
     audit['windows_executed'] = True
     audit['hosted_runner'] = True
     audit['clean_machine_accepted'] = False
     audit['gpu_executed'] = False
+    audit['generated_native_source_sha256'] = receipt_sha
+    audit['native_build_evidence_sha256'] = digest(inputs/'build-evidence.json')
     audit['application_checks_passed'] = acceptance['checks_passed']
     audit['lifecycle'] = {k:lifecycle[k] for k in ('install_verified','repair_verified','uninstall_verified')}
     audit['environment'] = {k:build_report.get(k) for k in ('runner_os','image_version','platform')}

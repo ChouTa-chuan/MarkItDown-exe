@@ -107,6 +107,28 @@ class BaseTestBuildTests(unittest.TestCase):
         with mock.patch.object(build,'git_source',return_value='0'*40),self.assertRaisesRegex(ValueError,'checkout differs'):
             build.validate_inputs(inputs,candidate,review)
 
+    def test_generated_source_receipt_binds_current_inputs_without_reusing_old_run_hash(self):
+        inputs,candidate,bundle=self.root/'inputs',self.root/'candidate',self.root/'bundle'
+        inputs.mkdir()
+        contract=candidate/'packaging/native/minimal-windows.json'
+        contract.parent.mkdir(parents=True)
+        contract.write_text('{}')
+        build.write(inputs/'build-evidence.json',dict(windows_utf8_manifest={'synthetic':True}))
+        source=bundle/build.NATIVE_SOURCE
+        source.parent.mkdir(parents=True)
+        expected=dict(kind='ci-rebuilt-windows-minimal',evidence_sha256=build.digest(inputs/'build-evidence.json'),
+                      source_contract_sha256=build.digest(contract),upstream_version='5.5.3',windows_executed=False,
+                      windows_utf8_manifest={'synthetic':True})
+        build.write(source,expected)
+        self.assertEqual(build.validate_generated_receipt(bundle,inputs,candidate),build.digest(source))
+        build.write(source,dict(expected,evidence_sha256='0'*64))
+        with self.assertRaisesRegex(ValueError,'not bound'):
+            build.validate_generated_receipt(bundle,inputs,candidate)
+        build.write(source,expected)
+        (inputs/'build-evidence.json').write_text('{"windows_utf8_manifest":{"synthetic":false}}')
+        with self.assertRaisesRegex(ValueError,'not bound'):
+            build.validate_generated_receipt(bundle,inputs,candidate)
+
     def test_product_has_required_attachments_but_reports_never_contain_installer(self):
         fixture=self.fixture()
         result=build.assemble(**fixture)
@@ -185,6 +207,8 @@ class BaseTestBuildTests(unittest.TestCase):
         build.write(root/'plan.json',dict(check='base-test-build-plan',approval_policy=policy,publish_requested=False,source_version='0.19.1'))
         build.write(reports/'windows-build.json',dict(commit='a'*40,**{name:True for name in
                     ('build_verified','validation_accepted','installer_accepted','provenance_accepted','qt_replacement_accepted','overall_accepted')}))
+        (root/'inputs').mkdir()
+        (root/'inputs/build-evidence.json').write_text('{}')
         installer=root/'build/installer-work/setup/MarkItDownBase-Setup-0.19.1-windows-x64.exe'
         installer.parent.mkdir(parents=True)
         installer.write_bytes(b'SYNTHETIC installer, never executed')
@@ -197,16 +221,17 @@ class BaseTestBuildTests(unittest.TestCase):
         build.write(reports/'bundle-provenance.json',provenance)
         with mock.patch.object(build.sys,'platform','win32'),mock.patch.dict(build.os.environ,{'GITHUB_ACTIONS':'true'}),\
              mock.patch.object(build,'policy',return_value=policy),mock.patch.object(build,'validate_inputs'),\
+             mock.patch.object(build,'validate_generated_receipt',return_value='f'*64),\
              mock.patch.object(build,'assemble',side_effect=lambda *a,**kw:dict(accepted=True)):
-            result=build.collect(root/'plan.json',None,None,root/'build',None,reports,root=ROOT)
+            result=build.collect(root/'plan.json',root/'inputs',None,root/'build',None,reports,root=ROOT)
             self.assertTrue(result['windows_executed'])  # 只驗分支契約，此 fixture 不作實際 Windows 證據。
             build.write(reports/'bundle-provenance.json',dict(source_commit=build.SOURCE))
             with self.assertRaisesRegex(ValueError,'workflow source differs'):
-                build.collect(root/'plan.json',None,None,root/'build',None,reports,root=ROOT)
+                build.collect(root/'plan.json',root/'inputs',None,root/'build',None,reports,root=ROOT)
             build.write(reports/'bundle-provenance.json',provenance)
             build.write(reports/'installer/installer-lifecycle.json',dict(lifecycle,installer_sha256='0'*64))
             with self.assertRaisesRegex(ValueError,'Actual tested installer differs'):
-                build.collect(root/'plan.json',None,None,root/'build',None,reports,root=ROOT)
+                build.collect(root/'plan.json',root/'inputs',None,root/'build',None,reports,root=ROOT)
 
     def test_workflow_has_separate_trial_job_and_explicit_text_only_report_paths(self):
         text=(ROOT/'.github/workflows/windows-base-validation.yml').read_text()
@@ -221,6 +246,7 @@ class BaseTestBuildTests(unittest.TestCase):
         self.assertNotIn('/actions/workflows/windows-build.yml/dispatches',text)
         self.assertIn('ref: ${{ steps.plan.outputs.candidate_source }}',job)
         self.assertIn('MARKITDOWN_CANDIDATE_SOURCE: '+build.SOURCE,job)
+        self.assertIn("python-version: '3.12.10'",job)
 
 
 if __name__=='__main__':
