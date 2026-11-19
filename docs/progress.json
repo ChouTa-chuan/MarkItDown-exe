@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "environment": "Linux 完整混合／獨立模組回歸；hosted Windows 真實固定候選試跑，非實體機／乾淨機／GPU／人工驗收",
   "tests_passed": 940,
   "headline": "大階段 A 經 Claude planner 複查完成、無必須修正；下一步 B1b 公開測試版（GPT）與 B2 驗收表平行",
@@ -2802,8 +2802,9 @@
           {
             "id": "B2",
             "title": "驗收表",
-            "status": "pending",
-            "note": "交 Codex，與 B1b 平行；綁定大階段 C 所用新版本"
+            "status": "done",
+            "note": "C1–C3 驗收表已備妥，待 Claude reviewer。實機驗收用 B3 後新包，SHA 待填。",
+            "pr": 37
           },
           {
             "id": "B3a",
