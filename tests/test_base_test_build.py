@@ -192,6 +192,17 @@ class BaseTestBuildTests(unittest.TestCase):
                [dict(p,part=len(parts)+1) if i==0 else p for i,p in enumerate(parts)])
         for case in cases:
             with self.subTest(case=case),self.assertRaises(ValueError):build.decode_parts(case)
+        downloaded=self.root/'downloaded-artifact'
+        shutil.copytree(fixture['reports'],downloaded)
+        verified=build.verify_report_artifact(fixture['reports'],downloaded)
+        self.assertTrue(verified['accepted'])
+        self.assertFalse(verified['installer_present'])
+        (downloaded/'README.md').write_bytes(b'changed archive content')
+        with self.assertRaisesRegex(ValueError,'bytes differ'):
+            build.verify_report_artifact(fixture['reports'],downloaded)
+        (downloaded/'leaked.exe').write_bytes(b'SYNTHETIC binary')
+        with self.assertRaisesRegex(ValueError,'extra'):
+            build.verify_report_artifact(fixture['reports'],downloaded)
         (fixture['reports']/'leaked.exe').write_bytes(b'SYNTHETIC binary')
         with self.assertRaisesRegex(ValueError,'Unsafe public report'):build.public_parts(fixture['reports'])
 

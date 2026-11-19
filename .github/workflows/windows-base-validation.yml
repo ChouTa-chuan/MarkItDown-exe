@@ -355,6 +355,18 @@ jobs:
             out/test-build-reports/test-build-limitations.md
           retention-days: 30
           if-no-files-found: warn
+      # 本環境可能讀不到 artifact 儲存主機；由 hosted runner 下載實際 artifact 再逐檔驗。
+      - name: Download uploaded reports for actual artifact verification
+        uses: actions/download-artifact@v4
+        with:
+          name: base-test-build-reports
+          path: out/test-build-roundtrip
+      - name: Verify actual report artifact members and bytes
+        working-directory: control
+        shell: pwsh
+        run: |
+          python scripts/base_test_build.py --verify-report-artifact --plan-file "$env:GITHUB_WORKSPACE/out/test-build-reports/plan.json" --reports "$env:GITHUB_WORKSPACE/out/test-build-reports" --downloaded "$env:GITHUB_WORKSPACE/out/test-build-roundtrip"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       # B1b 由 planner 複查後另行啟用；目前控制端常數拒絕 publish，dispatch 勾選不能繞過。
       - name: Upload installer package only when B1b is enabled
         if: ${{ success() && steps.plan.outputs.publish_allowed == 'true' }}

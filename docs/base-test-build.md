@@ -27,7 +27,7 @@ Hosted Windows 2022 會實際建置固定候選、執行既有四語 OCR／GUI�
 
 組裝出的產品目錄包含 Setup 及 `BUILD-INFO.json`（兩份提交、版本、安裝包 SHA-256、政策）、`LICENSE-FILES.json`（實際隨包授權目錄的路徑／SHA／大小，含原文與支援 metadata，不宣稱法律完整性）、`known-gaps.json`、`known-gaps.md`、`test-build-limitations.md`、中文 README、`SHA256SUMS.txt`。授權原文仍在安裝包內，既有原文不改寫。
 
-B1a 的 runner 只上傳 `base-test-build-reports`，保留 **30 天**，以明確的九個 JSON／文字檔清單上傳。產品與報告不可在同一路徑或互相巢狀。成功組裝後會逐檔重讀並核對副本；複製失敗或雜湊改變即拒絕。執行檔不上傳。
+B1a 的 runner 只上傳 `base-test-build-reports`，保留 **30 天**，以明確的九個 JSON／文字檔清單上傳。產品與報告不可在同一路徑或互相巢狀。成功組裝後會逐檔重讀並核對副本；複製失敗或雜湊改變即拒絕。執行檔不上傳。上傳後由同一 hosted runner 下載實際報告 artifact，要求剛好九個指定成員，逐檔比對原始 bytes／SHA／大小；缺檔、多檔、巢狀或竄改皆拒絕，公開核對摘要。這一步驗證實際 artifact，不依賴開發環境能否連儲存主機。
 
 另把同一份小型文字報告寫成有數量／大小上限與 SHA-256 的公開註記，讓無法連 artifact 儲存主機的環境也能重組查驗；分片缺少、重複、越界或 hash 不符皆拒絕。失敗試跑只保留已有文字報告，不能列為成功。
 

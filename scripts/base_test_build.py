@@ -317,6 +317,24 @@ def public_parts(reports):
                  encoding='gzip+base64',part=i+1,parts=len(parts),data=part) for i,part in enumerate(parts)]
 
 
+def verify_report_artifact(reports, downloaded):
+    """由 runner 下載剛上傳的報告重核，驗證實際 artifact 而非只驗待上傳目錄。"""
+    for directory in (reports, downloaded):
+        paths=list(directory.iterdir())
+        require({p.name for p in paths}==REPORT_NAMES
+                and all(p.is_file() and not p.is_symlink() for p in paths),
+                'Downloaded report artifact has missing, extra, linked or nested content')
+    files={}
+    for name in sorted(REPORT_NAMES):
+        expected=checked_file(reports,name)
+        actual=checked_file(downloaded,name)
+        fingerprint=dict(sha256=digest(actual),bytes=actual.stat().st_size)
+        require(fingerprint==dict(sha256=digest(expected),bytes=expected.stat().st_size),
+                'Downloaded report artifact bytes differ: '+name)
+        files[name]=fingerprint
+    return dict(check='base-test-build-artifact-roundtrip',accepted=True,files=files,installer_present=False)
+
+
 def decode_parts(parts):
     """只接受完整、有界且同一 fingerprint 的報告分片，不接受軟體 bytes 或任意附件。"""
     import io
@@ -345,6 +363,7 @@ def main():
     mode.add_argument('--plan',action='store_true')
     mode.add_argument('--verify-inputs',action='store_true')
     mode.add_argument('--collect',action='store_true')
+    mode.add_argument('--verify-report-artifact',action='store_true')
     mode.add_argument('--publish-page',type=int,choices=range(4))
     parser.add_argument('--ocr-input-run')
     parser.add_argument('--publish',choices=('true','false'),default='false')
@@ -354,6 +373,7 @@ def main():
     parser.add_argument('--build',type=Path)
     parser.add_argument('--product',type=Path)
     parser.add_argument('--reports',type=Path)
+    parser.add_argument('--downloaded',type=Path)
     args = parser.parse_args()
     if args.plan:
         require(not args.plan_file.exists(), 'Plan output must be new')
@@ -368,6 +388,9 @@ def main():
                     stream.write(key+'='+str(value)+'\n')
     elif args.verify_inputs:
         validate_inputs(args.inputs,args.candidate,load(ROOT/REVIEW))
+    elif args.verify_report_artifact:
+        result=verify_report_artifact(args.reports,args.downloaded)
+        print('::notice title=B1a actual artifact roundtrip::'+json.dumps(result,separators=(',', ':')))
     elif args.publish_page is not None:
         for part in public_parts(args.reports)[args.publish_page*8:(args.publish_page+1)*8]:
             print('::notice title=B1a report metadata::'+json.dumps(part,separators=(',', ':')).replace('%','%25'))
