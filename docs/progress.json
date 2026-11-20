@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-20",
-  "environment": "Linux 完整混合／獨立模組回歸與 CPU 三語模型比較；PR 另有 hosted Windows 驗證",
+  "environment": "Linux 完整混合／獨立模組回歸與 CPU 三語固定圖評估。Windows 與固定候選沿用既有紀錄。",
   "tests_passed": 954,
-  "headline": "B3b 已核對 CPU 模型來源及三語樣本，已記錄授權選 A，待複查",
-  "blocker": "CPU 授權決定的隨包揭露與候選審閱留待 B3。識別選型等 B3b2 擴大樣本評估。乾淨機與人工驗收使用 B3 後的新版本。",
-  "next": "Claude reviewer 複查 PR 44。合併後從最新 main 開 B3b2 擴大三語樣本評估，結果交使用者選型。",
+  "headline": "B3b2 已完成擴大三語樣本的識別比較，待查驗與選型",
+  "blocker": "識別選型待使用者確認。CPU 授權決定的隨包揭露與候選審閱留待 B3。乾淨機與人工驗收使用 B3 後的新版本。",
+  "next": "Claude reviewer 查驗 B3b2 PR。使用者決定是否更換識別模型。",
   "milestones": [
     {
       "id": "m0",
@@ -1299,7 +1299,7 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "07084c2e31e2056ddf18107e64341dec0bacd791",
+    "source_commit": "eafa026e6c93f29fbc282e878a1bac633ca03573",
     "date_taipei": "2026-11-20",
     "accepted": true,
     "run": 955,
@@ -1322,7 +1322,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/b3b-ppocr-model-review-2026-11-20/README.md"
+    "evidence": "development-records/runs/b3b2-expanded-ocr-evaluation-2026-11-20/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2817,9 +2817,15 @@
           {
             "id": "B3b",
             "title": "CPU：PP-OCR 模型來源與授權",
-            "status": "active",
-            "note": "來源與評估完成，授權範圍已選 A。PR 44 待複查，選型等 B3b2 擴大樣本。",
+            "status": "done",
+            "note": "來源與初步評估已合併。授權範圍使用者選 A，揭露與決定接線於 B3 處理。",
             "pr": 44
+          },
+          {
+            "id": "B3b2",
+            "title": "CPU：擴大繁中、簡中與英文識別評估",
+            "status": "decide",
+            "note": "固定三語圖各含內文、表格和標題小字。評估完成，待 PR 查驗與使用者選型。"
           },
           {
             "id": "B3c",

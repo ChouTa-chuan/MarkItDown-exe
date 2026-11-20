@@ -10,12 +10,14 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | B3b 起點 `d305fbe` 已合併 B3a（PR 42）及其使用者決定（PR 43）。B1b 公開開關已關。 |
-| 本輪分支 | `codex/b3b-ppocr-model-review` 處理 B3b（[PR](https://github.com/ChouTa-chuan/MarkItDown-exe/pulls?q=is%3Apr+head%3Acodex%2Fb3b-ppocr-model-review)） |
-| 下一棒 | PR 44 交 Claude reviewer 複查。合併後從最新 main 開 B3b2 擴大樣本評估，交使用者選型。 |
+| `main` | B3b2 起點 `d48af8f` 已合併 B3b（PR 44）。B1b 公開開關已關。 |
+| 本輪分支 | `codex/b3b2-expanded-ocr-evaluation` 處理 B3b2（[PR](https://github.com/ChouTa-chuan/MarkItDown-exe/pulls?q=is%3Apr+head%3Acodex%2Fb3b2-expanded-ocr-evaluation)） |
+| 下一棒 | B3b2 PR 交 Claude reviewer 查驗。結果交使用者決定是否更換識別模型。 |
 | 固定來源 | A13b `b17d51bc99f8402f16b99f98bbe3b3370530bc6c`（base run 44295039865、cpu run 44295044417、Microsoft 探測 run 44300296037） |
 
 ## B. 這個階段完成了什麼
+
+- **B3b2**：以固定的繁中、簡中及英文合成圖，對照 PP-OCRv4、v5 mobile、v6 small 及繁中 v3 封存版。涵蓋內文、表格、標題與小字，逐份保留字數、編輯距離和 OCR 原始輸出。選型待使用者決定。[B3b2 評估](docs/development-records/runs/b3b2-expanded-ocr-evaluation-2026-11-20/README.md)
 
 - **B3b**：核對固定 CPU 候選的三個 ONNX 與 `config.yaml`，保存 PaddleOCR 授權原文、Paddle 與 ONNX 來源及尚缺的轉檔與授權適用證據。Linux CPU 對照 v5 mobile、v6 small、繁中 v3 與現有模型。兩 profile 的 gates 皆通過、旗標與阻擋清單維持原值。[B3b 證據](docs/development-records/runs/b3b-ppocr-model-review-2026-11-20/README.md)
 
@@ -56,6 +58,7 @@
 | | **B2 驗收表**（交 Codex，與 B1b 平行，獨立 PR）：依 C1–C3 逐項列乾淨 Windows 10／11 安裝、離線首次啟動、四語 OCR、中文路徑、修復、移除與人工操作的勾選表；每項有預期結果與證據格式，填寫結果放 `docs/development-records/runs/stage-c-…/`（符合 `base-clean-machine-manual` 前綴）。依使用者決定，大階段 C 用 **B3 後的新版本**，表格以「待填安裝包 SHA」欄位綁定，不寫死 B1b 的 SHA。只改文件，不改程式 | [補修驗收表](docs/stage-c-acceptance.md)已完成，PR 37 經 Claude reviewer 複查，無必須修正項目；B3 後再實際驗收 |
 | | B3a CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁、缺檔及改檔反例）（原 A14） | 完成並合併（PR 42） |
 | | B3b CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認（原 A15）。**另評估改用繁體中文識別模型以解決 ONNX 繁中已知缺口**（`tests/test_onnx_ocr.py` 的 `test_traditional_chinese_quality_known_gap` 預期失敗）：候選為 PP-OCRv5、PP-OCRv6 的繁中能力與專用 chinese_cht_PP-OCRv3_rec（需查證授權、ONNX 可用性與大小），以該固定繁中測試圖比較準確度；台灣聯發科 Breeze2 屬 3B／8B 多模態大型語言模型（Llama 社群授權），不適合 CPU 選配元件，若要採用改列大階段 E 或另立 GPU 選配元件。換模型屬更換模型與打包內容，需使用者同意；評估結果列表交使用者選擇。**驗收須含簡體中文準確度不退步**（目前 PP-OCRv4 中文模型以簡中為主；可選同時涵蓋簡繁的單一模型，或保留現模型另加繁中模型供選擇） | 來源與評估完成；授權範圍使用者選 A（2026-11-20），選型待擴大樣本評估後決定 |
+| | B3b2 CPU：擴大繁中、簡中與英文識別評估。各語言使用自製的內文、表格及含小字標題樣本，依 B3b 方法逐份列字數及字元正確率。對照現行 v4、v5 mobile、v6 small 與專用繁中 v3 封存版。評估腳本僅離線使用 | 評估完成，PR 交 Claude reviewer 查驗，選型交使用者決定 |
 | | B3c CPU：Shapely／GEOS（LGPL）與 CPU wheel 內含元件（沿用 A9 格式），CPU Microsoft 6 檔（沿用 A10）；LGPL 做法需使用者確認（原 A16） | 待開始（B1b 之後） |
 | | B3d CPU：查明 setuptools、pip、pyinstaller 等建置工具是否真的進了 worker；若要排除屬打包變更，需使用者同意（原 A17） | 待開始（B1b 之後） |
 | | B3 CPU 元件重新定版（需 B3a–B3d 完成並經使用者確認）。會改動共用 `source_commit`，範圍含 base 重新審閱與 gates 重建，並以此新候選產出大階段 C 驗收用的新測試版。依 A12c 將 B3b 選 A 的決定收入固定存檔，讓 `decision_source` 引用該存檔，填寫 `accepted_gaps`。隨 CPU 元件附 PaddleOCR 與 RapidOCR 授權原文，並在 CPU 揭露檔註明兩個 v4 權重與三個 ONNX 轉檔的授權未逐檔確認。新 CPU 候選審閱需包含同一雜湊的揭露檔，達成後才將 `cpu-rapidocr-models` 改為 `user_approved` | 待開始 |
@@ -66,7 +69,7 @@
 | | **D4 使用者自行加裝模型**：第一版只接受 Tesseract `.traineddata`（ONNX 需字典與架構相容、風險較高，暫不開放）；放在獨立的使用者目錄、不覆蓋內建或受管模型、標示「未經驗證、授權由使用者負責」、格式檢查與載入失敗提示、只移除使用者加入的檔案 | 已排入（使用者 2026-11-20 同意）；開工前交 planner 寫計畫 |
 | E GPU | 實卡驗收 | 延後 |
 
-**執行順序**：大階段 A 已收尾 → **B1b 已公開且開關已關，B2 已複查** → B3a–B3d（CPU，原 A14–A17；B3b 若選擇換繁中模型，會牽動 known-gaps 與限制文字的 ONNX 繁中缺口一行）→ B3 → B4 → 大階段 C。各編號一個 PR。
+**執行順序**：大階段 A 已收尾 → **B1b 已公開且開關已關，B2 已複查** → B3a–B3d（CPU，原 A14–A17，含 B3b2 樣本評估與選型；若選擇換繁中模型，會牽動 known-gaps 與限制文字的 ONNX 繁中缺口一行）→ B3 → B4 → 大階段 C。各編號一個 PR。
 
 **大階段 B 的進入條件**
 
@@ -157,4 +160,4 @@
 | 2026-11-20 | 使用者決定 | B3b 現有三個 PP-OCR 模型授權範圍選 A：接受 PaddleOCR 與 RapidOCR 的 Apache-2.0 涵蓋，隨 CPU 元件附兩份授權原文，並在揭露檔註明兩個 v4 權重與三個 ONNX 轉檔的授權未逐檔確認 |
 | 2026-11-20 | 使用者決定 | 識別模型暫不更換；先以較大的繁中、簡中、英文樣本再評估 v4、v5 mobile、v6 small（必要時含繁中 v3），結果交使用者決定 |
 
-接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。PR 44 停在 Claude reviewer 複查。合併後開 B3b2 獨立分支擴大樣本評估。現有 CPU 授權決定於 B3 重新定版時接線。
+接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。B3b2 停在 PR 交 Claude reviewer 查驗。識別模型選型由使用者決定，現有 CPU 授權決定於 B3 重新定版時接線。
