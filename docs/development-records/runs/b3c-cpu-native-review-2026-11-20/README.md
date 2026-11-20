@@ -15,14 +15,16 @@
 
 PE 匯入、授權文字及建置宣告都有範圍限制。未知版本維持 unknown，Windows build 宣告仍屬於建置線索。只要原文能對到確切元件，就指向候選既有文字，已確認缺漏與待釐清範圍分開列在逐檔證據。[LibYAML 停點及上游原文](../b3c-libyaml-notice-gap-2026-11-20/README.md) · [Clipper 固定原始碼](https://github.com/fonttools/pyclipper/blob/f998920369565dca56d346bb30c5741e273f0b9b/src/clipper.cpp) · [BSL 1.0 原文](https://www.boost.org/LICENSE_1_0.txt)
 
-## GEOS 的來源與替換選擇
+## GEOS 的來源、受管替換限制與選擇
 
 Shapely 2.2.0 的上游發行流程設 `GEOS_VERSION=3.14.1`，Windows 腳本設定 `BUILD_SHARED_LIBS=ON`，再以 Delvewheel 修補 wheel。候選 PE 顯示 Shapely extension 匯入 `geos_c-…dll`，該 DLL 匯入 `geos-…dll`。Hosted Windows 2022 在 wheel 測試環境執行幾何面積後，確認程序載入兩份同候選 SHA-256 的外部 DLL，並從已載入的 C API 取得 `3.14.1-CAPI-1.20.5`。詳細檔名、匯入及雜湊見 `notice-audit.json`。[發行建置](https://github.com/shapely/shapely/blob/229c71f7128713b37201f3c77336d32b52467454/.github/workflows/release.yml) · [Windows 腳本](https://github.com/shapely/shapely/blob/229c71f7128713b37201f3c77336d32b52467454/ci/install_geos.cmd) · [GEOS 固定原始碼](https://github.com/libgeos/geos/tree/c389f532d25fe6228861d9b19339f9cb57ca4bdb) · [隨包原文](../../../../src/desktop_app/data/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_GEOS)
 
-- **沿用動態連結**。隨包保留原文、固定原始碼與建置指引，公開可替換程序。替代 DLL 需維持 CPU 架構、ABI、Delvewheel 改名及匯入名稱相容。B3 可用另一份同 ABI 的建置置換兩檔，重跑 worker OCR／Shapely 操作，再移除 DLL 確認失敗。
+受管元件啟動前，`lease()` 經 `_ready()` 以簽章目錄中的檔案清單、大小與 SHA-256 呼叫 `verify_tree()`。因此直接覆蓋受管目錄的任一 GEOS DLL，就算架構及 ABI 相同也會被完整性檢查拒絕。測試環境裡的外部載入證據只確認 Windows 連結方式。A11 基本包能直接換 Qt DLL 的結果不能套到這條 CPU 路徑。[啟動租約與 _ready](../../../../src/desktop_app/components/lifecycle.py) · [逐檔驗證](../../../../src/desktop_app/components/archives.py)
+
+- **設計可驗證的自建／自帶元件路徑**。隨包保留原文、固定原始碼與建置指引。替代 DLL 需維持 CPU 架構、ABI、Delvewheel 改名及匯入名稱相容；另外需要受支援、具自身驗證資料的元件路徑，才能在保留受管版完整性檢查的情況下驗收。B3 可比較乾淨受管版、直接覆蓋會被拒的情形，以及受支援路徑中的替代 GEOS 與移除反例。
 - **增加對應來源與重建材料**。可隨元件提供固定 GEOS 原始碼或確切取得方式，以及建置／修補命令和必要變更，讓使用者能重建並測試替換。仍需決定如何交付來源資料與驗收。
 
-目前已驗證外部載入與同位元組的版本回報，尚未在已安裝的 worker 證明可換成另一個 GEOS build，亦未做實體機驗收。`cpu-geos` 維持 open，做法與充分性由使用者決定。
+目前已驗證外部載入與同位元組的版本回報，並從受管啟動路徑查證直接換檔的限制。尚無受支援的替換驗收，也未做實體機驗收。`cpu-geos` 維持 open，做法與充分性由使用者決定。
 
 ## Microsoft 六檔與處理選擇
 
