@@ -22,7 +22,7 @@
 
 - **大階段 A 收尾**：Claude planner 2026-11-19 整體複查 A1–A13c 全部通過、無必須修正。gates 以 A13b 審閱實跑：base `runtime_sbom_disclosed`、`redistribution_approved` true，`runtime_sbom_complete`（10 條已接受缺口）與 `release_ready`（只差大階段 C 的 `base-clean-machine-manual`）false；cpu 四旗標 false。基本包每個檔案以「已知或經使用者接受並隨包揭露」說得出來源、版本與授權義務。
 - 相關 10 個測試模組 176 項在 planner 環境通過（`test_qt_notice` 1 項因無 PySide6 未執行）；完整 941 項回歸本輪未重跑，沿用 progress.json 來源提交。
-- run 44307725980（PR 31 合併後的 main push）Windows 失敗位於升級測試重建前一版 990e600 的驗收；同一棵樹在 PR head 與後續兩次 main push 都通過，判定為間歇性問題，不影響 B1b。根因因 artifact 主機被本環境擋下而未查明。
+- run 44307725980（PR 31 合併後的 main push）Windows 失敗位於升級測試重建前一版 990e600 的驗收；同一棵樹在 PR head 與後續兩次 main push 都通過，判定為間歇性問題，不影響 B1b。2026-11-20 查明：前一版建置成功，只有 GUI 視窗開啟檢查在 25 秒內未等到視窗；已放寬為 60 秒並保存前一版 gui.log（[證據](docs/development-records/runs/run-44307725980-gui-timeout-2026-11-20/README.md)）。
 - 順帶修正過時敘述：progress.json m5、`docs/redistribution-gates.md` 的旗標現況、accepted_gaps 與 A16 編號。
 
 ## C. 未完成、阻擋與下一步
