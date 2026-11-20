@@ -1,0 +1,233 @@
+{
+  "note": "模擬掃描，不等於真實掃描機成像。expand=True 旋轉，不裁切；輸出圖以 SHA-256 核對。",
+  "seed": 20261120,
+  "conditions": [
+    {
+      "id": "rotate-0.8-expand",
+      "label": "輕微旋轉 0.8 度（白底，expand=True 不裁切）",
+      "params": {
+        "rotate": 0.8
+      },
+      "expand": true
+    },
+    {
+      "id": "rotate-2.0-expand",
+      "label": "明顯旋轉 2.0 度（白底，expand=True 不裁切）",
+      "params": {
+        "rotate": 2.0
+      },
+      "expand": true
+    }
+  ],
+  "source_samples_sha256": {
+    "zh-hant-body": "cc89ae15ba845103dfea9b4436345ac6f00d9341fd3abf1f7dd0882a2d63d93d",
+    "zh-hant-table": "cfba08ce61a629d23a503ce4ea62d485588611963de53e33c65a2f80d4980d99",
+    "zh-hant-heading": "92651aba865ef770d21b391e608a5fc39a0ef3148569a1c3dea5fe12b720ac88",
+    "zh-hans-body": "168e8d9f8ed7f7b7ef7d428671fd50558c7353f99ae1d946456f0b70559ff996",
+    "zh-hans-table": "9021438f4d3d262f6653ad9ad30520e4de14f90b7e2b0e3654ef830aee0d9b88",
+    "zh-hans-heading": "ec094bc314332a69cd4301354c1fc8396015db3f0dffd0ed4a69b5667859d47b",
+    "en-body": "bb756a892fa1d43c7498e24756025ae0ccb82b9e92b508830d3ba57f15d64b59",
+    "en-table": "6a552703ee1ad6e78d1558d5c97e7d6f62bdf17f9b0e42a139b822e419f992ee",
+    "en-heading": "3ebf233776b928afea0594235664a92bc759c21bdae36bdccea1c1a092ad89ea"
+  },
+  "outputs": [
+    {
+      "condition": "rotate-0.8-expand",
+      "sample": "zh-hant-body",
+      "file": "rotate-0.8-expand__zh-hant-body.png",
+      "size": [
+        1188,
+        578
+      ],
+      "bytes": 92931,
+      "sha256": "3a0981951363a0f00a1a7f6790a5f12564d54a77b3eb5cbc8bcd5ceaa914e14b"
+    },
+    {
+      "condition": "rotate-0.8-expand",
+      "sample": "zh-hant-table",
+      "file": "rotate-0.8-expand__zh-hant-table.png",
+      "size": [
+        1188,
+        578
+      ],
+      "bytes": 61901,
+      "sha256": "6026d431b5d458712bc666d857c67ec0d50a36d3fe473fb8f01cfa29b92e4e2a"
+    },
+    {
+      "condition": "rotate-0.8-expand",
+      "sample": "zh-hant-heading",
+      "file": "rotate-0.8-expand__zh-hant-heading.png",
+      "size": [
+        1188,
+        578
+      ],
+      "bytes": 60813,
+      "sha256": "a4a5997fbf86d82498b204ae7999f2a8d72b8e93ca9ab5c0c62d869c452cc46a"
+    },
+    {
+      "condition": "rotate-0.8-expand",
+      "sample": "zh-hans-body",
+      "file": "rotate-0.8-expand__zh-hans-body.png",
+      "size": [
+        1188,
+        578
+      ],
+      "bytes": 86850,
+      "sha256": "30ce178cc0b984d739550e824c8639177bf424bbff97c5e3591cba288328093a"
+    },
+    {
+      "condition": "rotate-0.8-expand",
+      "sample": "zh-hans-table",
+      "file": "rotate-0.8-expand__zh-hans-table.png",
+      "size": [
+        1188,
+        578
+      ],
+      "bytes": 61691,
+      "sha256": "368ebfcf6623f9379fa0abfdfc9861eeeb132292ec3bbc56c11c5e166000e852"
+    },
+    {
+      "condition": "rotate-0.8-expand",
+      "sample": "zh-hans-heading",
+      "file": "rotate-0.8-expand__zh-hans-heading.png",
+      "size": [
+        1188,
+        578
+      ],
+      "bytes": 57562,
+      "sha256": "26bfec6841ddce44690f8a654bca5ed19293a7f5dd7da3723b66ce3991c27a19"
+    },
+    {
+      "condition": "rotate-0.8-expand",
+      "sample": "en-body",
+      "file": "rotate-0.8-expand__en-body.png",
+      "size": [
+        1188,
+        578
+      ],
+      "bytes": 95629,
+      "sha256": "2c0319fca279e3d99c7c82b2a010c8813a849b62cd1072a77e4442fd105111a9"
+    },
+    {
+      "condition": "rotate-0.8-expand",
+      "sample": "en-table",
+      "file": "rotate-0.8-expand__en-table.png",
+      "size": [
+        1188,
+        578
+      ],
+      "bytes": 69435,
+      "sha256": "f11931494bd821a80000b04f6162a76eb86dea52166c99ad15afe02e05c1facd"
+    },
+    {
+      "condition": "rotate-0.8-expand",
+      "sample": "en-heading",
+      "file": "rotate-0.8-expand__en-heading.png",
+      "size": [
+        1188,
+        578
+      ],
+      "bytes": 64114,
+      "sha256": "710753d0d6e09c0469dcb1c4b11bf727326e2404196053532ae4969846d2bd3f"
+    },
+    {
+      "condition": "rotate-2.0-expand",
+      "sample": "zh-hant-body",
+      "file": "rotate-2.0-expand__zh-hant-body.png",
+      "size": [
+        1200,
+        602
+      ],
+      "bytes": 97323,
+      "sha256": "030af0981a386a2239d17666409ebadcd0a416e72d376bd0b6b507d492840720"
+    },
+    {
+      "condition": "rotate-2.0-expand",
+      "sample": "zh-hant-table",
+      "file": "rotate-2.0-expand__zh-hant-table.png",
+      "size": [
+        1200,
+        602
+      ],
+      "bytes": 63329,
+      "sha256": "7848d827812b2434b0881b7d2d1191fb0162a6cdea371c04c162628793ae1815"
+    },
+    {
+      "condition": "rotate-2.0-expand",
+      "sample": "zh-hant-heading",
+      "file": "rotate-2.0-expand__zh-hant-heading.png",
+      "size": [
+        1200,
+        602
+      ],
+      "bytes": 64780,
+      "sha256": "25d5b81a8b03da2a5396b51fcb0aeea89da9568690d056059c13c74f70d21e04"
+    },
+    {
+      "condition": "rotate-2.0-expand",
+      "sample": "zh-hans-body",
+      "file": "rotate-2.0-expand__zh-hans-body.png",
+      "size": [
+        1200,
+        602
+      ],
+      "bytes": 90922,
+      "sha256": "f8ea38056f7b865397d8fe08f70d4091453e40e40707bcc3fc074f098d933766"
+    },
+    {
+      "condition": "rotate-2.0-expand",
+      "sample": "zh-hans-table",
+      "file": "rotate-2.0-expand__zh-hans-table.png",
+      "size": [
+        1200,
+        602
+      ],
+      "bytes": 62958,
+      "sha256": "e075f2457f628847b4b5c4c0b22a7ddd5bff2e2880168577c02ea1d4da5f8846"
+    },
+    {
+      "condition": "rotate-2.0-expand",
+      "sample": "zh-hans-heading",
+      "file": "rotate-2.0-expand__zh-hans-heading.png",
+      "size": [
+        1200,
+        602
+      ],
+      "bytes": 61542,
+      "sha256": "0db729d91cd56869561478593fa76bb11d24f1853fc8527bb12b059eb94b6057"
+    },
+    {
+      "condition": "rotate-2.0-expand",
+      "sample": "en-body",
+      "file": "rotate-2.0-expand__en-body.png",
+      "size": [
+        1200,
+        602
+      ],
+      "bytes": 100853,
+      "sha256": "51366c063fe15c2236335320f5782ed79da4f0b27c478d048a4d1d2df400b7ab"
+    },
+    {
+      "condition": "rotate-2.0-expand",
+      "sample": "en-table",
+      "file": "rotate-2.0-expand__en-table.png",
+      "size": [
+        1200,
+        602
+      ],
+      "bytes": 71353,
+      "sha256": "7861ac997fddfe5ce2e608af33f1f759b5342d55e5e1849ff3fd3487cd73284d"
+    },
+    {
+      "condition": "rotate-2.0-expand",
+      "sample": "en-heading",
+      "file": "rotate-2.0-expand__en-heading.png",
+      "size": [
+        1200,
+        602
+      ],
+      "bytes": 67480,
+      "sha256": "6ac8e8d8ce4ce839540e7044afef0d6430acebdb3f6c02f8dbc398e1727ae953"
+    }
+  ]
+}
