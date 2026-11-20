@@ -105,4 +105,10 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except (KeyError, OSError, ValueError) as error:
+        # 使用 CI 註記保留錯誤類型，報告下載站及實際內容不進入訊息。
+        message = str(error).replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
+        print(f'::error title=CPU build tool audit::{type(error).__name__}: {message}')
+        raise SystemExit(1) from error
