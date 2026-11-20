@@ -16,11 +16,6 @@ on:
       - 'packaging/microsoft/**'
       - 'packaging/redistribution/obligations.json'
   workflow_dispatch:
-    inputs:
-      b3d_frozen_evidence:
-        description: 'Read a Windows rebuild of the fixed B3d worker'
-        type: boolean
-        default: false
 
 permissions:
   contents: read
@@ -34,7 +29,6 @@ env:
 
 jobs:
   evidence:
-    if: ${{ !inputs.b3d_frozen_evidence }}
     runs-on: windows-2022
     timeout-minutes: 15
     steps:
@@ -80,7 +74,6 @@ jobs:
           if-no-files-found: warn
 
   cpu-evidence:
-    if: ${{ !inputs.b3d_frozen_evidence }}
     name: CPU locked wheel observation
     runs-on: windows-2022
     timeout-minutes: 15
@@ -111,38 +104,3 @@ jobs:
           path: out/cpu-evidence-reports/
           retention-days: 7
           if-no-files-found: warn
-
-
-  b3d-frozen:
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.b3d_frozen_evidence }}
-    runs-on: windows-2022
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          ref: b17d51bc99f8402f16b99f98bbe3b3370530bc6c
-          path: out/b3d-fixed-source
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12.10'
-      - name: Build the fixed worker for disposable Windows inspection
-        shell: pwsh
-        run: |
-          python -m venv out/b3d-venv
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          $python = (Resolve-Path out/b3d-venv/Scripts/python.exe).Path
-          & $python -m pip install --require-hashes -r out/b3d-fixed-source/packaging/profiles/cpu-windows-build.txt
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          & $python -m pip install --no-deps --no-build-isolation ./out/b3d-fixed-source
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          & $python out/b3d-fixed-source/scripts/prepare_worker_assets.py --output out/b3d-assets
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          $env:MARKITDOWN_WORKER_ASSETS = (Resolve-Path out/b3d-assets).Path
-          & $python -m PyInstaller --noconfirm --clean --distpath out/b3d-dist --workpath out/b3d-work out/b3d-fixed-source/packaging/ocr-worker.spec
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: Inspect and run the unchanged frozen worker
-        shell: pwsh
-        run: |
-          & out/b3d-venv/Scripts/python.exe scripts/cpu_build_tools_runtime.py --bundle out/b3d-dist/MarkItDownOCRWorker --source out/b3d-fixed-source --original docs/development-records/runs/b3d-cpu-build-tools-2026-11-21/original-cpu-build-tools.json --output out/b3d-frozen-report.json
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

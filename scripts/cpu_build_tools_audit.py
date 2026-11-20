@@ -1,7 +1,5 @@
 """從固定 Windows CPU 候選的原始 provenance 擷取建置工具證據。"""
 import argparse
-import base64
-import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -11,6 +9,9 @@ from candidate_review import canonical
 
 ROOT = Path(__file__).resolve().parents[1]
 BASIS = ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18/cpu-source-review.json'
+LICENSE_INVENTORY = ROOT/'src/desktop_app/data/licenses/windows/inventory.json'
+REPO_COPIES = ('_internal/worker-assets/licenses/windows/',
+               '_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/')
 ROOTS = frozenset(('setuptools', 'pip', 'pyinstaller', '_pyinstaller_hooks_contrib',
                    'pkg_resources', '_distutils_hack', 'distutils', 'ensurepip'))
 TOOL_OWNERS = frozenset(('setuptools', 'pip', 'pyinstaller', 'pyinstaller-hooks-contrib'))
@@ -78,32 +79,46 @@ def extract(raw, review):
     )
 
 
-def publish(report, page):
-    raw = canonical(report)
-    encoded = base64.b64encode(gzip.compress(raw, mtime=0)).decode('ascii')
-    chunks = [encoded[i:i+2200] for i in range(0, len(encoded), 2200)]
-    if not 0 < len(chunks) <= 24:
-        raise ValueError(f'CPU build tool evidence exceeds annotation budget: {len(encoded)} bytes, '
-                         f'{len(report["physical_files"])} files, {len(report["pyz_sources"])} modules')
-    for index, data in enumerate(chunks[page*8:(page+1)*8], page*8+1):
-        print('::notice title=CPU build tool evidence::'+json.dumps(
-            dict(check=report['check'], sha256=sha(raw), part=index, parts=len(chunks), data=data),
-            separators=(',', ':')
-        ))
+def repo_notice_sources(report, inventory, license_root):
+    """repo 授權目錄的複本需同時符合封存記錄及實體 bytes，才可補上來源 wheel。"""
+    packages = {row['name']: row for row in inventory['packages'] if row['name'] in TOOL_OWNERS}
+    bindings = []
+    for row in report['physical_files']:
+        prefix = next((p for p in REPO_COPIES if row['path'].startswith(p)), None)
+        if prefix is None:
+            continue
+        key = row['path'].removeprefix(prefix)
+        name = key.partition('/')[0]
+        package = packages.get(name)
+        if package is None or inventory['files'].get(key) != row['sha256']:
+            raise ValueError('Fixed CPU notice has no matching wheel inventory entry: ' + key)
+        data = (license_root/key).read_bytes()
+        if (len(data), sha(data)) != (row['bytes'], row['sha256']):
+            raise ValueError('Fixed CPU notice bytes differ from repository copy: ' + key)
+        bindings.append(dict(path=row['path'], bytes=row['bytes'], sha256=row['sha256'],
+                             source_path=key, distribution=name, version=package['version'],
+                             wheel=package['wheel'], wheel_sha256=package['wheel_sha256']))
+    return bindings
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--provenance', required=True, type=Path)
+    inputs = parser.add_mutually_exclusive_group(required=True)
+    inputs.add_argument('--provenance', type=Path)
+    inputs.add_argument('--repo-copies', type=Path)
     parser.add_argument('--output', required=True, type=Path)
-    parser.add_argument('--page', type=int, choices=range(3), required=True)
     args = parser.parse_args()
-    report = extract(args.provenance.read_bytes(), json.loads(BASIS.read_text(encoding='utf-8')))
-    if args.page == 0:
-        with args.output.open('x', encoding='utf-8') as stream:
-            json.dump(report, stream, ensure_ascii=False, indent=2)
-            stream.write('\n')
-    publish(report, args.page)
+    if args.provenance is not None:
+        report = extract(args.provenance.read_bytes(), json.loads(BASIS.read_bytes()))
+    else:
+        original = json.loads(args.repo_copies.read_bytes())
+        inventory = LICENSE_INVENTORY.read_bytes()
+        report = dict(candidate_source=original['candidate_source'],
+                      original_audit_sha256=sha(canonical(original)), inventory_sha256=sha(inventory),
+                      files=repo_notice_sources(original, json.loads(inventory), LICENSE_INVENTORY.parent))
+    with args.output.open('x', encoding='utf-8') as stream:
+        json.dump(report, stream, ensure_ascii=False, indent=2)
+        stream.write('\n')
 
 
 if __name__ == '__main__':
