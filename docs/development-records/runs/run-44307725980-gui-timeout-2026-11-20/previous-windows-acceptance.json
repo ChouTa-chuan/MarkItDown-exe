@@ -1,0 +1,106 @@
+{
+  "check": "windows-base-ci",
+  "recorded_at": "2026-11-18T12:54:00.042737+00:00",
+  "accepted": false,
+  "windows_executed": true,
+  "clean_machine_accepted": false,
+  "hosted_runner_has_python": true,
+  "gpu_executed": false,
+  "release_ready": false,
+  "full_c03_complete": false,
+  "full_c04_complete": false,
+  "full_c09_complete": false,
+  "platform": "Windows-2022Server-10.0.20348-SP0",
+  "checks": [
+    "Windows profile and all fixed native/model/notice hashes verified",
+    "Native Windows frozen core runs without external Python command",
+    "Actual Windows native four-language health and scanned PDF self-test passes",
+    "Four-language native OCR works after relocating into a Chinese/spaced path",
+    "Chinese input/output filenames preserve exact UTF-8 bytes",
+    "Four real Windows CLI scans preserve selected language targets and settings bytes",
+    "Missing/changed model rejects OCR despite usable external fallback; text remains usable",
+    "Changed native EXE hash is rejected without silently borrowing a host engine",
+    "Unavailable optional OCR does not replace the chosen backend"
+  ],
+  "invocations": [
+    {
+      "label": "core-self-test",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "full-self-test",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "relocated-native-language-list",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "relocated-four-languages",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "unicode-text",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "chi_tra-cli",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "eng-cli",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "jpn-cli",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "kor-cli",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "external-control",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "missing-model",
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "label": "text-despite-missing-model",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "label": "changed-model",
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "label": "changed-engine",
+      "returncode": 1,
+      "expected": 1
+    },
+    {
+      "label": "optional-missing",
+      "returncode": 1,
+      "expected": 1
+    }
+  ],
+  "source_version": "0.16.0",
+  "python_utf8_mode": true,
+  "error": "AssertionError: Qt Windows window did not open",
+  "checks_passed": 9
+}

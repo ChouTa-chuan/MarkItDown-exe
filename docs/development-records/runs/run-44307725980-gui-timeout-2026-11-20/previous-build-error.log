@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\a\MarkItDown-exe\MarkItDown-exe\out\previous-source\scripts\run_windows_base_ci.py", line 84, in main
+    call('windows-validation', [python,'scripts/check_windows_base.py','--executable',
+  File "D:\a\MarkItDown-exe\MarkItDown-exe\out\previous-source\scripts\run_windows_base_ci.py", line 43, in call
+    subprocess.run(list(map(str, argv)), cwd=ROOT, env=environment,
+  File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\previous-build\\build-venv\\Scripts\\python.exe', 'scripts/check_windows_base.py', '--executable', 'D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\previous-build\\dist\\MarkItDownBase\\MarkItDownBase.exe', '--output', 'D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\windows\\previous-build\\reports\\acceptance']' returned non-zero exit status 1.

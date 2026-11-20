@@ -1,0 +1,35 @@
+{
+  "date_taipei": "2026-11-20",
+  "tested_source": "35233ae73b7e3912eda15230bca951611e827984",
+  "previous_source": "990e600",
+  "accepted": false,
+  "result": "previous-version (0.16.0) Windows acceptance failed only at GUI window open check (25s); build and other acceptance checks passed; root cause most likely hosted-runner cold start; gui.log was not preserved",
+  "ci": {
+    "run": 44307725980,
+    "job": 134814609713,
+    "event": "push",
+    "ref": "refs/heads/main",
+    "conclusion": "failure",
+    "artifact": {
+      "name": "windows-base-validation-reports",
+      "id": 14428139204,
+      "digest": "sha256:b6829c6c953a4ecee498f0660e0d691434feb63205f26fa96b7998363593c1ad",
+      "size_bytes": 4145,
+      "expires_at": "2026-11-25T12:54:42Z"
+    }
+  },
+  "files": {
+    "previous-windows-acceptance.json": "8e3d9a22e8db2c736fadb303f58e74df4416e02918e276afc5290a7273c7cdd4",
+    "previous-build-error.log": "e5f37a12f03027950c27955eeb0519f1eee4c5a3489e4acf4ffd41a1dafa5a6e",
+    "README.md": "b2b3f19bd8236be3b320bbc27fbc421ea9cad1ce40826f3de4c248d7b1c1a969"
+  },
+  "keywords": [
+    "44307725980",
+    "GUI",
+    "Qt Windows window did not open",
+    "升級測試",
+    "previous-build",
+    "gui.log",
+    "間歇性"
+  ]
+}

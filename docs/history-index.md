@@ -6,11 +6,12 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 142 筆。
+共 143 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2026-11-20 | 證據 | B1b 固定候選逐檔對照 |  | 接受 | B1b、逐檔對照、固定候選、Windows | [development-records/runs/b1b-content-equivalence-2026-11-20/README.md](development-records/runs/b1b-content-equivalence-2026-11-20/README.md) |
+| 2026-11-20 | 證據 | run 44307725980 Windows 失敗原因（2026-11-20 查明） | 35233ae | 未接受 | 44307725980、GUI、Qt Windows window did not open、升級測試、previous-build、gui.log、間歇性 | [development-records/runs/run-44307725980-gui-timeout-2026-11-20/README.md](development-records/runs/run-44307725980-gui-timeout-2026-11-20/README.md) |
 | 2026-11-20 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-20-before-b1b-public-closeout.md](history/status/2026-11-20-before-b1b-public-closeout.md) |
 | 2026-11-20 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-20-before-b1b.md](history/status/2026-11-20-before-b1b.md) |
 | 2026-11-20 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-20-before-b2.md](history/status/2026-11-20-before-b2.md) |
