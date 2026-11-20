@@ -1245,7 +1245,12 @@
           "required_evidence": [
             "RapidOCR 原文綁定、PP-OCR 模型來源／版本／hash／授權原文與適用範圍"
           ],
-          "evidence": [],
+          "evidence": [
+            {
+              "path": "docs/development-records/runs/b3a-cpu-original-notices-2026-11-20/worker-originals.json",
+              "sha256": "e3fae7d4a4d7f67ed73fd00a61821b6f17a08764e2322dd21c8a5ae2314fe346"
+            }
+          ],
           "status": "open",
           "requires_user_decision": false,
           "decision_source": null,
@@ -1266,8 +1271,13 @@
           "required_evidence": [
             "flatbuffers 適用原文與實際候選套件綁定"
           ],
-          "evidence": [],
-          "status": "open",
+          "evidence": [
+            {
+              "path": "docs/development-records/runs/b3a-cpu-original-notices-2026-11-20/worker-originals.json",
+              "sha256": "e3fae7d4a4d7f67ed73fd00a61821b6f17a08764e2322dd21c8a5ae2314fe346"
+            }
+          ],
+          "status": "evidence_complete",
           "requires_user_decision": false,
           "decision_source": null,
           "gates": [

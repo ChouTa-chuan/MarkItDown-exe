@@ -12,11 +12,74 @@ import subprocess
 from build_provenance import bootloader_notices, distribution_sources, is_notice_entry, sha256
 
 
+# 固定 CPU 候選的 METADATA 與 repo 原文共同約束套件；原文已在 worker 的 licenses 內。
+WINDOWS_LICENSES = 'licenses/windows'
+WORKER_NOTICE_PINS = {
+    'flatbuffers': (
+        '25.12.19', 'google/flatbuffers/7e163021e59cca4f8e1e35a7c828b5c6b7915953',
+        '9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e',
+        'cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30',
+    ),
+    'rapidocr-onnxruntime': (
+        '1.4.4', 'RapidAI/RapidOCR/86ae3f5079df3422c1829cd84baf19bc8a7a9453',
+        '1ac15bed7c7fb77d3fac58c2aba0a4d3e2da48de5c65badd3503900acebcf1df',
+        '3e0af25fdd06aa9586ae97adb00ea927ebe5a3805ac77d2d3a81ce5f55693333',
+    ),
+}
+
+
+def worker_notice_bindings(assets, packages, locked=None):
+    """核對同版 wheel 的 METADATA、既有來源目錄與隨包原文字節。"""
+    root = assets/WINDOWS_LICENSES
+    inventory = json.loads((root/'inventory.json').read_text(encoding='utf-8'))
+    sources = json.loads((root/'supplemental/sources.json').read_text(encoding='utf-8'))
+    bindings = {}
+    for name, (version, source, metadata_hash, notice_hash) in WORKER_NOTICE_PINS.items():
+        installed = [row for row in packages if row['name'] == name]
+        records = [row for row in inventory['packages'] if row['name'] == name]
+        original = f'supplemental/{name}.txt'
+        path = root/original
+        meta = assets/'installed'/name/'METADATA'
+        if (len(installed) != 1 or installed[0]['version'] != version
+                or not meta.is_file() or sha256(meta) != metadata_hash):
+            raise ValueError(f'Worker notice package/version mismatch: {name} {version}')
+        if not path.is_file() or sha256(path) != notice_hash:
+            raise ValueError(f'Worker original missing or changed: {original}')
+        expected = dict(name=name, url=f'https://raw.githubusercontent.com/{source}/LICENSE',
+                        sha256=notice_hash, bytes=path.stat().st_size)
+        if (len(records) != 1 or records[0]['version'] != version
+                or records[0]['supplemental_sources'] != [dict(expected, path=original)]
+                or [row for row in sources if row['name'] == name] != [expected]
+                or inventory['files'].get(original) != notice_hash):
+            raise ValueError(f'Worker notice source mismatch: {name} {version}')
+        if locked is not None and (name not in locked or locked[name]['version'] != version
+                                  or records[0]['wheel_sha256'] not in locked[name]['hashes']):
+            raise ValueError(f'Worker notice lock mismatch: {name} {version}')
+        bindings[name] = (f'{WINDOWS_LICENSES}/{original}', notice_hash)
+    return bindings
+
+
+def verify_worker_notice_bindings(assets, manifest):
+    """重驗原文與唯一擁有者，拒絕只重算 manifest 雜湊的錯綁。"""
+    packages = manifest['packages']
+    for name, (path, digest) in worker_notice_bindings(assets, packages).items():
+        owners = [row['name'] for row in packages
+                  for notice in (*row['notice_files'], *(item['path'] for item in row.get('supplemental_sources', [])))
+                  if notice.casefold() == path.casefold()]
+        package = next(row for row in packages if row['name'] == name)
+        if owners != [name] or path not in package['notice_files'] or manifest['files'].get(path) != digest:
+            raise ValueError(f'Invalid worker notice binding: {name}')
+
+
 def prepare(output, project):
-    if output.exists():raise ValueError('Output exists; choose a fresh worker assets directory')
+    from packaging_profiles import read_lock
+
+    if output.exists():
+        raise ValueError('Output exists; choose a fresh worker assets directory')
     output.mkdir(parents=True)
     runtime_license=next((path for path in (Path(sys.base_prefix)/'LICENSE.txt',Path(sysconfig.get_path('stdlib'))/'LICENSE.txt') if path.is_file()),None)
-    if runtime_license is None:raise ValueError('Actual Python runtime license missing')
+    if runtime_license is None:
+        raise ValueError('Actual Python runtime license missing')
     (output/'python-runtime').mkdir()
     shutil.copyfile(runtime_license,output/'python-runtime/LICENSE.txt')
     shutil.copytree(project/'src/desktop_app/data/licenses',output/'licenses')
@@ -34,10 +97,13 @@ def prepare(output, project):
             stored[target.relative_to(output).as_posix()]=hashlib.sha256(target.read_bytes()).hexdigest()
         for entry in distribution.files or ():
             relative=PurePosixPath(str(entry))
-            if relative.is_absolute() or '..' in relative.parts:continue
-            if not is_notice_entry(relative):continue
+            if relative.is_absolute() or '..' in relative.parts:
+                continue
+            if not is_notice_entry(relative):
+                continue
             source=Path(distribution.locate_file(entry))
-            if not source.is_file() or source.stat().st_size>5*1024**2:continue
+            if not source.is_file() or source.stat().st_size>5*1024**2:
+                continue
             target=output/'installed'/name/'original'/Path(*relative.parts)
             target.parent.mkdir(parents=True,exist_ok=True)
             shutil.copyfile(source,target)
@@ -45,6 +111,13 @@ def prepare(output, project):
             stored[key]=hashlib.sha256(target.read_bytes()).hexdigest()
             paths.append(key)
         packages.append(dict(name=name,version=distribution.version,notice_files=paths))
+    locked = read_lock(project/'packaging/profiles/cpu-windows-build.txt')
+    bindings = worker_notice_bindings(output, packages, locked)
+    for row in packages:
+        if row['name'] in bindings:
+            path, digest = bindings[row['name']]
+            row['notice_files'].append(path)
+            stored[path] = digest
     manifest=dict(scope='Actual installed build-environment notices plus existing locked dependency superset; native final release clearance remains pending',packages=packages,files=stored)
     (output/'installed-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     print('Prepared actual installed notices:',len(packages),'packages,',len(stored),'files')
