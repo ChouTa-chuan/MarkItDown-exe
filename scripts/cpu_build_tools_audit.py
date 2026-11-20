@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 import re
 
-from candidate_inventory import canonical
+from candidate_review import canonical
 
 ROOT = Path(__file__).resolve().parents[1]
 BASIS = ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18/cpu-source-review.json'
