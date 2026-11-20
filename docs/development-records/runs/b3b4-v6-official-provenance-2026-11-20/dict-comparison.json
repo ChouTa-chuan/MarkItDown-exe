@@ -1,0 +1,42 @@
+{
+  "method": "官方 inference.yml PostProcess.character_dict 與 RapidOCR ONNX metadata character 逐行比較",
+  "official_v6_vs_rapid_v6": {
+    "candidate": "PP-OCRv6 small rec",
+    "yml_entries": 18708,
+    "onnx_metadata_lines": 18708,
+    "onnx_ctc_output_classes": 18710,
+    "identical_order_and_content": true,
+    "positional_differences": 0,
+    "only_in_onnx": [],
+    "only_in_yml": [],
+    "yml_first_entries": [
+      "!",
+      "\"",
+      "#"
+    ],
+    "yml_last_entries": [
+      "🛄",
+      "🛅"
+    ]
+  },
+  "official_v5_vs_rapid_v5": {
+    "candidate": "PP-OCRv5 mobile rec",
+    "yml_entries": 18383,
+    "onnx_metadata_lines": 18383,
+    "onnx_ctc_output_classes": 18385,
+    "identical_order_and_content": true,
+    "positional_differences": 0,
+    "only_in_onnx": [],
+    "only_in_yml": [],
+    "yml_first_entries": [
+      "　",
+      "一",
+      "乙"
+    ],
+    "yml_last_entries": [
+      "🕦",
+      "🕧"
+    ]
+  },
+  "official_v6_dict_equals_official_v5_dict": false
+}

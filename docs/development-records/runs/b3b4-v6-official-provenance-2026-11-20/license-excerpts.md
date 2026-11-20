@@ -1,6 +1,6 @@
 # 授權原文摘錄（B3b4）
 
-來源與 SHA-256 見 manifest.json 的 sources 欄。以下為逐字摘錄，未改寫。
+來源與 SHA-256 見 sources.json。以下為逐字摘錄，未改寫。
 
 ## 1. PP-OCRv6 small 官方 ONNX 模型卡（HF PaddlePaddle/PP-OCRv6_small_rec_onnx，commit b8f84f0b80c529de40b4fbb3544b84fa7233a513）
 

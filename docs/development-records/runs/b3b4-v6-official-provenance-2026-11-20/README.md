@@ -30,7 +30,9 @@
 | 官方 v5 mobile ONNX（PaddlePaddle 組織） | **權利人直接載明** | 模型卡 YAML `license: apache-2.0`；repo 中沒有 LICENSE 檔 |
 | 專案整體 | 已保存 | PaddleOCR 專案 LICENSE（Apache-2.0，B3b 的 [PaddleOCR-v3.7.0-LICENSE.txt](../b3b-ppocr-model-review-2026-11-20/PaddleOCR-v3.7.0-LICENSE.txt)，SHA-256 `3840c5c0…`） |
 | RapidOCR 轉檔的 v6／v5 檔（B3b 實測的 `6f327246…`、`5825fc7e…`） | **第三方宣告** | RapidOCR v3.10.0 `MODEL_LICENSES.md` 宣告 Apache-2.0，並說明它「不是權利人的授權文件」；轉檔紀錄（工具、版本、參數）未取得 |
-| 字表 | 未核 | 官方 ONNX 本體與官方 `inference.yml` 都未取得；B3b 實測檔的內嵌字表授權另論 |
+| 字表（官方 inference.yml 的 character_dict，與 RapidOCR ONNX metadata 逐行相同） | 查不到（單獨說明） | 官方 inference.yml、模型卡與 RapidOCR 的 MODEL_LICENSES.md（v3.10.0）都沒有針對字表的授權段落；字表只隨模型卡的 Apache-2.0 總宣告與 RapidOCR 的模型宣告涵蓋，未單獨論證 |
+
+補註：「權利人直接載明」是 PaddlePaddle 組織模型卡 YAML 的宣告，不是獨立的授權文件。v6 模型卡的 LICENSE 連結失效：repo 內沒有 LICENSE 檔，`resolve/main/LICENSE` 回 404（本輪於 2026-11-20 探測）。
 
 判斷依據的原文：官方模型卡的 YAML（逐字見 license-excerpts.md 第 1、2 節）與 RapidOCR 第 3 節（引用官方 v6 模型卡）、第 5 節（轉換檔可能非逐位元組相同）。
 
@@ -71,7 +73,7 @@
 
 **v6 在簡中是否比 v4 差？** 是，在 3 個條件中差 1 至 3 個編輯：模糊 0.8（5 比 4）、雜訊 σ=10（6 比 4）、JPEG q30（9 比 6）。其餘條件 v6 持平或較好。整體（排除旋轉）v6 仍較好（98.77% 比 98.15%）。
 
-**旋轉問題的結論修正**：expand=True 與不 expand 的錯誤數幾乎相同（簡中 38／37／37、78／77／77 的模式不變），三個模型受影響的程度相近。這表示**旋轉的代價主要來自偵測與閱讀順序的管線，不是裁切**。B3b3 「可能是裁切」的推測被本輪推翻。仍然不應以旋轉條件判斷模型優劣，但原因不是裁切。英文在旋轉下各模型都大幅下降（例如 v6 旋轉 0.8° 為 102 個編輯，原圖為 1），這點在 B3b3 未單獨說明，需另查偵測器的角度處理。
+**旋轉問題的結論（更正）**：expand=True 的結果顯示，**裁切不是主因**。簡中在 expand 前後幾乎不變（38／37／37、78／77／77 的模式不變）。英文則有小幅變動：2.0° 下 v4 由 180 變為 173，v5 與 v6 由 180 變為 172；0.8° 下 v4 由 102 變為 104，v5 由 103 變為 102，v6 維持 102。**真正原因未查明**，可能與偵測或閱讀順序有關，待查。旋轉條件仍不應作為模型優劣依據。B3b3 查驗補註的「裁切」推測被本輪推翻，該補註見 [B3b3 README 第 74 行附近](../b3b3-v5-provenance-scan-2026-11-20/README.md)（該檔案原地保留、未改寫）。英文在旋轉下各模型都大幅下降（例如 v6 旋轉 0.8° 為 102 個編輯，原圖為 1），原因同樣未查。
 
 ### 4. 粗略推論時間（同一環境，單執行緒，CPUExecutionProvider，9 張原圖，每張取 3 次中位數）
 
@@ -83,9 +85,24 @@
 
 三者差距很小，只能當作數量級參考，不是效能基準。模型體積 v6 最大。
 
-### 5. 字表與 1.4.4 相容性
+### 5. 字表比對與 1.4.4 相容性
 
-B3b3 已確認 RapidOCR 轉檔的 v5 與 v6 在 rapidocr-onnxruntime 1.4.4 下能推論，且 ONNX 的輸出類別數與 postprocess 字表長度相符（`evaluate.measure()` 檢查通過）。**官方 ONNX 的字表是否內嵌、是否與 RapidOCR 轉檔的字表相同，本輪無法確認。**
+官方 `inference.yml` 不經被擋的 CDN，可直接從 HF 以固定 commit 取得（`/raw/<commit>/inference.yml`）：
+
+| 檔案 | commit | 大小 | sha256 |
+| --- | --- | ---: | --- |
+| v6 small `inference.yml` | `b8f84f0b…` | 150,579 B | `ab078671bb49f06228eadccd34f1bb501e157f7a047095ffb943ba81512c77d1` |
+| v5 mobile `inference.yml` | `ed152b8b…` | 148,345 B | `5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e` |
+
+（yml 只記雜湊，未放進 repo。比對結果見 [dict-comparison.json](dict-comparison.json)，由 [dict_compare.py](dict_compare.py) 產生。）
+
+| 比較 | 結果 |
+| --- | --- |
+| 官方 v6 yml `character_dict` 與 RapidOCR v6 轉檔 ONNX metadata `character` | **逐行完全相同**，18,708 行，位置差異 0；ONNX CTC 輸出 18,710 類（字表 +2） |
+| 官方 v5 yml `character_dict` 與 RapidOCR v5 轉檔 ONNX metadata `character` | **逐行完全相同**，18,383 行，位置差異 0；ONNX CTC 輸出 18,385 類（字表 +2） |
+| 官方 v6 字表與官方 v5 字表 | 不同（v6 以 `!` 開頭、18,708 項；v5 以全形空白開頭、18,383 項） |
+
+字表內容與 RapidOCR 轉檔一致，但這只說明**字表**相同，不代表 ONNX 權重相同（權重 sha 仍不同，見第 1 節）。B3b3 已確認 RapidOCR 轉檔檔在 rapidocr-onnxruntime 1.4.4 下能推論，字表長度與輸出類別數相符。**字表授權**：yml 與兩份模型卡都沒有獨立的字表授權段落，只有模型卡 YAML 的 Apache-2.0 總宣告；RapidOCR 的 MODEL_LICENSES.md（v3.10.0）也未針對字表單獨說明。因此字表授權分級為「查不到（單獨說明）」。
 
 ## 被擋主機與未取得的內容
 
@@ -103,7 +120,7 @@ B3b3 已確認 RapidOCR 轉檔的 v5 與 v6 在 rapidocr-onnxruntime 1.4.4 下�
 
 1. **取得官方 ONNX 位元組**，核對 `5435fd74…` 與大小。目前只有 HF 的 LFS 登錄值，檔案本體未核。
 2. **以官方 ONNX 重跑評估**。本輪的數字是 RapidOCR 轉檔候選，它與官方檔不是同一個檔案。
-3. **官方字表與 1.4.4 相容性**，以及字表授權。
+3. **官方字表與 1.4.4 相容性**：已比對，官方 yml 字表與 RapidOCR 轉檔 ONNX 字表逐行相同（第 5 節）；字表授權查不到。
 4. **授權的接受路徑**：官方模型卡是直接宣告，但模型卡連結的 LICENSE 不在 repo。RapidOCR 轉檔的檔案只有第三方宣告。若 B3 採用，應打包官方檔，而非 RapidOCR 轉檔檔（需使用者決定）。
 5. **真實掃描樣本**（與 B3b3 相同的缺口）。
 6. **使用者的決定**：AGENTS.md 規定換模型與打包變更須經使用者同意；必要授權門檻未關閉前不對外上傳模型。
@@ -113,10 +130,10 @@ v5 mobile 的判斷與 B3b3 相同：簡中在雜訊與 JPEG 條件較 v4 多錯
 ## 限制與未驗證
 
 - 模擬掃描，不等於真實掃描機成像。每個條件 3 份樣本、每語言小樣本，簡中差距（1 至 3 個編輯）屬小樣本範圍。
-- 候選檔是 RapidOCR 轉檔，**不是官方 ONNX**。官方檔的推論結果未知。
+- 候選檔是 RapidOCR 轉檔，**不是官方 ONNX**。官方檔的推論結果未知。字表內容已由官方 yml 核對（見第 5 節），但權重未核。
 - 官方權重 `PaddlePaddle/PP-OCRv6_small_rec` 的 `inference.pdiparams` 只取得 LFS 雜湊，未核對檔案本體。
-- 模型卡 YAML 宣告 Apache-2.0，但未見 repo 內的 LICENSE 檔（連結失效）。
-- 未核 v6 small 的字表授權、字型授權。
+- 模型卡 YAML 宣告 Apache-2.0，但 repo 內沒有 LICENSE 檔，`resolve/main/LICENSE` 回 404。
+- 字表授權已比對 yml 與模型卡，未見獨立說明（查不到）；字型授權未核。
 - 未做 Windows 封裝與記憶體測量。
 
 ## 重跑
@@ -144,4 +161,5 @@ python -I $RUN/timing.py --v4 <v4 rec onnx> --v5 /tmp/b3b4-models/v5-rapid-mobil
 - [expand-results.json](expand-results.json)：逐條件、逐樣本、逐模型的結果（含識別文字）。
 - [summarize.py](summarize.py)、[summary.json](summary.json)：三種口徑的彙總與逐條件編輯數。
 - [timing.py](timing.py)、[timing.json](timing.json)：粗略推論時間。
-- 既有證據未變更：B3b、B3b2、B3b3 目錄原地保留。
+- [dict_compare.py](dict_compare.py)、[dict-comparison.json](dict-comparison.json)：官方 yml 字表與 RapidOCR ONNX 字表的逐行比對。
+- 既有證據未變更：B3b、B3b2、B3b3 目錄原地保留；B3b3 README 第 74 行附近的「查驗補註」由本輪結果推翻，但該檔未改寫。

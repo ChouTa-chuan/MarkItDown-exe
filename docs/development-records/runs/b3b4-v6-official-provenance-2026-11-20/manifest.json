@@ -28,22 +28,24 @@
     "official_v5_onnx_obtained": false,
     "official_v5_matches_b3b_candidate": false,
     "license_grade": {
-      "official_v6_onnx_model_card": "權利人直接載明（模型卡 apache-2.0；連結的 LICENSE 不在 repo）",
+      "official_v6_onnx_model_card": "權利人直接載明（模型卡 YAML 宣告，非獨立授權文件；LICENSE 連結 404）",
       "official_v5_onnx_model_card": "權利人直接載明（模型卡 apache-2.0）",
       "rapidocr_converted_files": "第三方宣告（RapidOCR MODEL_LICENSES.md）"
     },
     "evaluation_scope": "僅 RapidOCR 轉檔候選（非官方 ONNX），expand=True 旋轉條件補充；官方 ONNX 未能重跑",
-    "rotation_expand_changes_error_counts": false,
     "v6_simplified_worse_than_v4_conditions": [
       "blur-0.8 (5 vs 4)",
       "noise-10 (6 vs 4)",
       "jpeg-q30 (9 vs 6)"
-    ]
+    ],
+    "rotation_expand_effect": "裁切不是主因。簡中 expand 前後幾乎不變；英文 2.0°：v4 180→173、v5 180→172、v6 180→172；英文 0.8°：v4 102→104、v5 103→102、v6 102→102。真正原因未查明（可能與偵測或閱讀順序有關，待查）。",
+    "official_v6_dictionary": "官方 yml 字表與 RapidOCR 轉檔 ONNX metadata 逐行相同（18,708 行）；字表授權查不到",
+    "official_v5_dictionary": "官方 yml 字表與 RapidOCR 轉檔 ONNX metadata 逐行相同（18,383 行）；字表授權查不到"
   },
   "files": {
     "README.md": {
-      "sha256": "5ef4afd8981a79a43b0dc36295d77ad633defc27b7d20183fb8dd76df6949aac",
-      "bytes": 10926
+      "sha256": "a7c8548eb38722c3f44fd3642bd85255c53f41b5c67ec0eec3b2a90188899df0",
+      "bytes": 13452
     },
     "RapidOCR-v3.10.0-MODEL_LICENSES.md": {
       "sha256": "c5fd0e8603d3df743355b546121e6fe0f4ef8ff455c5a85c1681fd3ae520e153",
@@ -52,6 +54,14 @@
     "degrade_expand.py": {
       "sha256": "2c7301a7033431de5236fbd00d8ed367d172312651be00d5b5f61b0b11f09e57",
       "bytes": 3145
+    },
+    "dict-comparison.json": {
+      "sha256": "d53e8f20d1265ace78906a86e811e096df3e07c6721da84168be2f70e4b9d651",
+      "bytes": 1015
+    },
+    "dict_compare.py": {
+      "sha256": "5e26662304f9cdcf8e4b964a324de5f9f1e3e777115cdf8c0dd9cb1216bb5fae",
+      "bytes": 2571
     },
     "expand-manifest.json": {
       "sha256": "a6f4bafc5f2565f6957efb9ed76b1138b48e66593363ccee957195604d26f148",
@@ -62,12 +72,12 @@
       "bytes": 67189
     },
     "license-excerpts.md": {
-      "sha256": "0b102afa1d90b58cdb49c4cb57d52a4eabbf4892dee2fba95d17ccb4cd1cb590",
-      "bytes": 1553
+      "sha256": "9508a1a567f27f8d1c13236fecf9c6ab4b5327e67fd5b5d9f13991a7df2e5253",
+      "bytes": 1536
     },
     "sources.json": {
-      "sha256": "8c00a12916851db8facadbba3821cacbc37a53dd9b1a2f7d63c53373aa7493ea",
-      "bytes": 5937
+      "sha256": "89eb631f679e37466f19fb3327461f3f16da994ba292cae819a611634b61982b",
+      "bytes": 7364
     },
     "summarize.py": {
       "sha256": "bf30af368dbebc962c117ed8f5aa7cabac7539cc89458a99a26a01703a6a889d",

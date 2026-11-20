@@ -11,15 +11,23 @@
     "bytes": 21159378,
     "lfs_source": "HF tree API（expand=true）的 lfs.oid 與 lfs.size",
     "other_files": [
-      {"file": "inference.yml", "bytes": 150579, "lfs": false},
-      {"file": "inference.json", "bytes": 208004, "lfs": false}
+      {
+        "file": "inference.yml",
+        "bytes": 150579,
+        "lfs": false
+      },
+      {
+        "file": "inference.json",
+        "bytes": 208004,
+        "lfs": false
+      }
     ],
     "license_declaration": {
       "grade": "權利人直接載明（模型卡 YAML 與內文）",
       "text": "YAML: license: apache-2.0；徽章 [License Apache_2.0](./LICENSE)",
       "model_card_sha256": "7d46dbd183ac09bd5a2e6b4577dcb29240751b1c00eb6813eca308d529f86806",
       "model_card_bytes_note": "README.md 原文，見 license-excerpts.md 摘錄",
-      "gap": "模型卡連結的 ./LICENSE 在該 repo 的檔案清單中不存在（tree 只有 .gitattributes、README.md、inference.json、inference.onnx、inference.yml）；Apache-2.0 全文以 PaddleOCR 專案 LICENSE（B3b 已保存，SHA-256 3840c5c0…）為準。"
+      "gap": "模型卡連結的 ./LICENSE 在該 repo 不存在（tree 只有 .gitattributes、README.md、inference.json、inference.onnx、inference.yml）；resolve/main/LICENSE 回 404（2026-11-20 探測）。Apache-2.0 全文以 PaddleOCR 專案 LICENSE（B3b 已保存，SHA-256 3840c5c0…）為準。「權利人直接載明」為模型卡 YAML 宣告，不是獨立授權文件。"
     },
     "official_paddle_weights": {
       "repo": "PaddlePaddle/PP-OCRv6_small_rec",
@@ -38,7 +46,7 @@
     "lfs_sha256": "da72dc72ca4dc220df0dfde68c1dedc31c58d3e76a25871122e5056227d50092",
     "bytes": 16534782,
     "license_declaration": {
-      "grade": "權利人直接載明（模型卡 YAML）",
+      "grade": "權利人直接載明（模型卡 YAML；為 PaddlePaddle 組織宣告，非獨立授權文件）",
       "text": "YAML: license: apache-2.0",
       "model_card_sha256": "7331c129fd5024b6a0abd1f510cfdfb2d7714fdcdbb00df21a0cb8b48e6683ee",
       "gap": "未見 LICENSE 檔（tree 只有 .gitattributes、README.md、inference.onnx、inference.yml）"
@@ -54,15 +62,27 @@
   "official_vs_candidate": [
     {
       "model": "PP-OCRv6 small rec",
-      "official_hf_onnx": {"sha256": "5435fd747c9e0efe15a96d0b378d5bd157e9492ed8fd80edf08f30d02fa24634", "bytes": 21159378},
-      "b3b_candidate_rapidocr_onnx": {"sha256": "6f327246b50388f3c176ae304bd95767ea6dc0c9ae92153ef8cbe210b3c14884", "bytes": 21234383},
+      "official_hf_onnx": {
+        "sha256": "5435fd747c9e0efe15a96d0b378d5bd157e9492ed8fd80edf08f30d02fa24634",
+        "bytes": 21159378
+      },
+      "b3b_candidate_rapidocr_onnx": {
+        "sha256": "6f327246b50388f3c176ae304bd95767ea6dc0c9ae92153ef8cbe210b3c14884",
+        "bytes": 21234383
+      },
       "same_file": false,
       "catalog": "RapidOCR v3.10.0 default_models.yaml 的 multi_PP-OCRv6_rec_small 登錄同為 6f327246…（modelscope 路徑），與 MODEL_LICENSES.md 第 6 節一致"
     },
     {
       "model": "PP-OCRv5 mobile rec",
-      "official_hf_onnx": {"sha256": "da72dc72ca4dc220df0dfde68c1dedc31c58d3e76a25871122e5056227d50092", "bytes": 16534782},
-      "b3b_candidate_rapidocr_onnx": {"sha256": "5825fc7ebf84ae7a412be049820b4d86d77620f204a041697b0494669b1742c5", "bytes": 16631306},
+      "official_hf_onnx": {
+        "sha256": "da72dc72ca4dc220df0dfde68c1dedc31c58d3e76a25871122e5056227d50092",
+        "bytes": 16534782
+      },
+      "b3b_candidate_rapidocr_onnx": {
+        "sha256": "5825fc7ebf84ae7a412be049820b4d86d77620f204a041697b0494669b1742c5",
+        "bytes": 16631306
+      },
       "same_file": false,
       "catalog": "RapidOCR v3.10.0 default_models.yaml 的 ch_PP-OCRv5_rec_mobile 登錄為 5825fc7e…"
     }
@@ -74,12 +94,43 @@
     "rapidocr_v6_rec_small_listed_sha256": "6f327246b50388f3c176ae304bd95767ea6dc0c9ae92153ef8cbe210b3c14884"
   },
   "dictionary": {
-    "b3b_candidates": "B3b3 已確認 RapidOCR 轉檔 ONNX 的 metadata 內嵌字表（v5：18,383 行；v6：見 B3b 評估結果），與 rapidocr-onnxruntime 1.4.4 的 postprocess 字表長度相符（B3b evaluate.measure 檢查通過）。",
-    "official_onnx_dictionary": "官方 ONNX 檔本體未取得，無法確認其字表是否內嵌；官方 inference.yml（150,579 bytes，非 LFS）同樣未取得。字表授權另論，本輪未核。"
+    "official_yml": {
+      "v6": {
+        "repo_commit": "b8f84f0b80c529de40b4fbb3544b84fa7233a513",
+        "url": "https://huggingface.co/PaddlePaddle/PP-OCRv6_small_rec_onnx/raw/b8f84f0b80c529de40b4fbb3544b84fa7233a513/inference.yml",
+        "bytes": 150579,
+        "sha256": "ab078671bb49f06228eadccd34f1bb501e157f7a047095ffb943ba81512c77d1"
+      },
+      "v5": {
+        "repo_commit": "ed152b8b495f84de93cda5709d768548a9127622",
+        "url": "https://huggingface.co/PaddlePaddle/PP-OCRv5_mobile_rec_onnx/raw/ed152b8b495f84de93cda5709d768548a9127622/inference.yml",
+        "bytes": 148345,
+        "sha256": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+      }
+    },
+    "comparison": "官方 yml PostProcess.character_dict 與 RapidOCR 轉檔 ONNX metadata character 逐行比對（dict-comparison.json）：v6 18,708 行、v5 18,383 行，皆完全相同，位置差異 0；ONNX CTC 輸出類別數 = 字表 +2（v6 18,710、v5 18,385）。官方 v6 字表與官方 v5 字表不同。",
+    "scope_limit": "這只說明字表內容相同，不代表 ONNX 權重相同（權重 sha 仍不同）。",
+    "license": {
+      "grade": "查不到（單獨說明）",
+      "basis": "yml 無授權欄；兩份模型卡僅 YAML Apache-2.0 總宣告；RapidOCR MODEL_LICENSES.md v3.10.0 未針對字表單獨說明"
+    }
   },
   "blocked_hosts": [
-    {"host": "us.aws.cdn.hf.co", "purpose": "HF resolve 對官方 ONNX 的 302 轉址目標（xet bridge）", "result": "代理回 403（no rule or network setting allows this host）；使用者清單中的 cas-bridge.xethub.hf.co、cdn-lfs.hf.co、cdn-lfs-us-1.hf.co 直接探測皆為 403，轉址並未落在清單內的主機"},
-    {"host": "paddle-model-ecology.bj.bcebos.com", "purpose": "官方 Paddle 權重與官方 ONNX tar", "result": "403（本輪探測）；較早一次探測為連線失敗"},
-    {"host": "third-party GitHub mirror（oaustegard/PP-OCRv6_small_rec_onnx）", "purpose": "嘗試取得與官方 LFS 雜湊應相同的 ONNX 位元組", "result": "此下載請求被自動權限審查拒絕，未重試，未以此檔進行評估。不是代理封鎖，而是本輪決定不取用第三方映像檔"}
+    {
+      "host": "us.aws.cdn.hf.co",
+      "purpose": "HF resolve 對官方 ONNX 的 302 轉址目標（xet bridge）",
+      "result": "代理回 403（no rule or network setting allows this host）；使用者清單中的 cas-bridge.xethub.hf.co、cdn-lfs.hf.co、cdn-lfs-us-1.hf.co 直接探測皆為 403，轉址並未落在清單內的主機",
+      "note": "inference.yml 不經此 CDN：HF /raw/<commit>/ 路徑可直接取得，已取得 yml（見 dictionary）"
+    },
+    {
+      "host": "paddle-model-ecology.bj.bcebos.com",
+      "purpose": "官方 Paddle 權重與官方 ONNX tar",
+      "result": "403（本輪探測）；較早一次探測為連線失敗"
+    },
+    {
+      "host": "third-party GitHub mirror（oaustegard/PP-OCRv6_small_rec_onnx）",
+      "purpose": "嘗試取得與官方 LFS 雜湊應相同的 ONNX 位元組",
+      "result": "此下載請求被自動權限審查拒絕，未重試，未以此檔進行評估。不是代理封鎖，而是本輪決定不取用第三方映像檔"
+    }
   ]
 }
