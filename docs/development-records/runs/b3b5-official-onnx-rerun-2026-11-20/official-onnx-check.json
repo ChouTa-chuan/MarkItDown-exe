@@ -1,0 +1,58 @@
+{
+  "method": "以固定 commit 的官方 ONNX 與 inference.yml 核對雜湊；由 yml 建字表檔，再以 RapidOCR 1.4.4 的 CTCLabelDecode 回讀比對。",
+  "onnx_has_embedded_character_metadata": false,
+  "models": {
+    "v6": {
+      "name": "PP-OCRv6 small rec",
+      "repo": "PaddlePaddle/PP-OCRv6_small_rec_onnx",
+      "commit": "b8f84f0b80c529de40b4fbb3544b84fa7233a513",
+      "onnx_sha256": "5435fd747c9e0efe15a96d0b378d5bd157e9492ed8fd80edf08f30d02fa24634",
+      "onnx_bytes": 21159378,
+      "yml_sha256": "ab078671bb49f06228eadccd34f1bb501e157f7a047095ffb943ba81512c77d1",
+      "yml_bytes": 150579,
+      "onnx_metadata_keys": [],
+      "onnx_input_shape": [
+        "DynamicDimension.0",
+        "3",
+        "48",
+        "DynamicDimension.1"
+      ],
+      "ctc_output_classes": 18710,
+      "yml_character_entries": 18708,
+      "yml_contains_space_entry": false,
+      "rapidocr_character_len_with_blank_and_space": 18710,
+      "chars_file_sha256": "b5f2bfe2bdd9448429e3e82b51c789775d9b42f2403d082b00662eb77e401c5d",
+      "chars_file_bytes": 74947,
+      "checks": {
+        "rapidocr_reread_equals_yml": true,
+        "output_classes_equal_len_plus_2": true
+      }
+    },
+    "v5": {
+      "name": "PP-OCRv5 mobile rec",
+      "repo": "PaddlePaddle/PP-OCRv5_mobile_rec_onnx",
+      "commit": "ed152b8b495f84de93cda5709d768548a9127622",
+      "onnx_sha256": "da72dc72ca4dc220df0dfde68c1dedc31c58d3e76a25871122e5056227d50092",
+      "onnx_bytes": 16534782,
+      "yml_sha256": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e",
+      "yml_bytes": 148345,
+      "onnx_metadata_keys": [],
+      "onnx_input_shape": [
+        "DynamicDimension.0",
+        "3",
+        "48",
+        "DynamicDimension.1"
+      ],
+      "ctc_output_classes": 18385,
+      "yml_character_entries": 18383,
+      "yml_contains_space_entry": false,
+      "rapidocr_character_len_with_blank_and_space": 18385,
+      "chars_file_sha256": "d1979e9f794c464c0d2e0b70a7fe14dd978e9dc644c0e71f14158cdf8342af1b",
+      "chars_file_bytes": 74012,
+      "checks": {
+        "rapidocr_reread_equals_yml": true,
+        "output_classes_equal_len_plus_2": true
+      }
+    }
+  }
+}
