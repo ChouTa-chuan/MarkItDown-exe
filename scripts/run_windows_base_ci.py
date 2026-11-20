@@ -76,7 +76,8 @@ def main():
                 call('previous-base-build',[sys.executable,args.previous_source/'scripts/run_windows_base_ci.py',
                      '--inputs',args.inputs,'--output',previous_output])
             finally:
-                for name in ['windows-build.json','build-error.log','acceptance/windows-acceptance.json']:
+                # gui.log 用於區分前版 GUI 驗收的逾時與程序結束（run 44307725980 缺此檔而無法判斷）。
+                for name in ['windows-build.json','build-error.log','acceptance/windows-acceptance.json','acceptance/gui.log']:
                     path=previous_output/'reports'/name
                     if path.is_file():
                         target=reports/'previous-build'/name

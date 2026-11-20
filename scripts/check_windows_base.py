@@ -217,6 +217,9 @@ def loaded_qt_core(pid):
         kernel.CloseHandle(process)
 
 
+GUI_OPEN_SECONDS = 60
+
+
 def gui_check(app, root, output, environment):
     """只控制剛啟動的自身 child 視窗；截圖限該視窗，不擷取桌面或其他程式。"""
     import ctypes
@@ -235,13 +238,20 @@ def gui_check(app, root, output, environment):
                 if pid.value == child.pid and user32.IsWindowVisible(hwnd): handles.append(hwnd)
                 return True
             callback = callback_type(visit)
-            deadline = time.monotonic()+25
+            # hosted runner 冷啟動凍結程式可能超過 25 秒（run 44307725980），等待放寬為 60 秒；
+            # 這只延長等待，視窗必須真的出現且程序仍在執行，驗收標準不變。
+            deadline = time.monotonic()+GUI_OPEN_SECONDS
             while time.monotonic() < deadline and child.poll() is None:
                 handles.clear()
                 user32.EnumWindows(callback, 0)
                 if handles: break
                 time.sleep(0.2)
-            assert handles and child.poll() is None, 'Qt Windows window did not open'
+            if not handles or child.poll() is not None:
+                # 分清楚「程序已結束」與「逾時仍無視窗」，詳細輸出見同目錄 gui.log。
+                code = child.poll()
+                reason = (f'process exited with code {code}' if code is not None
+                          else f'no visible window after {GUI_OPEN_SECONDS} seconds')
+                raise AssertionError(f'Qt Windows window did not open: {reason}')
             core = loaded_qt_core(child.pid)
             from PIL import ImageGrab
             rect = wintypes.RECT()
