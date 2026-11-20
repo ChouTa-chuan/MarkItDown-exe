@@ -6,7 +6,7 @@ Hosted Windows 用固定來源 `b17d51b` 重建並驗收安裝包。從 GitHub A
 
 [報告式試跑 run 44613509068](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44613509068) 只上傳兩份報告相關 artifact，runner 已回讀正式報告 ZIP 解出的成員並逐檔核對 bytes。產品 uploader 跳過。報告內的 SHA256SUMS 對應的是產品目錄。
 
-試跑 run 44613509068 使用提交 `8974372`。之後程式只把檢查收緊，要求標準庫 ZIP 成員大小和 CRC 也一致，並限定已確認的 RECORD 路徑格式。
+試跑 run 44613509068 使用提交 `8974372`。之後程式只把檢查收緊，要求標準庫 ZIP 成員大小和 CRC 也一致，並限定已確認的 RECORD 路徑格式。 本目錄的 `BUILD-INFO.json` 屬於該次試跑。各次重建的安裝程式不具逐 byte 一致性，公開版指紋以 [public-release.json](public-release.json) 為準。
 
 | Artifact | Digest | 大小（bytes） | 到期（UTC） |
 | --- | --- | --- | --- |
@@ -21,7 +21,7 @@ Linux 混合與獨立模組回歸和 CI 另記於 [進度資料](../../../progre
 
 從 main `545ef2b4ca98e0ce7a9df8b3273d6fe3f67fdea3` 手動觸發一次，使用一般驗證 run 44657156187 當日產生的 OCR 輸入。這次完整比對使用 A13b 的原始 provenance。GitHub API 確認只有下表兩份 artifact，均保留 30 天。[公開 run 44659294752](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44659294752)
 
-安裝包 `MarkItDownBase-Setup-0.19.1-windows-x64.exe` 的 SHA-256 為 `b230fee72457faed2f009d7389f92ab4f420827d93491f4bd02672b9949c0992`。GitHub API 的 lifecycle 摘要、BUILD-INFO、實際報告回讀與上傳前勘驗的 Setup 指紋一致。上傳閘門與產品 uploader 成功。此 SHA 與 A13b 審閱時的 Setup 指紋比較結果記於收據。[公開收據](public-release.json)
+安裝包 `MarkItDownBase-Setup-0.19.1-windows-x64.exe` 的 SHA-256 為 `b230fee72457faed2f009d7389f92ab4f420827d93491f4bd02672b9949c0992`。GitHub API 的 lifecycle 摘要、本次公開報告中的 BUILD-INFO、實際報告回讀與上傳前勘驗的 Setup 指紋一致。上傳閘門與產品 uploader 成功。此 SHA 與 A13b 審閱時的 Setup 指紋比較結果記於收據。[公開收據](public-release.json)
 
 | Artifact | Digest（ZIP） | 大小（bytes） | 到期（UTC） |
 | --- | --- | --- | --- |
