@@ -49,13 +49,15 @@
 | | **B1b 測試版公開產出**（交 Codex）：以 B1a 流程從 main 產出並公開上傳安裝包 artifact（保留 30 天）。驗收（planner 建議、使用者 2026-11-19 同意做法）：(1) **逐檔對照**：下載 run 44295039865 `windows-base-validation-reports` 的 `bundle-provenance.json`（sha256 `b7fa49e6df55…`，即 base-source-review.json 的 `provenance_report_sha256`；**2026-11-25T11:45Z 到期**），先核 sha，再與重建 bundle 的 inventory 比對：路徑集合相等、明列且附理由的生成檔例外外 bytes 全同、`pure_modules_sha256` 相同；多檔、少檔、改檔、清單外生成檔、provenance sha 不符皆拒絕並有反例測試。結果寫 `CONTENT-EQUIVALENCE.json` 放進產品與報告，BUILD-INFO 引用其 sha。來不及在到期前完成時，改用 repo 內較弱依據（264 列分類、153 原生檔、原文、模組雜湊、檔案數），並在公開說明寫明（使用者已接受此退路）。(2) 公開上傳只在 `github.ref == refs/heads/main`、`PUBLIC_UPLOAD_ENABLED=True`、gates 四旗標等於預期、逐檔對照通過、lifecycle 安裝包 sha 等於上傳安裝包時執行；腳本同步檢查 `GITHUB_REF`；非 main 要求公開被拒並有反例。(3) 產品含 Setup、BUILD-INFO（含 `byte_identical_installer_to_original` 與對照摘要 sha）、CONTENT-EQUIVALENCE.json、LICENSE-FILES.json、known-gaps.json／.md、test-build-limitations.md、SHA256SUMS.txt 與中文 README（測試版非正式版、需登入 GitHub 下載且 30 天到期、`certutil -hashfile … SHA256` 核對、未簽章與 SmartScreen、安裝與移除、授權與已知缺口位置、Issues 連結、安裝程式由同一固定來源重建且容器與審閱時不同）。(4) 報告 artifact 寫明 SHA256SUMS 對應產品目錄。(5) 合併後從 main dispatch 一次：記錄 artifact 名稱、digest、大小、到期日；API 核對只有預期兩份 artifact。dispatch 前先跑一般驗證取得當天有效的 OCR 輸入（只保留 1 天）。(6) **公開後立即另開小 PR 把 `PUBLIC_UPLOAD_ENABLED` 改回 False**，並更新 STATUS。(7) 完整回歸、EXPECTED_TESTS 與 progress.json 同步；PR CI 全過、reviewer 無必須修正。不動 spec、鎖檔、登記表狀態、gates 規則與固定候選，不碰 `windows-build.yml`，不建 Release 或 tag | 期限前完成完整逐檔對照；PR 38 等 Claude reviewer，公開留待合併後 |
 | | **B2 驗收表**（交 Codex，與 B1b 平行，獨立 PR）：依 C1–C3 逐項列乾淨 Windows 10／11 安裝、離線首次啟動、四語 OCR、中文路徑、修復、移除與人工操作的勾選表；每項有預期結果與證據格式，填寫結果放 `docs/development-records/runs/stage-c-…/`（符合 `base-clean-machine-manual` 前綴）。依使用者決定，大階段 C 用 **B3 後的新版本**，表格以「待填安裝包 SHA」欄位綁定，不寫死 B1b 的 SHA。只改文件，不改程式 | 文件已開 PR 37；B3 後再實際驗收 |
 | | B3a CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例）（原 A14） | 待開始（B1b 之後） |
-| | B3b CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認（原 A15）。**另評估改用繁體中文識別模型以解決 ONNX 繁中已知缺口**（`tests/test_onnx_ocr.py` 的 `test_traditional_chinese_quality_known_gap` 預期失敗）：候選為 PP-OCRv5、PP-OCRv6 的繁中能力與專用 chinese_cht_PP-OCRv3_rec（需查證授權、ONNX 可用性與大小），以該固定繁中測試圖比較準確度；台灣聯發科 Breeze2 屬 3B／8B 多模態大型語言模型（Llama 社群授權），不適合 CPU 選配元件，若要採用改列大階段 E 或另立 GPU 選配元件。換模型屬更換模型與打包內容，需使用者同意；評估結果列表交使用者選擇 | 待開始（B1b 之後） |
+| | B3b CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認（原 A15）。**另評估改用繁體中文識別模型以解決 ONNX 繁中已知缺口**（`tests/test_onnx_ocr.py` 的 `test_traditional_chinese_quality_known_gap` 預期失敗）：候選為 PP-OCRv5、PP-OCRv6 的繁中能力與專用 chinese_cht_PP-OCRv3_rec（需查證授權、ONNX 可用性與大小），以該固定繁中測試圖比較準確度；台灣聯發科 Breeze2 屬 3B／8B 多模態大型語言模型（Llama 社群授權），不適合 CPU 選配元件，若要採用改列大階段 E 或另立 GPU 選配元件。換模型屬更換模型與打包內容，需使用者同意；評估結果列表交使用者選擇。**驗收須含簡體中文準確度不退步**（目前 PP-OCRv4 中文模型以簡中為主；可選同時涵蓋簡繁的單一模型，或保留現模型另加繁中模型供選擇） | 待開始（B1b 之後） |
 | | B3c CPU：Shapely／GEOS（LGPL）與 CPU wheel 內含元件（沿用 A9 格式），CPU Microsoft 6 檔（沿用 A10）；LGPL 做法需使用者確認（原 A16） | 待開始（B1b 之後） |
 | | B3d CPU：查明 setuptools、pip、pyinstaller 等建置工具是否真的進了 worker；若要排除屬打包變更，需使用者同意（原 A17） | 待開始（B1b 之後） |
 | | B3 CPU 元件重新定版（需 B3a–B3d 完成並經使用者確認）。會改動共用 `source_commit`，範圍含 base 重新審閱與 gates 重建，並以此新候選產出大階段 C 驗收用的新測試版 | 待開始 |
 | | B4 使用者確認測試版結果（綁定所測安裝包的 SHA，並在其 artifact 30 天期限內完成，否則重新產出） | 需使用者實機測試 |
 | C 乾淨機與人工驗收 | C1 乾淨 Windows 10／11 安裝與離線首次啟動；C2 四語、中文路徑、修復移除；C3 人工操作 | 需使用者或實體 Windows |
 | D 功能擴充 | D1 圖片檔走本機 OCR；D2 影音獨立選配元件 | 等使用者決定 |
+| | **D3 Tesseract 官方語言包（選配下載）**：簡體中文 chi_sim、法 fra、俄 rus、西 spa、德 deu，取自與四語相同的 tessdata_fast 固定提交（Apache-2.0），固定來源與雜湊、可個別下載與移除；不放進基本包（避免改打包內容與重新審閱）。需調整：`languages.py`／`bundled_ocr.py` 的四語寫死與最多 4 種的限制改為「內建、官方語言包、使用者加裝」三層；Tesseract 單一 tessdata 目錄的組合方式；各語合成測試圖與反例。CPU（PP-OCR）多語模型暫不擴充 | 已排入（使用者 2026-11-20 同意）；開工前交 planner 寫計畫 |
+| | **D4 使用者自行加裝模型**：第一版只接受 Tesseract `.traineddata`（ONNX 需字典與架構相容、風險較高，暫不開放）；放在獨立的使用者目錄、不覆蓋內建或受管模型、標示「未經驗證、授權由使用者負責」、格式檢查與載入失敗提示、只移除使用者加入的檔案 | 已排入（使用者 2026-11-20 同意）；開工前交 planner 寫計畫 |
 | E GPU | 實卡驗收 | 延後 |
 
 **執行順序**：大階段 A 已收尾 → **B1b 與 B2 平行（Codex，下一步）** → B3a–B3d（CPU，原 A14–A17；B3b 換繁中模型會牽動 known-gaps 與限制文字的 ONNX 繁中缺口一行）→ B3 → B4 → 大階段 C。各編號一個 PR。
@@ -138,5 +140,8 @@
 | 2026-11-19 | 使用者決定 | 公開上傳限定只從 main 觸發；B1b 公開完成後把 `PUBLIC_UPLOAD_ENABLED` 關回，之後需要重新公開時另開 PR 打開 |
 | 2026-11-19 | 使用者決定 | 大階段 C 乾淨機驗收使用 B3 CPU 重新定版後的新版本，不使用 B1b 的公開包 |
 | 2026-11-19 | 使用者決定 | B1b 交給 Codex（GPT），B2 同時進行 |
+| 2026-11-20 | 使用者決定 | 簡體中文也常用，B3b 改模型時不可移除或降低簡中能力 |
+| 2026-11-20 | 使用者決定 | 大階段 D 新增 D3（Tesseract 官方語言包選配下載：簡中、法、俄、西、德）與 D4（使用者自行下載模型加裝）；同意協調者的評估與架構調整方向 |
+| 2026-11-20 | 使用者決定 | B1b（PR 38）合併，合併後的公開觸發與關回上傳開關交給 Codex（GPT）；B2（PR 37）的三項建議修正在合併前由 Codex 補上 |
 
 接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。B1b、B2 等 Claude reviewer 查驗。B1b 合併後依流程從 main 先跑一般驗證以取得當日 OCR 輸入，再公開一次並記錄兩份 artifact，隨即另開關回開關的小 PR。

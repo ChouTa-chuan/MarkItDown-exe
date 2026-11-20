@@ -2817,7 +2817,7 @@
             "id": "B3b",
             "title": "CPU：PP-OCR 模型來源與授權",
             "status": "pending",
-            "note": "原 A15；B1b 之後；含繁中識別模型評估"
+            "note": "原 A15；B1b 之後；含繁中識別模型評估；簡中準確度不可退步"
           },
           {
             "id": "B3c",
@@ -2886,6 +2886,18 @@
             "title": "影音轉文字獨立選配元件（本機語音辨識）",
             "status": "decide",
             "note": "等使用者決定"
+          },
+          {
+            "id": "D3",
+            "title": "Tesseract 官方語言包選配下載（簡中、法、俄、西、德）",
+            "status": "pending",
+            "note": "使用者 2026-11-20 同意排入；開工前交 planner 寫計畫"
+          },
+          {
+            "id": "D4",
+            "title": "使用者自行加裝 Tesseract 模型",
+            "status": "pending",
+            "note": "使用者 2026-11-20 同意排入；第一版只接受 .traineddata"
           }
         ]
       },
