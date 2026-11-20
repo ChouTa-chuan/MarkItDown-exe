@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "origin": "Codex 為 B3b2 自行撰寫的合成文字及版面，共用 render_samples.py 的固定座標。",
+  "font_styles": {
+    "zh-hant": {
+      "body": "cjk-serif",
+      "sans": "cjk-sans",
+      "bold": "cjk-bold"
+    },
+    "zh-hans": {
+      "body": "cjk-serif",
+      "sans": "cjk-sans",
+      "bold": "cjk-bold"
+    },
+    "en": {
+      "body": "en-serif",
+      "sans": "en-sans",
+      "bold": "en-bold"
+    }
+  },
+  "font_indices": {
+    "zh-hant": 3,
+    "zh-hans": 2,
+    "en": 0
+  },
+  "fonts": {
+    "cjk-serif": {
+      "path": "opentype/noto/NotoSerifCJK-Regular.ttc",
+      "sha256": "5d9c31a059600193c9d7968a998bde886ccdc77e934006ad243b41794c496a7d"
+    },
+    "cjk-sans": {
+      "path": "opentype/noto/NotoSansCJK-Regular.ttc",
+      "sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a"
+    },
+    "cjk-bold": {
+      "path": "opentype/noto/NotoSansCJK-Bold.ttc",
+      "sha256": "faa5f3656a78b2e2d450d27fe8382c778bc2b6bb5ea29c986664a6a435056ceb"
+    },
+    "en-serif": {
+      "path": "truetype/dejavu/DejaVuSerif.ttf",
+      "sha256": "8cb29f7db250ebb2551a6ce2c1e0bfd5a0eb520e9e233370db0493e82e1f36f7"
+    },
+    "en-sans": {
+      "path": "truetype/dejavu/DejaVuSans.ttf",
+      "sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e"
+    },
+    "en-bold": {
+      "path": "truetype/dejavu/DejaVuSans-Bold.ttf",
+      "sha256": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890"
+    }
+  },
+  "samples": [
+    {
+      "id": "zh-hant-body",
+      "language": "zh-hant",
+      "layout": "body",
+      "file": "zh-hant-body.png",
+      "reference": "社區圖書室開放紀錄\n雨後空氣清爽，志工沿街巡看排水孔與腳踏車道。\n閱讀區新增地方誌、繪本及《臺灣山林手冊》各三冊。\n民眾可在櫃檯借閱，逾期請先以電話聯絡值班人員。\n書架 F-07 擺放資料夾，標籤末碼為 0068、0126。\n閉館前請確認門窗與電源，並在交接簿留下備註。\n本週三場活動共 86 人參與，設備檢修費約 2,450 元。\n週末開放時間：09:30–17:00；中午暫停借還。\n附註：借書證遺失或磨損，可到服務臺申請補發。",
+      "sha256": "cc89ae15ba845103dfea9b4436345ac6f00d9341fd3abf1f7dd0882a2d63d93d",
+      "bytes": 58180
+    },
+    {
+      "id": "zh-hant-table",
+      "language": "zh-hant",
+      "layout": "table",
+      "file": "zh-hant-table.png",
+      "reference": "文化展覽物資盤點\n品項\t規格\t數量\t狀態\n木製展示架\t120 × 45 cm\t12 組\t已入庫\n摺疊椅\t深灰色\t36 張\t待清潔\n玻璃標牌\tA5 直式\t18 面\t缺 2 面\n防潮墊\t厚度 3 mm\t40 片\t已包裝\n紙膠帶\t寬 24 mm\t9 捲\t待補貨\n延長線\t長度 5 m\t6 條\t已測試\n展示燈具\t色溫 4000 K\t8 盞\t已點交\n小字備註：序號 TW-006，剩餘貨品請依清冊逐一勾稽。",
+      "sha256": "cfba08ce61a629d23a503ce4ea62d485588611963de53e33c65a2f80d4980d99",
+      "bytes": 32945
+    },
+    {
+      "id": "zh-hant-heading",
+      "language": "zh-hant",
+      "layout": "heading",
+      "file": "zh-hant-heading.png",
+      "reference": "街區導覽更新公告\n第 04 期｜2026 年 11 月｜館舍及路線調整\n甲、入口改由北側騎樓通行\n乙、報名請填姓名、聯絡電話與梯次代碼。\n導覽範圍包括舊倉庫、蓄水池及步道旁的樹蔭區。\n交通說明：公車停靠站距服務臺約 280 公尺。\n版本 TW-R2；夜間照明暫停使用。請留意階梯邊緣。",
+      "sha256": "92651aba865ef770d21b391e608a5fc39a0ef3148569a1c3dea5fe12b720ac88",
+      "bytes": 34979
+    },
+    {
+      "id": "zh-hans-body",
+      "language": "zh-hans",
+      "layout": "body",
+      "file": "zh-hans-body.png",
+      "reference": "社区图书室开放记录\n雨后空气清爽，志愿者沿街查看排水口和自行车道。\n阅览区新增地方志、绘本及《城市山林手册》各三册。\n读者可在柜台借阅，逾期请先电话联系值班人员。\n书架 F-07 放置文件夹，标签尾号为 0068、0126。\n闭馆前请检查门窗与电源，并在交接簿留下备注。\n本周三场活动共 86 人参加，设备检修费约 2,450 元。\n周末开放时间：09:30–17:00；午间暂停借还。\n附注：借书证遗失或磨损，可到服务台申请补发。",
+      "sha256": "168e8d9f8ed7f7b7ef7d428671fd50558c7353f99ae1d946456f0b70559ff996",
+      "bytes": 53045
+    },
+    {
+      "id": "zh-hans-table",
+      "language": "zh-hans",
+      "layout": "table",
+      "file": "zh-hans-table.png",
+      "reference": "文化展览物资盘点\n品类\t规格\t数量\t状态\n木制展示架\t120 × 45 cm\t12 组\t已入库\n折叠椅\t深灰色\t36 把\t待清洁\n玻璃标牌\tA5 竖式\t18 块\t缺 2 块\n防潮垫\t厚度 3 mm\t40 片\t已包装\n纸胶带\t宽 24 mm\t9 卷\t待补货\n延长线\t长度 5 m\t6 条\t已测试\n展示灯具\t色温 4000 K\t8 盏\t已交接\n小字备注：编号 CN-006，剩余货品请按照清单逐项核对。",
+      "sha256": "9021438f4d3d262f6653ad9ad30520e4de14f90b7e2b0e3654ef830aee0d9b88",
+      "bytes": 32996
+    },
+    {
+      "id": "zh-hans-heading",
+      "language": "zh-hans",
+      "layout": "heading",
+      "file": "zh-hans-heading.png",
+      "reference": "街区导览更新公告\n第 04 期｜2026 年 11 月｜馆舍及路线调整\n甲、入口改由北侧骑楼通行\n乙、报名请填姓名、联系电话与场次代码。\n导览范围包括旧仓库、蓄水池及步道旁的树荫区。\n交通说明：公交站距服务台约 280 米。\n版本 CN-R2；夜间照明暂停使用。请留意台阶边缘。",
+      "sha256": "ec094bc314332a69cd4301354c1fc8396015db3f0dffd0ed4a69b5667859d47b",
+      "bytes": 32878
+    },
+    {
+      "id": "en-body",
+      "language": "en",
+      "layout": "body",
+      "file": "en-body.png",
+      "reference": "Community Reading Room Log\nAfter the rain, volunteers inspected drains and bicycle lanes.\nThe reading room received new maps, picture books, and field guides.\nVisitors may borrow copies at the desk. Call ahead about overdue items.\nShelf F-07 holds folders labelled 0068 and 0126.\nCheck the doors, windows, and power before the last shift ends.\nThree events welcomed 86 visitors. Repairs cost about 2,450 dollars.\nWeekend hours are 09:30–17:00, with a short pause at noon.\nNote: A worn or lost library card can be replaced at the service desk.",
+      "sha256": "bb756a892fa1d43c7498e24756025ae0ccb82b9e92b508830d3ba57f15d64b59",
+      "bytes": 31631
+    },
+    {
+      "id": "en-table",
+      "language": "en",
+      "layout": "table",
+      "file": "en-table.png",
+      "reference": "Exhibition Supply Inventory\nItem\tSpecification\tQuantity\tStatus\nWood display frame\t120 × 45 cm\t12 sets\tIn storage\nFolding chair\tDark grey\t36 chairs\tTo be cleaned\nGlass sign\tA5 portrait\t18 signs\t2 missing\nMoisture barrier\t3 mm thick\t40 pieces\tPacked\nPaper tape\t24 mm wide\t9 rolls\tReorder\nExtension cord\t5 m long\t6 cords\tTested\nExhibit light\t4000 K\t8 lights\tChecked in\nSmall print: Ref. EN-006. Count the remaining supplies against the list.",
+      "sha256": "6a552703ee1ad6e78d1558d5c97e7d6f62bdf17f9b0e42a139b822e419f992ee",
+      "bytes": 25262
+    },
+    {
+      "id": "en-heading",
+      "language": "en",
+      "layout": "heading",
+      "file": "en-heading.png",
+      "reference": "Walking Tour Update\nIssue 04 | November 2026 | Route and building changes\nA. Enter through the north arcade\nB. Register with your name, phone number, and session code.\nThe tour stops at the old warehouse, reservoir, and shaded path.\nTransit note: The bus stop is about 280 metres from the desk.\nRevision EN-R2. Lights are off at night. Watch for the edge of each step.",
+      "sha256": "3ebf233776b928afea0594235664a92bc759c21bdae36bdccea1c1a092ad89ea",
+      "bytes": 21823
+    }
+  ],
+  "renderer": {
+    "script": "render_samples.py",
+    "pillow": "13.0.0",
+    "freetype": "2.14.3",
+    "zlib": "1.3.1",
+    "image_mode": "L",
+    "canvas": [
+      1180,
+      560
+    ]
+  }
+}
