@@ -5,6 +5,7 @@
 ## 更新中
 
 - B3b5（證據，未改程式）：以 HF 官方 PP-OCRv6 small／v5 mobile ONNX（雜湊與 B3b4 相同）與 yml 外部字表重跑 135 張評估；官方 v6 與轉檔版辨識文字逐字相同，但簡中在 3 個模擬條件較 v4 多 6 個編輯（多為標點全半形），是否採用待使用者決定。見 [B3b5 證據](docs/development-records/runs/b3b5-official-onnx-rerun-2026-11-20/README.md)。
+- 2026-11-20：依使用者決定，Claude 協調者（主對話）預設模型改為 claude-sonnet-5-5（.claude/settings.json、CLAUDE.md），三個子代理模型不變；STATUS D 節記錄決定。只改文件與 Claude 專用設定。
 - B3b4（證據，未改程式）：PP-OCRv6 small／v5 mobile 的 HF 官方 ONNX 雜湊與模型卡授權（v6 官方檔 `5435fd74…`，與 B3b 實測的 RapidOCR 轉檔 `6f327246…` 不同）；官方檔本體因 CDN 主機被擋未取得，未能以官方檔重跑；旋轉補測 expand=True 顯示裁切不是主因（簡中不變，英文小幅變動），真正原因未查明。官方 yml 字表與 RapidOCR 轉檔字表逐行相同。見 [B3b4 證據](docs/development-records/runs/b3b4-v6-official-provenance-2026-11-20/README.md)。
 - B3b3（證據，未改程式）：查明 PP-OCRv5 mobile ONNX 來源與授權分級，新增模擬掃描（固定參數劣化 9 張 × 12 條件）與 v4／v5／v6 比較；真實公開掃描樣本因主機被擋未取得。見 [B3b3 證據](docs/development-records/runs/b3b3-v5-provenance-scan-2026-11-20/README.md)。
 
