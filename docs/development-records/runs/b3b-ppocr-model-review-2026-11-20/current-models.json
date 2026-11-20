@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "scope": "B3b 現有 RapidOCR 1.4.4 worker 模型與設定；授權範圍待使用者確認",
+  "fixed_candidate": {
+    "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+    "run_id": 44295044417,
+    "review": {
+      "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/cpu-source-review.json",
+      "sha256": "8bfe8b065c5d08618bf45f162771dad208038130956b853153f7817f503d8cd6"
+    }
+  },
+  "locked_wheel": {
+    "name": "rapidocr-onnxruntime",
+    "version": "1.4.4",
+    "filename": "rapidocr_onnxruntime-1.4.4-py3-none-any.whl",
+    "sha256": "971d7d5f223a7a808662229df1ef69893809d8457d834e6373d3854bc1782cbf",
+    "lock": {
+      "path": "packaging/profiles/cpu-windows-build.txt",
+      "sha256": "243efad87865d215c4f5314cfcb093d0f0201cb7aaee5dc47c0a878ec1a7c2a5"
+    },
+    "package_notice_evidence": {
+      "path": "docs/development-records/runs/b3a-cpu-original-notices-2026-11-20/worker-originals.json",
+      "sha256": "e3fae7d4a4d7f67ed73fd00a61821b6f17a08764e2322dd21c8a5ae2314fe346"
+    }
+  },
+  "published_sources": {
+    "rapidocr_build_workflow": {
+      "url": "https://github.com/RapidAI/RapidOCR/blob/86ae3f5079df3422c1829cd84baf19bc8a7a9453/.github/workflows/gen_whl_to_pypi_rapidocr_ort.yml",
+      "sha256": "067d85e4fadcffbe8b1b3e718a8f19c763b537e04367ee5bb815c22f41b30a46",
+      "note": "採用同版號 tag；歸檔另以檔案 bytes 獨立比對。"
+    },
+    "rapidocr_onnx_zip": {
+      "url": "https://github.com/RapidAI/RapidOCR/releases/download/v1.1.0/required_for_whl_v1.3.0.zip",
+      "github_asset_id": 123276554,
+      "published_by": "SWHL",
+      "created_at": "2023-08-27T01:26:14Z",
+      "sha256": "51f8df7ab9092e5c71345d2ce3b6c4c12d6954714000402bf2f5bbc864d8d760",
+      "members_include_license_or_notice": false
+    },
+    "rapidocr_paddle_mirror": {
+      "url": "https://github.com/RapidAI/RapidOCR/releases/download/v1.1.0/paddle_models_v4.zip",
+      "github_asset_id": 131693705,
+      "published_by": "SWHL",
+      "created_at": "2023-10-21T14:54:56Z",
+      "sha256": "ffde1203542e8e39f264a2dc5543d5980aac24287719fe1f417ed2c16f1120bc",
+      "members_include_license_or_notice": false,
+      "note": "鏡像封存與其成員有雜湊；不能據此推定它正是當時轉檔的輸入。"
+    },
+    "rapidocr_model_catalog": {
+      "url": "https://github.com/RapidAI/RapidOCR/blob/bd941dae09da793e76c6ba15c7aaf40f8424232a/python/rapidocr/default_models.yaml",
+      "sha256": "90e0159dead16c21adbf000014a46043c981ae097f041d92d8b19a52c2f2ed9a"
+    },
+    "official_paddle_index": {
+      "url": "https://github.com/PaddlePaddle/PaddleOCR/blob/07603421c20a96bb94bb87d0c4211032527ae706/paddleocr.py",
+      "sha256": "37da5a58692bcd37c8d9cf60765c449fa3662de82d416f04358bd8ead87e7162"
+    },
+    "rapidocr_conversion_documentation": {
+      "url": "https://github.com/RapidAI/PaddleOCRModelConvert/blob/66b51a48d57b4f17567a695d00c5682b1b08fd16/README.md",
+      "sha256": "1c90d0162c416b0ffd18866947356b02771ea2a36211c56958e6a0bf9fa141e6",
+      "note": "作者提供 Paddle2ONNX 的一般流程，無本次三檔當年轉換的命令或逐檔作者證明。"
+    }
+  },
+  "original_licenses": {
+    "paddleocr-v2.9.1": {
+      "path": "docs/development-records/runs/b3b-ppocr-model-review-2026-11-20/PaddleOCR-v2.9.1-LICENSE.txt",
+      "sha256": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856",
+      "upstream": "https://github.com/PaddlePaddle/PaddleOCR/blob/07603421c20a96bb94bb87d0c4211032527ae706/LICENSE",
+      "expression": "Apache-2.0",
+      "scope": "PaddleOCR v2.9.1 專案授權原文；三個舊模型與對應 ONNX 的個別授權適用範圍待確認"
+    },
+    "rapidocr-v1.4.4": {
+      "path": "src/desktop_app/data/licenses/windows/supplemental/rapidocr-onnxruntime.txt",
+      "sha256": "3e0af25fdd06aa9586ae97adb00ea927ebe5a3805ac77d2d3a81ce5f55693333",
+      "upstream": "https://raw.githubusercontent.com/RapidAI/RapidOCR/86ae3f5079df3422c1829cd84baf19bc8a7a9453/LICENSE",
+      "expression": "Apache-2.0",
+      "scope": "RapidOCR 同版提交的專案原文，用於程式與 config.yaml；不得代替 Paddle 權重原文"
+    }
+  },
+  "members": [
+    {
+      "wheel_member": "rapidocr_onnxruntime/config.yaml",
+      "candidate_path": "_internal/rapidocr_onnxruntime/config.yaml",
+      "bytes": 1221,
+      "sha256": "bf94a1da4cba828e67b1d61e27cee14d9e7da27c9f272e04048a17e41ae97332",
+      "candidate_match": "SHA-256 and size; wheel RECORD also matches",
+      "version_basis": "upstream-file-byte-match",
+      "rapidocr_source": "https://github.com/RapidAI/RapidOCR/blob/86ae3f5079df3422c1829cd84baf19bc8a7a9453/python/rapidocr_onnxruntime/config.yaml",
+      "explanation": "RapidOCR 設定檔，選擇三個模型與前後處理參數，本身不是權重。",
+      "license_evidence": [
+        "rapidocr-v1.4.4"
+      ]
+    },
+    {
+      "wheel_member": "rapidocr_onnxruntime/models/ch_PP-OCRv4_det_infer.onnx",
+      "candidate_path": "_internal/rapidocr_onnxruntime/models/ch_PP-OCRv4_det_infer.onnx",
+      "bytes": 4745517,
+      "sha256": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9",
+      "candidate_match": "SHA-256 and size; wheel RECORD also matches",
+      "paddle_model": "PP-OCRv4 mobile det",
+      "paddle_original": "https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_det_infer.tar",
+      "paddle_mirror_members": [
+        {
+          "member": "models/ch_PP-OCRv4_det_infer/inference.pdiparams",
+          "sha256": "49ee815e30cff43cb1057d33bf0d94193e4d4f1ae28451cad15b40be830df915",
+          "bytes": 4692937
+        },
+        {
+          "member": "models/ch_PP-OCRv4_det_infer/inference.pdiparams.info",
+          "sha256": "4e0f29e5fa476126f9efe0dc69f7ca7be960705ad549385d30c9604193463e69",
+          "bytes": 23580
+        },
+        {
+          "member": "models/ch_PP-OCRv4_det_infer/inference.pdmodel",
+          "sha256": "2ad68ed2768fe6c41166a5bc64680cc9f445390acb6528da449a4db2f7b90e14",
+          "bytes": 166367
+        }
+      ],
+      "version_basis": "published-onnx-byte-match; paddle-checkpoint-identified-by-official-index",
+      "rapidocr_archive_member": "required_for_whl_v1.3.0/resources/models/ch_PP-OCRv4_det_infer.onnx",
+      "rapidocr_catalog_filename": "ch_PP-OCRv4_det_mobile.onnx",
+      "graph_name": "Model from PaddlePaddle.",
+      "conversion_evidence": "RapidOCR 公開 ZIP 中的 ONNX 與 wheel、固定 CPU 候選逐檔一致；上傳者為 SWHL。",
+      "conversion_limits": "PaddleOCR 官方索引與 RapidOCR 的 Paddle 鏡像辨識模型家族；此轉檔的作者、當時使用的原始封存 SHA、工具版本及參數沒有逐檔建置紀錄。",
+      "license_evidence": [
+        "paddleocr-v2.9.1",
+        "rapidocr-v1.4.4"
+      ],
+      "license_scope": "PaddleOCR 專案 Apache-2.0 原文已取得；ZIP 中沒有各檔 LICENSE 或 NOTICE。套件的授權宣告不足以獨立確認模型權重的適用範圍。"
+    },
+    {
+      "wheel_member": "rapidocr_onnxruntime/models/ch_PP-OCRv4_rec_infer.onnx",
+      "candidate_path": "_internal/rapidocr_onnxruntime/models/ch_PP-OCRv4_rec_infer.onnx",
+      "bytes": 10857958,
+      "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+      "candidate_match": "SHA-256 and size; wheel RECORD also matches",
+      "paddle_model": "PP-OCRv4 mobile rec",
+      "paddle_original": "https://paddleocr.bj.bcebos.com/PP-OCRv4/chinese/ch_PP-OCRv4_rec_infer.tar",
+      "paddle_mirror_members": [
+        {
+          "member": "models/ch_PP-OCRv4_rec_infer/inference.pdiparams",
+          "sha256": "a6dbfa63e7ee161688523c954e9e293f77dc24044db81e836ff9c7f103fd191a",
+          "bytes": 10766823
+        },
+        {
+          "member": "models/ch_PP-OCRv4_rec_infer/inference.pdiparams.info",
+          "sha256": "0706cc669bdce382f582c139906076b170b112c51bf32573fe43438025777f12",
+          "bytes": 30643
+        },
+        {
+          "member": "models/ch_PP-OCRv4_rec_infer/inference.pdmodel",
+          "sha256": "bf78f3898a004615e69c676259d8171bd7ae99000653b41fd72aaa36ae8bd304",
+          "bytes": 169485
+        }
+      ],
+      "version_basis": "published-onnx-byte-match; paddle-checkpoint-identified-by-official-index",
+      "rapidocr_archive_member": "required_for_whl_v1.3.0/resources/models/ch_PP-OCRv4_rec_infer.onnx",
+      "rapidocr_catalog_filename": "ch_PP-OCRv4_rec_mobile.onnx",
+      "graph_name": "Model from PaddlePaddle.",
+      "conversion_evidence": "RapidOCR 公開 ZIP 中的 ONNX 與 wheel、固定 CPU 候選逐檔一致；上傳者為 SWHL。",
+      "conversion_limits": "PaddleOCR 官方索引與 RapidOCR 的 Paddle 鏡像辨識模型家族；此轉檔的作者、當時使用的原始封存 SHA、工具版本及參數沒有逐檔建置紀錄。",
+      "license_evidence": [
+        "paddleocr-v2.9.1",
+        "rapidocr-v1.4.4"
+      ],
+      "license_scope": "PaddleOCR 專案 Apache-2.0 原文已取得；ZIP 中沒有各檔 LICENSE 或 NOTICE。套件的授權宣告不足以獨立確認模型權重的適用範圍。"
+    },
+    {
+      "wheel_member": "rapidocr_onnxruntime/models/ch_ppocr_mobile_v2.0_cls_infer.onnx",
+      "candidate_path": "_internal/rapidocr_onnxruntime/models/ch_ppocr_mobile_v2.0_cls_infer.onnx",
+      "bytes": 585532,
+      "sha256": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c",
+      "candidate_match": "SHA-256 and size; wheel RECORD also matches",
+      "paddle_model": "PP-OCR mobile v2.0 angle cls",
+      "paddle_original": "https://paddleocr.bj.bcebos.com/dygraph_v2.0/ch/ch_ppocr_mobile_v2.0_cls_infer.tar",
+      "paddle_mirror_members": [
+        {
+          "member": "models/ch_ppocr_mobile_v2_cls_infer/inference.pdiparams",
+          "sha256": "d1efda1b80e174b4fcb168a035ac96c1af4938892bd86a55f300a6027105d08c",
+          "bytes": 539978
+        },
+        {
+          "member": "models/ch_ppocr_mobile_v2_cls_infer/inference.pdiparams.info",
+          "sha256": "ee0c2eaa4c09814802bf520c01dfdbc1345dc2879dc9e67424d32c7b0ee88e59",
+          "bytes": 18545
+        },
+        {
+          "member": "models/ch_ppocr_mobile_v2_cls_infer/inference.pdmodel",
+          "sha256": "3c4337ec61722a20b1dca2e5bfaffc313c0592bc89ad6e0d45168224186f6683",
+          "bytes": 1624487
+        }
+      ],
+      "version_basis": "published-onnx-byte-match; paddle-checkpoint-identified-by-official-index",
+      "rapidocr_archive_member": "required_for_whl_v1.3.0/resources/models/ch_ppocr_mobile_v2.0_cls_infer.onnx",
+      "rapidocr_catalog_filename": "ch_ppocr_mobile_v2.0_cls_mobile.onnx",
+      "graph_name": "paddle-onnx",
+      "conversion_evidence": "RapidOCR 公開 ZIP 中的 ONNX 與 wheel、固定 CPU 候選逐檔一致；上傳者為 SWHL。",
+      "conversion_limits": "PaddleOCR 官方索引與 RapidOCR 的 Paddle 鏡像辨識模型家族；此轉檔的作者、當時使用的原始封存 SHA、工具版本及參數沒有逐檔建置紀錄。",
+      "license_evidence": [
+        "paddleocr-v2.9.1",
+        "rapidocr-v1.4.4"
+      ],
+      "license_scope": "PaddleOCR 專案 Apache-2.0 原文已取得；ZIP 中沒有各檔 LICENSE 或 NOTICE。套件的授權宣告不足以獨立確認模型權重的適用範圍。"
+    }
+  ]
+}
