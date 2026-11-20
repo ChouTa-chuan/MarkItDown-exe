@@ -1,6 +1,6 @@
 # B3b PP-OCR 模型來源、授權與辨識評估
 
-本輪盤點 A13b 固定 CPU 候選 `b17d51b`（run [44295044417](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44295044417)）的權重和設定，並在 Linux CPU 比較識別候選。正式設定仍使用原三個模型。登記表 `cpu-rapidocr-models` 維持 `open`，適用授權及模型選擇待使用者決定。
+本輪盤點 A13b 固定 CPU 候選 `b17d51b`（run [44295044417](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44295044417)）的權重和設定，並在 Linux CPU 比較識別候選。正式設定仍使用原三個模型。使用者已選定現有模型的授權處理方式 A。登記表 `cpu-rapidocr-models` 維持 `open`，在 B3 重新定版時接入決定與揭露證據。模型選型留待 B3b2 擴大樣本評估後決定。
 
 ## 現有 worker 的來源
 
@@ -15,10 +15,16 @@
 
 RapidOCR 的 wheel 發布工作流會複製 GitHub asset `123276554` 裡的三個 ONNX，該 asset 由 SWHL 上傳。SWHL 在 2023-08-27 公告 v1.3.0 已支援 PP-OCRv4，已下載 v1.3.0 wheel 複驗，三檔完全一致。三檔也與 RapidOCR `v3.10.0` 目錄列出的 SHA-256 相同。PaddleOCR 官方索引給了原始推論模型名稱及連結，RapidOCR 另有同名 Paddle 封存，以及公開的 Paddle2ONNX 通用流程。三個 ONNX 沒有可核到的逐檔轉換紀錄，實際轉檔者、工具版本、參數及當時的輸入封存雜湊均未證實。Paddle 封存鏡像的雜湊只證明鏡像內容。[RapidOCR wheel 工作流](https://github.com/RapidAI/RapidOCR/blob/86ae3f5079df3422c1829cd84baf19bc8a7a9453/.github/workflows/gen_whl_to_pypi_rapidocr_ort.yml) · [RapidOCR v1.3.0 公告](https://github.com/RapidAI/RapidOCR/issues/111#issuecomment-1694652323) · [PaddleOCR 官方模型索引](https://github.com/PaddlePaddle/PaddleOCR/blob/07603421c20a96bb94bb87d0c4211032527ae706/paddleocr.py) · [RapidAI 的轉檔說明](https://github.com/RapidAI/PaddleOCRModelConvert/blob/66b51a48d57b4f17567a695d00c5682b1b08fd16/README.md)
 
-## 授權及須決定的範圍
+## 授權、使用者決定與揭露
 
-- **設定檔**可追到 RapidOCR `v1.4.4` 同版來源，其專案 Apache-2.0 原文已在 B3a 綁定。**三個模型**的上游原文是本輪保存的 PaddleOCR v2.9.1 專案 Apache-2.0 授權，包含原著作權行。現有 wheel、RapidOCR ONNX ZIP 和 Paddle 鏡像均未提供可逐一綁定到這些權重或轉檔的 LICENSE／NOTICE，其中 PaddleOCR 維護者已明確確認原始預訓練方向分類模型 `ch_ppocr_mobile_v2.0_cls` 為 Apache-2.0。兩個 v4 權重，以及三個 ONNX 的轉檔適用範圍仍待確認。[PaddleOCR v2.9.1 授權原文](PaddleOCR-v2.9.1-LICENSE.txt) · [方向分類權重授權回覆](https://github.com/PaddlePaddle/PaddleOCR/issues/8780#issuecomment-1371724255) · [RapidOCR B3a 原文證據](../b3a-cpu-original-notices-2026-11-20/worker-originals.json)
-- 若確認 Apache-2.0 涵蓋對應權重及 ONNX，該條款第 4 節允許再散布，包括轉換後版本。交付時提供適用的完整 LICENSE、保留適用的著作權和歸屬，對修改檔標明變更。原作品有適用的 NOTICE 時，另附可讀的相關歸屬。現況可識別的兩份原文是 PaddleOCR 的 LICENSE 和 RapidOCR 的既有 LICENSE。隨包決定還應確認轉檔或上游是否有另需保留的 NOTICE。本輪保留原文與出處供審查。
+| 授權證據 | 可查證的範圍 |
+| --- | --- |
+| `rapidocr-v1.4.4` | 設定檔可追到 RapidOCR 同版來源，其專案 Apache-2.0 原文已在 B3a 綁定。[RapidOCR B3a 原文證據](../b3a-cpu-original-notices-2026-11-20/worker-originals.json) |
+| `paddleocr-v2.9.1` | PaddleOCR 專案 Apache-2.0 原文，包含原著作權行。該原文不代表已涵蓋 det／rec 兩個 v4 權重。[PaddleOCR v2.9.1 授權原文](PaddleOCR-v2.9.1-LICENSE.txt) |
+
+現有 wheel、RapidOCR ONNX ZIP 和 Paddle 鏡像沒有逐檔權重或轉檔的 LICENSE／NOTICE。PaddleOCR 協作者 tink2123 在 issue [#8780](https://github.com/PaddlePaddle/PaddleOCR/issues/8780) 回覆「They all under Apache-2.0」，指涉的模型範圍待確認。原文用 Apache-2.0 的網址，該 issue 的標題、提問原文、四個模型及回覆原文都收錄在對照檔。[回覆原文](https://github.com/PaddlePaddle/PaddleOCR/issues/8780#issuecomment-1371724255) · [現有模型對照](current-models.json)
+
+2026-11-20 使用者選 A，接受 PaddleOCR 與 RapidOCR 的 Apache-2.0 涵蓋，依第 4 節保留適用授權與歸屬。B3 隨 CPU 元件附兩份授權原文，揭露兩個 v4 權重及三個 ONNX 轉檔的授權未逐檔確認。A12c 要求決定引用固定存檔，揭露檔也須以相同雜湊出現在新 CPU 候選審閱，於 B3 重新定版時填寫決定引用與接受缺口。
 
 ## 只評估識別模型
 
@@ -46,7 +52,7 @@ RapidOCR 的 wheel 發布工作流會複製 GitHub asset `123276554` 裡的三�
 
 1. **單一簡繁模型**。v5 mobile 和 v6 small 在目前三張圖同分。v5 檔案比 v6 小約 4.60 MB，可優先考慮 v5。若有更多文件樣本，再看 v6 是否有優勢。
 2. **保留現有模型，加繁中選項**。仍以 v4 服務簡中及英文，讓使用者明確切換繁中。專用 v3 在本次簡中和英文退步，適用於明確選定的繁中輸入。新增選項會增加隨包模型、授權與管理成本。
-3. **維持現況**。先把現有權重的授權範圍釐清。ONNX 繁中已知缺口維持現行揭露。
+3. **維持現況**。2026-11-20 使用者決定暫用現有 v4，等 B3b2 擴大繁中、簡中及英文樣本後再決定。
 
 ### 重跑
 

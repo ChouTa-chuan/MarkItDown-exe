@@ -2,9 +2,9 @@
   "updated": "2026-11-20",
   "environment": "Linux 完整混合／獨立模組回歸與 CPU 三語模型比較；PR 另有 hosted Windows 驗證",
   "tests_passed": 954,
-  "headline": "B3b 已核對 CPU 模型來源及三語樣本，待查驗與使用者決定",
-  "blocker": "CPU 模型權重及 ONNX 的授權適用範圍待確認，另有 B3c、B3d 與重新定版。乾淨機與人工驗收使用 B3 後的新版本。",
-  "next": "Claude reviewer 查驗 B3b PR。使用者確認現有模型的授權範圍，另決定是否及如何更換識別模型。",
+  "headline": "B3b 已核對 CPU 模型來源及三語樣本，已記錄授權選 A，待複查",
+  "blocker": "CPU 授權決定的隨包揭露與候選審閱留待 B3。識別選型等 B3b2 擴大樣本評估。乾淨機與人工驗收使用 B3 後的新版本。",
+  "next": "Claude reviewer 複查 PR 44。合併後從最新 main 開 B3b2 擴大三語樣本評估，結果交使用者選型。",
   "milestones": [
     {
       "id": "m0",
@@ -2817,8 +2817,9 @@
           {
             "id": "B3b",
             "title": "CPU：PP-OCR 模型來源與授權",
-            "status": "decide",
-            "note": "已盤點現有四檔並比較固定三語圖。開 PR 查驗，待確認授權適用範圍和換模選擇。"
+            "status": "active",
+            "note": "來源與評估完成，授權範圍已選 A。PR 44 待複查，選型等 B3b2 擴大樣本。",
+            "pr": 44
           },
           {
             "id": "B3c",
@@ -2836,7 +2837,7 @@
             "id": "B3",
             "title": "CPU 元件重新定版",
             "status": "pending",
-            "note": "需 B3a–B3d 完成並經使用者確認"
+            "note": "需 B3a–B3d 完成並經使用者確認。重新定版時用固定存檔與新候選審閱接上 CPU 授權原文、揭露和接受缺口。"
           },
           {
             "id": "B4",

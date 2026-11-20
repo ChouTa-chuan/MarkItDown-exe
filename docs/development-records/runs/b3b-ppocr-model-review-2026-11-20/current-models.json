@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "B3b 現有 RapidOCR 1.4.4 worker 模型與設定；授權範圍待使用者確認",
+  "scope": "B3b 現有 RapidOCR 1.4.4 worker 模型與設定。使用者已選 A，授權揭露與決定引用留待 B3 重新定版。",
   "fixed_candidate": {
     "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
     "run_id": 44295044417,
@@ -79,7 +79,7 @@
       "sha256": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856",
       "upstream": "https://github.com/PaddlePaddle/PaddleOCR/blob/07603421c20a96bb94bb87d0c4211032527ae706/LICENSE",
       "expression": "Apache-2.0",
-      "scope": "PaddleOCR v2.9.1 Apache-2.0 專案原文。維護者另有原始方向分類權重的授權確認，兩個 v4 權重及這三個 ONNX 的個別適用範圍待確認。"
+      "scope": "PaddleOCR v2.9.1 Apache-2.0 專案授權原文。它不代表已涵蓋 det／rec 兩個 v4 權重，兩個 v4 權重與三個 ONNX 轉檔的授權未逐檔確認。"
     },
     "rapidocr-v1.4.4": {
       "path": "src/desktop_app/data/licenses/windows/supplemental/rapidocr-onnxruntime.txt",
@@ -90,9 +90,7 @@
     },
     "paddleocr-angle-classifier-statement": {
       "issue": "https://github.com/PaddlePaddle/PaddleOCR/issues/8780",
-      "model_name": "ch_ppocr_mobile_v2.0_cls",
-      "scope": "PaddleOCR 原始預訓練方向分類權重；回覆未指定 RapidOCR 的 ONNX 位元組。",
-      "expression": "Apache-2.0",
+      "scope": "協作者回覆指涉的模型範圍待確認。提問涵蓋四個原始模型，未列 det／rec 兩個 v4 權重或 RapidOCR ONNX 轉檔。",
       "maintainer_comment": {
         "association": "COLLABORATOR",
         "author": "tink2123",
@@ -100,7 +98,16 @@
         "date": "2023-01-05T03:00:18Z",
         "url": "https://github.com/PaddlePaddle/PaddleOCR/issues/8780#issuecomment-1371724255"
       },
-      "originals_key": "paddleocr-v2.9.1"
+      "originals_key": "paddleocr-v2.9.1",
+      "issue_title": "PaddleOCR pre-trained model licenses",
+      "question_original": "请提供下述完整信息以便快速定位问题/Please provide the following information to quickly locate the problem\r\n\r\n- 系统环境/System Environment：NA\r\n- 版本号/Version：Paddle：  PaddleOCR： 问题相关组件/Related components： release 2.6\r\n- 运行指令/Command Code：NA\r\n- 完整报错/Complete Error Message：NA\r\n\r\nI would like to know under which license pre-trained OCR models are distributed, specifically:\r\n- ch_PP-OCRv3_det\r\n- en_PP-OCRv3_rec\r\n- en_PP-OCRv3_rec_slim\r\n- ch_ppocr_mobile_v2.0_cls\t\r\n",
+      "models_asked": [
+        "ch_PP-OCRv3_det",
+        "en_PP-OCRv3_rec",
+        "en_PP-OCRv3_rec_slim",
+        "ch_ppocr_mobile_v2.0_cls"
+      ],
+      "reply_summary": "PaddleOCR 協作者 tink2123 在 issue #8780 回覆「They all under Apache-2.0」，指涉的模型範圍待確認。"
     }
   },
   "members": [
@@ -229,7 +236,7 @@
         "rapidocr-v1.4.4",
         "paddleocr-angle-classifier-statement"
       ],
-      "license_scope": "PaddleOCR 維護者確認原始 ch_ppocr_mobile_v2.0_cls 權重使用 Apache-2.0。該回覆未涵蓋 RapidOCR 的特定 ONNX 轉檔成品。",
+      "license_scope": "PaddleOCR 協作者 tink2123 在 issue #8780 回覆「They all under Apache-2.0」，指涉的模型範圍待確認。",
       "earliest_verified_rapidocr_onnx_release": "1.3.0"
     }
   ]
