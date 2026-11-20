@@ -70,7 +70,8 @@ def extract(raw, review):
         counts=dict(files=len(inventory['files']), pure_modules=len(modules), library_members=len(library['members'])),
         build_environment_packages=[dict(name=p['name'], version=p['version'])
                                     for p in report['packages'] if p['name'] in TOOL_OWNERS],
-        physical_files=[r for r in inventory['files'] if file_in_scope(r)],
+        physical_files=[{k: r[k] for k in ('path', 'bytes', 'sha256', 'role', 'owners')}
+                        for r in inventory['files'] if file_in_scope(r)],
         pyz_sources=[r for r in modules if module_in_scope(r['name']) or r.get('distribution') in TOOL_OWNERS],
         base_library_members=[r for r in library['members']
                               if module_in_scope(r['name'].removesuffix('.pyc').replace('/', '.'))],
@@ -82,7 +83,8 @@ def publish(report, page):
     encoded = base64.b64encode(gzip.compress(raw, mtime=0)).decode('ascii')
     chunks = [encoded[i:i+2200] for i in range(0, len(encoded), 2200)]
     if not 0 < len(chunks) <= 24:
-        raise ValueError('CPU build tool evidence exceeds annotation budget')
+        raise ValueError(f'CPU build tool evidence exceeds annotation budget: {len(encoded)} bytes, '
+                         f'{len(report["physical_files"])} files, {len(report["pyz_sources"])} modules')
     for index, data in enumerate(chunks[page*8:(page+1)*8], page*8+1):
         print('::notice title=CPU build tool evidence::'+json.dumps(
             dict(check=report['check'], sha256=sha(raw), part=index, parts=len(chunks), data=data),
