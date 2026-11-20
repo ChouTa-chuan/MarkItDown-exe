@@ -3,8 +3,8 @@
   "environment": "Linux 完整混合／獨立模組回歸；hosted Windows 2022 觀測固定 CPU 候選同位元組的原生檔。",
   "tests_passed": 959,
   "headline": "B3c 完成 CPU 原生檔、原文與 Microsoft DLL 查證",
-  "blocker": "GEOS LGPL 與 CPU Microsoft 做法待使用者決定；B3b3 待指派。CPU 原文補件、授權揭露與重新定版留待 B3。",
-  "next": "B3c 交 Claude reviewer 查驗，合併後才開始 B3d。B3b3 待指派，GEOS LGPL 與 CPU Microsoft 做法待使用者決定。",
+  "blocker": "GEOS LGPL 與 CPU Microsoft 做法待使用者決定。B3b3 的真實公開掃描與官方授權仍待查。CPU 原文補件與重新定版留待 B3。",
+  "next": "B3c 交 Claude reviewer 查驗，合併後才開始 B3d；GEOS LGPL 與 CPU Microsoft 做法待使用者決定。B3b3 部分證據已由 PR 46 合併。",
   "milestones": [
     {
       "id": "m0",
@@ -2832,7 +2832,8 @@
             "id": "B3b3",
             "title": "CPU：查證 v5 mobile 授權並複驗公開掃描樣本",
             "status": "pending",
-            "note": "查 v5 ONNX 轉檔來源及授權，複驗 v4 與 v5 的繁中、簡中、英文。待使用者指派，正式換模在 B3 確認。"
+            "note": "PR 46 已合併來源分級與模擬掃描。真實公開掃描、官方權重與字表授權及是否換模仍待處理。",
+            "pr": 46
           },
           {
             "id": "B3c",

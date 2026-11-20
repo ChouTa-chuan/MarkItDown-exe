@@ -1,0 +1,860 @@
+{
+  "note": "模擬掃描，不等於真實掃描機成像。固定參數與種子；輸出圖以 SHA-256 核對。",
+  "seed": 20261120,
+  "seed_rule": "每張圖使用 default_rng(SEED + 樣本索引)，樣本索引依 B3b2 samples.json 順序",
+  "conditions": [
+    {
+      "id": "rotate-0.8",
+      "label": "輕微旋轉 0.8 度（白底）",
+      "params": {
+        "rotate": 0.8
+      }
+    },
+    {
+      "id": "rotate-2.0",
+      "label": "明顯旋轉 2.0 度（白底）",
+      "params": {
+        "rotate": 2.0
+      }
+    },
+    {
+      "id": "blur-0.8",
+      "label": "高斯模糊 半徑 0.8",
+      "params": {
+        "blur": 0.8
+      }
+    },
+    {
+      "id": "blur-1.5",
+      "label": "高斯模糊 半徑 1.5",
+      "params": {
+        "blur": 1.5
+      }
+    },
+    {
+      "id": "noise-10",
+      "label": "高斯雜訊 標準差 10",
+      "params": {
+        "noise": 10
+      }
+    },
+    {
+      "id": "noise-20",
+      "label": "高斯雜訊 標準差 20",
+      "params": {
+        "noise": 20
+      }
+    },
+    {
+      "id": "contrast-0.5",
+      "label": "對比降為 0.5",
+      "params": {
+        "contrast": 0.5
+      }
+    },
+    {
+      "id": "contrast-0.3",
+      "label": "對比降為 0.3",
+      "params": {
+        "contrast": 0.3
+      }
+    },
+    {
+      "id": "down-up-50",
+      "label": "降為 50% 再放回原尺寸",
+      "params": {
+        "scale": 0.5
+      }
+    },
+    {
+      "id": "down-up-33",
+      "label": "降為 33% 再放回原尺寸",
+      "params": {
+        "scale": 0.33
+      }
+    },
+    {
+      "id": "jpeg-q30",
+      "label": "JPEG 品質 30",
+      "params": {
+        "jpeg": 30
+      }
+    },
+    {
+      "id": "jpeg-q12",
+      "label": "JPEG 品質 12",
+      "params": {
+        "jpeg": 12
+      }
+    }
+  ],
+  "source_samples_sha256": {
+    "zh-hant-body": "cc89ae15ba845103dfea9b4436345ac6f00d9341fd3abf1f7dd0882a2d63d93d",
+    "zh-hant-table": "cfba08ce61a629d23a503ce4ea62d485588611963de53e33c65a2f80d4980d99",
+    "zh-hant-heading": "92651aba865ef770d21b391e608a5fc39a0ef3148569a1c3dea5fe12b720ac88",
+    "zh-hans-body": "168e8d9f8ed7f7b7ef7d428671fd50558c7353f99ae1d946456f0b70559ff996",
+    "zh-hans-table": "9021438f4d3d262f6653ad9ad30520e4de14f90b7e2b0e3654ef830aee0d9b88",
+    "zh-hans-heading": "ec094bc314332a69cd4301354c1fc8396015db3f0dffd0ed4a69b5667859d47b",
+    "en-body": "bb756a892fa1d43c7498e24756025ae0ccb82b9e92b508830d3ba57f15d64b59",
+    "en-table": "6a552703ee1ad6e78d1558d5c97e7d6f62bdf17f9b0e42a139b822e419f992ee",
+    "en-heading": "3ebf233776b928afea0594235664a92bc759c21bdae36bdccea1c1a092ad89ea"
+  },
+  "outputs": [
+    {
+      "condition": "rotate-0.8",
+      "sample": "zh-hant-body",
+      "file": "rotate-0.8__zh-hant-body.png",
+      "bytes": 92806,
+      "sha256": "7f10c94e8bf7992739190a00c5d9fe60e97f1e3657921c7804aa024cf9f72ba8"
+    },
+    {
+      "condition": "rotate-0.8",
+      "sample": "zh-hant-table",
+      "file": "rotate-0.8__zh-hant-table.png",
+      "bytes": 61758,
+      "sha256": "71b3455eb0d22a9d97def54e0f6cbf940a132c19591ea19fc01982973513db5e"
+    },
+    {
+      "condition": "rotate-0.8",
+      "sample": "zh-hant-heading",
+      "file": "rotate-0.8__zh-hant-heading.png",
+      "bytes": 60693,
+      "sha256": "bded2dee60b1f4fe45d3f06d96b84ad6c64c92833b78daefe384a89cb6625588"
+    },
+    {
+      "condition": "rotate-0.8",
+      "sample": "zh-hans-body",
+      "file": "rotate-0.8__zh-hans-body.png",
+      "bytes": 86715,
+      "sha256": "4aea2442ad1be8a45ee8a40047d2000d7e0d3a56c6cf149cf368345e6c753d98"
+    },
+    {
+      "condition": "rotate-0.8",
+      "sample": "zh-hans-table",
+      "file": "rotate-0.8__zh-hans-table.png",
+      "bytes": 61560,
+      "sha256": "5f39b38631c5ecac6e0e0265a9674bced9ffe010dca52f12168bd3f6011a4529"
+    },
+    {
+      "condition": "rotate-0.8",
+      "sample": "zh-hans-heading",
+      "file": "rotate-0.8__zh-hans-heading.png",
+      "bytes": 57433,
+      "sha256": "28d7534a2bef8fc6665171312efba6fca3d56b406606ad608e5b6cc8b9f6893f"
+    },
+    {
+      "condition": "rotate-0.8",
+      "sample": "en-body",
+      "file": "rotate-0.8__en-body.png",
+      "bytes": 95490,
+      "sha256": "4856ae90ee4a98886930efc33fac8ff64c340a71565efbbdcc086572faf7c96d"
+    },
+    {
+      "condition": "rotate-0.8",
+      "sample": "en-table",
+      "file": "rotate-0.8__en-table.png",
+      "bytes": 69302,
+      "sha256": "ab275f3fac835419c81bb8d06c5858112533c9a423ccab60274616f9e70cf09f"
+    },
+    {
+      "condition": "rotate-0.8",
+      "sample": "en-heading",
+      "file": "rotate-0.8__en-heading.png",
+      "bytes": 63988,
+      "sha256": "a4c2ec127fbb7140fdb1150d07799199b55a0a62bde67aece0b5aa6ae3bc28b5"
+    },
+    {
+      "condition": "rotate-2.0",
+      "sample": "zh-hant-body",
+      "file": "rotate-2.0__zh-hant-body.png",
+      "bytes": 96987,
+      "sha256": "1656d6a053c08533936885857092dbbacf3a87f1970ea189ab4b2cec2c033228"
+    },
+    {
+      "condition": "rotate-2.0",
+      "sample": "zh-hant-table",
+      "file": "rotate-2.0__zh-hant-table.png",
+      "bytes": 63006,
+      "sha256": "d0b8baec5eeb9b33330f7ec2439e0dc54165147ab295aa0f9a11ca38af903065"
+    },
+    {
+      "condition": "rotate-2.0",
+      "sample": "zh-hant-heading",
+      "file": "rotate-2.0__zh-hant-heading.png",
+      "bytes": 64542,
+      "sha256": "acd5f7452a57746c2557d981433a7d106f6e673c62fe479b3a56f593cfde05cf"
+    },
+    {
+      "condition": "rotate-2.0",
+      "sample": "zh-hans-body",
+      "file": "rotate-2.0__zh-hans-body.png",
+      "bytes": 90609,
+      "sha256": "a4c38ef25e2041b4963c1f152c502a5c783e40a0d0d8a25f5e00c5116201cc41"
+    },
+    {
+      "condition": "rotate-2.0",
+      "sample": "zh-hans-table",
+      "file": "rotate-2.0__zh-hans-table.png",
+      "bytes": 62628,
+      "sha256": "f05f843dd1af706685ecab8c5d004edacb22d2e89488fd2871e136e0e6b9b8a7"
+    },
+    {
+      "condition": "rotate-2.0",
+      "sample": "zh-hans-heading",
+      "file": "rotate-2.0__zh-hans-heading.png",
+      "bytes": 61253,
+      "sha256": "5786475657928d3fa6f799ca9d69940f10ae315bc9506d1643e6533720df85cc"
+    },
+    {
+      "condition": "rotate-2.0",
+      "sample": "en-body",
+      "file": "rotate-2.0__en-body.png",
+      "bytes": 100557,
+      "sha256": "58148d6e5869ceff9569f9e96c059f8608abc5424e0be98be78f9125f9c93f36"
+    },
+    {
+      "condition": "rotate-2.0",
+      "sample": "en-table",
+      "file": "rotate-2.0__en-table.png",
+      "bytes": 71059,
+      "sha256": "1ae3a3c3e6a0b7f88a36829c60579c645c7dc5e66eccf100c7b750c837b5f264"
+    },
+    {
+      "condition": "rotate-2.0",
+      "sample": "en-heading",
+      "file": "rotate-2.0__en-heading.png",
+      "bytes": 67251,
+      "sha256": "0fcad548f20183389ea754951a8c09c98eda12b7e16ca66515e974a06312b372"
+    },
+    {
+      "condition": "blur-0.8",
+      "sample": "zh-hant-body",
+      "file": "blur-0.8__zh-hant-body.png",
+      "bytes": 93087,
+      "sha256": "0c50e6baf613f1f2ca4e9b9687ab9ac21f9e24a43436f24196bc903aad47aa33"
+    },
+    {
+      "condition": "blur-0.8",
+      "sample": "zh-hant-table",
+      "file": "blur-0.8__zh-hant-table.png",
+      "bytes": 54734,
+      "sha256": "f993667714a3590c152a6982f0bf10011c4df2149ee0aa585898939374cb8f5d"
+    },
+    {
+      "condition": "blur-0.8",
+      "sample": "zh-hant-heading",
+      "file": "blur-0.8__zh-hant-heading.png",
+      "bytes": 59341,
+      "sha256": "193d88b46664a4a9b1431e9f3e81191b87710f512be73bc0713511849cfdd10c"
+    },
+    {
+      "condition": "blur-0.8",
+      "sample": "zh-hans-body",
+      "file": "blur-0.8__zh-hans-body.png",
+      "bytes": 86997,
+      "sha256": "81ff378463966b9fa20448f3fa2c1fa93bd3a43db92d9426f9d177cd7bcbb92f"
+    },
+    {
+      "condition": "blur-0.8",
+      "sample": "zh-hans-table",
+      "file": "blur-0.8__zh-hans-table.png",
+      "bytes": 55117,
+      "sha256": "2fc8a96179a84c70036207850d4dfcd12eff276794dd3e9b47503c509abc0bab"
+    },
+    {
+      "condition": "blur-0.8",
+      "sample": "zh-hans-heading",
+      "file": "blur-0.8__zh-hans-heading.png",
+      "bytes": 56296,
+      "sha256": "2879e3ca533b0502353c958ce317351722a5b5f4ac52fe4e4d293880f967ad7a"
+    },
+    {
+      "condition": "blur-0.8",
+      "sample": "en-body",
+      "file": "blur-0.8__en-body.png",
+      "bytes": 59951,
+      "sha256": "01b7222afd7179308865ee7e9a40ac6f32de87afc5d0d00fa6745e2a61953a40"
+    },
+    {
+      "condition": "blur-0.8",
+      "sample": "en-table",
+      "file": "blur-0.8__en-table.png",
+      "bytes": 47694,
+      "sha256": "78b7489a8bef54cf4eb1ca69e7fa8f1350625c017f5177ce49070c78e9aa161e"
+    },
+    {
+      "condition": "blur-0.8",
+      "sample": "en-heading",
+      "file": "blur-0.8__en-heading.png",
+      "bytes": 41927,
+      "sha256": "7af1e58847b0e2a4799618cca75255142c7fb205cb56c57a5180b4ee9e0f744d"
+    },
+    {
+      "condition": "blur-1.5",
+      "sample": "zh-hant-body",
+      "file": "blur-1.5__zh-hant-body.png",
+      "bytes": 90362,
+      "sha256": "801f82d17aa52c98fd11bc9304dc402235bf1ebc1277b41a982369c43ef335fa"
+    },
+    {
+      "condition": "blur-1.5",
+      "sample": "zh-hant-table",
+      "file": "blur-1.5__zh-hant-table.png",
+      "bytes": 53676,
+      "sha256": "82848be6fa00b34b5086754b10b3ffa8ce9c67b7258ec0b23e5c48aadadbb966"
+    },
+    {
+      "condition": "blur-1.5",
+      "sample": "zh-hant-heading",
+      "file": "blur-1.5__zh-hant-heading.png",
+      "bytes": 59459,
+      "sha256": "fb076fc6ef28d96b4a11a82d037b981b2df8aa8110e965d2cde51340b4d7f009"
+    },
+    {
+      "condition": "blur-1.5",
+      "sample": "zh-hans-body",
+      "file": "blur-1.5__zh-hans-body.png",
+      "bytes": 87720,
+      "sha256": "8a7797faf73411fe5064734306698d6bc74df5511e3f3d6ec58b2704bc6ac3ff"
+    },
+    {
+      "condition": "blur-1.5",
+      "sample": "zh-hans-table",
+      "file": "blur-1.5__zh-hans-table.png",
+      "bytes": 54723,
+      "sha256": "7b0ca648b580d8ca17fd7ccad35b033a102594048e991dc6a6da8f32361d71c2"
+    },
+    {
+      "condition": "blur-1.5",
+      "sample": "zh-hans-heading",
+      "file": "blur-1.5__zh-hans-heading.png",
+      "bytes": 58012,
+      "sha256": "f6b4cbf656e929fb811ea7cb7260d419d77be5eb30c8bb5b6e2b4607f92606d5"
+    },
+    {
+      "condition": "blur-1.5",
+      "sample": "en-body",
+      "file": "blur-1.5__en-body.png",
+      "bytes": 73433,
+      "sha256": "a9edc1780dd9c9eea8e3d2c828f2ace60de782f7ebccd42a3bf25e7c8e8a3cd3"
+    },
+    {
+      "condition": "blur-1.5",
+      "sample": "en-table",
+      "file": "blur-1.5__en-table.png",
+      "bytes": 57881,
+      "sha256": "e087ddf27fe525ab8c9392f277c628ce382a5a51a6cd42f53e0f26ae50d04352"
+    },
+    {
+      "condition": "blur-1.5",
+      "sample": "en-heading",
+      "file": "blur-1.5__en-heading.png",
+      "bytes": 52004,
+      "sha256": "12168619cd4036ed77d72baef85b0f95b09e7a155f9c8a41a64a0aef89cc18af"
+    },
+    {
+      "condition": "noise-10",
+      "sample": "zh-hant-body",
+      "file": "noise-10__zh-hant-body.png",
+      "bytes": 370447,
+      "sha256": "ed5283fb8896be6e1fb4f2a30a1508dd4891b9cc30026e9044eb9ff5595610cb"
+    },
+    {
+      "condition": "noise-10",
+      "sample": "zh-hant-table",
+      "file": "noise-10__zh-hant-table.png",
+      "bytes": 370428,
+      "sha256": "4acf160e312fecd158473a72c886368954c9be723ce7eabb078a3afe737424e9"
+    },
+    {
+      "condition": "noise-10",
+      "sample": "zh-hant-heading",
+      "file": "noise-10__zh-hant-heading.png",
+      "bytes": 390170,
+      "sha256": "a10afb94633188ff340c59bc646da2e5f1e6c9e7370e24b4693333c0dfbcd780"
+    },
+    {
+      "condition": "noise-10",
+      "sample": "zh-hans-body",
+      "file": "noise-10__zh-hans-body.png",
+      "bytes": 366341,
+      "sha256": "e72fe12a6844b403a55c7c47d9e62c1b4e04ed0f8066907439f4f8c9e8a80559"
+    },
+    {
+      "condition": "noise-10",
+      "sample": "zh-hans-table",
+      "file": "noise-10__zh-hans-table.png",
+      "bytes": 368384,
+      "sha256": "89d767c8233f791524570a5a457bdf89ad68722f92d7c69c3ccc3770bff2f446"
+    },
+    {
+      "condition": "noise-10",
+      "sample": "zh-hans-heading",
+      "file": "noise-10__zh-hans-heading.png",
+      "bytes": 387548,
+      "sha256": "5f9f78317e236d9c0002fbd883dfb5cc8e4082b63972ce2224876285463d86db"
+    },
+    {
+      "condition": "noise-10",
+      "sample": "en-body",
+      "file": "noise-10__en-body.png",
+      "bytes": 366330,
+      "sha256": "6c568d8a3e140938053ba22cd0515ee768040cfcbc4eca7e101248331af1c536"
+    },
+    {
+      "condition": "noise-10",
+      "sample": "en-table",
+      "file": "noise-10__en-table.png",
+      "bytes": 362198,
+      "sha256": "ff42dd92b36de79da67f7e39f1af6847f401a2ef0f79f6ce0a0a51e25c93492f"
+    },
+    {
+      "condition": "noise-10",
+      "sample": "en-heading",
+      "file": "noise-10__en-heading.png",
+      "bytes": 384473,
+      "sha256": "5c5b69ba23132050b34c7519371fcfff957a16f7250d2c45b8ab952aa0e172e3"
+    },
+    {
+      "condition": "noise-20",
+      "sample": "zh-hant-body",
+      "file": "noise-20__zh-hant-body.png",
+      "bytes": 377545,
+      "sha256": "93033a55e1bca4dc089021a8caf13d12aa522839c070cc6f965c61f622690176"
+    },
+    {
+      "condition": "noise-20",
+      "sample": "zh-hant-table",
+      "file": "noise-20__zh-hant-table.png",
+      "bytes": 384959,
+      "sha256": "1b30c5d5b78a65fc1c8193dc3c76e03df13176a8298b0a22afa54263a48395c6"
+    },
+    {
+      "condition": "noise-20",
+      "sample": "zh-hant-heading",
+      "file": "noise-20__zh-hant-heading.png",
+      "bytes": 409676,
+      "sha256": "21dc13362d11d8a1e915353064b29a1a94511247c33a8fc483fd726cf443242b"
+    },
+    {
+      "condition": "noise-20",
+      "sample": "zh-hans-body",
+      "file": "noise-20__zh-hans-body.png",
+      "bytes": 373531,
+      "sha256": "abfc47f4811f755da1cbd6e477fc09e81cbadb9eea410bec016318b49640c7b4"
+    },
+    {
+      "condition": "noise-20",
+      "sample": "zh-hans-table",
+      "file": "noise-20__zh-hans-table.png",
+      "bytes": 382918,
+      "sha256": "983a55b6a309bc34a3a33d067e3a21bc3e66654b2b350d998a83830d39075970"
+    },
+    {
+      "condition": "noise-20",
+      "sample": "zh-hans-heading",
+      "file": "noise-20__zh-hans-heading.png",
+      "bytes": 407790,
+      "sha256": "85a1ad2c071726ef3eeee906cf12ea340b0023044de5cd876d1e8a8dd70c17ba"
+    },
+    {
+      "condition": "noise-20",
+      "sample": "en-body",
+      "file": "noise-20__en-body.png",
+      "bytes": 391743,
+      "sha256": "3f6b2eb41359e098a1a834fccfa9c6dda94cf06a4a6b234a3946d469881c1145"
+    },
+    {
+      "condition": "noise-20",
+      "sample": "en-table",
+      "file": "noise-20__en-table.png",
+      "bytes": 385888,
+      "sha256": "a4de1498511ef83ac5e518a51cabe79cfa31b6d47722cec925a2ac681cee1871"
+    },
+    {
+      "condition": "noise-20",
+      "sample": "en-heading",
+      "file": "noise-20__en-heading.png",
+      "bytes": 417341,
+      "sha256": "30ffca6f7e901b91d0edfe5e6a8d9fa493a5cd9114c0ec0bef13ba3f7af6633f"
+    },
+    {
+      "condition": "contrast-0.5",
+      "sample": "zh-hant-body",
+      "file": "contrast-0.5__zh-hant-body.png",
+      "bytes": 57091,
+      "sha256": "6f071f3e7339b07969dc4680f33820599e3a8523e930f1aa56626774ab892839"
+    },
+    {
+      "condition": "contrast-0.5",
+      "sample": "zh-hant-table",
+      "file": "contrast-0.5__zh-hant-table.png",
+      "bytes": 33198,
+      "sha256": "e85c8d5928f87919ed041ba8c836018555091e2201527e33210a11f20b945229"
+    },
+    {
+      "condition": "contrast-0.5",
+      "sample": "zh-hant-heading",
+      "file": "contrast-0.5__zh-hant-heading.png",
+      "bytes": 34268,
+      "sha256": "39bc0e6fd6617a8f193d45c8491c1b1318aeb4ff9f431397b13055c9713228d6"
+    },
+    {
+      "condition": "contrast-0.5",
+      "sample": "zh-hans-body",
+      "file": "contrast-0.5__zh-hans-body.png",
+      "bytes": 51907,
+      "sha256": "3b4ec236ba43a6a9cf9c7c03da2087e7b84e95a24b8dd791720fadfec9c1f124"
+    },
+    {
+      "condition": "contrast-0.5",
+      "sample": "zh-hans-table",
+      "file": "contrast-0.5__zh-hans-table.png",
+      "bytes": 33171,
+      "sha256": "b1c99599d50bbe52af749d85cd426c59e65c4d961bd369943b6607a349c67749"
+    },
+    {
+      "condition": "contrast-0.5",
+      "sample": "zh-hans-heading",
+      "file": "contrast-0.5__zh-hans-heading.png",
+      "bytes": 32269,
+      "sha256": "e773458af8483bb3d05068b10e0ff031bcd67546158178b3c911d1d1350e00d9"
+    },
+    {
+      "condition": "contrast-0.5",
+      "sample": "en-body",
+      "file": "contrast-0.5__en-body.png",
+      "bytes": 31858,
+      "sha256": "9cf9f6b7b879bb472b775464ecb9702b4dc0882212ee50eef9e52482b358f139"
+    },
+    {
+      "condition": "contrast-0.5",
+      "sample": "en-table",
+      "file": "contrast-0.5__en-table.png",
+      "bytes": 25563,
+      "sha256": "08de6509c80fce4a57208d96cbfa825a360286317f2167587a94f5ed4f1732b0"
+    },
+    {
+      "condition": "contrast-0.5",
+      "sample": "en-heading",
+      "file": "contrast-0.5__en-heading.png",
+      "bytes": 22339,
+      "sha256": "58a87856bc66601c5954a80c9ecf46c5d4f6f9b927c78529578191e82edb8e21"
+    },
+    {
+      "condition": "contrast-0.3",
+      "sample": "zh-hant-body",
+      "file": "contrast-0.3__zh-hant-body.png",
+      "bytes": 52579,
+      "sha256": "72f34d6d475c75ee832024c143df0849662603afb3eb0527b0219a2cb37d62dc"
+    },
+    {
+      "condition": "contrast-0.3",
+      "sample": "zh-hant-table",
+      "file": "contrast-0.3__zh-hant-table.png",
+      "bytes": 31128,
+      "sha256": "77a6258bee0e9bd97e2002b677c2e46bcf7743eb21079a06d815e4c290f895ce"
+    },
+    {
+      "condition": "contrast-0.3",
+      "sample": "zh-hant-heading",
+      "file": "contrast-0.3__zh-hant-heading.png",
+      "bytes": 32026,
+      "sha256": "d758e39ddf50d1f0a3ea5d7b35716be2875c551522024655e2ec129996c061e7"
+    },
+    {
+      "condition": "contrast-0.3",
+      "sample": "zh-hans-body",
+      "file": "contrast-0.3__zh-hans-body.png",
+      "bytes": 48688,
+      "sha256": "c1b9c38543588363128541a87542db3727d0489aec28c5c6027ed365e3dc2f16"
+    },
+    {
+      "condition": "contrast-0.3",
+      "sample": "zh-hans-table",
+      "file": "contrast-0.3__zh-hans-table.png",
+      "bytes": 31107,
+      "sha256": "e962ff0b8585d22fa3cb66c8d662044008378b1a5804fe83a73fd40dff353655"
+    },
+    {
+      "condition": "contrast-0.3",
+      "sample": "zh-hans-heading",
+      "file": "contrast-0.3__zh-hans-heading.png",
+      "bytes": 30196,
+      "sha256": "23971637e06b336a34e309d2eed5a792b767a5e4e508ad720977ae52568999ac"
+    },
+    {
+      "condition": "contrast-0.3",
+      "sample": "en-body",
+      "file": "contrast-0.3__en-body.png",
+      "bytes": 30294,
+      "sha256": "4bea8f38f2c331563e443eaec8825fa8ce39da16356055ffcd17436e06034cb5"
+    },
+    {
+      "condition": "contrast-0.3",
+      "sample": "en-table",
+      "file": "contrast-0.3__en-table.png",
+      "bytes": 24025,
+      "sha256": "ea7039be7e89b6fb1bf44918caa0101c30f6405707cd3658c3346b6e7d888243"
+    },
+    {
+      "condition": "contrast-0.3",
+      "sample": "en-heading",
+      "file": "contrast-0.3__en-heading.png",
+      "bytes": 21171,
+      "sha256": "b9eab9413aed348fabc9a0a0c903bd4b7ce760e8ba3b7ae8f5255f31df6d20c7"
+    },
+    {
+      "condition": "down-up-50",
+      "sample": "zh-hant-body",
+      "file": "down-up-50__zh-hant-body.png",
+      "bytes": 91366,
+      "sha256": "e76fd3e1e38cace439d4255416e1c7cb948e832ab2a31b75cebbf6743d99f8ff"
+    },
+    {
+      "condition": "down-up-50",
+      "sample": "zh-hant-table",
+      "file": "down-up-50__zh-hant-table.png",
+      "bytes": 54641,
+      "sha256": "4d9776a2a9100b64aa6a0b5aec2652af4cca69b68081642bc87a1e81aa47fdec"
+    },
+    {
+      "condition": "down-up-50",
+      "sample": "zh-hant-heading",
+      "file": "down-up-50__zh-hant-heading.png",
+      "bytes": 59496,
+      "sha256": "474d024975295622b12276680ed57e4cb632ee3995a498002ce9e17f1f249f00"
+    },
+    {
+      "condition": "down-up-50",
+      "sample": "zh-hans-body",
+      "file": "down-up-50__zh-hans-body.png",
+      "bytes": 87623,
+      "sha256": "5cc2054d91de1a4b374cbb68624438c9b0c185b6fc55e2bf3953ef1601e37b9a"
+    },
+    {
+      "condition": "down-up-50",
+      "sample": "zh-hans-table",
+      "file": "down-up-50__zh-hans-table.png",
+      "bytes": 55625,
+      "sha256": "972ce94ca4ece4c6cd9415d9e8c7613e075f9982d6e55809ecb99d48df6f4ebf"
+    },
+    {
+      "condition": "down-up-50",
+      "sample": "zh-hans-heading",
+      "file": "down-up-50__zh-hans-heading.png",
+      "bytes": 57459,
+      "sha256": "ad2c27d9755a39cd704e0f029b1844b472afb406f7d06ecd289a931daabb75f3"
+    },
+    {
+      "condition": "down-up-50",
+      "sample": "en-body",
+      "file": "down-up-50__en-body.png",
+      "bytes": 77621,
+      "sha256": "453053f6db294f869261658dda682814b06d4b59fc6b4dcc7fd8c8a4d6b4c768"
+    },
+    {
+      "condition": "down-up-50",
+      "sample": "en-table",
+      "file": "down-up-50__en-table.png",
+      "bytes": 59725,
+      "sha256": "2a517830f55b4883cf1e5dec3d8d1c8f894ba7778eeee266db2debe5b4eaa0d1"
+    },
+    {
+      "condition": "down-up-50",
+      "sample": "en-heading",
+      "file": "down-up-50__en-heading.png",
+      "bytes": 52325,
+      "sha256": "e06c7350b51df60c7a7fd356ff1c0a6e577b9ebd8fe66ab1caf6de3694be3868"
+    },
+    {
+      "condition": "down-up-33",
+      "sample": "zh-hant-body",
+      "file": "down-up-33__zh-hant-body.png",
+      "bytes": 91701,
+      "sha256": "510cc9b67bc086ea2607aaafa51472479a214d12afc6a7d6d1637223f6beae45"
+    },
+    {
+      "condition": "down-up-33",
+      "sample": "zh-hant-table",
+      "file": "down-up-33__zh-hant-table.png",
+      "bytes": 55488,
+      "sha256": "35306c252581d269c5b48d7ae7ae0d8d441475b4daaa6d80653db68dffbd4d25"
+    },
+    {
+      "condition": "down-up-33",
+      "sample": "zh-hant-heading",
+      "file": "down-up-33__zh-hant-heading.png",
+      "bytes": 60969,
+      "sha256": "303e6c95cf086c39fc137c569713f1c9b8cadc708f4138ff02be08180225b357"
+    },
+    {
+      "condition": "down-up-33",
+      "sample": "zh-hans-body",
+      "file": "down-up-33__zh-hans-body.png",
+      "bytes": 89967,
+      "sha256": "89d9bf087e541262d2869aaf0b6997147f28a636735d3fdfc9f43b43540dbb5a"
+    },
+    {
+      "condition": "down-up-33",
+      "sample": "zh-hans-table",
+      "file": "down-up-33__zh-hans-table.png",
+      "bytes": 56550,
+      "sha256": "afc16283ddf95ddfa3eb22d46f52e73b41cda8eeb87752c1e3ed25ac89cb4b4f"
+    },
+    {
+      "condition": "down-up-33",
+      "sample": "zh-hans-heading",
+      "file": "down-up-33__zh-hans-heading.png",
+      "bytes": 59409,
+      "sha256": "9062e8e5085aa4dfd6d5341fc7317c49870ac26215dfb70a8decc2c0baa2fb23"
+    },
+    {
+      "condition": "down-up-33",
+      "sample": "en-body",
+      "file": "down-up-33__en-body.png",
+      "bytes": 109216,
+      "sha256": "60fb621d238ac22f2ccf450a1f466da87ab4b6f88878f133c8003001664bfb29"
+    },
+    {
+      "condition": "down-up-33",
+      "sample": "en-table",
+      "file": "down-up-33__en-table.png",
+      "bytes": 73484,
+      "sha256": "2691db06456c173b69d2db95b95a8898129ae285b5900a0573eba4ee987b4b75"
+    },
+    {
+      "condition": "down-up-33",
+      "sample": "en-heading",
+      "file": "down-up-33__en-heading.png",
+      "bytes": 71428,
+      "sha256": "e99f933fedafd34668a6f9f59e8af34ff5cd1b3e3bc19dc480a38c80ba36eb87"
+    },
+    {
+      "condition": "jpeg-q30",
+      "sample": "zh-hant-body",
+      "file": "jpeg-q30__zh-hant-body.png",
+      "bytes": 123443,
+      "sha256": "f8e2a269e40f270f5eb4559d77a0b773e0d6f9afde0cb5a476f032f858520cc0"
+    },
+    {
+      "condition": "jpeg-q30",
+      "sample": "zh-hant-table",
+      "file": "jpeg-q30__zh-hant-table.png",
+      "bytes": 75558,
+      "sha256": "4be0b4772955ac435d4b8b942a0416d144366a8602e852e8312cb661f801198b"
+    },
+    {
+      "condition": "jpeg-q30",
+      "sample": "zh-hant-heading",
+      "file": "jpeg-q30__zh-hant-heading.png",
+      "bytes": 78439,
+      "sha256": "7105e74bf993dae1ef8cea39fde112f32e5d559e0965b5ad22645d5365a31b7c"
+    },
+    {
+      "condition": "jpeg-q30",
+      "sample": "zh-hans-body",
+      "file": "jpeg-q30__zh-hans-body.png",
+      "bytes": 117766,
+      "sha256": "be1d6c8d27e75f5298a1fca63ee0de7b45777337c30c7aba288d4ba6f5396269"
+    },
+    {
+      "condition": "jpeg-q30",
+      "sample": "zh-hans-table",
+      "file": "jpeg-q30__zh-hans-table.png",
+      "bytes": 75308,
+      "sha256": "e52cb43559a7183f61b419055f066f3b0ab8fad991d2f0ca4665b84187768b5a"
+    },
+    {
+      "condition": "jpeg-q30",
+      "sample": "zh-hans-heading",
+      "file": "jpeg-q30__zh-hans-heading.png",
+      "bytes": 74760,
+      "sha256": "7b3bab8290bd3e4234a0f9c06c6cc946cb760dd28f1d3349e6abe421abdfb02a"
+    },
+    {
+      "condition": "jpeg-q30",
+      "sample": "en-body",
+      "file": "jpeg-q30__en-body.png",
+      "bytes": 125757,
+      "sha256": "e690b37984577c53f7184edcb3bc93d706fee833c8bd18d20f74c0589ad3a14a"
+    },
+    {
+      "condition": "jpeg-q30",
+      "sample": "en-table",
+      "file": "jpeg-q30__en-table.png",
+      "bytes": 87897,
+      "sha256": "04936e13899ddfc7c02e48b62e1cac66eca6f8b3ceae5a9105778129cea3582f"
+    },
+    {
+      "condition": "jpeg-q30",
+      "sample": "en-heading",
+      "file": "jpeg-q30__en-heading.png",
+      "bytes": 89795,
+      "sha256": "d5b9219c198fae4b01ddab80a14e9ca96cb425ad49dee96e4b8197706c8b8993"
+    },
+    {
+      "condition": "jpeg-q12",
+      "sample": "zh-hant-body",
+      "file": "jpeg-q12__zh-hant-body.png",
+      "bytes": 121085,
+      "sha256": "2cd074855b21d2b33b957bbe24897cf3428d6bc47818aebd9a18b2e9b4ee61b6"
+    },
+    {
+      "condition": "jpeg-q12",
+      "sample": "zh-hant-table",
+      "file": "jpeg-q12__zh-hant-table.png",
+      "bytes": 73247,
+      "sha256": "283c0e511f962883964f0f79c5a3fae588f18f31d935cdf6a74e02939d627a4c"
+    },
+    {
+      "condition": "jpeg-q12",
+      "sample": "zh-hant-heading",
+      "file": "jpeg-q12__zh-hant-heading.png",
+      "bytes": 76011,
+      "sha256": "f4ef47a56edf4c589f14af68a87612780538356622e982dbdf0477b001325856"
+    },
+    {
+      "condition": "jpeg-q12",
+      "sample": "zh-hans-body",
+      "file": "jpeg-q12__zh-hans-body.png",
+      "bytes": 115717,
+      "sha256": "cfdd48b1b3a74bc398066f25caac10229f99de2abed38194b19c55aa6ee8d422"
+    },
+    {
+      "condition": "jpeg-q12",
+      "sample": "zh-hans-table",
+      "file": "jpeg-q12__zh-hans-table.png",
+      "bytes": 73178,
+      "sha256": "19854bab886e42b3e87f2c08809610893a579a51dabfcb57477e57b388969ede"
+    },
+    {
+      "condition": "jpeg-q12",
+      "sample": "zh-hans-heading",
+      "file": "jpeg-q12__zh-hans-heading.png",
+      "bytes": 72451,
+      "sha256": "948902c46cd8c53feb6bb98359167c54784e2f0f1449e1b411d5fce27e51b4a9"
+    },
+    {
+      "condition": "jpeg-q12",
+      "sample": "en-body",
+      "file": "jpeg-q12__en-body.png",
+      "bytes": 124640,
+      "sha256": "555e0df091d65f4745a62b141721badf80ae5dab9504776c4b01ac1b6e4224cb"
+    },
+    {
+      "condition": "jpeg-q12",
+      "sample": "en-table",
+      "file": "jpeg-q12__en-table.png",
+      "bytes": 86844,
+      "sha256": "e5cac966a916498c1adae9fa79887896a867a4c89380bdfe113decee616dd503"
+    },
+    {
+      "condition": "jpeg-q12",
+      "sample": "en-heading",
+      "file": "jpeg-q12__en-heading.png",
+      "bytes": 87407,
+      "sha256": "26995bed2856f5ec3e14cb2fbf1f39f6a9857523e3c43e1a360c1b3fb44ce9ca"
+    }
+  ]
+}

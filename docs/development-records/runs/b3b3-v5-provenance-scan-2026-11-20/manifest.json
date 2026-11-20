@@ -1,0 +1,35 @@
+{
+  "date_taipei": "2026-11-20",
+  "tested_source": "3b522bc",
+  "accepted": true,
+  "result": "PP-OCRv5 mobile ONNX 來源與授權分級完成（官方 ONNX 與 HF 授權未能取得）；模擬掃描 12 條件比較完成，簡中未見整體提升；真實公開掃描樣本未取得。",
+  "keywords": [
+    "B3b3",
+    "PP-OCRv5",
+    "ONNX 來源",
+    "授權分級",
+    "模擬掃描",
+    "繁中",
+    "簡中",
+    "被擋主機"
+  ],
+  "files": {
+    "README.md": "448c789e49906184dc8e8b7c253df2b520ebf3c89a5c73aa9a8d1569201ab71e",
+    "v5-provenance.json": "b0b1d3035543fc1d851a4477a55137834d0a92029ff890998a1633a43a9fb8ef",
+    "degrade_scan.py": "358f2e9844100216d30002b3728ed459ee959faab00f3bbb07059f3e4a3651e5",
+    "run_scan_evaluation.py": "df7131830d456a8580953f27bd1cf021c43619d3af30484f03de8cd5201f8abd",
+    "scan-degradation-manifest.json": "d622e130e658a0a75bf4e64e39acc5a58a17ab609cf0010add7655dbf6c6b530",
+    "scan-evaluation-results.json": "f7994578742809404744757328b167c716a98e5d7554676f7f26882834a6ee3f",
+    "samples/down-up-33__zh-hant-table.png": "35306c252581d269c5b48d7ae7ae0d8d441475b4daaa6d80653db68dffbd4d25",
+    "samples/jpeg-q12__zh-hant-heading.png": "f4ef47a56edf4c589f14af68a87612780538356622e982dbdf0477b001325856",
+    "samples/noise-20__zh-hans-table.png": "983a55b6a309bc34a3a33d067e3a21bc3e66654b2b350d998a83830d39075970"
+  },
+  "reused_evaluators": [
+    {
+      "path": "docs/development-records/runs/b3b-ppocr-model-review-2026-11-20/evaluate.py"
+    },
+    {
+      "path": "docs/development-records/runs/b3b2-expanded-ocr-evaluation-2026-11-20/run_evaluation.py"
+    }
+  ]
+}
