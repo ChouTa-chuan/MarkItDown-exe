@@ -1,6 +1,8 @@
 """唯讀檢查受控 Windows 重建的 CArchive，並執行實際 worker 的公開 OCR 驗收。"""
 import argparse
+import base64
 import dis
+import gzip
 from importlib import metadata
 import json
 import marshal
@@ -8,6 +10,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import sysconfig
 import tempfile
 from types import CodeType
 from unittest.mock import patch
@@ -28,7 +31,29 @@ def tool_imports(code):
     return imports
 
 
-def inspect(bundle, original):
+def entry_source(name, source):
+    """辨識鎖定 wheel 提供的啟動腳本，未對到唯一檔案時維持未知。"""
+    if name == 'ocr_worker_entry':
+        path = source/'packaging/ocr_worker_entry.py'
+        return dict(distribution='markitdown-desktop', path='packaging/ocr_worker_entry.py',
+                    source_sha256=sha(path.read_bytes()))
+    matches = []
+    for package in ('pyinstaller', 'pyinstaller-hooks-contrib'):
+        distribution = metadata.distribution(package)
+        for member in distribution.files or ():
+            if member.name == name+'.py':
+                matches.append(dict(distribution=package, version=distribution.version, path=member.as_posix(),
+                                    source_sha256=sha(distribution.locate_file(member).read_bytes())))
+    if not matches:
+        path = Path(sysconfig.get_path('stdlib'))/(name.replace('.', '/')+'.py')
+        if path.is_file():
+            matches.append(dict(distribution='CPython stdlib', version=sys.version.split()[0],
+                                path=path.relative_to(sysconfig.get_path('stdlib')).as_posix(),
+                                source_sha256=sha(path.read_bytes())))
+    return matches[0] if len(matches) == 1 else None
+
+
+def inspect(bundle, original, source):
     from PyInstaller.archive.readers import CArchiveReader
 
     entry = bundle/'MarkItDownOCRWorker.exe'
@@ -44,7 +69,7 @@ def inspect(bundle, original):
         raw = archive.extract(name)
         imports = tool_imports(marshal.loads(raw))
         scripts.append(dict(name=name, type=info[-1], bytes=len(raw), sha256=sha(raw),
-                            explicit_tool_imports=sorted(imports)))
+                            explicit_tool_imports=sorted(imports), source=entry_source(name, source)))
     installed = json.loads((assets/'installed-manifest.json').read_bytes())['files']
     prefix = '_internal/worker-assets/'
     asset_rows = [row for row in original['physical_files'] if row['path'].startswith(prefix)]
@@ -58,7 +83,11 @@ def inspect(bundle, original):
         elif installed.get(name) == row['sha256']:
             asset_matches.append(name)
     pure_sha = sha(canonical(manifest['modules']))
-    return dict(entry_sha256=sha(entry.read_bytes()), entry_bytes=entry.stat().st_size,
+    entry_sha = sha(entry.read_bytes())
+    fixed_entry, = [r for r in original['physical_files'] if r['path'] == entry.name]
+    return dict(entry_sha256=entry_sha, entry_bytes=entry.stat().st_size,
+                original_entry_sha256=fixed_entry['sha256'],
+                original_entry_bytes_match=entry_sha == fixed_entry['sha256'],
                 version=metadata.version('pyinstaller'), startup_entries=scripts,
                 pyz_sources_sha256=pure_sha,
                 original_pyz_sources_match=pure_sha == original['pure_modules_sha256'],
@@ -109,12 +138,19 @@ def main():
     bundle = args.bundle.resolve()
     data = dict(check='cpu-build-tools-runtime', schema_version=1, source_commit=head,
                 python=sys.version.split()[0], run_id=os.environ.get('GITHUB_RUN_ID'),
-                archive=inspect(bundle, original), smoke=smoke(bundle, source))
+                archive=inspect(bundle, original, source), smoke=smoke(bundle, source))
+    raw = canonical(data)
     with args.output.open('xb') as output:
-        output.write(canonical(data)+b'\n')
+        output.write(raw+b'\n')
     # 只輸出指定的封存摘要及合成測試狀態，不傳出任何產品 bytes。
-    print('::notice title=B3d frozen archive::'+canonical(data).decode('utf-8')
-          .replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A'))
+    if os.getenv('GITHUB_ACTIONS') == 'true':
+        encoded = base64.b64encode(gzip.compress(raw, mtime=0)).decode('ascii')
+        chunks = [encoded[i:i+2200] for i in range(0, len(encoded), 2200)]
+        if not 0 < len(chunks) <= 8:
+            raise ValueError('Windows archive evidence exceeds annotation budget')
+        for index, part in enumerate(chunks, 1):
+            print('::notice title=B3d frozen archive::'+json.dumps(
+                dict(check=data['check'], sha256=sha(raw), part=index, parts=len(chunks), data=part)))
 
 
 if __name__ == '__main__':
