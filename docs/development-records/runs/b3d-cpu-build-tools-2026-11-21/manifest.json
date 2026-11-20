@@ -1,0 +1,39 @@
+{
+  "date_taipei": "2026-11-21",
+  "tested_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "accepted": true,
+  "windows_executed": true,
+  "result": "固定候選逐檔核對及同源 Windows 凍結啟動查證完成；B3d 不修改候選。",
+  "keywords": [
+    "B3d",
+    "CPU worker",
+    "setuptools",
+    "pip",
+    "PyInstaller",
+    "原文",
+    "CArchive",
+    "PYZ"
+  ],
+  "original_run": 44295044417,
+  "original_report_artifact_id": 14424905894,
+  "original_report_artifact_sha256": "8f38a60b9473ea915879d62adedd4dfc3b0a91ac9b1c5db3e7473ea51b89692e",
+  "original_extraction_run": 44782434625,
+  "original_extraction_job": 136448369102,
+  "original_extraction_canonical_sha256": "848716f69e777e5c89c793a86f80a18c337b60305abf2b9e75e99f63cf7b483b",
+  "files": {
+    "README.md": "3fee3e184b3686204c81f863ddbf62daa880b2de5e6cad9f2bb493567c947c2c",
+    "frozen-runtime.json": "15174acd7ad5877feecd339495d49c90e25374931fd9d93efe5a45e42be5bad8",
+    "original-cpu-build-tools.json": "baa96a23be5b73c9f2afc4d9cac9c43d681053e21b8d90736e013e6c9c4dbf5e",
+    "repo-notice-sources.json": "1c600c85914d0088e343e909aa7719ff4dc0b660112423e8b8b455cfcdd8968d"
+  },
+  "windows_rebuild_run": 44783968301,
+  "windows_rebuild_job": 136453771395,
+  "windows_rebuild_canonical_sha256": "10189e055ed138d6e2acd81cc9457ca86d3aab06db97f0b03dc7c1ab2fad9e74",
+  "previous_runs": [
+    44781803704,
+    44782043306,
+    44782223588,
+    44782915760,
+    44783498128
+  ]
+}

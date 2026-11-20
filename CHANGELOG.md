@@ -4,6 +4,11 @@
 
 ## 更新中
 
+### 2026-11-21｜B3d CPU worker 建置工具查證
+
+- 以固定 CPU 候選的原始完整報告逐檔核對建置工具，分開辨識授權／套件資料、PYZ 或 base_library 的程式碼和 PyInstaller 啟動器。另以同來源 Windows 重建讀取外層啟動封存並跑固定 health 和 OCR，詳見[證據](docs/development-records/runs/b3d-cpu-build-tools-2026-11-21/README.md)。
+- 新增 raw provenance／封存錯綁、缺檔及靜態資料來源指紋反例。`cpu-archives` 接上查證證據，維持 open。打包精簡、授權資料整理及重新定版留待 B3 確認。
+
 - 2026-11-20：STATUS 更新至 B3c 已合併：新增 B3b4、B3b5，記錄使用者決定（候選改以 v6 small 為主並開放主機；GEOS 選 A、CPU Microsoft 選 B、B3 原文優先順序），B3 範圍補上這些工作與「換 v6 前須再取得使用者同意」，下一步為 B3d。前版存為 `docs/history/status/2026-11-20-before-b3c-merged.md`。只改文件。
 - 2026-11-20：線上視覺進度更新：B3b2 完成，新增 B3b3、B3b4、B3b5（已完成），B3c 進行中、B3d 下一步，B3 範圍補上今天的決定，並更新標題、阻擋與下一步。只改 docs/progress.json 與重建的進度頁。
 ### 2026-11-20｜B3c CPU 原生檔、授權原文與 Microsoft 執行期
