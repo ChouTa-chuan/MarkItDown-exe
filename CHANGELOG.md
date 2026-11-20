@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-20：B3c 比對發現 LibYAML 0.2.5 的上游 MIT 原文與隨包 PyYAML 原文的著作權年份、雜湊不同。記錄固定候選與鎖定 wheel 證據，於補原文前暫停。[停點證據](docs/development-records/runs/b3c-libyaml-notice-gap-2026-11-20/README.md)
+
 - 2026-11-20：記錄 v5 mobile 方向與 B3c、B3d 分工。新增待指派 B3b3 的來源授權與公開掃描複驗，澄清 B3b2 字元差距、字型授權並同步其 README 雜湊。
 
 ### 2026-11-20｜B3b2 擴大三語識別樣本

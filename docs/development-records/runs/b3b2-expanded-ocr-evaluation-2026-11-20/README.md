@@ -6,7 +6,7 @@
 
 繁中、簡中、英文各有三份自製合成圖。每種語言包含襯線內文、四欄表格、含標題和小字的公告。每張圖皆有 17–20 px 的小字，內文為 28 px，表格格內為 22 px。固定 PNG 合計 323,739 bytes。每份的參考稿、生成方式、字型版本指紋及圖片 SHA-256 可回查，圖片也已由同一腳本重繪並做位元組比對。[樣本與來源](samples.json) · [重繪程式](render_samples.py)
 
-渲染字型為 Noto CJK（SIL Open Font License 1.1）與 DejaVu（Bitstream Vera 授權，DejaVu 新增部分採公有領域）。字型檔使用系統安裝來源，未放進 repo。[Noto CJK 授權](https://github.com/notofonts/noto-cjk/blob/main/LICENSE) · [DejaVu 授權](https://dejavu-fonts.github.io/License.html)
+渲染字型為 Noto CJK（SIL Open Font License 1.1）與 DejaVu（Bitstream Vera 授權，DejaVu 新增部分採公有領域）。字型檔使用系統安裝來源，未放進 repo。[Noto Sans CJK 授權](https://github.com/notofonts/noto-cjk/blob/main/Sans/LICENSE) · [Noto Serif CJK 授權](https://github.com/notofonts/noto-cjk/blob/main/Serif/LICENSE) · [DejaVu 授權](https://dejavu-fonts.github.io/License.html)
 
 沿用 B3b 的 `normalized()`、`edit_distance()` 與 `measure()`。字元用 NFC，忽略空白，保留大小寫、標點及簡繁字形。表格的參考順序為逐列由左至右。每張圖以 OCR 讀取順序計算編輯距離，所以漏字、誤讀、誤加文字及順序差異都會影響分數。分語言合計使用總編輯距離除以總參考字數，正確率為 `max(0, 1 − 錯誤率)`。[B3b 評估器](../b3b-ppocr-model-review-2026-11-20/evaluate.py)
 

@@ -2,9 +2,9 @@
   "updated": "2026-11-20",
   "environment": "Linux 完整混合／獨立模組回歸與 CPU 三語固定圖評估。Windows 與固定候選沿用既有紀錄。",
   "tests_passed": 954,
-  "headline": "PP-OCRv5 mobile 為識別模型方向，B3c 查證 CPU 原生元件",
-  "blocker": "B3b3 授權來源與公開掃描複驗待使用者指派。CPU 授權揭露與候選重新定版留待 B3。",
-  "next": "進行 B3c，合併後從最新 main 開 B3d。B3b3 由使用者另行指派。",
+  "headline": "B3c 查到 LibYAML 獨立原文缺口，暫停待決定",
+  "blocker": "LibYAML 獨立上游原文的補件時機待使用者決定。B3b3 待指派。CPU 授權揭露與候選重新定版留待 B3。",
+  "next": "先決定 LibYAML 原文的補件時機，再續查 B3c。B3d 等 B3c 合併後開始，B3b3 待使用者指派。",
   "milestones": [
     {
       "id": "m0",
@@ -2837,8 +2837,8 @@
           {
             "id": "B3c",
             "title": "CPU：GEOS（LGPL）與 CPU 內含元件、Microsoft 6 檔",
-            "status": "active",
-            "note": "查證候選的 GEOS、wheel 內含元件及 Microsoft DLL。"
+            "status": "decide",
+            "note": "已核對固定候選與 wheel。LibYAML 的上游原文未獨立隨包，等使用者決定補件時機。"
           },
           {
             "id": "B3d",

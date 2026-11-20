@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "source_review": {
+    "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/cpu-source-review.json",
+    "sha256": "8bfe8b065c5d08618bf45f162771dad208038130956b853153f7817f503d8cd6",
+    "run_id": 44295044417
+  },
+  "wheel": {
+    "filename": "pyyaml-6.0.3-cp312-cp312-win_amd64.whl",
+    "sha256": "5fcd34e47f6e0b794d17de1b4ff496c00986e1c83f7ab2fb8fcfe9616ff7477b",
+    "version": "6.0.3",
+    "license_members": [
+      "pyyaml-6.0.3.dist-info/licenses/LICENSE"
+    ]
+  },
+  "native": {
+    "bundled_bytes": 253952,
+    "bundled_sha256": "4fd0e84f50261ed0886cffcdd8008b055af3352546e649c3d741b50eae1f9b5f",
+    "bytes_changed": false,
+    "distributions": [
+      {
+        "name": "PyYAML",
+        "version": "6.0.3"
+      }
+    ],
+    "file": "yaml/_yaml.cp312-win_amd64.pyd",
+    "origin": "installed-wheel",
+    "source_bytes": 253952,
+    "source_sha256": "4fd0e84f50261ed0886cffcdd8008b055af3352546e649c3d741b50eae1f9b5f"
+  },
+  "candidate_package_notices": [
+    {
+      "bytes": 1101,
+      "path": "_internal/worker-assets/installed/pyyaml/original/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4"
+    }
+  ],
+  "source_evidence": {
+    "pyyaml_windows_build": {
+      "url": "https://github.com/yaml/pyyaml/blob/49790e73684bebad1df05ef8d828fa12f685bffb/.github/workflows/ci.yaml",
+      "sha256": "5004399ff14a6683eb02e45882fc3ffc5e4d6b8bb78f5496a26269fe67dd6ea8",
+      "libyaml_ref": "0.2.5",
+      "define": "YAML_DECLARE_STATIC=1"
+    },
+    "actual_pe_imports": [
+      "python312.dll",
+      "KERNEL32.dll",
+      "VCRUNTIME140.dll",
+      "api-ms-win-crt-heap-l1-1-0.dll",
+      "api-ms-win-crt-string-l1-1-0.dll",
+      "api-ms-win-crt-runtime-l1-1-0.dll"
+    ],
+    "actual_pe_string": "0.2.5",
+    "windows_runtime_observed": false
+  },
+  "notices": {
+    "libyaml_upstream": {
+      "url": "https://github.com/yaml/libyaml/blob/2c891fc7a770e8ba2fec34fc6b545c672beb37e6/License",
+      "sha256": "c40112449f254b9753045925248313e9270efa36d226b22d82d4cc6c43c57f29",
+      "first_copyright_line": "Copyright (c) 2017-2020 Ingy döt Net",
+      "license": "MIT"
+    },
+    "pyyaml_wheel": {
+      "path": "src/desktop_app/data/licenses/windows/pyyaml/wheel/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "first_copyright_line": "Copyright (c) 2017-2021 Ingy döt Net",
+      "license": "MIT"
+    },
+    "difference": "僅第一列著作權年份不同。MIT 權利條文相同，現有檔案的雜湊不能綁為 LibYAML 的逐件上游原文。"
+  },
+  "verification_scope": {
+    "wheel_read_directly": true,
+    "checked_repository_inventory": true,
+    "checked_saved_candidate_package_notices": true,
+    "checked_retained_candidate_inventory": true,
+    "original_report_artifact_available_in_api": true,
+    "full_provenance_artifact_downloaded": false,
+    "artifact_download_error": "HTTP 403 from artifact storage",
+    "artifact_sha256": "8f38a60b9473ea915879d62adedd4dfc3b0a91ac9b1c5db3e7473ea51b89692e"
+  },
+  "accepted": false
+}

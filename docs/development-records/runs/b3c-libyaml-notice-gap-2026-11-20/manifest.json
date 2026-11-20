@@ -1,0 +1,17 @@
+{
+  "date_taipei": "2026-11-20",
+  "tested_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "accepted": false,
+  "result": "LibYAML 獨立上游原文缺口已核對，B3c 依停點暫停。",
+  "keywords": [
+    "B3c",
+    "PyYAML",
+    "LibYAML",
+    "授權原文",
+    "CPU 固定候選"
+  ],
+  "files": {
+    "libyaml-gap.json": "2883020ff7609fc2a52380854f0bbf716dbee77d7efbb68cef27ee26d2ff1b34",
+    "README.md": "c5f4a24e3d615acd64f40f9add612042464e5a324b0bfbe138c6b0b8e9a6975c"
+  }
+}
