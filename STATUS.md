@@ -10,17 +10,22 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | PR 1–36 已合併（aab43c2）；A13c（PR 33）、B1a（PR 34）經 Claude reviewer 查驗無必須修正 |
-| 本輪分支 | `codex/b2-stage-c-checklist`：B2 驗收表，等待 Claude reviewer；B1b 另有獨立分支 |
-| 下一棒 | **Codex（GPT）**：B1b 與 B2 平行，各一個 PR，從最新 main 開新分支 |
+| `main` | 最新基準 `545ef2b` 已含 B1b PR 38 與大階段 D 規劃 PR 39；B2 PR 37 仍開啟 |
+| 本輪分支 | `codex/b2-stage-c-checklist` 補修 B2 驗收表（PR 37）；B1b 公開與關回開關的證據由 PR 41 保存 |
+| 下一棒 | **Claude reviewer** 查驗關回上傳開關 PR 與 B2 驗收表 PR 37 |
 | 固定來源 | A13b `b17d51bc99f8402f16b99f98bbe3b3370530bc6c`（base run 44295039865、cpu run 44295044417、Microsoft 探測 run 44300296037） |
 
 ## B. 這個階段完成了什麼
+
+- **B1b 完成完整逐檔對照試跑**（PR 38，run 44613509068）：已核原始 provenance SHA-256、完整路徑集合及純 Python 模組清單雜湊，逐項列生成檔差異與原因。產品與報告帶對照摘要並由 BUILD-INFO 綁定；實際報告 artifact 已回讀核對。[本輪證據](docs/development-records/runs/b1b-content-equivalence-2026-11-20/README.md)
+- **B1b 已從 main 公開一次**（run 44659294752）：完整逐檔對照、安裝生命週期 SHA 與上傳條件通過。API 確認只有測試包及報告，資訊已寫進[PR 41](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/41)的證據 README 與 manifest，關回開關同樣待該 PR 查驗。
 
 - **大階段 A 收尾**：Claude planner 2026-11-19 整體複查 A1–A13c 全部通過、無必須修正。gates 以 A13b 審閱實跑：base `runtime_sbom_disclosed`、`redistribution_approved` true，`runtime_sbom_complete`（10 條已接受缺口）與 `release_ready`（只差大階段 C 的 `base-clean-machine-manual`）false；cpu 四旗標 false。基本包每個檔案以「已知或經使用者接受並隨包揭露」說得出來源、版本與授權義務。
 - 相關 10 個測試模組 176 項在 planner 環境通過（`test_qt_notice` 1 項因無 PySide6 未執行）；完整 941 項回歸本輪未重跑，沿用 progress.json 來源提交。
 - run 44307725980（PR 31 合併後的 main push）Windows 失敗位於升級測試重建前一版 990e600 的驗收；同一棵樹在 PR head 與後續兩次 main push 都通過，判定為間歇性問題，不影響 B1b。根因因 artifact 主機被本環境擋下而未查明。
 - 順帶修正過時敘述：progress.json m5、`docs/redistribution-gates.md` 的旗標現況、accepted_gaps 與 A16 編號。
+
+- **B2 已補修**：加入受管 CPU OCR 安裝、辨識、移除與使用者資料保留，並補上乾淨機、離線、已知限制、測試樣本與修復／移除雜湊證據。[驗收表](docs/stage-c-acceptance.md)
 
 ## C. 未完成、阻擋與下一步
 
@@ -43,19 +48,21 @@
 | | **A13b 依決定調整並重新固定候選**（使用者已同意以下打包變更）：(1) 根目錄 `vcruntime140.dll`、`vcruntime140_1.dll` 改用 Visual Studio 官方 Redist 版本（A13-1 b），在 CI 驗證程式仍正常執行；numpy／pandas 改名複本與 Qt 9 份照現狀揭露。(2) 新增隨包揭露檔 `src/desktop_app/data/licenses/known-gaps.json`：依 A12c 規格逐條列出被接受的未知元件（A12d 之後的 wheel unknown、libffi 建置宣告、Qt 85 個未知 attribution 等），並新增測試版限制說明（A13-6 草稿，見 D 節）。(3) 依 D 節決定列寫入各條目的 `decision_source`（引用本輪存檔）、`accepted_gaps`，改為 `user_approved`；每個條目各引用一列，查驗時人工比對條目 id 與範圍。(4) 以 workflow_dispatch 重新固定候選、重組 source-review；在新候選上重跑 Microsoft 探測，把 A12 放寬的 `check_catalog` 收回為「探測基準等於登記表來源」並補反例。(5) gates：base `runtime_sbom_disclosed` 與 `redistribution_approved` 推導為 true（cpu 仍 false），`runtime_sbom_complete` 仍 false，`release_ready` 仍 false（需大階段 C）。不做 B1 上傳 | 完成（PR 31） |
 | | **A13c 以 A13b 候選重產逐列來源對照**（reviewer 建議）：`base-source-attribution`、`base-archives`、`base-own-mit-binding` 本輪前引用 A12 審閱與 A12b `origin-known-review.json`；本候選 30 個 origin-known 列中 6 列 sha256 已變（4 個建置產生檔、2 個根目錄 vcruntime——後兩列 A12b 的理由「來自 CPython、PE 14.42」已不正確，實際 bytes 由 base-microsoft 目錄涵蓋）。以 b17d51b 審閱重產逐列對照並更新三條 evidence；不改條目狀態與旗標。gates 不會偵測此類過期 | 完成（PR 33）；大階段 A 經 planner 複查無必須修正，2026-11-19 收尾 |
 | B 測試版安裝包 | **B1a 測試版產出準備**：寫好以 CI artifact 產出基本包測試版的流程，來源固定為 A13b 候選 b17d51b，產物附提交、版本、安裝包 sha256、隨包授權原文清單、`known-gaps`、測試版限制說明；artifact 保留 **30 天**（使用者決定）。以 workflow_dispatch 試跑驗證產物內容，**試跑不上傳安裝包**（只上傳報告），不建 Release 或 tag | 完成（PR 34）；公開上傳仍停用 |
-| | **B1b 測試版公開產出**（交 Codex）：以 B1a 流程從 main 產出並公開上傳安裝包 artifact（保留 30 天）。驗收（planner 建議、使用者 2026-11-19 同意做法）：(1) **逐檔對照**：下載 run 44295039865 `windows-base-validation-reports` 的 `bundle-provenance.json`（sha256 `b7fa49e6df55…`，即 base-source-review.json 的 `provenance_report_sha256`；**2026-11-25T11:45Z 到期**），先核 sha，再與重建 bundle 的 inventory 比對：路徑集合相等、明列且附理由的生成檔例外外 bytes 全同、`pure_modules_sha256` 相同；多檔、少檔、改檔、清單外生成檔、provenance sha 不符皆拒絕並有反例測試。結果寫 `CONTENT-EQUIVALENCE.json` 放進產品與報告，BUILD-INFO 引用其 sha。來不及在到期前完成時，改用 repo 內較弱依據（264 列分類、153 原生檔、原文、模組雜湊、檔案數），並在公開說明寫明（使用者已接受此退路）。(2) 公開上傳只在 `github.ref == refs/heads/main`、`PUBLIC_UPLOAD_ENABLED=True`、gates 四旗標等於預期、逐檔對照通過、lifecycle 安裝包 sha 等於上傳安裝包時執行；腳本同步檢查 `GITHUB_REF`；非 main 要求公開被拒並有反例。(3) 產品含 Setup、BUILD-INFO（含 `byte_identical_installer_to_original` 與對照摘要 sha）、CONTENT-EQUIVALENCE.json、LICENSE-FILES.json、known-gaps.json／.md、test-build-limitations.md、SHA256SUMS.txt 與中文 README（測試版非正式版、需登入 GitHub 下載且 30 天到期、`certutil -hashfile … SHA256` 核對、未簽章與 SmartScreen、安裝與移除、授權與已知缺口位置、Issues 連結、安裝程式由同一固定來源重建且容器與審閱時不同）。(4) 報告 artifact 寫明 SHA256SUMS 對應產品目錄。(5) 合併後從 main dispatch 一次：記錄 artifact 名稱、digest、大小、到期日；API 核對只有預期兩份 artifact。dispatch 前先跑一般驗證取得當天有效的 OCR 輸入（只保留 1 天）。(6) **公開後立即另開小 PR 把 `PUBLIC_UPLOAD_ENABLED` 改回 False**，並更新 STATUS。(7) 完整回歸、EXPECTED_TESTS 與 progress.json 同步；PR CI 全過、reviewer 無必須修正。不動 spec、鎖檔、登記表狀態、gates 規則與固定候選，不碰 `windows-build.yml`，不建 Release 或 tag | 下一步（Codex；2026-11-25 前） |
-| | **B2 驗收表**（交 Codex，與 B1b 平行，獨立 PR）：依 C1–C3 逐項列乾淨 Windows 10／11 安裝、離線首次啟動、四語 OCR、中文路徑、修復、移除與人工操作的勾選表；每項有預期結果與證據格式，填寫結果放 `docs/development-records/runs/stage-c-…/`（符合 `base-clean-machine-manual` 前綴）。依使用者決定，大階段 C 用 **B3 後的新版本**，表格以「待填安裝包 SHA」欄位綁定，不寫死 B1b 的 SHA。只改文件，不改程式 | [驗收表已備妥](docs/stage-c-acceptance.md)，待 Claude reviewer；大階段 C 等 B3 後的新包 |
+| | **B1b 測試版公開產出**（交 Codex）：以 B1a 流程從 main 產出並公開上傳安裝包 artifact（保留 30 天）。驗收（planner 建議、使用者 2026-11-19 同意做法）：(1) **逐檔對照**：下載 run 44295039865 `windows-base-validation-reports` 的 `bundle-provenance.json`（sha256 `b7fa49e6df55…`，即 base-source-review.json 的 `provenance_report_sha256`；**2026-11-25T11:45Z 到期**），先核 sha，再與重建 bundle 的 inventory 比對：路徑集合相等、明列且附理由的生成檔例外外 bytes 全同、`pure_modules_sha256` 相同；多檔、少檔、改檔、清單外生成檔、provenance sha 不符皆拒絕並有反例測試。結果寫 `CONTENT-EQUIVALENCE.json` 放進產品與報告，BUILD-INFO 引用其 sha。來不及在到期前完成時，改用 repo 內較弱依據（264 列分類、153 原生檔、原文、模組雜湊、檔案數），並在公開說明寫明（使用者已接受此退路）。(2) 公開上傳只在 `github.ref == refs/heads/main`、`PUBLIC_UPLOAD_ENABLED=True`、gates 四旗標等於預期、逐檔對照通過、lifecycle 安裝包 sha 等於上傳安裝包時執行；腳本同步檢查 `GITHUB_REF`；非 main 要求公開被拒並有反例。(3) 產品含 Setup、BUILD-INFO（含 `byte_identical_installer_to_original` 與對照摘要 sha）、CONTENT-EQUIVALENCE.json、LICENSE-FILES.json、known-gaps.json／.md、test-build-limitations.md、SHA256SUMS.txt 與中文 README（測試版非正式版、需登入 GitHub 下載且 30 天到期、`certutil -hashfile … SHA256` 核對、未簽章與 SmartScreen、安裝與移除、授權與已知缺口位置、Issues 連結、安裝程式由同一固定來源重建且容器與審閱時不同）。(4) 報告 artifact 寫明 SHA256SUMS 對應產品目錄。(5) 合併後從 main dispatch 一次：記錄 artifact 名稱、digest、大小、到期日；API 核對只有預期兩份 artifact。dispatch 前先跑一般驗證取得當天有效的 OCR 輸入（只保留 1 天）。(6) **公開後立即另開小 PR 把 `PUBLIC_UPLOAD_ENABLED` 改回 False**，並更新 STATUS。(7) 完整回歸、EXPECTED_TESTS 與 progress.json 同步；PR CI 全過、reviewer 無必須修正。不動 spec、鎖檔、登記表狀態、gates 規則與固定候選，不碰 `windows-build.yml`，不建 Release 或 tag | PR 38 已合併，run 44659294752 已公開。關回開關待專用 PR 查驗 |
+| | **B2 驗收表**（交 Codex，與 B1b 平行，獨立 PR）：依 C1–C3 逐項列乾淨 Windows 10／11 安裝、離線首次啟動、四語 OCR、中文路徑、修復、移除與人工操作的勾選表；每項有預期結果與證據格式，填寫結果放 `docs/development-records/runs/stage-c-…/`（符合 `base-clean-machine-manual` 前綴）。依使用者決定，大階段 C 用 **B3 後的新版本**，表格以「待填安裝包 SHA」欄位綁定，不寫死 B1b 的 SHA。只改文件，不改程式 | [補修驗收表](docs/stage-c-acceptance.md)已完成，PR 37 待查驗；B3 後再實際驗收 |
 | | B3a CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例）（原 A14） | 待開始（B1b 之後） |
-| | B3b CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認（原 A15）。**另評估改用繁體中文識別模型以解決 ONNX 繁中已知缺口**（`tests/test_onnx_ocr.py` 的 `test_traditional_chinese_quality_known_gap` 預期失敗）：候選為 PP-OCRv5、PP-OCRv6 的繁中能力與專用 chinese_cht_PP-OCRv3_rec（需查證授權、ONNX 可用性與大小），以該固定繁中測試圖比較準確度；台灣聯發科 Breeze2 屬 3B／8B 多模態大型語言模型（Llama 社群授權），不適合 CPU 選配元件，若要採用改列大階段 E 或另立 GPU 選配元件。換模型屬更換模型與打包內容，需使用者同意；評估結果列表交使用者選擇 | 待開始（B1b 之後） |
+| | B3b CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認（原 A15）。**另評估改用繁體中文識別模型以解決 ONNX 繁中已知缺口**（`tests/test_onnx_ocr.py` 的 `test_traditional_chinese_quality_known_gap` 預期失敗）：候選為 PP-OCRv5、PP-OCRv6 的繁中能力與專用 chinese_cht_PP-OCRv3_rec（需查證授權、ONNX 可用性與大小），以該固定繁中測試圖比較準確度；台灣聯發科 Breeze2 屬 3B／8B 多模態大型語言模型（Llama 社群授權），不適合 CPU 選配元件，若要採用改列大階段 E 或另立 GPU 選配元件。換模型屬更換模型與打包內容，需使用者同意；評估結果列表交使用者選擇。**驗收須含簡體中文準確度不退步**（目前 PP-OCRv4 中文模型以簡中為主；可選同時涵蓋簡繁的單一模型，或保留現模型另加繁中模型供選擇） | 待開始（B1b 之後） |
 | | B3c CPU：Shapely／GEOS（LGPL）與 CPU wheel 內含元件（沿用 A9 格式），CPU Microsoft 6 檔（沿用 A10）；LGPL 做法需使用者確認（原 A16） | 待開始（B1b 之後） |
 | | B3d CPU：查明 setuptools、pip、pyinstaller 等建置工具是否真的進了 worker；若要排除屬打包變更，需使用者同意（原 A17） | 待開始（B1b 之後） |
 | | B3 CPU 元件重新定版（需 B3a–B3d 完成並經使用者確認）。會改動共用 `source_commit`，範圍含 base 重新審閱與 gates 重建，並以此新候選產出大階段 C 驗收用的新測試版 | 待開始 |
 | | B4 使用者確認測試版結果（綁定所測安裝包的 SHA，並在其 artifact 30 天期限內完成，否則重新產出） | 需使用者實機測試 |
 | C 乾淨機與人工驗收 | C1 乾淨 Windows 10／11 安裝與離線首次啟動；C2 四語、中文路徑、修復移除；C3 人工操作 | 需使用者或實體 Windows |
 | D 功能擴充 | D1 圖片檔走本機 OCR；D2 影音獨立選配元件 | 等使用者決定 |
+| | **D3 Tesseract 官方語言包（選配下載）**：簡體中文 chi_sim、法 fra、俄 rus、西 spa、德 deu，取自與四語相同的 tessdata_fast 固定提交（Apache-2.0），固定來源與雜湊、可個別下載與移除；不放進基本包（避免改打包內容與重新審閱）。需調整：`languages.py`／`bundled_ocr.py` 的四語寫死與最多 4 種的限制改為「內建、官方語言包、使用者加裝」三層；Tesseract 單一 tessdata 目錄的組合方式；各語合成測試圖與反例。CPU（PP-OCR）多語模型暫不擴充 | 已排入（使用者 2026-11-20 同意）；開工前交 planner 寫計畫 |
+| | **D4 使用者自行加裝模型**：第一版只接受 Tesseract `.traineddata`（ONNX 需字典與架構相容、風險較高，暫不開放）；放在獨立的使用者目錄、不覆蓋內建或受管模型、標示「未經驗證、授權由使用者負責」、格式檢查與載入失敗提示、只移除使用者加入的檔案 | 已排入（使用者 2026-11-20 同意）；開工前交 planner 寫計畫 |
 | E GPU | 實卡驗收 | 延後 |
 
-**執行順序**：大階段 A 已收尾 → **B1b 與 B2 平行（Codex，下一步）** → B3a–B3d（CPU，原 A14–A17；B3b 換繁中模型會牽動 known-gaps 與限制文字的 ONNX 繁中缺口一行）→ B3 → B4 → 大階段 C。各編號一個 PR。
+**執行順序**：大階段 A 已收尾 → **B1b 已公開，開關關回 PR 與 B2 補修待查驗** → B3a–B3d（CPU，原 A14–A17；B3b 換繁中模型會牽動 known-gaps 與限制文字的 ONNX 繁中缺口一行）→ B3 → B4 → 大階段 C。各編號一個 PR。
 
 **大階段 B 的進入條件**
 
@@ -74,7 +81,7 @@
 
 **有期限的資料**：PR 上的 Windows 報告保留七天，以暫時合併提交執行，不是候選證據。artifact 儲存主機常被本環境網路政策擋下，需要的資料請讓 CI 寫進公開摘要。
 
-**既有限制**：ONNX 繁中缺口、RAM 軟性預算、Windows 實機／GPU 未驗收；沒有產品交付、Release 或 tag。
+**既有限制**：ONNX 繁中缺口、RAM 軟性預算、Windows 實機／GPU 未驗收。B1b 只交付 GitHub Actions 測試版 artifact。
 
 ## D. 新增規則與決定
 
@@ -135,5 +142,8 @@
 | 2026-11-19 | 使用者決定 | 公開上傳限定只從 main 觸發；B1b 公開完成後把 `PUBLIC_UPLOAD_ENABLED` 關回，之後需要重新公開時另開 PR 打開 |
 | 2026-11-19 | 使用者決定 | 大階段 C 乾淨機驗收使用 B3 CPU 重新定版後的新版本，不使用 B1b 的公開包 |
 | 2026-11-19 | 使用者決定 | B1b 交給 Codex（GPT），B2 同時進行 |
+| 2026-11-20 | 使用者決定 | 簡體中文也常用，B3b 改模型時不可移除或降低簡中能力 |
+| 2026-11-20 | 使用者決定 | 大階段 D 新增 D3（Tesseract 官方語言包選配下載：簡中、法、俄、西、德）與 D4（使用者自行下載模型加裝）；同意協調者的評估與架構調整方向 |
+| 2026-11-20 | 使用者決定 | B1b（PR 38）合併，合併後的公開觸發與關回上傳開關交給 Codex（GPT）；B2（PR 37）的三項建議修正在合併前由 Codex 補上 |
 
-接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。大階段 A 已收尾；下一步 Codex 做 B1b（2026-11-25 前完成逐檔對照）與 B2，各一個 PR。既有 OCR 輸入 artifact 只有一天期限，失效先重跑一般驗證。不建 Release／tag。
+接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。 B1b 公開已完成，關回開關與 B2 PR 留待 Claude reviewer。

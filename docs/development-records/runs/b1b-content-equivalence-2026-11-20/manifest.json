@@ -1,0 +1,22 @@
+{
+  "date_taipei": "2026-11-20",
+  "source_commit": "89743721ca3e01df9e8bd01037b8fe8fb883d02b",
+  "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "run": 44613509068,
+  "accepted": true,
+  "result": "Hosted Windows full file inventory comparison and report artifact roundtrip passed",
+  "keywords": [
+    "B1b",
+    "逐檔對照",
+    "固定候選",
+    "Windows"
+  ],
+  "files": {
+    "BUILD-INFO.json": "e3d395218bad7cd82d6f041c9e99ca2d1499422bb783a4952303c99d58793666",
+    "CONTENT-EQUIVALENCE.json": "6bba8202463951aca111e454d39a87c16c2754f0891ad9f88bc2781cd729c866",
+    "README.md": "f993d17c73ef24318964b0d483a038640ea7f2ebbba37a64a6cf367a74de07f8",
+    "previous-attempts.json": "cbd44c91c3c9235508ca4a93fca8094657edc8da0633110349d4efc37941a340",
+    "regression.json": "9bab43f129d4ef8ca5dcc85ebd4296fa082064164013deebca596424910adde6",
+    "trial-receipt.json": "871c715476893cd606f3cede0ee2619e029314259650dac5a9d3084f649971e2"
+  }
+}

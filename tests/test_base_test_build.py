@@ -1,4 +1,4 @@
-"""B1a 組裝／來源／上傳界線；本地合成 fixture 不代表真的 Windows 安裝驗收。"""
+"""B1b 組裝／來源／上傳界線；本地合成 fixture 不代表真的 Windows 安裝驗收。"""
 import copy
 from datetime import datetime, timezone
 import json
@@ -45,7 +45,8 @@ class BaseTestBuildTests(unittest.TestCase):
              packages=[dict(notices=[dict(path=notice.relative_to(bundle).as_posix(),sha256=build.digest(notice))])])
         reports.mkdir(parents=True)
         build.write(reports/'plan.json',plan)
-        return dict(bundle=bundle,installer=installer,product=root/'product',reports=reports,plan=plan,review=review,candidate=candidate)
+        return dict(bundle=bundle,installer=installer,product=root/'product',reports=reports,plan=plan,review=review,candidate=candidate,
+                    comparison=dict(mode='full-inventory', accepted=True, candidate_source=build.SOURCE, full_path_set_verified=True))
 
     def fake_api(self, *, expired=False, conclusion='success', path='.github/workflows/windows-base-validation.yml', digest=True):
         run=dict(id=123,status='completed',conclusion=conclusion,path=path,head_sha='d'*40)
@@ -58,18 +59,22 @@ class BaseTestBuildTests(unittest.TestCase):
             self.fail('Unexpected API call: '+endpoint)
         return api
 
-    def test_current_policy_and_stage_guard_cannot_publish(self):
+    def test_current_policy_and_non_main_cannot_publish(self):
         result=build.policy(ROOT)
         self.assertEqual(result['flags'],build.EXPECTED_FLAGS)
         self.assertEqual(result['source_review']['path'],build.REVIEW)
-        self.assertFalse(build.PUBLIC_UPLOAD_ENABLED)
         plan=build.make_plan(api=self.fake_api())
         self.assertEqual(plan['candidate_source'],build.SOURCE)
         self.assertEqual(plan['source_version'],'0.19.1')
         self.assertEqual(plan['retention_days'],30)
         self.assertFalse(plan['publish_allowed'])
-        with self.assertRaisesRegex(ValueError,'B1b'):
-            build.make_plan(publish=True,api=lambda _:self.fail('Public stage must fail before reading inputs'))
+        for ref in ('refs/heads/codex/b1b', 'refs/tags/main', 'refs/pull/38/merge', ''):
+            with self.subTest(ref=ref), mock.patch.dict(build.os.environ, {'GITHUB_REF': ref}), \
+                 self.assertRaisesRegex(ValueError, 'requires refs/heads/main'):
+                build.make_plan(publish=True, api=lambda _:self.fail('Non-main must fail before network access'))
+        with mock.patch.dict(build.os.environ, {'GITHUB_REF': build.MAIN_REF}), \
+             mock.patch.object(build, 'PUBLIC_UPLOAD_ENABLED', False), self.assertRaisesRegex(ValueError, 'disabled'):
+            build.make_plan(publish=True, api=lambda _:self.fail('Disabled upload must fail before network access'))
 
     def test_input_artifact_selection_refuses_expired_failed_or_wrong_workflow(self):
         result=build.select_inputs(api=self.fake_api())
@@ -133,7 +138,6 @@ class BaseTestBuildTests(unittest.TestCase):
         fixture=self.fixture()
         result=build.assemble(**fixture)
         self.assertTrue(result['accepted'])
-        self.assertFalse(result['installer_uploaded'])
         self.assertTrue(result['report_only'])
         self.assertEqual({p.name for p in fixture['reports'].iterdir()},build.REPORT_NAMES)
         self.assertTrue((fixture['product']/fixture['installer'].name).is_file())
@@ -142,6 +146,12 @@ class BaseTestBuildTests(unittest.TestCase):
         self.assertEqual(info['candidate_source'],build.SOURCE)
         self.assertEqual(info['workflow_source'],'c'*40)
         self.assertEqual(info['installer']['sha256'],build.digest(fixture['installer']))
+        for directory in ('reports','product'):
+            self.assertEqual(info['content_equivalence_sha256'], build.digest(fixture[directory]/'CONTENT-EQUIVALENCE.json'))
+        readme = (fixture['product']/'README.md').read_text(encoding='utf-8')
+        for term in ('登入 GitHub', '30 天', 'certutil -hashfile', 'SmartScreen', '解除安裝', 'GitHub Issues'):
+            self.assertIn(term, readme)
+        self.assertIn('對應產品目錄', (fixture['reports']/'README.md').read_text(encoding='utf-8'))
         files=build.load(fixture['reports']/'LICENSE-FILES.json')['files']
         for row in files:self.assertEqual(build.digest(fixture['bundle']/row['path']),row['sha256'])
         for name in build.DISCLOSURES:
@@ -217,7 +227,7 @@ class BaseTestBuildTests(unittest.TestCase):
         reports=root/'build/reports'
         (reports/'installer').mkdir(parents=True)
         policy=dict(source_commit='a'*40)
-        build.write(root/'plan.json',dict(check='base-test-build-plan',approval_policy=policy,publish_requested=False,source_version='0.19.1'))
+        build.write(root/'plan.json',dict(check='base-test-build-plan',approval_policy=policy,publish_requested=False,publish_allowed=False,retained_review=False,baseline_run=44295039865,source_version='0.19.1'))
         build.write(reports/'windows-build.json',dict(commit='a'*40,**{name:True for name in
                     ('build_verified','validation_accepted','installer_accepted','provenance_accepted','qt_replacement_accepted','overall_accepted')}))
         (root/'inputs').mkdir()
@@ -235,7 +245,10 @@ class BaseTestBuildTests(unittest.TestCase):
         with mock.patch.object(build.sys,'platform','win32'),mock.patch.dict(build.os.environ,{'GITHUB_ACTIONS':'true'}),\
              mock.patch.object(build,'policy',return_value=policy),mock.patch.object(build,'validate_inputs'),\
              mock.patch.object(build,'validate_generated_receipt',return_value='f'*64),\
-             mock.patch.object(build,'assemble',side_effect=lambda *a,**kw:dict(accepted=True)):
+             mock.patch.object(build.equivalence,'provenance_input',return_value=(None,{})),\
+             mock.patch.object(build.equivalence,'compare'),\
+             mock.patch.object(build,'checked_file',return_value=installer),\
+             mock.patch.object(build,'assemble',return_value=dict(accepted=True)):
             result=build.collect(root/'plan.json',root/'inputs',None,root/'build',None,reports,root=ROOT)
             self.assertTrue(result['windows_executed'])  # 只驗分支契約，此 fixture 不作實際 Windows 證據。
             build.write(reports/'bundle-provenance.json',dict(source_commit=build.SOURCE))
@@ -246,18 +259,47 @@ class BaseTestBuildTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'Actual tested installer differs'):
                 build.collect(root/'plan.json',root/'inputs',None,root/'build',None,reports,root=ROOT)
 
+    def test_authorize_upload_rejects_changes_after_validated_setup(self):
+        fixture = self.fixture()
+        plan, product, reports = (fixture[k] for k in ('plan', 'product', 'reports'))
+        plan.update(publish_requested=True, publish_allowed=True, retained_review=False)
+        plan_file = reports/'plan.json'
+        build.write(plan_file,plan)
+        with mock.patch.object(build,'PUBLIC_UPLOAD_ENABLED',True):
+            audit = build.assemble(**fixture)
+        windows = self.root/'windows'
+        receipt = windows/'reports/installer/installer-lifecycle.json'
+        receipt.parent.mkdir(parents=True)
+        build.write(receipt,dict(accepted=True,installer_sha256=build.digest(fixture['installer'])))
+        audit['installer_validation_sha256'] = build.digest(receipt)
+        build.write(reports/'package-audit.json',audit)
+        with mock.patch.dict(build.os.environ,{'GITHUB_REF':build.MAIN_REF, 'GITHUB_RUN_ATTEMPT':'1'}), \
+             mock.patch.object(build,'PUBLIC_UPLOAD_ENABLED',True), \
+             mock.patch.object(build,'policy',return_value=plan['approval_policy']):
+            build.authorize_upload(plan_file,windows,product,reports)
+            (product/'CONTENT-EQUIVALENCE.json').write_bytes(b'changed comparison')
+            with self.assertRaisesRegex(ValueError,'comparison'):
+                build.authorize_upload(plan_file,windows,product,reports)
+            shutil.copyfile(reports/'CONTENT-EQUIVALENCE.json', product/'CONTENT-EQUIVALENCE.json')
+            (product/fixture['installer'].name).write_bytes(b'changed Setup')
+            with self.assertRaisesRegex(ValueError,'Staged product'):
+                build.authorize_upload(plan_file,windows,product,reports)
+
     def test_workflow_has_separate_trial_job_and_explicit_text_only_report_paths(self):
         text=(ROOT/'.github/workflows/windows-base-validation.yml').read_text()
         job=text.split('  b1-test-build:')[1]
         self.assertIn("github.event_name == 'workflow_dispatch' && inputs.prepare_test_build",job)
         self.assertIn("steps.plan.outputs.publish_allowed == 'true'",job)
-        self.assertEqual(job.count('retention-days: 30'),2)
+        self.assertEqual(job.count('retention-days: 30'),3)
+        upload=job.split('name: Upload installer package only when B1b is enabled')[1]
+        self.assertIn("github.ref == 'refs/heads/main'", upload)
+        self.assertIn("steps.authorize.outcome == 'success'", upload)
         report_upload=job.split('name: base-test-build-reports')[1].split('retention-days: 30')[0]
         self.assertNotIn('path: out/test-build-reports/',report_upload)
         for name in build.REPORT_NAMES:self.assertIn('out/test-build-reports/'+name,report_upload)
         self.assertNotIn('.exe',report_upload)
         self.assertNotIn('/actions/workflows/windows-build.yml/dispatches',text)
-        self.assertIn('ref: ${{ steps.plan.outputs.candidate_source }}',job)
+        self.assertIn('ref: ${{ env.MARKITDOWN_CANDIDATE_SOURCE }}',job)
         self.assertIn('MARKITDOWN_CANDIDATE_SOURCE: '+build.SOURCE,job)
         self.assertIn("python-version: '3.12.10'",job)
 
