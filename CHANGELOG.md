@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-20：STATUS 更新至 B3c 已合併：新增 B3b4、B3b5，記錄使用者決定（候選改以 v6 small 為主並開放主機；GEOS 選 A、CPU Microsoft 選 B、B3 原文優先順序），B3 範圍補上這些工作與「換 v6 前須再取得使用者同意」，下一步為 B3d。前版存為 `docs/history/status/2026-11-20-before-b3c-merged.md`。只改文件。
+- 2026-11-20：線上視覺進度更新：B3b2 完成，新增 B3b3、B3b4、B3b5（已完成），B3c 進行中、B3d 下一步，B3 範圍補上今天的決定，並更新標題、阻擋與下一步。只改 docs/progress.json 與重建的進度頁。
 ### 2026-11-20｜B3c CPU 原生檔、授權原文與 Microsoft 執行期
 
 - 對照固定 CPU 候選和八個鎖定 Windows wheels 的原生位元組與原文，新增 GEOS LGPL 動態載入證據、六個 Microsoft DLL 的 PE／簽章／Redist 比對及 B3 待補原文清單。LibYAML 0.2.5 的 supplemental 已列入 B3，B3c 的打包內容與候選沿用原值。
