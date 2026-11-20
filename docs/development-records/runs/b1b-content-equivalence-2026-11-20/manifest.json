@@ -4,7 +4,7 @@
   "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
   "run": 44613509068,
   "accepted": true,
-  "result": "Hosted Windows full file inventory comparison and report artifact roundtrip passed",
+  "result": "Hosted Windows full-file comparison and one main test build publication verified",
   "keywords": [
     "B1b",
     "逐檔對照",
@@ -14,9 +14,41 @@
   "files": {
     "BUILD-INFO.json": "e3d395218bad7cd82d6f041c9e99ca2d1499422bb783a4952303c99d58793666",
     "CONTENT-EQUIVALENCE.json": "6bba8202463951aca111e454d39a87c16c2754f0891ad9f88bc2781cd729c866",
-    "README.md": "f993d17c73ef24318964b0d483a038640ea7f2ebbba37a64a6cf367a74de07f8",
+    "README.md": "c811cd74e6b1bc146f8f6fe639ad72b6143e3011af7fc8f99571525c33b458d6",
     "previous-attempts.json": "cbd44c91c3c9235508ca4a93fca8094657edc8da0633110349d4efc37941a340",
     "regression.json": "9bab43f129d4ef8ca5dcc85ebd4296fa082064164013deebca596424910adde6",
-    "trial-receipt.json": "871c715476893cd606f3cede0ee2619e029314259650dac5a9d3084f649971e2"
+    "trial-receipt.json": "871c715476893cd606f3cede0ee2619e029314259650dac5a9d3084f649971e2",
+    "public-release.json": "bc7b9ddc9118f10ac4df9b3b9a08b1beb997d280b44838788195143e4c446e51"
+  },
+  "public_release": {
+    "run": 44659294752,
+    "head": "545ef2b4ca98e0ce7a9df8b3273d6fe3f67fdea3",
+    "ocr_input_run": 44657156187,
+    "installer": {
+      "file": "MarkItDownBase-Setup-0.19.1-windows-x64.exe",
+      "sha256": "b230fee72457faed2f009d7389f92ab4f420827d93491f4bd02672b9949c0992",
+      "bytes": 102439043
+    },
+    "installer_sha_matches_lifecycle": true,
+    "artifacts": [
+      {
+        "name": "MarkItDownBase-test-build",
+        "id": 14595001990,
+        "digest": "sha256:7a9c7eb442f636c3cb9331e014a41e6f79e38851e0a5a1691cda4a3bd021e4fa",
+        "size_in_bytes": 101940113,
+        "created_at": "2026-11-20T02:20:10Z",
+        "expires_at": "2026-12-20T02:20:06Z",
+        "expired": false
+      },
+      {
+        "name": "base-test-build-reports",
+        "id": 14594742875,
+        "digest": "sha256:db31e161ab40c41021d5eb524fff945e38bcb58cbf2c2db41dbb3bd30509a30d",
+        "size_in_bytes": 29499,
+        "created_at": "2026-11-20T02:20:03Z",
+        "expires_at": "2026-12-20T02:20:02Z",
+        "expired": false
+      }
+    ]
   }
 }

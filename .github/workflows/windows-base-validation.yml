@@ -370,7 +370,6 @@ jobs:
           retention-days: 30
           if-no-files-found: ignore
       # 產品目錄與報告目錄不可互用。
-
       - name: Upload test-build reports only
         if: always()
         uses: actions/upload-artifact@v4
