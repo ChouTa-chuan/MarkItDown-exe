@@ -8,6 +8,8 @@ import zipfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 from build_provenance import sha256
+import cpu_build_tools_audit as audit
+from cpu_build_tools_runtime import tool_imports
 import python_archive_inventory as subject
 
 
@@ -159,6 +161,107 @@ class SummaryTests(unittest.TestCase):
         self.assertEqual(summary['base_library_members'], 1)
         self.assertEqual(summary['pure_modules'], 17)
         self.assertTrue(all(len(name) <= subject.MAX_NAME_LENGTH for name in summary['unknown_names']))
+
+
+class FixedCPUBuildToolEvidenceTests(unittest.TestCase):
+    def setUp(self):
+        self.inventory = dict(files=[
+            dict(path='_internal/pip-25.0.1.dist-info/METADATA', bytes=3, sha256='1'*64,
+                 role='package-metadata', owners=[dict(name='pip', version='25.0.1')]),
+            dict(path='_internal/PIL/__init__.py', bytes=7, sha256='2'*64, role='data', owners=[]),
+        ])
+        self.modules = [dict(name='setuptools._vendor.sample', distribution='setuptools'),
+                        dict(name='setuptools_extra'), dict(name='pdf.pip'), dict(name='PIL.Image')]
+        self.library = dict(members=[dict(name='ensurepip/__init__.pyc'), dict(name='collections.pyc')])
+        self.report = dict(profile='cpu', source_commit='a'*40, accepted=True, inventory_reverified=True,
+                           host_platform='win32', candidate_inventory=self.inventory, packages=[],
+                           python_archives=dict(pure_modules=self.modules, base_library=self.library))
+        self.review = dict(profile='cpu', selection=dict(source_commit='a'*40, run_id='123'),
+                           candidate=dict(sha256='b'*64),
+                           inventory_sha256=audit.sha(audit.canonical(self.inventory)),
+                           pure_modules_sha256=audit.sha(audit.canonical(self.modules)),
+                           classification_input=dict(report=dict(python_archives=dict(
+                               base_library=json.loads(json.dumps(self.library))))))
+        self.raw = audit.canonical(self.report)
+        self.review['provenance_report_sha256'] = audit.sha(self.raw)
+
+    def repin_outer_report(self):
+        raw = audit.canonical(self.report)
+        self.review['provenance_report_sha256'] = audit.sha(raw)
+        return raw
+
+    def test_scopes_packages_without_confusing_similarly_named_files_or_modules(self):
+        result = audit.extract(self.raw, self.review)
+        self.assertEqual([row['path'] for row in result['physical_files']],
+                         ['_internal/pip-25.0.1.dist-info/METADATA'])
+        self.assertEqual([row['name'] for row in result['pyz_sources']], ['setuptools._vendor.sample'])
+        self.assertEqual([row['name'] for row in result['base_library_members']], ['ensurepip/__init__.pyc'])
+
+    def test_raw_provenance_with_one_changed_byte_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'provenance fingerprint'):
+            audit.extract(self.raw + b'\n', self.review)
+
+    def test_repinning_outer_report_cannot_hide_a_missing_physical_file(self):
+        self.inventory['files'].pop()
+        with self.assertRaisesRegex(ValueError, 'physical inventory fingerprint'):
+            audit.extract(self.repin_outer_report(), self.review)
+
+    def test_repinning_outer_report_cannot_hide_a_misbound_pyz_module(self):
+        self.modules[0]['distribution'] = 'pip'
+        with self.assertRaisesRegex(ValueError, 'pure module fingerprint'):
+            audit.extract(self.repin_outer_report(), self.review)
+
+    def test_changed_base_library_index_is_rejected(self):
+        self.library['members'].pop()
+        with self.assertRaisesRegex(ValueError, 'base_library inventory'):
+            audit.extract(self.repin_outer_report(), self.review)
+
+    def test_report_for_wrong_candidate_commit_is_rejected(self):
+        self.report['source_commit'] = 'c'*40
+        with self.assertRaisesRegex(ValueError, 'accepted Windows CPU candidate'):
+            audit.extract(self.repin_outer_report(), self.review)
+
+    def repo_notice_fixture(self, root):
+        key = 'setuptools/wheel/LICENSE'
+        path = root/key
+        path.parent.mkdir(parents=True)
+        path.write_bytes(b'notice')
+        digest = audit.sha(b'notice')
+        row = dict(path=audit.REPO_COPIES[0]+key, sha256=digest, bytes=6, owners=[])
+        index = dict(files={key: digest}, packages=[
+            dict(name='setuptools', version='84.2.1', wheel='setuptools.whl', wheel_sha256='c'*64)])
+        return dict(physical_files=[row]), index, path
+
+    def test_license_copy_resolves_to_wheel_by_bytes(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            report, inventory, _ = self.repo_notice_fixture(root)
+            binding, = audit.repo_notice_sources(report, inventory, root)
+            self.assertEqual(binding['distribution'], 'setuptools')
+            self.assertEqual(binding['version'], '84.2.1')
+            self.assertEqual(binding['sha256'], report['physical_files'][0]['sha256'])
+
+    def test_license_copy_with_wrong_bytes_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            report, inventory, path = self.repo_notice_fixture(root)
+            path.write_bytes(b'change')
+            with self.assertRaisesRegex(ValueError, 'notice bytes differ'):
+                audit.repo_notice_sources(report, inventory, root)
+
+    def test_license_copy_without_expected_inventory_binding_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            report, inventory, _ = self.repo_notice_fixture(root)
+            inventory['files'].clear()
+            with self.assertRaisesRegex(ValueError, 'no matching wheel inventory'):
+                audit.repo_notice_sources(report, inventory, root)
+
+    def test_archive_scans_nested_imports_without_executing_them(self):
+        code = compile('import PIL\nimport pyimod02_importers\n'
+                       'def startup():\n    import setuptools.build_meta\n    import library.pip\n',
+                       '<synthetic-startup>', 'exec')
+        self.assertEqual(tool_imports(code), {'pyimod02_importers', 'setuptools.build_meta'})
 
 
 if __name__ == '__main__':

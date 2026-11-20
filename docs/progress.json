@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-20",
-  "environment": "Linux 完整混合／獨立模組回歸；hosted Windows 2022 觀測固定 CPU 候選同位元組的原生檔。",
-  "tests_passed": 959,
-  "headline": "B3c 已合併；識別模型以 PP-OCRv6 small 為主、v5 排除，採用前待授權與外部字表的打包決定",
+  "updated": "2026-11-21",
+  "environment": "Linux 混合／獨立模組完整回歸；hosted Windows 2022 讀取同一固定 CPU 來源重建的 CArchive，並驗證固定 OCR 樣本。",
+  "tests_passed": 969,
+  "headline": "B3d 完成 CPU worker 建置工具查證，待 Claude reviewer",
   "blocker": "B3 重新定版前要補 CPU 原文（LibYAML、Pillow、OpenCV、pyclipper 等）、設計 GEOS 受支援替換路徑，並由使用者決定 v6 簡中、授權與外部字表的打包方式。乾淨機與人工驗收使用 B3 後的新版本。",
-  "next": "GPT 開始 B3d（建置工具是否進 worker，只查證不排除）。之後 B3 重新定版。",
+  "next": "B3d 由 Claude reviewer 查驗。B3 重新定版前由使用者確認 v6 採用條件及是否精簡 CPU worker 資產。",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 960,
+  "tests_run": 970,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "36537eadbac17b519c122232190d91d5986a13b3",
-    "date_taipei": "2026-11-20",
+    "source_commit": "f5234e150297a48af85af69efd9c0473a0c1f6a9",
+    "date_taipei": "2026-11-21",
     "accepted": true,
-    "run": 960,
-    "passed": 959,
+    "run": 970,
+    "passed": 969,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1322,7 +1322,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/b3c-cpu-native-review-2026-11-20/README.md"
+    "evidence": "development-records/runs/b3d-cpu-build-tools-2026-11-21/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2859,8 +2859,8 @@
           {
             "id": "B3d",
             "title": "CPU：建置工具是否進入 worker",
-            "status": "next",
-            "note": "B3c 合併後由 GPT 開始；只查證不排除，排除屬打包變更需使用者同意。"
+            "status": "active",
+            "note": "固定候選內沒有建置工具的 PYZ／base_library 模組；PyInstaller 有啟動程式，其他命中為資料。待 Claude reviewer。"
           },
           {
             "id": "B3",

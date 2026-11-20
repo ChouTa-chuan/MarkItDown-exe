@@ -1,0 +1,814 @@
+{
+  "base_library_members": [],
+  "build_environment_packages": [
+    {
+      "name": "pip",
+      "version": "25.0.1"
+    },
+    {
+      "name": "pyinstaller",
+      "version": "6.22.3"
+    },
+    {
+      "name": "pyinstaller-hooks-contrib",
+      "version": "2026.9"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.2.1"
+    }
+  ],
+  "candidate_run": "44295044417",
+  "candidate_sha256": "1ed15ddb0a99c565509129c3ed83a7aaab4f7c11c0ba3712cc4b1742efd33bb5",
+  "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "check": "cpu-build-tools-audit",
+  "counts": {
+    "files": 712,
+    "library_members": 155,
+    "pure_modules": 562
+  },
+  "inventory_sha256": "7018002c0fc9f685c67a2789729514d09669130ac7a5101046865f98a192d2bf",
+  "physical_files": [
+    {
+      "bytes": 5585340,
+      "owners": [
+        {
+          "evidence": "generated-bootloader-entry",
+          "name": "pyinstaller",
+          "version": "6.22.3"
+        },
+        {
+          "evidence": "generated-application-entry",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "MarkItDownOCRWorker.exe",
+      "role": "native-binary",
+      "sha256": "022ab90e4f64cfefbbf15eeb6d0263904847777575585f3a61b8a916aaf115a6"
+    },
+    {
+      "bytes": 32604,
+      "owners": [
+        {
+          "evidence": "preserved-bootloader-notice",
+          "name": "pyinstaller",
+          "version": "6.22.3"
+        }
+      ],
+      "path": "_internal/worker-assets/bootloader/original/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt",
+      "role": "original-notice",
+      "sha256": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64"
+    },
+    {
+      "bytes": 27666,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pyinstaller-hooks-contrib/wheel/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "91d0baaff00773038e72c0a1fc9d5d2d38706b7a2b9c04f34296608f931b9cd0"
+    },
+    {
+      "bytes": 8517,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pyinstaller/METADATA",
+      "role": "original-notice",
+      "sha256": "2991d3dcd53fe9966b8c16586322a7f9bbc564dd4752c190bd4fe8d6747f7046"
+    },
+    {
+      "bytes": 32604,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pyinstaller/wheel/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt",
+      "role": "original-notice",
+      "sha256": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64"
+    },
+    {
+      "bytes": 6581,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/METADATA",
+      "role": "original-notice",
+      "sha256": "24939b84ead30ff4581918c8d5a95aafd377f6a8afc61f30ea18358a8786bfa4"
+    },
+    {
+      "bytes": 1023,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+    },
+    {
+      "bytes": 7634,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+      "role": "original-notice",
+      "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d"
+    },
+    {
+      "bytes": 1023,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+      "role": "original-notice",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+    },
+    {
+      "bytes": 10278,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04"
+    },
+    {
+      "bytes": 1023,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE",
+      "role": "original-notice",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+    },
+    {
+      "bytes": 1076,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683"
+    },
+    {
+      "bytes": 1076,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d"
+    },
+    {
+      "bytes": 1053,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46"
+    },
+    {
+      "bytes": 197,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+    },
+    {
+      "bytes": 10174,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "role": "original-notice",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "bytes": 1344,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "role": "original-notice",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+    },
+    {
+      "bytes": 1089,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6"
+    },
+    {
+      "bytes": 1072,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe"
+    },
+    {
+      "bytes": 1107,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt",
+      "role": "original-notice",
+      "sha256": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654"
+    },
+    {
+      "bytes": 1076,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d"
+    },
+    {
+      "bytes": 493,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/config/NOTICE",
+      "role": "original-notice",
+      "sha256": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8"
+    },
+    {
+      "bytes": 18737,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "markitdown-desktop",
+          "version": "0.19.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/config/_validate_pyproject/NOTICE",
+      "role": "original-notice",
+      "sha256": "09c9bcea95ca086f8bc5bed174e40bc835b297d40fb5f86bbbb570fe0a5581a7"
+    },
+    {
+      "bytes": 3677,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "pip",
+          "version": "25.0.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/pip/METADATA",
+      "role": "package-metadata",
+      "sha256": "4fa7318cf30f979db7cec45c12cbbc2b4f88a15f12eefbf59a6291d0a03af926"
+    },
+    {
+      "bytes": 1093,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "pip",
+          "version": "25.0.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/pip/original/pip-25.0.1.dist-info/LICENSE.txt",
+      "role": "original-notice",
+      "sha256": "634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104"
+    },
+    {
+      "bytes": 16042,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "pyinstaller-hooks-contrib",
+          "version": "2026.9"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/pyinstaller-hooks-contrib/METADATA",
+      "role": "package-metadata",
+      "sha256": "1820f1a8a554ce1b6ae528c7fe502f4676c844eb1151f7f040adc8010052b0ba"
+    },
+    {
+      "bytes": 27666,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "pyinstaller-hooks-contrib",
+          "version": "2026.9"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/pyinstaller-hooks-contrib/original/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "91d0baaff00773038e72c0a1fc9d5d2d38706b7a2b9c04f34296608f931b9cd0"
+    },
+    {
+      "bytes": 8517,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "pyinstaller",
+          "version": "6.22.3"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/pyinstaller/METADATA",
+      "role": "package-metadata",
+      "sha256": "2991d3dcd53fe9966b8c16586322a7f9bbc564dd4752c190bd4fe8d6747f7046"
+    },
+    {
+      "bytes": 32604,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "pyinstaller",
+          "version": "6.22.3"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/pyinstaller/original/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt",
+      "role": "original-notice",
+      "sha256": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64"
+    },
+    {
+      "bytes": 6581,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/METADATA",
+      "role": "package-metadata",
+      "sha256": "24939b84ead30ff4581918c8d5a95aafd377f6a8afc61f30ea18358a8786bfa4"
+    },
+    {
+      "bytes": 1023,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools-84.2.1.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+    },
+    {
+      "bytes": 7634,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+      "role": "original-notice",
+      "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d"
+    },
+    {
+      "bytes": 1023,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+      "role": "original-notice",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+    },
+    {
+      "bytes": 10278,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04"
+    },
+    {
+      "bytes": 1023,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE",
+      "role": "original-notice",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+    },
+    {
+      "bytes": 1076,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683"
+    },
+    {
+      "bytes": 1076,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d"
+    },
+    {
+      "bytes": 1053,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46"
+    },
+    {
+      "bytes": 197,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+    },
+    {
+      "bytes": 10174,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "role": "original-notice",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "bytes": 1344,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "role": "original-notice",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+    },
+    {
+      "bytes": 1089,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6"
+    },
+    {
+      "bytes": 1072,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe"
+    },
+    {
+      "bytes": 1107,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt",
+      "role": "original-notice",
+      "sha256": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654"
+    },
+    {
+      "bytes": 1076,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE",
+      "role": "original-notice",
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d"
+    },
+    {
+      "bytes": 493,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/config/NOTICE",
+      "role": "original-notice",
+      "sha256": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8"
+    },
+    {
+      "bytes": 18737,
+      "owners": [
+        {
+          "evidence": "bundled-package-metadata-or-notice",
+          "name": "setuptools",
+          "version": "84.2.1"
+        }
+      ],
+      "path": "_internal/worker-assets/installed/setuptools/original/setuptools/config/_validate_pyproject/NOTICE",
+      "role": "original-notice",
+      "sha256": "09c9bcea95ca086f8bc5bed174e40bc835b297d40fb5f86bbbb570fe0a5581a7"
+    },
+    {
+      "bytes": 27666,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/pyinstaller-hooks-contrib/wheel/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "91d0baaff00773038e72c0a1fc9d5d2d38706b7a2b9c04f34296608f931b9cd0"
+    },
+    {
+      "bytes": 8517,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/pyinstaller/METADATA",
+      "role": "package-metadata",
+      "sha256": "2991d3dcd53fe9966b8c16586322a7f9bbc564dd4752c190bd4fe8d6747f7046"
+    },
+    {
+      "bytes": 32604,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/pyinstaller/wheel/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt",
+      "role": "data-or-generated",
+      "sha256": "0598064c7d2718e38d7914a7d08343b2fa008e3bea9ebba2aa7a6ffa5900dd64"
+    },
+    {
+      "bytes": 6581,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/METADATA",
+      "role": "package-metadata",
+      "sha256": "24939b84ead30ff4581918c8d5a95aafd377f6a8afc61f30ea18358a8786bfa4"
+    },
+    {
+      "bytes": 1023,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+    },
+    {
+      "bytes": 7634,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d"
+    },
+    {
+      "bytes": 1023,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+    },
+    {
+      "bytes": 10278,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04"
+    },
+    {
+      "bytes": 1023,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+    },
+    {
+      "bytes": 1076,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683"
+    },
+    {
+      "bytes": 1076,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d"
+    },
+    {
+      "bytes": 1053,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46"
+    },
+    {
+      "bytes": 197,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+    },
+    {
+      "bytes": 10174,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "role": "data-or-generated",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "bytes": 1344,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "role": "data-or-generated",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+    },
+    {
+      "bytes": 7859,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging/licenses/__init__.py",
+      "role": "data-or-generated",
+      "sha256": "590d12eee73ddbec53b4e9ee5bfc64d9cb3aacb4940e8ebcba260757ce56740b"
+    },
+    {
+      "bytes": 51122,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging/licenses/_spdx.py",
+      "role": "data-or-generated",
+      "sha256": "596ec35e2ca0ebcba9fd8343ff0a51625af548786257815f24b41f7e08613314"
+    },
+    {
+      "bytes": 1089,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6"
+    },
+    {
+      "bytes": 1072,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe"
+    },
+    {
+      "bytes": 1107,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt",
+      "role": "data-or-generated",
+      "sha256": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654"
+    },
+    {
+      "bytes": 1076,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE",
+      "role": "data-or-generated",
+      "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d"
+    },
+    {
+      "bytes": 493,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/config/NOTICE",
+      "role": "data-or-generated",
+      "sha256": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8"
+    },
+    {
+      "bytes": 18737,
+      "owners": [],
+      "path": "_internal/worker-assets/licenses/windows/setuptools/wheel/setuptools/config/_validate_pyproject/NOTICE",
+      "role": "data-or-generated",
+      "sha256": "09c9bcea95ca086f8bc5bed174e40bc835b297d40fb5f86bbbb570fe0a5581a7"
+    }
+  ],
+  "provenance_sha256": "da7857f5a315347c4c65e3a35a49f882c19e3c34ebbba055c7fa8434b93eecce",
+  "pure_modules_sha256": "443124258a5ca164e97d5c444dddb7d6a5bf31791f1b1ecf926d0f5b41198d28",
+  "pyz_sources": [],
+  "schema_version": 1
+}

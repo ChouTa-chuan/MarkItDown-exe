@@ -1228,7 +1228,20 @@
           "required_evidence": [
             "PYZ／base_library 成員及來源版本／原文閉包，建置工具是否進入 runtime 需查證"
           ],
-          "evidence": [],
+          "evidence": [
+            {
+              "path": "docs/development-records/runs/b3d-cpu-build-tools-2026-11-21/original-cpu-build-tools.json",
+              "sha256": "baa96a23be5b73c9f2afc4d9cac9c43d681053e21b8d90736e013e6c9c4dbf5e"
+            },
+            {
+              "path": "docs/development-records/runs/b3d-cpu-build-tools-2026-11-21/repo-notice-sources.json",
+              "sha256": "1c600c85914d0088e343e909aa7719ff4dc0b660112423e8b8b455cfcdd8968d"
+            },
+            {
+              "path": "docs/development-records/runs/b3d-cpu-build-tools-2026-11-21/frozen-runtime.json",
+              "sha256": "15174acd7ad5877feecd339495d49c90e25374931fd9d93efe5a45e42be5bad8"
+            }
+          ],
           "status": "open",
           "requires_user_decision": false,
           "decision_source": null,

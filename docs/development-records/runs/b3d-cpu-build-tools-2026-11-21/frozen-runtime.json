@@ -1,0 +1,219 @@
+{
+  "archive": {
+    "different_assets": [],
+    "entry_bytes": 5585340,
+    "entry_sha256": "9f4f52c557b90d0cceb80c3054ea7fb7d14e9f94ab335aaecb0e8b10bce204f6",
+    "integrity_checked_matching_assets": [
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pyinstaller-hooks-contrib/wheel/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pyinstaller/METADATA",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/pyinstaller/wheel/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/METADATA",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools-84.2.1.dist-info/licenses/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/config/NOTICE",
+      "installed/markitdown-desktop/original/desktop_app/data/licenses/windows/setuptools/wheel/setuptools/config/_validate_pyproject/NOTICE",
+      "installed/pip/METADATA",
+      "installed/pip/original/pip-25.0.1.dist-info/LICENSE.txt",
+      "installed/pyinstaller-hooks-contrib/METADATA",
+      "installed/pyinstaller-hooks-contrib/original/pyinstaller_hooks_contrib-2026.9.dist-info/licenses/LICENSE",
+      "installed/pyinstaller/METADATA",
+      "installed/pyinstaller/original/pyinstaller-6.22.3.dist-info/licenses/COPYING.txt",
+      "installed/setuptools/METADATA",
+      "installed/setuptools/original/setuptools-84.2.1.dist-info/licenses/LICENSE",
+      "installed/setuptools/original/setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+      "installed/setuptools/original/setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+      "installed/setuptools/original/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE",
+      "installed/setuptools/original/setuptools/_vendor/jaraco.text-4.0.0.dist-info/LICENSE",
+      "installed/setuptools/original/setuptools/_vendor/jaraco_context-6.1.0.dist-info/licenses/LICENSE",
+      "installed/setuptools/original/setuptools/_vendor/jaraco_functools-4.4.0.dist-info/licenses/LICENSE",
+      "installed/setuptools/original/setuptools/_vendor/more_itertools-10.8.0.dist-info/licenses/LICENSE",
+      "installed/setuptools/original/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE",
+      "installed/setuptools/original/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "installed/setuptools/original/setuptools/_vendor/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "installed/setuptools/original/setuptools/_vendor/platformdirs-4.4.0.dist-info/licenses/LICENSE",
+      "installed/setuptools/original/setuptools/_vendor/tomli-2.4.0.dist-info/licenses/LICENSE",
+      "installed/setuptools/original/setuptools/_vendor/wheel-0.46.3.dist-info/licenses/LICENSE.txt",
+      "installed/setuptools/original/setuptools/_vendor/zipp-3.23.0.dist-info/licenses/LICENSE",
+      "installed/setuptools/original/setuptools/config/NOTICE",
+      "installed/setuptools/original/setuptools/config/_validate_pyproject/NOTICE"
+    ],
+    "original_entry_bytes_match": false,
+    "original_entry_sha256": "022ab90e4f64cfefbbf15eeb6d0263904847777575585f3a61b8a916aaf115a6",
+    "original_pyz_sources_match": true,
+    "pure_manifest_modules_in_outer_archive": [
+      "struct"
+    ],
+    "pyz_sources_sha256": "443124258a5ca164e97d5c444dddb7d6a5bf31791f1b1ecf926d0f5b41198d28",
+    "pyz_tool_modules": [],
+    "startup_entries": [
+      {
+        "bytes": 289,
+        "explicit_tool_imports": [],
+        "name": "struct",
+        "sha256": "3c0a9560a87d9cbe2f3c39b2fea9f562edaae838533c6c93e5ff0a32d3db49f6",
+        "source": {
+          "distribution": "CPython stdlib",
+          "path": "struct.py",
+          "source_sha256": "eadbcc540c3b6496e52449e712eca3694e31e1d935af0f1e26cff0e3cc370945",
+          "version": "3.12.10"
+        },
+        "type": "m"
+      },
+      {
+        "bytes": 4826,
+        "explicit_tool_imports": [],
+        "name": "pyimod01_archive",
+        "sha256": "11051ee22b9ee80417edafb0bc633a276fe9e3cf96dc163919d40a2b8817d829",
+        "source": {
+          "distribution": "pyinstaller",
+          "path": "PyInstaller/loader/pyimod01_archive.py",
+          "source_sha256": "38d2c8b801b6c2165d44bc40f47bc1e230110272003da67d4d4eaa59af4ff397",
+          "version": "6.22.3"
+        },
+        "type": "m"
+      },
+      {
+        "bytes": 32114,
+        "explicit_tool_imports": [
+          "pyimod01_archive"
+        ],
+        "name": "pyimod02_importers",
+        "sha256": "4f9541c100c1435b6c1b85cf8752a7d68b44056b4a117ca805ff66babf59be01",
+        "source": {
+          "distribution": "pyinstaller",
+          "path": "PyInstaller/loader/pyimod02_importers.py",
+          "source_sha256": "33e786adc20d247cc5acf02eaa021f8629f30b8d3d5bf8a1e651088cca132eef",
+          "version": "6.22.3"
+        },
+        "type": "m"
+      },
+      {
+        "bytes": 6130,
+        "explicit_tool_imports": [],
+        "name": "pyimod03_ctypes",
+        "sha256": "af3124fe4edf2b0df6261ef21047333a25be613f87ccd3ca258a934e1f5d3821",
+        "source": {
+          "distribution": "pyinstaller",
+          "path": "PyInstaller/loader/pyimod03_ctypes.py",
+          "source_sha256": "a93c2ec1677cc5d77fa4c000136b9da36f61388f9536f2b1a66193b329d1f312",
+          "version": "6.22.3"
+        },
+        "type": "m"
+      },
+      {
+        "bytes": 1614,
+        "explicit_tool_imports": [],
+        "name": "pyimod04_pywin32",
+        "sha256": "7298b372e1587404d23f8fe05d134bc4799c2d291f60123b709ba2c4238ab4f4",
+        "source": {
+          "distribution": "pyinstaller",
+          "path": "PyInstaller/loader/pyimod04_pywin32.py",
+          "source_sha256": "bc55444d6745a5922ba1ab63d131a90c4d9f00c800553b3cd08423acd1982aec",
+          "version": "6.22.3"
+        },
+        "type": "m"
+      },
+      {
+        "bytes": 1921,
+        "explicit_tool_imports": [
+          "pyimod02_importers",
+          "pyimod03_ctypes",
+          "pyimod04_pywin32"
+        ],
+        "name": "pyiboot01_bootstrap",
+        "sha256": "826253c451cbd93c615c362fff930609003ef9df7e66c6457b2ec67fdd37384b",
+        "source": {
+          "distribution": "pyinstaller",
+          "path": "PyInstaller/loader/pyiboot01_bootstrap.py",
+          "source_sha256": "6773bb364344a01f176133f8624ddda9e8f992052eaddad32609b1e90399ef1f",
+          "version": "6.22.3"
+        },
+        "type": "s"
+      },
+      {
+        "bytes": 2700,
+        "explicit_tool_imports": [],
+        "name": "pyi_rth_inspect",
+        "sha256": "5f56c6eaf9cd09a37b90f6931164e1f819d081df0d015dc57c8fb20525ab2c65",
+        "source": {
+          "distribution": "pyinstaller",
+          "path": "PyInstaller/hooks/rthooks/pyi_rth_inspect.py",
+          "source_sha256": "e9db311f97b750a30a422e0bf2bdcff7514da67cd35b0f6189ad786956ff1abc",
+          "version": "6.22.3"
+        },
+        "type": "s"
+      },
+      {
+        "bytes": 1509,
+        "explicit_tool_imports": [
+          "pyimod02_importers"
+        ],
+        "name": "pyi_rth_pkgutil",
+        "sha256": "fdfd974f0e7532297885929ee61fe613cfe7aa7955688ad53892400f7dff7c28",
+        "source": {
+          "distribution": "pyinstaller",
+          "path": "PyInstaller/hooks/rthooks/pyi_rth_pkgutil.py",
+          "source_sha256": "7d006a9675674b9cc7d8b11ea98ad037adea5dbdb6ebdf9b7a45c861501c4204",
+          "version": "6.22.3"
+        },
+        "type": "s"
+      },
+      {
+        "bytes": 2303,
+        "explicit_tool_imports": [],
+        "name": "pyi_rth_multiprocessing",
+        "sha256": "be7d8b8cfd51c337238f28e6c551a81457e78d5785087c3680bf6f5a8cfd243e",
+        "source": {
+          "distribution": "pyinstaller",
+          "path": "PyInstaller/hooks/rthooks/pyi_rth_multiprocessing.py",
+          "source_sha256": "2834a4a14da13d263183426eb7e61eec75cd720fac1bd0794f8ae63878763e20",
+          "version": "6.22.3"
+        },
+        "type": "s"
+      },
+      {
+        "bytes": 909,
+        "explicit_tool_imports": [],
+        "name": "ocr_worker_entry",
+        "sha256": "f17cd1d3fd78ce36df3328859663367da397672c2946f09efc3ff13f7d4b9813",
+        "source": {
+          "distribution": "markitdown-desktop",
+          "path": "packaging/ocr_worker_entry.py",
+          "source_sha256": "21154bd82a93f8e5de6b4a1e5902cb476655261c46a3b4a5ea23811f5532d767"
+        },
+        "type": "s"
+      }
+    ],
+    "version": "6.22.3"
+  },
+  "check": "cpu-build-tools-runtime",
+  "python": "3.12.10",
+  "run_id": "44783968301",
+  "schema_version": 1,
+  "smoke": {
+    "fixture_sha256": "2dcad1eb6d69de30de61f74b3d95349275b17e8a90f286df4778b360e478b8b3",
+    "frozen": true,
+    "health_passed": true,
+    "ocr_passed": true,
+    "path_empty": true,
+    "providers": [
+      "CPUExecutionProvider",
+      "CPUExecutionProvider",
+      "CPUExecutionProvider"
+    ]
+  },
+  "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c"
+}
