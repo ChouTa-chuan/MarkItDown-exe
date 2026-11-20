@@ -159,5 +159,6 @@
 | 2026-11-20 | 使用者決定 | B3b 交給 Codex（GPT） |
 | 2026-11-20 | 使用者決定 | B3b 現有三個 PP-OCR 模型授權範圍選 A：接受 PaddleOCR 與 RapidOCR 的 Apache-2.0 涵蓋，隨 CPU 元件附兩份授權原文，並在揭露檔註明兩個 v4 權重與三個 ONNX 轉檔的授權未逐檔確認 |
 | 2026-11-20 | 使用者決定 | 識別模型暫不更換；先以較大的繁中、簡中、英文樣本再評估 v4、v5 mobile、v6 small（必要時含繁中 v3），結果交使用者決定 |
+| 2026-11-20 | 使用者決定 | 協調者（主對話）預設模型改為 `claude-sonnet-5-5`，取代 2026-11-16 與 2026-11-17 決定中的 `claude-opus-5-5`；規劃者 `planner` 用 `claude-opus-5-5`、編程者 `coder` 用 `claude-haiku-5-5`、查驗者 `reviewer` 用 `claude-sonnet-5-5` 維持不變；推理強度維持中 |
 
 接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。B3b2 停在 PR 交 Claude reviewer 查驗。識別模型選型由使用者決定，現有 CPU 授權決定於 B3 重新定版時接線。
