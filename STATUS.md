@@ -166,5 +166,6 @@
 | 2026-11-20 | 使用者決定 | 識別模型方向定為 PP-OCRv5 mobile（單一簡繁模型）；正式更換前先查明 v5 ONNX 轉檔來源與授權、以掃描類公開樣本複驗，通過後在 B3 更換；更換屬打包內容變更，B3 時再確認 |
 | 2026-11-20 | 使用者決定 | B3c、B3d 交給 Codex（GPT） |
 | 2026-11-20 | 使用者決定 | LibYAML 原文隨包列入 B3 重新定版；B3c 繼續完成查證，並系統性列出 CPU wheel 的待補原文清單 |
+| 2026-11-20 | 使用者決定 | 協調者（主對話）預設模型改為 `claude-sonnet-5-5`，取代 2026-11-16 與 2026-11-17 決定中的 `claude-opus-5-5`；規劃者 `planner` 用 `claude-opus-5-5`、編程者 `coder` 用 `claude-haiku-5-5`、查驗者 `reviewer` 用 `claude-sonnet-5-5` 維持不變；推理強度維持中 |
 
 接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。B3c 待 Claude reviewer 查驗，B3d 等 B3c 合併後開始。B3b3 已合併部分證據，真實公開掃描與授權仍待查；現有 CPU 授權決定於 B3 重新定版時接線。

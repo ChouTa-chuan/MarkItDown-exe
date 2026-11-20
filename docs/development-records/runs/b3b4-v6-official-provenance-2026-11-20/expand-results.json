@@ -1,0 +1,945 @@
+{
+  "method": "B3b normalized() 與 edit_distance()；語言正確率 = 1 − 總編輯距離／總參考字數（按字數加權）",
+  "caveat": "模擬掃描，不等於真實掃描機成像；結論只適用於這組固定參數。",
+  "seed": 20261120,
+  "environment": {
+    "python": "3.12.3",
+    "system": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39",
+    "packages": {
+      "rapidocr-onnxruntime": "1.4.4",
+      "onnxruntime": "1.31.1",
+      "numpy": "2.5.4",
+      "opencv-python": "5.0.0.93",
+      "pillow": "13.0.0"
+    },
+    "provider": "CPUExecutionProvider",
+    "intra_threads": 1,
+    "inter_threads": 1
+  },
+  "results": {
+    "clean": {
+      "label": "B3b2 原始合成圖（對照）",
+      "models": {
+        "v4-current": {
+          "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+          "bytes": 10857958,
+          "samples": {
+            "zh-hant-body": {
+              "text": "社區圖書室開放紀錄\n雨後空氣清爽’志工沿街巡看排水孔與踏車道。\n閣讀區新增地方、繪本及《墓灣山林手册》各三册。\n民可在借閣，逾期請先以電話聯絡值班人員。\n書架F-07放資料爽，標末碼為0068丶0126。\n開館前請確門窗與電源，在交接簿留下備。\n本三場活動共86人参舆，設備修費約2,450元°\n调末開放時間：09:30-17:00；中午暂停借還。\n附：借書證遗失或磨損，可到服務申請補發。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 30,
+              "character_error_rate": 0.149254,
+              "character_accuracy": 0.850746
+            },
+            "zh-hant-table": {
+              "text": "文化展物資盤點\n品頂\n规格\n數量\n状熊\n木製展示架\n120X45cm\n12組\n已入庫\n擂叠椅\n深灰色\n36張\n待清潔\n玻璃標牌\nA5直式\n18面\n缺2面\n防潮垫\n厚度3mm\n40片\n已包装\n膠帶\n宽24mm\n9捲\n待補貨\n延長線\n長度5m\n6條\n已測試\n展示燈具\n色温4000K\n棚8\n已點交\n小字備：序號TW-006，剩餘貨品請依清册逐一勾稽。",
+              "recognized_lines": 34,
+              "reference_characters": 143,
+              "edits": 17,
+              "character_error_rate": 0.118881,
+              "character_accuracy": 0.881119
+            },
+            "zh-hant-heading": {
+              "text": "街區導更新公告\n第04期丨2026年11月丨馆舍及路線調整\n甲丶入口改由北侧楼通行\n乙、報名請填姓名、聯絡電話與梯次代碼。\n導圍包括舊庫、蓄水池及步道旁的樹荫區\n交通明：公車停靠站距服務臺約280公尺。\n版本TW-R2；夜間照明暂停使用·請留意梯緣。",
+              "recognized_lines": 7,
+              "reference_characters": 128,
+              "edits": 18,
+              "character_error_rate": 0.140625,
+              "character_accuracy": 0.859375
+            },
+            "zh-hans-body": {
+              "text": "社区图书室开放记录\n雨后空气清爽，志愿者沿街查看排水口和自行车道。\n阅览区新增地方志、绘本及《城市山林手册》各三册。\n读者可在柜台借阅，逾期请先电话联系值班人员。\n书架F-07放置文件夹，标签尾号为0068、0126。\n闭馆前请检查门窗与电源，并在交接簿留下备注。\n本周三场活动共86人参加，设备检修费约2,450元。\n周末开放时间：09:30-17:00；午间暂停借还。\n附注：借书证遗失或磨损，可到服务台申请补发。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 1,
+              "character_error_rate": 0.004975,
+              "character_accuracy": 0.995025
+            },
+            "zh-hans-table": {
+              "text": "文化展览物资盘点\n品类\n规格\n数量\n状态\n木制展示架\n120X45cm\n12组\n已入库\n折叠椅\n深灰色\n36把\n待清洁\n玻璃标牌\nA5竖式\n18块\n缺2块\n防潮垫\n厚度3mm\n40片\n已包装\n纸胶带\n宽24mm\n9卷\n待补货\n延长线\n长度5m\n6条\n已测试\n展示灯具\n色温4000K\n8\n已交接\n小字备注：编号CN-006，剩余货品请按照清单逐项核对。",
+              "recognized_lines": 34,
+              "reference_characters": 144,
+              "edits": 2,
+              "character_error_rate": 0.013889,
+              "character_accuracy": 0.986111
+            },
+            "zh-hans-heading": {
+              "text": "街区导览更新公告\n第04期丨2026年11月丨馆舍及路线调整\n甲、入口改由北侧骑楼通行\n乙、报名请填姓名、联系电话与场次代码。\n导览范围包括旧仓库、蓄水池及步道旁的树荫区。\n交通说明：公交站距服务台约280米。\n版本CN-R2；夜间照明暂停使用。请留意台阶边缘。",
+              "recognized_lines": 7,
+              "reference_characters": 125,
+              "edits": 2,
+              "character_error_rate": 0.016,
+              "character_accuracy": 0.984
+            },
+            "en-body": {
+              "text": "Community Reading Room Log\nAfter the rain, volunteers inspected drains and bicycle lanes.\nThe reading room received new maps, picture books, and field guides.\nVisitors may borrow copies at the desk. Call ahead about overdue items.\nShelfF-07holdsfolderslabelled0068 and 0126.\nCheck the doors, windows, and power before the last shift ends.\nThree events welcomed 86 visitors. Repairs cost about 2,450 dollars.\nWeekend hours are 09:30-17:00, with a short pause at noon.\nNote:A worn orlost library card canbereplaced at the service desk.",
+              "recognized_lines": 9,
+              "reference_characters": 454,
+              "edits": 1,
+              "character_error_rate": 0.002203,
+              "character_accuracy": 0.997797
+            },
+            "en-table": {
+              "text": "Exhibition Supply Inventory\nItem\nSpecification\nQuantity\nStatus\nWooddisplayframe\n120 ×45cm\n12 sets\nIn storage\nFolding chair\nDark grey\n36 chairs\nTo be cleaned\nGlass sign\nA5 portrait\n18 signs\n2 missing\nMoisturebarrier\n3 mm thick\n40 pieces\nPacked\nPaper tape\n24 mm wide\n9 rolls\nReorder\nExtension cord\n5 m long\n6 cords\nTested\nExhibit light\n4000K\n8 lights\nChecked in\nSmall print:Ref.EN-o06.Count the remaining supplies against the list.",
+              "recognized_lines": 34,
+              "reference_characters": 361,
+              "edits": 1,
+              "character_error_rate": 0.00277,
+              "character_accuracy": 0.99723
+            },
+            "en-heading": {
+              "text": "Walking Tour Update\nIssue 04| November 2026 | Route and building changes\nA. Enter through the north arcade\nB. Register with your name, phone number, and session code.\nThe tour stops at the old warehouse, reservoir, and shaded path.\nTransit note:The bus stop is about 280 metres from the desk.\nRevision EN-R2. Lights are off at night.Watch for the edge of each step.",
+              "recognized_lines": 7,
+              "reference_characters": 303,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            }
+          },
+          "by_language": {
+            "zh-hant": {
+              "samples": 3,
+              "reference_characters": 472,
+              "edits": 65,
+              "character_error_rate": 0.137712,
+              "character_accuracy": 0.862288
+            },
+            "zh-hans": {
+              "samples": 3,
+              "reference_characters": 470,
+              "edits": 5,
+              "character_error_rate": 0.010638,
+              "character_accuracy": 0.989362
+            },
+            "en": {
+              "samples": 3,
+              "reference_characters": 1118,
+              "edits": 2,
+              "character_error_rate": 0.001789,
+              "character_accuracy": 0.998211
+            }
+          }
+        },
+        "v5-rapid-mobile": {
+          "sha256": "5825fc7ebf84ae7a412be049820b4d86d77620f204a041697b0494669b1742c5",
+          "bytes": 16631306,
+          "samples": {
+            "zh-hant-body": {
+              "text": "社區圖書室開放紀錄\n雨後空氣清爽，志工沿街巡看排水孔與腳踏車道。\n閱讀區新增地方誌、繪本及《臺灣山林手冊》各三冊。\n民眾可在櫃檯借閱，逾期請先以電話聯絡值班人員。\n書架F-07擺放資料夾，標籤末碼為0068、0126。\n閉館前請確認門窗與電源，並在交接簿留下備註。\n本週三場活動共86人參與，設備檢修費約2,450元。\n週末開放時間：09:30–17:00；中午暫停借還。\n附註：借書證遺失或磨損，可到服務臺申請補發。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            },
+            "zh-hant-table": {
+              "text": "文化展覽物資盤點\n品項\n規格\n數量\n狀態\n木製展示架\n120×45cm\n12組\n已入庫\n摺疊椅\n深灰色\n36張\n待清潔\n玻璃標牌\nA5直式\n18面\n缺2面\n防潮墊\n厚度3mm\n40片\n已包装\n紙膠帶\n寬24 mm\n9捲\n待補貨\n延長線\n長度5m\n6條\n已測試\n展示燈具\n色溫4000K\n耀8\n已點交\n小字備註：序號TW-006，剩餘貨品請依清冊逐一勾稽。",
+              "recognized_lines": 34,
+              "reference_characters": 143,
+              "edits": 3,
+              "character_error_rate": 0.020979,
+              "character_accuracy": 0.979021
+            },
+            "zh-hant-heading": {
+              "text": "街區導覽更新公告\n第 04期2026年 11月 館舍及路線調整\n甲、入口改由北側騎樓通行\n乙、報名請填姓名、聯絡電話與梯次代碼。\n導覽範圍包括舊倉庫、蓄水池及步道旁的樹蔭區\n−√\n交通說明：公車停靠站距服務臺約 280 公尺。\n版本TW-R2；夜間照明暫停使用。請留意階梯邊緣。",
+              "recognized_lines": 8,
+              "reference_characters": 128,
+              "edits": 4,
+              "character_error_rate": 0.03125,
+              "character_accuracy": 0.96875
+            },
+            "zh-hans-body": {
+              "text": "社区图书室开放记录\n雨后空气清爽，志愿者沿街查看排水口和自行车道。\n阅览区新增地方志、绘本及《城市山林手册》各三册。\n读者可在柜台借阅，逾期请先电话联系值班人员。\n书架F-07放置文件夹，标签尾号为0068、0126。\n闭馆前请检查门窗与电源，并在交接簿留下备注。\n本周三场活动共86人参加，设备检修费约2,450元。\n周末开放时间：09:30-17:00；午间暂停借还。\n附注：借书证遗失或磨损，可到服务台申请补发。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 1,
+              "character_error_rate": 0.004975,
+              "character_accuracy": 0.995025
+            },
+            "zh-hans-table": {
+              "text": "文化展览物资盘点\n品类\n规格\n数量\n状态\n木制展示架\n120×45cm\n12组\n已入库\n折叠椅\n深灰色\n36把\n待清洁\n玻璃标牌\nA5竖式\n18块\n缺2块\n防潮垫\n厚度3mm\n40片\n已包装\n纸胶带\n宽24 mm\n9卷\n待补货\n延长线\n长度5m\n6条\n已测试\n展示灯具\n色温4000K\n8\n已交接\n小字备注：编号CN-006，剩余货品请按照清单逐项核对。",
+              "recognized_lines": 34,
+              "reference_characters": 144,
+              "edits": 1,
+              "character_error_rate": 0.006944,
+              "character_accuracy": 0.993056
+            },
+            "zh-hans-heading": {
+              "text": "街区导览更新公告\n第 04 期 2026 年 11月 馆舍及路线调整\n甲、入口改由北侧骑楼通行\n乙、报名请填姓名、联系电话与场次代码。\n导览范围包括旧仓库、蓄水池及步道旁的树荫区。\n交通说明：公交站距服务台约280米。\n版本CN-R2；夜间照明暂停使用。请留意台阶边缘。",
+              "recognized_lines": 7,
+              "reference_characters": 125,
+              "edits": 2,
+              "character_error_rate": 0.016,
+              "character_accuracy": 0.984
+            },
+            "en-body": {
+              "text": "Community Reading Room Log\nAfter the rain, volunteers inspected drains and bicycle lanes.\nThe reading room received new maps, picture books, and fi eld guides.\nVisitors may borrow copies at the desk. Call ahead about overdue items.\nShelf F-07 holds folders labelled 0068 and 0126.\nCheck the doors, windows, and power before the last shift ends.\nThree events welcomed 86 visitors. Repairs cost about 2,450 dollars.\nWeekend hours are 09:30–17:00, with a short pause at noon.\nNote: A worn or lost library card can be replaced at the service desk.",
+              "recognized_lines": 9,
+              "reference_characters": 454,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            },
+            "en-table": {
+              "text": "Exhibition Supply Inventory\nItem\nSpecification\nQuantity\nStatus\nWood display frame\n120×45cm\n12 sets\nIn storage\nFolding chair\nDark grey\n36 chairs\nTo be cleaned\nGlass sign\nA5 portrait\n18 signs\n2 missing\nMoisture barrier\n3 mm thick\n40 pieces\nPacked\nPaper tape\n24 mm wide\n9 rolls\nReorder\nExtension cord\n5 m long\n6 cords\nTested\nExhibit light\n4000K\n8 lights\nChecked in\nSmall print: Ref. EN-006. Count the remaining supplies against the list.",
+              "recognized_lines": 34,
+              "reference_characters": 361,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            },
+            "en-heading": {
+              "text": "Walking Tour Update\nIssue 04 | November 2026 | Route and building changes\nA. Enter through the north arcade\nB. Register with your name, phone number, and session code.\nThe tour stops at the old warehouse, reservoir, and shaded path.\nTransit note: The bus stop is about 280 metres from the desk.\nRevision EN-R2. Lights are off at night. Watch for the edge of each step.",
+              "recognized_lines": 7,
+              "reference_characters": 303,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            }
+          },
+          "by_language": {
+            "zh-hant": {
+              "samples": 3,
+              "reference_characters": 472,
+              "edits": 7,
+              "character_error_rate": 0.014831,
+              "character_accuracy": 0.985169
+            },
+            "zh-hans": {
+              "samples": 3,
+              "reference_characters": 470,
+              "edits": 4,
+              "character_error_rate": 0.008511,
+              "character_accuracy": 0.991489
+            },
+            "en": {
+              "samples": 3,
+              "reference_characters": 1118,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            }
+          }
+        },
+        "v6-rapid-small": {
+          "sha256": "6f327246b50388f3c176ae304bd95767ea6dc0c9ae92153ef8cbe210b3c14884",
+          "bytes": 21234383,
+          "samples": {
+            "zh-hant-body": {
+              "text": "社區圖書室開放紀録\n雨後空氣清爽，志工沿街巡看排水孔與腳踏車道。\n閱讀區新增地方誌、繪本及《臺灣山林手冊》各三冊。\n民眾可在櫃檯借閱，逾期請先以電話聯絡值班人員。\n書架F-07擺放資料夾，標籤末碼為0068、0126。\n閉館前請確認門窗與電源，並在交接簿留下備註。\n本週三場活動共86人參與，設備檢修費約2,450元。\n週末開放時間：09:30-17:00；中午暫停借還。\n附註：借書證遺失或磨損，可到服務臺申請補發。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 2,
+              "character_error_rate": 0.00995,
+              "character_accuracy": 0.99005
+            },
+            "zh-hant-table": {
+              "text": "文化展覽物資盤點\n品項\n規格\n數量\n狀態\n木製展示架\n120 × 45 cm\n12組\n已入庫\n摺疊椅\n深灰色\n36張\n待清潔\n玻璃標牌\nA5 直式\n18面\n缺2面\n防潮墊\n厚度3 mm\n40片\n已包裝\n紙膠帶\n寬 24 mm\n9捲\n待補貨\n延長線\n長度5m\n6條\n已測試\n展示燈具\n色溫4000 K\nW8\n已點交\n小字備註：序號TW-006，剩餘貨品請依清冊逐一勾稽。",
+              "recognized_lines": 34,
+              "reference_characters": 143,
+              "edits": 2,
+              "character_error_rate": 0.013986,
+              "character_accuracy": 0.986014
+            },
+            "zh-hant-heading": {
+              "text": "街區導覽更新公告\n第04期 2026年11月 館舍及路線調整\n甲、入口改由北側騎樓通行\n乙、報名請填姓名、聯絡電話與梯次代碼。\n導覽範圍包括舊倉庫、蓄水池及步道旁的樹蔭區\n交通說明：公車停靠站距服務臺約280公尺。\n版本TW-R2；夜間照明暫停使用。請留意階梯邊緣。",
+              "recognized_lines": 7,
+              "reference_characters": 128,
+              "edits": 3,
+              "character_error_rate": 0.023438,
+              "character_accuracy": 0.976562
+            },
+            "zh-hans-body": {
+              "text": "社区图书室开放记录\n雨后空气清爽，志愿者沿街查看排水口和自行车道。\n阅览区新增地方志、绘本及《城市山林手册》各三册。\n读者可在柜台借阅，逾期请先电话联系值班人员。\n书架F-07放置文件夹，标签尾号为0068、0126。\n闭馆前请检查门窗与电源，并在交接簿留下备注。\n本周三场活动共86人参加，设备检修费约2,450元。\n周末开放时间：09:30-17:00；午间暂停借还。\n附注：借书证遗失或磨损，可到服务台申请补发。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 1,
+              "character_error_rate": 0.004975,
+              "character_accuracy": 0.995025
+            },
+            "zh-hans-table": {
+              "text": "文化展览物资盘点\n品类\n规格\n数量\n状态\n木制展示架\n120 × 45 cm\n12组\n已入库\n折叠椅\n深灰色\n36把\n待清洁\n玻璃标牌\nA5竖式\n18块\n缺2块\n防潮垫\n厚度3 mm\n40片\n已包装\n纸胶带\n宽 24 mm\n9卷\n待补货\n延长线\n长度5m\n6条\n已测试\n展示灯具\n色温4000 K\nW8\n已交接\n小字备注：编号CN-006，剩余货品请按照清单逐项核对。",
+              "recognized_lines": 34,
+              "reference_characters": 144,
+              "edits": 2,
+              "character_error_rate": 0.013889,
+              "character_accuracy": 0.986111
+            },
+            "zh-hans-heading": {
+              "text": "街区导览更新公告\n第04期 2026年11月 馆舍及路线调整\n甲、入口改由北侧骑楼通行\n乙、报名请填姓名、联系电话与场次代码。\n导览范围包括旧仓库、蓄水池及步道旁的树荫区。\n交通说明：公交站距服务台约280米。\n版本CN-R2；夜间照明暂停使用。请留意台阶边缘。",
+              "recognized_lines": 7,
+              "reference_characters": 125,
+              "edits": 2,
+              "character_error_rate": 0.016,
+              "character_accuracy": 0.984
+            },
+            "en-body": {
+              "text": "Community Reading Room Log\nAfter the rain, volunteers inspected drains and bicycle lanes.\nThe reading room received new maps, picture books, and field guides.\nVisitors may borrow copies at the desk. Call ahead about overdue items.\nShelf F-07 holds folders labelled 0068 and 0126.\nCheck the doors, windows, and power before the last shift ends.\nThree events welcomed 86 visitors. Repairs cost about 2,450 dollars.\nWeekend hours are 09:30-17:00, with a short pause at noon.\nNote: A worn or lost library card can be replaced at the service desk.",
+              "recognized_lines": 9,
+              "reference_characters": 454,
+              "edits": 1,
+              "character_error_rate": 0.002203,
+              "character_accuracy": 0.997797
+            },
+            "en-table": {
+              "text": "Exhibition Supply Inventory\nItem\nSpecification\nQuantity\nStatus\nWood display frame\n120 × 45 cm\n12 sets\nIn storage\nFolding chair\nDark grey\n36 chairs\nTo be cleaned\nGlass sign\nA5 portrait\n18 signs\n2 missing\nMoisture barrier\n3 mm thick\n40 pieces\nPacked\nPaper tape\n24 mm wide\n9 rolls\nReorder\nExtension cord\n5 m long\n6 cords\nTested\nExhibit light\n4000 K\n8 lights\nChecked in\nSmall print: Ref. EN-006. Count the remaining supplies against the list.",
+              "recognized_lines": 34,
+              "reference_characters": 361,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            },
+            "en-heading": {
+              "text": "Walking Tour Update\nIssue 04 | November 2026 | Route and building changes\nA. Enter through the north arcade\nB. Register with your name, phone number, and session code.\nThe tour stops at the old warehouse, reservoir, and shaded path.\nTransit note: The bus stop is about 280 metres from the desk.\nRevision EN-R2. Lights are off at night. Watch for the edge of each step.",
+              "recognized_lines": 7,
+              "reference_characters": 303,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            }
+          },
+          "by_language": {
+            "zh-hant": {
+              "samples": 3,
+              "reference_characters": 472,
+              "edits": 7,
+              "character_error_rate": 0.014831,
+              "character_accuracy": 0.985169
+            },
+            "zh-hans": {
+              "samples": 3,
+              "reference_characters": 470,
+              "edits": 5,
+              "character_error_rate": 0.010638,
+              "character_accuracy": 0.989362
+            },
+            "en": {
+              "samples": 3,
+              "reference_characters": 1118,
+              "edits": 1,
+              "character_error_rate": 0.000894,
+              "character_accuracy": 0.999106
+            }
+          }
+        }
+      }
+    },
+    "rotate-0.8-expand": {
+      "label": "輕微旋轉 0.8 度（白底，expand=True 不裁切）",
+      "models": {
+        "v4-current": {
+          "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+          "bytes": 10857958,
+          "samples": {
+            "zh-hant-body": {
+              "text": "社區圖書室開放紀錄\n雨後空氣清爽，志工沿街巡看排水孔與踏車道。\n閣讀區新增地方、繪本及《墓灣山林手册》各三册。\n民可在借閣，逾期請先以電話聯絡值班人員。\n書架F-07放資料灰；標末碼為0068、0126。\n開館前請確門窗與電源，在交接簿留下備。\n本三場活動共86人参與，設備修費約2,450元°\n调末開放時間：09：30-17:00；中午暂停借。\n附注：借書證遗失或磨損，可到服務申請補發。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 30,
+              "character_error_rate": 0.149254,
+              "character_accuracy": 0.850746
+            },
+            "zh-hant-table": {
+              "text": "文化展物資盤點\n规格\n數量\n狀熊\n品頂\n120X45cm\n12組\n已入庫\n木製展示架\n深灰色\n36張\n待清潔\n擢叠椅\nA5直式\n18面\n缺2面\n玻璃標牌\n厚度3mm\n40片\n已包装\n防潮墊\n宽24mm\n9捲\n待補貨\n膠帶\n長度5m\n6條\n已測試\n延長線\n色温4000K\n8盏\n已點交\n展示燈具\n小字備：序號TW-006，剩餘貨品請依清册逐一勾稽。",
+              "recognized_lines": 34,
+              "reference_characters": 143,
+              "edits": 44,
+              "character_error_rate": 0.307692,
+              "character_accuracy": 0.692308
+            },
+            "zh-hant-heading": {
+              "text": "街區導更新公告\n第04期丨2026年11月丨館舍及路線調整\n甲、入口改由北侧楼通行\n乙、報名請填姓名、聯絡電話與梯次代碼\n導圍包括舊庫、蓄水池及步道旁的樹荫區。\n交通明：公車停靠站距服務臺約280公尺。\n版本TW-R2；夜間照明暂停使用。請留意梯緣。",
+              "recognized_lines": 7,
+              "reference_characters": 128,
+              "edits": 15,
+              "character_error_rate": 0.117188,
+              "character_accuracy": 0.882812
+            },
+            "zh-hans-body": {
+              "text": "社区图书室开放记录\n雨后空气清爽，志愿者沿街查看排水口和自行车道。\n阅览区新增地方志、绘本及《城市山林手册》各三册。\n读者可在柜台借阅，逾期请先电话联系值班人员。\n书架F-07放置文件夹，标签尾号为0068、0126。\n闭馆前请检查门窗与电源，并在交接簿留下备注。\n本周三场活动共86人参加，设备检修费约2,450元。\n周末开放时间：09:30-17:00；午间暂停借还。\n附注：借书证遗失或磨损，可到服务台申请补发。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 1,
+              "character_error_rate": 0.004975,
+              "character_accuracy": 0.995025
+            },
+            "zh-hans-table": {
+              "text": "文化展览物资盘点\n规格\n数量\n状态\n品类\n120X45cm\n12组\n已入库\n木制展示架\n深灰色\n36把\n待清洁\n折叠椅\nA5竖式\n18块\n缺2块\n玻璃标牌\n厚度3mm\n40片\n已包装\n防潮垫\n宽24mm\n9卷\n待补货\n纸胶带\n长度5m\n6条\n已测试\n延长线\n色温4000K\n8盏\n已交接\n展示灯具\n小字备注：编号CN-006，剩余货品请按照清单逐项核对。",
+              "recognized_lines": 34,
+              "reference_characters": 144,
+              "edits": 35,
+              "character_error_rate": 0.243056,
+              "character_accuracy": 0.756944
+            },
+            "zh-hans-heading": {
+              "text": "街区导览更新公告\n第04期丨2026年11月丨馆舍及路线调整\n甲、入口改由北侧骑楼通行\n乙、报名请填姓名、联系电话与场次代码。\n导览范围包括旧仓库、蓄水池及步道旁的树荫区。\n交通说明：公交站距服务台约280米。\n版本CN-R2；夜间照明暂停使用。请留意台阶边缘。",
+              "recognized_lines": 7,
+              "reference_characters": 125,
+              "edits": 2,
+              "character_error_rate": 0.016,
+              "character_accuracy": 0.984
+            },
+            "en-body": {
+              "text": "Community Reading Room Log\nAfter the rain, volunteers inspected drains and bicycle lanes.\nThe reading room received new maps, picture books, and field guides.\nVisitors may borrow copies at the desk. Call ahead about overdue items.\nShelf F-07holds folders labelled 0068 and 0126.\nCheck the doors, windows, and power before the last shift ends.\nThree events welcomed 86 visitors. Repairs cost about 2,450 dollars.\nWeekend hours are 09:30-17:00, with a short pause at noon.\nNote:A worn or lost library card can be replaced at the service desk.",
+              "recognized_lines": 9,
+              "reference_characters": 454,
+              "edits": 1,
+              "character_error_rate": 0.002203,
+              "character_accuracy": 0.997797
+            },
+            "en-table": {
+              "text": "Exhibition Supply Inventory\nSpecification\nQuantity\nStatus\nItem\n120 × 45 cm\n12 sets\nIn storage\nWooddisplayframe\nDark grey\n36 chairs\nTo be cleaned\nFolding chair\nA5 portrait\n18 signs\n2 missing\nGlass sign\n3 mm thick\n40 pieces\nPacked\nMoisturebarrier\n24 mm wide\n9 rolls\nReorder\nPaper tape\n5 m long\n6 cords\nTested\nExtension cord\n4000K\n8 lights\nChecked in\nExhibit light\nSmall print:Ref.EN-oo6.Count the remaining supplies against the list.",
+              "recognized_lines": 34,
+              "reference_characters": 361,
+              "edits": 103,
+              "character_error_rate": 0.285319,
+              "character_accuracy": 0.714681
+            },
+            "en-heading": {
+              "text": "Walking Tour Update\nIssue 04 | November 2026 | Route and building changes\nA. Enter through the north arcade\nB. Register with your name, phone number, and session code.\nThe tour stops at the old warehouse, reservoir, and shaded path.\nTransit note:The bus stop is about 280 metres from the desk.\nRevision EN-R2.Lights are off at night.Watchfor the edge of each step.",
+              "recognized_lines": 7,
+              "reference_characters": 303,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            }
+          },
+          "by_language": {
+            "zh-hant": {
+              "samples": 3,
+              "reference_characters": 472,
+              "edits": 89,
+              "character_error_rate": 0.188559,
+              "character_accuracy": 0.811441
+            },
+            "zh-hans": {
+              "samples": 3,
+              "reference_characters": 470,
+              "edits": 38,
+              "character_error_rate": 0.080851,
+              "character_accuracy": 0.919149
+            },
+            "en": {
+              "samples": 3,
+              "reference_characters": 1118,
+              "edits": 104,
+              "character_error_rate": 0.093023,
+              "character_accuracy": 0.906977
+            }
+          }
+        },
+        "v5-rapid-mobile": {
+          "sha256": "5825fc7ebf84ae7a412be049820b4d86d77620f204a041697b0494669b1742c5",
+          "bytes": 16631306,
+          "samples": {
+            "zh-hant-body": {
+              "text": "社區圖書室開放紀錄\n雨後空氣清爽，志工沿街巡看排水孔與腳踏車道。\n閱讀區新增地方誌、繪本及《臺灣山林手冊》各三冊。\n民眾可在櫃檯借閱，逾期請先以電話聯絡值班人員。\n書架F-07擺放資料夾，標籤末碼為0068、0126。\n閉館前請確認門窗與電源，並在交接簿留下備註。\n本週三場活動共86人參與，設備檢修費約2,450元。\n週末開放時間：09:30–17:00；中午暫停借還。\n附註：借書證遺失或磨損，可到服務臺申請補發。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            },
+            "zh-hant-table": {
+              "text": "文化展覽物資盤點\n規格\n數量\n狀態\n品項\n120×45cm\n12組\n已入庫\n木製展示架\n深灰色\n36張\n待清潔\n摺疊椅\nA5直式\n18面\n缺2面\n玻璃標牌\n厚度3 mm\n40片\n已包装\n防潮墊\n寬24mm\n9捲\n待補貨\n紙膠帶\n長度5m\n6條\n已測試\n延長線\n色溫4000K\n8盞\n已點交\n展示燈具\n小字備註：序號 TW-006，剩餘貨品請依清冊逐一勾稽。",
+              "recognized_lines": 34,
+              "reference_characters": 143,
+              "edits": 35,
+              "character_error_rate": 0.244755,
+              "character_accuracy": 0.755245
+            },
+            "zh-hant-heading": {
+              "text": "街區導覽更新公告\n第04期|2026年11月館舍及路線調整\n甲、入口改由北側騎樓通行\n乙、報名請填姓名、聯絡電話與梯次代碼\n導覽範圍包括舊倉庫、蓄水池及步道旁的樹蔭區。\n交通說明：公車停靠站距服務臺約 280 公尺。\n版本TW-R2；夜間照明暫停使用。請留意階梯邊緣。",
+              "recognized_lines": 7,
+              "reference_characters": 128,
+              "edits": 3,
+              "character_error_rate": 0.023438,
+              "character_accuracy": 0.976562
+            },
+            "zh-hans-body": {
+              "text": "社区图书室开放记录\n雨后空气清爽，志愿者沿街查看排水口和自行车道。\n阅览区新增地方志、绘本及《城市山林手册》各三册。\n读者可在柜台借阅，逾期请先电话联系值班人员。\n书架F-07放置文件夹，标签尾号为0068、0126。\n闭馆前请检查门窗与电源，并在交接簿留下备注。\n本周三场活动共86人参加，设备检修费约2,450元。\n周末开放时间：09:30-17：00；午间暂停借还。\n附注：借书证遗失或磨损，可到服务台申请补发。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 2,
+              "character_error_rate": 0.00995,
+              "character_accuracy": 0.99005
+            },
+            "zh-hans-table": {
+              "text": "文化展览物资盘点\n规格\n数量\n状态\n品类\n120×45cm\n12组\n已入库\n木制展示架\n深灰色\n36把\n待清洁\n折叠椅\nA5竖式\n18块\n缺2块\n玻璃标牌\n厚度3mm\n40片\n已包装\n防潮垫\n宽24mm\n9卷\n待补货\n纸胶带\n长度5m\n6条\n已测试\n延长线\n色温4000K\n8盏\n已交接\n展示灯具\n小字备注：编号CN-006，剩余货品请按照清单逐项核对。",
+              "recognized_lines": 34,
+              "reference_characters": 144,
+              "edits": 34,
+              "character_error_rate": 0.236111,
+              "character_accuracy": 0.763889
+            },
+            "zh-hans-heading": {
+              "text": "街区导览更新公告\n第 04 期|2026 年11月|馆舍及路线调整\n甲、入口改由北侧骑楼通行\n乙、报名请填姓名、联系电话与场次代码。\n导览范围包括旧仓库、蓄水池及步道旁的树荫区。\n交通说明：公交站距服务台约280米。\n版本CN-R2；夜间照明暂停使用。请留意台阶边缘。",
+              "recognized_lines": 7,
+              "reference_characters": 125,
+              "edits": 2,
+              "character_error_rate": 0.016,
+              "character_accuracy": 0.984
+            },
+            "en-body": {
+              "text": "Community Reading Room Log\nAfter the rain, volunteers inspected drains and bicycle lanes.\nThe reading room received new maps, picture books, and field guides.\nVisitors may borrow copies at the desk. Call ahead about overdue items.\nShelf F-07 holds folders labelled 0068 and 0126.\nCheck the doors, windows, and power before the last shift ends.\nThree events welcomed 86 visitors. Repairs cost about 2,450 dollars.\nWeekend hours are 09:30–17:00, with a short pause at noon.\nNote: A worn or lost library card can be replaced at the service desk.",
+              "recognized_lines": 9,
+              "reference_characters": 454,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            },
+            "en-table": {
+              "text": "Exhibition Supply Inventory\nSpecification\nQuantity\nStatus\nItem\n120 × 45 cm\n12 sets\nIn storage\nWood display frame\nDark grey\n36 chairs\nTo be cleaned\nFolding chair\nA5 portrait\n18 signs\n2 missing\nGlass sign\n3 mm thick\n40 pieces\nPacked\nMoisture barrier\n24 mm wide\n9 rolls\nReorder\nPaper tape\n5 m long\n6 cords\nTested\nExtension cord\n4000K\n8 lights\nChecked in\nExhibit light\nSmall print: Ref. EN-0o6. Count the remaining supplies against the list.",
+              "recognized_lines": 34,
+              "reference_characters": 361,
+              "edits": 102,
+              "character_error_rate": 0.282548,
+              "character_accuracy": 0.717452
+            },
+            "en-heading": {
+              "text": "Walking Tour Update\nIssue 04 | November 2026 | Route and building changes\nA. Enter through the north arcade\nB. Register with your name, phone number, and session code.\nThe tour stops at the old warehouse, reservoir, and shaded path.\nTransit note: The bus stop is about 280 metres from the desk.\nRevision EN-R2. Lights are off at night. Watch for the edge of each step.",
+              "recognized_lines": 7,
+              "reference_characters": 303,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            }
+          },
+          "by_language": {
+            "zh-hant": {
+              "samples": 3,
+              "reference_characters": 472,
+              "edits": 38,
+              "character_error_rate": 0.080508,
+              "character_accuracy": 0.919492
+            },
+            "zh-hans": {
+              "samples": 3,
+              "reference_characters": 470,
+              "edits": 38,
+              "character_error_rate": 0.080851,
+              "character_accuracy": 0.919149
+            },
+            "en": {
+              "samples": 3,
+              "reference_characters": 1118,
+              "edits": 102,
+              "character_error_rate": 0.091234,
+              "character_accuracy": 0.908766
+            }
+          }
+        },
+        "v6-rapid-small": {
+          "sha256": "6f327246b50388f3c176ae304bd95767ea6dc0c9ae92153ef8cbe210b3c14884",
+          "bytes": 21234383,
+          "samples": {
+            "zh-hant-body": {
+              "text": "社區圖書室開放紀錄\n雨後空氣清爽，志工沿街巡看排水孔與腳踏車道。\n閱讀區新增地方誌、繪本及《臺灣山林手冊》各三冊。\n民眾可在櫃檯借閱，逾期請先以電話聯絡值班人員。\n書架F-07擺放資料夾，標籤末碼為0068、0126。\n閉館前請確認門窗與電源，並在交接簿留下備註。\n本週三場活動共86人參與，設備檢修費約2,450元。\n週末開放時間：09:30-17:00；中午暫停借還。\n附註：借書證遺失或磨損，可到服務臺申請補發。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 1,
+              "character_error_rate": 0.004975,
+              "character_accuracy": 0.995025
+            },
+            "zh-hant-table": {
+              "text": "文化展覽物資盤點\n規格\n數量\n狀態\n品項\n120 × 45 cm\n12組\n已入庫\n木製展示架\n深灰色\n36張\n待清潔\n摺疊椅\nA5 直式\n18面\n缺2面\n玻璃標牌\n厚度3 mm\n40片\n已包裝\n防潮墊\n寬24 mm\n9捲\n待補貨\n紙膠帶\n長度5 m\n6條\n已測試\n延長線\n色溫 4000 K\n8盞\n已點交\n展示燈具\n小字備註：序號TW-006，剩餘貨品請依清冊逐一勾稽。",
+              "recognized_lines": 34,
+              "reference_characters": 143,
+              "edits": 34,
+              "character_error_rate": 0.237762,
+              "character_accuracy": 0.762238
+            },
+            "zh-hant-heading": {
+              "text": "街區導覽更新公告\n第04期|2026年11月|館舍及路線調整\n甲、入口改由北側騎樓通行\n乙、報名請填姓名、聯絡電話與梯次代碼\n導覽範圍包括舊倉庫、蓄水池及步道旁的樹蔭區。\n交通說明：公車停靠站距服務臺約280公尺。\n版本TW-R2；夜間照明暫停使用。請留意階梯邊緣。",
+              "recognized_lines": 7,
+              "reference_characters": 128,
+              "edits": 3,
+              "character_error_rate": 0.023438,
+              "character_accuracy": 0.976562
+            },
+            "zh-hans-body": {
+              "text": "社区图书室开放记录\n雨后空气清爽，志愿者沿街查看排水口和自行车道。\n阅览区新增地方志、绘本及《城市山林手册》各三册。\n读者可在柜台借阅，逾期请先电话联系值班人员。\n书架F-07放置文件夹，标签尾号为0068、0126。\n闭馆前请检查门窗与电源，并在交接簿留下备注。\n本周三场活动共86人参加，设备检修费约2,450元。\n周末开放时间：09:30-17:00；午间暂停借还。\n附注：借书证遗失或磨损，可到服务台申请补发。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 1,
+              "character_error_rate": 0.004975,
+              "character_accuracy": 0.995025
+            },
+            "zh-hans-table": {
+              "text": "文化展览物资盘点\n规格\n数量\n状态\n品类\n120 × 45 cm\n12组\n已入库\n木制展示架\n深灰色\n36把\n待清洁\n折叠椅\nA5 竖式\n18块\n缺2块\n玻璃标牌\n厚度3mm\n40片\n已包装\n防潮垫\n宽24 mm\n9卷\n待补货\n纸胶带\n长度5 m\n6条\n已测试\n延长线\n色温 4000 K\n8盏\n已交接\n展示灯具\n小字备注：编号CN-006，剩余货品请按照清单逐项核对。",
+              "recognized_lines": 34,
+              "reference_characters": 144,
+              "edits": 34,
+              "character_error_rate": 0.236111,
+              "character_accuracy": 0.763889
+            },
+            "zh-hans-heading": {
+              "text": "街区导览更新公告\n第04期|2026年11月|馆舍及路线调整\n甲、入口改由北侧骑楼通行\n乙、报名请填姓名、联系电话与场次代码。\n导览范围包括旧仓库、蓄水池及步道旁的树荫区。\n交通说明：公交站距服务台约280米。\n版本CN-R2；夜间照明暂停使用。请留意台阶边缘。",
+              "recognized_lines": 7,
+              "reference_characters": 125,
+              "edits": 2,
+              "character_error_rate": 0.016,
+              "character_accuracy": 0.984
+            },
+            "en-body": {
+              "text": "Community Reading Room Log\nAfter the rain, volunteers inspected drains and bicycle lanes.\nThe reading room received new maps, picture books, and field guides.\nVisitors may borrow copies at the desk. Call ahead about overdue items.\nShelf F-07 holds folders labelled 0068 and 0126.\nCheck the doors, windows, and power before the last shift ends.\nThree events welcomed 86 visitors. Repairs cost about 2,450 dollars.\nWeekend hours are 09:30-17:00, with a short pause at noon.\nNote: A worn or lost library card can be replaced at the service desk.",
+              "recognized_lines": 9,
+              "reference_characters": 454,
+              "edits": 1,
+              "character_error_rate": 0.002203,
+              "character_accuracy": 0.997797
+            },
+            "en-table": {
+              "text": "Exhibition Supply Inventory\nSpecification\nQuantity\nStatus\nItem\n120 × 45 cm\n12 sets\nIn storage\nWood display frame\nDark grey\n36 chairs\nTo be cleaned\nFolding chair\nA5 portrait\n18 signs\n2 missing\nGlass sign\n3 mm thick\n40 pieces\nPacked\nMoisture barrier\n24 mm wide\n9 rolls\nReorder\nPaper tape\n5 m long\n6 cords\nTested\nExtension cord\n4000 K\n8 lights\nChecked in\nExhibit light\nSmall print: Ref. EN-006. Count the remaining supplies against the list.",
+              "recognized_lines": 34,
+              "reference_characters": 361,
+              "edits": 101,
+              "character_error_rate": 0.279778,
+              "character_accuracy": 0.720222
+            },
+            "en-heading": {
+              "text": "Walking Tour Update\nIssue 04 | November 2026 | Route and building changes\nA. Enter through the north arcade\nB. Register with your name, phone number, and session code.\nThe tour stops at the old warehouse, reservoir, and shaded path.\nTransit note: The bus stop is about 280 metres from the desk.\nRevision EN-R2. Lights are off at night. Watch for the edge of each step.",
+              "recognized_lines": 7,
+              "reference_characters": 303,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            }
+          },
+          "by_language": {
+            "zh-hant": {
+              "samples": 3,
+              "reference_characters": 472,
+              "edits": 38,
+              "character_error_rate": 0.080508,
+              "character_accuracy": 0.919492
+            },
+            "zh-hans": {
+              "samples": 3,
+              "reference_characters": 470,
+              "edits": 37,
+              "character_error_rate": 0.078723,
+              "character_accuracy": 0.921277
+            },
+            "en": {
+              "samples": 3,
+              "reference_characters": 1118,
+              "edits": 102,
+              "character_error_rate": 0.091234,
+              "character_accuracy": 0.908766
+            }
+          }
+        }
+      }
+    },
+    "rotate-2.0-expand": {
+      "label": "明顯旋轉 2.0 度（白底，expand=True 不裁切）",
+      "models": {
+        "v4-current": {
+          "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+          "bytes": 10857958,
+          "samples": {
+            "zh-hant-body": {
+              "text": "社區圖書室開放紀\n雨後空氣清爽，志工沿街巡看排水孔與踏車道。\n閣讀區新增地方、繪本及《墓灣山林手册》各三册。\n民可在借閣，逾期請先以電話聯絡值班人員。\n書架F-07放資料爽；標末碼為0068、0126。\n開館前請確門门窗與電源，在交接簿留下備。\n本调三場活動共86人参與；設備修費約2,450元°\n遇末開放時間：09:30-17:00；中午暂停借還。\n附注：借書證遗失或磨損，可到服務申請補發。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 31,
+              "character_error_rate": 0.154229,
+              "character_accuracy": 0.845771
+            },
+            "zh-hant-table": {
+              "text": "文化展物資盤點\n數量\n状熊\n规格\n品頂\n12組\n已入庫\n120×45cm\n木製展示架\n36張\n待清潔\n深灰色\n擢叠椅\n18面\n缺2面\nA5直式\n玻璃標牌\n40片\n已包装\n厚度3mm\n防潮墊\n9捲\n待補貨\n宽24mm\n膠帶\n6條\n已測試\n長度5m\n延長線\n8盏\n已點交\n色温4000K\n展示燈具\n小字備：序號TW-006，剩餘貨品請依清册逐一勾稽。",
+              "recognized_lines": 34,
+              "reference_characters": 143,
+              "edits": 79,
+              "character_error_rate": 0.552448,
+              "character_accuracy": 0.447552
+            },
+            "zh-hant-heading": {
+              "text": "街區導更新公告\n第04期丨2026年11月丨館舍及路線調整\n甲丶入口改由北侧楼通行\n乙、報名請填姓名、聯絡電話與梯次代碼。\n導圍包括舊庫、蓄水池及步道旁的樹荫區\n交通明：公車停靠站距服務臺約280公尺。\n版本TW-R2；夜間照明暂停使用·請留意梯緣。",
+              "recognized_lines": 7,
+              "reference_characters": 128,
+              "edits": 17,
+              "character_error_rate": 0.132812,
+              "character_accuracy": 0.867188
+            },
+            "zh-hans-body": {
+              "text": "社区图书室开放记录\n雨后空气清爽，志愿者沿街查看排水口和自行车道。\n阅览区新增地方志、绘本及《城市山林手册》各三册。\n读者可在柜台借阅，逾期请先电话联系值班人员。\n书架F-07放置文件夹，标签尾号为0068、0126。\n闭馆前请检查门窗与电源，并在交接簿留下备注。\n本周三场活动共86人参加，设备检修费约2,450元\n周末开放时间：09:30-17:00；午间暂停借还。\n附注：借书证遗失或磨损，可到服务台申请补发。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 2,
+              "character_error_rate": 0.00995,
+              "character_accuracy": 0.99005
+            },
+            "zh-hans-table": {
+              "text": "文化展览物资盘点\n数量\n状态\n规格\n品类\n12组\n已入库\n120×45cm\n木制展示架\n36把\n待清洁\n深灰色\n折叠椅\n18块\n缺2块\nA5竖式\n玻璃标牌\n40片\n已包装\n厚度3mm\n防潮垫\n9卷\n待补货\n宽24mm\n纸胶带\n6条\n已测试\n长度5m\n延长线\n8盏\n已交接\n色温4000K\n展示灯具\n小字备注：编号CN-006，剩余货品请按照清单逐项核对。",
+              "recognized_lines": 34,
+              "reference_characters": 144,
+              "edits": 74,
+              "character_error_rate": 0.513889,
+              "character_accuracy": 0.486111
+            },
+            "zh-hans-heading": {
+              "text": "街区导览更新公告\n第04期丨2026年11月丨馆舍及路线调整\n甲、入口改由北侧骑楼通行\n乙、报名请填姓名、联系电话与场次代码。\n导览范围包括旧仓库、蓄水池及步道旁的树荫区。\n交通说明：公交站距服务台约280米。\n版本CN-R2；夜间照明暂停使用。请留意台阶边缘。",
+              "recognized_lines": 7,
+              "reference_characters": 125,
+              "edits": 2,
+              "character_error_rate": 0.016,
+              "character_accuracy": 0.984
+            },
+            "en-body": {
+              "text": "Community Reading Room Log\nAfter the rain, volunteers inspected drains and bicycle lanes.\nThe reading room received new maps, picture books, and field guides.\nVisitors may borrow copies at the desk. Call ahead about overdue items.\nShelf F-07holdsfolderslabelled0068and 0126.\nCheck the doors, windows, and power before the last shift ends.\nThree events welcomed 86 visitors. Repairs cost about 2,450 dollars.\nWeekend hours are 09:30-17:00, with a short pause at noon.\nNote:A worn or lost library card can bereplaced at the service desk.",
+              "recognized_lines": 9,
+              "reference_characters": 454,
+              "edits": 1,
+              "character_error_rate": 0.002203,
+              "character_accuracy": 0.997797
+            },
+            "en-table": {
+              "text": "Exhibition Supply Inventory\nQuantity\nStatus\nSpecification\nItem\n12 sets\nIn storage\n120×45cm\nWooddisplayframe\n36 chairs\nTo be cleaned\nDark grey\nFolding chair\n18 signs\n2 missing\nA5 portrait\nGlass sign\n40 pieces\nPacked\n3 mm thick\nMoisturebarrier\n9 rolls\nReorder\n24 mm wide\nPaper tape\n6 cords\nTested\n5 m long\nExtension cord\n8 lights\nChecked in\n4000K\nExhibit light\nSmall print:Ref. EN-o06. Count the remaining supplies against the list.",
+              "recognized_lines": 34,
+              "reference_characters": 361,
+              "edits": 172,
+              "character_error_rate": 0.476454,
+              "character_accuracy": 0.523546
+            },
+            "en-heading": {
+              "text": "Walking Tour Update\nIssue 04 | November 2026 | Route and building changes\nA. Enter through the north arcade\nB. Register with your name, phone number, and session code.\nThe tour stops at the old warehouse, reservoir, and shaded path.\nTransit note:The bus stop is about 280 metres from the desk.\nRevision EN-R2. Lights are off at night.Watch for the edge of each step.",
+              "recognized_lines": 7,
+              "reference_characters": 303,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            }
+          },
+          "by_language": {
+            "zh-hant": {
+              "samples": 3,
+              "reference_characters": 472,
+              "edits": 127,
+              "character_error_rate": 0.269068,
+              "character_accuracy": 0.730932
+            },
+            "zh-hans": {
+              "samples": 3,
+              "reference_characters": 470,
+              "edits": 78,
+              "character_error_rate": 0.165957,
+              "character_accuracy": 0.834043
+            },
+            "en": {
+              "samples": 3,
+              "reference_characters": 1118,
+              "edits": 173,
+              "character_error_rate": 0.154741,
+              "character_accuracy": 0.845259
+            }
+          }
+        },
+        "v5-rapid-mobile": {
+          "sha256": "5825fc7ebf84ae7a412be049820b4d86d77620f204a041697b0494669b1742c5",
+          "bytes": 16631306,
+          "samples": {
+            "zh-hant-body": {
+              "text": "社區圖書室開放紀錄\n雨後空氣清爽，志工沿街巡看排水孔與腳踏車道。\n閱讀區新增地方誌、繪本及《臺灣山林手冊》各三冊。\n民眾可在櫃檯借閱，逾期請先以電話聯絡值班人員。\n書架F-07擺放資料夾，標籤末碼為0068、0126。\n閉館前請確認門窗與電源，並在交接簿留下備註。\n本週三場活動共86人參與，設備檢修費約2,450元。\n週末開放時間：09:30-17:00；中午暫停借還。\n附註：借書證遺失或磨損，可到服務臺申請補發。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 1,
+              "character_error_rate": 0.004975,
+              "character_accuracy": 0.995025
+            },
+            "zh-hant-table": {
+              "text": "文化展覽物資盤點\n數量\n狀態\n規格\n品項\n12組\n已入庫\n120×45cm\n木製展示架\n36張\n待清潔\n深灰色\n摺疊椅\n18面\n缺2面\nA5直式\n玻璃標牌\n40片\n已包裝\n厚度3mm\n防潮墊\n9捲\n待補貨\n寬24mm\n紙膠帶\n6條\n已測試\n長度5m\n延長線\n8盞\n已點交\n色溫4000K\n展示燈具\n小字備註：序號TW-006，剩餘貨品請依清冊逐一勾稽。",
+              "recognized_lines": 34,
+              "reference_characters": 143,
+              "edits": 74,
+              "character_error_rate": 0.517483,
+              "character_accuracy": 0.482517
+            },
+            "zh-hant-heading": {
+              "text": "街區導覽更新公告\n第 04 期2026年11月館舍及路線調整\n甲、入口改由北側騎樓通行\n乙、報名請填姓名、聯絡電話與梯次代碼。\n導覽範圍包括舊倉庫、蓄水池及步道旁的樹蔭區\n交通說明：公車停靠站距服務臺約280 公尺。\n版本TW-R2；夜間照明暫停使用。請留意階梯邊緣。",
+              "recognized_lines": 7,
+              "reference_characters": 128,
+              "edits": 3,
+              "character_error_rate": 0.023438,
+              "character_accuracy": 0.976562
+            },
+            "zh-hans-body": {
+              "text": "社区图书室开放记录\n雨后空气清爽，志愿者沿街查看排水口和自行车道。\n阅览区新增地方志、绘本及《城市山林手册》各三册。\n读者可在柜台借阅，逾期请先电话联系值班人员。\n书架F-07放置文件夹，标签尾号为0068、0126。\n闭馆前请检查门窗与电源，并在交接簿留下备注。\n本周三场活动共86人参加，设备检修费约2,450元。\n周末开放时间：09:30-17:00；午间暂停借还。\n附注：借书证遗失或磨损，可到服务台申请补发。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 1,
+              "character_error_rate": 0.004975,
+              "character_accuracy": 0.995025
+            },
+            "zh-hans-table": {
+              "text": "文化展览物资盘点\n数量\n状态\n规格\n品类\n12组\n已入库\n120×45cm\n木制展示架\n36把\n待清洁\n深灰色\n折叠椅\n18块\n缺2块\nA5竖式\n玻璃标牌\n40片\n已包装\n厚度3mm\n防潮垫\n9卷\n待补货\n宽24mm\n纸胶带\n6条\n已测试\n长度5m\n延长线\n8盏\n已交接\n色温4000K\n展示灯具\n小字备注：编号CN-006，剩余货品请按照清单逐项核对。",
+              "recognized_lines": 34,
+              "reference_characters": 144,
+              "edits": 74,
+              "character_error_rate": 0.513889,
+              "character_accuracy": 0.486111
+            },
+            "zh-hans-heading": {
+              "text": "街区导览更新公告\n第 04 期|2026年11月馆舍及路线调整\n甲、入口改由北侧骑楼通行\n乙、报名请填姓名、联系电话与场次代码。\n导览范围包括旧仓库、蓄水池及步道旁的树荫区。\n交通说明：公交站距服务台约280米。\n版本 CN-R2；夜间照明暂停使用。请留意台阶边缘。",
+              "recognized_lines": 7,
+              "reference_characters": 125,
+              "edits": 2,
+              "character_error_rate": 0.016,
+              "character_accuracy": 0.984
+            },
+            "en-body": {
+              "text": "Community Reading Room Log\nAfter the rain, volunteers inspected drains and bicycle lanes.\nThe reading room received new maps, picture books, and field guides.\nVisitors may borrow copies at the desk. Call ahead about overdue items.\nShelf F-07 holds folders labelled 0068 and 0126.\nCheck the doors, windows, and power before the last shift ends.\nThree events welcomed 86 visitors. Repairs cost about 2,450 dollars.\nWeekend hours are 09:30–17:00, with a short pause at noon.\nNote: A worn or lost library card can be replaced at the service desk.",
+              "recognized_lines": 9,
+              "reference_characters": 454,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            },
+            "en-table": {
+              "text": "Exhibition Supply Inventory\nQuantity\nStatus\nSpecification\nItem\n12 sets\nIn storage\n120× 45 cm\nWood display frame\n36 chairs\nTo be cleaned\nDark grey\nFolding chair\n18 signs\n2 missing\nA5 portrait\nGlass sign\n40 pieces\nPacked\n3 mm thick\nMoisture barrier\n9 rolls\nReorder\n24 mm wide\nPaper tape\n6 cords\nTested\n5 m long\nExtension cord\n8 lights\nChecked in\n4000K\nExhibit light\nSmall print: Ref. EN-0o6. Count the remaining supplies against the list.",
+              "recognized_lines": 34,
+              "reference_characters": 361,
+              "edits": 172,
+              "character_error_rate": 0.476454,
+              "character_accuracy": 0.523546
+            },
+            "en-heading": {
+              "text": "Walking Tour Update\nIssue 04 | November 2026 | Route and building changes\nA. Enter through the north arcade\nB. Register with your name, phone number, and session code.\nThe tour stops at the old warehouse, reservoir, and shaded path.\nTransit note: The bus stop is about 280 metres from the desk.\nRevision EN-R2. Lights are off at night. Watch for the edge of each step.",
+              "recognized_lines": 7,
+              "reference_characters": 303,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            }
+          },
+          "by_language": {
+            "zh-hant": {
+              "samples": 3,
+              "reference_characters": 472,
+              "edits": 78,
+              "character_error_rate": 0.165254,
+              "character_accuracy": 0.834746
+            },
+            "zh-hans": {
+              "samples": 3,
+              "reference_characters": 470,
+              "edits": 77,
+              "character_error_rate": 0.16383,
+              "character_accuracy": 0.83617
+            },
+            "en": {
+              "samples": 3,
+              "reference_characters": 1118,
+              "edits": 172,
+              "character_error_rate": 0.153846,
+              "character_accuracy": 0.846154
+            }
+          }
+        },
+        "v6-rapid-small": {
+          "sha256": "6f327246b50388f3c176ae304bd95767ea6dc0c9ae92153ef8cbe210b3c14884",
+          "bytes": 21234383,
+          "samples": {
+            "zh-hant-body": {
+              "text": "社區圖書室開放紀錄\n雨後空氣清爽，志工沿街巡看排水孔與腳踏車道。\n閱讀區新增地方誌、繪本及《臺灣山林手冊》各三冊。\n民眾可在櫃檯借閱，逾期請先以電話聯絡值班人員。\n書架F-07擺放資料夾，標籤末碼為0068、0126。\n閉館前請確認門窗與電源，並在交接簿留下備註。\n本週三場活動共86人參與，設備檢修費約2,450元。\n週末開放時間：09:30-17:00；中午暫停借還。\n附註：借書證遺失或磨損，可到服務臺申請補發。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 1,
+              "character_error_rate": 0.004975,
+              "character_accuracy": 0.995025
+            },
+            "zh-hant-table": {
+              "text": "文化展覽物資盤點\n數量\n狀態\n規格\n品項\n12組\n已入庫\n120 × 45 cm\n木製展示架\n36張\n待清潔\n深灰色\n摺疊椅\n18面\n缺2面\nA5 直式\n玻璃標牌\n40片\n已包裝\n厚度3 mm\n防潮墊\n9捲\n待補貨\n寬24 mm\n紙膠帶\n6條\n已測試\n長度5m\n延長線\n8盞\n已點交\n色溫 4000 K\n展示燈具\n小字備註：序號TW-006，剩餘貨品請依清冊逐一勾稽。",
+              "recognized_lines": 34,
+              "reference_characters": 143,
+              "edits": 74,
+              "character_error_rate": 0.517483,
+              "character_accuracy": 0.482517
+            },
+            "zh-hant-heading": {
+              "text": "街區導覽更新公告\n第04期|2026年11月|館舍及路線調整\n甲、入口改由北側騎樓通行\n乙、報名請填姓名、聯絡電話與梯次代碼。\n導覽範圍包括舊倉庫、蓄水池及步道旁的樹蔭區\n交通說明：公車停靠站距服務臺約280公尺。\n版本 TW-R2；夜間照明暫停使用。請留意階梯邊緣。",
+              "recognized_lines": 7,
+              "reference_characters": 128,
+              "edits": 3,
+              "character_error_rate": 0.023438,
+              "character_accuracy": 0.976562
+            },
+            "zh-hans-body": {
+              "text": "社区图书室开放记录\n雨后空气清爽，志愿者沿街查看排水口和自行车道。\n阅览区新增地方志、绘本及《城市山林手册》各三册。\n读者可在柜台借阅，逾期请先电话联系值班人员。\n书架F-07放置文件夹，标签尾号为0068、0126。\n闭馆前请检查门窗与电源，并在交接簿留下备注。\n本周三场活动共86人参加，设备检修费约2,450元。\n周末开放时间：09:30-17:00；午间暂停借还。\n附注：借书证遗失或磨损，可到服务台申请补发。",
+              "recognized_lines": 9,
+              "reference_characters": 201,
+              "edits": 1,
+              "character_error_rate": 0.004975,
+              "character_accuracy": 0.995025
+            },
+            "zh-hans-table": {
+              "text": "文化展览物资盘点\n数量\n状态\n规格\n品类\n12组\n已入库\n120 × 45 cm\n木制展示架\n36把\n待清洁\n深灰色\n折叠椅\n18块\n缺2块\nA5竖式\n玻璃标牌\n40片\n已包装\n厚度3 mm\n防潮垫\n9卷\n待补货\n宽24 mm\n纸胶带\n6条\n已测试\n长度5m\n延长线\n8盏\n已交接\n色温 4000 K\n展示灯具\n小字备注：编号CN-006，剩余货品请按照清单逐项核对。",
+              "recognized_lines": 34,
+              "reference_characters": 144,
+              "edits": 74,
+              "character_error_rate": 0.513889,
+              "character_accuracy": 0.486111
+            },
+            "zh-hans-heading": {
+              "text": "街区导览更新公告\n第04期|2026年11月|馆舍及路线调整\n甲、入口改由北侧骑楼通行\n乙、报名请填姓名、联系电话与场次代码。\n导览范围包括旧仓库、蓄水池及步道旁的树荫区。\n交通说明：公交站距服务台约280米。\n版本CN-R2；夜间照明暂停使用。请留意台阶边缘。",
+              "recognized_lines": 7,
+              "reference_characters": 125,
+              "edits": 2,
+              "character_error_rate": 0.016,
+              "character_accuracy": 0.984
+            },
+            "en-body": {
+              "text": "Community Reading Room Log\nAfter the rain, volunteers inspected drains and bicycle lanes.\nThe reading room received new maps, picture books, and field guides.\nVisitors may borrow copies at the desk. Call ahead about overdue items.\nShelf F-07 holds folders labelled 0068 and 0126.\nCheck the doors, windows, and power before the last shift ends.\nThree events welcomed 86 visitors. Repairs cost about 2,450 dollars.\nWeekend hours are 09:30-17:00, with a short pause at noon.\nNote: A worn or lost library card can be replaced at the service desk.",
+              "recognized_lines": 9,
+              "reference_characters": 454,
+              "edits": 1,
+              "character_error_rate": 0.002203,
+              "character_accuracy": 0.997797
+            },
+            "en-table": {
+              "text": "Exhibition Supply Inventory\nQuantity\nStatus\nSpecification\nItem\n12 sets\nIn storage\n120 × 45 cm\nWood display frame\n36 chairs\nTo be cleaned\nDark grey\nFolding chair\n18 signs\n2 missing\nA5 portrait\nGlass sign\n40 pieces\nPacked\n3 mm thick\nMoisture barrier\n9 rolls\nReorder\n24 mm wide\nPaper tape\n6 cords\nTested\n5 m long\nExtension cord\n8 lights\nChecked in\n4000 K\nExhibit light\nSmall print: Ref. EN-006. Count the remaining supplies against the list.",
+              "recognized_lines": 34,
+              "reference_characters": 361,
+              "edits": 171,
+              "character_error_rate": 0.473684,
+              "character_accuracy": 0.526316
+            },
+            "en-heading": {
+              "text": "Walking Tour Update\nIssue 04 | November 2026 | Route and building changes\nA. Enter through the north arcade\nB. Register with your name, phone number, and session code.\nThe tour stops at the old warehouse, reservoir, and shaded path.\nTransit note: The bus stop is about 280 metres from the desk.\nRevision EN-R2. Lights are off at night. Watch for the edge of each step.",
+              "recognized_lines": 7,
+              "reference_characters": 303,
+              "edits": 0,
+              "character_error_rate": 0.0,
+              "character_accuracy": 1.0
+            }
+          },
+          "by_language": {
+            "zh-hant": {
+              "samples": 3,
+              "reference_characters": 472,
+              "edits": 78,
+              "character_error_rate": 0.165254,
+              "character_accuracy": 0.834746
+            },
+            "zh-hans": {
+              "samples": 3,
+              "reference_characters": 470,
+              "edits": 77,
+              "character_error_rate": 0.16383,
+              "character_accuracy": 0.83617
+            },
+            "en": {
+              "samples": 3,
+              "reference_characters": 1118,
+              "edits": 172,
+              "character_error_rate": 0.153846,
+              "character_accuracy": 0.846154
+            }
+          }
+        }
+      }
+    }
+  }
+}

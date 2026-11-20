@@ -1,0 +1,96 @@
+{
+  "id": "b3b5-official-onnx-rerun-2026-11-20",
+  "date_taipei": "2026-11-20",
+  "source_commit": "c42aa27",
+  "source_commit_note": "開始時的 origin/main（PR #48 合併）；本輪只新增本目錄與 CHANGELOG 一行",
+  "tested_source": "c42aa27",
+  "result": "官方 PP-OCRv6 small／PP-OCRv5 mobile ONNX 雜湊與字表核對通過；135 張輸入評估完成；官方 v6 與轉檔版辨識文字逐字相同；官方 v6 簡中在 3 個模擬條件較 v4 差（合計 +6 編輯）；B3 採用與否待使用者決定。",
+  "keywords": [
+    "PP-OCRv6",
+    "PP-OCRv6 small",
+    "PP-OCRv5",
+    "PP-OCRv4",
+    "官方 ONNX",
+    "外部字表",
+    "rec_keys_path",
+    "模擬掃描",
+    "簡體中文",
+    "繁體中文",
+    "ONNX",
+    "RapidOCR",
+    "B3b5"
+  ],
+  "result_summary": {
+    "official_v6_onnx_sha256": "5435fd747c9e0efe15a96d0b378d5bd157e9492ed8fd80edf08f30d02fa24634",
+    "official_v5_onnx_sha256": "da72dc72ca4dc220df0dfde68c1dedc31c58d3e76a25871122e5056227d50092",
+    "official_onnx_hashes_match_b3b4": true,
+    "onnx_has_embedded_character": false,
+    "official_text_identical_to_rapid_v6": true,
+    "official_text_identical_to_rapid_v5": true,
+    "v4_rerun_mismatches": 0,
+    "accuracy_with_old_rotation": {
+      "v4-recorded": {
+        "zh-hant": 0.827,
+        "zh-hans": 0.964,
+        "en": 0.9756
+      },
+      "v6-official": {
+        "zh-hant": 0.9543,
+        "zh-hans": 0.9695,
+        "en": 0.9777
+      },
+      "v5-official": {
+        "zh-hant": 0.9391,
+        "zh-hans": 0.9626,
+        "en": 0.9754
+      }
+    },
+    "accuracy_without_old_rotation": {
+      "v4-recorded": {
+        "zh-hant": 0.8379,
+        "zh-hans": 0.9815,
+        "en": 0.9959
+      },
+      "v6-official": {
+        "zh-hant": 0.9697,
+        "zh-hans": 0.9877,
+        "en": 0.9985
+      },
+      "v5-official": {
+        "zh-hant": 0.9511,
+        "zh-hans": 0.9794,
+        "en": 0.9958
+      }
+    },
+    "accuracy_without_old_rotation_plus_expand": {
+      "v4-recorded": {
+        "zh-hant": 0.8268,
+        "zh-hans": 0.964,
+        "en": 0.9759
+      },
+      "v6-official": {
+        "zh-hant": 0.9543,
+        "zh-hans": 0.9695,
+        "en": 0.9783
+      },
+      "v5-official": {
+        "zh-hant": 0.9387,
+        "zh-hans": 0.9624,
+        "en": 0.9761
+      }
+    }
+  },
+  "files": {
+    "README.md": "e8742adb185ced2cdff5e9ae5eeb8503cdd6dcd60514514c68bf0537423fec49",
+    "official_check.py": "2516f83084e2467187eccf6fa5b554352e4c762724691684f7d48ec3c8ee26d4",
+    "run_official_evaluation.py": "671974c8292b91d97f3fca874b0dacb622d959f976ffae4074920cba900c9abc",
+    "official-onnx-check.json": "1d7a683f794d5549e2b77df5eb8d70eeef567affdad0e7f2a220780d9b18be68",
+    "official-evaluation-results.json": "5f6c424d20b2bf609da76e745d5c69cda93e0d1e185158512814c87148840f05"
+  },
+  "reused_evaluators": [
+    "docs/development-records/runs/b3b-ppocr-model-review-2026-11-20/evaluate.py",
+    "docs/development-records/runs/b3b2-expanded-ocr-evaluation-2026-11-20/run_evaluation.py",
+    "docs/development-records/runs/b3b3-v5-provenance-scan-2026-11-20/degrade_scan.py",
+    "docs/development-records/runs/b3b4-v6-official-provenance-2026-11-20/degrade_expand.py"
+  ]
+}
