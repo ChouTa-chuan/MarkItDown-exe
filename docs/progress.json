@@ -2,9 +2,9 @@
   "updated": "2026-11-20",
   "environment": "Linux 完整混合／獨立模組回歸；hosted Windows 真實固定候選試跑，非實體機／乾淨機／GPU／人工驗收",
   "tests_passed": 950,
-  "headline": "B1b 已公開測試版，關回上傳開關與 B2 待查驗",
+  "headline": "B1b 已公開且開關已關，B2 驗收表已通過複查",
   "blocker": "B1b 須在 2026-11-25 11:45 UTC 前以固定候選逐檔清單對照重建包；runtime_sbom_complete／release_ready 仍 false，乾淨機與人工驗收需大階段 C（以 B3 後新版本）；CPU B3a–B3d 待完成。",
-  "next": "查驗並合併關回上傳開關 PR 和 B2 PR。大階段 C 改用 B3 重新定版後的新安裝包。",
+  "next": "PR 41 已合併，公開開關已關。B2 PR 37 仍開啟，實機驗收使用 B3 重新定版後的新安裝包。",
   "milestones": [
     {
       "id": "m0",
@@ -2797,14 +2797,14 @@
             "id": "B1b",
             "title": "測試版公開產出（artifact 保留 30 天）",
             "status": "done",
-            "note": "已從 main 公開一次（run 44659294752），關回開關待 PR 查驗。",
+            "note": "已從 main 公開一次（run 44659294752）。PR 41 已合併並關回開關。",
             "pr": 38
           },
           {
             "id": "B2",
             "title": "驗收表",
             "status": "done",
-            "note": "獨立文件 PR 等 Claude reviewer。實機驗收使用 B3 後的新包。",
+            "note": "驗收表已補 CPU 元件、已知限制及雜湊證據。Claude reviewer 複查無必須修正，實機驗收用 B3 後新包。",
             "pr": 37
           },
           {
@@ -3767,6 +3767,7 @@
     ],
     "installer_sha256": "b230fee72457faed2f009d7389f92ab4f420827d93491f4bd02672b9949c0992",
     "installer_sha_matches_lifecycle": true,
-    "closeout_status": "review_pending"
+    "closeout_status": "merged",
+    "closeout_pr": 41
   }
 }
