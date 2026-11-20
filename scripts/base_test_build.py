@@ -28,7 +28,7 @@ SOURCE = 'b17d51bc99f8402f16b99f98bbe3b3370530bc6c'
 REVIEW = 'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json'
 RETENTION_DAYS = 30
 # 只在 B1b 核准的公開期間開啟。完成一次公開後另開 PR 關回。
-PUBLIC_UPLOAD_ENABLED = True
+PUBLIC_UPLOAD_ENABLED = False
 MAIN_REF = 'refs/heads/main'
 DISCLOSURES = ('known-gaps.json', 'known-gaps.md', 'test-build-limitations.md')
 NATIVE_SOURCE = '_internal/desktop_app/data/native/source.json'
