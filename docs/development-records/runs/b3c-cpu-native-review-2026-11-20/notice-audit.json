@@ -556,7 +556,24 @@
           "sha256": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107"
         }
       ],
-      "conclusion": "以實際 Windows getBuildInformation() 與原文段落對照。AVIF、OpenEXR、GStreamer 記為 NO；FFmpeg 記預建、獨立 DLL 被固定候選排除，建置旗標不能證明其他程式碼的範圍。"
+      "conclusion": "以實際 Windows getBuildInformation() 與原文段落對照。AVIF、OpenEXR、GStreamer 記為 NO；FFmpeg 記預建、獨立 DLL 被固定候選排除，建置旗標不能證明其他程式碼的範圍。",
+      "other_notice_sections": {
+        "cross_platform": [
+          "Vulkan headers",
+          "Libspng（可選建置）",
+          "QUIRC",
+          "FlatBuffers",
+          "libavif",
+          "libaom",
+          "KAZE",
+          "AKAZE",
+          "MLAS"
+        ],
+        "windows": [
+          "CLapack"
+        ],
+        "verification": "上述項目在既有第三方原文有各自段落。建置 API 的 AVIF 為 NO；libavif 與 libaom 的跨平台原文標題不能證明固定候選的實際併入。其他項目的精確靜態範圍也須用 Windows 建置資料確認。"
+      }
     },
     {
       "distribution": "pillow",
@@ -956,6 +973,13 @@
       "component": "zlib 1.3.2、libpng 1.6.57",
       "finding": "Windows build 宣告兩者；原文對應段落只標示其他平台",
       "action": "對照精確上游建置來源與原文，補 Windows 歸屬、可適用的精確原文與 hash",
+      "source": "https://github.com/opencv/opencv-python"
+    },
+    {
+      "distribution": "opencv-python",
+      "component": "其他跨平台原文段落與 Windows CLapack",
+      "finding": "均有具名文字，部分功能是可選建置。AVIF 此次宣告為 NO，尚無足夠證據對應各段落於固定 Windows 候選的適用範圍。",
+      "action": "以 Windows 建置清冊確認實際併入項目與來源，若發現具名原文外的靜態元件再補其原文。",
       "source": "https://github.com/opencv/opencv-python"
     },
     {
