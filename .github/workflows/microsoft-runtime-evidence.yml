@@ -16,6 +16,11 @@ on:
       - 'packaging/microsoft/**'
       - 'packaging/redistribution/obligations.json'
   workflow_dispatch:
+    inputs:
+      b3d_archive_evidence:
+        description: 'Read original B3d CPU archive provenance'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -29,6 +34,7 @@ env:
 
 jobs:
   evidence:
+    if: ${{ !inputs.b3d_archive_evidence }}
     runs-on: windows-2022
     timeout-minutes: 15
     steps:
@@ -74,6 +80,7 @@ jobs:
           if-no-files-found: warn
 
   cpu-evidence:
+    if: ${{ !inputs.b3d_archive_evidence }}
     name: CPU locked wheel observation
     runs-on: windows-2022
     timeout-minutes: 15
@@ -104,3 +111,28 @@ jobs:
           path: out/cpu-evidence-reports/
           retention-days: 7
           if-no-files-found: warn
+
+  b3d-original:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.b3d_archive_evidence }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: 44295044417
+          name: windows-cpu-validation-reports
+          github-token: ${{ github.token }}
+          path: out/b3d-original
+      - name: Validate original provenance and publish page 1
+        run: python scripts/cpu_build_tools_audit.py --provenance out/b3d-original/bundle-provenance.json --output out/b3d-build-tools.json --page 0
+      - name: Publish page 2
+        run: python scripts/cpu_build_tools_audit.py --provenance out/b3d-original/bundle-provenance.json --output out/b3d-build-tools.json --page 1
+      - name: Publish page 3
+        run: python scripts/cpu_build_tools_audit.py --provenance out/b3d-original/bundle-provenance.json --output out/b3d-build-tools.json --page 2
