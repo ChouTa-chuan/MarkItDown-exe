@@ -1,0 +1,22 @@
+{
+  "date_taipei": "2026-11-20",
+  "tested_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "accepted": true,
+  "result": "固定 CPU 候選原生 wheel、GEOS 與 Microsoft 查證完成；LibYAML 等原文列 B3，兩項法律做法維持 open。",
+  "keywords": [
+    "B3c",
+    "CPU",
+    "wheel",
+    "GEOS",
+    "LGPL",
+    "Microsoft",
+    "LibYAML",
+    "原文",
+    "OpenCV"
+  ],
+  "files": {
+    "README.md": "8b77aedb0adfc7dbd81c17af509a0f9f02911c50c7502a94d936f251b0c94cec",
+    "cpu-native-observation.json": "f3552fdc0d18c1be2657723c0918da6b6014c5977532f49fc1bc28e87acb398b",
+    "notice-audit.json": "f1bb99f318ff62827eadf160259763fd40cc920f03afa5fc6da1fa1159b541ac"
+  }
+}

@@ -9,6 +9,7 @@ on:
       - '.github/workflows/microsoft-runtime-evidence.yml'
       - 'scripts/microsoft_runtime.py'
       - 'scripts/embedded_runtime.py'
+      - 'scripts/cpu_native_observation.py'
       - 'tests/test_embedded_runtime.py'
       - 'packaging/embedded/**'
       - 'tests/test_microsoft_runtime.py'
@@ -69,5 +70,37 @@ jobs:
         with:
           name: microsoft-runtime-evidence-reports
           path: out/microsoft-reports/
+          retention-days: 7
+          if-no-files-found: warn
+
+  cpu-evidence:
+    name: CPU locked wheel observation
+    runs-on: windows-2022
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+      - name: Install CPU hash-locked build environment
+        shell: pwsh
+        run: |
+          python -m venv out/cpu-evidence-env
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & out/cpu-evidence-env/Scripts/python.exe -m pip install --require-hashes -r packaging/profiles/cpu-windows-build.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Observe CPU module versions and two renamed Microsoft DLLs
+        shell: pwsh
+        env:
+          EXPECTED_SOURCE: ${{ github.sha }}
+        run: |
+          New-Item -ItemType Directory -Force out/cpu-evidence-reports | Out-Null
+          & out/cpu-evidence-env/Scripts/python.exe scripts/cpu_native_observation.py --expected-source "$env:EXPECTED_SOURCE" --output out/cpu-evidence-reports/cpu-native.json
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cpu-native-observation-reports
+          path: out/cpu-evidence-reports/
           retention-days: 7
           if-no-files-found: warn

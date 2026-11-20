@@ -4,7 +4,18 @@
 
 ## 更新中
 
+- 2026-11-20：STATUS 更新至 B3c 已合併：新增 B3b4、B3b5，記錄使用者決定（候選改以 v6 small 為主並開放主機；GEOS 選 A、CPU Microsoft 選 B、B3 原文優先順序），B3 範圍補上這些工作與「換 v6 前須再取得使用者同意」，下一步為 B3d。前版存為 `docs/history/status/2026-11-20-before-b3c-merged.md`。只改文件。
 - 2026-11-20：線上視覺進度更新：B3b2 完成，新增 B3b3、B3b4、B3b5（已完成），B3c 進行中、B3d 下一步，B3 範圍補上今天的決定，並更新標題、阻擋與下一步。只改 docs/progress.json 與重建的進度頁。
+### 2026-11-20｜B3c CPU 原生檔、授權原文與 Microsoft 執行期
+
+- 對照固定 CPU 候選和八個鎖定 Windows wheels 的原生位元組與原文，新增 GEOS LGPL 動態載入證據、六個 Microsoft DLL 的 PE／簽章／Redist 比對及 B3 待補原文清單。LibYAML 0.2.5 的 supplemental 已列入 B3，B3c 的打包內容與候選沿用原值。
+- 新的共用 SHA-256 引用逐條記錄。`cpu-geos` 引用 embedded 目錄及 Windows 觀測，`cpu-wheels` 共用這兩份並引用逐檔原文清單、A12d 觀測及 LibYAML 停點指紋，`cpu-microsoft` 共用 Windows 觀測並引用 Microsoft 目錄。先前兩個證據 README 的更新各自同步 manifest（B3b2 的字型與比較、LibYAML 的版本依據）；既有登記條目的其他共用原文 hash 沿用。
+- base 與 cpu 的 gates 皆通過，旗標和阻擋條目沿用。`cpu-geos`、`cpu-microsoft` 持續 open 並交使用者決定做法，`cpu-wheels` 持續 open 並列出未知版本。新增錯綁、缺檔、證據指紋及 Redist 反例。[觀測與待辦](docs/development-records/runs/b3c-cpu-native-review-2026-11-20/README.md)
+
+- 2026-11-20：B3c 比對發現 LibYAML 0.2.5 的上游 MIT 原文與隨包 PyYAML 原文的著作權年份、雜湊不同。記錄固定候選與鎖定 wheel 證據，於補原文前暫停。[停點證據](docs/development-records/runs/b3c-libyaml-notice-gap-2026-11-20/README.md)
+
+- 2026-11-20：記錄 v5 mobile 方向與 B3c、B3d 分工。新增待指派 B3b3 的來源授權與公開掃描複驗，澄清 B3b2 字元差距、字型授權並同步其 README 雜湊。
+
 - B3b5（證據，未改程式）：以 HF 官方 PP-OCRv6 small／v5 mobile ONNX（雜湊與 B3b4 相同）與 yml 外部字表重跑 135 張評估；官方 v6 與轉檔版辨識文字逐字相同，但簡中在 3 個模擬條件較 v4 多 6 個編輯（多為標點全半形），是否採用待使用者決定。見 [B3b5 證據](docs/development-records/runs/b3b5-official-onnx-rerun-2026-11-20/README.md)。
 - 2026-11-20：依使用者決定，Claude 協調者（主對話）預設模型改為 claude-sonnet-5-5（.claude/settings.json、CLAUDE.md），三個子代理模型不變；STATUS D 節記錄決定。只改文件與 Claude 專用設定。
 - B3b4（證據，未改程式）：PP-OCRv6 small／v5 mobile 的 HF 官方 ONNX 雜湊與模型卡授權（v6 官方檔 `5435fd74…`，與 B3b 實測的 RapidOCR 轉檔 `6f327246…` 不同）；官方檔本體因 CDN 主機被擋未取得，未能以官方檔重跑；旋轉補測 expand=True 顯示裁切不是主因（簡中不變，英文小幅變動），真正原因未查明。官方 yml 字表與 RapidOCR 轉檔字表逐行相同。見 [B3b4 證據](docs/development-records/runs/b3b4-v6-official-provenance-2026-11-20/README.md)。

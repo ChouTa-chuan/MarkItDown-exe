@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-20",
-  "environment": "Linux 完整混合／獨立模組回歸與 CPU 三語固定圖評估。Windows 與固定候選沿用既有紀錄。",
-  "tests_passed": 954,
-  "headline": "B3c 查驗通過待合併；識別模型以 PP-OCRv6 small 為主、v5 排除，採用前待授權與外部字表的打包決定",
+  "environment": "Linux 完整混合／獨立模組回歸；hosted Windows 2022 觀測固定 CPU 候選同位元組的原生檔。",
+  "tests_passed": 959,
+  "headline": "B3c 已合併；識別模型以 PP-OCRv6 small 為主、v5 排除，採用前待授權與外部字表的打包決定",
   "blocker": "B3 重新定版前要補 CPU 原文（LibYAML、Pillow、OpenCV、pyclipper 等）、設計 GEOS 受支援替換路徑，並由使用者決定 v6 簡中、授權與外部字表的打包方式。乾淨機與人工驗收使用 B3 後的新版本。",
-  "next": "GPT 解 B3c（PR 47）衝突後由協調者合併，再做 B3d（建置工具是否進 worker）。之後 B3 重新定版。",
+  "next": "GPT 開始 B3d（建置工具是否進 worker，只查證不排除）。之後 B3 重新定版。",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 955,
+  "tests_run": 960,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "eafa026e6c93f29fbc282e878a1bac633ca03573",
+    "source_commit": "36537eadbac17b519c122232190d91d5986a13b3",
     "date_taipei": "2026-11-20",
     "accepted": true,
-    "run": 955,
-    "passed": 954,
+    "run": 960,
+    "passed": 959,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1322,7 +1322,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/b3b2-expanded-ocr-evaluation-2026-11-20/README.md"
+    "evidence": "development-records/runs/b3c-cpu-native-review-2026-11-20/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2852,8 +2852,9 @@
           {
             "id": "B3c",
             "title": "CPU：GEOS（LGPL）與 CPU 內含元件、Microsoft 6 檔",
-            "status": "active",
-            "note": "查證 8 個含原生檔的 CPU wheel、GEOS、Microsoft 6 檔。Claude reviewer 查驗通過，待 GPT 解衝突後合併。使用者決定：GEOS 設計受支援替換路徑、Microsoft 維持現狀另存再散布依據。"
+            "status": "done",
+            "note": "已合併。查證 8 個含原生檔的 CPU wheel、GEOS、Microsoft 6 檔。使用者決定：GEOS 設計受支援替換路徑、Microsoft 維持現狀另存再散布依據。LibYAML 等原文補件留到 B3。",
+            "pr": 47
           },
           {
             "id": "B3d",

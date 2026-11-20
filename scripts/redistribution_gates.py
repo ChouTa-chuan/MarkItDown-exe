@@ -287,13 +287,21 @@ def collect_catalogs(report, profile, config, root, native, reasons, gap_validat
                 for path in catalogs]
     # A10 詳情只存目錄與證據；原始 review_reason 計數不改，是否仍阻擋由條目狀態推導。
     microsoft = []
+    if profile == 'cpu':
+        from cpu_native_observation import MS_CATALOG, check_microsoft
+        require(not (root/MS_CATALOG).is_file() or any(
+            ref['path'] == MS_CATALOG for e in entries for ref in e['evidence']), 'Existing CPU Microsoft catalog must remain bound')
     for entry in entries:
         paths = [ref['path'] for ref in entry['evidence'] if ref['path'].startswith('packaging/microsoft/')]
         if paths:
-            require(profile == 'base' and entry['id'] == 'base-microsoft'
-                    and paths == [microsoft_runtime.CATALOG_PATH], 'Unexpected Microsoft catalog binding')
-            microsoft.append(microsoft_runtime.check_catalog(read_json(root/paths[0]), report=report,
-                                                            entry=entry, root=root))
+            if profile == 'base':
+                require(entry['id'] == 'base-microsoft' and paths == [microsoft_runtime.CATALOG_PATH],
+                        'Unexpected Microsoft catalog binding')
+                check = microsoft_runtime.check_catalog
+            else:
+                require(entry['id'] == 'cpu-microsoft' and paths == [MS_CATALOG], 'Unexpected Microsoft catalog binding')
+                check = check_microsoft
+            microsoft.append(check(read_json(root/paths[0]), report=report, entry=entry, root=root))
     qt = []
     require(profile != 'base' or not (root/qt_components.CATALOG).is_file()
             or any(ref['path'] == qt_components.CATALOG for e in entries for ref in e['evidence']),
