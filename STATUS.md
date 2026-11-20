@@ -150,5 +150,6 @@
 | 2026-11-20 | 使用者決定 | 大階段 D 新增 D3（Tesseract 官方語言包選配下載：簡中、法、俄、西、德）與 D4（使用者自行下載模型加裝）；同意協調者的評估與架構調整方向 |
 | 2026-11-20 | 使用者決定 | B1b（PR 38）合併，合併後的公開觸發與關回上傳開關交給 Codex（GPT）；B2（PR 37）的三項建議修正在合併前由 Codex 補上 |
 | 2026-11-20 | 使用者決定 | B3a 交給 Codex（GPT） |
+| 2026-11-20 | 使用者決定 | B3a 不走補原文同意流程：flatbuffers 與 rapidocr-onnxruntime 的原文已在 repo 與固定 CPU 候選 worker 內，B3a 沿用既有原文與路徑（不重抓、不改寫）、只接套件對應並加反例；`cpu-flatbuffers` 可關，`cpu-rapidocr-models` 只補 RapidOCR 套件原文部分、維持 open，PP-OCR 模型與 config.yaml 留給 B3b；若必須在 worker 內新增檔案路徑須先停下回報 |
 
 接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。B3a 停在 PR 交 Claude reviewer。三個 PP-OCR 模型與 `config.yaml` 留給 B3b。
