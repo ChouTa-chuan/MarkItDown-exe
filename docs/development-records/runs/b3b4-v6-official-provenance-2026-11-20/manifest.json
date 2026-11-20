@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "b3b4-v6-official-provenance-2026-11-20",
+  "date_taipei": "2026-11-20",
+  "source_commit": "c0001b6",
+  "source_commit_note": "開始時的 origin/main（PR #46 合併）；本輪只新增本目錄與 CHANGELOG 一行",
+  "keywords": [
+    "PP-OCRv6",
+    "PP-OCRv6 small",
+    "PP-OCRv5",
+    "PP-OCRv4",
+    "Hugging Face",
+    "Apache-2.0",
+    "ONNX",
+    "RapidOCR",
+    "provenance",
+    "旋轉",
+    "expand",
+    "簡體中文",
+    "繁體中文",
+    "模擬掃描"
+  ],
+  "result_summary": {
+    "official_v6_onnx_sha256": "5435fd747c9e0efe15a96d0b378d5bd157e9492ed8fd80edf08f30d02fa24634",
+    "official_v6_onnx_obtained": false,
+    "official_v6_matches_b3b_candidate": false,
+    "official_v5_onnx_sha256": "da72dc72ca4dc220df0dfde68c1dedc31c58d3e76a25871122e5056227d50092",
+    "official_v5_onnx_obtained": false,
+    "official_v5_matches_b3b_candidate": false,
+    "license_grade": {
+      "official_v6_onnx_model_card": "權利人直接載明（模型卡 YAML 宣告，非獨立授權文件；LICENSE 連結 404）",
+      "official_v5_onnx_model_card": "權利人直接載明（模型卡 apache-2.0）",
+      "rapidocr_converted_files": "第三方宣告（RapidOCR MODEL_LICENSES.md）"
+    },
+    "evaluation_scope": "僅 RapidOCR 轉檔候選（非官方 ONNX），expand=True 旋轉條件補充；官方 ONNX 未能重跑",
+    "v6_simplified_worse_than_v4_conditions": [
+      "blur-0.8 (5 vs 4)",
+      "noise-10 (6 vs 4)",
+      "jpeg-q30 (9 vs 6)"
+    ],
+    "rotation_expand_effect": "裁切不是主因。簡中 expand 前後幾乎不變；英文 2.0°：v4 180→173、v5 180→172、v6 180→172；英文 0.8°：v4 102→104、v5 103→102、v6 102→102。真正原因未查明（可能與偵測或閱讀順序有關，待查）。",
+    "official_v6_dictionary": "官方 yml 字表與 RapidOCR 轉檔 ONNX metadata 逐行相同（18,708 行）；字表授權查不到",
+    "official_v5_dictionary": "官方 yml 字表與 RapidOCR 轉檔 ONNX metadata 逐行相同（18,383 行）；字表授權查不到"
+  },
+  "files": {
+    "README.md": {
+      "sha256": "a7c8548eb38722c3f44fd3642bd85255c53f41b5c67ec0eec3b2a90188899df0",
+      "bytes": 13452
+    },
+    "RapidOCR-v3.10.0-MODEL_LICENSES.md": {
+      "sha256": "c5fd0e8603d3df743355b546121e6fe0f4ef8ff455c5a85c1681fd3ae520e153",
+      "bytes": 8398
+    },
+    "degrade_expand.py": {
+      "sha256": "2c7301a7033431de5236fbd00d8ed367d172312651be00d5b5f61b0b11f09e57",
+      "bytes": 3145
+    },
+    "dict-comparison.json": {
+      "sha256": "d53e8f20d1265ace78906a86e811e096df3e07c6721da84168be2f70e4b9d651",
+      "bytes": 1015
+    },
+    "dict_compare.py": {
+      "sha256": "5e26662304f9cdcf8e4b964a324de5f9f1e3e777115cdf8c0dd9cb1216bb5fae",
+      "bytes": 2571
+    },
+    "expand-manifest.json": {
+      "sha256": "a6f4bafc5f2565f6957efb9ed76b1138b48e66593363ccee957195604d26f148",
+      "bytes": 6674
+    },
+    "expand-results.json": {
+      "sha256": "e3ff333cd09bdc7b9d1891220cf68fc71a095df17f069abbae4ce09e8f2889dc",
+      "bytes": 67189
+    },
+    "license-excerpts.md": {
+      "sha256": "9508a1a567f27f8d1c13236fecf9c6ab4b5327e67fd5b5d9f13991a7df2e5253",
+      "bytes": 1536
+    },
+    "sources.json": {
+      "sha256": "89eb631f679e37466f19fb3327461f3f16da994ba292cae819a611634b61982b",
+      "bytes": 7364
+    },
+    "summarize.py": {
+      "sha256": "bf30af368dbebc962c117ed8f5aa7cabac7539cc89458a99a26a01703a6a889d",
+      "bytes": 2964
+    },
+    "summary.json": {
+      "sha256": "6fe194a37432e39f10b85c95ed31e08739fee732d6cb334d66145b66811563f3",
+      "bytes": 8822
+    },
+    "timing.json": {
+      "sha256": "717f4b7f9eaca7adcf27a3ddb2070ad53f401f5a925ae7844fd1f957e4eed525",
+      "bytes": 449
+    },
+    "timing.py": {
+      "sha256": "773afbcead936bb9f083c821a698706c3e6de59c168bc749071c5815f9e6552b",
+      "bytes": 2243
+    }
+  }
+}

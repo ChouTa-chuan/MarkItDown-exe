@@ -6,7 +6,7 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 150 筆。
+共 151 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -15,6 +15,7 @@
 | 2026-11-20 | 證據 | B3b PP-OCR 模型來源、授權與辨識評估 | 07084c2 | 接受 | B3b、PP-OCR、CPU、模型授權、簡繁辨識 | [development-records/runs/b3b-ppocr-model-review-2026-11-20/README.md](development-records/runs/b3b-ppocr-model-review-2026-11-20/README.md) |
 | 2026-11-20 | 證據 | B3b2 擴大三語識別樣本 | d48af8f | 接受 | B3b2、PP-OCR、繁中、簡中、固定圖片、CPU 識別 | [development-records/runs/b3b2-expanded-ocr-evaluation-2026-11-20/README.md](development-records/runs/b3b2-expanded-ocr-evaluation-2026-11-20/README.md) |
 | 2026-11-20 | 證據 | B3b3 PP-OCRv5 來源授權查證與模擬掃描複驗 | 3b522bc | 接受 | B3b3、PP-OCRv5、ONNX 來源、授權分級、模擬掃描、繁中、簡中、被擋主機 | [development-records/runs/b3b3-v5-provenance-scan-2026-11-20/README.md](development-records/runs/b3b3-v5-provenance-scan-2026-11-20/README.md) |
+| 2026-11-20 | 證據 | B3b4 PP-OCRv6 small 官方來源、授權與旋轉條件補測 |  |  | PP-OCRv6、PP-OCRv6 small、PP-OCRv5、PP-OCRv4、Hugging Face、Apache-2.0、ONNX、RapidOCR、provenance、旋轉、expand、簡體中文、繁體中文、模擬掃描 | [development-records/runs/b3b4-v6-official-provenance-2026-11-20/README.md](development-records/runs/b3b4-v6-official-provenance-2026-11-20/README.md) |
 | 2026-11-20 | 證據 | run 44307725980 Windows 失敗原因（2026-11-20 查明） | 35233ae | 未接受 | 44307725980、GUI、Qt Windows window did not open、升級測試、previous-build、gui.log、間歇性 | [development-records/runs/run-44307725980-gui-timeout-2026-11-20/README.md](development-records/runs/run-44307725980-gui-timeout-2026-11-20/README.md) |
 | 2026-11-20 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-20-before-b1b-public-closeout.md](history/status/2026-11-20-before-b1b-public-closeout.md) |
 | 2026-11-20 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-20-before-b1b.md](history/status/2026-11-20-before-b1b.md) |

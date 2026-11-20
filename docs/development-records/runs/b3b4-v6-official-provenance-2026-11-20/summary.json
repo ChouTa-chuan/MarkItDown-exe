@@ -1,0 +1,437 @@
+{
+  "views": {
+    "含舊旋轉（B3b3 原口徑，12 條件）": {
+      "v4-current": {
+        "zh-hant": {
+          "edits": 980,
+          "reference_characters": 5664,
+          "accuracy": 0.827
+        },
+        "zh-hans": {
+          "edits": 203,
+          "reference_characters": 5640,
+          "accuracy": 0.964
+        },
+        "en": {
+          "edits": 328,
+          "reference_characters": 13416,
+          "accuracy": 0.9756
+        }
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": {
+          "edits": 345,
+          "reference_characters": 5664,
+          "accuracy": 0.9391
+        },
+        "zh-hans": {
+          "edits": 211,
+          "reference_characters": 5640,
+          "accuracy": 0.9626
+        },
+        "en": {
+          "edits": 330,
+          "reference_characters": 13416,
+          "accuracy": 0.9754
+        }
+      },
+      "v6-rapid-small": {
+        "zh-hant": {
+          "edits": 259,
+          "reference_characters": 5664,
+          "accuracy": 0.9543
+        },
+        "zh-hans": {
+          "edits": 172,
+          "reference_characters": 5640,
+          "accuracy": 0.9695
+        },
+        "en": {
+          "edits": 299,
+          "reference_characters": 13416,
+          "accuracy": 0.9777
+        }
+      }
+    },
+    "排除舊旋轉（10 條件）": {
+      "v4-current": {
+        "zh-hant": {
+          "edits": 765,
+          "reference_characters": 4720,
+          "accuracy": 0.8379
+        },
+        "zh-hans": {
+          "edits": 87,
+          "reference_characters": 4700,
+          "accuracy": 0.9815
+        },
+        "en": {
+          "edits": 46,
+          "reference_characters": 11180,
+          "accuracy": 0.9959
+        }
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": {
+          "edits": 231,
+          "reference_characters": 4720,
+          "accuracy": 0.9511
+        },
+        "zh-hans": {
+          "edits": 97,
+          "reference_characters": 4700,
+          "accuracy": 0.9794
+        },
+        "en": {
+          "edits": 47,
+          "reference_characters": 11180,
+          "accuracy": 0.9958
+        }
+      },
+      "v6-rapid-small": {
+        "zh-hant": {
+          "edits": 143,
+          "reference_characters": 4720,
+          "accuracy": 0.9697
+        },
+        "zh-hans": {
+          "edits": 58,
+          "reference_characters": 4700,
+          "accuracy": 0.9877
+        },
+        "en": {
+          "edits": 17,
+          "reference_characters": 11180,
+          "accuracy": 0.9985
+        }
+      }
+    },
+    "排除舊旋轉＋expand 旋轉（12 條件）": {
+      "v4-current": {
+        "zh-hant": {
+          "edits": 981,
+          "reference_characters": 5664,
+          "accuracy": 0.8268
+        },
+        "zh-hans": {
+          "edits": 203,
+          "reference_characters": 5640,
+          "accuracy": 0.964
+        },
+        "en": {
+          "edits": 323,
+          "reference_characters": 13416,
+          "accuracy": 0.9759
+        }
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": {
+          "edits": 347,
+          "reference_characters": 5664,
+          "accuracy": 0.9387
+        },
+        "zh-hans": {
+          "edits": 212,
+          "reference_characters": 5640,
+          "accuracy": 0.9624
+        },
+        "en": {
+          "edits": 321,
+          "reference_characters": 13416,
+          "accuracy": 0.9761
+        }
+      },
+      "v6-rapid-small": {
+        "zh-hant": {
+          "edits": 259,
+          "reference_characters": 5664,
+          "accuracy": 0.9543
+        },
+        "zh-hans": {
+          "edits": 172,
+          "reference_characters": 5640,
+          "accuracy": 0.9695
+        },
+        "en": {
+          "edits": 291,
+          "reference_characters": 13416,
+          "accuracy": 0.9783
+        }
+      }
+    }
+  },
+  "per_condition_edits": {
+    "clean": {
+      "v4-current": {
+        "zh-hant": 65,
+        "zh-hans": 5,
+        "en": 2
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 7,
+        "zh-hans": 4,
+        "en": 0
+      },
+      "v6-rapid-small": {
+        "zh-hant": 7,
+        "zh-hans": 5,
+        "en": 1
+      }
+    },
+    "rotate-0.8": {
+      "v4-current": {
+        "zh-hant": 89,
+        "zh-hans": 38,
+        "en": 102
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 37,
+        "zh-hans": 37,
+        "en": 103
+      },
+      "v6-rapid-small": {
+        "zh-hant": 38,
+        "zh-hans": 37,
+        "en": 102
+      }
+    },
+    "rotate-2.0": {
+      "v4-current": {
+        "zh-hant": 126,
+        "zh-hans": 78,
+        "en": 180
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 77,
+        "zh-hans": 77,
+        "en": 180
+      },
+      "v6-rapid-small": {
+        "zh-hant": 78,
+        "zh-hans": 77,
+        "en": 180
+      }
+    },
+    "blur-0.8": {
+      "v4-current": {
+        "zh-hant": 60,
+        "zh-hans": 4,
+        "en": 1
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 4,
+        "zh-hans": 4,
+        "en": 2
+      },
+      "v6-rapid-small": {
+        "zh-hant": 7,
+        "zh-hans": 5,
+        "en": 1
+      }
+    },
+    "blur-1.5": {
+      "v4-current": {
+        "zh-hant": 82,
+        "zh-hans": 4,
+        "en": 3
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 28,
+        "zh-hans": 5,
+        "en": 3
+      },
+      "v6-rapid-small": {
+        "zh-hant": 20,
+        "zh-hans": 4,
+        "en": 2
+      }
+    },
+    "noise-10": {
+      "v4-current": {
+        "zh-hant": 65,
+        "zh-hans": 4,
+        "en": 2
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 12,
+        "zh-hans": 11,
+        "en": 2
+      },
+      "v6-rapid-small": {
+        "zh-hant": 5,
+        "zh-hans": 6,
+        "en": 1
+      }
+    },
+    "noise-20": {
+      "v4-current": {
+        "zh-hant": 63,
+        "zh-hans": 6,
+        "en": 3
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 6,
+        "zh-hans": 8,
+        "en": 2
+      },
+      "v6-rapid-small": {
+        "zh-hant": 5,
+        "zh-hans": 4,
+        "en": 1
+      }
+    },
+    "contrast-0.5": {
+      "v4-current": {
+        "zh-hant": 65,
+        "zh-hans": 4,
+        "en": 3
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 6,
+        "zh-hans": 4,
+        "en": 2
+      },
+      "v6-rapid-small": {
+        "zh-hant": 8,
+        "zh-hans": 4,
+        "en": 1
+      }
+    },
+    "contrast-0.3": {
+      "v4-current": {
+        "zh-hant": 64,
+        "zh-hans": 4,
+        "en": 3
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 8,
+        "zh-hans": 4,
+        "en": 1
+      },
+      "v6-rapid-small": {
+        "zh-hant": 6,
+        "zh-hans": 4,
+        "en": 1
+      }
+    },
+    "down-up-50": {
+      "v4-current": {
+        "zh-hant": 73,
+        "zh-hans": 9,
+        "en": 5
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 21,
+        "zh-hans": 8,
+        "en": 2
+      },
+      "v6-rapid-small": {
+        "zh-hant": 13,
+        "zh-hans": 4,
+        "en": 3
+      }
+    },
+    "down-up-33": {
+      "v4-current": {
+        "zh-hant": 152,
+        "zh-hans": 40,
+        "en": 17
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 118,
+        "zh-hans": 37,
+        "en": 26
+      },
+      "v6-rapid-small": {
+        "zh-hant": 66,
+        "zh-hans": 13,
+        "en": 5
+      }
+    },
+    "jpeg-q30": {
+      "v4-current": {
+        "zh-hant": 68,
+        "zh-hans": 6,
+        "en": 5
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 10,
+        "zh-hans": 10,
+        "en": 2
+      },
+      "v6-rapid-small": {
+        "zh-hant": 8,
+        "zh-hans": 9,
+        "en": 1
+      }
+    },
+    "jpeg-q12": {
+      "v4-current": {
+        "zh-hant": 73,
+        "zh-hans": 6,
+        "en": 4
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 18,
+        "zh-hans": 6,
+        "en": 5
+      },
+      "v6-rapid-small": {
+        "zh-hant": 5,
+        "zh-hans": 5,
+        "en": 1
+      }
+    },
+    "rotate-0.8-expand": {
+      "v4-current": {
+        "zh-hant": 89,
+        "zh-hans": 38,
+        "en": 104
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 38,
+        "zh-hans": 38,
+        "en": 102
+      },
+      "v6-rapid-small": {
+        "zh-hant": 38,
+        "zh-hans": 37,
+        "en": 102
+      }
+    },
+    "rotate-2.0-expand": {
+      "v4-current": {
+        "zh-hant": 127,
+        "zh-hans": 78,
+        "en": 173
+      },
+      "v5-rapid-mobile": {
+        "zh-hant": 78,
+        "zh-hans": 77,
+        "en": 172
+      },
+      "v6-rapid-small": {
+        "zh-hant": 78,
+        "zh-hans": 77,
+        "en": 172
+      }
+    }
+  },
+  "clean_edits": {
+    "v4-current": {
+      "zh-hant": 65,
+      "zh-hans": 5,
+      "en": 2
+    },
+    "v5-rapid-mobile": {
+      "zh-hant": 7,
+      "zh-hans": 4,
+      "en": 0
+    },
+    "v6-rapid-small": {
+      "zh-hant": 7,
+      "zh-hans": 5,
+      "en": 1
+    }
+  }
+}

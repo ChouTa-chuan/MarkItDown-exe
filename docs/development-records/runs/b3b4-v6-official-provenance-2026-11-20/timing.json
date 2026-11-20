@@ -1,0 +1,17 @@
+{
+  "note": "同一環境、單執行緒、CPUExecutionProvider，僅供參考。",
+  "results": {
+    "v4-current": {
+      "total_median_seconds_9_images": 15.505,
+      "mean_per_image_seconds": 1.723
+    },
+    "v5-rapid-mobile": {
+      "total_median_seconds_9_images": 16.667,
+      "mean_per_image_seconds": 1.852
+    },
+    "v6-rapid-small": {
+      "total_median_seconds_9_images": 13.795,
+      "mean_per_image_seconds": 1.533
+    }
+  }
+}
