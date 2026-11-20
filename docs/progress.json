@@ -2,9 +2,9 @@
   "updated": "2026-11-20",
   "environment": "Linux 完整混合／獨立模組回歸與 CPU 三語固定圖評估。Windows 與固定候選沿用既有紀錄。",
   "tests_passed": 954,
-  "headline": "B3b2 已完成擴大三語樣本的識別比較，待查驗與選型",
-  "blocker": "識別選型待使用者確認。CPU 授權決定的隨包揭露與候選審閱留待 B3。乾淨機與人工驗收使用 B3 後的新版本。",
-  "next": "Claude reviewer 查驗 B3b2 PR。使用者決定是否更換識別模型。",
+  "headline": "B3c 查驗通過待合併；識別模型以 PP-OCRv6 small 為主、v5 排除，採用前待授權與外部字表的打包決定",
+  "blocker": "B3 重新定版前要補 CPU 原文（LibYAML、Pillow、OpenCV、pyclipper 等）、設計 GEOS 受支援替換路徑，並由使用者決定 v6 簡中、授權與外部字表的打包方式。乾淨機與人工驗收使用 B3 後的新版本。",
+  "next": "GPT 解 B3c（PR 47）衝突後由協調者合併，再做 B3d（建置工具是否進 worker）。之後 B3 重新定版。",
   "milestones": [
     {
       "id": "m0",
@@ -2824,26 +2824,48 @@
           {
             "id": "B3b2",
             "title": "CPU：擴大繁中、簡中與英文識別評估",
-            "status": "decide",
-            "note": "固定三語圖各含內文、表格和標題小字。評估完成，待 PR 查驗與使用者選型。"
+            "status": "done",
+            "note": "擴大三語樣本評估已合併：v4 繁中弱，v5、v6 均明顯進步。",
+            "pr": 45
+          },
+          {
+            "id": "B3b3",
+            "title": "CPU：v5 來源與授權查證、模擬掃描複驗",
+            "status": "done",
+            "pr": 46,
+            "note": "v5 授權只到第三方宣告；簡中在雜訊與 JPEG 條件較 v4 差。真實公開掃描樣本未取得。"
+          },
+          {
+            "id": "B3b4",
+            "title": "CPU：v6 small 官方來源與授權",
+            "status": "done",
+            "pr": 48,
+            "note": "官方模型卡宣告 Apache-2.0（LICENSE 連結失效）；官方 ONNX 與 RapidOCR 轉檔版不同檔；字表另查。"
+          },
+          {
+            "id": "B3b5",
+            "title": "CPU：官方 ONNX 重跑評估",
+            "status": "done",
+            "pr": 50,
+            "note": "官方與轉檔版辨識逐字相同。v6 簡中整體不輸 v4，三條件多 6 個編輯（多為標點）；v5 排除。官方檔無內嵌字表，打包需外部字表，待使用者決定。"
           },
           {
             "id": "B3c",
             "title": "CPU：GEOS（LGPL）與 CPU 內含元件、Microsoft 6 檔",
-            "status": "pending",
-            "note": "原 A16；B1b 之後"
+            "status": "active",
+            "note": "查證 8 個含原生檔的 CPU wheel、GEOS、Microsoft 6 檔。Claude reviewer 查驗通過，待 GPT 解衝突後合併。使用者決定：GEOS 設計受支援替換路徑、Microsoft 維持現狀另存再散布依據。"
           },
           {
             "id": "B3d",
             "title": "CPU：建置工具是否進入 worker",
-            "status": "pending",
-            "note": "原 A17；B1b 之後"
+            "status": "next",
+            "note": "B3c 合併後由 GPT 開始；只查證不排除，排除屬打包變更需使用者同意。"
           },
           {
             "id": "B3",
             "title": "CPU 元件重新定版",
             "status": "pending",
-            "note": "需 B3a–B3d 完成並經使用者確認。重新定版時用固定存檔與新候選審閱接上 CPU 授權原文、揭露和接受缺口。"
+            "note": "需 B3a–B3d 完成並經使用者確認。依 B3c 清單補原文（LibYAML、Pillow、OpenCV、pyclipper，再查 onnxruntime、NumPy）；GEOS 受支援替換路徑；CPU Microsoft 再散布依據；是否換 v6 small 與外部字表打包另需使用者同意。"
           },
           {
             "id": "B4",
