@@ -1254,7 +1254,7 @@
             },
             {
               "path": "docs/development-records/runs/b3b-ppocr-model-review-2026-11-20/current-models.json",
-              "sha256": "92916cbaeb597cb2bd18ba4a925116fe9674b284832d74110c9019a4d589006b"
+              "sha256": "efabf03e994d01fdd08035fcb20931e8ef8dde8de68a83cf9027839652f7d0d6"
             }
           ],
           "status": "open",

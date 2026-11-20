@@ -14,8 +14,8 @@
   "files": {
     "PaddleOCR-v2.9.1-LICENSE.txt": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856",
     "PaddleOCR-v3.7.0-LICENSE.txt": "3840c5c0c61c294264d2dd77b8777be6ddd90121ef4e0e64abcd22edea581d6e",
-    "README.md": "1a2bb8b3deeb892e9820de396b2118f7aedd274b2fea6ed87b88b39c3be7dd21",
-    "current-models.json": "92916cbaeb597cb2bd18ba4a925116fe9674b284832d74110c9019a4d589006b",
+    "README.md": "7dfda94ecaafafac20633a239822b29146753d803978e2b3b5ba9d8cb039c79c",
+    "current-models.json": "efabf03e994d01fdd08035fcb20931e8ef8dde8de68a83cf9027839652f7d0d6",
     "evaluate.py": "d72ab57e1ed46155c72d8cd80e5dca25fce8a2ac11299081d923164e394b9e33",
     "evaluation-inputs.json": "d3120159de6c1ddffad05e7745d1c3b27e0b280441377ab8d2baf45f7dda6847",
     "evaluation-results.json": "2906bbc82a3fead2e5e57ec306c7e8327d349f75c3d4a4c7eb46399ab4e45876",
