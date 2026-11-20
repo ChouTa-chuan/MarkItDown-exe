@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-20",
-  "environment": "Linux 完整混合／獨立模組回歸與 CPU 三語固定圖評估。Windows 與固定候選沿用既有紀錄。",
-  "tests_passed": 954,
-  "headline": "B3c 查到 LibYAML 獨立原文缺口，暫停待決定",
-  "blocker": "LibYAML 獨立上游原文的補件時機待使用者決定。B3b3 待指派。CPU 授權揭露與候選重新定版留待 B3。",
-  "next": "先決定 LibYAML 原文的補件時機，再續查 B3c。B3d 等 B3c 合併後開始，B3b3 待使用者指派。",
+  "environment": "Linux 完整混合／獨立模組回歸；hosted Windows 2022 觀測固定 CPU 候選同位元組的原生檔。",
+  "tests_passed": 959,
+  "headline": "B3c 完成 CPU 原生檔、原文與 Microsoft DLL 查證",
+  "blocker": "GEOS LGPL 與 CPU Microsoft 做法待使用者決定；B3b3 待指派。CPU 原文補件、授權揭露與重新定版留待 B3。",
+  "next": "B3c 交 Claude reviewer 查驗，合併後才開始 B3d。B3b3 待指派，GEOS LGPL 與 CPU Microsoft 做法待使用者決定。",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 955,
+  "tests_run": 960,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1302,8 +1302,8 @@
     "source_commit": "eafa026e6c93f29fbc282e878a1bac633ca03573",
     "date_taipei": "2026-11-20",
     "accepted": true,
-    "run": 955,
-    "passed": 954,
+    "run": 960,
+    "passed": 959,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1322,7 +1322,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/b3b2-expanded-ocr-evaluation-2026-11-20/README.md"
+    "evidence": "development-records/runs/b3c-cpu-native-review-2026-11-20/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2837,8 +2837,8 @@
           {
             "id": "B3c",
             "title": "CPU：GEOS（LGPL）與 CPU 內含元件、Microsoft 6 檔",
-            "status": "decide",
-            "note": "已核對固定候選與 wheel。LibYAML 的上游原文未獨立隨包，等使用者決定補件時機。"
+            "status": "active",
+            "note": "查完固定 CPU 候選的原生 wheels、GEOS 與 Microsoft 6 檔。LibYAML 等原文延至 B3，LGPL／Microsoft 做法待使用者決定。"
           },
           {
             "id": "B3d",
@@ -2850,7 +2850,7 @@
             "id": "B3",
             "title": "CPU 元件重新定版",
             "status": "pending",
-            "note": "需 B3a–B3d 完成並經使用者確認。重新定版時用固定存檔與新候選審閱接上 CPU 授權原文、揭露和接受缺口。"
+            "note": "需 B3a–B3d 完成並經使用者確認。重新定版時用固定存檔與新候選審閱接上 CPU 授權原文、揭露和接受缺口。依 B3c 清單補原文，含 LibYAML 0.2.5。"
           },
           {
             "id": "B4",

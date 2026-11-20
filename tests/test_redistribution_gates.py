@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
@@ -51,6 +52,59 @@ class GateTests(unittest.TestCase):
 
     def assess(self, profile='base'):
         return gates.assess(self.reports[profile], self.registry)
+
+    def test_cpu_catalog_rejects_notice_from_another_wheel(self):
+        from embedded_components import check_profile
+
+        path = 'packaging/embedded/cpu-windows.json'
+        catalog = gates.read_json(ROOT/path)
+        wheels = {w['distribution']: w for w in catalog['wheels']}
+        wheels['pyyaml']['components'][0]['notices'] = wheels['pyclipper']['components'][0]['notices']
+        with self.assertRaisesRegex(ValueError, 'CPU notice differs from candidate package'):
+            check_profile(catalog, catalog_path=path, entries=self.registry['profiles']['cpu']['entries'],
+                          report=self.reports['cpu'], root=ROOT)
+
+    def test_cpu_catalog_rejects_missing_candidate_native(self):
+        from embedded_components import check_profile
+
+        path = 'packaging/embedded/cpu-windows.json'
+        catalog = gates.read_json(ROOT/path)
+        psutil, = [w for w in catalog['wheels'] if w['distribution'] == 'psutil']
+        psutil['components'][0]['native_files'].clear()
+        with self.assertRaisesRegex(ValueError, 'Registry native files differ'):
+            check_profile(catalog, catalog_path=path, entries=self.registry['profiles']['cpu']['entries'],
+                          report=self.reports['cpu'], root=ROOT)
+
+    def test_cpu_catalog_rejects_missing_shipped_geos_notice(self):
+        target = ROOT/'src/desktop_app/data/licenses/windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_GEOS'
+        exists = Path.is_file
+        with patch.object(Path, 'is_file', lambda path: path != target and exists(path)):
+            with self.assertRaisesRegex(ValueError, 'Missing or external notice file'):
+                self.assess('cpu')
+
+    def test_cpu_registry_rejects_wrong_evidence_sha256(self):
+        entry = next(e for e in self.registry['profiles']['cpu']['entries'] if e['id'] == 'cpu-wheels')
+        audit = next(r for r in entry['evidence'] if r['path'].endswith('/notice-audit.json'))
+        audit['sha256'] = '0'*64
+        with self.assertRaisesRegex(ValueError, 'hash mismatch'):
+            self.assess('cpu')
+
+    def test_cpu_runtime_and_redist_reject_misbound_bytes(self):
+        from cpu_native_observation import MS_CATALOG, check_microsoft, check_observation
+
+        catalog = gates.read_json(ROOT/MS_CATALOG)
+        observation = gates.read_json(ROOT/catalog['observation']['path'])
+        observation['records']['pyyaml/libyaml']['binaries']['yaml/_yaml.cp312-win_amd64.pyd'] = '0'*64
+        with self.assertRaisesRegex(ValueError, 'CPU observation hash differs'):
+            check_observation(observation, self.reports['cpu'], ROOT)
+
+        entry = next(e for e in self.registry['profiles']['cpu']['entries'] if e['id'] == 'cpu-microsoft')
+        comparison = check_microsoft(catalog, entry=entry, report=self.reports['cpu'], root=ROOT)
+        self.assertEqual(comparison['official_matches'], 2)
+        root_vcruntime = next(r for r in catalog['files'] if r['file'] == 'vcruntime140.dll')
+        root_vcruntime['matches_official'] = True
+        with self.assertRaisesRegex(ValueError, 'Incorrect Redist comparison'):
+            check_microsoft(catalog, entry=entry, report=self.reports['cpu'], root=ROOT)
 
     DECISION_ROW = '| 2026-01-02 | 使用者決定 | 合成決定：僅供測試 |'
     ARCHIVE = 'docs/history/status/2026-01-02-synthetic.md'
@@ -573,12 +627,18 @@ class GateTests(unittest.TestCase):
         original_report = copy.deepcopy(self.reports['cpu'])
         self.synthetic_closed()
         # 兩個 profile 共用合成根目錄，真實 CPU 條目的證據也要在此可驗證。
-        for entry in original_cpu['entries']:
-            for ref in entry['evidence']:
-                source = ROOT/ref['path']
-                target = self.temp/ref['path']
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_bytes(source.read_bytes())
+        paths = {ref['path'] for entry in original_cpu['entries'] for ref in entry['evidence']}
+        embedded = gates.read_json(ROOT/'packaging/embedded/cpu-windows.json')
+        paths.update(embedded[key]['path'] for key in ('lock', 'source_review', 'inventory'))
+        paths.update(n['path'] for w in embedded['wheels'] for c in w['components'] for n in c['notices'])
+        microsoft = gates.read_json(ROOT/'packaging/microsoft/cpu-windows.json')
+        paths.add(microsoft['redist_probe']['path'])
+        old_observation = next(p for p in paths if p.endswith('/embedded-runtime-decoded.json'))
+        paths.add(gates.read_json(ROOT/old_observation)['basis_review']['path'])
+        for path in paths:
+            target = self.temp/path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes((ROOT/path).read_bytes())
         self.registry['profiles']['cpu'] = original_cpu
         self.reports['cpu'] = original_report
         base = gates.assess(self.reports['base'], self.registry, root=self.temp)

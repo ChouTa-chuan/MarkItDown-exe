@@ -1085,9 +1085,18 @@
             "逐檔來源、PE 版本、簽章及官方 Redist 同名 hash 對照；改名複本另列",
             "適用條款與再散布做法，待 A13 或 CPU 門檻確認"
           ],
-          "evidence": [],
+          "evidence": [
+            {
+              "path": "packaging/microsoft/cpu-windows.json",
+              "sha256": "c7b48463f8a43bec6dcd917971579312f2dca9f45f046df4a69bdce309f8462a"
+            },
+            {
+              "path": "docs/development-records/runs/b3c-cpu-native-review-2026-11-20/cpu-native-observation.json",
+              "sha256": "f3552fdc0d18c1be2657723c0918da6b6014c5977532f49fc1bc28e87acb398b"
+            }
+          ],
           "status": "open",
-          "requires_user_decision": false,
+          "requires_user_decision": true,
           "decision_source": null,
           "gates": [
             "runtime_sbom_complete",
@@ -1176,7 +1185,28 @@
             "各原生檔的 wheel、內含元件名稱／版本／來源／原文與版本依據分級；未知者保留未關閉",
             "B3 補 LibYAML 0.2.5 原文，依 A9b 使用 supplemental 固定來源並綁定 PyYAML。"
           ],
-          "evidence": [],
+          "evidence": [
+            {
+              "path": "packaging/embedded/cpu-windows.json",
+              "sha256": "66db08889f48ebc84af7c765d78e9b81e014dd791fdec92e853a40d4b992211c"
+            },
+            {
+              "path": "docs/development-records/runs/b3c-cpu-native-review-2026-11-20/notice-audit.json",
+              "sha256": "5658ad6c236278a977764396ff5ddacde3cc6d17b294685122e86a43110df072"
+            },
+            {
+              "path": "docs/development-records/runs/b3c-cpu-native-review-2026-11-20/cpu-native-observation.json",
+              "sha256": "f3552fdc0d18c1be2657723c0918da6b6014c5977532f49fc1bc28e87acb398b"
+            },
+            {
+              "path": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
+              "sha256": "ebcc3abb203f4c512c8202c57291c2896d801db6553946b6c139f7a7c084803e"
+            },
+            {
+              "path": "docs/development-records/runs/b3c-libyaml-notice-gap-2026-11-20/libyaml-gap.json",
+              "sha256": "2883020ff7609fc2a52380854f0bbf716dbee77d7efbb68cef27ee26d2ff1b34"
+            }
+          ],
           "status": "open",
           "requires_user_decision": false,
           "decision_source": null,
@@ -1223,9 +1253,18 @@
           "required_evidence": [
             "GEOS 版本、來源／原文、建置及 LGPL 來源取得與替換做法"
           ],
-          "evidence": [],
+          "evidence": [
+            {
+              "path": "packaging/embedded/cpu-windows.json",
+              "sha256": "66db08889f48ebc84af7c765d78e9b81e014dd791fdec92e853a40d4b992211c"
+            },
+            {
+              "path": "docs/development-records/runs/b3c-cpu-native-review-2026-11-20/cpu-native-observation.json",
+              "sha256": "f3552fdc0d18c1be2657723c0918da6b6014c5977532f49fc1bc28e87acb398b"
+            }
+          ],
           "status": "open",
-          "requires_user_decision": false,
+          "requires_user_decision": true,
           "decision_source": null,
           "gates": [
             "runtime_sbom_complete",

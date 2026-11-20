@@ -1,11 +1,11 @@
-"""基本包 wheel 內含第三方元件目錄的檢核（A9）。
+"""Windows 基本包與 CPU worker 的 wheel 內含第三方元件目錄檢核。
 
 為什麼獨立成小模組：目錄（packaging/embedded/base-windows.json）只負責「原生檔屬於哪個內含元件」，
 由 redistribution_gates.assess 呼叫本模組，把目錄與三個輸入綁在一起檢查，不另建第二套旗標規則。
 
 本模組檢查的事：
-- 鎖檔：每個 wheel 的名稱、版本與 sha256 必須是 packaging/profiles/base-windows-runtime.txt 鎖定的值。
-- A6 source-review：目錄列出的原生檔必須存在於 A6 輸入，且屬於該 wheel 的套件。
+- 鎖檔：每個 wheel 的名稱、版本與 sha256 必須符合該 profile 的鎖檔。
+- 固定候選 source-review：原生檔須屬於該 wheel；CPU 也核對套件實際隨包的原文。
 - 登記表：每個 wheel 的原生檔必須與它指定的條目完全相同（不多、不少、不重複）；
   目錄綁定的條目必須在 evidence 引用目錄，且所有引用目錄的條目都要對得上目錄中的 wheel。
 - 授權原文：列出的原文路徑必須在 repo 內（src/desktop_app/data/licenses/windows），hash 與 inventory.json 一致，
@@ -129,16 +129,21 @@ def check_profile(catalog, *, catalog_path, entries, report, root=ROOT, gap_vali
     require(catalog_path.startswith(CATALOG_PREFIX), 'Catalog must live under ' + CATALOG_PREFIX)
     exact_keys(catalog, TOP_KEYS, 'catalog')
     require(type(catalog['schema_version']) is int and catalog['schema_version'] == 1, 'Unsupported catalog schema_version')
-    require(catalog['profile'] == 'base', 'Catalog profile must be base')
+    profile = catalog['profile']
+    require(profile in ('base', 'cpu') and profile == report.get('profile'), 'Catalog profile differs from review')
     source = report.get('selection', {}).get('source_commit')
     require(catalog['source_commit'] == source, 'Catalog source differs from the source-review')
-    check_pin(catalog['lock'], LOCK_PATH, root, 'lock')
-    check_pin(catalog['source_review'], 'docs/development-records/runs/a13b-fixed-review-2026-11-18/base-source-review.json',
+    lock_path = LOCK_PATH if profile == 'base' else 'packaging/profiles/cpu-windows-build.txt'
+    check_pin(catalog['lock'], lock_path, root, 'lock')
+    check_pin(catalog['source_review'], f'docs/development-records/runs/a13b-fixed-review-2026-11-18/{profile}-source-review.json',
               root, 'source_review')
     check_pin(catalog['inventory'], INVENTORY_KEY, root, 'inventory')
     require(isinstance(catalog['scope'], str) and catalog['scope'].strip(), 'Missing catalog scope')
-    lock = read_lock(root/LOCK_PATH)
-    inventory_files = json.loads((root/INVENTORY_KEY).read_text(encoding='utf-8'))['files']
+    lock = read_lock(root/lock_path)
+    inventory = json.loads((root/INVENTORY_KEY).read_text(encoding='utf-8'))
+    inventory_files = inventory['files']
+    cpu_inventory = {canon(row['name']): row for row in inventory.get('packages', [])} if profile == 'cpu' else {}
+    cpu_packages = {canon(row['name']): row for row in report.get('packages', [])} if profile == 'cpu' else {}
 
     # A6 輸入：原生檔與其套件（exact 路徑比對，不做通配）。
     # 沒有 wheel 擁有者的原生檔（例如系統工具）記為 None，目錄列入時因套件不符而拒絕。
@@ -150,12 +155,15 @@ def check_profile(catalog, *, catalog_path, entries, report, root=ROOT, gap_vali
     require(isinstance(catalog['wheels'], list) and catalog['wheels'], 'Catalog has no wheels')
     by_entry = {}
     seen_natives = set()
+    seen_distributions = set()
     unknown_components = []
     component_total = 0
     for wheel in catalog['wheels']:
         exact_keys(wheel, WHEEL_KEYS, 'wheel')
         dist = wheel['distribution']
         require(dist == canon(dist) and dist in lock, 'Wheel is not in the lock: ' + dist)
+        require(dist not in seen_distributions, 'Duplicate wheel distribution: ' + dist)
+        seen_distributions.add(dist)
         require(wheel['version'] == lock[dist]['version'], 'Wheel version differs from lock: ' + dist)
         require(wheel['sha256'] in lock[dist]['hashes'], 'Wheel hash is not locked: ' + dist)
         name, _, rest = wheel['filename'].partition('-')
@@ -163,7 +171,15 @@ def check_profile(catalog, *, catalog_path, entries, report, root=ROOT, gap_vali
         require(canon(name) == dist and version == wheel['version'] and wheel['filename'].endswith('.whl'),
                 'Wheel filename differs from the catalog: ' + wheel['filename'])
         entry_id = wheel['registry_entry']
-        require(entry_id not in by_entry, 'Duplicate registry entry in catalog: ' + entry_id)
+        if profile == 'base':
+            require(entry_id not in by_entry, 'Duplicate registry entry in catalog: ' + entry_id)
+        else:
+            require(entry_id == ('cpu-geos' if dist == 'shapely' else 'cpu-wheels'),
+                    'CPU wheel bound to another registry entry: ' + dist)
+            require(cpu_packages.get(dist, {}).get('version') == wheel['version'], 'CPU package version differs: ' + dist)
+            receipt = cpu_inventory.get(dist, {})
+            require((receipt.get('wheel'), receipt.get('wheel_sha256')) == (wheel['filename'], wheel['sha256']),
+                    'CPU wheel differs from Windows inventory: ' + dist)
         components = wheel['components']
         require(isinstance(components, list) and components, 'No components for ' + dist)
         require(sum(c.get('kind') == 'wheel-own' for c in components) == 1, 'Exactly one wheel-own component per wheel: ' + dist)
@@ -217,10 +233,22 @@ def check_profile(catalog, *, catalog_path, entries, report, root=ROOT, gap_vali
                 pin = next((r for r in entry['evidence'] if r['path'] == path_text), None) if entry else None
                 require(pin is not None, 'Embedded runtime observation missing evidence reference')
                 check_pin(pin, path_text, root, 'embedded runtime observation')
-                check_component(component, wheel, json.loads((root/path_text).read_text(encoding='utf-8')), report, root)
+                observation = json.loads((root/path_text).read_text(encoding='utf-8'))
+                if profile == 'cpu' and observation.get('check') == 'cpu-native-observation':
+                    from cpu_native_observation import check_component as check_cpu_observation
+                    check_cpu_observation(component, wheel, observation, report, root)
+                else:
+                    check_component(component, wheel, observation, report, root)
             require(isinstance(component['notices'], list), 'Invalid notices list: ' + cid)
             for index, notice in enumerate(component['notices']):
                 check_notice(notice, root, inventory_files, 'notice ' + cid + '[' + str(index) + ']')
+                if profile == 'cpu':
+                    # Windows 原文清冊會另外隨包複製，這裡以實際已安裝 wheel 的授權列綁定。
+                    prefix = LICENSES_PREFIX + dist + '/wheel/'
+                    actual = f'_internal/worker-assets/installed/{dist}/original/' + notice['path'].removeprefix(prefix)
+                    require(notice['path'].startswith(prefix) and any(
+                        r['path'] == actual and r['sha256'] == notice['sha256'] for r in cpu_packages[dist]['notices']
+                    ), 'CPU notice differs from candidate package: ' + notice['path'])
             natives = component['native_files']
             require(isinstance(natives, list) and all(isinstance(n, str) for n in natives), 'Invalid native list: ' + cid)
             for native in natives:
@@ -229,12 +257,13 @@ def check_profile(catalog, *, catalog_path, entries, report, root=ROOT, gap_vali
                 require(native not in seen_natives, 'Native file listed more than once: ' + native)
                 seen_natives.add(native)
             wheel_natives.extend(natives)
-        by_entry[entry_id] = dict(distribution=dist, natives=sorted(wheel_natives), unknown=unknown,
-                                  components=len(components))
+        entry_info = by_entry.setdefault(entry_id, dict(natives=[], unknown=[]))
+        entry_info['natives'].extend(wheel_natives)
+        entry_info['unknown'].extend(unknown)
         component_total += len(components)
         unknown_components.extend(unknown)
 
-    # 登記條目：目錄的 wheel 與條目一一對應，原生檔必須完全相同。
+    # 登記條目：基本包每條對應一個 wheel，CPU 可以共用條目，合計原生檔必須完全相同。
     entries_by_id = {}
     for entry in entries:
         require(entry['id'] not in entries_by_id, 'Duplicate registry entry: ' + entry['id'])
@@ -244,7 +273,7 @@ def check_profile(catalog, *, catalog_path, entries, report, root=ROOT, gap_vali
             + ', '.join(sorted(referencing ^ set(by_entry))))
     for entry_id, info in by_entry.items():
         entry = entries_by_id[entry_id]
-        require(sorted(entry['native_files']) == info['natives'],
+        require(sorted(entry['native_files']) == sorted(info['natives']),
                 'Registry native files differ from the catalog for ' + entry_id)
         if info['unknown']:
             require(entry['status'] == 'open' or gap_validator is not None,
@@ -254,6 +283,6 @@ def check_profile(catalog, *, catalog_path, entries, report, root=ROOT, gap_vali
     # 目錄涵蓋的原生檔與引用條目的原生檔合計相同，沒有漏列也沒有多列。
     referenced_natives = sorted(n for e in entries if e['id'] in by_entry for n in e['native_files'])
     require(referenced_natives == sorted(seen_natives), 'Catalog natives differ from referenced registry natives')
-    return dict(catalog=catalog_path, wheels=len(by_entry), components=component_total,
+    return dict(catalog=catalog_path, wheels=len(catalog['wheels']), components=component_total,
                 native_files=len(seen_natives), unknown_components=sorted(unknown_components),
                 unknown_by_entry={key:sorted(value['unknown']) for key,value in by_entry.items() if value['unknown']})

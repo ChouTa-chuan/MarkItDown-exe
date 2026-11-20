@@ -4,6 +4,12 @@
 
 ## 更新中
 
+### 2026-11-20｜B3c CPU 原生檔、授權原文與 Microsoft 執行期
+
+- 對照固定 CPU 候選和八個鎖定 Windows wheels 的原生位元組與原文，新增 GEOS LGPL 動態載入證據、六個 Microsoft DLL 的 PE／簽章／Redist 比對及 B3 待補原文清單。LibYAML 0.2.5 的 supplemental 已列入 B3，B3c 的打包內容與候選沿用原值。
+- 新的共用 SHA-256 引用逐條記錄。`cpu-geos` 引用 embedded 目錄及 Windows 觀測，`cpu-wheels` 共用這兩份並引用逐檔原文清單、A12d 觀測及 LibYAML 停點指紋，`cpu-microsoft` 共用 Windows 觀測並引用 Microsoft 目錄。先前兩個證據 README 的更新各自同步 manifest（B3b2 的字型與比較、LibYAML 的版本依據）；既有登記條目的其他共用原文 hash 沿用。
+- base 與 cpu 的 gates 皆通過，旗標和阻擋條目沿用。`cpu-geos`、`cpu-microsoft` 持續 open 並交使用者決定做法，`cpu-wheels` 持續 open 並列出未知版本。新增錯綁、缺檔、證據指紋及 Redist 反例。[觀測與待辦](docs/development-records/runs/b3c-cpu-native-review-2026-11-20/README.md)
+
 - 2026-11-20：B3c 比對發現 LibYAML 0.2.5 的上游 MIT 原文與隨包 PyYAML 原文的著作權年份、雜湊不同。記錄固定候選與鎖定 wheel 證據，於補原文前暫停。[停點證據](docs/development-records/runs/b3c-libyaml-notice-gap-2026-11-20/README.md)
 
 - 2026-11-20：記錄 v5 mobile 方向與 B3c、B3d 分工。新增待指派 B3b3 的來源授權與公開掃描複驗，澄清 B3b2 字元差距、字型授權並同步其 README 雜湊。
