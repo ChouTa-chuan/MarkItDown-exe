@@ -6,7 +6,7 @@
 
 從自己的分支手動執行，設定 `prepare_test_build: true`、`publish_test_build: false`。可用 `ocr_inputs_run` 指定已有有效輸入的成功 run，空白時選最新可用者。既有一般驗證的 OCR 輸入 artifact 只保留一天，下載後仍要核對固定候選的引擎與四語模型 SHA。
 
-Runner 從 run 44295039865 下載 `windows-base-validation-reports`，以 A13b 審閱保存的 SHA-256 核對 `bundle-provenance.json`，再以原始 inventory 核對實際重建 bundle 的完整路徑、檔案指紋與純 Python 模組清單雜湊。只有 `base_content_equivalence.py` 中列出確切路徑及理由的生成檔可以有差異，每筆實際差異在 `CONTENT-EQUIVALENCE.json` 留下新舊指紋。標準庫 ZIP 的外層可因生成而不同，各成員的名稱、大小及 CRC 必須一致。OCR 來源收據也要用當次輸入重核。試跑保存文字報告及已驗過雜湊的來源報告副本，供原始 artifact 到期後指定 `saved_baseline_run` 繼續核對同一份原件。
+Runner 從 run 44295039865 下載 `windows-base-validation-reports`，以 A13b 審閱保存的 SHA-256 核對 `bundle-provenance.json`，再以原始 inventory 核對實際重建 bundle 的完整路徑、檔案指紋與純 Python 模組清單雜湊。只有 `base_content_equivalence.py` 中列出確切路徑及理由的生成檔可以有差異，每筆實際差異在 `CONTENT-EQUIVALENCE.json` 留下新舊指紋。標準庫 ZIP 的外層可因生成而不同，各成員的名稱、大小及 CRC 必須一致。 `MarkItDownBase.exe` 是 PyInstaller 重新生成的程式入口，列在生成檔例外清單中，沒有逐 byte 比對；固定程式來源、純 Python 模組清單雜湊與 Windows 驗收分別核對。OCR 來源收據也要用當次輸入重核。試跑保存文字報告及已驗過雜湊的來源報告副本，供原始 artifact 到期後指定 `saved_baseline_run` 繼續核對同一份原件。
 
 若到 **2026-11-25 11:45 UTC** 仍未取得完整清單且沒有來源報告副本，可明確選 `retained_review: true`，用 repo 保存的分類、原生檔、原文、模組雜湊與檔案數查驗。此模式涵蓋的範圍較小，產品 README 與對照摘要都會揭露。已下載但雜湊不符的原始報告需查明原因，不能在同次執行改走退路。
 

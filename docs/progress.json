@@ -2,9 +2,9 @@
   "updated": "2026-11-20",
   "environment": "Linux 完整混合／獨立模組回歸；hosted Windows 真實固定候選試跑，非實體機／乾淨機／GPU／人工驗收",
   "tests_passed": 950,
-  "headline": "B1b 完整逐檔對照於期限前完成，與 B2 驗收表待 Claude reviewer",
+  "headline": "B1b 已公開測試版，關回上傳開關與 B2 待查驗",
   "blocker": "B1b 須在 2026-11-25 11:45 UTC 前以固定候選逐檔清單對照重建包；runtime_sbom_complete／release_ready 仍 false，乾淨機與人工驗收需大階段 C（以 B3 後新版本）；CPU B3a–B3d 待完成。",
-  "next": "查驗 B1b（PR 38）與 B2（PR 37）。B1b 合併後先從 main 取得有效 OCR 輸入，再公開一次並關回開關。",
+  "next": "查驗並合併關回上傳開關 PR 和 B2 PR。大階段 C 改用 B3 重新定版後的新安裝包。",
   "milestones": [
     {
       "id": "m0",
@@ -2796,8 +2796,8 @@
           {
             "id": "B1b",
             "title": "測試版公開產出（artifact 保留 30 天）",
-            "status": "next",
-            "note": "期限前完成完整逐檔對照，待 reviewer。合併後從 main 公開一次，再關回開關。",
+            "status": "done",
+            "note": "已從 main 公開一次（run 44659294752），關回開關待 PR 查驗。",
             "pr": 38
           },
           {
@@ -3722,7 +3722,7 @@
     "candidate_files": 1770,
     "generated_exceptions": 19,
     "content_equivalence_sha256": "6bba8202463951aca111e454d39a87c16c2754f0891ad9f88bc2781cd729c866",
-    "public_dispatch_completed": false,
+    "public_dispatch_completed": true,
     "report_artifacts": [
       {
         "id": 14574091880,
@@ -3741,6 +3741,32 @@
         "expires_at": "2026-12-19T21:00:02Z"
       }
     ],
-    "evidence": "development-records/runs/b1b-content-equivalence-2026-11-20/README.md"
+    "evidence": "development-records/runs/b1b-content-equivalence-2026-11-20/README.md",
+    "public_run": 44659294752,
+    "ocr_input_run": 44657156187,
+    "public_source": "545ef2b4ca98e0ce7a9df8b3273d6fe3f67fdea3",
+    "public_artifacts": [
+      {
+        "name": "MarkItDownBase-test-build",
+        "id": 14595001990,
+        "digest": "sha256:7a9c7eb442f636c3cb9331e014a41e6f79e38851e0a5a1691cda4a3bd021e4fa",
+        "size_in_bytes": 101940113,
+        "created_at": "2026-11-20T02:20:10Z",
+        "expires_at": "2026-12-20T02:20:06Z",
+        "expired": false
+      },
+      {
+        "name": "base-test-build-reports",
+        "id": 14594742875,
+        "digest": "sha256:db31e161ab40c41021d5eb524fff945e38bcb58cbf2c2db41dbb3bd30509a30d",
+        "size_in_bytes": 29499,
+        "created_at": "2026-11-20T02:20:03Z",
+        "expires_at": "2026-12-20T02:20:02Z",
+        "expired": false
+      }
+    ],
+    "installer_sha256": "b230fee72457faed2f009d7389f92ab4f420827d93491f4bd02672b9949c0992",
+    "installer_sha_matches_lifecycle": true,
+    "closeout_status": "review_pending"
   }
 }
