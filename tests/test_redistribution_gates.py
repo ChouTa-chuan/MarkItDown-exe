@@ -572,6 +572,13 @@ class GateTests(unittest.TestCase):
         original_cpu = copy.deepcopy(self.registry['profiles']['cpu'])
         original_report = copy.deepcopy(self.reports['cpu'])
         self.synthetic_closed()
+        # 兩個 profile 共用合成根目錄，真實 CPU 條目的證據也要在此可驗證。
+        for entry in original_cpu['entries']:
+            for ref in entry['evidence']:
+                source = ROOT/ref['path']
+                target = self.temp/ref['path']
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(source.read_bytes())
         self.registry['profiles']['cpu'] = original_cpu
         self.reports['cpu'] = original_report
         base = gates.assess(self.reports['base'], self.registry, root=self.temp)
