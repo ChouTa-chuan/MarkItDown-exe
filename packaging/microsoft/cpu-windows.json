@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "profile": "cpu",
+  "registry_entry": "cpu-microsoft",
+  "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "basis": {
+    "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/cpu-source-review.json",
+    "sha256": "8bfe8b065c5d08618bf45f162771dad208038130956b853153f7817f503d8cd6"
+  },
+  "redist_probe": {
+    "path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/microsoft-probe-7cf098e.json",
+    "sha256": "06ea54ffe310a80ef7b77364167dc8d52bd44c85d69764496056042386de8c3d"
+  },
+  "observation": {
+    "path": "docs/development-records/runs/b3c-cpu-native-review-2026-11-20/cpu-native-observation.json",
+    "sha256": "f3552fdc0d18c1be2657723c0918da6b6014c5977532f49fc1bc28e87acb398b"
+  },
+  "legal_approval": false,
+  "files": [
+    {
+      "file": "MSVCP140_1.dll",
+      "sha256": "bfad5aef4c63a669e3c140655cdfdf395b6c979b400a447bd5dcb65ed8826c3d",
+      "bytes": 35952,
+      "origin": "system-native",
+      "distributions": [],
+      "identity": {
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT",
+        "company": "Microsoft Corporation",
+        "product": "Microsoft® Visual Studio®",
+        "file_version": "14.44.35211.0",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+      },
+      "renamed": false,
+      "official_name": "msvcp140_1.dll",
+      "official_sha256": "bfad5aef4c63a669e3c140655cdfdf395b6c979b400a447bd5dcb65ed8826c3d",
+      "matches_official": true
+    },
+    {
+      "file": "Shapely.libs/msvcp140-0fa7eb792d3fbcf2233e4ea47e9144b9.dll",
+      "sha256": "0fa7eb792d3fbcf2233e4ea47e9144b9b1309ba8ed5d4731a72fffa8f4f556d6",
+      "bytes": 557416,
+      "origin": "installed-wheel",
+      "distributions": [
+        {
+          "name": "shapely",
+          "version": "2.2.0"
+        }
+      ],
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.44.35229.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\cpu-evidence-env\\Lib\\site-packages\\Shapely.libs"
+      },
+      "renamed": true,
+      "official_name": "msvcp140.dll",
+      "official_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "matches_official": false
+    },
+    {
+      "file": "msvcp140.dll",
+      "sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "bytes": 557728,
+      "origin": "system-native",
+      "distributions": [],
+      "identity": {
+        "source_directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT",
+        "company": "Microsoft Corporation",
+        "product": "Microsoft® Visual Studio®",
+        "file_version": "14.44.35211.0",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+      },
+      "renamed": false,
+      "official_name": "msvcp140.dll",
+      "official_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "matches_official": true
+    },
+    {
+      "file": "numpy.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+      "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde",
+      "bytes": 575056,
+      "origin": "installed-wheel",
+      "distributions": [
+        {
+          "name": "numpy",
+          "version": "2.5.4"
+        }
+      ],
+      "identity": {
+        "company": "Microsoft Corporation",
+        "file_version": "14.40.33810.0",
+        "product": "Microsoft® Visual Studio®",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+        "source_directory": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\cpu-evidence-env\\Lib\\site-packages\\numpy.libs"
+      },
+      "renamed": true,
+      "official_name": "msvcp140.dll",
+      "official_sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "matches_official": false
+    },
+    {
+      "file": "vcruntime140.dll",
+      "sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
+      "bytes": 120400,
+      "origin": "python-runtime",
+      "distributions": [],
+      "identity": {
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+        "company": "Microsoft Corporation",
+        "product": "Microsoft® Visual Studio®",
+        "file_version": "14.42.34438.0",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+      },
+      "renamed": false,
+      "official_name": "vcruntime140.dll",
+      "official_sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "matches_official": false
+    },
+    {
+      "file": "vcruntime140_1.dll",
+      "sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8",
+      "bytes": 49776,
+      "origin": "python-runtime",
+      "distributions": [],
+      "identity": {
+        "source_directory": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64",
+        "company": "Microsoft Corporation",
+        "product": "Microsoft® Visual Studio®",
+        "file_version": "14.42.34438.0",
+        "signature_status": "Valid",
+        "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+      },
+      "renamed": false,
+      "official_name": "vcruntime140_1.dll",
+      "official_sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+      "matches_official": false
+    }
+  ],
+  "note": "A13-1 核准基本包兩個根 vcruntime 改用官方 Redist，CPU 須另決定。改名檔依 wheel 檔逐一證明簽章及 bytes，不能視同官方 Redist 同名檔。"
+}

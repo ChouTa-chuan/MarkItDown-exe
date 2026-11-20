@@ -222,7 +222,7 @@ class EmbeddedCatalogTests(unittest.TestCase):
     def test_rejects_catalog_for_another_profile(self):
         catalog = copy.deepcopy(self.catalog)
         catalog['profile'] = 'cpu'
-        self.assertRejects('Catalog profile must be base', catalog=catalog)
+        self.assertRejects('Catalog profile differs from review', catalog=catalog)
 
     def test_rejects_catalog_bound_to_other_source_commit(self):
         catalog = copy.deepcopy(self.catalog)
@@ -237,7 +237,7 @@ class EmbeddedCatalogTests(unittest.TestCase):
 
 
 class GateIntegrationTests(unittest.TestCase):
-    """閘門層的整合：目錄存在時，三旗標仍然全部為 false，且 CLI 可以正常退出。"""
+    """兩個 profile 的目錄均可通過檢核，旗標依各自的證據與決定推導。"""
 
     def test_base_gate_reports_catalog_and_flags_after_user_decisions(self):
         # A13b 2b：使用者決定寫入後，base 揭露與再散布旗標為 true；完整盤點與 release 仍為 false。
@@ -250,11 +250,14 @@ class GateIntegrationTests(unittest.TestCase):
         self.assertEqual(result['embedded_catalogs'][0]['catalog'], CATALOG_PATH)
         self.assertEqual(result['embedded_catalogs'][0]['wheels'], 10)
 
-    def test_cpu_gate_has_no_catalog_and_still_passes(self):
+    def test_cpu_gate_reports_catalog_without_closing_flags(self):
         report = gates.read_json(ROOT/'docs/development-records/runs/a13b-fixed-review-2026-11-18/cpu-source-review.json')
         result = gates.assess(report, gates.read_json(gates.REGISTRY))
-        self.assertEqual(result['embedded_catalogs'], [])
-        self.assertFalse(result['runtime_sbom_complete'])
+        catalog, = result['embedded_catalogs']
+        self.assertEqual(catalog['catalog'], 'packaging/embedded/cpu-windows.json')
+        self.assertEqual(catalog['wheels'], 8)
+        self.assertEqual(set(catalog['unknown_by_entry']), {'cpu-wheels'})
+        self.assertTrue(all(result[flag] is False for flag in gates.FLAGS))
 
 
 if __name__ == '__main__':
