@@ -1,0 +1,26 @@
+{
+  "date_taipei": "2026-11-20",
+  "tested_source": "07084c2e31e2056ddf18107e64341dec0bacd791",
+  "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "accepted": true,
+  "result": "現有權重與設定位元組證據、Linux 三語識別評估、兩個 gates 與回歸通過。模型權利及採用保留使用者決定。",
+  "keywords": [
+    "B3b",
+    "PP-OCR",
+    "CPU",
+    "模型授權",
+    "簡繁辨識"
+  ],
+  "files": {
+    "PaddleOCR-v2.9.1-LICENSE.txt": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856",
+    "PaddleOCR-v3.7.0-LICENSE.txt": "3840c5c0c61c294264d2dd77b8777be6ddd90121ef4e0e64abcd22edea581d6e",
+    "README.md": "1a2bb8b3deeb892e9820de396b2118f7aedd274b2fea6ed87b88b39c3be7dd21",
+    "current-models.json": "92916cbaeb597cb2bd18ba4a925116fe9674b284832d74110c9019a4d589006b",
+    "evaluate.py": "d72ab57e1ed46155c72d8cd80e5dca25fce8a2ac11299081d923164e394b9e33",
+    "evaluation-inputs.json": "d3120159de6c1ddffad05e7745d1c3b27e0b280441377ab8d2baf45f7dda6847",
+    "evaluation-results.json": "2906bbc82a3fead2e5e57ec306c7e8327d349f75c3d4a4c7eb46399ab4e45876",
+    "gates-summary.json": "063a5e87f9676b851e7f3677020b36db047aef935c791682eb1441c6f274b0dd",
+    "ocr-english-document.png": "8c6ce772b7bb2d54640079cfbb785366dc5d818874fc1b845d9f62574601f2f9",
+    "ocr-simplified-meeting.png": "9a01a4b4a7bc2c3facf12395495af12fd63d129209c2ff13d56867b8465af119"
+  }
+}

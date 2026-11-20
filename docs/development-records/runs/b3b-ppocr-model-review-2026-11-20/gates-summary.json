@@ -1,0 +1,77 @@
+{
+  "base": {
+    "exit_before": 0,
+    "exit_after": 0,
+    "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+    "flags": {
+      "runtime_sbom_complete": false,
+      "runtime_sbom_disclosed": true,
+      "redistribution_approved": true,
+      "release_ready": false
+    },
+    "blockers_changed": false,
+    "blocked_by_gate": {
+      "runtime_sbom_complete": [
+        "base-cpython",
+        "base-qt",
+        "base-wheels-cffi",
+        "base-wheels-cryptography",
+        "base-wheels-lxml",
+        "base-wheels-numpy",
+        "base-wheels-onnxruntime",
+        "base-wheels-pandas",
+        "base-wheels-pillow",
+        "base-wheels-pypdfium2"
+      ],
+      "redistribution_approved": [],
+      "release_ready": [
+        "base-clean-machine-manual"
+      ],
+      "runtime_sbom_disclosed": []
+    }
+  },
+  "cpu": {
+    "exit_before": 0,
+    "exit_after": 0,
+    "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+    "flags": {
+      "runtime_sbom_complete": false,
+      "runtime_sbom_disclosed": false,
+      "redistribution_approved": false,
+      "release_ready": false
+    },
+    "blockers_changed": false,
+    "blocked_by_gate": {
+      "runtime_sbom_complete": [
+        "cpu-archives",
+        "cpu-cpython",
+        "cpu-geos",
+        "cpu-microsoft",
+        "cpu-rapidocr-models",
+        "cpu-source-attribution",
+        "cpu-wheels"
+      ],
+      "redistribution_approved": [
+        "cpu-microsoft",
+        "cpu-cpython",
+        "cpu-wheels",
+        "cpu-archives",
+        "cpu-geos",
+        "cpu-rapidocr-models",
+        "cpu-redistribution-decision"
+      ],
+      "release_ready": [
+        "cpu-clean-machine-manual"
+      ],
+      "runtime_sbom_disclosed": [
+        "cpu-archives",
+        "cpu-cpython",
+        "cpu-geos",
+        "cpu-microsoft",
+        "cpu-rapidocr-models",
+        "cpu-source-attribution",
+        "cpu-wheels"
+      ]
+    }
+  }
+}

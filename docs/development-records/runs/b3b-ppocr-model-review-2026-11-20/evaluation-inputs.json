@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "models": [
+    {
+      "id": "v4-current",
+      "name": "PP-OCRv4 mobile rec（基線）",
+      "filename": "models/ch_PP-OCRv4_rec_infer.onnx",
+      "bytes": 10857958,
+      "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+      "source": "pypi:rapidocr-onnxruntime==1.4.4",
+      "license_source": "https://github.com/PaddlePaddle/PaddleOCR/blob/07603421c20a96bb94bb87d0c4211032527ae706/LICENSE"
+    },
+    {
+      "id": "v5-rapid-mobile",
+      "name": "PP-OCRv5 mobile rec（RapidOCR）",
+      "filename": "v5-rapid-mobile.onnx",
+      "bytes": 16631306,
+      "sha256": "5825fc7ebf84ae7a412be049820b4d86d77620f204a041697b0494669b1742c5",
+      "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/rec/ch_PP-OCRv5_rec_mobile.onnx",
+      "verified_download": "https://raw.githubusercontent.com/403323726/PP-OCRv5/376ddfd95322d6fcf41b489abc3780ff53b235ee/rec/ch_PP-OCRv5_rec_mobile.onnx",
+      "paddle_source": "https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0/PP-OCRv5_mobile_rec_infer.tar",
+      "paddle_model_card": "https://huggingface.co/PaddlePaddle/PP-OCRv5_mobile_rec",
+      "license_source": "https://github.com/PaddlePaddle/PaddleOCR/blob/b03f46425e8ff4442b268ce449e3eef758146cd4/LICENSE",
+      "license_scope": "查得 PaddleOCR 專案 Apache-2.0 及 RapidOCR 公開版本目錄，候選 ONNX 的授權適用範圍仍待確認。"
+    },
+    {
+      "id": "v6-rapid-small",
+      "name": "PP-OCRv6 small rec（RapidOCR）",
+      "filename": "v6-rapid-small.onnx",
+      "bytes": 21234383,
+      "sha256": "6f327246b50388f3c176ae304bd95767ea6dc0c9ae92153ef8cbe210b3c14884",
+      "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv6/rec/PP-OCRv6_rec_small.onnx",
+      "verified_download": "https://raw.githubusercontent.com/BobLd/RapidOcrNet/9d1f9f1f6c3ec6f0da123a420842390de9b97268/RapidOcrNet/models/v6/PP-OCRv6_rec_small.onnx",
+      "paddle_source": "https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0/PP-OCRv6_small_rec_infer.tar",
+      "paddle_onnx_model_card": "https://huggingface.co/PaddlePaddle/PP-OCRv6_small_rec_onnx",
+      "paddle_onnx_mirror_notice": "https://github.com/oaustegard/PP-OCRv6_small_rec_onnx/blob/b8bf7284a7ae271ce31cec691ba9343d7ca3dbb8/NOTICE",
+      "paddle_onnx_mirror_sha256": "5435fd747c9e0efe15a96d0b378d5bd157e9492ed8fd80edf08f30d02fa24634",
+      "license_source": "https://github.com/PaddlePaddle/PaddleOCR/blob/b03f46425e8ff4442b268ce449e3eef758146cd4/LICENSE",
+      "license_scope": "PaddleOCR v6 官方 ONNX 的鏡像卡片及 NOTICE 列 Apache-2.0；實測 RapidOCR ONNX 為另一 SHA，須另外確認。"
+    },
+    {
+      "id": "v3-umi-cht",
+      "name": "chinese_cht_PP-OCRv3_rec（UmiOCR 的 RapidOCR-json 封存）",
+      "filename": "v3-umi-cht.onnx",
+      "bytes": 11169672,
+      "sha256": "19b4665a8617e1413788ef2701883716e9b910986598cc41f1250a53a629cac8",
+      "source": "https://github.com/hiroi-sora/Umi-OCR_plugins/releases/download/2.0.0/win7_x64_RapidOCR-json.7z",
+      "source_archive_sha256": "2905a3763b16acaf72b69ded839518c702d011f31aa2d6c2060f9805f5646efa",
+      "source_archive_member": "win7_x64_RapidOCR-json/models/rec_chinese_cht_PP-OCRv3_infer.onnx",
+      "paddle_source": "https://paddleocr.bj.bcebos.com/PP-OCRv3/multilingual/chinese_cht_PP-OCRv3_rec_infer.tar",
+      "license_source": "https://github.com/PaddlePaddle/PaddleOCR/blob/07603421c20a96bb94bb87d0c4211032527ae706/LICENSE",
+      "license_scope": "官方 Paddle 版列於 v2.9.1 模型清單。這個 ONNX 由 UmiOCR 封存取得，轉檔條款、參數和 Paddle 檢查點雜湊仍待查證。"
+    },
+    {
+      "id": "v3-rapid-cht-catalog",
+      "name": "chinese_cht_PP-OCRv3_rec（RapidOCR 目錄，備查）",
+      "filename": "v3-rapid-cht.onnx",
+      "bytes": 11152536,
+      "sha256": "779656d044ce388045e02ea9244724616194e63928606436cdfc6dc3c9528cc6",
+      "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv4/rec/chinese_cht_PP-OCRv3_rec_mobile.onnx",
+      "mirror_pointer": "https://raw.githubusercontent.com/lihanghang404/alphaDemo/23f85048cec8e77407636a949028b4d08a1dac2f/onnx/PP-OCRv4/rec/chinese_cht_PP-OCRv3_rec_infer.onnx",
+      "license_source": "https://github.com/PaddlePaddle/PaddleOCR/blob/07603421c20a96bb94bb87d0c4211032527ae706/LICENSE",
+      "access_status": "官方模型站及 media 端點 403；GitHub LFS integration 拒絕。只核到 LFS pointer、大小和官方登記。"
+    }
+  ],
+  "samples": {
+    "zh-hans": {
+      "path": "docs/development-records/runs/b3b-ppocr-model-review-2026-11-20/ocr-simplified-meeting.png",
+      "sha256": "9a01a4b4a7bc2c3facf12395495af12fd63d129209c2ff13d56867b8465af119",
+      "reference": "简体中文文件测试\n会议记录与资料转换",
+      "generator": {
+        "font": "NotoSansCJK-Bold.ttc",
+        "font_sha256": "faa5f3656a78b2e2d450d27fe8382c778bc2b6bb5ea29c986664a6a435056ceb",
+        "font_index": 2,
+        "size": [
+          1600,
+          600
+        ],
+        "origin": [
+          80,
+          100
+        ],
+        "font_size": 72,
+        "spacing": 30
+      }
+    },
+    "en": {
+      "path": "docs/development-records/runs/b3b-ppocr-model-review-2026-11-20/ocr-english-document.png",
+      "sha256": "8c6ce772b7bb2d54640079cfbb785366dc5d818874fc1b845d9f62574601f2f9",
+      "reference": "DOCUMENT SCAN TEST\nInvoice total 12345",
+      "generator": {
+        "font": "DejaVuSans.ttf",
+        "font_sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e",
+        "font_index": 0,
+        "size": [
+          1600,
+          600
+        ],
+        "origin": [
+          80,
+          100
+        ],
+        "font_size": 72,
+        "spacing": 30
+      }
+    },
+    "zh-hant": {
+      "path": "tests/fixtures/ocr-traditional-meeting.png",
+      "sha256": "e339f9f6bfbefc7c648112f92da52f64eaf946d715b3566eee0bb9242dc457cb",
+      "reference": "繁體中文文件測試\n會議紀錄與資料轉換"
+    }
+  },
+  "required_versions": {
+    "rapidocr-onnxruntime": "1.4.4",
+    "onnxruntime": "1.31.1",
+    "numpy": "2.5.4",
+    "opencv-python": "5.0.0.93",
+    "pillow": "13.0.0"
+  }
+}

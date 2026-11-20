@@ -4,6 +4,13 @@
 
 ## 更新中
 
+### 2026-11-20｜B3b CPU 模型證據與評估
+
+- 核對固定候選、wheel RECORD 與 RapidOCR 歷史發行 ZIP。三個 ONNX 的雜湊逐檔相符，`config.yaml` 與 v1.4.4 同版來源相符。保存 PaddleOCR Apache-2.0 原文、轉檔證據和授權範圍待確認項目。
+- `cpu-rapidocr-models` 新增模型證據引用，既有 B3a 參考保留。拆分套件原文、模型來源及權利範圍，維持 open，設定使用者決定為必要條件。兩 profile 的 gates 皆通過，旗標與阻擋清單維持原值。
+- 以固定繁中、簡中及英文圖實測 v4 基線、v5、v6 與繁中 v3 封存版。v5、v6 在三張圖同分，繁中 v3 只適合當明確選用的繁中選項。實際採用待使用者決定。
+- 新增 B3a 原文一致性測試，Linux 完整回歸通過。評估權重留在暫存區。[B3b 證據](docs/development-records/runs/b3b-ppocr-model-review-2026-11-20/README.md)
+
 - 2026-11-20：STATUS D 節補記使用者對 B3a 做法的決定（沿用既有原文、只接套件對應）。只改文件。
 ### 2026-11-20｜B3a CPU 套件原文綁定
 
