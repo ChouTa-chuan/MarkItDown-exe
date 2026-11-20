@@ -20,7 +20,7 @@ from build_provenance import bootloader_notices, distribution_sources, sha256
 from check_bundle_provenance import audit, contained_file
 from base_own_license import OWN_LICENSE, stage_own_license
 import check_bundle_provenance as bundle_check
-from prepare_worker_assets import native_notices, prepare
+from prepare_worker_assets import WORKER_NOTICE_PINS, native_notices, prepare
 
 PROJECT = Path(__file__).resolve().parents[1]
 WINDOWS_LICENSES = PROJECT/'src/desktop_app/data/licenses/windows'
@@ -84,6 +84,26 @@ class ProvenanceTests(unittest.TestCase):
 
     def check(self):
         return audit(self.bundle,'cpu','0.19.1')
+
+    def test_worker_notice_pins_match_b3a_evidence_and_originals(self):
+        # B3a 的歸檔證據和實際建置用的固定值必須指向同一份原文。
+        evidence = (PROJECT/'docs/development-records/runs/b3a-cpu-original-notices-2026-11-20'
+                    /'worker-originals.json')
+        records = json.loads(evidence.read_text(encoding='utf-8'))['packages']
+        self.assertCountEqual([row['name'] for row in records], WORKER_NOTICE_PINS)
+        for row in records:
+            name = row['name']
+            with self.subTest(package=name):
+                version, source, metadata_hash, original_hash = WORKER_NOTICE_PINS[name]
+                path = WINDOWS_LICENSES/'supplemental'/f'{name}.txt'
+                original = row['original']
+                self.assertEqual(row['version'], version)
+                self.assertEqual(row['upstream_commit'], source.rsplit('/', 1)[-1])
+                self.assertEqual(row['metadata_sha256'], metadata_hash)
+                self.assertEqual(original['url'], f'https://raw.githubusercontent.com/{source}/LICENSE')
+                self.assertEqual(original['repo_path'], path.relative_to(PROJECT).as_posix())
+                self.assertEqual(original['sha256'], original_hash)
+                self.assertEqual(sha256(path), original_hash)
 
     def test_prepared_worker_reuses_original_paths_and_records_package_owners(self):
         from importlib.metadata import PathDistribution

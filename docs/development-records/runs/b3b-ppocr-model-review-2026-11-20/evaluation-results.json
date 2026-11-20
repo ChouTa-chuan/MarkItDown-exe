@@ -1,0 +1,175 @@
+{
+  "method": "NFC and whitespace-stripped character edit distance; CER=edits/N; accuracy=max(0, 1-CER)",
+  "environment": {
+    "python": "3.12.14",
+    "system": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "packages": {
+      "rapidocr-onnxruntime": "1.4.4",
+      "onnxruntime": "1.31.1",
+      "numpy": "2.5.4",
+      "opencv-python": "5.0.0.93",
+      "pillow": "13.0.0"
+    },
+    "provider": "CPUExecutionProvider",
+    "intra_threads": 1,
+    "inter_threads": 1
+  },
+  "results": {
+    "v4-current": {
+      "status": "measured",
+      "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b",
+      "input_shape": [
+        "p2o.DynamicDimension.0",
+        3,
+        "?",
+        "p2o.DynamicDimension.1"
+      ],
+      "ctc_output_classes": 6625,
+      "samples": {
+        "zh-hans": {
+          "text": "简体中文文件测试\n会议记录与资料转换",
+          "recognized_lines": 2,
+          "reference_characters": 17,
+          "edits": 0,
+          "character_error_rate": 0.0,
+          "character_accuracy": 1.0
+        },
+        "en": {
+          "text": "DOCUMENT SCAN TEST\nInvoice total 12345",
+          "recognized_lines": 2,
+          "reference_characters": 33,
+          "edits": 0,
+          "character_error_rate": 0.0,
+          "character_accuracy": 1.0
+        },
+        "zh-hant": {
+          "text": "繁體中文文件測試\n會紀錄與資料轉换",
+          "recognized_lines": 2,
+          "reference_characters": 17,
+          "edits": 2,
+          "character_error_rate": 0.117647,
+          "character_accuracy": 0.882353
+        }
+      },
+      "simplified_not_worse_on_sample": true
+    },
+    "v5-rapid-mobile": {
+      "status": "measured",
+      "sha256": "5825fc7ebf84ae7a412be049820b4d86d77620f204a041697b0494669b1742c5",
+      "input_shape": [
+        "DynamicDimension.0",
+        3,
+        48,
+        "DynamicDimension.1"
+      ],
+      "ctc_output_classes": 18385,
+      "samples": {
+        "zh-hans": {
+          "text": "简体中文文件测试\n会议记录与资料转换",
+          "recognized_lines": 2,
+          "reference_characters": 17,
+          "edits": 0,
+          "character_error_rate": 0.0,
+          "character_accuracy": 1.0
+        },
+        "en": {
+          "text": "DOCUMENT SCAN TEST\nInvoice total 12345",
+          "recognized_lines": 2,
+          "reference_characters": 33,
+          "edits": 0,
+          "character_error_rate": 0.0,
+          "character_accuracy": 1.0
+        },
+        "zh-hant": {
+          "text": "繁體中文文件測試\n會議紀錄與資料轉換",
+          "recognized_lines": 2,
+          "reference_characters": 17,
+          "edits": 0,
+          "character_error_rate": 0.0,
+          "character_accuracy": 1.0
+        }
+      },
+      "simplified_not_worse_on_sample": true
+    },
+    "v6-rapid-small": {
+      "status": "measured",
+      "sha256": "6f327246b50388f3c176ae304bd95767ea6dc0c9ae92153ef8cbe210b3c14884",
+      "input_shape": [
+        "DynamicDimension.0",
+        3,
+        48,
+        "DynamicDimension.1"
+      ],
+      "ctc_output_classes": 18710,
+      "samples": {
+        "zh-hans": {
+          "text": "简体中文文件测试\n会议记录与资料转换",
+          "recognized_lines": 2,
+          "reference_characters": 17,
+          "edits": 0,
+          "character_error_rate": 0.0,
+          "character_accuracy": 1.0
+        },
+        "en": {
+          "text": "DOCUMENT SCAN TEST\nInvoice total 12345",
+          "recognized_lines": 2,
+          "reference_characters": 33,
+          "edits": 0,
+          "character_error_rate": 0.0,
+          "character_accuracy": 1.0
+        },
+        "zh-hant": {
+          "text": "繁體中文文件測試\n會議紀錄與資料轉換",
+          "recognized_lines": 2,
+          "reference_characters": 17,
+          "edits": 0,
+          "character_error_rate": 0.0,
+          "character_accuracy": 1.0
+        }
+      },
+      "simplified_not_worse_on_sample": true
+    },
+    "v3-umi-cht": {
+      "status": "measured",
+      "sha256": "19b4665a8617e1413788ef2701883716e9b910986598cc41f1250a53a629cac8",
+      "input_shape": [
+        "p2o.DynamicDimension.0",
+        3,
+        "?",
+        "p2o.DynamicDimension.1"
+      ],
+      "ctc_output_classes": 8423,
+      "samples": {
+        "zh-hans": {
+          "text": "筒休中文文件測武\n公放記泉5資料換",
+          "recognized_lines": 2,
+          "reference_characters": 17,
+          "edits": 12,
+          "character_error_rate": 0.705882,
+          "character_accuracy": 0.294118
+        },
+        "en": {
+          "text": "DOCUMENTSCＡNＴEST\nlnvoicetotal12345",
+          "recognized_lines": 2,
+          "reference_characters": 33,
+          "edits": 3,
+          "character_error_rate": 0.090909,
+          "character_accuracy": 0.909091
+        },
+        "zh-hant": {
+          "text": "繁體中文文件測試\n會議紀錄與資料轉換",
+          "recognized_lines": 2,
+          "reference_characters": 17,
+          "edits": 0,
+          "character_error_rate": 0.0,
+          "character_accuracy": 1.0
+        }
+      },
+      "simplified_not_worse_on_sample": false
+    },
+    "v3-rapid-cht-catalog": {
+      "status": "not-run",
+      "reason": "missing candidate bytes"
+    }
+  }
+}

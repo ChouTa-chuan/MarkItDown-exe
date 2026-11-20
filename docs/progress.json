@@ -1,10 +1,10 @@
 {
   "updated": "2026-11-20",
-  "environment": "Linux 完整混合／獨立模組回歸；hosted Windows CI 另見 B3a PR，未做乾淨機／人工／GPU 驗收",
-  "tests_passed": 953,
-  "headline": "B3a 已綁定兩份既有 CPU 套件原文，交 Claude reviewer 查驗",
-  "blocker": "CPU 尚待 B3b–B3d 與重新定版。乾淨機與人工驗收使用 B3 後的新版本。",
-  "next": "查驗 B3a PR。下一項 B3b 處理三個 PP-OCR 模型及 config.yaml。B1b 公開開關已關，B2 驗收表已合併。",
+  "environment": "Linux 完整混合／獨立模組回歸與 CPU 三語模型比較；PR 另有 hosted Windows 驗證",
+  "tests_passed": 954,
+  "headline": "B3b 已核對 CPU 模型來源及三語樣本，已記錄授權選 A，待複查",
+  "blocker": "CPU 授權決定的隨包揭露與候選審閱留待 B3。識別選型等 B3b2 擴大樣本評估。乾淨機與人工驗收使用 B3 後的新版本。",
+  "next": "Claude reviewer 複查 PR 44。合併後從最新 main 開 B3b2 擴大三語樣本評估，結果交使用者選型。",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 954,
+  "tests_run": 955,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "a8704d0ff1ea89f10ea6504ff0df2eef5c0a8546",
+    "source_commit": "07084c2e31e2056ddf18107e64341dec0bacd791",
     "date_taipei": "2026-11-20",
     "accepted": true,
-    "run": 954,
-    "passed": 953,
+    "run": 955,
+    "passed": 954,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1322,7 +1322,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/b3a-cpu-original-notices-2026-11-20/README.md"
+    "evidence": "development-records/runs/b3b-ppocr-model-review-2026-11-20/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2810,14 +2810,16 @@
           {
             "id": "B3a",
             "title": "CPU：flatbuffers、rapidocr 原文綁定",
-            "status": "active",
-            "note": "原 A14。已重用原路徑及原文字節，回歸通過；PR 待 Claude reviewer 查驗。"
+            "status": "done",
+            "note": "已合併。沿用原路徑及原文字節，完成套件授權綁定。",
+            "pr": 42
           },
           {
             "id": "B3b",
             "title": "CPU：PP-OCR 模型來源與授權",
-            "status": "pending",
-            "note": "原 A15；B1b 之後；含繁中識別模型評估；簡中準確度不可退步"
+            "status": "active",
+            "note": "來源與評估完成，授權範圍已選 A。PR 44 待複查，選型等 B3b2 擴大樣本。",
+            "pr": 44
           },
           {
             "id": "B3c",
@@ -2835,7 +2837,7 @@
             "id": "B3",
             "title": "CPU 元件重新定版",
             "status": "pending",
-            "note": "需 B3a–B3d 完成並經使用者確認"
+            "note": "需 B3a–B3d 完成並經使用者確認。重新定版時用固定存檔與新候選審閱接上 CPU 授權原文、揭露和接受缺口。"
           },
           {
             "id": "B4",

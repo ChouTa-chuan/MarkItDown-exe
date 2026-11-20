@@ -1243,16 +1243,22 @@
             "rapidocr-onnxruntime package and model files"
           ],
           "required_evidence": [
-            "RapidOCR 原文綁定、PP-OCR 模型來源／版本／hash／授權原文與適用範圍"
+            "B3a 已完成 rapidocr-onnxruntime 1.4.4 套件原文綁定，保留其證據引用",
+            "B3b 核對三個 PP-OCR 模型及 config.yaml 的實際候選 bytes、來源、版本依據與授權原文",
+            "模型權重及 ONNX 轉檔的授權適用範圍與須隨包的原文，由使用者確認"
           ],
           "evidence": [
             {
               "path": "docs/development-records/runs/b3a-cpu-original-notices-2026-11-20/worker-originals.json",
               "sha256": "e3fae7d4a4d7f67ed73fd00a61821b6f17a08764e2322dd21c8a5ae2314fe346"
+            },
+            {
+              "path": "docs/development-records/runs/b3b-ppocr-model-review-2026-11-20/current-models.json",
+              "sha256": "14c6026dcd2ac9185e68dbb9363f61e1b5fa0ea3e96a539082028b43feeaaaa1"
             }
           ],
           "status": "open",
-          "requires_user_decision": false,
+          "requires_user_decision": true,
           "decision_source": null,
           "gates": [
             "runtime_sbom_complete",
