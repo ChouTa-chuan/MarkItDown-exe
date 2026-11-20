@@ -15,7 +15,6 @@ RapidOCR 轉檔版的字表來自 ONNX metadata，不需要外部字表，兩者
 所有輸入圖都依登記的 SHA-256 核對；不符就停止。模擬劣化圖由 B3b3 與 B3b4 的腳本產生，本腳本不產生圖。
 """
 import argparse
-import hashlib
 import importlib.metadata
 from importlib.resources import files
 import importlib.util
