@@ -4,6 +4,12 @@
 
 ## 更新中
 
+### 2026-11-20｜B3a CPU 套件原文綁定
+
+- 將固定候選內原有的 flatbuffers 及 RapidOCR 套件原文接回各自版本，只更新既有 worker 的 `installed-manifest.json`。建置與包內審閱都核對套件對應，沿用原路徑及原文字節。
+- `cpu-flatbuffers` 新增 `worker-originals.json` 的 SHA-256 引用並標為 `evidence_complete`。 `cpu-rapidocr-models` 新增同一證據檔的 SHA-256 引用，維持 open。既有共用目錄的 SHA-256 引用無須同步。
+- 錯綁、缺檔及改檔反例獲拒，Linux 完整回歸與兩個 profile 的 gates 通過。CPU 再散布清單移除 `cpu-flatbuffers`，四個旗標仍為 false。三個 PP-OCR 模型及 `config.yaml` 留待 B3b，固定候選維持原基準。[驗證證據](docs/development-records/runs/b3a-cpu-original-notices-2026-11-20/README.md)
+
 - 2026-11-20：查明 run 44307725980 失敗原因：升級測試重建前一版 990e600 時，前一版自己固定的 GUI 視窗開啟檢查在 25 秒內未等到視窗，其餘驗收全部通過。本次**只加診斷**：前一版 gui.log 一併保存進報告；目前版本自身的 GUI 等待放寬為 60 秒並區分逾時與程序結束（驗收標準不變）。前一版驗收仍為 25 秒，升級測試的同類間歇失敗仍可能重現；失敗原文存入證據目錄。
 - B2 新增 C1–C3 驗收表，並補上 CPU 選配元件、已知限制的判定、設定與合成資料的 SHA-256、離線及樣本取得方式。驗收結果在 B3 後用新包 SHA 綁定並保存；本輪完成文件連結及索引檢查，實際驗收待大階段 C。
 
