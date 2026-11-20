@@ -20,7 +20,11 @@ from build_provenance import bootloader_notices, distribution_sources, sha256
 from check_bundle_provenance import audit, contained_file
 from base_own_license import OWN_LICENSE, stage_own_license
 import check_bundle_provenance as bundle_check
-from prepare_worker_assets import native_notices
+from prepare_worker_assets import native_notices, prepare
+
+PROJECT = Path(__file__).resolve().parents[1]
+WINDOWS_LICENSES = PROJECT/'src/desktop_app/data/licenses/windows'
+NOTICE_PACKAGES = {'flatbuffers': '25.12.19', 'rapidocr-onnxruntime': '1.4.4'}
 
 
 class ProvenanceTests(unittest.TestCase):
@@ -40,6 +44,16 @@ class ProvenanceTests(unittest.TestCase):
         self.write(self.assets/meta, b'Name: markitdown-desktop\nVersion: 0.19.1\n')
         self.installed=dict(packages=[dict(name='markitdown-desktop',version='0.19.1',notice_files=[notice])],
                             files={p:sha256(self.assets/p) for p in (notice,meta)})
+        for relative in ('inventory.json', 'supplemental/sources.json'):
+            self.write(self.assets/'licenses/windows'/relative, (WINDOWS_LICENSES/relative).read_bytes())
+        for name, version in NOTICE_PACKAGES.items():
+            meta = f'installed/{name}/METADATA'
+            relative = f'supplemental/{name}.txt'
+            notice = f'licenses/windows/{relative}'
+            self.write(self.assets/meta, (WINDOWS_LICENSES/name/'METADATA').read_bytes())
+            self.write(self.assets/notice, (WINDOWS_LICENSES/relative).read_bytes())
+            self.installed['packages'].append(dict(name=name, version=version, notice_files=[notice]))
+            self.installed['files'].update({p: sha256(self.assets/p) for p in (meta, notice)})
         self.save(self.assets/'installed-manifest.json',self.installed)
         self.write(self.assets/'bootloader/original/COPYING.txt', b'original bootloader fixture')
         self.save(self.assets/'bootloader/manifest.json',dict(name='pyinstaller',version='6.22.3',
@@ -70,6 +84,80 @@ class ProvenanceTests(unittest.TestCase):
 
     def check(self):
         return audit(self.bundle,'cpu','0.19.1')
+
+    def test_prepared_worker_reuses_original_paths_and_records_package_owners(self):
+        from importlib.metadata import PathDistribution
+
+        distributions = [PathDistribution(self.assets/'installed'/name) for name in NOTICE_PACKAGES]
+        with patch('prepare_worker_assets.sys.base_prefix', str(self.assets/'python-runtime')), \
+                patch('prepare_worker_assets.metadata.distributions', return_value=distributions), \
+                patch('prepare_worker_assets.bootloader_notices'):
+            staged = self.root/'staged'
+            prepare(staged, PROJECT)
+        manifest = json.loads((staged/'installed-manifest.json').read_text(encoding='utf-8'))
+        expected_paths = {p.relative_to(PROJECT/'src/desktop_app/data/licenses').as_posix()
+                          for p in (PROJECT/'src/desktop_app/data/licenses').rglob('*') if p.is_file()}
+        self.assertEqual(expected_paths, {p.relative_to(staged/'licenses').as_posix()
+                                         for p in (staged/'licenses').rglob('*') if p.is_file()})
+        self.assertEqual(sorted(NOTICE_PACKAGES), [row['name'] for row in manifest['packages']])
+        self.installed['packages'][1:] = manifest['packages']
+        self.installed['files'].update(manifest['files'])
+        self.save(self.assets/'installed-manifest.json', self.installed)
+        report = self.check()
+        for name, version in NOTICE_PACKAGES.items():
+            with self.subTest(package=name):
+                relative = f'licenses/windows/supplemental/{name}.txt'
+                package = next(row for row in manifest['packages'] if row['name'] == name)
+                self.assertEqual(package['notice_files'], [relative])
+                self.assertEqual(manifest['files'][relative], sha256(self.assets/relative))
+                self.assertEqual((staged/relative).read_bytes(), (self.assets/relative).read_bytes())
+                full_path = f'_internal/worker-assets/{relative}'
+                candidate = next(row for row in report['candidate_inventory']['files'] if row['path'] == full_path)
+                self.assertEqual([(o['name'], o['version']) for o in candidate['owners']], [(name, version)])
+                self.assertNotIn('source-owner-unresolved', candidate['review_reasons'])
+                self.assertNotIn(name, report['packages_without_wheel_notice'])
+
+    def test_worker_notice_rejects_wrong_package_or_version_even_after_rehashing(self):
+        for case in ('swapped', 'extra-owner', 'version', 'source'):
+            with self.subTest(case=case):
+                manifest = copy.deepcopy(self.installed)
+                first, second = manifest['packages'][1:]
+                inventory_path = self.assets/'licenses/windows/inventory.json'
+                if case == 'swapped':
+                    first['notice_files'], second['notice_files'] = second['notice_files'], first['notice_files']
+                elif case == 'extra-owner':
+                    manifest['packages'][0]['supplemental_sources'] = [{'path': first['notice_files'][0]}]
+                elif case == 'version':
+                    first['version'] = '99.0'
+                else:
+                    inventory = json.loads(inventory_path.read_text(encoding='utf-8'))
+                    target = next(row for row in inventory['packages'] if row['name'] == 'flatbuffers')
+                    target['supplemental_sources'][0]['url'] = 'https://example.test/wrong-version/LICENSE'
+                    self.save(inventory_path, inventory)
+                self.save(self.assets/'installed-manifest.json', manifest)
+                message = {'swapped': 'Invalid worker notice binding', 'extra-owner': 'Invalid worker notice binding',
+                           'version': 'Worker notice package/version mismatch', 'source': 'Worker notice source mismatch'}
+                with self.assertRaisesRegex(ValueError, message[case]):
+                    self.check()
+
+    def test_worker_original_missing_or_changed_is_rejected_even_after_rehashing(self):
+        for name in NOTICE_PACKAGES:
+            relative = f'licenses/windows/supplemental/{name}.txt'
+            path = self.assets/relative
+            original = path.read_bytes()
+            for content in (None, b'changed worker original'):
+                with self.subTest(package=name, missing=content is None):
+                    manifest = copy.deepcopy(self.installed)
+                    if content is None:
+                        path.unlink()
+                        del manifest['files'][relative]
+                    else:
+                        path.write_bytes(content)
+                        manifest['files'][relative] = sha256(path)
+                    self.save(self.assets/'installed-manifest.json', manifest)
+                    with self.assertRaisesRegex(ValueError, 'Worker original missing or changed'):
+                        self.check()
+                    path.write_bytes(original)
 
     def test_distinct_source_and_collected_bytes_are_explicit(self):
         report=self.check()
@@ -222,11 +310,12 @@ class ProvenanceTests(unittest.TestCase):
         import shutil
         assets=self.bundle/'_internal/desktop_app/data'
         assets.mkdir(parents=True)
-        shutil.copytree(self.assets/'installed',assets/'licenses/installed')
+        shutil.copytree(self.assets/'installed/markitdown-desktop',assets/'licenses/installed/markitdown-desktop')
         shutil.copytree(self.assets/'bootloader',assets/'licenses/bootloader')
         shutil.copytree(self.assets/'python-runtime',assets/'licenses/python-runtime')
         shutil.copytree(self.assets/'native',assets/'licenses/native')
         installed=json.loads(json.dumps(self.installed))
+        installed['packages'] = installed['packages'][:1]
         stage_own_license(Path(__file__).resolve().parents[1], assets)
         installed['packages'][0]['notice_files']=[OWN_LICENSE]
         from cryptography_notice import stage, NOTICE

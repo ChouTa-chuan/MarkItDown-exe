@@ -1,0 +1,25 @@
+{
+  "date_taipei": "2026-11-20",
+  "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "result": "既有原文與套件對照、資產路徑、兩個 gates 與 Linux 完整回歸通過",
+  "keywords": [
+    "B3a",
+    "flatbuffers",
+    "RapidOCR",
+    "CPU",
+    "授權原文綁定"
+  ],
+  "files": {
+    "README.md": "bc6db1fd73a06a688ea341b1f2fbc78863fc467bcdde0adc6fc3a8faf1e211d5",
+    "gates-summary.json": "4e6f91efb601ab430f7767347af3b1b1ded78b4531bec8acb52377dac98d5029",
+    "worker-originals.json": "e3fae7d4a4d7f67ed73fd00a61821b6f17a08764e2322dd21c8a5ae2314fe346"
+  },
+  "first_local_attempt": {
+    "test": "test_redistribution_gates.GateTests.test_base_does_not_require_cpu_obligations_to_close",
+    "result": "暫存根目錄缺少新增證據，補齊測試資料後重跑",
+    "mixed_summary_sha256": "f5fdcc82d99f4456237f5b9c6b00a65beb2fc06cb6a2abe0efd406f47a08b1e4",
+    "isolated_summary_sha256": "ff1260e78bfe3ee0b68804394e3cf4babdb37c8d2c070cb00b776206725933b5"
+  },
+  "tested_source": "a8704d0ff1ea89f10ea6504ff0df2eef5c0a8546",
+  "accepted": true
+}

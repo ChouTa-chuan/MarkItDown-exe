@@ -19,6 +19,7 @@ from python_archive_inventory import (load_manifest, summarize as summarize_pyth
                                       verify_base_runtime_modules, zip_members)
 from cpython_components import (REPORT as CPYTHON_REPORT, verify_inventory as verify_cpython,
                                 public_summary as cpython_summary)
+from prepare_worker_assets import verify_worker_notice_bindings
 
 # 建置時為非 wheel 來源原生檔記錄的身分欄位；原樣帶進報告，缺少的欄位不補造。
 IDENTITY_FIELDS = ('source_directory', 'company', 'product', 'file_version', 'signature_status', 'signer',
@@ -80,6 +81,7 @@ def audit(bundle, profile, expected_version):
         assets = bundle/'_internal/worker-assets'
         installed = json.loads(contained_file(assets, 'installed-manifest.json').read_text(encoding='utf-8'))
         verify_hashes(assets, installed['files'])
+        verify_worker_notice_bindings(assets, installed)
         metadata_prefix, bootloader = 'installed/', assets/'bootloader'
         python_license = 'python-runtime/LICENSE.txt'
     else:

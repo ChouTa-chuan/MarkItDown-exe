@@ -10,12 +10,14 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | 最新基準 `4a6f6a5` 已含 B1b PR 38、大階段 D 規劃 PR 39 與關回公開開關 PR 41。B2 PR 37 仍開啟 |
-| 本輪分支 | `codex/b2-stage-c-checklist` 補修 B2 驗收表（PR 37）；B1b 公開與關回開關的證據由 PR 41 保存 |
-| 下一棒 | PR 41 已合併、開關已關 |
+| `main` | B3a 起點 `5186fbe` 已合併 B2（PR 37）與 GUI 逾時診斷（PR 40）；B1b 已公開，PR 41 已關回公開開關 |
+| 本輪分支 | [`codex/b3a-cpu-original-notices`](https://github.com/ChouTa-chuan/MarkItDown-exe/tree/codex/b3a-cpu-original-notices) 處理 B3a（[PR](https://github.com/ChouTa-chuan/MarkItDown-exe/pulls?q=is%3Apr+head%3Acodex%2Fb3a-cpu-original-notices)） |
+| 下一棒 | B3a 交 Claude reviewer 查驗，CI 與查驗紀錄見 PR；下一項為 B3b |
 | 固定來源 | A13b `b17d51bc99f8402f16b99f98bbe3b3370530bc6c`（base run 44295039865、cpu run 44295044417、Microsoft 探測 run 44300296037） |
 
 ## B. 這個階段完成了什麼
+
+- **B3a**：用鎖定 wheel 的版本與 METADATA，將已在固定 CPU 候選裡的兩份原文綁回各自的套件，包內 provenance 也會重驗。比對資產目錄後，只有既有 `installed-manifest.json` 改變。兩 profile 的 gates 通過，`cpu-flatbuffers` 已完成，`cpu-rapidocr-models` 保持 open，CPU 四旗標仍為 false。[證據](docs/development-records/runs/b3a-cpu-original-notices-2026-11-20/README.md)
 
 - **B1b 完成完整逐檔對照試跑**（PR 38，run 44613509068）：已核原始 provenance SHA-256、完整路徑集合及純 Python 模組清單雜湊，逐項列生成檔差異與原因。產品與報告帶對照摘要並由 BUILD-INFO 綁定；實際報告 artifact 已回讀核對。[本輪證據](docs/development-records/runs/b1b-content-equivalence-2026-11-20/README.md)
 - **B1b 已從 main 公開一次**（run 44659294752）：完整逐檔對照、安裝生命週期 SHA 與上傳條件通過。API 確認只有測試包及報告，資訊已寫進[證據 README](docs/development-records/runs/b1b-content-equivalence-2026-11-20/README.md)與 manifest。PR 41 已合併，`PUBLIC_UPLOAD_ENABLED` 已關閉。
@@ -50,7 +52,7 @@
 | B 測試版安裝包 | **B1a 測試版產出準備**：寫好以 CI artifact 產出基本包測試版的流程，來源固定為 A13b 候選 b17d51b，產物附提交、版本、安裝包 sha256、隨包授權原文清單、`known-gaps`、測試版限制說明；artifact 保留 **30 天**（使用者決定）。以 workflow_dispatch 試跑驗證產物內容，**試跑不上傳安裝包**（只上傳報告），不建 Release 或 tag | 完成（PR 34）；公開上傳仍停用 |
 | | **B1b 測試版公開產出**（交 Codex）：以 B1a 流程從 main 產出並公開上傳安裝包 artifact（保留 30 天）。驗收（planner 建議、使用者 2026-11-19 同意做法）：(1) **逐檔對照**：下載 run 44295039865 `windows-base-validation-reports` 的 `bundle-provenance.json`（sha256 `b7fa49e6df55…`，即 base-source-review.json 的 `provenance_report_sha256`；**2026-11-25T11:45Z 到期**），先核 sha，再與重建 bundle 的 inventory 比對：路徑集合相等、明列且附理由的生成檔例外外 bytes 全同、`pure_modules_sha256` 相同；多檔、少檔、改檔、清單外生成檔、provenance sha 不符皆拒絕並有反例測試。結果寫 `CONTENT-EQUIVALENCE.json` 放進產品與報告，BUILD-INFO 引用其 sha。來不及在到期前完成時，改用 repo 內較弱依據（264 列分類、153 原生檔、原文、模組雜湊、檔案數），並在公開說明寫明（使用者已接受此退路）。(2) 公開上傳只在 `github.ref == refs/heads/main`、`PUBLIC_UPLOAD_ENABLED=True`、gates 四旗標等於預期、逐檔對照通過、lifecycle 安裝包 sha 等於上傳安裝包時執行；腳本同步檢查 `GITHUB_REF`；非 main 要求公開被拒並有反例。(3) 產品含 Setup、BUILD-INFO（含 `byte_identical_installer_to_original` 與對照摘要 sha）、CONTENT-EQUIVALENCE.json、LICENSE-FILES.json、known-gaps.json／.md、test-build-limitations.md、SHA256SUMS.txt 與中文 README（測試版非正式版、需登入 GitHub 下載且 30 天到期、`certutil -hashfile … SHA256` 核對、未簽章與 SmartScreen、安裝與移除、授權與已知缺口位置、Issues 連結、安裝程式由同一固定來源重建且容器與審閱時不同）。(4) 報告 artifact 寫明 SHA256SUMS 對應產品目錄。(5) 合併後從 main dispatch 一次：記錄 artifact 名稱、digest、大小、到期日；API 核對只有預期兩份 artifact。dispatch 前先跑一般驗證取得當天有效的 OCR 輸入（只保留 1 天）。(6) **公開後立即另開小 PR 把 `PUBLIC_UPLOAD_ENABLED` 改回 False**，並更新 STATUS。(7) 完整回歸、EXPECTED_TESTS 與 progress.json 同步；PR CI 全過、reviewer 無必須修正。不動 spec、鎖檔、登記表狀態、gates 規則與固定候選，不碰 `windows-build.yml`，不建 Release 或 tag | PR 38 已合併，run 44659294752 已公開。PR 41 已合併，公開開關已關 |
 | | **B2 驗收表**（交 Codex，與 B1b 平行，獨立 PR）：依 C1–C3 逐項列乾淨 Windows 10／11 安裝、離線首次啟動、四語 OCR、中文路徑、修復、移除與人工操作的勾選表；每項有預期結果與證據格式，填寫結果放 `docs/development-records/runs/stage-c-…/`（符合 `base-clean-machine-manual` 前綴）。依使用者決定，大階段 C 用 **B3 後的新版本**，表格以「待填安裝包 SHA」欄位綁定，不寫死 B1b 的 SHA。只改文件，不改程式 | [補修驗收表](docs/stage-c-acceptance.md)已完成，PR 37 經 Claude reviewer 複查，無必須修正項目；B3 後再實際驗收 |
-| | B3a CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁與缺檔反例）（原 A14） | 待開始（B1b 之後） |
+| | B3a CPU：flatbuffers、rapidocr 原文綁定（接線 `prepare_worker_assets.py`；錯綁、缺檔及改檔反例）（原 A14） | 實作與回歸完成，交 Claude reviewer 查驗 |
 | | B3b CPU：PP-OCR 模型來源、版本、雜湊與授權原文（不以套件的 Apache 宣告代替）；授權範圍需使用者確認（原 A15）。**另評估改用繁體中文識別模型以解決 ONNX 繁中已知缺口**（`tests/test_onnx_ocr.py` 的 `test_traditional_chinese_quality_known_gap` 預期失敗）：候選為 PP-OCRv5、PP-OCRv6 的繁中能力與專用 chinese_cht_PP-OCRv3_rec（需查證授權、ONNX 可用性與大小），以該固定繁中測試圖比較準確度；台灣聯發科 Breeze2 屬 3B／8B 多模態大型語言模型（Llama 社群授權），不適合 CPU 選配元件，若要採用改列大階段 E 或另立 GPU 選配元件。換模型屬更換模型與打包內容，需使用者同意；評估結果列表交使用者選擇。**驗收須含簡體中文準確度不退步**（目前 PP-OCRv4 中文模型以簡中為主；可選同時涵蓋簡繁的單一模型，或保留現模型另加繁中模型供選擇） | 待開始（B1b 之後） |
 | | B3c CPU：Shapely／GEOS（LGPL）與 CPU wheel 內含元件（沿用 A9 格式），CPU Microsoft 6 檔（沿用 A10）；LGPL 做法需使用者確認（原 A16） | 待開始（B1b 之後） |
 | | B3d CPU：查明 setuptools、pip、pyinstaller 等建置工具是否真的進了 worker；若要排除屬打包變更，需使用者同意（原 A17） | 待開始（B1b 之後） |
@@ -147,5 +149,6 @@
 | 2026-11-20 | 使用者決定 | 簡體中文也常用，B3b 改模型時不可移除或降低簡中能力 |
 | 2026-11-20 | 使用者決定 | 大階段 D 新增 D3（Tesseract 官方語言包選配下載：簡中、法、俄、西、德）與 D4（使用者自行下載模型加裝）；同意協調者的評估與架構調整方向 |
 | 2026-11-20 | 使用者決定 | B1b（PR 38）合併，合併後的公開觸發與關回上傳開關交給 Codex（GPT）；B2（PR 37）的三項建議修正在合併前由 Codex 補上 |
+| 2026-11-20 | 使用者決定 | B3a 交給 Codex（GPT） |
 
-接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。 B1b 公開已完成，PR 41 已合併並關回開關。B2 PR 37 已複查，本輪推送合併衝突修復後停在 PR。
+接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。B3a 停在 PR 交 Claude reviewer。三個 PP-OCR 模型與 `config.yaml` 留給 B3b。

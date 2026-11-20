@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "fixed_candidate": {
+    "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+    "run_id": 44295044417,
+    "review_path": "docs/development-records/runs/a13b-fixed-review-2026-11-18/cpu-source-review.json",
+    "review_sha256": "8bfe8b065c5d08618bf45f162771dad208038130956b853153f7817f503d8cd6"
+  },
+  "lock": {
+    "path": "packaging/profiles/cpu-windows-build.txt",
+    "sha256": "243efad87865d215c4f5314cfcb093d0f0201cb7aaee5dc47c0a878ec1a7c2a5"
+  },
+  "packages": [
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19",
+      "wheel": "flatbuffers-25.12.19-py2.py3-none-any.whl",
+      "wheel_sha256": "7634f50c427838bb021c2d66a3d1168e9d199b0607e6329399f04846d42e20b4",
+      "metadata_sha256": "9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e",
+      "wheel_contains_original": false,
+      "upstream_tag": "v25.12.19",
+      "upstream_tag_object": "282dcb1c3266b45600510da4810092f6ec4c85f2",
+      "upstream_commit": "7e163021e59cca4f8e1e35a7c828b5c6b7915953",
+      "version_basis": "採用與鎖定 wheel 同版號的正式標籤 v25.12.19。",
+      "original": {
+        "url": "https://raw.githubusercontent.com/google/flatbuffers/7e163021e59cca4f8e1e35a7c828b5c6b7915953/LICENSE",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "bytes": 11358,
+        "repo_path": "src/desktop_app/data/licenses/windows/supplemental/flatbuffers.txt",
+        "worker_path": "_internal/worker-assets/licenses/windows/supplemental/flatbuffers.txt",
+        "fixed_candidate_review_reasons": [
+          "source-owner-unresolved"
+        ]
+      },
+      "deferred_wheel_members": []
+    },
+    {
+      "name": "rapidocr-onnxruntime",
+      "version": "1.4.4",
+      "wheel": "rapidocr_onnxruntime-1.4.4-py3-none-any.whl",
+      "wheel_sha256": "971d7d5f223a7a808662229df1ef69893809d8457d834e6373d3854bc1782cbf",
+      "metadata_sha256": "1ac15bed7c7fb77d3fac58c2aba0a4d3e2da48de5c65badd3503900acebcf1df",
+      "wheel_contains_original": false,
+      "upstream_tag": "v1.4.4",
+      "upstream_tag_object": "d6c6daf850a8fcc0ddf220aff88357faf423ec51",
+      "upstream_commit": "86ae3f5079df3422c1829cd84baf19bc8a7a9453",
+      "version_basis": "v1.4.4 為同版號的上游標籤；wheel 未附來源提交，無法與該提交逐一比對。",
+      "original": {
+        "url": "https://raw.githubusercontent.com/RapidAI/RapidOCR/86ae3f5079df3422c1829cd84baf19bc8a7a9453/LICENSE",
+        "sha256": "3e0af25fdd06aa9586ae97adb00ea927ebe5a3805ac77d2d3a81ce5f55693333",
+        "bytes": 11422,
+        "repo_path": "src/desktop_app/data/licenses/windows/supplemental/rapidocr-onnxruntime.txt",
+        "worker_path": "_internal/worker-assets/licenses/windows/supplemental/rapidocr-onnxruntime.txt",
+        "fixed_candidate_review_reasons": [
+          "source-owner-unresolved"
+        ]
+      },
+      "deferred_wheel_members": [
+        "rapidocr_onnxruntime/config.yaml",
+        "rapidocr_onnxruntime/models/ch_PP-OCRv4_det_infer.onnx",
+        "rapidocr_onnxruntime/models/ch_PP-OCRv4_rec_infer.onnx",
+        "rapidocr_onnxruntime/models/ch_ppocr_mobile_v2.0_cls_infer.onnx"
+      ]
+    }
+  ],
+  "staged_assets_comparison": {
+    "platform": "Linux",
+    "baseline_commit": "5186fbeae34d5354e39b4ca1bb5664041d5d9687",
+    "scope": "兩個實際鎖定 wheel 的資產準備與目錄對照；未在本次對照執行 Windows PyInstaller。",
+    "paths_equal": true,
+    "paths": 232,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "installed-manifest.json"
+    ],
+    "before_manifest_sha256": "da9fea5c550c250b17f36fd5a87199a02fbea2a9639e4baebeb14bd1be5526a0",
+    "after_manifest_sha256": "aec98656c3768715ca3071640cdc8c9bef79d3e21d633aa380f745d80d668a86"
+  }
+}
