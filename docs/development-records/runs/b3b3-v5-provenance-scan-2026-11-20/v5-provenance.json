@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "date_taipei": "2026-11-20",
+  "scope": "B3b 實測的 PP-OCRv5 mobile 識別 ONNX（ch_PP-OCRv5_rec_mobile，SHA-256 5825fc7e…）的來源、轉檔與授權查證。PP-OCRv4 與 v6 僅在需要比對時列出。",
+  "candidate_onnx": {
+    "rapidocr_name": "ch_PP-OCRv5_rec_mobile.onnx",
+    "bytes": 16631306,
+    "sha256": "5825fc7ebf84ae7a412be049820b4d86d77620f204a041697b0494669b1742c5",
+    "verified_by": [
+      "本機 SHA-256 與 bytes 與 B3b evaluation-inputs.json 相符",
+      "RapidOCR v3.10.0 發布目錄 python/rapidocr/default_models.yaml（raw.githubusercontent.com，SHA-256 90e0159d…）列同一 SHA-256",
+      "403323726/PP-OCRv5 GitHub 鏡像（commit 376ddfd95322d6fcf41b489abc3780ff53b235ee，rec/ch_PP-OCRv5_rec_mobile.onnx）同一 SHA-256"
+    ],
+    "onnx_file_facts": {
+      "producer_name": "空白",
+      "producer_version": "空白",
+      "model_version": 9223372036854775807,
+      "graph_name": "PaddlePaddle Graph in PIR mode",
+      "ir_version": 10,
+      "opset_import": {
+        "ai.onnx": 14
+      },
+      "input": {
+        "name": "x",
+        "shape": [
+          "DynamicDimension.0",
+          3,
+          48,
+          "DynamicDimension.1"
+        ],
+        "type": "float32"
+      },
+      "output": {
+        "name": "fetch_name_0",
+        "shape": [
+          "DynamicDimension.0",
+          "Reshape_524_o0__d2",
+          18385
+        ],
+        "type": "float32"
+      },
+      "metadata_props": {
+        "character": "內嵌字表，36775 個字元，首列為全形空白，以換行分隔"
+      },
+      "conversion_record_in_file": "檔案內沒有轉檔工具名稱與版本；無法僅憑檔案判定實際轉檔工具",
+      "讀取方式": "只讀 protobuf 頂層欄位與 onnxruntime 的 metadata，未做推論以外的任何執行"
+    }
+  },
+  "sources": [
+    {
+      "id": "rapidocr-v3.10.0-catalog",
+      "role": "B3b 實測檔的發布目錄（RapidOCR 專案）",
+      "url": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/rec/ch_PP-OCRv5_rec_mobile.onnx",
+      "status": "主機被擋（www.modelscope.cn，代理 CONNECT 403），未能直接下載；同一 SHA 由下列替代來源取得",
+      "catalog_reference": "https://raw.githubusercontent.com/RapidAI/RapidOCR/v3.10.0/python/rapidocr/default_models.yaml（本輪取得，sha256 90e0159dead16c21adbf000014a46043c981ae097f041d92d8b19a52c2f2ed9a；記錄 ch_PP-OCRv5_rec_mobile 的 SHA-256 為 5825fc7e…）"
+    },
+    {
+      "id": "mirror-403323726",
+      "role": "第三方 GitHub 鏡像（B3b 驗證下載）",
+      "url": "https://raw.githubusercontent.com/403323726/PP-OCRv5/376ddfd95322d6fcf41b489abc3780ff53b235ee/rec/ch_PP-OCRv5_rec_mobile.onnx",
+      "status": "本輪下載，SHA-256 相同",
+      "repo_license_file": "無 LICENSE 檔（本輪 git clone 檢視）",
+      "readme_claim": "README 寫為「從 PaddleOCR 官方 PP-OCRv5 發布轉檔」，未寫明轉檔工具、版本或參數；授權段只寫「derived from PaddleOCR, Apache 2.0」",
+      "readme_sha256": "bb9937a155f07906194e59c0b27d27beee1ae28feef0cc1b637715b1b24189d9"
+    },
+    {
+      "id": "rapidocr-model-licenses",
+      "role": "RapidOCR 對其模型登錄表的授權宣告（RapidAI 維護者 SWHL）",
+      "url": "https://github.com/RapidAI/RapidOCR/blob/1b9573d0ed566141a4158226094b3be934bd4a9c/python/MODEL_LICENSES.md",
+      "commit": "1b9573d0ed566141a4158226094b3be934bd4a9c",
+      "commit_date": "2026-11-11",
+      "file_sha256": "7eb62bd5765467f8b6f1b610054b414c0e21cb9e32b1b70fb487b13363e6798a",
+      "statement": "宣告 default_models.yaml 登錄的所有模型（含 PP-OCRv5 各版本與 ONNX 表示）皆為 Apache-2.0；權利人為 Baidu 及 PaddleOCR 相關權利人，RapidOCR 不主張模型權利；轉檔不轉移權利",
+      "limits": "此宣告由 RapidOCR 發布，不是 Baidu／PaddleOCR 權利人的授權文件；文件點名的官方 Apache 依據僅 PP-OCRv6 的 HF 模型卡，PP-OCRv5 並未引用個別模型卡"
+    },
+    {
+      "id": "paddleocr-license-b03f464",
+      "role": "PaddleOCR 專案授權",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/b03f46425e8ff4442b268ce449e3eef758146cd4/LICENSE",
+      "file_sha256": "3840c5c0c61c294264d2dd77b8777be6ddd90121ef4e0e64abcd22edea581d6e",
+      "note": "與 B3b 的 PaddleOCR-v3.7.0-LICENSE.txt 相同 SHA-256；Apache-2.0"
+    },
+    {
+      "id": "paddleocr-official-onnx-doc",
+      "role": "PaddleOCR 官方文件列出的 PP-OCRv5 mobile 官方 ONNX（Android 部署文件）",
+      "url_hf": "https://huggingface.co/PaddlePaddle/PP-OCRv5_mobile_rec_onnx",
+      "url_bos": "https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0/PP-OCRv5_mobile_rec_onnx_infer.tar",
+      "doc_commit": "dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf（2026-09-16）；B3b 固定提交 b03f464 同樣含此列",
+      "doc_file": "docs/version3.x/inference_deployment/cross_platform/android_deployment.en.md",
+      "doc_file_sha256": "e28390853c633983439e1e3abf283a8584501776e5640e14178fca18df0c9f8d",
+      "status": "文件列為官方 ONNX；HF 與 BOS 主機被擋，無法取得檔案，故無 SHA-256、無模型卡授權內容，不能與 RapidOCR 檔比對是否同一檔"
+    },
+    {
+      "id": "paddleocr-official-paddle-v5",
+      "role": "Paddle 原始推論權重（B3b 記錄）",
+      "url": "https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0/PP-OCRv5_mobile_rec_infer.tar",
+      "model_list": "docs/version3.x/model_list.md（b03f464）列 PP-OCRv5_mobile_rec，不列個別授權",
+      "status": "主機被擋，未取得；模型卡 https://huggingface.co/PaddlePaddle/PP-OCRv5_mobile_rec 亦被擋"
+    },
+    {
+      "id": "rapidocr-paddleocr-model-convert",
+      "role": "RapidAI 的 Paddle→ONNX 轉檔工具（paddleocr_convert）",
+      "url": "https://github.com/RapidAI/PaddleOCRModelConvert",
+      "commit": "66b51a48d57b4f17567a695d00c5682b1b08fd16",
+      "license": "Apache-2.0（LICENSE SHA-256 c71d239d…）",
+      "readme_sha256": "1c90d0162c416b0ffd18866947356b02771ea2a36211c56958e6a0bf9fa141e6",
+      "tool_facts": "呼叫 paddle2onnx（requirements 未固定版本，僅 paddle2onnx>=1.0.0、paddlepaddle==3.1.0），轉出後以 onnx 改動態維度並寫入 metadata 鍵 character",
+      "fit": "metadata 鍵名與字表格式與 B3b 實測檔相符；但 B3b 實測檔的 dynamic 維度名為 DynamicDimension.N，與該工具改寫後的 None／? 不同，且檔案無 producer 資訊，因此不能認定 B3b 檔由此工具產生"
+    },
+    {
+      "id": "rapidocr-workflow-wheel",
+      "role": "RapidOCR wheel 發布工作流（v1.4.4 時代）",
+      "url": "https://raw.githubusercontent.com/RapidAI/RapidOCR/86ae3f5079df3422c1829cd84baf19bc8a7a9453/.github/workflows/gen_whl_to_pypi_rapidocr_ort.yml",
+      "file_sha256": "067d85e4fadcffbe8b1b3e718a8f19c763b537e04367ee5bb815c22f41b30a46",
+      "note": "只顯示從 RapidOCR release 下載 required_for_whl 模型 zip，沒有 v5 轉檔步驟；v5 不在此 wheel 流程內"
+    }
+  ],
+  "license_grading": {
+    "paddle_original_weights": {
+      "grade": "由專案整體授權推定",
+      "basis": "PaddleOCR 專案 Apache-2.0（b03f464 LICENSE）與官方模型列表列出 PP-OCRv5_mobile_rec；模型卡與個別授權文件因主機被擋未能讀取，故不能直接載明",
+      "rights_holder": "Baidu 及 PaddleOCR 相關權利人（依 RapidOCR 宣告與 PaddleOCR 專案慣例，未見個別授權檔）"
+    },
+    "onnx_candidate_b3b_file": {
+      "grade": "直接載明（僅限第三方轉檔者宣告）",
+      "basis": "RapidOCR MODEL_LICENSES.md 明列 PP-OCRv5 ONNX 與 default_models.yaml 登錄檔的 Apache-2.0 宣告，並列出本檔 SHA-256 所屬的 registry 路徑",
+      "limits": "宣告者不是模型權利人，且此宣告屬 RapidOCR 的授權聲明；與使用者 2026-11-20 決定 A 的範圍不同（A 只涵蓋 v4 與 v2 cls 三檔）。轉檔紀錄不存在，轉檔者與參數不能證明"
+    },
+    "onnx_official_paddle_v5": {
+      "grade": "查不到",
+      "basis": "文件列出官方 ONNX，但 HF 模型卡與檔案無法讀取；授權與雜湊均未取得"
+    },
+    "onnx_mirror_403323726": {
+      "grade": "查不到（僅 README 聲明）",
+      "basis": "無 LICENSE 檔；README 授權段只有 Apache 2.0 的敘述，不足以作為權利依據"
+    }
+  },
+  "dictionary": {
+    "source": "B3b 實測 ONNX 內嵌 metadata 鍵 character，共 18,383 行（首行全形空白、末行 🕧，無空行）。403323726 鏡像 README 寫 18,382 字，與本檔行數差 1，未追查差異來源",
+    "compatibility": "B3b 已以 rapidocr-onnxruntime 1.4.4、onnxruntime 1.31.1 執行三語評估；B3b 的 evaluate.measure() 檢查 ONNX 輸出類別等於 rec.postprocess_op.character 的長度，通過",
+    "output_classes": "ONNX 輸出 18,385 類，比字表行數多 2。推定為 CTC blank 與一個額外符號，屬 RapidOCR 的 postprocess 行為，本輪未讀取其原始碼，未確認",
+    "b3b_claim_checked": "B3b 的 evaluate.measure() 只檢查輸出類別等於 postprocess 字表長度並實際推論，兩者本輪重跑時都有通過"
+  },
+  "blocked_hosts": [
+    {
+      "host": "www.modelscope.cn",
+      "purpose": "RapidOCR v3.10.0 發布的 v5 mobile ONNX 與 RapidOCR 目錄的 ONNX 來源；取不到，以 GitHub 鏡像替代"
+    },
+    {
+      "host": "huggingface.co",
+      "purpose": "PaddlePaddle 官方 PP-OCRv5_mobile_rec_onnx 與 PP-OCRv5_mobile_rec 模型卡（授權與官方 ONNX 雜湊）"
+    },
+    {
+      "host": "paddle-model-ecology.bj.bcebos.com",
+      "purpose": "Paddle 原始推論權重與官方 ONNX 推論 tar（PP-OCRv5_mobile_rec_infer.tar、PP-OCRv5_mobile_rec_onnx_infer.tar）"
+    },
+    {
+      "host": "paddleocr.bj.bcebos.com",
+      "purpose": "繁中 v3 原始 Paddle 權重（B3b 已列為無法取得）"
+    },
+    {
+      "host": "commons.wikimedia.org / upload.wikimedia.org",
+      "purpose": "真實掃描公有領域樣本（任務二 b）"
+    },
+    {
+      "host": "zh.wikisource.org / en.wikisource.org / www.gutenberg.org / archive.org / www.loc.gov",
+      "purpose": "真實掃描公有領域文獻（任務二 b，逐一探測皆被擋）"
+    },
+    {
+      "host": "digital.ncl.edu.tw / dl.ndl.go.jp / data.gov.tw",
+      "purpose": "公開文獻與政府開放資料（任務二 b，探測皆被擋）"
+    },
+    {
+      "host": "github.com（網頁介面）與 api.github.com",
+      "purpose": "網頁 blob 頁回 403；GitHub API 對非本專案 repo 回『未啟用存取』。本輪改用 raw.githubusercontent.com 與 git 協定讀取公開 repo，未繞過代理"
+    }
+  ],
+  "limits": [
+    "未取得官方 PP-OCRv5 ONNX（HF／BOS 被擋），故無法判定 B3b 實測檔是否與官方 ONNX 同一檔",
+    "未取得 Paddle 原始權重，無法自行轉檔重現 B3b 檔",
+    "未取得 PP-OCRv5 的個別模型卡授權文字，授權只能分級到『第三方宣告』與『專案整體授權推定』",
+    "ModelScope 主機被擋，RapidOCR 官方發布位置的直接下載未驗證，只驗證到 GitHub 鏡像與 RapidOCR 目錄雜湊"
+  ]
+}
