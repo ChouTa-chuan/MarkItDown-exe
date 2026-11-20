@@ -6,7 +6,7 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 149 筆。
+共 150 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -21,6 +21,7 @@
 | 2026-11-20 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-20-before-b3a.md](history/status/2026-11-20-before-b3a.md) |
 | 2026-11-20 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-20-before-b3b.md](history/status/2026-11-20-before-b3b.md) |
 | 2026-11-20 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-20-before-b3b2.md](history/status/2026-11-20-before-b3b2.md) |
+| 2026-11-20 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-20-before-b3c.md](history/status/2026-11-20-before-b3c.md) |
 | 2026-11-19 | 證據 | A13c 固定候選逐列來源對照 | 9712e88 | 接受 | A13c、origin-known、Redist、來源對照 | [development-records/runs/a13c-source-attribution-2026-11-19/README.md](development-records/runs/a13c-source-attribution-2026-11-19/README.md) |
 | 2026-11-19 | 證據 | B1a 固定基本包測試版流程 |  | 接受 | B1a、test-build、報告試跑、固定候選、artifact 30 天 | [development-records/runs/b1a-test-build-2026-11-19/README.md](development-records/runs/b1a-test-build-2026-11-19/README.md) |
 | 2026-11-19 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-19-a13b-before-replan.md](history/status/2026-11-19-a13b-before-replan.md) |
