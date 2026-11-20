@@ -1173,7 +1173,8 @@
           "review_reasons": [],
           "file_groups": [],
           "required_evidence": [
-            "各原生檔的 wheel、內含元件名稱／版本／來源／原文與版本依據分級；未知者保留未關閉"
+            "各原生檔的 wheel、內含元件名稱／版本／來源／原文與版本依據分級；未知者保留未關閉",
+            "B3 補 LibYAML 0.2.5 原文，依 A9b 使用 supplemental 固定來源並綁定 PyYAML。"
           ],
           "evidence": [],
           "status": "open",

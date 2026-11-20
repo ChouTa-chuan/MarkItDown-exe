@@ -64,7 +64,7 @@
 | | B3b3 CPU：逐檔查證 PP-OCRv5 mobile ONNX 的轉檔來源與授權。用公開文件印出後掃描，或直接取公開掃描樣本，複驗 v4 與 v5 的繁中、簡中及英文。樣本須來自公開來源，排除使用者文件。通過後於 B3 確認打包變更，再換模型 | 待使用者指派 |
 | | B3c CPU：Shapely／GEOS（LGPL）與 CPU wheel 內含元件（沿用 A9 格式），CPU Microsoft 6 檔（沿用 A10）；LGPL 做法需使用者確認（原 A16） | 查到 LibYAML 獨立上游原文缺口，已暫停，待使用者決定 |
 | | B3d CPU：查明 setuptools、pip、pyinstaller 等建置工具是否真的進了 worker；若要排除屬打包變更，需使用者同意（原 A17） | 待開始（B1b 之後） |
-| | B3 CPU 元件重新定版（需 B3a–B3d 完成並經使用者確認）。會改動共用 `source_commit`，範圍含 base 重新審閱與 gates 重建，並以此新候選產出大階段 C 驗收用的新測試版。依 A12c 將 B3b 選 A 的決定收入固定存檔，讓 `decision_source` 引用該存檔，填寫 `accepted_gaps`。隨 CPU 元件附 PaddleOCR 與 RapidOCR 授權原文，並在 CPU 揭露檔註明兩個 v4 權重與三個 ONNX 轉檔的授權未逐檔確認。新 CPU 候選審閱需包含同一雜湊的揭露檔，達成後才將 `cpu-rapidocr-models` 改為 `user_approved` | 待開始 |
+| | B3 CPU 元件重新定版（需 B3a–B3d 完成並經使用者確認）。會改動共用 `source_commit`，範圍含 base 重新審閱與 gates 重建，並以此新候選產出大階段 C 驗收用的新測試版。依 A12c 將 B3b 選 A 的決定收入固定存檔，讓 `decision_source` 引用該存檔，填寫 `accepted_gaps`。隨 CPU 元件附 PaddleOCR 與 RapidOCR 授權原文，並在 CPU 揭露檔註明兩個 v4 權重與三個 ONNX 轉檔的授權未逐檔確認。新 CPU 候選審閱需包含同一雜湊的揭露檔，達成後才將 `cpu-rapidocr-models` 改為 `user_approved`。B3 補 LibYAML 0.2.5 上游原文，承接 A9b 的 supplemental 原文及 `sources.json` 固定來源做法，並將原文綁到 PyYAML；查驗 B3c 待補原文清單 | 待開始 |
 | | B4 使用者確認測試版結果（綁定所測安裝包的 SHA，並在其 artifact 30 天期限內完成，否則重新產出） | 需使用者實機測試 |
 | C 乾淨機與人工驗收 | C1 乾淨 Windows 10／11 安裝與離線首次啟動；C2 四語、中文路徑、修復移除；C3 人工操作 | 需使用者或實體 Windows |
 | D 功能擴充 | D1 圖片檔走本機 OCR；D2 影音獨立選配元件 | 等使用者決定 |
@@ -164,5 +164,6 @@
 | 2026-11-20 | 使用者決定 | 識別模型暫不更換；先以較大的繁中、簡中、英文樣本再評估 v4、v5 mobile、v6 small（必要時含繁中 v3），結果交使用者決定 |
 | 2026-11-20 | 使用者決定 | 識別模型方向定為 PP-OCRv5 mobile（單一簡繁模型）；正式更換前先查明 v5 ONNX 轉檔來源與授權、以掃描類公開樣本複驗，通過後在 B3 更換；更換屬打包內容變更，B3 時再確認 |
 | 2026-11-20 | 使用者決定 | B3c、B3d 交給 Codex（GPT） |
+| 2026-11-20 | 使用者決定 | LibYAML 原文隨包列入 B3 重新定版；B3c 繼續完成查證，並系統性列出 CPU wheel 的待補原文清單 |
 
 接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。B3c 在 LibYAML 原文停點等使用者指示，B3d 等 B3c 合併後開始。B3b3 待使用者指派，現有 CPU 授權決定於 B3 重新定版時接線。
