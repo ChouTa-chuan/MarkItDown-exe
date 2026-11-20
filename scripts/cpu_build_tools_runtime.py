@@ -85,13 +85,21 @@ def inspect(bundle, original, source):
     pure_sha = sha(canonical(manifest['modules']))
     entry_sha = sha(entry.read_bytes())
     fixed_entry, = [r for r in original['physical_files'] if r['path'] == entry.name]
+    # PyInstaller 把部分 bootstrap 模組從 Analysis.pure 移到外層 CArchive。
+    outer_modules = {row['name'] for row in scripts if row['type'] in ('m', 'M')}
+    manifest_only = source_names - pyz_names
+    unexplained = manifest_only - outer_modules
+    archive_only = pyz_names - source_names
+    if unexplained or archive_only:
+        raise ValueError('Unexplained PYZ inventory difference: '
+                         + ', '.join(sorted(unexplained | archive_only)))
     return dict(entry_sha256=entry_sha, entry_bytes=entry.stat().st_size,
                 original_entry_sha256=fixed_entry['sha256'],
                 original_entry_bytes_match=entry_sha == fixed_entry['sha256'],
                 version=metadata.version('pyinstaller'), startup_entries=scripts,
                 pyz_sources_sha256=pure_sha,
                 original_pyz_sources_match=pure_sha == original['pure_modules_sha256'],
-                pyz_names_match_manifest=pyz_names == source_names,
+                pure_manifest_modules_in_outer_archive=sorted(manifest_only),
                 pyz_tool_modules=sorted(name for name in pyz_names if module_in_scope(name)),
                 integrity_checked_matching_assets=asset_matches, different_assets=asset_differences)
 
