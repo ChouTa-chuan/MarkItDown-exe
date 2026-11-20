@@ -1,0 +1,247 @@
+{
+  "check": "base-content-equivalence",
+  "schema_version": 1,
+  "accepted": true,
+  "mode": "full-inventory",
+  "candidate_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+  "counts": {
+    "files": 1770
+  },
+  "pure_modules_sha256": "90f39cd8e11292b2fc4c60d7b6c6519b08d2e42cbf8fa3bd1e94d3eceb4766af",
+  "original_provenance_sha256": "b7fa49e6df55b2a72026fa2c82ce56624cd823e1f7aebce1a62da59b2272657b",
+  "original_provenance_run": 44295039865,
+  "baseline_download_run": 44295039865,
+  "rebuilt_inventory_sha256": "5e1e24e655bb23778f0853df288a92314297f779d4534a6e1da4fb6ed8a4b519",
+  "full_path_set_verified": true,
+  "base_library_member_changes": [],
+  "changed_generated_files": [
+    {
+      "path": "MarkItDownBase.exe",
+      "reason": "PyInstaller 產生的程式入口。Windows 封裝會寫入建置時間及 PE checksum，模組來源清單 SHA-256 另行核對。",
+      "original": {
+        "sha256": "9ceb414da851241db41b9c76b2aa5892b6014600185445de7a59b5539b9691c3",
+        "bytes": 12588887
+      },
+      "rebuilt": {
+        "sha256": "4bbf94776465282280b1d69b8321cc7f8fdc2b89d3efceede8469ff9178e2874",
+        "bytes": 12588887
+      }
+    },
+    {
+      "path": "_internal/base_library.zip",
+      "reason": "PyInstaller 從固定 CPython 重建的啟動 bytecode ZIP。另與原清單核對成員名稱，並列大小或 CRC 差異。",
+      "original": {
+        "sha256": "de0d1ec0f126fb0ab2e4834aedae8328b320de7589fbb0b2b225357212841027",
+        "bytes": 1333717
+      },
+      "rebuilt": {
+        "sha256": "8cc58324631d3778375ffc2dece5ec885525a31b9c4438a7bcb86f35fd8875eb",
+        "bytes": 1333717
+      }
+    },
+    {
+      "path": "_internal/cffi-2.1.1.dist-info/RECORD",
+      "reason": "pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。",
+      "original": {
+        "sha256": "f1c299b8d447309e49a61f3b7205d9aee096c891c2ff50aaca4808ce2da1ebe4",
+        "bytes": 3596
+      },
+      "rebuilt": {
+        "sha256": "b01a6f75e8d9bb611198d2ec525815c3933f113f7ef21fff6ba5014011d3fbdd",
+        "bytes": 3596
+      }
+    },
+    {
+      "path": "_internal/charset_normalizer-3.5.2.dist-info/RECORD",
+      "reason": "pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。",
+      "original": {
+        "sha256": "576145869db2ae0928def93501afc40092c0217152bbf63a9eff74f9f6993534",
+        "bytes": 2868
+      },
+      "rebuilt": {
+        "sha256": "8b015cdb72c9776b298244ccc11414712f4eead78b36ee5265fb31361b4f4956",
+        "bytes": 2868
+      }
+    },
+    {
+      "path": "_internal/desktop_app/data/build-profile.json",
+      "reason": "記錄本次生成資產的 SHA-256；固定版本與資產內容由建置驗收重核。",
+      "original": {
+        "sha256": "29c24f4c438a12e0e048a92afba717fbae0e1df6e882a1adfb3b0d0053fdd8ef",
+        "bytes": 53944
+      },
+      "rebuilt": {
+        "sha256": "f922c17b5ebb3d191eb4344a257c732e9d5d5fe14758ee2d8a947eac51e1a435",
+        "bytes": 53944
+      }
+    },
+    {
+      "path": "_internal/desktop_app/data/licenses/native/manifest.json",
+      "reason": "記錄本次 PyInstaller 收集的本機來源目錄；DLL 本身仍逐檔對照。",
+      "original": {
+        "sha256": "5cb738068b2e3d1120eeede6f3212fb208d80375f5f690e265da7c50211e74e5",
+        "bytes": 73169
+      },
+      "rebuilt": {
+        "sha256": "20fc6053c91e79fa9cc973a4d35298a9720ae2a8b072bfe5e921d9831c0ca9e3",
+        "bytes": 73169
+      }
+    },
+    {
+      "path": "_internal/desktop_app/data/native/manifest.json",
+      "reason": "包含本次生成 native/source.json 的指紋；OCR 引擎與模型本身仍逐檔對照。",
+      "original": {
+        "sha256": "0e8128f379679f640bf176392db64c96d9c93eec4f0cf7ea6400a10c5953b9f9",
+        "bytes": 4687
+      },
+      "rebuilt": {
+        "sha256": "9266118caf72cb191b8cdde6c1b7a30d9732f4510bf007fc593108bc57233096",
+        "bytes": 4687
+      }
+    },
+    {
+      "path": "_internal/desktop_app/data/native/source.json",
+      "reason": "記錄本次 OCR 輸入建置收據的 SHA-256，已重核收據與固定來源。",
+      "original": {
+        "sha256": "2b3fc3d9e0fa785aede38829591e082ff01878428885a833624915c6217c146f",
+        "bytes": 536
+      },
+      "rebuilt": {
+        "sha256": "1f42e73e5edae46f9d0e8b87abcb1097fbcc2beeafa08765e3312f68c65b7bbb",
+        "bytes": 536
+      }
+    },
+    {
+      "path": "_internal/idna-3.20.dist-info/RECORD",
+      "reason": "pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。",
+      "original": {
+        "sha256": "dfcc58123e48a34202b449917898ea36c13540908bfd1bc7acdf6f331cd21a06",
+        "bytes": 1877
+      },
+      "rebuilt": {
+        "sha256": "a87b128fae9a4f1b2684476e7e1822568bfe35887dc039230641198a6c1991cc",
+        "bytes": 1877
+      }
+    },
+    {
+      "path": "_internal/mammoth-1.13.0.dist-info/RECORD",
+      "reason": "pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。",
+      "original": {
+        "sha256": "3f641c33ae74dc0355619f550fbf514245e7f951c8099656e12097f22b6e8fe7",
+        "bytes": 6998
+      },
+      "rebuilt": {
+        "sha256": "df718bcaa8df01bbbb7c11d448ea73ba0c1f3bafd6de357667f12bef044e7172",
+        "bytes": 6998
+      }
+    },
+    {
+      "path": "_internal/markdownify-1.2.3.dist-info/RECORD",
+      "reason": "pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。",
+      "original": {
+        "sha256": "77d3eae457bfac2ab7ff0392f551d507206f59b0a808fa6cfc92fe6c3521b0e1",
+        "bytes": 1200
+      },
+      "rebuilt": {
+        "sha256": "22926edffc10e4001a02f73a0e078b384ed13ea7a392c0bcf222170a8408383e",
+        "bytes": 1200
+      }
+    },
+    {
+      "path": "_internal/markitdown-0.1.9.dist-info/RECORD",
+      "reason": "pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。",
+      "original": {
+        "sha256": "0c8428a3137eb5c11caa1cf6868018a5528d49354ef9164f2108cf659683fefa",
+        "bytes": 7537
+      },
+      "rebuilt": {
+        "sha256": "34efaa8630dc03eeedad4147412993edfe9ed7fd2f55fc356df08ea1e43c1a6c",
+        "bytes": 7537
+      }
+    },
+    {
+      "path": "_internal/markitdown_desktop-0.19.1.dist-info/RECORD",
+      "reason": "pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。",
+      "original": {
+        "sha256": "b8d8d961432ee9567915917ffc9f07ba58ac22e1378b16bbbc0d54262235aa95",
+        "bytes": 42526
+      },
+      "rebuilt": {
+        "sha256": "e930ffc8ac461aeefd056a20499f731479c99c3bb4a541f1724e643dc03d9042",
+        "bytes": 42526
+      }
+    },
+    {
+      "path": "_internal/numpy-2.5.4.dist-info/RECORD",
+      "reason": "pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。",
+      "original": {
+        "sha256": "3e99b6363cdc942446ed8c93f718b0d32369c7581c5f52610368064753166b77",
+        "bytes": 113361
+      },
+      "rebuilt": {
+        "sha256": "e7ddd2cf5c108eeb3d72621d25ccf4399e8345b457471e6d126fd70d1c74f3a3",
+        "bytes": 113361
+      }
+    },
+    {
+      "path": "_internal/onnxruntime-1.31.1.dist-info/RECORD",
+      "reason": "pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。",
+      "original": {
+        "sha256": "2447519848a6c138f98669e091f2667d6a85133eaa24ee56d32aeae8073676c5",
+        "bytes": 60839
+      },
+      "rebuilt": {
+        "sha256": "1ee3e7347199c5a1826066900143ebc07d47d9b1e610b3022ca84fb6350acda1",
+        "bytes": 60839
+      }
+    },
+    {
+      "path": "_internal/pdfplumber-0.11.9.dist-info/RECORD",
+      "reason": "pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。",
+      "original": {
+        "sha256": "4fbcee7ebe08e5e48176b36bc05fc76adc2dbe947c4012b81a86e6707bce9585",
+        "bytes": 3527
+      },
+      "rebuilt": {
+        "sha256": "4e30db88af6b8f3d5794e47ba99abeb6d297dbd629240862fe485c7b509e053a",
+        "bytes": 3527
+      }
+    },
+    {
+      "path": "_internal/pypdfium2-5.14.0.dist-info/RECORD",
+      "reason": "pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。",
+      "original": {
+        "sha256": "8dc43a2a7c102b54edd519e3ccc695c975e8b4a7fae8eb1d93b4d6075a6c3dab",
+        "bytes": 9614
+      },
+      "rebuilt": {
+        "sha256": "ed41048aef4980a92a3b43fee3f10728c447f4d4adebaa21f2ed5f99b4fb2f5d",
+        "bytes": 9614
+      }
+    },
+    {
+      "path": "_internal/pyside6_essentials-6.12.0.dist-info/RECORD",
+      "reason": "pip 安裝時重建的套件檔案清單，會反映 wheel 安裝紀錄與本機生成檔。其餘同目錄檔案仍對照。",
+      "original": {
+        "sha256": "de58284145ef180b51d489d318ef3d05df755d3c64a6f578fe1f0c34324a6312",
+        "bytes": 302299
+      },
+      "rebuilt": {
+        "sha256": "3784c64547344606ca70854d3179b74404d12167da0fb3865c5be7afb0601372",
+        "bytes": 302299
+      }
+    },
+    {
+      "path": "base-install-catalog.json",
+      "reason": "安裝器從本次 bundle 生成路徑及指紋索引，跟隨生成資產差異。",
+      "original": {
+        "sha256": "84047f7e5162cbc902ada721202a1de102badd66491e4aa832afbc8fe6d2804b",
+        "bytes": 334744
+      },
+      "rebuilt": {
+        "sha256": "ff4fc3959f0cf599bd9ab86bde8069a835e20f0bf061dbfc1ac0f4bd81e9191b",
+        "bytes": 334744
+      }
+    }
+  ]
+}

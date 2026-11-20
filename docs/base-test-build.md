@@ -1,34 +1,22 @@
-# 基本包測試版流程（B1a）
+# 固定基本包測試版流程
 
-本階段只準備與試跑。B1b 必須等 Claude planner 複查大階段 A 通過後另行啟用；目前 `scripts/base_test_build.py` 的 `PUBLIC_UPLOAD_ENABLED = False`，即使手動勾選公開上傳也會拒絕。沒有 Release、tag 或產品交付。
+使用既有的 **Windows base validation** 手動執行。應用程式固定 checkout A13b 候選 `b17d51bc99f8402f16b99f98bbe3b3370530bc6c`。控制端使用執行工作流程的提交並獨立評估義務登記，兩個提交都會寫進報告。B1b 只接受基本包旗標為 disclosed 和 redistribution approved 為 true，strict complete 和 release ready 為 false。
 
-使用既有的 **Windows base validation**（`windows-base-validation.yml`）的 `workflow_dispatch`，不呼叫舊 `windows-build.yml`。一般 PR／main 驗證維持既有流程；只有手動設定 `prepare_test_build: true` 才執行 B1a 工作，其餘兩個一般驗證工作會依模式跳過，不能把跳過列為通過。
+## 報告式試跑
 
-## 固定來源與控制端
+從自己的分支手動執行，設定 `prepare_test_build: true`、`publish_test_build: false`。可用 `ocr_inputs_run` 指定已有有效輸入的成功 run，空白時選最新可用者。既有一般驗證的 OCR 輸入 artifact 只保留一天，下載後仍要核對固定候選的引擎與四語模型 SHA。
 
-- **應用程式來源**固定為 A13b 候選 `b17d51bc99f8402f16b99f98bbe3b3370530bc6c`，版本從該提交的 `pyproject.toml` 讀取；`candidate_source` 舊參數不能改變 B1a 的來源。
-- **控制端**為 dispatch 的工作分支提交，包含本流程與目前的義務登記表。兩份 checkout 分開；報告分別記錄 payload 與 workflow 提交，不覆寫 `GITHUB_SHA`。固定候選的舊 provenance 報告 `source_commit` 指的是 workflow SHA，控制端會依此語意驗證，payload 則以獨立 `git rev-parse HEAD` 核對。
-- 控制端重跑實際 gates，必須仍為 base `redistribution_approved`／`runtime_sbom_disclosed` true、`runtime_sbom_complete`／`release_ready` false。不得從流程勾選取代義務判定。
-- 重建固定程式來源不保證安裝包逐位元相同：生成 metadata、路徑與封裝可能不同。每次記錄實際安裝包 SHA-256 與是否等於 A13b 原安裝包。原生相依檔、Tesseract／四語模型及 wheel 隨包原文必須與固定候選的 SHA 相同，不能以版本號相同替代。B1a 的 Python 固定為候選 PE 證據中的 3.12.10；若 runner 的官方 Redist 改變，仍依 bytes 檢查拒絕，不自動換候選。
+Runner 從 run 44295039865 下載 `windows-base-validation-reports`，以 A13b 審閱保存的 SHA-256 核對 `bundle-provenance.json`，再以原始 inventory 核對實際重建 bundle 的完整路徑、檔案指紋與純 Python 模組清單雜湊。只有 `base_content_equivalence.py` 中列出確切路徑及理由的生成檔可以有差異，每筆實際差異在 `CONTENT-EQUIVALENCE.json` 留下新舊指紋。標準庫 ZIP 的外層可因生成而不同，各成員的名稱、大小及 CRC 必須一致。OCR 來源收據也要用當次輸入重核。試跑保存文字報告及已驗過雜湊的來源報告副本，供原始 artifact 到期後指定 `saved_baseline_run` 繼續核對同一份原件。
 
-## 試跑方式與輸入期限
+若到 **2026-11-25 11:45 UTC** 仍未取得完整清單且沒有來源報告副本，可明確選 `retained_review: true`，用 repo 保存的分類、原生檔、原文、模組雜湊與檔案數查驗。此模式涵蓋的範圍較小，產品 README 與對照摘要都會揭露。已下載但雜湊不符的原始報告需查明原因，不能在同次執行改走退路。
 
-對自己的工作分支手動執行 Windows base validation，設定：
+Hosted Windows 2022 執行四語 OCR、GUI、中文路徑、Qt 替換、安裝、修復與移除。實機、乾淨系統與人工驗收在大階段 C 執行。一般 PR CI 仍執行跨版本升級與中斷恢復。
 
-- `prepare_test_build: true`
-- `publish_test_build: false`
-- `ocr_inputs_run`：指定一個已成功的一般 Windows base validation run；空白會選最新仍有未過期輸入的成功 run。
+## 審查通過後公開一次
 
-OCR 輸入沿用既有驗證的 `windows-ocr-ci-inputs`（保留一天），避免本次試跑另外上傳 executable／模型 artifact。先核對 workflow、成功狀態、artifact digest 與期限，下載後再逐份核對固定候選的 Tesseract／四語模型 SHA 與建置來源契約。輸入過期時先重跑一般驗證以準備輸入，再試跑；不得忽略錯誤或改用不同 bytes。生成的 `native/source.json` 含本次輸入 receipt 的 hash，不能要求與舊 run 相同；它改以完整結構、實際 receipt SHA、固定來源契約及 UTF-8 manifest 核對，沒有放寬執行檔、模型、DLL 或原文的 SHA 檢查。
+1. 先確認 PR 的全部適用 CI 成功、Claude reviewer 無必須修正，並已一般 Merge 至 main。
+2. 在當前 main 跑一次一般 Windows base validation。確認成功並記下當日 `windows-ocr-ci-inputs` 的 run，公開流程會核對來源提交和期限。
+3. 用 main 手動執行 **一次**，設定 `prepare_test_build: true`、`publish_test_build: true`、`ocr_inputs_run` 為該次一般驗證 run。原始報告可用時採固定 run，已過期則指定已保存原始 provenance 的試跑 run。公開工作重跑會被拒絕。若失敗，保留紀錄並先查明原因。
+4. 用 API 確認僅有 `MarkItDownBase-test-build` 與 `base-test-build-reports`，核對 30 天期限，將兩者名稱、digest、大小及到期日存進本輪證據目錄。接著另開小 PR 將 `PUBLIC_UPLOAD_ENABLED` 關回並更新 STATUS。
 
-Hosted Windows 2022 會實際建置固定候選、執行既有四語 OCR／GUI／中文路徑驗收、Qt 可替換驗收，以及安裝／修復／移除。此試跑不另跑跨版本升級與中斷恢復；一般 PR CI 仍跑它們。Hosted runner 不是乾淨實體 Windows 10／11，也不是 GPU 實卡驗收，不能關閉大階段 C。
-
-## 附件與上傳界線
-
-組裝出的產品目錄包含 Setup 及 `BUILD-INFO.json`（兩份提交、版本、安裝包 SHA-256、政策）、`LICENSE-FILES.json`（實際隨包授權目錄的路徑／SHA／大小，含原文與支援 metadata，不宣稱法律完整性）、`known-gaps.json`、`known-gaps.md`、`test-build-limitations.md`、中文 README、`SHA256SUMS.txt`。授權原文仍在安裝包內，既有原文不改寫。
-
-B1a 的 runner 只上傳 `base-test-build-reports`，保留 **30 天**，以明確的九個 JSON／文字檔清單上傳。產品與報告不可在同一路徑或互相巢狀。成功組裝後會逐檔重讀並核對副本；複製失敗或雜湊改變即拒絕。執行檔不上傳。上傳後由同一 hosted runner 下載實際報告 artifact，要求剛好九個指定成員，逐檔比對原始 bytes／SHA／大小；缺檔、多檔、巢狀或竄改皆拒絕，公開核對摘要。這一步驗證實際 artifact，不依賴開發環境能否連儲存主機。
-
-另把同一份小型文字報告寫成有數量／大小上限與 SHA-256 的公開註記，讓無法連 artifact 儲存主機的環境也能重組查驗；分片缺少、重複、越界或 hash 不符皆拒絕。失敗試跑只保留已有文字報告，不能列為成功。
-
-未來 B1b 的產品 uploader 已備妥且保留 30 天，但受控制端常數與成功組裝雙重限制。此階段不啟用它；B1b 需另行查驗與 PR。
+公開產品 uploader 要求 GitHub ref 為 `refs/heads/main`。腳本亦會核對同一 ref、啟用常數、gates、已通過的對照與實際 Setup SHA，並用 lifecycle 收據驗證上傳內容。Setup 同固定程式來源重建，外殼指紋可能不同。產品附件與下載方式見 [中文 README](base-test-build-download.md)。報告 artifact 附的 SHA256SUMS 對應產品目錄。此流程使用 GitHub Actions artifact，保留 30 天。

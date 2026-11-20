@@ -1,0 +1,105 @@
+{
+  "run": 44613509068,
+  "url": "https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44613509068",
+  "head": "89743721ca3e01df9e8bd01037b8fe8fb883d02b",
+  "status": "completed",
+  "conclusion": "success",
+  "event": "workflow_dispatch",
+  "steps": {
+    "Set up job": "success",
+    "Checkout immutable application source": "success",
+    "Checkout current approval and packaging controller": "success",
+    "Run actions/setup-python@v5": "success",
+    "Plan fixed source and validated OCR inputs": "success",
+    "Download existing validated native inputs": "success",
+    "Download fixed baseline provenance reports": "success",
+    "Verify original provenance before rebuilding the bundle": "success",
+    "Verify native input bytes against the fixed candidate": "success",
+    "Build and validate the actual fixed Windows installer": "success",
+    "Publish actual test-build validation summary": "success",
+    "Assemble product attachments and independently verify reports": "success",
+    "Preserve test-build report metadata page 1": "success",
+    "Preserve test-build report metadata page 2": "success",
+    "Preserve test-build report metadata page 3": "success",
+    "Preserve test-build report metadata page 4": "success",
+    "Preserve verified original provenance from the trial": "success",
+    "Upload test-build reports only": "success",
+    "Download uploaded reports for actual artifact verification": "success",
+    "Verify actual report artifact members and bytes": "success",
+    "Recheck publication gates and exact staged Setup": "skipped",
+    "Upload installer package only when B1b is enabled": "skipped",
+    "Post Run actions/setup-python@v5": "success",
+    "Post Checkout current approval and packaging controller": "success",
+    "Post Checkout immutable application source": "success",
+    "Complete job": "success"
+  },
+  "artifacts": [
+    {
+      "id": 14574091880,
+      "name": "base-test-build-reports",
+      "digest": "sha256:fcbfe46e2de3f8b3bc316c84c7ce07ed8b2e4504652939f001d413dec4e9c006",
+      "size_in_bytes": 29523,
+      "created_at": "2026-11-19T21:00:03Z",
+      "expires_at": "2026-12-19T21:00:03Z"
+    },
+    {
+      "id": 14573053407,
+      "name": "b1b-fixed-baseline-report",
+      "digest": "sha256:e842bc8fd6337e5437a2b53afdc6f1290694e0242456c21cdd7b1add0c163cd5",
+      "size_in_bytes": 196948,
+      "created_at": "2026-11-19T21:00:02Z",
+      "expires_at": "2026-12-19T21:00:02Z"
+    }
+  ],
+  "annotations_sha256": "7b0e41091e2035062345fff785b4fbd57cc65a2fbbb50839b9578a2e42ce4df8",
+  "errors": [],
+  "verified": true,
+  "content_equivalence_sha256": "6bba8202463951aca111e454d39a87c16c2754f0891ad9f88bc2781cd729c866",
+  "roundtrip": {
+    "check": "base-test-build-artifact-roundtrip",
+    "accepted": true,
+    "files": {
+      "BUILD-INFO.json": {
+        "sha256": "e3d395218bad7cd82d6f041c9e99ca2d1499422bb783a4952303c99d58793666",
+        "bytes": 1505
+      },
+      "CONTENT-EQUIVALENCE.json": {
+        "sha256": "6bba8202463951aca111e454d39a87c16c2754f0891ad9f88bc2781cd729c866",
+        "bytes": 9839
+      },
+      "LICENSE-FILES.json": {
+        "sha256": "6e4f215869a95e9b709f8dd27f13a764f69fee3c7bedb39c9adb27ef4d046b86",
+        "bytes": 75193
+      },
+      "README.md": {
+        "sha256": "db43861d9ca86dc0641edf1e03a7258406434984bad2fa02f3b7f41d6735032f",
+        "bytes": 198
+      },
+      "SHA256SUMS.txt": {
+        "sha256": "86dd098e8df2f1f379ed6e92316de413814c85077123f4d294f2f12e705d0b38",
+        "bytes": 706
+      },
+      "known-gaps.json": {
+        "sha256": "933165bf3485e9aea99f7608a64d0f0f4173dca56b9c9bce004e258b9399e3b7",
+        "bytes": 7000
+      },
+      "known-gaps.md": {
+        "sha256": "1b2bfcf35c82c98376dc404a042e963aa535fb2be0948be83956c9f4050362c1",
+        "bytes": 22878
+      },
+      "package-audit.json": {
+        "sha256": "8b834c29f4075361e99dec77e4d5263f1cf7ecd5c063703092cf86c8048ef61c",
+        "bytes": 2460
+      },
+      "plan.json": {
+        "sha256": "514a827ef764413994693026c8dcda6193f5cd8adcb9de61727b2e04ab28a109",
+        "bytes": 1314
+      },
+      "test-build-limitations.md": {
+        "sha256": "76ed454b56dc458dd0e9498bc93668ce2333a1f1e231564953da97fde3dc8885",
+        "bytes": 605
+      }
+    },
+    "installer_present": false
+  }
+}
