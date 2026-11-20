@@ -25,7 +25,8 @@
 
 - **確認未安裝 Python 或 OCR 引擎**：在「設定 → 應用程式」檢查已安裝清單，搜尋 Python、Tesseract 及曾裝過的 OCR 引擎。用 PowerShell 執行 `Get-Command python,python3,py,tesseract,ocrmypdf -All -ErrorAction SilentlyContinue` 或 `where.exe python`、`where.exe tesseract`，保存輸出。若只列出 `WindowsApps` 市集別名，記下這個結果並以安裝清單確認。另檢查常用安裝位置（例如 `%LOCALAPPDATA%\Programs\Python`、`%ProgramFiles%\Tesseract-OCR`）與 `$env:TESSDATA_PREFIX`，避免漏掉未加到 PATH 的引擎及模型。
 - **斷網並取證**：在第一次開啟前拔除網路線、關閉 Wi-Fi 並中斷 VPN。VM 可在管理介面將虛擬網卡斷線。從 Windows 網路圖示確認未連線，並用 `Get-NetAdapter | Select-Object Name,Status` 和 `Get-NetConnectionProfile` 記錄所有外部網路連線狀態。確認沒有可用外部連線，再截取網路狀態與首次啟動畫面。需要下載 CPU 元件時，等 C1-3 完成才重新連線。
-- **掃描 PDF 樣本**：可在驗收前下載 [C03 合成四語掃描 PDF](development-records/runs/c03-languages-2026-11-08/native/four-language-mixed.pdf)。按頁序以 Microsoft Print to PDF 各存一頁，順序為繁中、英文、日文、韓文。確認分頁後仍只有影像文字，並記錄原始 PDF 與測試檔 SHA。四語參考句採樣本 JSON 的 `expected` 或 `reference` 欄位。[繁中](../src/desktop_app/data/setup-chinese.json) · [英文](../src/desktop_app/data/worker-health.json) · [日文](../src/desktop_app/data/setup-japanese.json) · [韓文](../src/desktop_app/data/setup-korean.json)另製作一份含可選取文字的簡單文件供基本轉換與批次操作。
+- **掃描 PDF 樣本**：可在驗收前下載 [C03 合成四語掃描 PDF](development-records/runs/c03-languages-2026-11-08/native/four-language-mixed.pdf)。按頁序以 Microsoft Print to PDF 各存一頁，順序為繁中、英文、日文、韓文。確認分頁後仍只有影像文字，並記錄原始 PDF 與測試檔 SHA。四語參考句採樣本 JSON 的 `expected` 或 `reference` 欄位。[繁中](../src/desktop_app/data/setup-chinese.json) · [英文](../src/desktop_app/data/worker-health.json) · [日文](../src/desktop_app/data/setup-japanese.json) · [韓文](../src/desktop_app/data/setup-korean.json)
+- **基本轉換樣本**：另製作一份含可選取文字的簡單文件供基本轉換與批次操作。
 
 ## C1 · 乾淨機安裝與離線首次啟動
 
