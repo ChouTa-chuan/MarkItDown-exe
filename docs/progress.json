@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-20",
-  "environment": "Linux 完整混合／獨立模組回歸與 CPU 三語模型比較；PR 另有 hosted Windows 驗證",
+  "environment": "Linux 完整混合／獨立模組回歸與 CPU 三語固定圖評估。Windows 與固定候選沿用既有紀錄。",
   "tests_passed": 954,
   "headline": "B3b2 已完成擴大三語樣本的識別比較，待查驗與選型",
   "blocker": "識別選型待使用者確認。CPU 授權決定的隨包揭露與候選審閱留待 B3。乾淨機與人工驗收使用 B3 後的新版本。",
@@ -1299,7 +1299,7 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "07084c2e31e2056ddf18107e64341dec0bacd791",
+    "source_commit": "eafa026e6c93f29fbc282e878a1bac633ca03573",
     "date_taipei": "2026-11-20",
     "accepted": true,
     "run": 955,
@@ -1322,7 +1322,7 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/b3b-ppocr-model-review-2026-11-20/README.md"
+    "evidence": "development-records/runs/b3b2-expanded-ocr-evaluation-2026-11-20/README.md"
   },
   "tests_failed": 0,
   "tests_skipped": 0,

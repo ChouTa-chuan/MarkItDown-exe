@@ -16,7 +16,7 @@
     "sha256": "d72ab57e1ed46155c72d8cd80e5dca25fce8a2ac11299081d923164e394b9e33"
   },
   "files": {
-    "README.md": "3bcef6ea2cb6d179e7e2a73eb91142031a14d2fff001a5b8babd3dd50c4ab853",
+    "README.md": "06414191a2800015e77c7d6d3575b8bdb29b2095f4c9adf988dba02294d07c28",
     "evaluation-results.json": "54bf3b98ec4ba5ae7dc0aa76b96f1f80be25546a9f4a5b4d6b6c06dd5b276834",
     "render_samples.py": "70758fe91cf390646a148cdc6118b0df552a4c1d09b2625767741d26ffd031c8",
     "run_evaluation.py": "95de75320b3b429f189f5f6bf8b454c6b52ce281052eb1587afafedf1188e983",
@@ -30,5 +30,7 @@
     "samples/zh-hant-heading.png": "92651aba865ef770d21b391e608a5fc39a0ef3148569a1c3dea5fe12b720ac88",
     "samples/zh-hant-table.png": "cfba08ce61a629d23a503ce4ea62d485588611963de53e33c65a2f80d4980d99",
     "samples.json": "0d3b0c5d8952d1f4f5231989025700d90786a19526f03d7cb1db4aace237a46e"
-  }
+  },
+  "linux_regression_source": "eafa026e6c93f29fbc282e878a1bac633ca03573",
+  "replay_result_sha256": "54bf3b98ec4ba5ae7dc0aa76b96f1f80be25546a9f4a5b4d6b6c06dd5b276834"
 }

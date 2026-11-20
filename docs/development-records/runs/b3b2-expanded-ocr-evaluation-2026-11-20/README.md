@@ -55,4 +55,4 @@ OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python -B "$B3B2_DIR/run_evaluation.py"
   --models /tmp/ppocr-models --output /tmp/ppocr-b3b2-results.json
 ```
 
-模型只在本機暫存區使用。PR 的歷史索引檢查只檢查紀錄索引。
+重跑的辨識 JSON 與已保存結果逐 byte 一致。Linux 混合與逐模組完整回歸均通過，現行產品測試仍記錄 v4 的繁中品質已知缺口。模型只在本機暫存區使用，PR 只跑歷史索引檢查。[專案回歸進度](../../../progress.json)
