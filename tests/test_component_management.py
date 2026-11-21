@@ -55,6 +55,22 @@ class ManagementFixture:
 class ManagementTests(ManagementFixture, unittest.TestCase):
     def setUp(self): self.prepare()
 
+    def test_health_messages_keep_geos_replacement_evidence(self):
+        from desktop_app.capabilities import HealthResult
+        from desktop_app.component_workers.geos_replacement import LABEL
+
+        self.load_catalog()
+        self.install()
+        detail = LABEL + r'：C:\data\geos-replacement\geos.dll SHA-256 ' + 'a'*64
+        self.service.health_checks['fixture.health'] = lambda *_: HealthResult(True, detail)
+
+        result = self.service.run('health', self.spec.key)
+        self.assertEqual(result.state, 'completed', result.message)
+        self.assertIn(detail, result.message)
+        row = next(item for item in result.rows if item.spec == self.spec)
+        self.assertEqual(row.state, 'unchecked')
+        self.assertIn(detail, row.reason)
+
     def test_default_unconfigured_source_does_not_connect_or_change_settings(self):
         settings=self.root/'settings.json'; settings.write_bytes(b'original preferences')
         service=ComponentManagement(self.root/'unconfigured',host=HOST)

@@ -131,6 +131,8 @@ flowchart TD
 
 預設仍是 Tesseract。ONNX OCR 為實驗性選配，繁體樣本有已知漏字／字形問題；GPU 偵測不等於可用，也不保證提高準確度。表格與閱讀順序有驗收範圍，圖表、公式及任意混排仍需後續擴充。
 
+Windows CPU 選配支援在使用者資料目錄（與 `settings.json` 同層）的固定 `geos-replacement` 子目錄使用相容的 GEOS。可查閱檔名、來源、建置與恢復步驟。[GEOS 授權與使用者替換](src/desktop_app/data/licenses/geos-lgpl-notice.md)
+
 ## 規劃、進度與版本紀錄
 
 - [完整產品與模組化架構 v0.4](docs/architecture-guide.md)

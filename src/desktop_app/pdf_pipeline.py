@@ -200,6 +200,7 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
     renderer = None
     onnx = None
     previous_tail = None
+    geos_record_written = False
     try:
         with pdfplumber.open(source) as document:
             for index, page in enumerate(document.pages):
@@ -320,6 +321,10 @@ def pdf_chunks(source, checkpoint, progress, reports, executable=None, data_dir=
                     if component:
                         yield (f"<!-- source-component: {component['component_id']}; version: {component['version']}; "
                                f"protocol: {component['protocol']}; device: {component['device']} -->\n\n")
+                        if not geos_record_written and 'geos_replacement' in component:
+                            from .component_workers.geos_replacement import markdown_record
+                            yield markdown_record(component['geos_replacement'])
+                            geos_record_written = True
                     for warning in warnings:
                         yield f"> ⚠ 第 {index+1} 頁：{warning}\n\n"
                     yield text.strip() + "\n\n"

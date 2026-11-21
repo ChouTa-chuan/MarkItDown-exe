@@ -9,6 +9,7 @@ from ..components.catalog import TrustPolicy
 from ..core import Cancelled, State
 from ..resources import Policy, snapshot
 from .binding import CPUWorkerBinding
+from .geos_replacement import LABEL
 from .protocol import COMPONENT_ID, PROTOCOL
 
 CAPABILITY='ocr.onnx.cpu'
@@ -39,6 +40,7 @@ class ManagedOCRSession:
         self.permit=permit;self.owner_pid=owner_pid;self.resource_wait=resource_wait
         self.stack=ExitStack();self.lease=None;self.service=None;self.manager=None;self.binding=None
         self.record_component=record_component;self.recorded=False
+        self.geos_replacement = None
         self.resource_event=resource_event;self.last_event=None;self.health_paused=False
 
     def notify(self,state,message):
@@ -62,7 +64,11 @@ class ManagedOCRSession:
     @property
     def provenance(self):
         if self.lease is None:return None
-        return dict(component_id=self.lease.spec.component_id,version=str(self.lease.spec.version),protocol=PROTOCOL,device='cpu')
+        evidence = dict(component_id=self.lease.spec.component_id, version=str(self.lease.spec.version),
+                        protocol=PROTOCOL, device='cpu')
+        if self.geos_replacement is not None:
+            evidence['geos_replacement'] = self.geos_replacement
+        return evidence
 
     def _start(self):
         self.checkpoint()
@@ -77,7 +83,8 @@ class ManagedOCRSession:
         registry=ComponentRegistry(self.service.registry_path)
         self.binding=CPUWorkerBinding(registry.directory/'.locks/worker-use.lock',self.policy,
             read_snapshot=lambda:snapshot(self.owner_pid),cpu_threads=self.request.cpu_threads,
-            cancel=self.cancel,permit=self.permit,resource_wait=self.resource_wait,notify=self.health_notify)
+            cancel=self.cancel,permit=self.permit,resource_wait=self.resource_wait,notify=self.health_notify,
+            data_directory=self.service.directory)
         self.manager=ComponentManager(registry,self.service.verifier,self.service.host,
                                      {'onnx.cpu.health':self.binding.health},checkpoint=self.checkpoint)
         catalog=self.service._catalog()
@@ -105,9 +112,14 @@ class ManagedOCRSession:
             path=Path(temporary)/'page.png';image.save(path,'PNG')
             outcome=self.binding.runner(self.lease.spec,self.lease.directory).run(path,cancel=self.cancel,
                 notify=self.notify)
+        report = outcome.report or {}
+        replacement = report.get('runtime', {}).get('geos_replacement')
+        if outcome.state == State.COMPLETED:
+            if self.recorded and replacement != self.geos_replacement:
+                raise ManagedOCRUnavailable(LABEL + '的狀態或指紋在同一份文件中變更，未提交輸出。')
+            self.geos_replacement = replacement
         if not self.recorded:
             # 每份文件只送一次有界執行證據，不將 OCR 全文／圖片塞入父程序佇列。
-            report=outcome.report or {}
             self.record_component(dict(**self.provenance,state=outcome.state.value,pid=outcome.pid,
                 frozen=report.get('runtime',{}).get('frozen'),providers=report.get('providers',[])))
             self.recorded=True

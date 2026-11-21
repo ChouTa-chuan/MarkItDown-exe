@@ -1,0 +1,26 @@
+{
+  "clean_managed_ocr": true,
+  "tamper_rejected": true,
+  "basic_conversion": true,
+  "replacement_ocr": true,
+  "replacement_geometry": true,
+  "damaged_rejected": true,
+  "removal_restores_managed": true,
+  "managed_sha256": {
+    "geos-bf067cd6ff74ee0ad5f3ff52c7ef08c9.dll": "0948bdb5c70b82e5055b55e9419b78d68372b1d0ec877277fa6e79276f6299b9",
+    "geos_c-6dd9fd915eef8a7928285416bef1e666.dll": "6e65985b30831761887de3217853a720147626b18cb41668cd2bdc43d1bcded1"
+  },
+  "replacement": {
+    "status": "user-replacement-unverified",
+    "files": [
+      {
+        "path": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\markitdown-c07-acceptance-6fejrvi2\\中文受管環境\\geos-replacement\\geos-bf067cd6ff74ee0ad5f3ff52c7ef08c9.dll",
+        "sha256": "65fc8f1993bc129a54b59b65a7e96f3c8256b59881d9c4a299b1925e7b42f82b"
+      },
+      {
+        "path": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\markitdown-c07-acceptance-6fejrvi2\\中文受管環境\\geos-replacement\\geos_c-6dd9fd915eef8a7928285416bef1e666.dll",
+        "sha256": "c9c14dc087a007d7b22baa7f893abbc575bedeb350f1ad585c12c5eb25171b50"
+      }
+    ]
+  }
+}
