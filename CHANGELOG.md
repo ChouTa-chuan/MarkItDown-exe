@@ -6,6 +6,7 @@
 
 - 2026-11-21：B3-4 新增 CPU Microsoft 六檔再散布依據（[證據](docs/development-records/runs/b3-4-cpu-microsoft-redistribution-2026-11-21/README.md)）：兩個根 MSVCP140 有官方 REDIST 條款對應，兩個根 vcruntime140 與兩個改名 msvcp140 只有第三方宣告，python.org 同名檔未取得；未改打包、登記表與狀態，`cpu-microsoft` 仍 open。
 
+- 2026-11-21：B3 規劃與使用者決定（B3-0）：planner 計畫寫入 STATUS C 節（B3b6、B3-1～B3-13），D 節新增 B3-D1～D5（CPU 交付通道選測試通道方案、換 v6 small 並先做真實掃描、補原文含 base、GEOS 採 (a)、B3d 建置工具不處理）；STATUS 存檔 `2026-11-21-before-b3-plan.md` 與決定固定檔 `2026-11-21-b3-decisions.md`。只改文件。
 ### 2026-11-21｜B3d CPU worker 建置工具查證
 
 - 以固定 CPU 候選的原始完整報告逐檔核對建置工具，分開辨識授權／套件資料、PYZ 或 base_library 的程式碼和 PyInstaller 啟動器。另以同來源 Windows 重建讀取外層啟動封存並跑固定 health 和 OCR，詳見[證據](docs/development-records/runs/b3d-cpu-build-tools-2026-11-21/README.md)。
