@@ -4,7 +4,7 @@
  "registry_entry": "cpu-microsoft",
  "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
  "legal_approval": false,
- "note": "依據彙整，不是核准。依據等級不等於法律結論；B3-10 由使用者逐條決定。",
+ "note": "依據彙整，不是核准。依據等級不等於法律結論；B3-10 由使用者逐條決定。各列 pe_file_version、signature_status、signer 的來源：根目錄四列來自 A13b 固定審閱（cpu-source-review.json）；兩個 wheel 改名複本列來自 B3c 觀測（cpu-native-observation.json）。null 只表示該欄位在來源中未觀測到，不代表檔案沒有簽章或版本資訊不存在。",
  "cpython": {
   "version": "3.12.10",
   "profile": "packaging/cpython/windows-3.12.10/profile.json（commit 0cc81280367df838c4b199f8f0378837165071c2）",
@@ -108,9 +108,9 @@
    "bytes": 557416,
    "origin": "installed-wheel（shapely 2.2.0 cp312 win_amd64）",
    "source": "shapely-2.2.0-cp312-cp312-win_amd64.whl :: shapely.libs/msvcp140-0fa7eb792d3fbcf2233e4ea47e9144b9.dll",
-   "pe_file_version": null,
-   "signature_status": null,
-   "signer": null,
+   "pe_file_version": "14.44.35229.0",
+   "signature_status": "Valid",
+   "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
    "basis": "wheel 內 shapely-2.2.0.dist-info/licenses/LICENSE_win32（SHA-256 fdbb2abb…）：Shapely 上游宣告附帶「Microsoft Visual C++ Runtime Files」，引用 VS 2015 (14.0) 的條款 URL，並列出檔名 msvcp140.dll 與舊版 VS 14.0 redist 路徑。宣告未提及本改名複本或 14.44.35229.0。",
    "basis_level": "第三方宣告（Shapely 上游）",
    "microsoft_direct_basis": "查不到：本位元組 sha 與官方 Redist 的 msvcp140.dll 不同，PE 14.44.35229.0 也不在已核對的 Redist 內。",
@@ -120,7 +120,8 @@
     "sha256": "90895df6542ae039fc6557dec6194e3509e883fbd6f5788e3c3e7a38fe46b257"
    },
    "pe_file_version_verified_offline": "14.44.35229.0",
-   "record_sha256_matches": true
+   "record_sha256_matches": true,
+   "pe_version_and_signature_source": "B3c 觀測 docs/development-records/runs/b3c-cpu-native-review-2026-11-20/cpu-native-observation.json（Windows hosted run 44755140396 的 check 註記）；本輪只以 pefile 離線複核 PE FileVersion"
   },
   {
    "file": "numpy.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
@@ -128,9 +129,9 @@
    "bytes": 575056,
    "origin": "installed-wheel（numpy 2.5.4 cp312 win_amd64）",
    "source": "numpy-2.5.4-cp312-cp312-win_amd64.whl :: numpy.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
-   "pe_file_version": null,
-   "signature_status": null,
-   "signer": null,
+   "pe_file_version": "14.40.33810.0",
+   "signature_status": "Valid",
+   "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
    "basis": "numpy wheel 的 LICENSE.txt 與所有 dist-info、子目錄授權檔（掃描 microsoft／msvcp／vcruntime 關鍵字）都沒有 Microsoft DLL 的說明；只有 DELVEWHEEL 的 repair 參數與 METADATA 的作業系統分類。",
    "basis_level": "查不到",
    "microsoft_direct_basis": "查不到：本位元組與官方 Redist 的 msvcp140.dll 不同，PE 14.40.33810.0 也不是 Redist 14.44.35112 的版本。",
@@ -140,7 +141,8 @@
     "sha256": "a7b1b6353e36a7e50de2973a38d705c88ee93adcf120673cee7f45a4a3fa223a"
    },
    "pe_file_version_verified_offline": "14.40.33810.0",
-   "record_sha256_matches": true
+   "record_sha256_matches": true,
+   "pe_version_and_signature_source": "B3c 觀測 docs/development-records/runs/b3c-cpu-native-review-2026-11-20/cpu-native-observation.json（Windows hosted run 44755140396 的 check 註記）；本輪只以 pefile 離線複核 PE FileVersion"
   }
  ]
 }

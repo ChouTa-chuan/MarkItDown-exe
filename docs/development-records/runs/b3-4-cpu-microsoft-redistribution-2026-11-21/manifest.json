@@ -2,7 +2,7 @@
   "date_taipei": "2026-11-21",
   "tested_source": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
   "accepted": true,
-  "result": "CPU Microsoft 六檔依據彙整完成：兩個根目錄 MSVCP140 為 Microsoft 直接條款（條件：licensed VS 使用者）；兩個根目錄 vcruntime140 與兩個改名 msvcp140 查不到 Microsoft 直接條款，僅有第三方宣告；兩個 vcruntime 的 python.org 同名檔未核對；legal_approval 仍為 false，cpu-microsoft 仍 open。",
+  "result": "CPU Microsoft 六檔依據彙整完成：兩個根目錄 MSVCP140 為 Microsoft 直接條款（條件：licensed VS 使用者）；兩個根目錄 vcruntime140 與兩個改名 msvcp140 查不到 Microsoft 直接條款，僅有第三方宣告；兩個 vcruntime 的 python.org 同名檔未核對；legal_approval 仍為 false，cpu-microsoft 仍 open。`accepted` 只代表證據收集完成，不是法律核准。",
   "keywords": [
     "B3-4",
     "CPU",
@@ -17,8 +17,8 @@
     "再散布依據"
   ],
   "files": {
-    "README.md": "61d5868067e889719be0ea4446eb5424ab369a71f50e11c2a87d804acc83bdb4",
-    "cpu-microsoft-basis.json": "92acaa980538576478844a492072fe8c1b66f77d51e2bc78982577e6c228c4e7",
+    "README.md": "7d77ea07d8e24dfa1a4436a8a86366820abda0b7e05f52450c5a16cc065e34a2",
+    "cpu-microsoft-basis.json": "9ef6a4dcb48fb71fa56d656c94b451075e72db286a80839a14263d3f4f2f47a9",
     "cpython-PC-crtlicense.txt": "3c71b3ae243121f6f227374cd1ef7c59ed07b1969b330d0e947f91a3a1b3fd73",
     "shapely-LICENSE_win32.txt": "fdbb2abb8c598c8888755b52340bddcee38668a2def23e51e7d9e3f187bb8d51"
   },
