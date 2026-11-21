@@ -4,6 +4,11 @@
 
 ## 更新中
 
+### 2026-11-21｜B3-3 GEOS 使用者替換
+
+- Windows CPU worker 從使用者資料的獨立目錄預載指定 GEOS 配對，檢查絕對路徑、連結、檔案名稱、版本與實際載入來源。輸出和診斷記錄替換為未驗證及兩份 DLL 的 SHA-256。
+- Hosted Windows 以同版不同 bytes 的自建 GEOS 核對 Windows 名稱解析；正常受管版、改檔與損壞反例、替換 OCR 與還原見[驗收證據](docs/development-records/runs/b3-3-geos-replacement-2026-11-21/README.md)。受管完整性檢查繼續驗證所有檔案。
+
 - 2026-11-21：B3 規劃與使用者決定（B3-0）：planner 計畫寫入 STATUS C 節（B3b6、B3-1～B3-13），D 節新增 B3-D1～D5（CPU 交付通道選測試通道方案、換 v6 small 並先做真實掃描、補原文含 base、GEOS 採 (a)、B3d 建置工具不處理）；STATUS 存檔 `2026-11-21-before-b3-plan.md` 與決定固定檔 `2026-11-21-b3-decisions.md`。只改文件。
 ### 2026-11-21｜B3d CPU worker 建置工具查證
 
