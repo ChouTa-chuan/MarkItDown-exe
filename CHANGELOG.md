@@ -4,6 +4,7 @@
 
 ## 更新中
 
+- 2026-11-21：B3-4b：使用者開放 `www.python.org` 後，核對 CPU worker 根目錄的 `vcruntime140.dll`、`vcruntime140_1.dll`（14.42.34438.0）與 python.org 官方 3.12.10 embeddable package 內同名檔逐位元相同，下載檔 MD5 與發行頁公布值相同。仍不是 Microsoft 的直接授權，是否接受由使用者在 B3-10 決定。只新增證據。
 - 2026-11-21：B3-4 新增 CPU Microsoft 六檔再散布依據（[證據](docs/development-records/runs/b3-4-cpu-microsoft-redistribution-2026-11-21/README.md)）：兩個根 MSVCP140 有官方 REDIST 條款對應，兩個根 vcruntime140 與兩個改名 msvcp140 只有第三方宣告，python.org 同名檔未取得；未改打包、登記表與狀態，`cpu-microsoft` 仍 open。
 - 2026-11-21：B3b6 第一步（證據，未改程式）：新增真實掃描測試包（9 頁 A4 PDF、給使用者印出後掃描的說明、評估腳本）與乾跑結果，真實掃描尚未取得。見 [B3b6 證據](docs/development-records/runs/b3b6-real-scan-kit-2026-11-21/README.md)。
 
