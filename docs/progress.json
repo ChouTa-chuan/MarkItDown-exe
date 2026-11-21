@@ -2,7 +2,7 @@
   "updated": "2026-11-21",
   "environment": "Linux 混合／獨立模組完整回歸與 hosted Windows 的 GEOS 預載及凍結 worker 驗證。",
   "tests_passed": 984,
-  "headline": "B3-3：GEOS 可從受管目錄外載入，驗收 Windows CPU worker",
+  "headline": "B3-3 GEOS 替換通過 hosted Windows 凍結 worker 驗收",
   "blocker": "CPU 元件在實機無法安裝（程式沒有信任公鑰與正式目錄），B3-7 要建立測試通道並請使用者建立金鑰與 GitHub secret。換 v6 small 要先完成真實掃描複驗。乾淨機與人工驗收使用 B3 後的新版本。",
   "next": "B3-3 完成 CI 後交 Claude reviewer。B3-7 等 B3-3 合併後先出設計。",
   "milestones": [
@@ -2897,7 +2897,7 @@
             "id": "B3-3",
             "title": "GEOS 受支援替換路徑",
             "status": "active",
-            "note": "Windows 名稱解析實驗通過；驗收凍結 worker 與實際載入證據。"
+            "note": "不同 bytes 的同版替換已通過幾何、實際 OCR 與還原驗收。待 PR CI 及 Claude reviewer。"
           },
           {
             "id": "B3-4",
