@@ -6,12 +6,14 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 159 筆。
+共 161 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2026-11-21 | 證據 | 真實掃描測試包（給使用者印出、掃描後交回） | b3a0e9c | 接受 | B3b6、真實掃描、測試包、PP-OCRv6、v4、繁中、簡中、英文、A4 PDF、乾跑 | [development-records/runs/b3b6-real-scan-kit-2026-11-21/README.md](development-records/runs/b3b6-real-scan-kit-2026-11-21/README.md) |
 | 2026-11-21 | 證據 | B3d：CPU worker 建置工具查證 | b17d51b | 接受、Windows已執行 | B3d、CPU worker、setuptools、pip、PyInstaller、原文、CArchive、PYZ | [development-records/runs/b3d-cpu-build-tools-2026-11-21/README.md](development-records/runs/b3d-cpu-build-tools-2026-11-21/README.md) |
+| 2026-11-21 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-21-b3-decisions.md](history/status/2026-11-21-b3-decisions.md) |
+| 2026-11-21 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-21-before-b3-plan.md](history/status/2026-11-21-before-b3-plan.md) |
 | 2026-11-21 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-21-before-b3d.md](history/status/2026-11-21-before-b3d.md) |
 | 2026-11-20 | 證據 | B1b 固定候選逐檔對照 |  | 接受 | B1b、逐檔對照、固定候選、Windows | [development-records/runs/b1b-content-equivalence-2026-11-20/README.md](development-records/runs/b1b-content-equivalence-2026-11-20/README.md) |
 | 2026-11-20 | 證據 | B3a CPU worker 套件授權原文綁定 | a8704d0 | 接受 | B3a、flatbuffers、RapidOCR、CPU、授權原文綁定 | [development-records/runs/b3a-cpu-original-notices-2026-11-20/README.md](development-records/runs/b3a-cpu-original-notices-2026-11-20/README.md) |

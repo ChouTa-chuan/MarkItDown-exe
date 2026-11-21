@@ -2,9 +2,9 @@
   "updated": "2026-11-21",
   "environment": "Linux 混合／獨立模組完整回歸；hosted Windows 2022 讀取同一固定 CPU 來源重建的 CArchive，並驗證固定 OCR 樣本。",
   "tests_passed": 969,
-  "headline": "B3d 完成 CPU worker 建置工具查證，待 Claude reviewer",
-  "blocker": "B3 重新定版前要補 CPU 原文（LibYAML、Pillow、OpenCV、pyclipper 等）、設計 GEOS 受支援替換路徑，並由使用者決定 v6 簡中、授權與外部字表的打包方式。乾淨機與人工驗收使用 B3 後的新版本。",
-  "next": "B3d 由 Claude reviewer 查驗。B3 重新定版前由使用者確認 v6 採用條件及是否精簡 CPU worker 資產。",
+  "headline": "B3a～B3d 完成；B3 計畫與使用者決定已定案，下一步補原文、真實掃描複驗與 CPU 交付通道",
+  "blocker": "CPU 元件在實機無法安裝（程式沒有信任公鑰與正式目錄），B3-7 要建立測試通道並請使用者建立金鑰與 GitHub secret。換 v6 small 要先完成真實掃描複驗。乾淨機與人工驗收使用 B3 後的新版本。",
+  "next": "Claude coder 做 B3-1（LibYAML、PaddleOCR 原文）、B3-4（CPU Microsoft 依據）與列印測試 PDF（B3b6）；使用者列印掃描。B3-2、B3-3、B3-7 待指派 GPT。",
   "milestones": [
     {
       "id": "m0",
@@ -2859,14 +2859,99 @@
           {
             "id": "B3d",
             "title": "CPU：建置工具是否進入 worker",
-            "status": "active",
-            "note": "固定候選內沒有建置工具的 PYZ／base_library 模組；PyInstaller 有啟動程式，其他命中為資料。待 Claude reviewer。"
+            "status": "done",
+            "note": "只有授權與 metadata，沒有可匯入的建置工具模組；PyInstaller 啟動器必需；決定不排除。",
+            "pr": 52
           },
           {
             "id": "B3",
             "title": "CPU 元件重新定版",
+            "status": "active",
+            "note": "已拆成 B3b6、B3-0～B3-13。內容變更全部合併後才一次重新固定候選。"
+          },
+          {
+            "id": "B3b6",
+            "title": "真實掃描複驗（v4 對 v6）",
+            "status": "next",
+            "note": "使用者決定換 v6 前先做；coder 產生測試 PDF，使用者列印並掃描"
+          },
+          {
+            "id": "B3-0",
+            "title": "決定與計畫定案",
+            "status": "active",
+            "note": "B3 計畫與 B3-D1～D5 決定記入 STATUS（本 PR）"
+          },
+          {
+            "id": "B3-1",
+            "title": "原文補件 I：LibYAML、PaddleOCR",
+            "status": "next",
+            "note": "Claude coder；base 也會改到（已同意）"
+          },
+          {
+            "id": "B3-2",
+            "title": "原文補件 II：Pillow、OpenCV、pyclipper",
             "status": "pending",
-            "note": "需 B3a–B3d 完成並經使用者確認。依 B3c 清單補原文（LibYAML、Pillow、OpenCV、pyclipper，再查 onnxruntime、NumPy）；GEOS 受支援替換路徑；CPU Microsoft 再散布依據；是否換 v6 small 與外部字表打包另需使用者同意。"
+            "note": "建議 GPT；排在 B3-1 後；onnxruntime、NumPy 先查證"
+          },
+          {
+            "id": "B3-3",
+            "title": "GEOS 受支援替換路徑",
+            "status": "pending",
+            "note": "選 (a)：外部替換目錄預先載入；建議 GPT；hosted Windows 驗收"
+          },
+          {
+            "id": "B3-4",
+            "title": "CPU Microsoft 再散布依據（證據）",
+            "status": "next",
+            "note": "Claude coder；維持現狀另存依據"
+          },
+          {
+            "id": "B3-5",
+            "title": "CPU 揭露檔與揭露規則補強",
+            "status": "pending",
+            "note": "B3-1、B3-2 之後"
+          },
+          {
+            "id": "B3-6",
+            "title": "換用官方 PP-OCRv6 small＋外部字表",
+            "status": "pending",
+            "note": "須 B3b6 通過並再確認簡中差異、授權、字表附檔方式"
+          },
+          {
+            "id": "B3-7",
+            "title": "CPU 交付通道（測試通道簽章）",
+            "status": "pending",
+            "note": "方案 1；使用者需建立金鑰與 GitHub secret（教學隨設計提供）；建議 GPT"
+          },
+          {
+            "id": "B3-9",
+            "title": "重新固定候選（base 與 cpu）",
+            "status": "pending",
+            "note": "內容變更全部合併後才做；附證據逐條綁定稽核表"
+          },
+          {
+            "id": "B3-9b",
+            "title": "CPU 逐列來源對照",
+            "status": "pending",
+            "note": "比照 A12b／A13c"
+          },
+          {
+            "id": "B3-10",
+            "title": "CPU 門檻確認與接線",
+            "status": "user",
+            "note": "逐條請使用者決定後接線登記表"
+          },
+          {
+            "id": "B3-12",
+            "title": "測試版產出流程更新（含 CPU 產品）",
+            "status": "pending",
+            "note": "來源改為新候選；CPU 公開開關預設關"
+          },
+          {
+            "id": "B3-13",
+            "title": "公開一次並關回開關",
+            "status": "pending",
+            "note": "base 與 CPU 測試包"
           },
           {
             "id": "B4",
