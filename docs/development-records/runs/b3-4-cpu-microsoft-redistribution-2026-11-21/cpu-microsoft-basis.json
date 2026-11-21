@@ -1,0 +1,148 @@
+{
+ "schema_version": 1,
+ "profile": "cpu",
+ "registry_entry": "cpu-microsoft",
+ "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+ "legal_approval": false,
+ "note": "依據彙整，不是核准。依據等級不等於法律結論；B3-10 由使用者逐條決定。各列 pe_file_version、signature_status、signer 的來源：根目錄四列來自 A13b 固定審閱（cpu-source-review.json）；兩個 wheel 改名複本列來自 B3c 觀測（cpu-native-observation.json）。null 只表示該欄位在來源中未觀測到，不代表檔案沒有簽章或版本資訊不存在。",
+ "cpython": {
+  "version": "3.12.10",
+  "profile": "packaging/cpython/windows-3.12.10/profile.json（commit 0cc81280367df838c4b199f8f0378837165071c2）",
+  "upstream_license_sha256_pinned": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+  "candidate_license_sha256": "e502c6b880ff58d614901495a9009c136539cd0b1e2a2abb8fc00b934c203419",
+  "candidate_license_bytes": 36874,
+  "candidate_license_reproduced": false,
+  "crtlicense_sha256": "3c71b3ae243121f6f227374cd1ef7c59ed07b1969b330d0e947f91a3a1b3fd73",
+  "python_org_status": "未取得：www.python.org CONNECT 403（代理政策拒絕）"
+ },
+ "official_redist": {
+  "directory": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT",
+  "version_msvcp": "14.44.35211.0",
+  "page_path": "docs/development-records/runs/a10-microsoft-runtime-2026-11-17/official-vs2022-redist.html",
+  "page_sha256": "476af70cfdfc26a80338df8264bac5745a9e8b3a37dfd71decbaa56f301c9c22"
+ },
+ "files": [
+  {
+   "file": "MSVCP140_1.dll",
+   "sha256": "bfad5aef4c63a669e3c140655cdfdf395b6c979b400a447bd5dcb65ed8826c3d",
+   "bytes": 35952,
+   "origin": "system-native（VS 2022 Enterprise 14.44.35112 Redist 資料夾）",
+   "source": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT\\MSVCP140_1.dll",
+   "pe_file_version": "14.44.35211.0",
+   "signature_status": "Valid",
+   "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+   "basis": "Microsoft 官方 Distributable Code 清單（A10 保存的 Learn 頁，見 documents）：「Visual C++ Runtime Files」與「VC\\redist」資料夾內未修改檔可隨程式散布，條件是授權的 Visual Studio 使用者；本檔 bytes 與該資料夾同名檔逐位元相同。",
+   "basis_level": "權利人直接載明",
+   "microsoft_direct_basis": "有（條件：licensed Visual Studio users；是否符合為使用者判斷，見 A13 D 節）",
+   "open_items": "適用條款版本與授權身分（使用者判斷適用 VS Community，A12b／A13）；B3-10 逐條決定。",
+   "official_reference": {
+    "name": "msvcp140_1.dll",
+    "sha256": "bfad5aef4c63a669e3c140655cdfdf395b6c979b400a447bd5dcb65ed8826c3d",
+    "file_version": "14.44.35211.0",
+    "same_bytes": true
+   }
+  },
+  {
+   "file": "msvcp140.dll",
+   "sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+   "bytes": 557728,
+   "origin": "system-native（VS 2022 Enterprise 14.44.35112 Redist 資料夾）",
+   "source": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\VC\\Redist\\MSVC\\14.44.35112\\x64\\Microsoft.VC143.CRT\\msvcp140.dll",
+   "pe_file_version": "14.44.35211.0",
+   "signature_status": "Valid",
+   "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+   "basis": "同 MSVCP140_1.dll：官方 REDIST 頁的 VC\\redist 條款；本檔與該資料夾同名檔逐位元相同。",
+   "basis_level": "權利人直接載明",
+   "microsoft_direct_basis": "有（條件同上）",
+   "open_items": "同 MSVCP140_1.dll。",
+   "official_reference": {
+    "name": "msvcp140.dll",
+    "sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+    "file_version": "14.44.35211.0",
+    "same_bytes": true
+   }
+  },
+  {
+   "file": "vcruntime140.dll",
+   "sha256": "052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4",
+   "bytes": 120400,
+   "origin": "python-runtime（CPython 3.12.10 setup-python 工具快取）",
+   "source": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\vcruntime140.dll",
+   "pe_file_version": "14.42.34438.0",
+   "signature_status": "Valid",
+   "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+   "basis": "CPython 固定 commit 0cc81280 的 PC/crtlicense.txt 聲明：本 Windows 二進位內含 Microsoft Distributable Code，散布者須遵守 Microsoft 的限制（原文見 cpython-PC-crtlicense.txt）。這是 CPython 的宣告，不是 Microsoft 對本位元組的授權。",
+   "basis_level": "第三方宣告（CPython）",
+   "microsoft_direct_basis": "查不到：本位元組不在已核對的官方 Redist 內；官方 Redist 的 vcruntime140.dll 為 14.44.35211.0，sha 不同。",
+   "open_items": "（1）python.org 官方 3.12.10 安裝檔或 embeddable 包的同名檔未取得（www.python.org 代理 403），bytes 來源未能獨立核對；（2）14.42.34438.0 是否對應某個官方 VS 2022 Redist 版本，未核對；（3）B3-10 決定。",
+   "official_reference": {
+    "name": "vcruntime140.dll",
+    "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+    "file_version": "14.44.35211.0",
+    "same_bytes": false
+   }
+  },
+  {
+   "file": "vcruntime140_1.dll",
+   "sha256": "6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8",
+   "bytes": 49776,
+   "origin": "python-runtime（CPython 3.12.10 setup-python 工具快取）",
+   "source": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\vcruntime140_1.dll",
+   "pe_file_version": "14.42.34438.0",
+   "signature_status": "Valid",
+   "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+   "basis": "同 vcruntime140.dll：CPython crtlicense 宣告；無 Microsoft 直接授權條文能對到本位元組。",
+   "basis_level": "第三方宣告（CPython）",
+   "microsoft_direct_basis": "查不到：同 vcruntime140.dll。",
+   "open_items": "同 vcruntime140.dll。",
+   "official_reference": {
+    "name": "vcruntime140_1.dll",
+    "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+    "file_version": "14.44.35211.0",
+    "same_bytes": false
+   }
+  },
+  {
+   "file": "Shapely.libs/msvcp140-0fa7eb792d3fbcf2233e4ea47e9144b9.dll",
+   "sha256": "0fa7eb792d3fbcf2233e4ea47e9144b9b1309ba8ed5d4731a72fffa8f4f556d6",
+   "bytes": 557416,
+   "origin": "installed-wheel（shapely 2.2.0 cp312 win_amd64）",
+   "source": "shapely-2.2.0-cp312-cp312-win_amd64.whl :: shapely.libs/msvcp140-0fa7eb792d3fbcf2233e4ea47e9144b9.dll",
+   "pe_file_version": "14.44.35229.0",
+   "signature_status": "Valid",
+   "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+   "basis": "wheel 內 shapely-2.2.0.dist-info/licenses/LICENSE_win32（SHA-256 fdbb2abb…）：Shapely 上游宣告附帶「Microsoft Visual C++ Runtime Files」，引用 VS 2015 (14.0) 的條款 URL，並列出檔名 msvcp140.dll 與舊版 VS 14.0 redist 路徑。宣告未提及本改名複本或 14.44.35229.0。",
+   "basis_level": "第三方宣告（Shapely 上游）",
+   "microsoft_direct_basis": "查不到：本位元組 sha 與官方 Redist 的 msvcp140.dll 不同，PE 14.44.35229.0 也不在已核對的 Redist 內。",
+   "open_items": "（1）VS 2015 條款 URL 內容未核對，且不能直接套用於 VS 2022 位元組；（2）宣告檔名與改名複本不一致；（3）改名複本是否屬 Redist 散布範圍；（4）B3-10 決定。",
+   "wheel": {
+    "filename": "shapely-2.2.0-cp312-cp312-win_amd64.whl",
+    "sha256": "90895df6542ae039fc6557dec6194e3509e883fbd6f5788e3c3e7a38fe46b257"
+   },
+   "pe_file_version_verified_offline": "14.44.35229.0",
+   "record_sha256_matches": true,
+   "pe_version_and_signature_source": "B3c 觀測 docs/development-records/runs/b3c-cpu-native-review-2026-11-20/cpu-native-observation.json（Windows hosted run 44755140396 的 check 註記）；本輪只以 pefile 離線複核 PE FileVersion"
+  },
+  {
+   "file": "numpy.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+   "sha256": "a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde",
+   "bytes": 575056,
+   "origin": "installed-wheel（numpy 2.5.4 cp312 win_amd64）",
+   "source": "numpy-2.5.4-cp312-cp312-win_amd64.whl :: numpy.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll",
+   "pe_file_version": "14.40.33810.0",
+   "signature_status": "Valid",
+   "signer": "CN=Microsoft Windows Software Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+   "basis": "numpy wheel 的 LICENSE.txt 與所有 dist-info、子目錄授權檔（掃描 microsoft／msvcp／vcruntime 關鍵字）都沒有 Microsoft DLL 的說明；只有 DELVEWHEEL 的 repair 參數與 METADATA 的作業系統分類。",
+   "basis_level": "查不到",
+   "microsoft_direct_basis": "查不到：本位元組與官方 Redist 的 msvcp140.dll 不同，PE 14.40.33810.0 也不是 Redist 14.44.35112 的版本。",
+   "open_items": "全部：沒有 numpy 上游對此 DLL 的散布說明，也沒有 Microsoft 直接條款對到本位元組；B3-10 決定或另找來源。",
+   "wheel": {
+    "filename": "numpy-2.5.4-cp312-cp312-win_amd64.whl",
+    "sha256": "a7b1b6353e36a7e50de2973a38d705c88ee93adcf120673cee7f45a4a3fa223a"
+   },
+   "pe_file_version_verified_offline": "14.40.33810.0",
+   "record_sha256_matches": true,
+   "pe_version_and_signature_source": "B3c 觀測 docs/development-records/runs/b3c-cpu-native-review-2026-11-20/cpu-native-observation.json（Windows hosted run 44755140396 的 check 註記）；本輪只以 pefile 離線複核 PE FileVersion"
+  }
+ ]
+}
