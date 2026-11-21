@@ -3,6 +3,7 @@ from contextlib import ExitStack, contextmanager
 import ctypes
 from ctypes import wintypes
 import hashlib
+import json
 import os
 from pathlib import Path, PureWindowsPath
 import stat
@@ -68,6 +69,12 @@ def record_detail(record):
         return ''
     parts = [f"{file['path']}（SHA-256 {file['sha256']}）" for file in record['files']]
     return LABEL + '：' + '；'.join(parts)
+
+
+def markdown_record(record):
+    """留存絕對路徑與完整雜湊，以 JSON 引用，避免路徑變成 Markdown 語法。"""
+    data = json.dumps(record, ensure_ascii=False, indent=2)
+    return f'\n{LABEL}\n\n```json\n{data}\n```\n\n'
 
 
 def valid_record(value):
@@ -176,5 +183,7 @@ def load_replacement(directory, managed):
             if len(loaded) != len(paths) or {path.resolve() for path in loaded} != {path.resolve() for path in paths}:
                 raise GeosReplacementError('程序未從指定目錄載入兩個 GEOS 替換檔。')
             return dict(status=STATUS, files=files), handles
-    except (OSError, ImportError, IntegrityError) as exc:
+    except GeosReplacementError:
+        raise
+    except Exception as exc:
         raise GeosReplacementError('無法載入或核對 GEOS 替換檔。') from exc

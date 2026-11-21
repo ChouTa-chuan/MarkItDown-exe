@@ -19,7 +19,7 @@ from ..core import Cancelled, Request, State
 from ..resources import MIB, snapshot
 from ..conversion import _write_chunks
 from . import protocol as wire
-from .geos_replacement import ERROR, FAILURE, LABEL, record_detail
+from .geos_replacement import ERROR, FAILURE, LABEL, markdown_record, record_detail
 
 
 class WorkerError(RuntimeError):
@@ -228,13 +228,15 @@ class WorkerRunner:
             wire.require(value['runtime']['frozen']==hello['frozen'])
             if input_hash is not None:wire.require(value['input_sha256']==input_hash,'輸入與結果不相符。')
             if operation=='health':wire.require(value['health_passed'],'真實 CPU OCR 健康檢查未通過。')
+            replacement = value['runtime'].get('geos_replacement')
             if destination is not None:
                 text=value['text']+'\n\n> '+value['warning']+'\n'
+                if replacement is not None:
+                    text += markdown_record(replacement)
                 _write_chunks(Request(Path(source) if source else target,Path(destination)),
                               (text[index:index+65536] for index in range(0,len(text),65536)),check,lambda stage:None)
             if destination is None:check()
             message = '選配 CPU 推論完成；品質限制保留。'
-            replacement = value['runtime'].get('geos_replacement')
             if replacement is not None:
                 detail = record_detail(replacement)
                 message += ' ' + (detail if len(message) + len(detail) < 2048 else LABEL)

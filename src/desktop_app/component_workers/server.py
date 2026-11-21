@@ -151,6 +151,10 @@ def serve(directory, guard, control, input_stream, *, geos_directory=None):
     except Cancelled:
         finished.set();emit('cancelled',job_id=state['job_id'],code='protocol_error' if state['error'] else 'cancelled')
         return 2
+    except GeosReplacementError:
+        finished.set()
+        emit('failed', job_id=state['job_id'], code=FAILURE)
+        return 1
     except Exception:
         finished.set();emit('failed',job_id=state['job_id'],code='worker_failed')
         return 1

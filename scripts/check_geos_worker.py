@@ -1,5 +1,6 @@
 """B3-3：用同一受管元件逐一驗證 GEOS 替換與損壞還原。"""
 import hashlib
+import json
 from pathlib import Path
 import shutil
 
@@ -57,9 +58,14 @@ def verify_replacements(manager, binding, envelope, spec, source, root, replacem
         replaced = binding.run_managed(manager, envelope, source, output)
         actual = (replaced.report or {}).get('runtime', {}).get('geos_replacement')
         if (replaced.state != State.COMPLETED or actual != dict(status=STATUS, files=expected)
-                or LABEL not in output.read_text(encoding='utf-8')
                 or 'WORKER HEALTH CHECK 12345' not in ' '.join(replaced.report['text'].split())):
             raise AssertionError('Real replacement OCR or module binding did not match: '+replaced.message)
+        markdown = output.read_text(encoding='utf-8')
+        if LABEL not in markdown or any(
+            json.dumps(file['path'], ensure_ascii=False) not in markdown or file['sha256'] not in markdown
+            for file in expected
+        ):
+            raise AssertionError('Replacement path and fingerprint missing from OCR output')
         (directory/NAMES[1]).write_bytes(b'not a DLL')
         failed = binding.health(spec, installed, manager.host)
         if failed.passed or ERROR not in failed.detail:
