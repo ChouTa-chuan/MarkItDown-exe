@@ -115,7 +115,7 @@ jobs:
   geos-feasibility:
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.geos_replacement_feasibility }}
     runs-on: windows-2022
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
@@ -159,3 +159,31 @@ jobs:
         run: |
           & out/geos-venv/Scripts/python.exe scripts/geos_windows_feasibility.py --replacement (Resolve-Path out/geos-replacement).Path
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Build the unchanged-spec frozen worker and lean controller
+        shell: pwsh
+        run: |
+          $worker = "out/geos-venv/Scripts/python.exe"
+          & $worker -m pip install --no-deps --no-build-isolation .
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & $worker scripts/prepare_worker_assets.py --output out/geos-worker-assets
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $env:MARKITDOWN_WORKER_ASSETS = (Resolve-Path out/geos-worker-assets).Path
+          & $worker -m PyInstaller --noconfirm --clean --distpath out/geos-dist --workpath out/geos-work packaging/ocr-worker.spec
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & $worker scripts/package_cpu_worker.py --bundle out/geos-dist/MarkItDownOCRWorker --output out/geos-package
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m venv out/geos-controller
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & out/geos-controller/Scripts/python.exe -m pip install --require-hashes -r packaging/profiles/cpu-windows-controller.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & out/geos-controller/Scripts/python.exe -m pip install --no-deps --no-build-isolation .
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Check frozen worker, managed integrity and replacement removal
+        shell: pwsh
+        run: |
+          & out/geos-controller/Scripts/python.exe scripts/check_cpu_worker_acceptance.py --package-directory out/geos-package --report out/geos-reports/worker.json --geos-replacements out/geos-replacement
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $report = Get-Content -Raw out/geos-reports/worker.json | ConvertFrom-Json
+          $value = $report.geos_replacement | ConvertTo-Json -Compress -Depth 8
+          Write-Output ("::notice title=B3-3 worker integration::" + $value)

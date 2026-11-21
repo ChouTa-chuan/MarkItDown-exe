@@ -13,6 +13,7 @@ from ..components.locks import file_lock
 from ..components.registry import verify_file, _chain
 from ..core import Cancelled
 from . import protocol as wire
+from .geos_replacement import FAILURE, LABEL, GeosReplacementError, load_replacement
 
 
 def asset(name):
@@ -55,7 +56,7 @@ def preload_windows_runtime():
     import rapidocr_onnxruntime
 
 
-def serve(directory, guard, control, input_stream):
+def serve(directory, guard, control, input_stream, *, geos_directory=None):
     directory = Path(directory).absolute();_chain(directory)
     cancel = threading.Event();permit = threading.Event();permit.set()
     finished = threading.Event();commands = Queue(maxsize=1)
@@ -89,6 +90,8 @@ def serve(directory, guard, control, input_stream):
     try:
         # 健康檢查與實際工作共用此鎖；控制端退出後，鎖仍由 worker 自己持有。
         with file_lock(guard,exclusive=False):
+            # 持有 DLL handle 直到 worker 結束，並在任何 OCR 套件載入 Shapely 前決定來源。
+            geos_replacement, geos_handles = load_replacement(geos_directory, Path(guard).parent.parent)
             preload_windows_runtime()
             emit('hello',component_id=wire.COMPONENT_ID,component_version=wire.COMPONENT_VERSION,
                  pid=os.getpid(),frozen=bool(getattr(sys,'frozen',False)),device='cpu')
@@ -132,6 +135,9 @@ def serve(directory, guard, control, input_stream):
                 component_id=wire.COMPONENT_ID,component_version=wire.COMPONENT_VERSION,
                 actual_device='cpu',providers=providers,text=text,warning=warning,input_sha256=input_hash,
                 health_passed=health_passed,runtime=runtime_info())
+            if geos_replacement is not None:
+                value['runtime']['geos_replacement'] = geos_replacement
+                value['warning'] = f"{warning} {LABEL}。".strip()
             wire.result(value,job_id)
             data=(json.dumps(value,ensure_ascii=False,allow_nan=False)+'\n').encode('utf-8')
             wire.require(len(data)<=limits['max_output_bytes'],'結果超過輸出上限。')
@@ -155,6 +161,7 @@ def main(argv=None):
     parser=argparse.ArgumentParser()
     parser.add_argument('--job-directory',type=Path,required=True)
     parser.add_argument('--guard',type=Path,required=True)
+    parser.add_argument('--geos-replacement-dir', type=Path)
     args=parser.parse_args(argv)
     # 控制通道保留獨立 fd，連原生函式庫寫 stdout 都會導至 stderr，不混入 JSON。
     control=os.fdopen(os.dup(sys.stdout.fileno()),'wb',buffering=0)
@@ -162,7 +169,8 @@ def main(argv=None):
     # daemon 不能持有標準 BufferedReader 的鎖，否則 CPython 結束時可能 abort。
     # 單工作程序使用 raw fd；退出時由 OS 回收，無等待另一個 daemon 關閉 buffered IO。
     input_stream=os.fdopen(os.dup(sys.stdin.fileno()),'rb',buffering=0)
-    try:return serve(args.job_directory,args.guard,control,input_stream)
+    try:return serve(args.job_directory,args.guard,control,input_stream,
+                     geos_directory=args.geos_replacement_dir)
     finally:control.close()
 
 

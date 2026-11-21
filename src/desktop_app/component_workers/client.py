@@ -19,6 +19,7 @@ from ..core import Cancelled, Request, State
 from ..resources import MIB, snapshot
 from ..conversion import _write_chunks
 from . import protocol as wire
+from .geos_replacement import ERROR, FAILURE, LABEL, record_detail
 
 
 class WorkerError(RuntimeError):
@@ -169,6 +170,8 @@ class WorkerRunner:
             threads=[Thread(target=stdout_reader,daemon=True),Thread(target=stderr_reader,daemon=True),Thread(target=stdin_writer,daemon=True)]
             for thread in threads:thread.start()
             hello=next_event(min(deadline,time.monotonic()+self.handshake_timeout))
+            if hello['type'] == 'failed' and hello['job_id'] is None and hello['code'] == FAILURE:
+                raise WorkerError(ERROR)
             wire.require(hello['type']=='hello' and hello['pid']==process.pid,'工作程序身分或握手順序不符。')
             wire.require(not self.require_frozen or hello['frozen'],'選配工作程序缺少獨立打包 runtime。')
             admission(self.estimate_mib*MIB)
@@ -230,7 +233,12 @@ class WorkerRunner:
                 _write_chunks(Request(Path(source) if source else target,Path(destination)),
                               (text[index:index+65536] for index in range(0,len(text),65536)),check,lambda stage:None)
             if destination is None:check()
-            return WorkerOutcome(State.COMPLETED,'選配 CPU 推論完成；品質限制保留。',value,process.pid)
+            message = '選配 CPU 推論完成；品質限制保留。'
+            replacement = value['runtime'].get('geos_replacement')
+            if replacement is not None:
+                detail = record_detail(replacement)
+                message += ' ' + (detail if len(message) + len(detail) < 2048 else LABEL)
+            return WorkerOutcome(State.COMPLETED, message, value, process.pid)
         except Cancelled as exc:return WorkerOutcome(State.CANCELLED,str(exc),pid=process.pid if process else None)
         except Exception as exc:return WorkerOutcome(State.FAILED,f'{type(exc).__name__}: {exc}',pid=process.pid if process else None)
         finally:

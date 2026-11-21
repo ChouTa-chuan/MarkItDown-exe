@@ -2,6 +2,8 @@
 import json
 import re
 
+from .geos_replacement import valid_record
+
 PROTOCOL = '1.0.0'
 COMPONENT_ID = 'onnx-cpu-ocr'
 COMPONENT_VERSION = '1.0.1'
@@ -124,7 +126,11 @@ def result(value, job_id, *, expected_version=COMPONENT_VERSION):
     digest(value['input_sha256'])
     require(isinstance(value['text'],str) and isinstance(value['warning'],str) and len(value['warning'])<=2048)
     runtime = value['runtime'];require(isinstance(runtime,dict))
-    fields(runtime,('python','rapidocr','onnxruntime','numpy','opencv','frozen'))
+    names = {'python', 'rapidocr', 'onnxruntime', 'numpy', 'opencv', 'frozen'}
+    extra = 'geos_replacement'
+    fields(runtime, names | {extra} if extra in runtime else names)
+    if extra in runtime:
+        require(valid_record(runtime[extra]), 'GEOS 替換來源格式無效。')
     require(runtime['rapidocr']=='1.4.4' and type(runtime['frozen']) is bool
             and all(isinstance(runtime[name],str) and 0<len(runtime[name])<=48 for name in ('python','rapidocr','onnxruntime','numpy','opencv')))
     return value

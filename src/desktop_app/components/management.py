@@ -117,7 +117,7 @@ class ComponentManagement:
     def _services(self, cancel, check):
         registry = ComponentRegistry(self.registry_path)
         binding = CPUWorkerBinding(registry.directory/'.locks/worker-use.lock', self.settings.policy(),
-                                   cpu_threads=self.settings.cpu_threads, cancel=cancel)
+                                   cpu_threads=self.settings.cpu_threads, cancel=cancel, data_directory=self.directory)
         health = {'onnx.cpu.health':binding.health, **self.health_checks}
         manager = ComponentManager(registry, self.verifier, self.host, health, checkpoint=check)
         return registry, manager
