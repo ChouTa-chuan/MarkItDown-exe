@@ -10,7 +10,7 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | B3-3 自 `d91494c` 開始（B3-0，PR 53 已合併）。B1b 公開開關已關。 |
+| `main` | B3-3 自 `d91494c` 開始，已同步 `5d72880`（PR 54 的掃描測試包與 PR 55、56 的 CPU Microsoft 證據）。B1b 公開開關已關。 |
 | 本輪分支 | `codex/b3-3-geos-replacement` 處理 GEOS，完成驗證後交 Claude reviewer。[PR](https://github.com/ChouTa-chuan/MarkItDown-exe/pulls?q=is%3Apr+head%3Acodex%2Fb3-3-geos-replacement) |
 | 下一棒 | B3-3 的驗證完成後交 Claude reviewer；B3-7 等 B3-3 合併後先出設計。其他 B3 工作依 C 節分工。 |
 | 固定來源 | A13b `b17d51bc99f8402f16b99f98bbe3b3370530bc6c`（base run 44295039865、cpu run 44295044417、Microsoft 探測 run 44300296037） |

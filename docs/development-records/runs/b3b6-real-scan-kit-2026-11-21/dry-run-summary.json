@@ -1,0 +1,193 @@
+{
+  "note": "乾跑結果，不是真實掃描。clean 由 PDF 光柵化得到；scanlike 為 B3b3 degrade_scan.py 的參數模擬。逐頁文字未收錄，完整結果留在 repo 外。",
+  "runs": [
+    {
+      "id": "clean-page",
+      "description": "完美渲染（PDF 以 300 dpi 光柵化），整頁辨識",
+      "mode": "page",
+      "overall": {
+        "v4-current": {
+          "edits": 64,
+          "reference_characters": 2060,
+          "character_accuracy": 0.968932
+        },
+        "v6-official": {
+          "edits": 10,
+          "reference_characters": 2060,
+          "character_accuracy": 0.995146
+        }
+      },
+      "by_language": {
+        "v4-current": {
+          "zh-hant": {
+            "edits": 58,
+            "character_accuracy": 0.877119
+          },
+          "zh-hans": {
+            "edits": 3,
+            "character_accuracy": 0.993617
+          },
+          "en": {
+            "edits": 3,
+            "character_accuracy": 0.997317
+          }
+        },
+        "v6-official": {
+          "zh-hant": {
+            "edits": 5,
+            "character_accuracy": 0.989407
+          },
+          "zh-hans": {
+            "edits": 4,
+            "character_accuracy": 0.991489
+          },
+          "en": {
+            "edits": 1,
+            "character_accuracy": 0.999106
+          }
+        }
+      }
+    },
+    {
+      "id": "clean-trim",
+      "description": "完美渲染，墨跡裁切後辨識（對照）",
+      "mode": "trim",
+      "overall": {
+        "v4-current": {
+          "edits": 78,
+          "reference_characters": 2060,
+          "character_accuracy": 0.962136
+        },
+        "v6-official": {
+          "edits": 9,
+          "reference_characters": 2060,
+          "character_accuracy": 0.995631
+        }
+      },
+      "by_language": {
+        "v4-current": {
+          "zh-hant": {
+            "edits": 71,
+            "character_accuracy": 0.849576
+          },
+          "zh-hans": {
+            "edits": 5,
+            "character_accuracy": 0.989362
+          },
+          "en": {
+            "edits": 2,
+            "character_accuracy": 0.998211
+          }
+        },
+        "v6-official": {
+          "zh-hant": {
+            "edits": 5,
+            "character_accuracy": 0.989407
+          },
+          "zh-hans": {
+            "edits": 3,
+            "character_accuracy": 0.993617
+          },
+          "en": {
+            "edits": 1,
+            "character_accuracy": 0.999106
+          }
+        }
+      }
+    },
+    {
+      "id": "scanlike-page",
+      "description": "模擬：旋轉 0.8 度＋高斯雜訊 10＋JPEG 品質 50，整頁辨識",
+      "mode": "page",
+      "overall": {
+        "v4-current": {
+          "edits": 231,
+          "reference_characters": 2060,
+          "character_accuracy": 0.887864
+        },
+        "v6-official": {
+          "edits": 170,
+          "reference_characters": 2060,
+          "character_accuracy": 0.917476
+        }
+      },
+      "by_language": {
+        "v4-current": {
+          "zh-hant": {
+            "edits": 94,
+            "character_accuracy": 0.800847
+          },
+          "zh-hans": {
+            "edits": 38,
+            "character_accuracy": 0.919149
+          },
+          "en": {
+            "edits": 99,
+            "character_accuracy": 0.911449
+          }
+        },
+        "v6-official": {
+          "zh-hant": {
+            "edits": 35,
+            "character_accuracy": 0.925847
+          },
+          "zh-hans": {
+            "edits": 38,
+            "character_accuracy": 0.919149
+          },
+          "en": {
+            "edits": 97,
+            "character_accuracy": 0.913238
+          }
+        }
+      }
+    },
+    {
+      "id": "scanlike-trim",
+      "description": "模擬同上，墨跡裁切後辨識（對照）",
+      "mode": "trim",
+      "overall": {
+        "v4-current": {
+          "edits": 339,
+          "reference_characters": 2060,
+          "character_accuracy": 0.835437
+        },
+        "v6-official": {
+          "edits": 288,
+          "reference_characters": 2060,
+          "character_accuracy": 0.860194
+        }
+      },
+      "by_language": {
+        "v4-current": {
+          "zh-hant": {
+            "edits": 122,
+            "character_accuracy": 0.741525
+          },
+          "zh-hans": {
+            "edits": 63,
+            "character_accuracy": 0.865957
+          },
+          "en": {
+            "edits": 154,
+            "character_accuracy": 0.862254
+          }
+        },
+        "v6-official": {
+          "zh-hant": {
+            "edits": 71,
+            "character_accuracy": 0.849576
+          },
+          "zh-hans": {
+            "edits": 64,
+            "character_accuracy": 0.86383
+          },
+          "en": {
+            "edits": 153,
+            "character_accuracy": 0.863148
+          }
+        }
+      }
+    }
+  ]
+}
