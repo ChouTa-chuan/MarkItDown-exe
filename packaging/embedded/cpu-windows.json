@@ -877,7 +877,7 @@
           "license": "MIT",
           "notices": [],
           "native_files": [],
-          "note": "載入固定候選相同 bytes 的 extension 呼叫版本 API；固定上游 Windows CI 宣告 0.2.5 且靜態連結。B3-1 已在登記清單綁定上游 LibYAML 獨立原文（固定 commit）；本目錄的 notices 只收 wheel 內原文，故此處仍留空。版本仍依上游建置設定，無 Windows 執行期觀測。"
+          "note": "載入固定候選相同 bytes 的 extension 呼叫版本 API；固定上游 Windows CI 宣告 0.2.5 且靜態連結。版本 0.2.5 由 B3c 的 Windows 執行期 API yaml._yaml.get_version_string 觀測（run 44755140396，同位元組 .pyd），上游建置設定為佐證。B3-1 已在登記清單綁定上游 LibYAML 獨立原文（固定 commit）；本目錄的 notices 只收 wheel 內原文，故此處仍留空。"
         }
       ]
     },

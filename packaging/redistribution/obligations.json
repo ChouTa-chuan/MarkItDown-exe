@@ -1188,7 +1188,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/cpu-windows.json",
-              "sha256": "b72120c61831c66e90158b20a821ad714262e98c5589a0d1e8ba573172e77cc0"
+              "sha256": "344b5ac3bbfc74e02399e3b285da35cc62e9e679c751e30ab48a4e806dcbd7e3"
             },
             {
               "path": "docs/development-records/runs/b3c-cpu-native-review-2026-11-20/notice-audit.json",
@@ -1269,7 +1269,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/cpu-windows.json",
-              "sha256": "b72120c61831c66e90158b20a821ad714262e98c5589a0d1e8ba573172e77cc0"
+              "sha256": "344b5ac3bbfc74e02399e3b285da35cc62e9e679c751e30ab48a4e806dcbd7e3"
             },
             {
               "path": "docs/development-records/runs/b3c-cpu-native-review-2026-11-20/cpu-native-observation.json",

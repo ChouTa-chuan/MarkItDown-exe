@@ -221,8 +221,10 @@ class ProvenanceTests(unittest.TestCase):
             relative = f'licenses/windows/supplemental/{name}.txt'
             path = self.assets/relative
             original = path.read_bytes()
-            for content in (None, b'changed worker original'):
-                with self.subTest(package=name, missing=content is None):
+            # same-size 只改末位元組：大小檢查攔不住，必須由 SHA-256 獨立拒絕。
+            same_size = original[:-1] + (b'X' if original[-1:] != b'X' else b'Y')
+            for case, content in (('missing', None), ('changed', b'changed worker original'), ('same-size', same_size)):
+                with self.subTest(package=name, case=case):
                     manifest = copy.deepcopy(self.installed)
                     if content is None:
                         path.unlink()

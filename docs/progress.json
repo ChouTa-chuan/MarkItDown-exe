@@ -1323,7 +1323,7 @@
     "clean_machine_accepted": false,
     "release_ready": false,
     "evidence": "development-records/runs/b3-1-libyaml-paddleocr-notices-2026-11-21/README.md",
-    "note": "B3-1 工作樹（d91494c 之上未提交變更）的完整混合與逐模組回歸；提交後協調者應以新提交更新 source_commit。"
+    "note": "協調者於提交後以實際提交更新 source_commit（目前值為 d91494c，即 B3-1 工作的基底；之後的 B3-1 修正未改測試數）。"
   },
   "tests_failed": 0,
   "tests_skipped": 0,

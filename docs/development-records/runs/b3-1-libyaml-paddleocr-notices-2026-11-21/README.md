@@ -1,6 +1,6 @@
 # B3-1 原文補件 I：LibYAML 0.2.5 與 PaddleOCR 授權原文
 
-2026-11-21（台北）。從 origin/main `d91494c`（含 B3-0）開 `claude/b3-1-libyaml-paddleocr-notices`。程式版本 0.19.1、架構 0.4 不變。本次**不重新固定候選**，`source_commit` 仍是 A13b 的 `b17d51b`，登記表 `packaging/redistribution/obligations.json` 的狀態欄位都沒有改。
+2026-11-21（台北）。原基於 origin/main `d91494c`（含 B3-0），開 `claude/b3-1-libyaml-paddleocr-notices`；協調者已提交為 `206e0ff`、合併 main `5d72880`（提交 `16c4c8a`），之後本文件的修正在其上新增。程式版本 0.19.1、架構 0.4 不變。本次**不重新固定候選**，`source_commit` 仍是 A13b 的 `b17d51b`，登記表 `packaging/redistribution/obligations.json` 的狀態欄位都沒有改。
 
 ## 做了什麼
 
@@ -31,7 +31,7 @@
 
 | 原文 | 依據 | 分級 | 說明 |
 | --- | --- | --- | --- |
-| LibYAML 0.2.5 | PyYAML 6.0.3 固定 commit `49790e73684bebad1df05ef8d828fa12f685bffb` 的 `.github/workflows/ci.yaml`：`LIBYAML_REF` 預設 0.2.5、`YAML_DECLARE_STATIC=1` | 上游建置設定（主要依據） | `_yaml.cp312-win_amd64.pyd`（sha `4fd0e84f…`）的 `0.2.5` 字串只是弱佐證。無 Windows 執行期觀測（`windows_runtime_observed: false`）。未升級任何 unknown 元件。 |
+| LibYAML 0.2.5 | 版本由 B3c 的 Windows 執行期 API `yaml._yaml.get_version_string` 觀測為 0.2.5：hosted Windows 2022 run [44755140396](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/44755140396)（提交 `392d094`），觀測位元組與固定候選的 `yaml/_yaml.cp312-win_amd64.pyd`（sha `4fd0e84f…`）相同，記於 [cpu-native-observation.json](../b3c-cpu-native-review-2026-11-20/cpu-native-observation.json) 的 `records['pyyaml/libyaml']`。上游建置設定（PyYAML 6.0.3 固定 commit `49790e73684bebad1df05ef8d828fa12f685bffb` 的 `.github/workflows/ci.yaml`：`LIBYAML_REF` 預設 0.2.5、`YAML_DECLARE_STATIC=1`）與 `.pyd` 的 `0.2.5` 字串為佐證。 | runtime-observed（執行期觀測為主，上游建置設定為佐證） | [libyaml-gap.json](../b3c-libyaml-notice-gap-2026-11-20/libyaml-gap.json) 中的 `windows_runtime_observed: false` 是較早提交 `9e78e74` 的快照，之後由 run 44755140396 取得觀測，該快照已過時，不改寫。未升級任何 unknown 元件。 |
 | PaddleOCR 原文 | v2.9.1，commit `07603421…`，與 PP-OCRv4 模型索引同一 commit | 同 commit 對應（原文與模型來源版本一致） | 授權條文屬實際模型來源的專案版本。模型本身的逐檔授權未逐一確認（B3b 已記錄，揭露檔屬 B3-5）。 |
 
 **PaddleOCR 版本選擇**：協調者決定採 v2.9.1，不採 B3b 已取得的 v3.7.0（sha `3840c5c0…`）。v3.7.0 不隨包，之後若使用者改採 PP-OCRv6 模型，由 B3-6 再加入。兩份 Apache-2.0 條文相同，差別只在 v2.9.1 首行多了 `Copyright (c) 2016 PaddlePaddle Authors. All Rights Reserved`。
@@ -47,7 +47,7 @@
 | `windows/inventory.json` | `44fe23db…a217` | `27765d77…81ca` | `base-windows.json`、`cpu-windows.json`（已同步）；a12／a13b review、b3d `repo-notice-sources.json` 為歷史快照（保留） |
 | `windows/supplemental/sources.json` | `6b5d97ed…79a` | `a37099ae…e4f5` | a12／a13b review 內的歷史快照（保留，不改） |
 | `packaging/embedded/base-windows.json` | `561e0a83…03eb` | `74731625…8067f` | `obligations.json` 10 處（已同步） |
-| `packaging/embedded/cpu-windows.json` | `66db0888…211c` | `b72120c6…cc77` | `obligations.json` 2 處（已同步）；b3c `notice-audit.json` 為歷史快照（保留） |
+| `packaging/embedded/cpu-windows.json` | `66db0888…211c` | `344b5ac3…e7d3` | `obligations.json` 2 處（已同步）；b3c `notice-audit.json` 為歷史快照（保留） |
 | `licenses/index.html` | `58077560…36c6` | `7809c3ac…61b1` | a12／a13b review 內的歷史快照（保留，不改） |
 | `cpu-windows-closure.json`、`obligations.json` | 內容改變 | 見 manifest | 無外部引用 |
 
@@ -58,7 +58,7 @@
 - Gates：`redistribution_gates.py --source-review …/a13b-fixed-review-2026-11-18/{base,cpu}-source-review.json` 兩個 profile 皆 exit 0。與 origin/main 的輸出逐欄位相同。base：disclosed true、approved true、complete false、release_ready false。cpu：四個旗標皆 false。
 - 完整回歸（venv Python 3.12，見 manifest）：`run_mixed_regression.py --expected-count 973`，結果記於 `docs/progress.json` 的 `full_regression`，數字以該檔為準。ONNX 繁中 known gap 仍是預期失敗。
 - 基線：origin/main 單獨跑 `run_mixed_regression.py --expected-count 970`，結果 970 run、969 passed、1 expected failure，與 CI 一致。
-- 突變驗證（M1–M4，見 manifest）：移除 inventory 唯一擁有者檢查、移除擁有者列檢查、移除原文 sha／大小檢查、移除 license_inventory 綁定檢查，各自都讓對應測試失敗；還原後回到綠燈。
+- 突變驗證（M1–M5，見 manifest）：移除 inventory 唯一擁有者檢查、移除擁有者列檢查、移除原文 sha／大小檢查、移除 license_inventory 綁定檢查，各自都讓對應測試失敗；M5 只拿掉 SHA-256 檢查（保留大小檢查），同長度不同內容的子案例（same-size）失敗，還原後回到綠燈。
 
 ## 到 B3-9 必須重新核對的項目
 
@@ -71,7 +71,7 @@
 
 ## 限制
 
-- LibYAML 版本依據是上游建置設定，不是 Windows 執行期觀測。`packaging/embedded/cpu-windows.json` 的 `libyaml` 元件 `version_basis` 仍寫 `runtime-observed`，其依據是 B3c 的 `cpu-native-observation.json`，與 B3c 的結論（`windows_runtime_observed: false`）不完全一致。這是既有敘述，本次只更新 note，未改分級，請 B3-9 或協調者決定是否修正。
+- LibYAML 0.2.5 的版本依據是 B3c 的 Windows 執行期觀測（`yaml._yaml.get_version_string`，run 44755140396，同位元組 `.pyd`），分級為 runtime-observed；上游建置設定與 `.pyd` 字串只作佐證。`libyaml-gap.json` 的 `windows_runtime_observed: false` 是較早提交 `9e78e74` 的快照，已過時。觀測僅限固定候選的 `.pyd` 位元組，不代表安裝包的其他 PyYAML 版本，也不代表 B3-9 的新候選。
 - `cpu-windows.json` 的 `notices` 只接受 `licenses/windows/<dist>/wheel/` 下的 wheel 原文（`embedded_components.py` 的 CPU 檢核），因此 LibYAML 原文不列入該元件的 notices，僅在 inventory 與登記清單綁定。
 - PaddleOCR 原文綁在 rapidocr 列，只代表 PaddleOCR 授權的 Apache-2.0 文字已隨包。PP-OCR 模型的逐檔授權與轉檔來源仍未確認，屬 B3-5 揭露。
 - inventory.json 以雜湊與既有生成器規則手動同步（生成器需要全部 wheel，離線無法重跑）。`license_inventory.py --verify` 與新增的 SUPPLEMENT_OWNERS 檢查確認其一致性。
