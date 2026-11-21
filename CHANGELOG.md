@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-21：B3b6 第一步（證據，未改程式）：新增真實掃描測試包（9 頁 A4 PDF、給使用者印出後掃描的說明、評估腳本）與乾跑結果，真實掃描尚未取得。見 [B3b6 證據](docs/development-records/runs/b3b6-real-scan-kit-2026-11-21/README.md)。
+
 ### 2026-11-21｜B3d CPU worker 建置工具查證
 
 - 以固定 CPU 候選的原始完整報告逐檔核對建置工具，分開辨識授權／套件資料、PYZ 或 base_library 的程式碼和 PyInstaller 啟動器。另以同來源 Windows 重建讀取外層啟動封存並跑固定 health 和 OCR，詳見[證據](docs/development-records/runs/b3d-cpu-build-tools-2026-11-21/README.md)。

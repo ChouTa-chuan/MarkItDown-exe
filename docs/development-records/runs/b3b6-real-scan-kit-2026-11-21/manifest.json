@@ -1,0 +1,44 @@
+{
+  "date_taipei": "2026-11-21",
+  "tested_source": "b3a0e9c",
+  "accepted": true,
+  "result": "9 頁真實掃描測試包已產生（A4 PDF，一頁一段），評估腳本與乾跑完成；真實掃描尚未取得，待使用者列印掃描後複驗。",
+  "keywords": [
+    "B3b6",
+    "真實掃描",
+    "測試包",
+    "PP-OCRv6",
+    "v4",
+    "繁中",
+    "簡中",
+    "英文",
+    "A4 PDF",
+    "乾跑"
+  ],
+  "reused": {
+    "samples": "docs/development-records/runs/b3b2-expanded-ocr-evaluation-2026-11-20/samples.json",
+    "evaluator": "docs/development-records/runs/b3b-ppocr-model-review-2026-11-20/evaluate.py",
+    "official_check": "docs/development-records/runs/b3b5-official-onnx-rerun-2026-11-20/official_check.py",
+    "runner": "docs/development-records/runs/b3b5-official-onnx-rerun-2026-11-20/run_official_evaluation.py",
+    "degrade": "docs/development-records/runs/b3b3-v5-provenance-scan-2026-11-20/degrade_scan.py"
+  },
+  "pdf": {
+    "path": "real-scan-test-kit.pdf",
+    "pages": 9,
+    "bytes": 1797650,
+    "sha256": "b781737a3af684bacad22d81a54d47313812021226dbf85ced76fc82e2fdf30b",
+    "pillow": "13.0.0",
+    "dpi": 300,
+    "page_pixels": [
+      2480,
+      3508
+    ]
+  },
+  "files": {
+    "README.md": "ed2e505e2f9a6542f828093a3fb6cd23b91a46d7a7312839ec6f71566203d4d7",
+    "make_scan_kit_pdf.py": "f61bf577e7eab1e5213439376ae67e8ec26b006c4fbb394573c14b7fee29b5df",
+    "run_real_scan_evaluation.py": "ed1590ac1ab54c8d49d283b93fc201f3ebece4d13f6b1365148d9789d5341f7a",
+    "real-scan-test-kit.pdf": "b781737a3af684bacad22d81a54d47313812021226dbf85ced76fc82e2fdf30b",
+    "dry-run-summary.json": "3fe201e66cb52cb16fecb1fbb6a7b419f47a3c50a080f00a30752cf97c2e29b6"
+  }
+}
