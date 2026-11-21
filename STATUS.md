@@ -10,7 +10,7 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | B3-3 自 `d91494c` 開始，已同步 `5d72880`（PR 54 的掃描測試包與 PR 55、56 的 CPU Microsoft 證據）。B1b 公開開關已關。 |
+| `main` | B3-3 自 `d91494c` 開始，已同步 `85c28dd`（PR 54 的掃描測試包、PR 55、56 的 CPU Microsoft 證據及 PR 57 的 B3-1 原文補件）。B1b 公開開關已關。 |
 | 本輪分支 | `codex/b3-3-geos-replacement` 處理 GEOS，完成驗證後交 Claude reviewer。[PR](https://github.com/ChouTa-chuan/MarkItDown-exe/pulls?q=is%3Apr+head%3Acodex%2Fb3-3-geos-replacement) |
 | 下一棒 | B3-3 完成 hosted Windows 驗收，PR CI 通過後交 Claude reviewer；B3-7 等 B3-3 合併後先出設計。其他 B3 工作依 C 節分工。 |
 | 固定來源 | A13b `b17d51bc99f8402f16b99f98bbe3b3370530bc6c`（base run 44295039865、cpu run 44295044417、Microsoft 探測 run 44300296037） |
@@ -77,7 +77,7 @@
 | | **B3b6 真實掃描複驗**（使用者 2026-11-21 決定換 v6 前先做）：Claude coder 產生可列印測試 PDF（沿用 B3b2 的 9 段虛構文字，繁中、簡中、英文各內文、表格、含小字標題），使用者列印並以掃描機或手機掃描後交回；以現行 v4 與官方 v6 各辨識一次比較，結論如實寫（真實掃描、小樣本）。通過並確認簡中差異後才做 B3-6 | 下一步（coder 產生 PDF，使用者列印掃描） |
 | | **B3 CPU 元件重新定版**（planner 2026-11-21 計畫，詳細驗收條件見該次回報；順序：決定 → 內容變更 → 一次重定 X → 逐列來源對照 → CPU 門檻確認 → 接線 → 產出 → 公開並關回）。**內容變更 PR 全部合併後才做 B3-9 重定，重定後不再改授權樹。** | 進行中 |
 | | B3-0 決定收集與存檔：D 節新增 2026-11-21 決定並存固定檔 [`2026-11-21-b3-decisions.md`](docs/history/status/2026-11-21-b3-decisions.md)；修正 A 節 | 本 PR |
-| | B3-1 原文補件 I：LibYAML 0.2.5 與 PaddleOCR 授權原文（比照 A9b：supplemental 原文、`sources.json` 固定上游來源、綁定 PyYAML；PaddleOCR 綁定方式由 coder 先提方案）；base 也會改到，使用者已同意（B3-D3）| 待開始（Claude coder） |
+| | B3-1 原文補件 I：LibYAML 0.2.5 與 PaddleOCR 授權原文（比照 A9b：supplemental 原文、`sources.json` 固定上游來源、綁定 PyYAML；PaddleOCR 綁定方式由 coder 先提方案）；base 也會改到，使用者已同意（B3-D3）| 完成並合併（PR 57） |
 | | B3-2 原文補件 II：Pillow（libaom、dav1d；libyuv、Raqm、FriBidi 先查是否編入）、OpenCV（zlib、libpng）、pyclipper（Clipper 與 BSL-1.0）；onnxruntime、NumPy 只查證。依 B3c `notice-audit.json` 優先順序；可拆 B3-2a（Pillow，影響 base）、B3-2b（OpenCV、pyclipper、查證）；排在 B3-1 之後避免 `sources.json` 衝突 | 待開始（建議 GPT，待使用者指派） |
 | | B3-3 GEOS 受支援替換路徑（B3-D4 選 (a)）：受管目錄之外放使用者替換目錄，worker 在匯入 shapely 前以完整路徑預先載入；不放寬受管完整性檢查；標示「使用者替換、未驗證」；hosted Windows 驗收（可辨識、覆蓋受管 DLL 被拒、放入不同 bytes 但相容的 GEOS 能運作、損壞時清楚失敗），標明非實體機；先做可行性實驗，失敗回報使用者 | Hosted Windows 可行性與凍結 worker 驗收通過，待 PR CI 及 Claude reviewer |
 | | B3-4 CPU Microsoft 再散布依據（只做證據）：CPython 14.42 vcruntime 對 python.org 官方安裝檔、delvewheel 改名 msvcp140 的依據與 RECORD、兩份 MSVCP 與官方一致沿用；不換 DLL | 待開始（Claude coder） |

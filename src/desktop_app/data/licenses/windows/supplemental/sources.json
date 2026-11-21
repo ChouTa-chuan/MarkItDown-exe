@@ -46,5 +46,17 @@
     "tag": "openssl-4.0.3",
     "commit": "af1775b60dfa141a4ad762585052cabeb9f37e9e",
     "note": "OpenSSL upstream LICENSE original; build must verify actual cryptography runtime OpenSSL version before binding"
+  },
+  {
+    "name": "libyaml",
+    "url": "https://raw.githubusercontent.com/yaml/libyaml/2c891fc7a770e8ba2fec34fc6b545c672beb37e6/License",
+    "sha256": "c40112449f254b9753045925248313e9270efa36d226b22d82d4cc6c43c57f29",
+    "bytes": 1101
+  },
+  {
+    "name": "paddleocr",
+    "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/07603421c20a96bb94bb87d0c4211032527ae706/LICENSE",
+    "sha256": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856",
+    "bytes": 11438
   }
 ]

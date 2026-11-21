@@ -7,15 +7,22 @@ import unittest
 import zipfile
 
 spec=importlib.util.spec_from_file_location('license_inventory',Path(__file__).parents[1]/'scripts/license_inventory.py')
-inventory=importlib.util.module_from_spec(spec);spec.loader.exec_module(inventory)
+inventory=importlib.util.module_from_spec(spec)
+spec.loader.exec_module(inventory)
 
 
 class InventoryTests(unittest.TestCase):
     def setUp(self):
-        directory=tempfile.TemporaryDirectory();self.addCleanup(directory.cleanup)
-        self.root=Path(directory.name);self.wheels=self.root/'wheels';self.wheels.mkdir()
-        self.extra=self.root/'extra';self.extra.mkdir();(self.extra/'sources.json').write_text('[]')
-        self.output=self.root/'output';self.lock=self.root/'lock.txt'
+        directory=tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        self.root=Path(directory.name)
+        self.wheels=self.root/'wheels'
+        self.wheels.mkdir()
+        self.extra=self.root/'extra'
+        self.extra.mkdir()
+        (self.extra/'sources.json').write_text('[]')
+        self.output=self.root/'output'
+        self.lock=self.root/'lock.txt'
 
     def wheel(self,notice=True,unsafe=False,nested=False):
         path=self.wheels/'fixture-1.0-py3-none-any.whl'
@@ -29,23 +36,35 @@ class InventoryTests(unittest.TestCase):
         return inventory.generate(self.lock,self.wheels,self.extra,self.output)
 
     def test_complete_inventory_and_nested_metadata(self):
-        self.wheel(nested=True);report=self.generate()
+        self.wheel(nested=True)
+        report=self.generate()
         self.assertEqual(report['package_count'],1)
         self.assertEqual(inventory.verify(self.lock,self.output)['package_count'],1)
 
+    def test_supplement_owner_binding_is_checked_when_owner_present(self):
+        # 原文固定綁定表若指向存在的套件列，該列必須實際帶入；只靠檔案存在不足以證明綁定。
+        from unittest.mock import patch
+        self.wheel()
+        self.generate()
+        with patch.dict(inventory.SUPPLEMENT_OWNERS,{'libyaml':'fixture'}):
+            with self.assertRaisesRegex(ValueError,'Supplement owner binding mismatch'):inventory.verify(self.lock,self.output)
+
     def test_locked_hash_mismatch_cleans_staging(self):
-        self.wheel();self.lock.write_text('fixture==1.0 --hash=sha256:'+'0'*64)
+        self.wheel()
+        self.lock.write_text('fixture==1.0 --hash=sha256:'+'0'*64)
         with self.assertRaises(ValueError):self.generate()
         self.assertFalse(self.output.exists())
         self.assertFalse(list(self.root.glob('.license-*')))
 
     def test_missing_package_is_not_silently_omitted(self):
-        self.wheel();self.lock.write_text(self.lock.read_text()+'missing==1.0 --hash=sha256:'+'1'*64)
+        self.wheel()
+        self.lock.write_text(self.lock.read_text()+'missing==1.0 --hash=sha256:'+'1'*64)
         with self.assertRaises(ValueError):self.generate()
         self.assertFalse(self.output.exists())
 
     def test_notice_tampering_rejected(self):
-        self.wheel();report=self.generate()
+        self.wheel()
+        report=self.generate()
         path=report['packages'][0]['wheel_notice_files'][0]
         (self.output/path).write_text('changed')
         with self.assertRaises(ValueError):inventory.verify(self.lock,self.output)
@@ -62,11 +81,16 @@ class InventoryTests(unittest.TestCase):
         self.assertFalse((self.root/'LICENSE').exists())
 
     def test_stale_lock_rejected(self):
-        self.wheel();self.generate();self.lock.write_text(self.lock.read_text()+'# changed\n')
+        self.wheel()
+        self.generate()
+        self.lock.write_text(self.lock.read_text()+'# changed\n')
         with self.assertRaises(ValueError):inventory.verify(self.lock,self.output)
 
     def test_existing_user_directory_preserved(self):
-        self.wheel();self.output.mkdir();note=self.output/'user.txt';note.write_text('keep')
+        self.wheel()
+        self.output.mkdir()
+        note=self.output/'user.txt'
+        note.write_text('keep')
         with self.assertRaises(ValueError):self.generate()
         self.assertEqual(note.read_text(),'keep')
 

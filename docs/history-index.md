@@ -6,10 +6,11 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 165 筆。
+共 166 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-21 | 證據 | B3-1 原文補件 I：LibYAML 0.2.5 與 PaddleOCR 授權原文 |  |  |  | [development-records/runs/b3-1-libyaml-paddleocr-notices-2026-11-21/README.md](development-records/runs/b3-1-libyaml-paddleocr-notices-2026-11-21/README.md) |
 | 2026-11-21 | 證據 | B3-3：GEOS 使用者替換路徑 | b8d863f | 接受、Windows已執行 | B3-3、GEOS、LGPL、Shapely、替換、Windows | [development-records/runs/b3-3-geos-replacement-2026-11-21/README.md](development-records/runs/b3-3-geos-replacement-2026-11-21/README.md) |
 | 2026-11-21 | 證據 | B3-4 CPU Microsoft 六檔再散布依據（只做證據） | b17d51b | 接受 | B3-4、CPU、Microsoft、vcruntime140、msvcp140、CPython、crtlicense、numpy、Shapely、delvewheel、再散布依據 | [development-records/runs/b3-4-cpu-microsoft-redistribution-2026-11-21/README.md](development-records/runs/b3-4-cpu-microsoft-redistribution-2026-11-21/README.md) |
 | 2026-11-21 | 證據 | B3-4b：CPython 的兩個 vcruntime 與 python.org 官方發行包比對（2026-11-21） |  | 接受 | B3-4b、CPython、vcruntime140、python.org、embeddable、3.12.10、CPU Microsoft | [development-records/runs/b3-4b-cpython-vcruntime-official-2026-11-21/README.md](development-records/runs/b3-4b-cpython-vcruntime-official-2026-11-21/README.md) |

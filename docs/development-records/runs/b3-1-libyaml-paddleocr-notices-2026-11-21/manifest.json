@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "id": "b3-1-libyaml-paddleocr-notices",
+  "date": "2026-11-21",
+  "base_commit": "d91494c9831566d42576ef12be073fb8bb7355d3",
+  "fixed_candidate": {
+    "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+    "review": "docs/development-records/runs/a13b-fixed-review-2026-11-18/cpu-source-review.json",
+    "review_sha256": "8bfe8b065c5d08618bf45f162771dad208038130956b853153f7817f503d8cd6",
+    "refixed": false,
+    "status_changed": false
+  },
+  "originals": {
+    "libyaml": {
+      "owner": "pyyaml",
+      "owner_version": "6.0.3",
+      "owner_metadata_sha256_installed_lf": "03c3b415ed38d09faedc49360e930769b40c58f68585e6de00e2e4916a858d34",
+      "url": "https://raw.githubusercontent.com/yaml/libyaml/2c891fc7a770e8ba2fec34fc6b545c672beb37e6/License",
+      "upstream_filename": "License",
+      "upstream_commit": "2c891fc7a770e8ba2fec34fc6b545c672beb37e6",
+      "sha256": "c40112449f254b9753045925248313e9270efa36d226b22d82d4cc6c43c57f29",
+      "bytes": 1101,
+      "license": "MIT",
+      "version_basis": "runtime-observed",
+      "windows_runtime_observed": true,
+      "runtime_observation": {
+        "api": "yaml._yaml.get_version_string",
+        "version": "0.2.5",
+        "platform": "win32",
+        "run_id": "44755140396",
+        "source_commit": "392d094d0de360bcb7d8b79f47a5283b161b6e27",
+        "record": "docs/development-records/runs/b3c-cpu-native-review-2026-11-20/cpu-native-observation.json#records[pyyaml/libyaml]",
+        "binary": "yaml/_yaml.cp312-win_amd64.pyd",
+        "binary_sha256": "4fd0e84f50261ed0886cffcdd8008b055af3352546e649c3d741b50eae1f9b5f"
+      },
+      "corroborating_basis": "upstream-build-config",
+      "corroborating_detail": "PyYAML 6.0.3 固定 commit 49790e73684bebad1df05ef8d828fa12f685bffb 的 ci.yaml 設定 LIBYAML_REF=0.2.5 與 YAML_DECLARE_STATIC=1；.pyd 字串 0.2.5 為弱佐證",
+      "stale_snapshot": "docs/development-records/runs/b3c-libyaml-notice-gap-2026-11-20/libyaml-gap.json 的 windows_runtime_observed:false 為提交 9e78e74 快照"
+    },
+    "paddleocr": {
+      "owner": "rapidocr-onnxruntime",
+      "owner_version": "1.4.4",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/07603421c20a96bb94bb87d0c4211032527ae706/LICENSE",
+      "upstream_filename": "LICENSE",
+      "upstream_commit": "07603421c20a96bb94bb87d0c4211032527ae706",
+      "sha256": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856",
+      "bytes": 11438,
+      "license": "Apache-2.0",
+      "version_basis": "same-commit-as-model-index",
+      "version_basis_detail": "B3b 的 PP-OCRv4 模型索引（paddleocr.py）位於同一 commit 07603421；v3.7.0 原文（sha 3840c5c0…）不隨包"
+    }
+  },
+  "changed_files": {
+    ".github/workflows/linux-regression.yml": "5a9be755294d0f39ee64fff8aeec9ea3dd7712efbea0f1da39d04213b96d6b0b",
+    "packaging/embedded/base-windows.json": "747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f",
+    "packaging/embedded/cpu-windows.json": "344b5ac3bbfc74e02399e3b285da35cc62e9e679c751e30ab48a4e806dcbd7e3",
+    "packaging/profiles/cpu-windows-closure.json": "824e2f8721bfde6787bffd8a1f5e5b3887ed0178cf20366d55c5a2bf96fae475",
+    "packaging/redistribution/obligations.json": "73d796edbc0f268fac85cfb8fd20237560841ed98ac0c60c99f35a8a9032a8b9",
+    "scripts/license_inventory.py": "80b7f5c0a5bdbfce9bec6cb9b40514346ec7961f915eecdc595c7773f54ca595",
+    "scripts/prepare_worker_assets.py": "6581d60fada9fa256e2cd3275be18d8ec8d0d92f4d8d9d6b8ba289c94e84aef8",
+    "src/desktop_app/data/licenses/index.html": "7809c3ac61b1338c8b65786e521efe53df5a60930069dfae3112253c2f98ecd9",
+    "src/desktop_app/data/licenses/windows/inventory.json": "27765d770a6b7fa370abd38c0d46124c4dfa3a28a1f49d57ff445be8aeda81ca",
+    "src/desktop_app/data/licenses/windows/supplemental/sources.json": "a37099ae9783aa8ba050e04950b4e7dd501d7345d978238d750f60126d78e4f5",
+    "src/desktop_app/data/licenses/windows/supplemental/libyaml.txt": "c40112449f254b9753045925248313e9270efa36d226b22d82d4cc6c43c57f29",
+    "src/desktop_app/data/licenses/windows/supplemental/paddleocr.txt": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856",
+    "tests/test_bundle_provenance.py": "4e55023a740a83e73b7f38283038e1022878de6d341b5f643f1ab42b7e4dd14c",
+    "tests/test_license_inventory.py": "17c507aa1244766cd3a993530dcb8dfc145e0d225983f2cfafba66fc28d057d3"
+  },
+  "hash_sync": [
+    {
+      "file": "src/desktop_app/data/licenses/windows/inventory.json",
+      "old": "44fe23dbfb1cd68c943cd11552508c0aaf63fce0515c7073717b7dc819c4a217",
+      "new": "27765d770a6b7fa370abd38c0d46124c4dfa3a28a1f49d57ff445be8aeda81ca",
+      "referenced_by": [
+        "packaging/embedded/base-windows.json",
+        "packaging/embedded/cpu-windows.json",
+        "a12/a13b cpu-source-review.json, b3d repo-notice-sources.json (historical, kept)"
+      ]
+    },
+    {
+      "file": "src/desktop_app/data/licenses/windows/supplemental/sources.json",
+      "old": "6b5d97edea4d798d87d8d390c0e81263add43b6cc0f83d3878b536e7de6aa79a",
+      "new": "a37099ae9783aa8ba050e04950b4e7dd501d7345d978238d750f60126d78e4f5",
+      "referenced_by": [
+        "a12-fixed-review cpu-source-review.json (historical, kept)",
+        "a13b-fixed-review cpu-source-review.json (historical, kept)"
+      ]
+    },
+    {
+      "file": "packaging/embedded/base-windows.json",
+      "old": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5",
+      "new": "747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f",
+      "referenced_by": [
+        "packaging/redistribution/obligations.json (10 處)"
+      ]
+    },
+    {
+      "file": "packaging/embedded/cpu-windows.json",
+      "old": "66db08889f48ebc84af7c765d78e9b81e014dd791fdec92e853a40d4b992211c",
+      "new": "344b5ac3bbfc74e02399e3b285da35cc62e9e679c751e30ab48a4e806dcbd7e3",
+      "referenced_by": [
+        "packaging/redistribution/obligations.json (2 處)",
+        "b3c notice-audit.json (historical, kept)"
+      ]
+    },
+    {
+      "file": "src/desktop_app/data/licenses/index.html",
+      "old": "58077560b63d0b895d9fbbdc15ce4d85fcc144056eba8b1dca38bd349d8c36c6",
+      "new": "7809c3ac61b1338c8b65786e521efe53df5a60930069dfae3112253c2f98ecd9",
+      "referenced_by": [
+        "a12-fixed-review cpu-source-review.json (historical, kept)",
+        "a13b-fixed-review cpu-source-review.json (historical, kept)"
+      ]
+    }
+  ],
+  "closure_sync": {
+    "cpu_windows_closure_regenerated_by": "scripts/cpu_worker_profiles.py --generate",
+    "base_closure_regenerated": false,
+    "base_closure_reason": "base 禁止 pyyaml 與 rapidocr（packaging/profiles/base.json forbidden_packages）"
+  },
+  "gates": {
+    "base_exit": 0,
+    "cpu_exit": 0,
+    "base_flags": {
+      "runtime_sbom_disclosed": true,
+      "redistribution_approved": true,
+      "runtime_sbom_complete": false,
+      "release_ready": false
+    },
+    "cpu_flags": {
+      "runtime_sbom_disclosed": false,
+      "redistribution_approved": false,
+      "runtime_sbom_complete": false,
+      "release_ready": false
+    },
+    "same_as_origin_main": true
+  },
+  "regression": {
+    "linux_venv": "scratchpad/venv Python 3.12",
+    "baseline_origin_main": "970 run / 969 passed / 1 expected failure / 0 failed",
+    "expected_count": 973
+  },
+  "mutations": [
+    {
+      "id": "M1",
+      "change": "移除 inventory 原文唯一擁有者檢查（claims）",
+      "result": "test_b3_1_owner_and_source_mutations 失敗"
+    },
+    {
+      "id": "M2",
+      "change": "移除 manifest 擁有者列檢查（owners）",
+      "result": "test_b3_1_owner_and_source_mutations 與 test_worker_notice_rejects 失敗"
+    },
+    {
+      "id": "M3",
+      "change": "移除原文 SHA-256 與大小檢查",
+      "result": "test_worker_original_missing_or_changed 7 個子案例失敗"
+    },
+    {
+      "id": "M4",
+      "change": "移除 license_inventory 的 SUPPLEMENT_OWNERS 綁定檢查",
+      "result": "test_supplement_owner_binding_is_checked_when_owner_present 失敗"
+    },
+    {
+      "id": "M5",
+      "change": "移除原文 SHA-256 檢查，保留大小檢查",
+      "result": "test_worker_original_missing_or_changed 的 same-size 子案例（四個原文）失敗"
+    }
+  ],
+  "base_commit_note": "基於 origin/main d91494c（B3-0），已合併 main 5d72880；協調者提交為 206e0ff，合併提交 16c4c8a。",
+  "merged_main": "5d72880",
+  "changed_files_note": "以目前工作樹內容重算（B3-1 修正後）；hash_sync.new 與之一致。"
+}

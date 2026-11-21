@@ -1,6 +1,7 @@
 """保存實際 worker 建置環境的 metadata／原授權及 CPython 授權，不改寫既有清單。"""
 import argparse
 from importlib import metadata
+from typing import NamedTuple
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
@@ -14,61 +15,86 @@ from build_provenance import bootloader_notices, distribution_sources, is_notice
 
 # 固定 CPU 候選的 METADATA 與 repo 原文共同約束套件；原文已在 worker 的 licenses 內。
 WINDOWS_LICENSES = 'licenses/windows'
+# 鍵是原文名（supplemental/<鍵>.txt）；owner 是實際安裝且持有該原文的套件（同一列可有多份原文）；
+# url 含上游 commit，上游檔名取自 url 最後一段；sha256 與 size 為原文位元組。
+# 結構說明見 docs/development-records/runs/b3-1-libyaml-paddleocr-notices-2026-11-21/README.md。
+class WorkerNoticePin(NamedTuple):
+    owner: str
+    version: str
+    metadata_sha256: str
+    url: str
+    sha256: str
+    size: int
+
+
 WORKER_NOTICE_PINS = {
-    'flatbuffers': (
-        '25.12.19', 'google/flatbuffers/7e163021e59cca4f8e1e35a7c828b5c6b7915953',
-        '9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e',
-        'cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30',
-    ),
-    'rapidocr-onnxruntime': (
-        '1.4.4', 'RapidAI/RapidOCR/86ae3f5079df3422c1829cd84baf19bc8a7a9453',
-        '1ac15bed7c7fb77d3fac58c2aba0a4d3e2da48de5c65badd3503900acebcf1df',
-        '3e0af25fdd06aa9586ae97adb00ea927ebe5a3805ac77d2d3a81ce5f55693333',
-    ),
+    'flatbuffers': WorkerNoticePin(
+        'flatbuffers', '25.12.19', '9f38239f96faa21522a6aadab6912e1e560708bbe9c9f696a0679c9403fa089e',
+        'https://raw.githubusercontent.com/google/flatbuffers/7e163021e59cca4f8e1e35a7c828b5c6b7915953/LICENSE',
+        'cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30', 11358),
+    'rapidocr-onnxruntime': WorkerNoticePin(
+        'rapidocr-onnxruntime', '1.4.4', '1ac15bed7c7fb77d3fac58c2aba0a4d3e2da48de5c65badd3503900acebcf1df',
+        'https://raw.githubusercontent.com/RapidAI/RapidOCR/86ae3f5079df3422c1829cd84baf19bc8a7a9453/LICENSE',
+        '3e0af25fdd06aa9586ae97adb00ea927ebe5a3805ac77d2d3a81ce5f55693333', 11422),
+    # PaddleOCR 的權重與 ONNX 由 rapidocr 套件內附；採 v4 模型索引同 commit 的 v2.9.1 原文。
+    'paddleocr': WorkerNoticePin(
+        'rapidocr-onnxruntime', '1.4.4', '1ac15bed7c7fb77d3fac58c2aba0a4d3e2da48de5c65badd3503900acebcf1df',
+        'https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/07603421c20a96bb94bb87d0c4211032527ae706/LICENSE',
+        'ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856', 11438),
+    # LibYAML 0.2.5 靜態併入 PyYAML 的 Windows .pyd；版本依據為上游建置設定，不是執行期觀測。
+    # 擁有者 METADATA 雜湊取 prepare 實際寫入的 LF 正規化內容（wheel 原檔為 CRLF，見 README）。
+    'libyaml': WorkerNoticePin(
+        'pyyaml', '6.0.3', '03c3b415ed38d09faedc49360e930769b40c58f68585e6de00e2e4916a858d34',
+        'https://raw.githubusercontent.com/yaml/libyaml/2c891fc7a770e8ba2fec34fc6b545c672beb37e6/License',
+        'c40112449f254b9753045925248313e9270efa36d226b22d82d4cc6c43c57f29', 1101),
 }
 
 
 def worker_notice_bindings(assets, packages, locked=None):
-    """核對同版 wheel 的 METADATA、既有來源目錄與隨包原文字節。"""
+    """核對擁有者的 METADATA、版本、固定上游來源與原文位元組；回傳 {原文名: (擁有者, 路徑, 雜湊)}。"""
     root = assets/WINDOWS_LICENSES
     inventory = json.loads((root/'inventory.json').read_text(encoding='utf-8'))
     sources = json.loads((root/'supplemental/sources.json').read_text(encoding='utf-8'))
     bindings = {}
-    for name, (version, source, metadata_hash, notice_hash) in WORKER_NOTICE_PINS.items():
+    for key, pin in WORKER_NOTICE_PINS.items():
+        name = pin.owner
         installed = [row for row in packages if row['name'] == name]
         records = [row for row in inventory['packages'] if row['name'] == name]
-        original = f'supplemental/{name}.txt'
+        original = f'supplemental/{key}.txt'
         path = root/original
         meta = assets/'installed'/name/'METADATA'
-        if (len(installed) != 1 or installed[0]['version'] != version
-                or not meta.is_file() or sha256(meta) != metadata_hash):
-            raise ValueError(f'Worker notice package/version mismatch: {name} {version}')
-        if not path.is_file() or sha256(path) != notice_hash:
+        if (len(installed) != 1 or installed[0]['version'] != pin.version
+                or not meta.is_file() or sha256(meta) != pin.metadata_sha256):
+            raise ValueError(f'Worker notice package/version mismatch: {name} {pin.version}')
+        if not path.is_file() or path.stat().st_size != pin.size or sha256(path) != pin.sha256:
             raise ValueError(f'Worker original missing or changed: {original}')
-        expected = dict(name=name, url=f'https://raw.githubusercontent.com/{source}/LICENSE',
-                        sha256=notice_hash, bytes=path.stat().st_size)
-        if (len(records) != 1 or records[0]['version'] != version
-                or records[0]['supplemental_sources'] != [dict(expected, path=original)]
-                or [row for row in sources if row['name'] == name] != [expected]
-                or inventory['files'].get(original) != notice_hash):
-            raise ValueError(f'Worker notice source mismatch: {name} {version}')
-        if locked is not None and (name not in locked or locked[name]['version'] != version
+        expected = dict(name=key, url=pin.url, sha256=pin.sha256, bytes=pin.size)
+        # 擁有者列必須恰好帶一筆此原文；原文只能由一個列宣告（唯一擁有者）。
+        claims = [row['name'] for row in inventory['packages'] for item in row['supplemental_sources']
+                  if item.get('path') == original]
+        if (len(records) != 1 or records[0]['version'] != pin.version
+                or [dict(item) for item in records[0]['supplemental_sources'] if item.get('path') == original]
+                != [dict(expected, path=original)]
+                or [row for row in sources if row['name'] == key] != [expected]
+                or inventory['files'].get(original) != pin.sha256 or claims != [name]):
+            raise ValueError(f'Worker notice source mismatch: {key} {pin.version}')
+        if locked is not None and (name not in locked or locked[name]['version'] != pin.version
                                   or records[0]['wheel_sha256'] not in locked[name]['hashes']):
-            raise ValueError(f'Worker notice lock mismatch: {name} {version}')
-        bindings[name] = (f'{WINDOWS_LICENSES}/{original}', notice_hash)
+            raise ValueError(f'Worker notice lock mismatch: {name} {pin.version}')
+        bindings[key] = (name, f'{WINDOWS_LICENSES}/{original}', pin.sha256)
     return bindings
 
 
 def verify_worker_notice_bindings(assets, manifest):
     """重驗原文與唯一擁有者，拒絕只重算 manifest 雜湊的錯綁。"""
     packages = manifest['packages']
-    for name, (path, digest) in worker_notice_bindings(assets, packages).items():
+    for key, (name, path, digest) in worker_notice_bindings(assets, packages).items():
         owners = [row['name'] for row in packages
                   for notice in (*row['notice_files'], *(item['path'] for item in row.get('supplemental_sources', [])))
                   if notice.casefold() == path.casefold()]
         package = next(row for row in packages if row['name'] == name)
         if owners != [name] or path not in package['notice_files'] or manifest['files'].get(path) != digest:
-            raise ValueError(f'Invalid worker notice binding: {name}')
+            raise ValueError(f'Invalid worker notice binding: {key}')
 
 
 def prepare(output, project):
@@ -113,11 +139,10 @@ def prepare(output, project):
         packages.append(dict(name=name,version=distribution.version,notice_files=paths))
     locked = read_lock(project/'packaging/profiles/cpu-windows-build.txt')
     bindings = worker_notice_bindings(output, packages, locked)
-    for row in packages:
-        if row['name'] in bindings:
-            path, digest = bindings[row['name']]
-            row['notice_files'].append(path)
-            stored[path] = digest
+    for name, path, digest in bindings.values():
+        row = next(row for row in packages if row['name'] == name)
+        row['notice_files'].append(path)
+        stored[path] = digest
     manifest=dict(scope='Actual installed build-environment notices plus existing locked dependency superset; native final release clearance remains pending',packages=packages,files=stored)
     (output/'installed-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     print('Prepared actual installed notices:',len(packages),'packages,',len(stored),'files')

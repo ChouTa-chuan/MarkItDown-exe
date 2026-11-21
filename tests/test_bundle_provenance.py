@@ -24,7 +24,8 @@ from prepare_worker_assets import WORKER_NOTICE_PINS, native_notices, prepare
 
 PROJECT = Path(__file__).resolve().parents[1]
 WINDOWS_LICENSES = PROJECT/'src/desktop_app/data/licenses/windows'
-NOTICE_PACKAGES = {'flatbuffers': '25.12.19', 'rapidocr-onnxruntime': '1.4.4'}
+# 安裝套件（擁有者）與版本；原文由 WORKER_NOTICE_PINS 的擁有者綁入，PaddleOCR、LibYAML 不是獨立安裝套件。
+NOTICE_PACKAGES = {'flatbuffers': '25.12.19', 'rapidocr-onnxruntime': '1.4.4', 'pyyaml': '6.0.3'}
 
 
 class ProvenanceTests(unittest.TestCase):
@@ -48,12 +49,14 @@ class ProvenanceTests(unittest.TestCase):
             self.write(self.assets/'licenses/windows'/relative, (WINDOWS_LICENSES/relative).read_bytes())
         for name, version in NOTICE_PACKAGES.items():
             meta = f'installed/{name}/METADATA'
-            relative = f'supplemental/{name}.txt'
-            notice = f'licenses/windows/{relative}'
-            self.write(self.assets/meta, (WINDOWS_LICENSES/name/'METADATA').read_bytes())
-            self.write(self.assets/notice, (WINDOWS_LICENSES/relative).read_bytes())
-            self.installed['packages'].append(dict(name=name, version=version, notice_files=[notice]))
-            self.installed['files'].update({p: sha256(self.assets/p) for p in (meta, notice)})
+            notices = [f'licenses/windows/supplemental/{key}.txt' for key, pin in WORKER_NOTICE_PINS.items()
+                       if pin.owner == name]
+            # 安裝端 METADATA 經 importlib 以文字讀取（CRLF 轉 LF），fixture 採同一正規化形式。
+            self.write(self.assets/meta, (WINDOWS_LICENSES/name/'METADATA').read_text(encoding='utf-8').encode('utf-8'))
+            for notice in notices:
+                self.write(self.assets/notice, (WINDOWS_LICENSES/notice.split('licenses/windows/', 1)[1]).read_bytes())
+            self.installed['packages'].append(dict(name=name, version=version, notice_files=notices))
+            self.installed['files'].update({p: sha256(self.assets/p) for p in (meta, *notices)})
         self.save(self.assets/'installed-manifest.json',self.installed)
         self.write(self.assets/'bootloader/original/COPYING.txt', b'original bootloader fixture')
         self.save(self.assets/'bootloader/manifest.json',dict(name='pyinstaller',version='6.22.3',
@@ -90,20 +93,33 @@ class ProvenanceTests(unittest.TestCase):
         evidence = (PROJECT/'docs/development-records/runs/b3a-cpu-original-notices-2026-11-20'
                     /'worker-originals.json')
         records = json.loads(evidence.read_text(encoding='utf-8'))['packages']
-        self.assertCountEqual([row['name'] for row in records], WORKER_NOTICE_PINS)
+        self.assertTrue({row['name'] for row in records} <= set(WORKER_NOTICE_PINS))
         for row in records:
             name = row['name']
             with self.subTest(package=name):
-                version, source, metadata_hash, original_hash = WORKER_NOTICE_PINS[name]
+                pin = WORKER_NOTICE_PINS[name]
                 path = WINDOWS_LICENSES/'supplemental'/f'{name}.txt'
                 original = row['original']
-                self.assertEqual(row['version'], version)
-                self.assertEqual(row['upstream_commit'], source.rsplit('/', 1)[-1])
-                self.assertEqual(row['metadata_sha256'], metadata_hash)
-                self.assertEqual(original['url'], f'https://raw.githubusercontent.com/{source}/LICENSE')
+                self.assertEqual(pin.owner, name)
+                self.assertEqual(row['version'], pin.version)
+                self.assertEqual(row['upstream_commit'], pin.url.split('/')[-2])
+                self.assertEqual(row['metadata_sha256'], pin.metadata_sha256)
+                self.assertEqual(original['url'], pin.url)
                 self.assertEqual(original['repo_path'], path.relative_to(PROJECT).as_posix())
-                self.assertEqual(original['sha256'], original_hash)
-                self.assertEqual(sha256(path), original_hash)
+                self.assertEqual(original['sha256'], pin.sha256)
+                self.assertEqual(sha256(path), pin.sha256)
+
+    def test_b3_1_pins_match_the_recorded_evidence_manifest(self):
+        # B3-1 新增的 PaddleOCR、LibYAML 原文必須與證據清單的 URL、雜湊與大小一致。
+        evidence = json.loads((PROJECT/'docs/development-records/runs/b3-1-libyaml-paddleocr-notices-2026-11-21'
+                               /'manifest.json').read_text(encoding='utf-8'))
+        for key in ('libyaml', 'paddleocr'):
+            with self.subTest(original=key):
+                pin = WORKER_NOTICE_PINS[key]
+                record = evidence['originals'][key]
+                self.assertEqual((pin.owner, pin.url, pin.sha256, pin.size),
+                                 (record['owner'], record['url'], record['sha256'], record['bytes']))
+                self.assertEqual(sha256(WINDOWS_LICENSES/'supplemental'/f'{key}.txt'), pin.sha256)
 
     def test_prepared_worker_reuses_original_paths_and_records_package_owners(self):
         from importlib.metadata import PathDistribution
@@ -124,24 +140,24 @@ class ProvenanceTests(unittest.TestCase):
         self.installed['files'].update(manifest['files'])
         self.save(self.assets/'installed-manifest.json', self.installed)
         report = self.check()
-        for name, version in NOTICE_PACKAGES.items():
-            with self.subTest(package=name):
-                relative = f'licenses/windows/supplemental/{name}.txt'
-                package = next(row for row in manifest['packages'] if row['name'] == name)
-                self.assertEqual(package['notice_files'], [relative])
+        for key, pin in WORKER_NOTICE_PINS.items():
+            with self.subTest(original=key):
+                relative = f'licenses/windows/supplemental/{key}.txt'
+                package = next(row for row in manifest['packages'] if row['name'] == pin.owner)
+                self.assertIn(relative, package['notice_files'])
                 self.assertEqual(manifest['files'][relative], sha256(self.assets/relative))
                 self.assertEqual((staged/relative).read_bytes(), (self.assets/relative).read_bytes())
                 full_path = f'_internal/worker-assets/{relative}'
                 candidate = next(row for row in report['candidate_inventory']['files'] if row['path'] == full_path)
-                self.assertEqual([(o['name'], o['version']) for o in candidate['owners']], [(name, version)])
+                self.assertEqual([(o['name'], o['version']) for o in candidate['owners']], [(pin.owner, pin.version)])
                 self.assertNotIn('source-owner-unresolved', candidate['review_reasons'])
-                self.assertNotIn(name, report['packages_without_wheel_notice'])
+                self.assertNotIn(pin.owner, report['packages_without_wheel_notice'])
 
     def test_worker_notice_rejects_wrong_package_or_version_even_after_rehashing(self):
         for case in ('swapped', 'extra-owner', 'version', 'source'):
             with self.subTest(case=case):
                 manifest = copy.deepcopy(self.installed)
-                first, second = manifest['packages'][1:]
+                first, second = manifest['packages'][1:3]
                 inventory_path = self.assets/'licenses/windows/inventory.json'
                 if case == 'swapped':
                     first['notice_files'], second['notice_files'] = second['notice_files'], first['notice_files']
@@ -160,13 +176,55 @@ class ProvenanceTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, message[case]):
                     self.check()
 
+    def test_b3_1_owner_and_source_mutations_are_rejected_even_after_rehashing(self):
+        # LibYAML 綁 PyYAML、PaddleOCR 綁 rapidocr；錯綁、重複擁有者或來源被改，重算雜湊後仍必須拒絕。
+        inventory_path = self.assets/'licenses/windows/inventory.json'
+        sources_path = self.assets/'licenses/windows/supplemental/sources.json'
+        pristine = {path: path.read_bytes() for path in (inventory_path, sources_path)}
+        cases = {
+            'libyaml-on-wrong-owner': ('Invalid worker notice binding: libyaml', 'manifest-move'),
+            'paddleocr-extra-owner': ('Invalid worker notice binding: paddleocr', 'manifest-extra'),
+            'libyaml-extra-inventory-owner': ('Worker notice source mismatch: libyaml', 'inventory-extra'),
+            'paddleocr-source-url': ('Worker notice source mismatch: paddleocr', 'sources-url'),
+        }
+        for case, (message, kind) in cases.items():
+            with self.subTest(case=case):
+                for path, raw in pristine.items():
+                    path.write_bytes(raw)
+                manifest = copy.deepcopy(self.installed)
+                rows = {row['name']: row for row in manifest['packages']}
+                if kind == 'manifest-move':
+                    rows['pyyaml']['notice_files'].remove('licenses/windows/supplemental/libyaml.txt')
+                    rows['flatbuffers']['notice_files'].append('licenses/windows/supplemental/libyaml.txt')
+                elif kind == 'manifest-extra':
+                    rows['pyyaml']['notice_files'].append('licenses/windows/supplemental/paddleocr.txt')
+                elif kind == 'inventory-extra':
+                    inventory = json.loads(pristine[inventory_path].decode('utf-8'))
+                    target = next(row for row in inventory['packages'] if row['name'] == 'rapidocr-onnxruntime')
+                    target['supplemental_sources'].append(dict(next(
+                        row for row in inventory['packages'] if row['name'] == 'pyyaml')['supplemental_sources'][0]))
+                    self.save(inventory_path, inventory)
+                else:
+                    sources = json.loads(pristine[sources_path].decode('utf-8'))
+                    next(row for row in sources if row['name'] == 'paddleocr')['url'] = (
+                        'https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/'
+                        '0000000000000000000000000000000000000000/LICENSE')
+                    self.save(sources_path, sources)
+                self.save(self.assets/'installed-manifest.json', manifest)
+                with self.assertRaisesRegex(ValueError, message):
+                    self.check()
+        for path, raw in pristine.items():
+            path.write_bytes(raw)
+
     def test_worker_original_missing_or_changed_is_rejected_even_after_rehashing(self):
-        for name in NOTICE_PACKAGES:
+        for name in WORKER_NOTICE_PINS:
             relative = f'licenses/windows/supplemental/{name}.txt'
             path = self.assets/relative
             original = path.read_bytes()
-            for content in (None, b'changed worker original'):
-                with self.subTest(package=name, missing=content is None):
+            # same-size 只改末位元組：大小檢查攔不住，必須由 SHA-256 獨立拒絕。
+            same_size = original[:-1] + (b'X' if original[-1:] != b'X' else b'Y')
+            for case, content in (('missing', None), ('changed', b'changed worker original'), ('same-size', same_size)):
+                with self.subTest(package=name, case=case):
                     manifest = copy.deepcopy(self.installed)
                     if content is None:
                         path.unlink()

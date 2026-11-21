@@ -13,6 +13,9 @@ from urllib.parse import quote
 
 PROJECT=Path(__file__).resolve().parents[1]
 LICENSES=PROJECT/'src/desktop_app/data/licenses'
+# 原文名稱不等於套件名時的固定綁定：LibYAML 內嵌於 PyYAML 的 .pyd，PaddleOCR 授權涵蓋 rapidocr 內的 PP-OCR 模型。
+# 每份原文只能掛在一個擁有者列；generate 與 verify 都依此表核對，避免只靠檔名推斷。
+SUPPLEMENT_OWNERS={'libyaml':'pyyaml','paddleocr':'rapidocr-onnxruntime'}
 
 
 def sha(data):
@@ -96,6 +99,7 @@ def _generate(lock,wheels,supplements,output):
                 notices.append(relative)
             extra=[]
             if name in supplemental:extra.append(supplemental[name])
+            extra.extend(supplemental[key] for key,owner in SUPPLEMENT_OWNERS.items() if owner==name and key in supplemental)
             if name in ('pyside6-essentials','shiboken6'):
                 extra.extend(supplemental[key] for key in ('qt-lgpl3','qt-gpl3'))
             if not notices and not extra:raise ValueError('Missing notice evidence: '+name)
@@ -138,6 +142,11 @@ def verify(lock,output):
     for name,digest in inventory['files'].items():
         safe_path(name)
         if sha((output/name).read_bytes())!=digest:raise ValueError('Notice changed: '+name)
+    names={package['name'] for package in inventory['packages']}
+    for key,owner in SUPPLEMENT_OWNERS.items():
+        if owner not in names:continue
+        owners=[package['name'] for package in inventory['packages'] for record in package['supplemental_sources'] if record['name']==key]
+        if owners!=[owner]:raise ValueError('Supplement owner binding mismatch: '+key)
     for package in inventory['packages']:
         if package['wheel_sha256'] not in required[package['name']]['hashes']:
             raise ValueError('Recorded artifact hash is not locked')
