@@ -196,7 +196,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+              "sha256": "747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f"
             },
             {
               "path": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
@@ -282,7 +282,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+              "sha256": "747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f"
             },
             {
               "path": "src/desktop_app/data/licenses/known-gaps.json",
@@ -324,7 +324,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+              "sha256": "747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f"
             },
             {
               "path": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
@@ -373,7 +373,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+              "sha256": "747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f"
             },
             {
               "path": "docs/development-records/runs/a12d-runtime-versions-2026-11-18/embedded-runtime-decoded.json",
@@ -416,7 +416,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+              "sha256": "747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f"
             },
             {
               "path": "docs/development-records/runs/a9b-openssl-2026-11-18/windows-observation.json",
@@ -459,7 +459,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+              "sha256": "747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f"
             },
             {
               "path": "src/desktop_app/data/licenses/known-gaps.json",
@@ -496,7 +496,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+              "sha256": "747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f"
             },
             {
               "path": "src/desktop_app/data/licenses/known-gaps.json",
@@ -542,7 +542,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+              "sha256": "747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f"
             },
             {
               "path": "src/desktop_app/data/licenses/known-gaps.json",
@@ -579,7 +579,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+              "sha256": "747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f"
             }
           ],
           "status": "evidence_complete",
@@ -605,7 +605,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/base-windows.json",
-              "sha256": "561e0a838a4c617da1d674f7c47c795e5e3bd365160f7e66d18e0eef89503eb5"
+              "sha256": "747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f"
             }
           ],
           "status": "evidence_complete",
@@ -1188,7 +1188,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/cpu-windows.json",
-              "sha256": "66db08889f48ebc84af7c765d78e9b81e014dd791fdec92e853a40d4b992211c"
+              "sha256": "b72120c61831c66e90158b20a821ad714262e98c5589a0d1e8ba573172e77cc0"
             },
             {
               "path": "docs/development-records/runs/b3c-cpu-native-review-2026-11-20/notice-audit.json",
@@ -1269,7 +1269,7 @@
           "evidence": [
             {
               "path": "packaging/embedded/cpu-windows.json",
-              "sha256": "66db08889f48ebc84af7c765d78e9b81e014dd791fdec92e853a40d4b992211c"
+              "sha256": "b72120c61831c66e90158b20a821ad714262e98c5589a0d1e8ba573172e77cc0"
             },
             {
               "path": "docs/development-records/runs/b3c-cpu-native-review-2026-11-20/cpu-native-observation.json",

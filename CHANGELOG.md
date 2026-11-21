@@ -4,6 +4,7 @@
 
 ## 更新中
 
+- 2026-11-21：B3-1 原文補件 I：新增 LibYAML 0.2.5（PyYAML 列）與 PaddleOCR v2.9.1（rapidocr 列）隨包原文，worker 原文綁定改為「原文鍵→擁有者套件」，證據見 `runs/b3-1-libyaml-paddleocr-notices-2026-11-21/`；不重新固定候選，基本包內容不變（pyyaml、rapidocr 為 forbidden）。
 - 2026-11-21：B3 規劃與使用者決定（B3-0）：planner 計畫寫入 STATUS C 節（B3b6、B3-1～B3-13），D 節新增 B3-D1～D5（CPU 交付通道選測試通道方案、換 v6 small 並先做真實掃描、補原文含 base、GEOS 採 (a)、B3d 建置工具不處理）；STATUS 存檔 `2026-11-21-before-b3-plan.md` 與決定固定檔 `2026-11-21-b3-decisions.md`。只改文件。
 ### 2026-11-21｜B3d CPU worker 建置工具查證
 

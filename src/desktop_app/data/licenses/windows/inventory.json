@@ -914,7 +914,15 @@
       "wheel_notice_files": [
         "pyyaml/wheel/pyyaml-6.0.3.dist-info/licenses/LICENSE"
       ],
-      "supplemental_sources": []
+      "supplemental_sources": [
+        {
+          "name": "libyaml",
+          "url": "https://raw.githubusercontent.com/yaml/libyaml/2c891fc7a770e8ba2fec34fc6b545c672beb37e6/License",
+          "sha256": "c40112449f254b9753045925248313e9270efa36d226b22d82d4cc6c43c57f29",
+          "bytes": 1101,
+          "path": "supplemental/libyaml.txt"
+        }
+      ]
     },
     {
       "name": "rapidocr-onnxruntime",
@@ -936,6 +944,13 @@
           "sha256": "3e0af25fdd06aa9586ae97adb00ea927ebe5a3805ac77d2d3a81ce5f55693333",
           "bytes": 11422,
           "path": "supplemental/rapidocr-onnxruntime.txt"
+        },
+        {
+          "name": "paddleocr",
+          "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/07603421c20a96bb94bb87d0c4211032527ae706/LICENSE",
+          "sha256": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856",
+          "bytes": 11438,
+          "path": "supplemental/paddleocr.txt"
         }
       ]
     },
@@ -1450,8 +1465,10 @@
     "urllib3/wheel/urllib3-2.8.0.dist-info/licenses/LICENSE.txt": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
     "xlsxwriter/METADATA": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
     "xlsxwriter/wheel/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7",
-    "supplemental/sources.json": "6b5d97edea4d798d87d8d390c0e81263add43b6cc0f83d3878b536e7de6aa79a",
-    "supplemental/cryptography.txt": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
+    "supplemental/sources.json": "a37099ae9783aa8ba050e04950b4e7dd501d7345d978238d750f60126d78e4f5",
+    "supplemental/cryptography.txt": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
+    "supplemental/libyaml.txt": "c40112449f254b9753045925248313e9270efa36d226b22d82d4cc6c43c57f29",
+    "supplemental/paddleocr.txt": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856"
   },
   "notes": [
     "Cobble wheel has no license text; official source README declares BSD-2-Clause.",
