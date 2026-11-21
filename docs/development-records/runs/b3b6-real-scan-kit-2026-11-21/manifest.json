@@ -1,8 +1,8 @@
 {
   "date_taipei": "2026-11-21",
-  "tested_source": "b3a0e9c",
+  "tested_source": "evaluation inputs from B3b2/B3b5; repository base at b3a0e9c",
   "accepted": true,
-  "result": "9 頁真實掃描測試包已產生（A4 PDF，一頁一段），評估腳本與乾跑完成；真實掃描尚未取得，待使用者列印掃描後複驗。",
+  "result": "9 頁真實掃描測試包已產生（A4 PDF，一頁一段），使用者說明已依查驗修正（檔名後綴、設定步驟、拍照與交回），評估腳本與乾跑完成；真實掃描尚未取得。",
   "keywords": [
     "B3b6",
     "真實掃描",
@@ -35,7 +35,7 @@
     ]
   },
   "files": {
-    "README.md": "ed2e505e2f9a6542f828093a3fb6cd23b91a46d7a7312839ec6f71566203d4d7",
+    "README.md": "fec8b18e58d2565f1fa553dbf566d96572e9c7ddd2a7be6fb3ba5b8985664160",
     "make_scan_kit_pdf.py": "f61bf577e7eab1e5213439376ae67e8ec26b006c4fbb394573c14b7fee29b5df",
     "run_real_scan_evaluation.py": "ed1590ac1ab54c8d49d283b93fc201f3ebece4d13f6b1365148d9789d5341f7a",
     "real-scan-test-kit.pdf": "b781737a3af684bacad22d81a54d47313812021226dbf85ced76fc82e2fdf30b",

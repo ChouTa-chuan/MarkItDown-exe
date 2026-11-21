@@ -10,7 +10,7 @@
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2026-11-21 | 證據 | 真實掃描測試包（給使用者印出、掃描後交回） | b3a0e9c | 接受 | B3b6、真實掃描、測試包、PP-OCRv6、v4、繁中、簡中、英文、A4 PDF、乾跑 | [development-records/runs/b3b6-real-scan-kit-2026-11-21/README.md](development-records/runs/b3b6-real-scan-kit-2026-11-21/README.md) |
+| 2026-11-21 | 證據 | 真實掃描測試包（請印出、掃描後交回） | evaluat | 接受 | B3b6、真實掃描、測試包、PP-OCRv6、v4、繁中、簡中、英文、A4 PDF、乾跑 | [development-records/runs/b3b6-real-scan-kit-2026-11-21/README.md](development-records/runs/b3b6-real-scan-kit-2026-11-21/README.md) |
 | 2026-11-21 | 證據 | B3d：CPU worker 建置工具查證 | b17d51b | 接受、Windows已執行 | B3d、CPU worker、setuptools、pip、PyInstaller、原文、CArchive、PYZ | [development-records/runs/b3d-cpu-build-tools-2026-11-21/README.md](development-records/runs/b3d-cpu-build-tools-2026-11-21/README.md) |
 | 2026-11-21 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-21-b3-decisions.md](history/status/2026-11-21-b3-decisions.md) |
 | 2026-11-21 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-21-before-b3-plan.md](history/status/2026-11-21-before-b3-plan.md) |
