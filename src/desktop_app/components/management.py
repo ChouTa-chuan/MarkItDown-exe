@@ -10,6 +10,7 @@ from threading import Event
 
 from ..capabilities import HostContext, incompatibility
 from ..component_workers.binding import CPUWorkerBinding
+from ..component_workers.geos_replacement import LABEL as GEOS_REPLACEMENT_LABEL
 from ..core import Cancelled
 from ..settings import Settings
 from .archives import sync_directory
@@ -148,7 +149,10 @@ class ComponentManagement:
             if not allowed: state, detail = 'unapproved', note or '目前簽章目錄未核准此版本。'
             elif reason: state, detail = 'incompatible', reason
             elif record is not None and record.spec != spec: state, detail = 'corrupt', '登錄描述與目錄不符。'
-            elif state == 'ready': state, detail = 'unchecked', '上次健康通過；使用前仍須重新驗證。'
+            elif state == 'ready':
+                state = 'unchecked'
+                previous = ' 上次結果：' + detail if GEOS_REPLACEMENT_LABEL in detail else ''
+                detail = '上次健康通過，使用前須重新驗證。' + previous
             current, previous = active.get(spec.component_id, (None, None))
             rows.append(ComponentRow(spec, state, detail, owned, allowed, reason is None,
                                      str(spec.version)==current, str(spec.version)==previous))
@@ -210,6 +214,9 @@ class ComponentManagement:
                         elif operation=='health':
                             status('正在重驗檔案與健康…'); manager.check_health(self._catalog(),*key,cancel=cancel)
                             message='健康檢查通過；使用時仍會重新驗證。'
+                            record = registry.get(*key)
+                            if record is not None and GEOS_REPLACEMENT_LABEL in record.reason:
+                                message += ' ' + record.reason
                         elif operation=='activate':
                             manager.activate(self._catalog(),*key,cancel=cancel); message='所選版本已驗證並啟用。'
                         elif operation=='rollback':
