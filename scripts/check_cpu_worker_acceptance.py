@@ -141,7 +141,11 @@ def acceptance(package_directory, report_path, geos_replacements=None):
         geos = None
         if geos_replacements is not None:
             from check_geos_worker import verify_replacements
-            with patch.dict(os.environ, {'PATH': ''}):
+            # 損壞替換檔是預期反例，不經一般驗收的 stderr 包裝器重拋 RuntimeError。
+            # 用產品的健康回呼驗證介面實際看見的失敗原因。
+            with patch.dict(os.environ, {'PATH': ''}), patch.dict(
+                manager.health_checks, {'onnx.cpu.health': binding.health}
+            ):
                 geos = verify_replacements(manager, binding, envelope, spec, source, root, geos_replacements, result)
         manager.remove(*spec.key)
         require(not registry.installation_path(spec).exists(), '閒置元件移除未完成。')

@@ -184,7 +184,7 @@ jobs:
         run: |
           & out/geos-controller/Scripts/python.exe scripts/check_cpu_worker_acceptance.py --package-directory out/geos-package --report out/geos-reports/worker.json --geos-replacements out/geos-replacement 2>&1 | Tee-Object out/geos-integration.txt
           if ($LASTEXITCODE -ne 0) {
-            $failure = ((Get-Content -Tail 8 out/geos-integration.txt) -join " | ").Replace("%","%25")
+            $failure = ((Get-Content -Tail 16 out/geos-integration.txt) -join " | ").Replace("%","%25")
             Write-Output ("::error title=B3-3 worker integration::" + $failure)
             exit 1
           }

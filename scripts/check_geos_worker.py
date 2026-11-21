@@ -37,6 +37,7 @@ def verify_replacements(manager, binding, envelope, spec, source, root, replacem
             raise AssertionError('Managed tampering affected basic conversion')
     finally:
         managed[0].write_bytes(original)
+    print('GEOS managed tamper and basic conversion checks passed', flush=True)
 
     directory = root/DIRECTORY
     directory.mkdir()
@@ -66,6 +67,7 @@ def verify_replacements(manager, binding, envelope, spec, source, root, replacem
             for file in expected
         ):
             raise AssertionError('Replacement path and fingerprint missing from OCR output')
+        print('GEOS replacement frozen health, provider and OCR checks passed', flush=True)
         (directory/NAMES[1]).write_bytes(b'not a DLL')
         failed = binding.health(spec, installed, manager.host)
         if failed.passed or ERROR not in failed.detail:
@@ -79,6 +81,7 @@ def verify_replacements(manager, binding, envelope, spec, source, root, replacem
             raise AssertionError('Damaged replacement did not fail the managed lease')
         if (root/'damaged.md').exists():
             raise AssertionError('Damaged GEOS published OCR output')
+        print('GEOS damaged replacement rejected', flush=True)
     finally:
         shutil.rmtree(directory)
 
