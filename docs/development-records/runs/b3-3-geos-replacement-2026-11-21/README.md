@@ -17,7 +17,7 @@ Windows CPU worker 只從和 `settings.json` 同層的固定 `geos-replacement` 
 | 使用者替換 | 兩個自建 DLL 的 SHA-256 均異於受管檔，實際程序模組位置在獨立替換目錄。Shapely 交集、frozen 健康與 OCR 通過，輸出與健康結果均有絕對路徑、雜湊與未驗證標記。 |
 | 損壞與復原 | 將 C API 替換檔寫為無效 bytes，正式健康回呼及受管租約拒絕，未建立輸出。移除整組替換檔後辨識成功並恢復原版。 |
 
-驗收使用 hosted runner。實體 Windows 與乾淨機留在原規劃。一次性驗證 job 已還原。用 annotations 保存精簡結果，沒有上傳 Setup、worker、模型或另外建立 artifact。試跑 44886880410 因重啟正在調整的驗收方式而取消。試跑 44887094890 的診斷包裝器將預期的健康失敗轉成通用 RuntimeError，改由正式健康回呼後完成驗收。
+專項驗收先於 PR 57 原文補件合併，GEOS 載入程式於併入後相同。合併後以完整回歸與一般 Windows CI 重新驗證。驗收使用 hosted runner。實體 Windows 與乾淨機留在原規劃。一次性驗證 job 已還原。用 annotations 保存精簡結果，沒有上傳 Setup、worker、模型或另外建立 artifact。試跑 44886880410 因重啟正在調整的驗收方式而取消。試跑 44887094890 的診斷包裝器將預期的健康失敗轉成通用 RuntimeError，改由正式健康回呼後完成驗收。
 
 ## 測試證據
 
