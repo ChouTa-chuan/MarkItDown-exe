@@ -1299,7 +1299,7 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "d91494c9831566d42576ef12be073fb8bb7355d3",
+    "source_commit": "f145db3cd93f75eadec4155bd0108cc9bdccb90b",
     "date_taipei": "2026-11-21",
     "accepted": true,
     "run": 973,
@@ -1323,7 +1323,7 @@
     "clean_machine_accepted": false,
     "release_ready": false,
     "evidence": "development-records/runs/b3-1-libyaml-paddleocr-notices-2026-11-21/README.md",
-    "note": "協調者於提交後以實際提交更新 source_commit（目前值為 d91494c，即 B3-1 工作的基底；之後的 B3-1 修正未改測試數）。"
+    "note": "B3-1 修正後的完整混合與獨立模組回歸，973 項，972 通過、1 項既有 ONNX 繁中預期失敗"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
