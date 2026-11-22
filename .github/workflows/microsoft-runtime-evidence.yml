@@ -16,11 +16,6 @@ on:
       - 'packaging/microsoft/**'
       - 'packaging/redistribution/obligations.json'
   workflow_dispatch:
-    inputs:
-      geos_replacement_feasibility:
-        description: 'Observe explicit GEOS replacement on Windows'
-        type: boolean
-        default: false
 
 permissions:
   contents: read
@@ -34,7 +29,6 @@ env:
 
 jobs:
   evidence:
-    if: ${{ !inputs.geos_replacement_feasibility }}
     runs-on: windows-2022
     timeout-minutes: 15
     steps:
@@ -80,7 +74,6 @@ jobs:
           if-no-files-found: warn
 
   cpu-evidence:
-    if: ${{ !inputs.geos_replacement_feasibility }}
     name: CPU locked wheel observation
     runs-on: windows-2022
     timeout-minutes: 15
@@ -111,83 +104,3 @@ jobs:
           path: out/cpu-evidence-reports/
           retention-days: 7
           if-no-files-found: warn
-
-  geos-feasibility:
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.geos_replacement_feasibility }}
-    runs-on: windows-2022
-    timeout-minutes: 45
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: libgeos/geos
-          ref: c389f532d25fe6228861d9b19339f9cb57ca4bdb
-          path: out/geos-source
-          persist-credentials: false
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12.10'
-      - name: Install the locked Windows Shapely environment
-        shell: pwsh
-        run: |
-          python -m venv out/geos-venv
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          & out/geos-venv/Scripts/python.exe -m pip install --require-hashes -r packaging/profiles/cpu-windows-build.txt
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: Observe unchanged wheel binding
-        shell: pwsh
-        run: |
-          & out/geos-venv/Scripts/python.exe scripts/geos_windows_feasibility.py
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: Build a separate GEOS 3.14.1 pair with the locked wheel basenames
-        shell: pwsh
-        run: |
-          @'
-          set_target_properties(geos PROPERTIES OUTPUT_NAME "geos-bf067cd6ff74ee0ad5f3ff52c7ef08c9")
-          set_target_properties(geos_c PROPERTIES OUTPUT_NAME "geos_c-6dd9fd915eef8a7928285416bef1e666")
-          '@ | Add-Content -LiteralPath out/geos-source/CMakeLists.txt
-          cmake -S out/geos-source -B out/geos-build -G "Visual Studio 17 2022" -A x64 -DBUILD_SHARED_LIBS=ON -DBUILD_TESTING=OFF -DBUILD_BENCHMARKS=OFF -DBUILD_DOCUMENTATION=OFF -DBUILD_GEOSOP=OFF "-DCMAKE_CXX_FLAGS=/MP4"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          cmake --build out/geos-build --config Release --target geos_c --parallel 4
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          New-Item -ItemType Directory out/geos-replacement | Out-Null
-          $dlls = @(Get-ChildItem -LiteralPath out/geos-build -Recurse -File -Filter "geos*.dll")
-          if ($dlls.Count -ne 2) { throw "Expected exactly two GEOS DLLs" }
-          $dlls | Copy-Item -Destination out/geos-replacement
-      - name: Observe distinct replacement binding and actual geometry
-        shell: pwsh
-        run: |
-          & out/geos-venv/Scripts/python.exe scripts/geos_windows_feasibility.py --replacement (Resolve-Path out/geos-replacement).Path
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-
-      - name: Build the unchanged-spec frozen worker and lean controller
-        shell: pwsh
-        run: |
-          $worker = "out/geos-venv/Scripts/python.exe"
-          & $worker -m pip install --no-deps --no-build-isolation .
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          & $worker scripts/prepare_worker_assets.py --output out/geos-worker-assets
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          $env:MARKITDOWN_WORKER_ASSETS = (Resolve-Path out/geos-worker-assets).Path
-          & $worker -m PyInstaller --noconfirm --clean --distpath out/geos-dist --workpath out/geos-work packaging/ocr-worker.spec
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          & $worker scripts/package_cpu_worker.py --bundle out/geos-dist/MarkItDownOCRWorker --output out/geos-package
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          python -m venv out/geos-controller
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          & out/geos-controller/Scripts/python.exe -m pip install --require-hashes -r packaging/profiles/cpu-windows-controller.txt
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          & out/geos-controller/Scripts/python.exe -m pip install --no-deps --no-build-isolation .
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: Check frozen worker, managed integrity and replacement removal
-        shell: pwsh
-        run: |
-          & out/geos-controller/Scripts/python.exe scripts/check_cpu_worker_acceptance.py --package-directory out/geos-package --report out/geos-reports/worker.json --geos-replacements out/geos-replacement 2>&1 | Tee-Object out/geos-integration.txt
-          if ($LASTEXITCODE -ne 0) {
-            $failure = ((Get-Content -Tail 16 out/geos-integration.txt) -join " | ").Replace("%","%25")
-            Write-Output ("::error title=B3-3 worker integration::" + $failure)
-            exit 1
-          }
-          $report = Get-Content -Raw out/geos-reports/worker.json | ConvertFrom-Json
-          $value = $report.geos_replacement | ConvertTo-Json -Compress -Depth 8
-          Write-Output ("::notice title=B3-3 worker integration::" + $value)

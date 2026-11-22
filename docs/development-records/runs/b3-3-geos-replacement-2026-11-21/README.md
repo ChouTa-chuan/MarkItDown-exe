@@ -35,3 +35,7 @@ Windows CPU worker 的替換功能預設關閉。主程式從既有設定取得�
 - 從新固定 CPU 候選重新核對 worker 所含的 `geos_replacement.py`、`server.py`、`protocol.py`（包含與前一候選的差異、啟動參數及輸出契約），並記錄整個 worker 的內容雜湊。
 - 核對基本包的設定讀寫與控制端、選配元件管理的核取方塊及警告文字、`geos_replacement_enabled` 預設值與型別規則、停用後的健康提示，以及 `geos-lgpl-notice.md` 是否按目前交付路徑提供。
 - 使用同一次定版的基本包與 CPU worker 複驗預設停用、啟用、診斷與停用復原，留下新候選與上列檔案的雜湊及驗收來源。
+
+## 2026-11-22 Windows 開關複驗
+
+使用合併 PR 59 後的依賴與原 spec 重建凍結 worker。驗收腳本檢查留有兩份相容 DLL 且預設關閉時的受管 OCR 與提示、明確啟用後的實際替換及雜湊、損壞拒絕、保留損壞檔時停用即可恢復、啟用但空目錄明確失敗。實際結果見專項 run 的 job 與 annotations。工作本身沒有上傳步驟，驗證流程已還原。[Hosted Windows run 45026762660](https://github.com/ChouTa-chuan/MarkItDown-exe/actions/runs/45026762660)
