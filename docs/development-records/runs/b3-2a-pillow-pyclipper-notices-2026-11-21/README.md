@@ -60,10 +60,10 @@
 
 | 檔案 | 舊 sha256 | 新 sha256 | 同步處 |
 | --- | --- | --- | --- |
-| `src/desktop_app/data/licenses/windows/inventory.json` | `76e1613f641eaf36c8122e7a3c0482f908644bf4a63162ce2d2831ff3c668dfb` | `c479b78be51bdcd3b0cd00d6f945e15653c2d65fd12ee824dd78b03cafead50f` | `packaging/embedded/base-windows.json`、`cpu-windows.json` 的 `inventory.sha256`（已同步）；a12／a13b review 歷史快照保留 |
-| `src/desktop_app/data/licenses/windows/supplemental/sources.json` | `7368bf93c4d97dce17271a7b5f5a2b0802aa5331b400847867e55a5d20ceb0e6` | `f2eb3c4acfc42984f5f7ce674875c6687f34193a5ffa631aa5cb037e9be1c781` | `inventory.json` 的 files 表（已同步）；a12／a13b review 歷史快照保留 |
-| `packaging/embedded/base-windows.json` | `b3f94e6732a7e2444bebdd0dae329b3980557779000d9bf4eb4ed140921a26a7` | `ed8e42ab74169ac2363d3d038011e2ed33042051402bebcbcbe3505e5c89183d` | `packaging/redistribution/obligations.json` 10 處（已同步） |
-| `packaging/embedded/cpu-windows.json` | `9d71724e149d4199b6fcc91f717f9afff13577c6db6051e1e2575964125512e5` | `7c92f1c4ad769def10cb097c988ef54b12168985ebc4b232902ee8b83c00d6ac` | `packaging/redistribution/obligations.json` 2 處（已同步） |
+| `src/desktop_app/data/licenses/windows/inventory.json` | `27765d770a6b7fa370abd38c0d46124c4dfa3a28a1f49d57ff445be8aeda81ca` | `c479b78be51bdcd3b0cd00d6f945e15653c2d65fd12ee824dd78b03cafead50f` | `packaging/embedded/base-windows.json`、`cpu-windows.json` 的 `inventory.sha256`（已同步）；a12／a13b review 歷史快照保留 |
+| `src/desktop_app/data/licenses/windows/supplemental/sources.json` | `a37099ae9783aa8ba050e04950b4e7dd501d7345d978238d750f60126d78e4f5` | `f2eb3c4acfc42984f5f7ce674875c6687f34193a5ffa631aa5cb037e9be1c781` | `inventory.json` 的 files 表（已同步）；a12／a13b review 歷史快照保留 |
+| `packaging/embedded/base-windows.json` | `747316259c1d8246e61bbc83fcda0f46785d4297ce2e504a3e0fbbf275c8067f` | `ed8e42ab74169ac2363d3d038011e2ed33042051402bebcbcbe3505e5c89183d` | `packaging/redistribution/obligations.json` 10 處（已同步） |
+| `packaging/embedded/cpu-windows.json` | `344b5ac3bbfc74e02399e3b285da35cc62e9e679c751e30ab48a4e806dcbd7e3` | `7c92f1c4ad769def10cb097c988ef54b12168985ebc4b232902ee8b83c00d6ac` | `packaging/redistribution/obligations.json` 2 處（已同步） |
 | `src/desktop_app/data/licenses/index.html` | 見 B3-1 | 重新渲染 | 無外部引用（B3-1 歷史快照保留） |
 | `packaging/profiles/base-closure.json`、`cpu-windows-closure.json` | 內容改變 | 見 manifest | 無外部引用 |
 

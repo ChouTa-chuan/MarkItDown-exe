@@ -1323,7 +1323,7 @@
     "clean_machine_accepted": false,
     "release_ready": false,
     "evidence": "development-records/runs/b3-2a-pillow-pyclipper-notices-2026-11-21/README.md",
-    "note": "B3-2a 原文補件 II（含 libaom）後的完整混合與獨立模組回歸，974 項，973 通過、1 項既有 ONNX 繁中預期失敗；未提交，基礎為 85c28dd"
+    "note": "B3-2a 原文補件 II（含 libaom）後的完整混合與獨立模組回歸，974 項，973 通過、1 項既有 ONNX 繁中預期失敗；於 85c28dd 加本分支修改的工作樹執行（source_commit 為內容提交）"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
