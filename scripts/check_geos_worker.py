@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import shutil
 
-from desktop_app.component_workers.geos_replacement import DIRECTORY, ERROR, LABEL, NAMES, STATUS
+from desktop_app.component_workers.geos_replacement import DIRECTORY, ERROR, LABEL, NAMES, NOT_ENABLED, STATUS
 from desktop_app.components.lifecycle import LifecycleError
 from desktop_app.components.registry import IntegrityError
 from desktop_app.conversion import convert_document
@@ -13,6 +13,17 @@ from desktop_app.core import Request, State
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def verify_disabled(manager, binding, envelope, spec, installed, source, output, baseline):
+    health = binding.health(spec, installed, manager.host)
+    if not health.passed or NOT_ENABLED not in health.detail or LABEL in health.detail:
+        raise AssertionError('Disabled replacement did not report the files without loading them')
+    outcome = binding.run_managed(manager, envelope, source, output)
+    if (outcome.state != State.COMPLETED or outcome.geos_notice != NOT_ENABLED
+            or 'geos_replacement' in outcome.report['runtime'] or outcome.report['text'] != baseline.report['text']
+            or LABEL in output.read_text(encoding='utf-8')):
+        raise AssertionError('Disabled replacement did not preserve managed OCR and output')
 
 
 def verify_replacements(manager, binding, envelope, spec, source, root, replacements, baseline):
@@ -50,6 +61,8 @@ def verify_replacements(manager, binding, envelope, spec, source, root, replacem
             if digest == bundled_sha[name]:
                 raise AssertionError('Replacement must differ from managed bytes')
             expected.append(dict(path=str(target), sha256=digest))
+        verify_disabled(manager, binding, envelope, spec, installed, source, root/'default-off.md', baseline)
+        binding.geos_replacement_enabled = True
         health = binding.health(spec, installed, manager.host)
         if not health.passed or LABEL not in health.detail or any(
             file['path'] not in health.detail or file['sha256'] not in health.detail for file in expected
@@ -82,13 +95,22 @@ def verify_replacements(manager, binding, envelope, spec, source, root, replacem
         if (root/'damaged.md').exists():
             raise AssertionError('Damaged GEOS published OCR output')
         print('GEOS damaged replacement rejected', flush=True)
+        binding.geos_replacement_enabled = False
+        verify_disabled(manager, binding, envelope, spec, installed, source, root/'after-disable.md', baseline)
     finally:
         shutil.rmtree(directory)
 
+    binding.geos_replacement_enabled = True
+    missing = binding.health(spec, installed, manager.host)
+    if missing.passed or ERROR not in missing.detail:
+        raise AssertionError('Enabled replacement fell back with the files missing')
+    binding.geos_replacement_enabled = False
     recovered = binding.run_managed(manager, envelope, source, root/'recovered.md')
     if (recovered.state != State.COMPLETED or 'geos_replacement' in recovered.report['runtime']
             or any(sha(path) != bundled_sha[path.name] for path in managed)):
         raise AssertionError('Removing the replacement did not restore managed OCR')
     return dict(clean_managed_ocr=True, tamper_rejected=True, basic_conversion=True,
+                default_off_ignores_present_pair=True, disabled_restores_without_removal=True,
+                enabled_missing_fails=True,
                 replacement_ocr=True, replacement_geometry=True, damaged_rejected=True,
                 removal_restores_managed=True, managed_sha256=bundled_sha, replacement=actual)

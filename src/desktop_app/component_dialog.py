@@ -1,11 +1,13 @@
 """C08 元件管理視窗：Qt 主執行緒只顯示資料，所有磁碟／網路／健康操作放背景。"""
+from dataclasses import replace
 from threading import Event
 import time
 
-from PySide6.QtCore import Qt, QThread, Signal
-from PySide6.QtWidgets import (QDialog, QFileDialog, QHBoxLayout, QLabel, QMessageBox,
+from PySide6.QtCore import Qt, QSignalBlocker, QThread, Signal
+from PySide6.QtWidgets import (QCheckBox, QDialog, QFileDialog, QHBoxLayout, QLabel, QMessageBox,
     QPlainTextEdit, QProgressBar, QPushButton, QSplitter, QTreeWidget, QTreeWidgetItem, QVBoxLayout)
 
+from .component_workers.geos_replacement import WARNING
 
 STATE_LABELS = {'missing':'尚未安裝', 'downloaded':'已下載，未驗證', 'verified':'包檔已驗證，未安裝',
                 'installed':'已安裝，待檢查', 'unchecked':'上次健康通過（使用前重驗）',
@@ -35,13 +37,23 @@ class ManagementThread(QThread):
 
 
 class ComponentDialog(QDialog):
-    def __init__(self, service, parent=None):
+    def __init__(self, service, parent=None, *, save_geos_preference=None):
         super().__init__(parent)
         self.service=service; self.job=None; self.rows=(); self.last_result=None
+        self.save_geos_preference = save_geos_preference
         self.setWindowTitle('選配元件管理'); self.resize(1040,720)
         layout=QVBoxLayout(self)
         summary=QLabel('基本功能與原模型管理可繼續使用。選配元件由此明確下載／匯入；開啟視窗不會自動連網。')
         summary.setWordWrap(True); layout.addWidget(summary)
+        self.geos_enabled = QCheckBox('啟用 GEOS 使用者替換（進階，未驗證）')
+        self.geos_enabled.setChecked(service.settings.geos_replacement_enabled)
+        self.geos_enabled.setToolTip('只適用 Windows 的受管 CPU OCR。變更後立即儲存。')
+        layout.addWidget(self.geos_enabled)
+        self.geos_warning = QLabel(WARNING)
+        self.geos_warning.setWordWrap(True)
+        self.geos_warning.setVisible(self.geos_enabled.isChecked())
+        layout.addWidget(self.geos_warning)
+        self.geos_enabled.toggled.connect(self.set_geos_preference)
         toolbar=QHBoxLayout()
         self.refresh_button=QPushButton('重新讀取本機狀態')
         self.catalog_button=QPushButton('匯入簽章目錄')
@@ -81,6 +93,23 @@ class ComponentDialog(QDialog):
     def busy(self):
         return self.job is not None and self.job.isRunning()
 
+    def set_geos_preference(self, enabled):
+        if self.busy() or self.save_geos_preference is None:
+            with QSignalBlocker(self.geos_enabled):
+                self.geos_enabled.setChecked(self.service.settings.geos_replacement_enabled)
+            return
+        try:
+            self.save_geos_preference(enabled)
+        except (OSError, ValueError) as exc:
+            with QSignalBlocker(self.geos_enabled):
+                self.geos_enabled.setChecked(self.service.settings.geos_replacement_enabled)
+            self.status.setText(f'GEOS 設定未儲存：{exc}')
+            return
+        # 背景工作執行時鎖定選項，因此新的健康檢查才會看到更新後的設定。
+        self.service.settings = replace(self.service.settings, geos_replacement_enabled=enabled)
+        self.geos_warning.setVisible(enabled)
+        self.status.setText('已啟用 GEOS 使用者替換。' if enabled else '已停用 GEOS 使用者替換。下一次工作將使用受管版本。')
+
     def selected(self):
         item=self.table.currentItem()
         return next((row for row in self.rows if item is not None and row.spec.key==item.data(0,Qt.ItemDataRole.UserRole)),None)
@@ -97,6 +126,7 @@ class ComponentDialog(QDialog):
         self.refresh_button.setEnabled(idle); self.recover_button.setEnabled(idle)
         self.catalog_button.setEnabled(idle and self.service.source is not None)
         self.online_button.setEnabled(idle and self.service.source is not None and self.service.source.catalog_url is not None)
+        self.geos_enabled.setEnabled(idle and self.save_geos_preference is not None)
         self.table.setEnabled(idle); self.cancel_button.setEnabled(not idle)
 
     def selection_changed(self):

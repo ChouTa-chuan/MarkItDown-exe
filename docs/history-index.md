@@ -6,10 +6,11 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 167 筆。
+共 168 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-22 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-22-before-geos-opt-in.md](history/status/2026-11-22-before-geos-opt-in.md) |
 | 2026-11-21 | 證據 | B3-1 原文補件 I：LibYAML 0.2.5 與 PaddleOCR 授權原文 |  |  |  | [development-records/runs/b3-1-libyaml-paddleocr-notices-2026-11-21/README.md](development-records/runs/b3-1-libyaml-paddleocr-notices-2026-11-21/README.md) |
 | 2026-11-21 | 證據 | B3-2a 原文補件 II：Pillow（libaom、dav1d、Raqm）與 pyclipper（Clipper 標頭、BSL-1.0） |  |  |  | [development-records/runs/b3-2a-pillow-pyclipper-notices-2026-11-21/README.md](development-records/runs/b3-2a-pillow-pyclipper-notices-2026-11-21/README.md) |
 | 2026-11-21 | 證據 | B3-3：GEOS 使用者替換路徑 | b8d863f | 接受、Windows已執行 | B3-3、GEOS、LGPL、Shapely、替換、Windows | [development-records/runs/b3-3-geos-replacement-2026-11-21/README.md](development-records/runs/b3-3-geos-replacement-2026-11-21/README.md) |

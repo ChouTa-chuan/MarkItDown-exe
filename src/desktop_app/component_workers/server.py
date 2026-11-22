@@ -91,7 +91,9 @@ def serve(directory, guard, control, input_stream, *, geos_directory=None):
         # 健康檢查與實際工作共用此鎖；控制端退出後，鎖仍由 worker 自己持有。
         with file_lock(guard,exclusive=False):
             # 持有 DLL handle 直到 worker 結束，並在任何 OCR 套件載入 Shapely 前決定來源。
-            geos_replacement, geos_handles = load_replacement(geos_directory, Path(guard).parent.parent)
+            geos_replacement, geos_handles = None, ()
+            if geos_directory is not None:
+                geos_replacement, geos_handles = load_replacement(geos_directory, Path(guard).parent.parent)
             preload_windows_runtime()
             emit('hello',component_id=wire.COMPONENT_ID,component_version=wire.COMPONENT_VERSION,
                  pid=os.getpid(),frozen=bool(getattr(sys,'frozen',False)),device='cpu')
@@ -165,7 +167,7 @@ def main(argv=None):
     parser=argparse.ArgumentParser()
     parser.add_argument('--job-directory',type=Path,required=True)
     parser.add_argument('--guard',type=Path,required=True)
-    parser.add_argument('--geos-replacement-dir', type=Path)
+    parser.add_argument('--geos-replacement-dir', type=Path, help='由主程序明確啟用並指定的 GEOS 替換目錄')
     args=parser.parse_args(argv)
     # 控制通道保留獨立 fd，連原生函式庫寫 stdout 都會導至 stderr，不混入 JSON。
     control=os.fdopen(os.dup(sys.stdout.fileno()),'wb',buffering=0)

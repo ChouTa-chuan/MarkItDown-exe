@@ -22,6 +22,8 @@ def main():
     parser.add_argument("--ocr-backend", choices=["tesseract", "onnx", "onnx_verify", "managed_cpu"])
     parser.add_argument('--component-id',help='受管 OCR 元件識別名稱；只適用 managed_cpu')
     parser.add_argument('--component-version',help='固定已啟用版本；不自動切換')
+    parser.add_argument('--geos-replacement', action=argparse.BooleanOptionalAction,
+                        help='本次明確啟用或停用 GEOS 替換；只適用 Windows 受管 CPU OCR')
     parser.add_argument('--ocr-languages',help='Tesseract 語言以 + 分隔：chi_tra／eng／jpn／kor；legacy 沿用舊行為')
     parser.add_argument("--vram-budget-mib", type=int)
     parser.add_argument("--ram-budget-mib", type=int)
@@ -44,6 +46,8 @@ def main():
             vram_budget_mib=saved.vram_budget_mib if args.vram_budget_mib is None else args.vram_budget_mib,
             quality=saved.quality if args.quality is None else args.quality,
             ocr_languages=saved.ocr_languages if args.ocr_languages is None else parse_languages(args.ocr_languages),
+            geos_replacement_enabled=(saved.geos_replacement_enabled if args.geos_replacement is None
+                                      else args.geos_replacement),
         )
         context=None
         if settings.ocr_backend=='managed_cpu' and args.settings:

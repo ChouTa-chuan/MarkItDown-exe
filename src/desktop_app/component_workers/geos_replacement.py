@@ -16,24 +16,24 @@ NAMES = ('geos-bf067cd6ff74ee0ad5f3ff52c7ef08c9.dll',
          'geos_c-6dd9fd915eef8a7928285416bef1e666.dll')
 STATUS = 'user-replacement-unverified'
 LABEL = 'GEOS 使用者替換、未驗證'
+NOT_ENABLED = '偵測到替換檔但未啟用'
+WARNING = '替換的 DLL 會以目前使用者身分在 worker 程序中執行，只放你信任的檔案；程式不驗證其內容或相容性'
 FAILURE = 'geos_replacement_failed'
-ERROR = 'GEOS 使用者替換失敗。請核對兩檔的名稱、版本與相容性，或移除全部替換檔後重試。'
+ERROR = 'GEOS 使用者替換失敗。請放入兩個指定 DLL，核對名稱、版本及相容性，或停用替換後重試。'
+MAX_LOADED_MODULES = 1024
 
 
 class GeosReplacementError(ValueError):
     """選用了替換，但無法安全確認來源路徑或啟動該組程式庫。"""
 
 
-def requested(directory):
-    """舊 worker 在空目錄下仍使用原命令。可疑路徑交給新 worker 明確拒絕。"""
+def has_replacement_files(directory):
+    """控制端只看預期檔名，供關閉時提示，完全不開啟 DLL。"""
     try:
-        directory.lstat()
         _chain(directory)
-        return not directory.is_dir() or next(directory.iterdir(), None) is not None
-    except FileNotFoundError:
-        return False
+        return stat.S_ISDIR(_plain(directory).st_mode) and any((directory/name).is_file() for name in NAMES)
     except (OSError, IntegrityError):
-        return True
+        return False
 
 
 def replacement_files(directory, managed):
@@ -140,10 +140,12 @@ def _loaded_paths(kernel):
     name = kernel.GetModuleFileNameW
     name.argtypes = (wintypes.HMODULE, wintypes.LPWSTR, wintypes.DWORD)
     name.restype = wintypes.DWORD
-    modules = (wintypes.HMODULE * 1024)()
+    modules = (wintypes.HMODULE * MAX_LOADED_MODULES)()
     needed = wintypes.DWORD()
-    if not enum(process(), modules, ctypes.sizeof(modules), ctypes.byref(needed)) or needed.value > ctypes.sizeof(modules):
+    if not enum(process(), modules, ctypes.sizeof(modules), ctypes.byref(needed)):
         raise ctypes.WinError(ctypes.get_last_error())
+    if needed.value > ctypes.sizeof(modules):
+        raise GeosReplacementError(f'程序模組超過 {MAX_LOADED_MODULES} 個，無法完整核對實際來源。')
     paths = []
     for module in modules[:needed.value // ctypes.sizeof(wintypes.HMODULE)]:
         buffer = ctypes.create_unicode_buffer(32768)
@@ -163,7 +165,7 @@ def load_replacement(directory, managed):
         raise GeosReplacementError('GEOS 替換須在 Windows worker 匯入 Shapely 前執行。')
     paths = replacement_files(directory, managed)
     if not paths:
-        return None, ()
+        raise GeosReplacementError('已啟用 GEOS 替換，請放入兩個指定的 DLL。')
     kernel = ctypes.WinDLL('kernel32', use_last_error=True)
     try:
         if _loaded_paths(kernel):

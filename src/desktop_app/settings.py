@@ -44,6 +44,7 @@ class Settings:
     update_channel: str = 'stable'
     allow_optional_downloads: bool = False
     ocr_languages: tuple[str, ...] | None = None
+    geos_replacement_enabled: bool = False
 
     def __post_init__(self):
         if type(self.schema_version) is not int or self.schema_version != 7:
@@ -73,6 +74,8 @@ class Settings:
             raise ValueError('首次精靈版本無效。')
         if type(self.allow_optional_downloads) is not bool:
             raise ValueError('元件下載選項須為布林值。')
+        # 附加設定只認 JSON true，舊檔或型別錯誤都沿用受管 GEOS。
+        object.__setattr__(self, 'geos_replacement_enabled', self.geos_replacement_enabled is True)
         if (not isinstance(self.component_preferences, tuple) or len(self.component_preferences) > 64
                 or not all(isinstance(item, ComponentPreference) for item in self.component_preferences)
                 or len({item.capability for item in self.component_preferences}) != len(self.component_preferences)):

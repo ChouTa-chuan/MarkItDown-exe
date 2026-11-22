@@ -1,6 +1,6 @@
 # 現況
 
-更新：2026-11-21（台北）｜程式 0.19.1／架構 0.4
+更新：2026-11-22（台北）｜程式 0.19.1／架構 0.4
 
 開工只需要讀 [AGENTS.md](AGENTS.md) 和這份檔案。測試數、里程碑等數字只記在 [docs/progress.json](docs/progress.json)（[進度頁](docs/progress.html)），這裡不重抄。要追溯過去的做法或失敗，查 [歷史索引](docs/history-index.md)。
 
@@ -10,14 +10,16 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | B3-3 自 `d91494c` 開始，已同步 `85c28dd`（PR 54 的掃描測試包、PR 55、56 的 CPU Microsoft 證據及 PR 57 的 B3-1 原文補件）。B1b 公開開關已關。 |
-| 本輪分支 | `codex/b3-3-geos-replacement` 處理 GEOS，完成驗證後交 Claude reviewer。[PR](https://github.com/ChouTa-chuan/MarkItDown-exe/pulls?q=is%3Apr+head%3Acodex%2Fb3-3-geos-replacement) |
-| 下一棒 | B3-3 完成 hosted Windows 驗收，PR CI 通過後交 Claude reviewer；B3-7 等 B3-3 合併後先出設計。其他 B3 工作依 C 節分工。 |
+| `main` | B3-3 自 `d91494c` 開始，已同步 `74612b5`（PR 59 的 B3-2a 原文補件 II）。B1b 公開開關已關。 |
+| 本輪分支 | `codex/b3-3-geos-replacement` 處理 GEOS 明確啟用開關。[PR 58](https://github.com/ChouTa-chuan/MarkItDown-exe/pull/58) |
+| 下一棒 | PR 58 已通過第一輪 Claude 查驗；依使用者決定補上預設關閉。CI 通過後待使用者確認合併，B3-7 在合併後先出設計。 |
 | 固定來源 | A13b `b17d51bc99f8402f16b99f98bbe3b3370530bc6c`（base run 44295039865、cpu run 44295044417、Microsoft 探測 run 44300296037） |
 
 ## B. 這個階段完成了什麼
 
-- **B3-3**：hosted Windows 已證明相同檔名、不同 SHA-256 的 GEOS 可預載。凍結 worker 已通過受管改檔拒絕、替換 OCR、損壞拒絕與移除恢復。[驗收證據](docs/development-records/runs/b3-3-geos-replacement-2026-11-21/README.md)
+- **B3-3**：替換預設關閉。選配元件管理立即儲存同意設定，主程式只在明確啟用時傳入參數。hosted Windows 已證明相同檔名、不同 SHA-256 的 GEOS 可預載。凍結 worker 已通過受管改檔拒絕、替換 OCR、損壞拒絕與移除恢復。[驗收證據](docs/development-records/runs/b3-3-geos-replacement-2026-11-21/README.md)
+
+- **B3-2a 已合併**（PR 59）：Pillow 與 pyclipper 原文補件 II。[證據](docs/development-records/runs/b3-2a-pillow-pyclipper-notices-2026-11-21/README.md)
 
 - **B3d**：查證固定 CPU worker 的建置工具檔案、Python 封存與實際啟動。setuptools、pip 和 hook 套件保留授權／套件資料，未見其可匯入封裝；PyInstaller 啟動器負責啟動凍結程式。資產調整留到 B3 確認。[逐檔證據](docs/development-records/runs/b3d-cpu-build-tools-2026-11-21/README.md)
 
@@ -79,7 +81,7 @@
 | | B3-0 決定收集與存檔：D 節新增 2026-11-21 決定並存固定檔 [`2026-11-21-b3-decisions.md`](docs/history/status/2026-11-21-b3-decisions.md)；修正 A 節 | 本 PR |
 | | B3-1 原文補件 I：LibYAML 0.2.5 與 PaddleOCR 授權原文（比照 A9b：supplemental 原文、`sources.json` 固定上游來源、綁定 PyYAML；PaddleOCR 綁定方式由 coder 先提方案）；base 也會改到，使用者已同意（B3-D3）| 完成並合併（PR 57） |
 | | B3-2 原文補件 II：Pillow（libaom、dav1d；libyuv、Raqm、FriBidi 先查是否編入）、OpenCV（zlib、libpng）、pyclipper（Clipper 與 BSL-1.0）；onnxruntime、NumPy 只查證。依 B3c `notice-audit.json` 優先順序；可拆 B3-2a（Pillow，影響 base）、B3-2b（OpenCV、pyclipper、查證）；排在 B3-1 之後避免 `sources.json` 衝突 | 待開始（建議 GPT，待使用者指派） |
-| | B3-3 GEOS 受支援替換路徑（B3-D4 選 (a)）：受管目錄之外放使用者替換目錄，worker 在匯入 shapely 前以完整路徑預先載入；不放寬受管完整性檢查；標示「使用者替換、未驗證」；hosted Windows 驗收（可辨識、覆蓋受管 DLL 被拒、放入不同 bytes 但相容的 GEOS 能運作、損壞時清楚失敗），標明非實體機；先做可行性實驗，失敗回報使用者 | Hosted Windows 可行性與凍結 worker 驗收通過，待 PR CI 及 Claude reviewer |
+| | B3-3 GEOS 受支援替換路徑（B3-D4 選 (a)）：受管目錄之外放使用者替換目錄，worker 在匯入 shapely 前以完整路徑預先載入；不放寬受管完整性檢查；標示「使用者替換、未驗證」；hosted Windows 驗收（可辨識、覆蓋受管 DLL 被拒、放入不同 bytes 但相容的 GEOS 能運作、損壞時清楚失敗），標明非實體機；先做可行性實驗，失敗回報使用者 | Hosted Windows 已通過原行為驗收；補上預設關閉、開關及風險揭露，PR 58 的新驗證完成後由使用者確認合併 |
 | | B3-4 CPU Microsoft 再散布依據（只做證據）：CPython 14.42 vcruntime 對 python.org 官方安裝檔、delvewheel 改名 msvcp140 的依據與 RECORD、兩份 MSVCP 與官方一致沿用；不換 DLL | 待開始（Claude coder） |
 | | B3-5 CPU 揭露檔與揭露規則補強：`known_gaps.py` 支援 cpu、`known-gaps.md` 加 CPU 一節；補一道檢查讓模型授權揭露（決定 A）被 gates 或測試核對（目前 gates 對 `cpu-rapidocr-models` 推導缺口為空，不強制）。排在 B3-1、B3-2 之後 | 待開始（Claude coder） |
 | | B3-6 識別模型更換為官方 PP-OCRv6 small ONNX＋外部字表（`rec_model_path`、`rec_keys_path`）；移除 ONNX 繁中預期失敗並改寫已知缺口與限制文字；Windows 驗收。**須 B3b6 通過並再確認簡中差異、模型卡授權（LICENSE 連結失效）、字表附檔方式、是否排除 v4 rec 後才開工** | 待 B3b6 結果與使用者確認 |
@@ -198,5 +200,6 @@
 | 2026-11-21 | 使用者決定 | B3-D3：同意補原文（LibYAML、PaddleOCR、Pillow libaom／dav1d、OpenCV、pyclipper 等）改變安裝包內容；base 也一併補 |
 | 2026-11-21 | 使用者決定 | B3-D4：GEOS 替換路徑採 (a)：受管目錄之外放使用者替換目錄並預先載入，不放寬完整性檢查 |
 | 2026-11-21 | 使用者決定 | B3-D5：B3d 發現的重複授權檔與兩個 vendored `.py` 不處理；B3-D6（新 base 測試版是否重新公開、A13 決定是否沿用）等 B3 後半再問 |
+| 2026-11-22 | 使用者決定 | B3-3 GEOS 使用者替換預設關閉，只有使用者明確啟用後，主程式才傳入替換參數。PR 58 由使用者確認後合併，B3-7 須等合併後先提交設計 |
 
-接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。B3 計畫與使用者決定已記錄（C 節 B3-0～B3-13、D 節 B3-D1～D6）；先做 B3-1、B3-4、B3b6（Claude coder），B3-2、B3-3、B3-7 待使用者指派。不建 Release／tag，不觸發 windows-build.yml。
+接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。B3 後續分工及順序見 C 節。

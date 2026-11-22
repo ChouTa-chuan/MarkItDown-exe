@@ -2,19 +2,27 @@
 
 Windows CPU OCR worker 透過 Shapely 2.2.0 動態連結 GEOS 3.14.1。GEOS 使用 GNU LGPL 2.1，候選將 GEOS core 與 C API 保留為兩個獨立 DLL。CPU 元件內的原文位於 `_internal/worker-assets/installed/shapely/original/shapely-2.2.0.dist-info/licenses/LICENSE_GEOS`。[Shapely wheel 內的原文](windows/shapely/wheel/shapely-2.2.0.dist-info/licenses/LICENSE_GEOS)
 
-The Windows CPU worker dynamically links GEOS 3.14.1 through Shapely. You can use a compatible build of both GEOS libraries through the user replacement directory described below.
+The Windows CPU worker dynamically links GEOS 3.14.1 through Shapely. To use a compatible build of both libraries, place them in the user replacement directory and explicitly enable the option.
 
-## 放置或移除替換檔
+## 啟用與停用
 
 1. 在使用者資料目錄（與本機 `settings.json` 同層，桌面版使用 Qt 的 `AppLocalDataLocation`）建立 `geos-replacement`。例如 `<settings.json 所在資料夾>\geos-replacement`。此目錄與受管 `component-state` 同層。
 2. 放入支援的 Windows x64 GEOS 配對。目錄只接受下面兩個檔案的原樣檔名，兩個都必須是一般檔案。相對路徑、連結、junction、硬連結、其他檔名和不完整配對都會被拒絕。
-3. 在支援此功能的主程式與 CPU worker 上重新執行健康檢查或 OCR。相容的配對會被標示「GEOS 使用者替換、未驗證」。健康結果、診斷與 Markdown 會記錄載入路徑與 SHA-256。
-4. 要恢復受管版本，等目前工作結束後移除兩個替換檔。空目錄或缺少整個替換目錄時，下一次啟動使用受管版本。若檔案損壞、ABI 不相容或不符合目錄規則，當次請求會失敗並提示如何處理。受管 DLL 的逐檔驗證依原本規則執行。
+3. 到「選配元件管理」勾選「啟用 GEOS 使用者替換（進階，未驗證）」，閱讀警告後再執行健康檢查或受管 CPU OCR。成功時，健康結果、工作診斷與 Markdown 會標示「GEOS 使用者替換、未驗證」，並記下實際載入路徑與 SHA-256。
+4. 取消勾選會立即儲存，下一次健康檢查或 OCR 使用受管版本，替換檔可留在原處。關閉時，若偵測到預期檔名，健康與工作診斷會提示「偵測到替換檔但未啟用」，仍照常執行。啟用時，空目錄、缺檔、損壞或不相容都會讓當次請求失敗，請補齊配對或停用後重試。
+
+無介面時，將既有 `settings.json` 的 `geos_replacement_enabled` 設為 JSON 布林值 `true` 啟用，設為 `false` 停用。欄位缺少或型別錯誤時視為關閉。開發用命令列可以在既有 `--settings` 與受管 CPU OCR 選項之外，加上 `--geos-replacement` 或 `--no-geos-replacement`，只覆蓋當次執行的設定。
 
 | 元件 | 檔名 |
 | --- | --- |
 | GEOS core | `geos-bf067cd6ff74ee0ad5f3ff52c7ef08c9.dll` |
 | GEOS C API | `geos_c-6dd9fd915eef8a7928285416bef1e666.dll` |
+
+## 使用替換檔前
+
+替換的 DLL 會以目前使用者身分在 worker 程序中執行，只放你信任的檔案。程式在載入前檢查路徑、預期檔名及是否為一般檔案，但沒有雜湊白名單、簽章或 PE 檢查。Windows 在載入時就會執行 DLL 的 `DllMain`。確認實際載入模組的名稱、路徑和 ABI，以及試算幾何運算，都是載入後才做。程式不保證相容性或辨識品質，替換結果一律標示「GEOS 使用者替換、未驗證」。
+
+開關預設關閉，可避免目錄裡意外出現的檔案被執行。能寫入你的使用者資料目錄與設定檔的惡意程式，也能放入 DLL 並改開關。這是明確同意的步驟，無法提供安全隔離。
 
 ## 原始碼與相容建置
 

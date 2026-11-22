@@ -20,6 +20,7 @@ class ManagedContext:
     """只由可信應用服務建立；不從設定／下載清單接受金鑰或任意執行命令。"""
     directory: str
     policy: TrustPolicy | None
+    geos_replacement_enabled: bool = False
 
     def __post_init__(self):
         if not isinstance(self.directory,str) or '\x00' in self.directory or not Path(self.directory).is_absolute():
@@ -84,7 +85,7 @@ class ManagedOCRSession:
         self.binding=CPUWorkerBinding(registry.directory/'.locks/worker-use.lock',self.policy,
             read_snapshot=lambda:snapshot(self.owner_pid),cpu_threads=self.request.cpu_threads,
             cancel=self.cancel,permit=self.permit,resource_wait=self.resource_wait,notify=self.health_notify,
-            data_directory=self.service.directory)
+            data_directory=self.service.directory, geos_replacement_enabled=self.context.geos_replacement_enabled)
         self.manager=ComponentManager(registry,self.service.verifier,self.service.host,
                                      {'onnx.cpu.health':self.binding.health},checkpoint=self.checkpoint)
         catalog=self.service._catalog()
@@ -120,8 +121,11 @@ class ManagedOCRSession:
             self.geos_replacement = replacement
         if not self.recorded:
             # 每份文件只送一次有界執行證據，不將 OCR 全文／圖片塞入父程序佇列。
-            self.record_component(dict(**self.provenance,state=outcome.state.value,pid=outcome.pid,
-                frozen=report.get('runtime',{}).get('frozen'),providers=report.get('providers',[])))
+            evidence = dict(**self.provenance, state=outcome.state.value, pid=outcome.pid,
+                            frozen=report.get('runtime', {}).get('frozen'), providers=report.get('providers', []))
+            if outcome.geos_notice:
+                evidence['geos_notice'] = outcome.geos_notice
+            self.record_component(evidence)
             self.recorded=True
         if outcome.state==State.CANCELLED: raise Cancelled(outcome.message)
         if outcome.state!=State.COMPLETED:

@@ -32,6 +32,7 @@ class WorkerOutcome:
     message: str
     report: dict | None = None
     pid: int | None = None
+    geos_notice: str | None = None
 
 
 def stop_tree(process):
@@ -58,7 +59,8 @@ class WorkerRunner:
     """command 由可信程式 binding 提供，不能從下載目錄讀取任意 shell 命令。"""
     def __init__(self, command, guard, policy, *, estimate_mib=768, cpu_threads=1,
                  timeout=120, handshake_timeout=10, resource_wait=30, cancel_grace=1,
-                 read_snapshot=snapshot, require_frozen=True, permit=None, component_version=wire.COMPONENT_VERSION):
+                 read_snapshot=snapshot, require_frozen=True, permit=None, component_version=wire.COMPONENT_VERSION,
+                 geos_notice=None):
         if not isinstance(command,tuple) or not command or not all(isinstance(item,str) and item and '\x00' not in item for item in command):
             raise ValueError('工作程序命令須為可信非空參數 tuple。')
         for value in (timeout,handshake_timeout,resource_wait,cancel_grace):
@@ -75,6 +77,7 @@ class WorkerRunner:
         self.timeout=timeout;self.handshake_timeout=handshake_timeout;self.resource_wait=resource_wait
         self.cancel_grace=cancel_grace;self.read_snapshot=read_snapshot;self.require_frozen=require_frozen
         self.permit=permit
+        self.geos_notice = geos_notice
 
     def run(self, source=None, destination=None, *, operation='ocr', cancel=None,
             notify=lambda state,message:None):
@@ -240,7 +243,9 @@ class WorkerRunner:
             if replacement is not None:
                 detail = record_detail(replacement)
                 message += ' ' + (detail if len(message) + len(detail) < 2048 else LABEL)
-            return WorkerOutcome(State.COMPLETED, message, value, process.pid)
+            if self.geos_notice:
+                message += ' ' + self.geos_notice + '。'
+            return WorkerOutcome(State.COMPLETED, message, value, process.pid, self.geos_notice)
         except Cancelled as exc:return WorkerOutcome(State.CANCELLED,str(exc),pid=process.pid if process else None)
         except Exception as exc:return WorkerOutcome(State.FAILED,f'{type(exc).__name__}: {exc}',pid=process.pid if process else None)
         finally:
