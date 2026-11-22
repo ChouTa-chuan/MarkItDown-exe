@@ -1,7 +1,7 @@
 {
   "updated": "2026-11-21",
   "environment": "Linux 混合／獨立模組完整回歸；hosted Windows 2022 讀取同一固定 CPU 來源重建的 CArchive，並驗證固定 OCR 樣本。",
-  "tests_passed": 972,
+  "tests_passed": 973,
   "headline": "B3a～B3d 完成；B3 計畫與使用者決定已定案，下一步補原文、真實掃描複驗與 CPU 交付通道",
   "blocker": "CPU 元件在實機無法安裝（程式沒有信任公鑰與正式目錄），B3-7 要建立測試通道並請使用者建立金鑰與 GitHub secret。換 v6 small 要先完成真實掃描複驗。乾淨機與人工驗收使用 B3 後的新版本。",
   "next": "Claude coder 做 B3-1（LibYAML、PaddleOCR 原文）、B3-4（CPU Microsoft 依據）與列印測試 PDF（B3b6）；使用者列印掃描。B3-2、B3-3、B3-7 待指派 GPT。",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 973,
+  "tests_run": 974,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "f145db3cd93f75eadec4155bd0108cc9bdccb90b",
+    "source_commit": "526778bdbad9268049bb117f2498677bdc08e1e0",
     "date_taipei": "2026-11-21",
     "accepted": true,
-    "run": 973,
-    "passed": 972,
+    "run": 974,
+    "passed": 973,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1322,8 +1322,8 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/b3-1-libyaml-paddleocr-notices-2026-11-21/README.md",
-    "note": "B3-1 修正後的完整混合與獨立模組回歸，973 項，972 通過、1 項既有 ONNX 繁中預期失敗"
+    "evidence": "development-records/runs/b3-2a-pillow-pyclipper-notices-2026-11-21/README.md",
+    "note": "B3-2a 原文補件 II（含 libaom）後的完整混合與獨立模組回歸，974 項，973 通過、1 項既有 ONNX 繁中預期失敗；於 85c28dd 加本分支修改的工作樹執行（source_commit 為內容提交）"
   },
   "tests_failed": 0,
   "tests_skipped": 0,

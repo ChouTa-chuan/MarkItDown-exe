@@ -58,5 +58,41 @@
     "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/07603421c20a96bb94bb87d0c4211032527ae706/LICENSE",
     "sha256": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856",
     "bytes": 11438
+  },
+  {
+    "name": "dav1d",
+    "url": "https://raw.githubusercontent.com/videolan/dav1d/b546257f770768b2c88258c533da38b91a06f737/COPYING",
+    "sha256": "dd92c3c2247c5651606fc23a5e2d6a1ebc5ace9a3e49cbde0e12f05ad1cb1ee5",
+    "bytes": 1317
+  },
+  {
+    "name": "raqm",
+    "url": "https://raw.githubusercontent.com/HOST-Oman/libraqm/08ee1537e63f93bf926498e12b12ed15ee383216/COPYING",
+    "sha256": "f6baa5c872ed0c35cde377735f930d97a23e08065d87cf34d766b3aad5beed1e",
+    "bytes": 1180
+  },
+  {
+    "name": "clipper-header",
+    "url": "https://raw.githubusercontent.com/fonttools/pyclipper/f998920369565dca56d346bb30c5741e273f0b9b/src/clipper.hpp",
+    "sha256": "8fa62835d1b88be098193df53e921475d6a7119a3f3de8046eed81b9ffa23f67",
+    "bytes": 2624
+  },
+  {
+    "name": "bsl-1.0",
+    "url": "https://raw.githubusercontent.com/boostorg/boost/1bed2b0712b2119f20d66c5053def9173c8462a5/LICENSE_1_0.txt",
+    "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+    "bytes": 1338
+  },
+  {
+    "name": "libaom",
+    "url": "https://aomedia.googlesource.com/aom/+/03087864cf4bea6abb0d28f95cf7843511413d8f/LICENSE?format=TEXT",
+    "sha256": "4764a286d8b2faeaf42f4418e7d7a28d58fc8fd4d00a3d0a7f44b0a4099de7f2",
+    "bytes": 1316
+  },
+  {
+    "name": "libaom-PATENTS",
+    "url": "https://aomedia.googlesource.com/aom/+/03087864cf4bea6abb0d28f95cf7843511413d8f/PATENTS?format=TEXT",
+    "sha256": "661fb8e504744e95587b556b94a58343448300606a41bea8c7a9b97125696e61",
+    "bytes": 5701
   }
 ]

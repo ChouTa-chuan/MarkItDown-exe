@@ -14,8 +14,12 @@ from urllib.parse import quote
 PROJECT=Path(__file__).resolve().parents[1]
 LICENSES=PROJECT/'src/desktop_app/data/licenses'
 # 原文名稱不等於套件名時的固定綁定：LibYAML 內嵌於 PyYAML 的 .pyd，PaddleOCR 授權涵蓋 rapidocr 內的 PP-OCR 模型。
+# B3-2a：dav1d（靜態併入 Pillow 的 _avif，經 libavif LOCAL 建置）與 Raqm（Pillow 內附 src/thirdparty/raqm 編入 _imagingft）歸 pillow；
+# Clipper 標頭與 BSL-1.0 原文歸 pyclipper（Clipper 編入 _pyclipper）。
 # 每份原文只能掛在一個擁有者列；generate 與 verify 都依此表核對，避免只靠檔名推斷。
-SUPPLEMENT_OWNERS={'libyaml':'pyyaml','paddleocr':'rapidocr-onnxruntime'}
+SUPPLEMENT_OWNERS={'libyaml':'pyyaml','paddleocr':'rapidocr-onnxruntime',
+                   'dav1d':'pillow','raqm':'pillow','libaom':'pillow','libaom-PATENTS':'pillow',
+                   'clipper-header':'pyclipper','bsl-1.0':'pyclipper'}
 
 
 def sha(data):

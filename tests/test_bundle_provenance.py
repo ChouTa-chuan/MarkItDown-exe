@@ -25,7 +25,8 @@ from prepare_worker_assets import WORKER_NOTICE_PINS, native_notices, prepare
 PROJECT = Path(__file__).resolve().parents[1]
 WINDOWS_LICENSES = PROJECT/'src/desktop_app/data/licenses/windows'
 # 安裝套件（擁有者）與版本；原文由 WORKER_NOTICE_PINS 的擁有者綁入，PaddleOCR、LibYAML 不是獨立安裝套件。
-NOTICE_PACKAGES = {'flatbuffers': '25.12.19', 'rapidocr-onnxruntime': '1.4.4', 'pyyaml': '6.0.3'}
+NOTICE_PACKAGES = {'flatbuffers': '25.12.19', 'rapidocr-onnxruntime': '1.4.4', 'pyyaml': '6.0.3',
+                   'pillow': '13.0.0', 'pyclipper': '1.4.0'}
 
 
 class ProvenanceTests(unittest.TestCase):
@@ -121,6 +122,18 @@ class ProvenanceTests(unittest.TestCase):
                                  (record['owner'], record['url'], record['sha256'], record['bytes']))
                 self.assertEqual(sha256(WINDOWS_LICENSES/'supplemental'/f'{key}.txt'), pin.sha256)
 
+    def test_b3_2a_pins_match_the_recorded_evidence_manifest(self):
+        # B3-2a 的 Pillow（dav1d、Raqm）與 pyclipper（Clipper 標頭、BSL-1.0）原文必須與證據清單的 URL、雜湊與大小一致。
+        evidence = json.loads((PROJECT/'docs/development-records/runs/b3-2a-pillow-pyclipper-notices-2026-11-21'
+                               /'manifest.json').read_text(encoding='utf-8'))
+        for key in ('dav1d', 'raqm', 'libaom', 'libaom-PATENTS', 'clipper-header', 'bsl-1.0'):
+            with self.subTest(original=key):
+                pin = WORKER_NOTICE_PINS[key]
+                record = evidence['originals'][key]
+                self.assertEqual((pin.owner, pin.version, pin.url, pin.sha256, pin.size),
+                                 (record['owner'], record['owner_version'], record['url'], record['sha256'], record['bytes']))
+                self.assertEqual(sha256(WINDOWS_LICENSES/'supplemental'/f'{key}.txt'), pin.sha256)
+
     def test_prepared_worker_reuses_original_paths_and_records_package_owners(self):
         from importlib.metadata import PathDistribution
 
@@ -186,6 +199,14 @@ class ProvenanceTests(unittest.TestCase):
             'paddleocr-extra-owner': ('Invalid worker notice binding: paddleocr', 'manifest-extra'),
             'libyaml-extra-inventory-owner': ('Worker notice source mismatch: libyaml', 'inventory-extra'),
             'paddleocr-source-url': ('Worker notice source mismatch: paddleocr', 'sources-url'),
+            # B3-2a：dav1d、Raqm 綁 Pillow，Clipper 標頭與 BSL-1.0 綁 pyclipper；錯綁、額外擁有者、來源 URL 被改都必須拒絕。
+            'dav1d-on-pyclipper': ('Invalid worker notice binding: dav1d', 'manifest-move-dav1d'),
+            'raqm-extra-owner': ('Invalid worker notice binding: raqm', 'manifest-extra-raqm'),
+            'clipper-extra-inventory-owner': ('Worker notice source mismatch: clipper-header', 'inventory-extra-clipper'),
+            'bsl-source-url': ('Worker notice source mismatch: bsl-1.0', 'sources-bsl'),
+            # 續：libaom LICENSE／PATENTS 綁 Pillow；錯綁到 pyclipper、PATENTS 來源 URL 被改都必須拒絕。
+            'libaom-on-pyclipper': ('Invalid worker notice binding: libaom', 'manifest-move-libaom'),
+            'libaom-patents-source-url': ('Worker notice source mismatch: libaom-PATENTS', 'sources-libaom-patents'),
         }
         for case, (message, kind) in cases.items():
             with self.subTest(case=case):
@@ -198,6 +219,31 @@ class ProvenanceTests(unittest.TestCase):
                     rows['flatbuffers']['notice_files'].append('licenses/windows/supplemental/libyaml.txt')
                 elif kind == 'manifest-extra':
                     rows['pyyaml']['notice_files'].append('licenses/windows/supplemental/paddleocr.txt')
+                elif kind == 'manifest-move-dav1d':
+                    rows['pillow']['notice_files'].remove('licenses/windows/supplemental/dav1d.txt')
+                    rows['pyclipper']['notice_files'].append('licenses/windows/supplemental/dav1d.txt')
+                elif kind == 'manifest-extra-raqm':
+                    rows['pyclipper']['notice_files'].append('licenses/windows/supplemental/raqm.txt')
+                elif kind == 'inventory-extra-clipper':
+                    inventory = json.loads(pristine[inventory_path].decode('utf-8'))
+                    target = next(row for row in inventory['packages'] if row['name'] == 'pillow')
+                    target['supplemental_sources'].append(dict(next(
+                        row for row in inventory['packages'] if row['name'] == 'pyclipper')['supplemental_sources'][0]))
+                    self.save(inventory_path, inventory)
+                elif kind == 'manifest-move-libaom':
+                    rows['pillow']['notice_files'].remove('licenses/windows/supplemental/libaom.txt')
+                    rows['pyclipper']['notice_files'].append('licenses/windows/supplemental/libaom.txt')
+                elif kind == 'sources-libaom-patents':
+                    sources = json.loads(pristine[sources_path].decode('utf-8'))
+                    next(row for row in sources if row['name'] == 'libaom-PATENTS')['url'] = (
+                        'https://aomedia.googlesource.com/aom/+/0000000000000000000000000000000000000000/PATENTS?format=TEXT')
+                    self.save(sources_path, sources)
+                elif kind == 'sources-bsl':
+                    sources = json.loads(pristine[sources_path].decode('utf-8'))
+                    next(row for row in sources if row['name'] == 'bsl-1.0')['url'] = (
+                        'https://raw.githubusercontent.com/boostorg/boost/'
+                        '0000000000000000000000000000000000000000/LICENSE_1_0.txt')
+                    self.save(sources_path, sources)
                 elif kind == 'inventory-extra':
                     inventory = json.loads(pristine[inventory_path].decode('utf-8'))
                     target = next(row for row in inventory['packages'] if row['name'] == 'rapidocr-onnxruntime')

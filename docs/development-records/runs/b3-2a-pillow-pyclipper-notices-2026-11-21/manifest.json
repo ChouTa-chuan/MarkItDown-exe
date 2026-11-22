@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "id": "b3-2a-pillow-pyclipper-notices",
+  "date": "2026-11-21",
+  "base_commit": "85c28dd",
+  "branch": "claude/b3-2a-pillow-pyclipper-notices",
+  "fixed_candidate": {
+    "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+    "refixed": false,
+    "status_changed": false,
+    "obligations_status_changed": false
+  },
+  "upstream_refs": {
+    "pillow_tag_13_0_0": {
+      "commit": "293218ad059d994baf1777d882911bed6a49704a",
+      "tag_object": "lightweight",
+      "resolved_by": "git ls-remote github.com/python-pillow/Pillow refs/tags/13.0.0"
+    },
+    "pillow_winbuild_build_prepare_py": {
+      "url": "https://raw.githubusercontent.com/python-pillow/Pillow/293218ad059d994baf1777d882911bed6a49704a/winbuild/build_prepare.py",
+      "sha256": "cfb3dd98c881cf2aea051e9d57e751d8d9613d7c9a48dd1b71ae68d2de69e570",
+      "bytes": 28968
+    },
+    "pillow_dependencies_json": {
+      "url": "https://raw.githubusercontent.com/python-pillow/Pillow/293218ad059d994baf1777d882911bed6a49704a/.github/dependencies.json",
+      "sha256": "63413d6dccf72367fc4c04c2560999e7a40ea14cf226dcc995d238cf3d25533b",
+      "bytes": 376
+    },
+    "pillow_workflow_wheels_yml": {
+      "url": "https://raw.githubusercontent.com/python-pillow/Pillow/293218ad059d994baf1777d882911bed6a49704a/.github/workflows/wheels.yml",
+      "sha256": "3556b2d4f11e16bf72d6d3af95ef2493b6a5221917416c595ce5a67eebc96060",
+      "bytes": 13090
+    },
+    "pillow_pyproject_toml": {
+      "url": "https://raw.githubusercontent.com/python-pillow/Pillow/293218ad059d994baf1777d882911bed6a49704a/pyproject.toml",
+      "sha256": "31d2050093c5a24f8239adcac1ebbc2ce72bd893622a0ed247c8ba8b09bb25f3",
+      "bytes": 7062
+    },
+    "pillow_setup_py": {
+      "url": "https://raw.githubusercontent.com/python-pillow/Pillow/293218ad059d994baf1777d882911bed6a49704a/setup.py",
+      "sha256": "79e31d829959941b06b0b22ead40431f337a666408c32b09b2df35c431ad93f4",
+      "bytes": 41392
+    },
+    "pillow_vendored_raqm_c": {
+      "url": "https://raw.githubusercontent.com/python-pillow/Pillow/293218ad059d994baf1777d882911bed6a49704a/src/thirdparty/raqm/raqm.c",
+      "sha256": "d3cb7309f91c5804fd19adc04efdcaf167d26e156f3459844b205b25dedca001",
+      "bytes": 72235,
+      "note": "與 Pillow wheel SBOM 內 raqm 條目的 hash 相同"
+    },
+    "libavif_tag_v1_4_2": {
+      "commit": "c5240fc79fe5c2407e10afd35f5505ef6333ea49",
+      "tag_object": "bd32fb40a3b2028eb555b67f769c57a32ed8a1b4",
+      "resolved_by": "git ls-remote github.com/AOMediaCodec/libavif refs/tags/v1.4.2"
+    },
+    "libavif_CMakeLists_txt": {
+      "url": "https://raw.githubusercontent.com/AOMediaCodec/libavif/c5240fc79fe5c2407e10afd35f5505ef6333ea49/CMakeLists.txt",
+      "sha256": "2734969c3a582302df2e09358518ec87b1f4107f86d8e5bc4aced0812b548143",
+      "bytes": 36672
+    },
+    "libavif_cmake_LocalAom": {
+      "url": "https://raw.githubusercontent.com/AOMediaCodec/libavif/c5240fc79fe5c2407e10afd35f5505ef6333ea49/cmake/Modules/LocalAom.cmake",
+      "sha256": "ac10e1e393aaebdc814a422d7ffd38c2edb2e416971020d9c72f3259c929031c",
+      "bytes": 6760,
+      "pins": {
+        "AVIF_AOM_GIT_TAG": "v3.14.1（已確認）",
+        "GIT_REPOSITORY": "https://aomedia.googlesource.com/aom.git"
+      }
+    },
+    "libavif_cmake_LocalDav1d": {
+      "url": "https://raw.githubusercontent.com/AOMediaCodec/libavif/c5240fc79fe5c2407e10afd35f5505ef6333ea49/cmake/Modules/LocalDav1d.cmake",
+      "sha256": "f9971a87e5fcc74e47305490e442eec7ba187dc0f822d6f0b6838f1811cffd68",
+      "bytes": 5681,
+      "pins": {
+        "AVIF_DAV1D_TAG": "1.5.3",
+        "GIT_REPOSITORY": "https://code.videolan.org/videolan/dav1d.git"
+      }
+    },
+    "libavif_cmake_LocalLibyuv": {
+      "url": "https://raw.githubusercontent.com/AOMediaCodec/libavif/c5240fc79fe5c2407e10afd35f5505ef6333ea49/cmake/Modules/LocalLibyuv.cmake",
+      "sha256": "e0bb97e920eaec8442c84ebf99c55a6bfb17ae61228d750a1c135d495aad23df",
+      "bytes": 3221,
+      "pins": {
+        "AVIF_LIBYUV_TAG": "644251f252a84bf8ce91ff0aca86a9b16b069ab8",
+        "GIT_REPOSITORY": "https://chromium.googlesource.com/libyuv/libyuv"
+      }
+    },
+    "libavif_LICENSE": {
+      "url": "https://raw.githubusercontent.com/AOMediaCodec/libavif/c5240fc79fe5c2407e10afd35f5505ef6333ea49/LICENSE",
+      "sha256": "165abf92cc04b39e80d29cadea7a6a7e8fddf59407d4ad2616507a7ebe8216f9",
+      "bytes": 20415,
+      "note": "與 Pillow wheel LICENSE 的 libavif-1.4.2 段相同來源"
+    },
+    "dav1d_tag_1_5_3": {
+      "commit": "b546257f770768b2c88258c533da38b91a06f737",
+      "resolved_by": "git ls-remote github.com/videolan/dav1d refs/tags/1.5.3^{}（GitHub 鏡像；code.videolan.org 本環境不可達）"
+    },
+    "raqm_tag_v0_11_0": {
+      "commit": "08ee1537e63f93bf926498e12b12ed15ee383216",
+      "tag_object": "c95aa7bf00a86d93f2028e81557c537cd894a721",
+      "resolved_by": "git ls-remote github.com/HOST-Oman/libraqm refs/tags/v0.11.0^{}"
+    },
+    "libraqm_src_raqm_c_upstream": {
+      "url": "https://raw.githubusercontent.com/HOST-Oman/libraqm/08ee1537e63f93bf926498e12b12ed15ee383216/src/raqm.c",
+      "sha256": "4450c4c8d953706ac7ac565635353caad333aa6a1b130fcb0701854e47981d54",
+      "bytes": 72158,
+      "note": "與 Pillow 內附版本不同（77 bytes 差異），Pillow 於 SBOM 中標示為 0.11.0 加補丁"
+    },
+    "libyuv_pinned_commit_upstream_license": {
+      "url": "https://raw.githubusercontent.com/lemenkov/libyuv/644251f252a84bf8ce91ff0aca86a9b16b069ab8/LICENSE",
+      "sha256": "2b2cc1180c7e6988328ad2033b04b80117419db9c4c584918bbb3cfec7e9364f",
+      "bytes": 1506,
+      "note": "上游 chromium.googlesource.com 不可達；此為 GitHub 鏡像在同一完整 commit 的檔案（內容由 commit 雜湊決定）。僅作比對，未入 supplemental"
+    },
+    "libyuv_pinned_commit_upstream_patents": {
+      "url": "https://raw.githubusercontent.com/lemenkov/libyuv/644251f252a84bf8ce91ff0aca86a9b16b069ab8/PATENTS",
+      "sha256": "4da84211f947c6f9f7dd8fbce513e1522e01833407ae732b8c9a2bbb75fed495",
+      "bytes": 1387,
+      "note": "未入 supplemental，見 README 需使用者或協調者決定"
+    },
+    "aom_tag_v3_14_1": {
+      "commit": "03087864cf4bea6abb0d28f95cf7843511413d8f",
+      "tag_object": "33c921efad52392d6c7047a6768a1337cd106998",
+      "resolved_by": "git ls-remote https://aomedia.googlesource.com/aom refs/tags/v3.14.1 與 refs/tags/v3.14.1^{}（續作時 googlesource 已開放）；tag 與固定 commit 取回的 LICENSE、PATENTS 位元組相同"
+    },
+    "pyclipper_tag_1_4_0": {
+      "commit": "f998920369565dca56d346bb30c5741e273f0b9b",
+      "tag_object": "de4a996797cfde8f2d746e41d1702d657ed22d1b",
+      "resolved_by": "git ls-remote github.com/fonttools/pyclipper refs/tags/1.4.0^{}"
+    },
+    "pyclipper_src_clipper_hpp": {
+      "url": "https://raw.githubusercontent.com/fonttools/pyclipper/f998920369565dca56d346bb30c5741e273f0b9b/src/clipper.hpp",
+      "sha256": "734eba9dc9d399089b2b467017074bd24728a1b9e64c7429e827806ed10e54cc",
+      "bytes": 15423,
+      "note": "整檔；供補入的檔頭原文（第 1–32 行）來源"
+    },
+    "pyclipper_src_clipper_cpp": {
+      "url": "https://raw.githubusercontent.com/fonttools/pyclipper/f998920369565dca56d346bb30c5741e273f0b9b/src/clipper.cpp",
+      "sha256": "5c642a3668311701f72572443aa42c1a981edb037298efc015166d9d90be0755",
+      "bytes": 142184
+    },
+    "pyclipper_LICENSE": {
+      "url": "https://raw.githubusercontent.com/fonttools/pyclipper/f998920369565dca56d346bb30c5741e273f0b9b/LICENSE",
+      "sha256": "32ee7398e3123736fd14e9f08287edc2d97ace102ab54d8dc4edc8d31c651fa8",
+      "bytes": 1110,
+      "note": "pyclipper 自身 MIT，已在 wheel 內（licenses/windows/pyclipper/wheel）"
+    },
+    "boost_tag_1_90_0": {
+      "commit": "1bed2b0712b2119f20d66c5053def9173c8462a5",
+      "tag_object": "lightweight",
+      "resolved_by": "git ls-remote github.com/boostorg/boost refs/tags/boost-1.90.0"
+    },
+    "aom_LICENSE": {
+      "url": "https://aomedia.googlesource.com/aom/+/03087864cf4bea6abb0d28f95cf7843511413d8f/LICENSE?format=TEXT",
+      "sha256": "4764a286d8b2faeaf42f4418e7d7a28d58fc8fd4d00a3d0a7f44b0a4099de7f2",
+      "bytes": 1316,
+      "note": "googlesource 回傳 base64，解碼後為原文位元組"
+    },
+    "aom_PATENTS": {
+      "url": "https://aomedia.googlesource.com/aom/+/03087864cf4bea6abb0d28f95cf7843511413d8f/PATENTS?format=TEXT",
+      "sha256": "661fb8e504744e95587b556b94a58343448300606a41bea8c7a9b97125696e61",
+      "bytes": 5701,
+      "note": "googlesource 回傳 base64，解碼後為原文位元組"
+    }
+  },
+  "originals": {
+    "dav1d": {
+      "owner": "pillow",
+      "owner_version": "13.0.0",
+      "component": "dav1d 1.5.3（AV1 解碼器，靜態併入 PIL/_avif.cp312-win_amd64.pyd）",
+      "url": "https://raw.githubusercontent.com/videolan/dav1d/b546257f770768b2c88258c533da38b91a06f737/COPYING",
+      "upstream_commit": "b546257f770768b2c88258c533da38b91a06f737",
+      "upstream_filename": "COPYING",
+      "sha256": "dd92c3c2247c5651606fc23a5e2d6a1ebc5ace9a3e49cbde0e12f05ad1cb1ee5",
+      "bytes": 1317,
+      "license": "BSD-2-Clause",
+      "version_basis": "runtime-observed",
+      "version_basis_detail": {
+        "runtime": "Windows hosted A12d run 44270551031（head fb4f510）：PIL._avif.codec_versions() 回報 dav1d 1.5.3-0-gb546257，承載原生檔與 A12 候選同一位元組（見 a12d-runtime-versions-2026-11-18）",
+        "upstream_build_config": "libavif v1.4.2 cmake/Modules/LocalDav1d.cmake AVIF_DAV1D_TAG 1.5.3，Pillow 以 AVIF_CODEC_DAV1D=LOCAL 建置",
+        "tag_resolution": "tag 1.5.3 peel 為 b546257，與觀測字串的 commit 片段一致",
+        "wheel_declared": "wheel 內 LICENSE 只有 src/obu.c 的 dav1d 歸屬段（2018-2019），非完整 COPYING"
+      },
+      "compiled_in": true,
+      "notes": "COPYING 的版權年份為 2018-2025，與 wheel 內 src/obu.c 段不同；完整原文補入是必要的。"
+    },
+    "raqm": {
+      "owner": "pillow",
+      "owner_version": "13.0.0",
+      "component": "Raqm 0.11.0（Pillow 內附 src/thirdparty/raqm 原始碼，編入 PIL/_imagingft.cp312-win_amd64.pyd）",
+      "url": "https://raw.githubusercontent.com/HOST-Oman/libraqm/08ee1537e63f93bf926498e12b12ed15ee383216/COPYING",
+      "upstream_commit": "08ee1537e63f93bf926498e12b12ed15ee383216",
+      "upstream_filename": "COPYING",
+      "sha256": "f6baa5c872ed0c35cde377735f930d97a23e08065d87cf34d766b3aad5beed1e",
+      "bytes": 1180,
+      "license": "MIT",
+      "version_basis": "wheel-declared",
+      "version_basis_detail": {
+        "upstream_build_config": "pyproject.toml [tool.cibuildwheel] config-settings 含 raqm=enable raqm=vendor；setup.py 在 vendor 模式編入 src/thirdparty/raqm/raqm.c 與 harfbuzz",
+        "wheel_declared": "wheel SBOM（sboms/pillow-13.0.0.cdx.json）宣告 raqm 0.11.0 vendored，MIT；hash 與 Pillow 內附 raqm.c 相同",
+        "windows_observation": "A12d：PIL.features.version_feature('raqm') 為 None，無 Windows 版本值，因此不以 runtime-observed 分級",
+        "upstream_tag": "libraqm v0.11.0 peel 08ee1537；Pillow 內附 raqm.c 與上游 src/raqm.c 不同（Pillow 補丁，SBOM 標示）"
+      },
+      "compiled_in": true,
+      "notes": "本原文為 MIT 授權全文；Pillow 版本含補丁，授權條文不因補丁改變。"
+    },
+    "clipper-header": {
+      "owner": "pyclipper",
+      "owner_version": "1.4.0",
+      "component": "Clipper 6.4.2（Angus Johnson，靜態編入 pyclipper/_pyclipper.cp312-win_amd64.pyd）",
+      "url": "https://raw.githubusercontent.com/fonttools/pyclipper/f998920369565dca56d346bb30c5741e273f0b9b/src/clipper.hpp",
+      "upstream_commit": "f998920369565dca56d346bb30c5741e273f0b9b",
+      "upstream_filename": "clipper.hpp",
+      "upstream_full_file_sha256": "734eba9dc9d399089b2b467017074bd24728a1b9e64c7429e827806ed10e54cc",
+      "excerpt": "檔頭第 1–32 行（含 Author／Version／Copyright／License／Attributions 區塊），位元組未改寫",
+      "sha256": "8fa62835d1b88be098193df53e921475d6a7119a3f3de8046eed81b9ffa23f67",
+      "bytes": 2624,
+      "license": "BSL-1.0（Boost Software License 1.0）",
+      "version_basis": "wheel-declared",
+      "version_basis_detail": {
+        "wheel_declared": "pyclipper 1.4.0 wheel METADATA Summary 寫 Clipper library (ver. 6.4.2)；檔頭 Version 6.4.2、CLIPPER_VERSION 6.4.2",
+        "upstream_source": "pyclipper 1.4.0 固定標籤 src/clipper.hpp 與 clipper.cpp 的版本宣告"
+      },
+      "compiled_in": true,
+      "notes": "wheel 內 pyclipper 自身 LICENSE 只有 MIT，沒有 Clipper 的著作權與 BSL 聲明；本檔補入。"
+    },
+    "bsl-1.0": {
+      "owner": "pyclipper",
+      "owner_version": "1.4.0",
+      "component": "Boost Software License 1.0（Clipper 的授權）",
+      "url": "https://raw.githubusercontent.com/boostorg/boost/1bed2b0712b2119f20d66c5053def9173c8462a5/LICENSE_1_0.txt",
+      "upstream_commit": "1bed2b0712b2119f20d66c5053def9173c8462a5",
+      "upstream_filename": "LICENSE_1_0.txt",
+      "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+      "bytes": 1338,
+      "license": "BSL-1.0",
+      "version_basis": "license-text",
+      "notes": "boost-1.90.0 標籤下的 LICENSE_1_0.txt；BSL 1.0 全文跨版本固定。"
+    },
+    "libaom": {
+      "owner": "pillow",
+      "owner_version": "13.0.0",
+      "component": "libaom 3.14.1（AV1 編碼器，靜態併入 PIL/_avif.cp312-win_amd64.pyd）",
+      "url": "https://aomedia.googlesource.com/aom/+/03087864cf4bea6abb0d28f95cf7843511413d8f/LICENSE?format=TEXT",
+      "upstream_commit": "03087864cf4bea6abb0d28f95cf7843511413d8f",
+      "upstream_filename": "LICENSE",
+      "sha256": "4764a286d8b2faeaf42f4418e7d7a28d58fc8fd4d00a3d0a7f44b0a4099de7f2",
+      "bytes": 1316,
+      "license": "BSD-2-Clause",
+      "version_basis": "runtime-observed",
+      "version_basis_detail": {
+        "runtime": "Windows hosted A12d run 44270551031：PIL._avif.codec_versions() 回報 aom 3.14.1",
+        "upstream_build_config": "libavif v1.4.2 cmake/Modules/LocalAom.cmake 釘 AVIF_AOM_GIT_TAG v3.14.1，GIT_REPOSITORY https://aomedia.googlesource.com/aom.git；標籤解參照為 03087864cf4bea6abb0d28f95cf7843511413d8f",
+        "wheel_declared": "wheel 內 libavif-1.4.2 段無 aom 文字"
+      },
+      "compiled_in": true
+    },
+    "libaom-PATENTS": {
+      "owner": "pillow",
+      "owner_version": "13.0.0",
+      "component": "libaom 3.14.1 的 Alliance for Open Media Patent License 1.0",
+      "url": "https://aomedia.googlesource.com/aom/+/03087864cf4bea6abb0d28f95cf7843511413d8f/PATENTS?format=TEXT",
+      "upstream_commit": "03087864cf4bea6abb0d28f95cf7843511413d8f",
+      "upstream_filename": "PATENTS",
+      "sha256": "661fb8e504744e95587b556b94a58343448300606a41bea8c7a9b97125696e61",
+      "bytes": 5701,
+      "license": "AOM Patent License 1.0",
+      "version_basis": "same-as-libaom",
+      "compiled_in": true
+    }
+  },
+  "components": {
+    "dav1d": {
+      "status": "included",
+      "evidence": "upstream build config + Windows runtime observation + wheel LICENSE partial (src/obu.c)"
+    },
+    "raqm": {
+      "status": "included",
+      "evidence": "upstream build config (vendor) + wheel SBOM + .pyd strings"
+    },
+    "libaom": {
+      "status": "included",
+      "version": "3.14.1",
+      "version_basis": "runtime-observed + upstream build config (libavif LocalAom.cmake)",
+      "original": "LICENSE 與 PATENTS 已補入（續作）"
+    },
+    "libyuv": {
+      "status": "included",
+      "commit": "644251f252a84bf8ce91ff0aca86a9b16b069ab8",
+      "version_basis": "upstream build config (libavif LocalLibyuv.cmake)",
+      "original": "wheel LICENSE 已含 libyuv BSD 全文；PATENTS 不補，依使用者決定（2026-11-22，B3-2a 續作）：BSD 只要求附授權文字，PATENTS 為額外專利授權，非義務"
+    },
+    "fribidi": {
+      "status": "not-in-wheel",
+      "evidence": "SBOM scope optional，fribidi-shim 執行期動態載入 libfribidi；wheel 無任何 DLL；wheels.yml 另上傳 fribidi DLL 成品而不入 wheel",
+      "lgpl_original": "not added (LGPL 且不隨包)"
+    },
+    "clipper": {
+      "status": "included",
+      "version": "6.4.2",
+      "original": "clipper-header + bsl-1.0"
+    }
+  },
+  "wheels": {
+    "pillow-13.0.0-cp312-cp312-win_amd64.whl": {
+      "sha256": "ff3fe9eb621fbb9db4c4be33ab946f6bac5f98ab50ca8d3260503653656c961b",
+      "locked_in": [
+        "packaging/profiles/cpu-windows-build.txt",
+        "packaging/profiles/base-windows-build.txt"
+      ]
+    },
+    "pyclipper-1.4.0-cp312-cp312-win_amd64.whl": {
+      "sha256": "d1e5498d883b706a4ce636247f0d830c6eb34a25b843a1b78e2c969754ca9037",
+      "locked_in": [
+        "packaging/profiles/cpu-windows-build.txt"
+      ]
+    }
+  },
+  "observation_file": "wheel-observation.json",
+  "user_decisions": [
+    {
+      "date": "2026-11-22",
+      "source": "協調者轉達使用者決定（B3-2a 續作）",
+      "decision": "libyuv 的 PATENTS 不補"
+    }
+  ],
+  "regression": {
+    "baseline_origin_main_85c28dd": {
+      "expected_count": 973,
+      "run": 973,
+      "passed": 972,
+      "expected_failures": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    "mixed": {
+      "expected_count": 974,
+      "run": 974,
+      "passed": 973,
+      "expected_failures": 1,
+      "failures": 0,
+      "errors": 0,
+      "accepted": true
+    },
+    "isolated": {
+      "expected_count": 974,
+      "modules": 61,
+      "run": 974,
+      "passed": 973,
+      "expected_failures": 1,
+      "all_child_exits_zero": true,
+      "accepted": true
+    },
+    "linux_venv": "scratchpad/venv Python 3.12.3",
+    "note": "測試數只記 progress.json 的 full_regression；此處僅為執行設定"
+  },
+  "gates": {
+    "base": {
+      "exit": 0,
+      "disclosed": true,
+      "approved": true,
+      "complete": false,
+      "release_ready": false
+    },
+    "cpu": {
+      "exit": 0,
+      "disclosed": false,
+      "approved": false,
+      "complete": false,
+      "release_ready": false
+    }
+  },
+  "mutations": [
+    {
+      "id": "M1",
+      "change": "移除 inventory 唯一擁有者檢查（claims）",
+      "result": "失敗 2 子案例"
+    },
+    {
+      "id": "M2",
+      "change": "移除 manifest 擁有者檢查",
+      "result": "失敗 3 項"
+    },
+    {
+      "id": "M3",
+      "change": "移除 sources 記錄檢查",
+      "result": "失敗 3 子案例"
+    },
+    {
+      "id": "M4",
+      "change": "移除 license_inventory 擁有者綁定",
+      "result": "失敗 test_supplement_owner_binding"
+    },
+    {
+      "id": "M5",
+      "change": "移除原文 SHA-256 檢查",
+      "result": "失敗 28 子案例"
+    }
+  ]
+}

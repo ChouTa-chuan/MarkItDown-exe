@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-21",
+  "observation": "wheel-internal-static-inspection-only",
+  "note": "zip 中繼資料與位元組字串計數；未安裝、未執行。字串計數只作佐證，不是編入證明。",
+  "wheels": [
+    {
+      "wheel": "pillow-13.0.0-cp312-cp312-win_amd64.whl",
+      "wheel_sha256": "ff3fe9eb621fbb9db4c4be33ab946f6bac5f98ab50ca8d3260503653656c961b",
+      "wheel_entries": 120,
+      "dll_entries": [],
+      "natives": [
+        {
+          "name": "PIL/_avif.cp312-win_amd64.pyd",
+          "sha256": "3c31d65c8b3b4c91ac2838d5c843a6b2479d775b6904fe654d60b56d41772411",
+          "bytes": 7893504,
+          "marker_counts": {
+            "libaom": 3,
+            "aom_codec_": 10,
+            "3.14.1": 2,
+            "libyuv": 2,
+            "dav1d": 1,
+            "1.5.3": 1
+          }
+        },
+        {
+          "name": "PIL/_imaging.cp312-win_amd64.pyd",
+          "sha256": "7140f56d38dd6cd51512f8122386bcb914c5df2a82eb5f719c973527d9213cee",
+          "bytes": 2662400
+        },
+        {
+          "name": "PIL/_imagingcms.cp312-win_amd64.pyd",
+          "sha256": "2640857cace64d69735bdcaa3987e9ad70f85168abc1a8662079c77ac44b5301",
+          "bytes": 275456
+        },
+        {
+          "name": "PIL/_imagingft.cp312-win_amd64.pyd",
+          "sha256": "985228f6086171978abb5d04f2f625c489fdc9d7f0a92f2077a621ff184a599e",
+          "bytes": 2250752,
+          "marker_counts": {
+            "raqm_create": 1,
+            "raqm_layout": 1,
+            "fribidi_get_par_embedding_levels": 2,
+            "fribidi-0": 2,
+            "LoadLibrary": 1
+          }
+        },
+        {
+          "name": "PIL/_imagingmath.cp312-win_amd64.pyd",
+          "sha256": "01c6f9de6f0d6ed46d1df1d4a9cdf47e399306870453f26a5326368f7db0b3ad",
+          "bytes": 21504
+        },
+        {
+          "name": "PIL/_imagingmorph.cp312-win_amd64.pyd",
+          "sha256": "e74547cf128ee13d81d7c4ef6d5be079f230062b5a8e9ec648afdc9ce228af39",
+          "bytes": 12288
+        },
+        {
+          "name": "PIL/_imagingtk.cp312-win_amd64.pyd",
+          "sha256": "e1c87f73e96d2269395624d03b3808300f4b0f795f5fad1ecc3d1492e5dcc7c2",
+          "bytes": 14336
+        },
+        {
+          "name": "PIL/_webp.cp312-win_amd64.pyd",
+          "sha256": "bb9c64d38a6e4857bd3358e14dbe6cf3a4593b1efcd1185fdba1ef8931550896",
+          "bytes": 415744
+        }
+      ],
+      "sbom": {
+        "name": "pillow-13.0.0.dist-info/sboms/pillow-13.0.0.cdx.json",
+        "sha256": "fe1ca6e3a4f73e7018a3805a75a19377453f342d203712f37387ad6ee853fd44",
+        "declared_components": [
+          [
+            "FreeType",
+            "2.14.3",
+            "optional"
+          ],
+          [
+            "FriBiDi",
+            "1.0.17",
+            "optional"
+          ],
+          [
+            "HarfBuzz",
+            "14.5.0",
+            "optional"
+          ],
+          [
+            "Little CMS 2",
+            "2.19.1",
+            "optional"
+          ],
+          [
+            "OpenJPEG",
+            "2.5.4",
+            "optional"
+          ],
+          [
+            "PIL._avif",
+            "13.0.0",
+            "required"
+          ],
+          [
+            "PIL._imaging",
+            "13.0.0",
+            "required"
+          ],
+          [
+            "PIL._imagingcms",
+            "13.0.0",
+            "required"
+          ],
+          [
+            "PIL._imagingft",
+            "13.0.0",
+            "required"
+          ],
+          [
+            "PIL._imagingmath",
+            "13.0.0",
+            "required"
+          ],
+          [
+            "PIL._imagingmorph",
+            "13.0.0",
+            "required"
+          ],
+          [
+            "PIL._imagingtk",
+            "13.0.0",
+            "required"
+          ],
+          [
+            "PIL._webp",
+            "13.0.0",
+            "required"
+          ],
+          [
+            "fribidi-shim",
+            "1.x",
+            "required"
+          ],
+          [
+            "libavif",
+            "1.4.2",
+            "optional"
+          ],
+          [
+            "libimagequant",
+            "4.4.1",
+            "optional"
+          ],
+          [
+            "libjpeg / libjpeg-turbo",
+            "3.2.0",
+            "required"
+          ],
+          [
+            "libtiff",
+            "4.7.2",
+            "optional"
+          ],
+          [
+            "libwebp",
+            "1.6.0",
+            "optional"
+          ],
+          [
+            "libxcb",
+            "1.17.0",
+            "optional"
+          ],
+          [
+            "pybind11",
+            null,
+            "excluded"
+          ],
+          [
+            "pythoncapi_compat",
+            null,
+            "required"
+          ],
+          [
+            "raqm",
+            "0.11.0",
+            "required"
+          ],
+          [
+            "zlib",
+            "2.3.3",
+            "required"
+          ]
+        ]
+      }
+    },
+    {
+      "wheel": "pyclipper-1.4.0-cp312-cp312-win_amd64.whl",
+      "wheel_sha256": "d1e5498d883b706a4ce636247f0d830c6eb34a25b843a1b78e2c969754ca9037",
+      "wheel_entries": 8,
+      "dll_entries": [],
+      "natives": [
+        {
+          "name": "pyclipper/_pyclipper.cp312-win_amd64.pyd",
+          "sha256": "19123cdf15a7cfc6611f69bd13214c817a15d995cedc4f3d4bc777eb39348baa",
+          "bytes": 222720,
+          "marker_counts": {
+            "Clipper": 72,
+            "Angus": 1
+          }
+        }
+      ]
+    }
+  ]
+}
