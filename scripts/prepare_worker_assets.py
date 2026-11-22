@@ -47,6 +47,34 @@ WORKER_NOTICE_PINS = {
         'pyyaml', '6.0.3', '03c3b415ed38d09faedc49360e930769b40c58f68585e6de00e2e4916a858d34',
         'https://raw.githubusercontent.com/yaml/libyaml/2c891fc7a770e8ba2fec34fc6b545c672beb37e6/License',
         'c40112449f254b9753045925248313e9270efa36d226b22d82d4cc6c43c57f29', 1101),
+    # B3-2a：Pillow 13.0.0 的 dav1d 1.5.3（靜態併入 _avif.pyd）與 Raqm 0.11.0（Pillow 內附原始碼編入 _imagingft.pyd）。
+    # 版本依據與綁定說明見 docs/development-records/runs/b3-2a-pillow-pyclipper-notices-2026-11-21/README.md。
+    'dav1d': WorkerNoticePin(
+        'pillow', '13.0.0', 'dba7fdfe24e302f46bae562f55d66cc367c0618abae9894a1ebec93dc8f0e511',
+        'https://raw.githubusercontent.com/videolan/dav1d/b546257f770768b2c88258c533da38b91a06f737/COPYING',
+        'dd92c3c2247c5651606fc23a5e2d6a1ebc5ace9a3e49cbde0e12f05ad1cb1ee5', 1317),
+    'raqm': WorkerNoticePin(
+        'pillow', '13.0.0', 'dba7fdfe24e302f46bae562f55d66cc367c0618abae9894a1ebec93dc8f0e511',
+        'https://raw.githubusercontent.com/HOST-Oman/libraqm/08ee1537e63f93bf926498e12b12ed15ee383216/COPYING',
+        'f6baa5c872ed0c35cde377735f930d97a23e08065d87cf34d766b3aad5beed1e', 1180),
+    # B3-2a 續：Pillow 的 libaom 3.14.1（靜態編入 _avif.pyd）LICENSE 與 PATENTS，來源為 aom 標籤 v3.14.1 的固定 commit。
+    'libaom': WorkerNoticePin(
+        'pillow', '13.0.0', 'dba7fdfe24e302f46bae562f55d66cc367c0618abae9894a1ebec93dc8f0e511',
+        'https://aomedia.googlesource.com/aom/+/03087864cf4bea6abb0d28f95cf7843511413d8f/LICENSE?format=TEXT',
+        '4764a286d8b2faeaf42f4418e7d7a28d58fc8fd4d00a3d0a7f44b0a4099de7f2', 1316),
+    'libaom-PATENTS': WorkerNoticePin(
+        'pillow', '13.0.0', 'dba7fdfe24e302f46bae562f55d66cc367c0618abae9894a1ebec93dc8f0e511',
+        'https://aomedia.googlesource.com/aom/+/03087864cf4bea6abb0d28f95cf7843511413d8f/PATENTS?format=TEXT',
+        '661fb8e504744e95587b556b94a58343448300606a41bea8c7a9b97125696e61', 5701),
+    # B3-2a：pyclipper 1.4.0 的 Clipper 6.4.2（靜態編入 _pyclipper.pyd）；檔頭第 1–32 行為 clipper.hpp 的著作權與授權聲明，url 指向整檔。
+    'clipper-header': WorkerNoticePin(
+        'pyclipper', '1.4.0', '2a2d7b4ef4dd2764ee10701dd84741876680af346570dd8fac922795eb9ddf91',
+        'https://raw.githubusercontent.com/fonttools/pyclipper/f998920369565dca56d346bb30c5741e273f0b9b/src/clipper.hpp',
+        '8fa62835d1b88be098193df53e921475d6a7119a3f3de8046eed81b9ffa23f67', 2624),
+    'bsl-1.0': WorkerNoticePin(
+        'pyclipper', '1.4.0', '2a2d7b4ef4dd2764ee10701dd84741876680af346570dd8fac922795eb9ddf91',
+        'https://raw.githubusercontent.com/boostorg/boost/1bed2b0712b2119f20d66c5053def9173c8462a5/LICENSE_1_0.txt',
+        'c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566', 1338),
 }
 
 

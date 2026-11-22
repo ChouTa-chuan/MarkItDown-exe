@@ -48,6 +48,11 @@ class InventoryTests(unittest.TestCase):
         self.generate()
         with patch.dict(inventory.SUPPLEMENT_OWNERS,{'libyaml':'fixture'}):
             with self.assertRaisesRegex(ValueError,'Supplement owner binding mismatch'):inventory.verify(self.lock,self.output)
+        # B3-2a：dav1d、Raqm、Clipper 標頭、BSL-1.0 也必須由固定表綁定；改綁到存在的其他套件時拒絕。
+        for key in ('dav1d','raqm','libaom','libaom-PATENTS','clipper-header','bsl-1.0'):
+            with self.subTest(original=key):
+                with patch.dict(inventory.SUPPLEMENT_OWNERS,{key:'fixture'}):
+                    with self.assertRaisesRegex(ValueError,'Supplement owner binding mismatch'):inventory.verify(self.lock,self.output)
 
     def test_locked_hash_mismatch_cleans_staging(self):
         self.wheel()
