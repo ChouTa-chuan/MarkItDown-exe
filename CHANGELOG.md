@@ -8,6 +8,7 @@
 
 - Windows CPU worker 從使用者資料的獨立目錄預載指定 GEOS 配對，檢查絕對路徑、連結、檔案名稱、版本與實際載入來源。輸出和診斷記錄替換為未驗證及兩份 DLL 的 SHA-256。
 - Hosted Windows 以同版不同 bytes 的自建 GEOS 核對 Windows 名稱解析；正常受管版、改檔與損壞反例、替換 OCR 與還原見[驗收證據](docs/development-records/runs/b3-3-geos-replacement-2026-11-21/README.md)。受管完整性檢查繼續驗證所有檔案。
+- 2026-11-21／22：B3-2a 原文補件 II：新增 libaom 3.14.1 LICENSE 與 PATENTS（aom v3.14.1 固定 commit）、dav1d 1.5.3、Raqm 0.11.0（Pillow）與 Clipper 6.4.2 標頭、BSL-1.0（pyclipper）隨包原文，綁定擁有者並擴充突變測試；依使用者決定 libyuv 的 PATENTS 不補。不重新固定候選，登記表狀態不變。證據見 [B3-2a](docs/development-records/runs/b3-2a-pillow-pyclipper-notices-2026-11-21/README.md)。
 - 2026-11-21：B3-1 原文補件 I：新增 LibYAML 0.2.5（PyYAML 列）與 PaddleOCR v2.9.1（rapidocr 列）隨包原文，worker 原文綁定改為「原文鍵→擁有者套件」，證據見 `runs/b3-1-libyaml-paddleocr-notices-2026-11-21/`；不重新固定候選，基本包內容不變（pyyaml、rapidocr 為 forbidden）。
 - 2026-11-21：B3-4b：使用者開放 `www.python.org` 後，核對 CPU worker 根目錄的 `vcruntime140.dll`、`vcruntime140_1.dll`（14.42.34438.0）與 python.org 官方 3.12.10 embeddable package 內同名檔逐位元相同，下載檔 MD5 與發行頁公布值相同。仍不是 Microsoft 的直接授權，是否接受由使用者在 B3-10 決定。只新增證據。
 - 2026-11-21：B3-4 新增 CPU Microsoft 六檔再散布依據（[證據](docs/development-records/runs/b3-4-cpu-microsoft-redistribution-2026-11-21/README.md)）：兩個根 MSVCP140 有官方 REDIST 條款對應，兩個根 vcruntime140 與兩個改名 msvcp140 只有第三方宣告，python.org 同名檔未取得；未改打包、登記表與狀態，`cpu-microsoft` 仍 open。
