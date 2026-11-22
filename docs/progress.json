@@ -1299,7 +1299,7 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "f145db3cd93f75eadec4155bd0108cc9bdccb90b",
+    "source_commit": "526778bdbad9268049bb117f2498677bdc08e1e0",
     "date_taipei": "2026-11-21",
     "accepted": true,
     "run": 974,
