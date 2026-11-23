@@ -10,6 +10,7 @@ from threading import Event
 
 from ..capabilities import HostContext, incompatibility
 from ..component_workers.binding import CPUWorkerBinding
+from ..component_workers import geos_replacement as geos
 from ..core import Cancelled
 from ..settings import Settings
 from .archives import sync_directory
@@ -92,7 +93,8 @@ class ComponentManagement:
     def conversion_context(self):
         """交給同一應用程式的 spawn 子程序；只攜帶固定公鑰政策，不攜帶回呼／私鑰。"""
         from ..component_workers.managed import ManagedContext
-        return ManagedContext(str(self.directory),None if self.source is None else self.source.policy)
+        return ManagedContext(str(self.directory), None if self.source is None else self.source.policy,
+                              self.settings.geos_replacement_enabled)
 
     def _catalog(self):
         if self.verifier is None:
@@ -117,7 +119,8 @@ class ComponentManagement:
     def _services(self, cancel, check):
         registry = ComponentRegistry(self.registry_path)
         binding = CPUWorkerBinding(registry.directory/'.locks/worker-use.lock', self.settings.policy(),
-                                   cpu_threads=self.settings.cpu_threads, cancel=cancel)
+                                   cpu_threads=self.settings.cpu_threads, cancel=cancel, data_directory=self.directory,
+                                   geos_replacement_enabled=self.settings.geos_replacement_enabled)
         health = {'onnx.cpu.health':binding.health, **self.health_checks}
         manager = ComponentManager(registry, self.verifier, self.host, health, checkpoint=check)
         return registry, manager
@@ -148,7 +151,11 @@ class ComponentManagement:
             if not allowed: state, detail = 'unapproved', note or '目前簽章目錄未核准此版本。'
             elif reason: state, detail = 'incompatible', reason
             elif record is not None and record.spec != spec: state, detail = 'corrupt', '登錄描述與目錄不符。'
-            elif state == 'ready': state, detail = 'unchecked', '上次健康通過；使用前仍須重新驗證。'
+            elif state == 'ready':
+                state = 'unchecked'
+                previous = ' 上次結果：' + detail if any(
+                    label in detail for label in (geos.LABEL, geos.NOT_ENABLED)) else ''
+                detail = '上次健康通過，使用前須重新驗證。' + previous
             current, previous = active.get(spec.component_id, (None, None))
             rows.append(ComponentRow(spec, state, detail, owned, allowed, reason is None,
                                      str(spec.version)==current, str(spec.version)==previous))
@@ -210,6 +217,11 @@ class ComponentManagement:
                         elif operation=='health':
                             status('正在重驗檔案與健康…'); manager.check_health(self._catalog(),*key,cancel=cancel)
                             message='健康檢查通過；使用時仍會重新驗證。'
+                            record = registry.get(*key)
+                            if record is not None and any(
+                                label in record.reason for label in (geos.LABEL, geos.NOT_ENABLED)
+                            ):
+                                message += ' ' + record.reason
                         elif operation=='activate':
                             manager.activate(self._catalog(),*key,cancel=cancel); message='所選版本已驗證並啟用。'
                         elif operation=='rollback':

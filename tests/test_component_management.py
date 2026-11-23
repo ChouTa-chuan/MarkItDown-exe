@@ -55,6 +55,22 @@ class ManagementFixture:
 class ManagementTests(ManagementFixture, unittest.TestCase):
     def setUp(self): self.prepare()
 
+    def test_health_messages_keep_geos_replacement_evidence(self):
+        from desktop_app.capabilities import HealthResult
+        from desktop_app.component_workers.geos_replacement import LABEL, NOT_ENABLED
+
+        self.load_catalog()
+        self.install()
+        for detail in (LABEL + r'：C:\data\geos-replacement\geos.dll SHA-256 ' + 'a'*64, NOT_ENABLED):
+            with self.subTest(detail=detail):
+                self.service.health_checks['fixture.health'] = lambda *_: HealthResult(True, detail)
+                result = self.service.run('health', self.spec.key)
+                self.assertEqual(result.state, 'completed', result.message)
+                self.assertIn(detail, result.message)
+                row = next(item for item in result.rows if item.spec == self.spec)
+                self.assertEqual(row.state, 'unchecked')
+                self.assertIn(detail, row.reason)
+
     def test_default_unconfigured_source_does_not_connect_or_change_settings(self):
         settings=self.root/'settings.json'; settings.write_bytes(b'original preferences')
         service=ComponentManagement(self.root/'unconfigured',host=HOST)
@@ -304,3 +320,30 @@ class ManagementDialogTests(ManagementFixture, unittest.TestCase):
         with patch('desktop_app.component_dialog.ComponentDialog.exec',return_value=0): window.components_button.click()
         dialog=window.component_dialog; self.dialogs.append(dialog); self.wait(dialog)
         self.assertEqual(calls[0][0],self.root/'main'); self.assertEqual(calls[0][1].reserve_mib,321)
+
+    def test_geos_checkbox_warns_and_persists_only_the_explicit_toggle(self):
+        from desktop_app.component_workers.geos_replacement import WARNING
+        from desktop_app.desktop import Window
+        from desktop_app.settings import Settings, load_settings, save_settings
+
+        path = self.root/'main/settings.json'
+        save_settings(Settings(reserve_mib=512), path)
+        window = Window(settings_path=path)
+        self.addCleanup(window.close)
+        window.reserve.setValue(321)
+        with patch('desktop_app.component_dialog.ComponentDialog.exec', return_value=0):
+            window.components_button.click()
+        dialog = window.component_dialog
+        self.dialogs.append(dialog)
+        self.wait(dialog)
+        self.assertFalse(dialog.geos_enabled.isChecked())
+        self.assertTrue(dialog.geos_warning.isHidden())
+        for enabled in (True, False):
+            dialog.geos_enabled.click()
+            self.assertIs(dialog.geos_enabled.isChecked(), enabled)
+            self.assertIs(dialog.geos_warning.isHidden(), not enabled)
+            self.assertEqual(dialog.geos_warning.text(), WARNING)
+            self.assertIs(dialog.service.conversion_context().geos_replacement_enabled, enabled)
+            self.assertIs(window.preferences().geos_replacement_enabled, enabled)
+            self.assertEqual(load_settings(path), Settings(reserve_mib=512, geos_replacement_enabled=enabled))
+            self.assertEqual(window.reserve.value(), 321)

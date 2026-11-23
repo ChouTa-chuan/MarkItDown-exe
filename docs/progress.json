@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-21",
-  "environment": "Linux 混合／獨立模組完整回歸；hosted Windows 2022 讀取同一固定 CPU 來源重建的 CArchive，並驗證固定 OCR 樣本。",
-  "tests_passed": 973,
-  "headline": "B3a～B3d 完成；B3 計畫與使用者決定已定案，下一步補原文、真實掃描複驗與 CPU 交付通道",
+  "updated": "2026-11-22",
+  "environment": "Linux 混合／獨立模組完整回歸與 hosted Windows 的 GEOS 預載及凍結 worker 驗證。",
+  "tests_passed": 998,
+  "headline": "B3-3 GEOS 替換改為預設關閉，PR 58 驗證後待使用者確認",
   "blocker": "CPU 元件在實機無法安裝（程式沒有信任公鑰與正式目錄），B3-7 要建立測試通道並請使用者建立金鑰與 GitHub secret。換 v6 small 要先完成真實掃描複驗。乾淨機與人工驗收使用 B3 後的新版本。",
-  "next": "Claude coder 做 B3-1（LibYAML、PaddleOCR 原文）、B3-4（CPU Microsoft 依據）與列印測試 PDF（B3b6）；使用者列印掃描。B3-2、B3-3、B3-7 待指派 GPT。",
+  "next": "PR 58 的 GEOS 開關完成 CI 後由使用者確認合併。B3-7 等合併後先提交設計說明。",
   "milestones": [
     {
       "id": "m0",
@@ -262,7 +262,7 @@
     "RAM 是軟性預算，無法保證瞬間不超量；模型負載尚未校準。",
     "本頁為可離線開啟的資料快照，不會自動連線取得最新狀態。"
   ],
-  "tests_run": 974,
+  "tests_run": 999,
   "tests_expected_failures": 1,
   "component_rollout": {
     "version": "0.4",
@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "526778bdbad9268049bb117f2498677bdc08e1e0",
-    "date_taipei": "2026-11-21",
+    "source_commit": "298f3a8be4c08d740c9b1fac6ccb41cd2935456e",
+    "date_taipei": "2026-11-22",
     "accepted": true,
-    "run": 974,
-    "passed": 973,
+    "run": 999,
+    "passed": 998,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1313,7 +1313,7 @@
     ],
     "mixed_assertions_accepted": true,
     "mixed_process_exit": 0,
-    "isolated_modules": 61,
+    "isolated_modules": 62,
     "isolated_all_exits_zero": true,
     "python": "3.12.14",
     "tesseract": "5.5.0",
@@ -1322,8 +1322,8 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/b3-2a-pillow-pyclipper-notices-2026-11-21/README.md",
-    "note": "B3-2a 原文補件 II（含 libaom）後的完整混合與獨立模組回歸，974 項，973 通過、1 項既有 ONNX 繁中預期失敗；於 85c28dd 加本分支修改的工作樹執行（source_commit 為內容提交）"
+    "evidence": "development-records/runs/b3-3-geos-replacement-2026-11-21/README.md",
+    "note": "與含 B3-2a 的 main 合併，再加入 GEOS 明確啟用與載入拒絕測試後的完整混合及逐模組回歸。"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2885,20 +2885,22 @@
           {
             "id": "B3-1",
             "title": "原文補件 I：LibYAML、PaddleOCR",
-            "status": "next",
-            "note": "Claude coder；base 也會改到（已同意）"
+            "status": "done",
+            "note": "LibYAML 0.2.5 與 PaddleOCR v2.9.1 原文及綁定已合併。固定候選未重定。",
+            "pr": 57
           },
           {
             "id": "B3-2",
             "title": "原文補件 II：Pillow、OpenCV、pyclipper",
             "status": "pending",
-            "note": "建議 GPT；排在 B3-1 後；onnxruntime、NumPy 先查證"
+            "note": "B3-2a（PR 59）已完成 Pillow 與 pyclipper 原文補件，其餘依 B3 規劃。"
           },
           {
             "id": "B3-3",
             "title": "GEOS 受支援替換路徑",
-            "status": "pending",
-            "note": "選 (a)：外部替換目錄預先載入；建議 GPT；hosted Windows 驗收"
+            "status": "active",
+            "note": "預設關閉，明確啟用才替換。合併 PR 59 後重跑驗證，CI 全過後由使用者確認合併。",
+            "pr": 58
           },
           {
             "id": "B3-4",
@@ -2922,7 +2924,7 @@
             "id": "B3-7",
             "title": "CPU 交付通道（測試通道簽章）",
             "status": "pending",
-            "note": "方案 1；使用者需建立金鑰與 GitHub secret（教學隨設計提供）；建議 GPT"
+            "note": "等 PR 58 合併後先提交方案 1 的設計與金鑰教學，使用者完成 secret 後才實作。"
           },
           {
             "id": "B3-9",

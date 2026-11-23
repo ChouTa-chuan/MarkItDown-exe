@@ -1,0 +1,20 @@
+[
+  {
+    "mutation": "allow-managed-path",
+    "test": "test_geos_replacement.GEOSPathTests.test_rejects_a_parent_reference_and_managed_descendant",
+    "detected": true,
+    "failing_assertions": 1
+  },
+  {
+    "mutation": "follow-link",
+    "test": "test_geos_replacement.GEOSPathTests.test_rejects_a_file_symlink",
+    "detected": true,
+    "failing_assertions": 1
+  },
+  {
+    "mutation": "skip-protocol-evidence-validation",
+    "test": "test_geos_replacement.GEOSProtocolTests.test_invalid_replacement_result_is_rejected",
+    "detected": true,
+    "failing_assertions": 4
+  }
+]

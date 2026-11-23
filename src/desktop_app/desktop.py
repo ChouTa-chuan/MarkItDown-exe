@@ -306,10 +306,22 @@ class Window(QMainWindow):
             # 正式信任根尚未發布；預設只開啟本機管理，不採用使用者輸入的金鑰。
             factory = self.component_service_factory or ComponentManagement
             service = factory(self.settings_path.parent, settings=self.preferences())
-            self.component_dialog = ComponentDialog(service,self)
+            self.component_dialog = ComponentDialog(service, self, save_geos_preference=self.save_geos_preference)
             self.component_dialog.exec()
         except (OSError, RuntimeError, ValueError) as exc:
             self.status.setText(f'元件管理未開啟：{exc}；基本轉換仍可使用。')
+
+    def save_geos_preference(self, enabled):
+        from .settings import _decode, _read
+
+        # 只儲存這一個選項，保留磁碟上的其他偏好及主畫面未儲存的編輯。
+        try:
+            raw = _read(self.settings_path)
+        except FileNotFoundError:
+            raw = None
+        saved = Settings() if raw is None else _decode(raw)[0]
+        save_settings(replace(saved, geos_replacement_enabled=enabled), self.settings_path, expected_raw=raw)
+        self.loaded_settings = replace(self.loaded_settings, geos_replacement_enabled=enabled)
 
     def offer_setup(self,force=False):
         if self.job is not None and self.job.isRunning(): return

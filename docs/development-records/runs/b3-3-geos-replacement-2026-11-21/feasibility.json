@@ -1,0 +1,42 @@
+[
+  {
+    "check": "geos-windows-feasibility",
+    "mode": "replacement",
+    "geos": "3.14.1-CAPI-1.20.5",
+    "intersection_area": 4.0,
+    "files": [
+      {
+        "name": "geos-bf067cd6ff74ee0ad5f3ff52c7ef08c9.dll",
+        "loaded_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\geos-replacement\\geos-bf067cd6ff74ee0ad5f3ff52c7ef08c9.dll",
+        "sha256": "27d0a813d539274e5f577710ba32b80a97b2df0b98a324152552ead4720b79cf",
+        "wheel_sha256": "0948bdb5c70b82e5055b55e9419b78d68372b1d0ec877277fa6e79276f6299b9"
+      },
+      {
+        "name": "geos_c-6dd9fd915eef8a7928285416bef1e666.dll",
+        "loaded_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\geos-replacement\\geos_c-6dd9fd915eef8a7928285416bef1e666.dll",
+        "sha256": "c3906fd50e1bc6ef5cfec28f01e6f14441201d928bf6486f9ba73de52f9cf59b",
+        "wheel_sha256": "6e65985b30831761887de3217853a720147626b18cb41668cd2bdc43d1bcded1"
+      }
+    ]
+  },
+  {
+    "check": "geos-windows-feasibility",
+    "mode": "wheel",
+    "geos": "3.14.1-CAPI-1.20.5",
+    "intersection_area": 4.0,
+    "files": [
+      {
+        "name": "geos-bf067cd6ff74ee0ad5f3ff52c7ef08c9.dll",
+        "loaded_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\geos-venv\\Lib\\site-packages\\shapely.libs\\geos-bf067cd6ff74ee0ad5f3ff52c7ef08c9.dll",
+        "sha256": "0948bdb5c70b82e5055b55e9419b78d68372b1d0ec877277fa6e79276f6299b9",
+        "wheel_sha256": "0948bdb5c70b82e5055b55e9419b78d68372b1d0ec877277fa6e79276f6299b9"
+      },
+      {
+        "name": "geos_c-6dd9fd915eef8a7928285416bef1e666.dll",
+        "loaded_path": "D:\\a\\MarkItDown-exe\\MarkItDown-exe\\out\\geos-venv\\Lib\\site-packages\\shapely.libs\\geos_c-6dd9fd915eef8a7928285416bef1e666.dll",
+        "sha256": "6e65985b30831761887de3217853a720147626b18cb41668cd2bdc43d1bcded1",
+        "wheel_sha256": "6e65985b30831761887de3217853a720147626b18cb41668cd2bdc43d1bcded1"
+      }
+    ]
+  }
+]

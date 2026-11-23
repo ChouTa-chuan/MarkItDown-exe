@@ -288,6 +288,22 @@ class LegacyAdapterTests(MigrationDirectoryTests):
 
 
 class OCRPathRegressionTests(MigrationDirectoryTests):
+    def test_cli_flags_override_settings_for_the_current_run_only(self):
+        from desktop_app.cli import main
+
+        path = self.root/'settings.json'
+        for saved, options, enabled in ((False, [], False), (False, ['--geos-replacement'], True),
+                                        (True, [], True), (True, ['--no-geos-replacement'], False)):
+            with self.subTest(saved=saved, options=options):
+                save_settings(Settings(ocr_backend='managed_cpu', geos_replacement_enabled=saved), path)
+                before = path.read_bytes()
+                with patch('sys.argv', ['cli', 'input.txt', 'output.md', '--settings', str(path), *options]), \
+                        patch('desktop_app.cli.Runner') as runner, patch('sys.stdout', new_callable=io.StringIO):
+                    runner.return_value.run.return_value = SimpleNamespace(state=State.COMPLETED, message='test')
+                    self.assertEqual(main(), 0)
+                self.assertIs(runner.call_args.kwargs['component_context'].geos_replacement_enabled, enabled)
+                self.assertEqual(path.read_bytes(), before)
+
     def test_cli_preserves_saved_quality_paths_and_explicit_overrides(self):
         from desktop_app.cli import main
         path = self.root / 'settings.json'

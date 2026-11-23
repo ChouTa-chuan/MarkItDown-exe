@@ -8,17 +8,21 @@ from ..components.registry import _chain, _plain
 from ..resources import Policy, snapshot
 from ..core import State, Cancelled
 from .client import WorkerRunner
+from .geos_replacement import DIRECTORY, NOT_ENABLED, has_replacement_files
 from . import protocol as wire
 
 
 class CPUWorkerBinding:
     def __init__(self, guard, policy=None, *, read_snapshot=snapshot, cpu_threads=1,
-                 timeout=120, cancel=None, permit=None, resource_wait=30, notify=lambda state,message:None):
+                 timeout=120, cancel=None, permit=None, resource_wait=30, notify=lambda state,message:None,
+                 data_directory=None, geos_replacement_enabled=False):
         self.guard=Path(guard).absolute();self.policy=policy or Policy()
         wire.require(self.guard.name=='worker-use.lock' and self.guard.parent.name=='.locks','binding 必須使用元件管理器的 worker guard。')
         self.read_snapshot=read_snapshot;self.cpu_threads=cpu_threads;self.timeout=timeout;self.cancel=cancel
         self.permit=permit;self.resource_wait=resource_wait
         self.notify=notify
+        self.data_directory = data_directory
+        self.geos_replacement_enabled = geos_replacement_enabled is True
 
     def runner(self, spec, directory):
         wire.require(Path(directory).absolute().is_relative_to(self.guard.parent.parent),'元件不屬於此 binding 的受管根目錄。')
@@ -28,9 +32,19 @@ class CPUWorkerBinding:
         wire.require(any(item.path==name for item in spec.files),'元件未宣告固定入口檔。')
         executable=Path(directory)/name;_chain(executable);_plain(executable)
         wire.require(executable.is_file() and (os.name=='nt' or os.access(executable,os.X_OK)),'元件入口無法執行。')
-        return WorkerRunner((str(executable),),self.guard,self.policy,estimate_mib=spec.resources.ram_mib,
+        command = (str(executable),)
+        notice = None
+        if os.name == 'nt' and self.data_directory is not None:
+            replacement = Path(self.data_directory)/DIRECTORY
+            # 這個參數本身就是主程序的啟用信號。舊 worker 在關閉時仍走原命令。
+            if self.geos_replacement_enabled:
+                command += ('--geos-replacement-dir', str(replacement))
+            elif has_replacement_files(replacement):
+                notice = NOT_ENABLED
+        return WorkerRunner(command,self.guard,self.policy,estimate_mib=spec.resources.ram_mib,
             cpu_threads=self.cpu_threads,timeout=self.timeout,read_snapshot=self.read_snapshot,require_frozen=True,
-            permit=self.permit,resource_wait=max(0.001,min(600,self.resource_wait)),component_version=str(spec.version))
+            permit=self.permit,resource_wait=max(0.001,min(600,self.resource_wait)),component_version=str(spec.version),
+            geos_notice=notice)
 
     def health(self, spec, directory, host):
         outcome=self.runner(spec,directory).run(operation='health',cancel=self.cancel,notify=self.notify)
