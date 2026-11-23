@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-22",
+  "updated": "2026-11-23",
   "environment": "Linux 混合／獨立模組完整回歸與 hosted Windows 的 GEOS 預載及凍結 worker 驗證。",
   "tests_passed": 998,
-  "headline": "B3-3 GEOS 替換改為預設關閉，PR 58 驗證後待使用者確認",
-  "blocker": "CPU 元件在實機無法安裝（程式沒有信任公鑰與正式目錄），B3-7 要建立測試通道並請使用者建立金鑰與 GitHub secret。換 v6 small 要先完成真實掃描複驗。乾淨機與人工驗收使用 B3 後的新版本。",
-  "next": "PR 58 的 GEOS 開關完成 CI 後由使用者確認合併。B3-7 等合併後先提交設計說明。",
+  "headline": "B3-3（GEOS 替換）完成；下一步 B3-7 設計、B3-2b 查證，真實掃描測試包待使用者交回",
+  "blocker": "CPU 元件在實機無法安裝（程式沒有信任公鑰與正式目錄），B3-7 要建立測試通道，使用者需建立金鑰與 GitHub secret。換 v6 small 要先完成真實掃描複驗（等使用者列印掃描）。乾淨機與人工驗收使用 B3 後的新版本。",
+  "next": "Codex 提交 B3-7 設計說明；B3-2b（OpenCV、onnxruntime、NumPy）待指派 GPT；使用者列印並掃描測試 PDF；B3-5 揭露檔排在 B3-2b 之後。",
   "milestones": [
     {
       "id": "m0",
@@ -2873,14 +2873,16 @@
           {
             "id": "B3b6",
             "title": "真實掃描複驗（v4 對 v6）",
-            "status": "next",
-            "note": "使用者決定換 v6 前先做；coder 產生測試 PDF，使用者列印並掃描"
+            "status": "active",
+            "note": "第一步完成：列印 PDF 與使用者說明已交給使用者，等使用者列印掃描後交回影像，再比較 v4 與官方 v6",
+            "pr": 54
           },
           {
             "id": "B3-0",
             "title": "決定與計畫定案",
-            "status": "active",
-            "note": "B3 計畫與 B3-D1～D5 決定記入 STATUS（本 PR）"
+            "status": "done",
+            "note": "B3 計畫與使用者決定（B3-D1～D5）已記入 STATUS",
+            "pr": 53
           },
           {
             "id": "B3-1",
@@ -2892,21 +2894,23 @@
           {
             "id": "B3-2",
             "title": "原文補件 II：Pillow、OpenCV、pyclipper",
-            "status": "pending",
-            "note": "B3-2a（PR 59）已完成 Pillow 與 pyclipper 原文補件，其餘依 B3 規劃。"
+            "status": "active",
+            "note": "B3-2a（Pillow、pyclipper）已合併：libaom、dav1d、Raqm、Clipper、BSL-1.0 原文補入，libyuv PATENTS 不補，FriBiDi 未編入。B3-2b（OpenCV、onnxruntime、NumPy 查證）待 GPT",
+            "pr": 59
           },
           {
             "id": "B3-3",
             "title": "GEOS 受支援替換路徑",
-            "status": "active",
-            "note": "預設關閉，明確啟用才替換。合併 PR 59 後重跑驗證，CI 全過後由使用者確認合併。",
+            "status": "done",
+            "note": "GEOS 使用者替換已合併：預設關閉，使用者在設定勾選才載入；hosted Windows 驗收通過（非實體機）；風險與限制見 geos-lgpl-notice.md",
             "pr": 58
           },
           {
             "id": "B3-4",
             "title": "CPU Microsoft 再散布依據（證據）",
-            "status": "next",
-            "note": "Claude coder；維持現狀另存依據"
+            "status": "done",
+            "note": "CPU Microsoft 六檔再散布依據已合併；B3-4b（PR 56）：兩個根 vcruntime 與 python.org 官方 3.12.10 發行包逐位元相同，仍非 Microsoft 直接授權，由使用者在 B3-10 決定",
+            "pr": 55
           },
           {
             "id": "B3-5",
@@ -2923,8 +2927,8 @@
           {
             "id": "B3-7",
             "title": "CPU 交付通道（測試通道簽章）",
-            "status": "pending",
-            "note": "等 PR 58 合併後先提交方案 1 的設計與金鑰教學，使用者完成 secret 後才實作。"
+            "status": "next",
+            "note": "B3-3 已合併；GPT 先提交設計說明（金鑰格式、secret 名稱、簽章目錄格式），Claude 據此提供逐步教學，使用者建立金鑰與 secret 後才實作"
           },
           {
             "id": "B3-9",
