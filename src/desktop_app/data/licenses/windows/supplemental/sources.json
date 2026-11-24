@@ -94,5 +94,17 @@
     "url": "https://aomedia.googlesource.com/aom/+/03087864cf4bea6abb0d28f95cf7843511413d8f/PATENTS?format=TEXT",
     "sha256": "661fb8e504744e95587b556b94a58343448300606a41bea8c7a9b97125696e61",
     "bytes": 5701
+  },
+  {
+    "name": "opencv-zlib",
+    "url": "https://raw.githubusercontent.com/madler/zlib/da607da739fa6047df13e66a2af6b8bec7c2a498/LICENSE",
+    "sha256": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2",
+    "bytes": 1002
+  },
+  {
+    "name": "opencv-libpng",
+    "url": "https://raw.githubusercontent.com/pnggroup/libpng/95ab3fdca83ea294efd3b092e9a53c5a39886444/LICENSE",
+    "sha256": "bdb0a645ea18c60507d0368379b1ac5474b92255fcc2d115e07486a7672ba526",
+    "bytes": 5345
   }
 ]

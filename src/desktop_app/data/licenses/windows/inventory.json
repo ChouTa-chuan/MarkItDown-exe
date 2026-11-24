@@ -454,7 +454,22 @@
         "opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE-3RD-PARTY.txt",
         "opencv-python/wheel/opencv_python-5.0.0.93.dist-info/LICENSE.txt"
       ],
-      "supplemental_sources": []
+      "supplemental_sources": [
+        {
+          "name": "opencv-zlib",
+          "url": "https://raw.githubusercontent.com/madler/zlib/da607da739fa6047df13e66a2af6b8bec7c2a498/LICENSE",
+          "sha256": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2",
+          "bytes": 1002,
+          "path": "supplemental/opencv-zlib.txt"
+        },
+        {
+          "name": "opencv-libpng",
+          "url": "https://raw.githubusercontent.com/pnggroup/libpng/95ab3fdca83ea294efd3b092e9a53c5a39886444/LICENSE",
+          "sha256": "bdb0a645ea18c60507d0368379b1ac5474b92255fcc2d115e07486a7672ba526",
+          "bytes": 5345,
+          "path": "supplemental/opencv-libpng.txt"
+        }
+      ]
     },
     {
       "name": "openpyxl",
@@ -1509,7 +1524,7 @@
     "urllib3/wheel/urllib3-2.8.0.dist-info/licenses/LICENSE.txt": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
     "xlsxwriter/METADATA": "7f137c9f96a3f6f3830f1d0c9420d08dbe88f971767822a2458b1882b6a87540",
     "xlsxwriter/wheel/xlsxwriter-3.3.1.dist-info/licenses/LICENSE.txt": "79cd3a88b65ecd9996f4bbfb7f3adf0a75df366aa1d3bbb7fe150b9e43d5b4c7",
-    "supplemental/sources.json": "f2eb3c4acfc42984f5f7ce674875c6687f34193a5ffa631aa5cb037e9be1c781",
+    "supplemental/sources.json": "8ecf9740d3c81bdf4e7bf736bf1dbe3985f4c8310c875c19a163d8a503dddff0",
     "supplemental/cryptography.txt": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
     "supplemental/libyaml.txt": "c40112449f254b9753045925248313e9270efa36d226b22d82d4cc6c43c57f29",
     "supplemental/paddleocr.txt": "ff6311c56c1b22c9209c96cc8afc16da91c24ee55a15e14ebc46fe1960dbd856",
@@ -1518,7 +1533,9 @@
     "supplemental/clipper-header.txt": "8fa62835d1b88be098193df53e921475d6a7119a3f3de8046eed81b9ffa23f67",
     "supplemental/bsl-1.0.txt": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
     "supplemental/libaom.txt": "4764a286d8b2faeaf42f4418e7d7a28d58fc8fd4d00a3d0a7f44b0a4099de7f2",
-    "supplemental/libaom-PATENTS.txt": "661fb8e504744e95587b556b94a58343448300606a41bea8c7a9b97125696e61"
+    "supplemental/libaom-PATENTS.txt": "661fb8e504744e95587b556b94a58343448300606a41bea8c7a9b97125696e61",
+    "supplemental/opencv-zlib.txt": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2",
+    "supplemental/opencv-libpng.txt": "bdb0a645ea18c60507d0368379b1ac5474b92255fcc2d115e07486a7672ba526"
   },
   "notes": [
     "Cobble wheel has no license text; official source README declares BSD-2-Clause.",

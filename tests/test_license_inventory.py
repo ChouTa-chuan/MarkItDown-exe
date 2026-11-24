@@ -49,7 +49,11 @@ class InventoryTests(unittest.TestCase):
         with patch.dict(inventory.SUPPLEMENT_OWNERS,{'libyaml':'fixture'}):
             with self.assertRaisesRegex(ValueError,'Supplement owner binding mismatch'):inventory.verify(self.lock,self.output)
         # B3-2a：dav1d、Raqm、Clipper 標頭、BSL-1.0 也必須由固定表綁定；改綁到存在的其他套件時拒絕。
-        for key in ('dav1d','raqm','libaom','libaom-PATENTS','clipper-header','bsl-1.0'):
+        # B3-2b：OpenCV 的 zlib、libpng 原文也必須由固定表綁到 opencv-python；改綁到其他存在的套件時拒絕。
+        # 若整筆從固定表移除，上面的迴圈不會檢查，因此另外直接斷言表內容。
+        self.assertEqual(inventory.SUPPLEMENT_OWNERS.get('opencv-zlib'), 'opencv-python')
+        self.assertEqual(inventory.SUPPLEMENT_OWNERS.get('opencv-libpng'), 'opencv-python')
+        for key in ('dav1d','raqm','libaom','libaom-PATENTS','clipper-header','bsl-1.0','opencv-zlib','opencv-libpng'):
             with self.subTest(original=key):
                 with patch.dict(inventory.SUPPLEMENT_OWNERS,{key:'fixture'}):
                     with self.assertRaisesRegex(ValueError,'Supplement owner binding mismatch'):inventory.verify(self.lock,self.output)

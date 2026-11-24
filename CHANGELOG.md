@@ -4,6 +4,7 @@
 
 ## 更新中
 
+- 2026-11-23：B3-2b 原文補件 II 後半：OpenCV 5.0.0.93 的 cv2.pyd 靜態編入 zlib 1.3.2、libpng 1.6.57，補 `opencv-zlib.txt`、`opencv-libpng.txt`（綁 opencv-python，雜湊同步）；onnxruntime、NumPy 查證無可確認缺口未補；ITT 雙授權待使用者決定。證據見 docs/development-records/runs/b3-2b-opencv-onnxruntime-numpy-notices-2026-11-23/README.md。
 - 2026-11-23：同步線上進度與 STATUS 至 B3-3 已合併；新增「每次 reviewer 複查完同步線上進度頁」流程規則（CLAUDE.md），D 節補記 www.python.org、aomedia.googlesource.com、B3-2 分工、libyuv PATENTS 不補。只改文件。
 - 2026-11-22：B3-3 GEOS 使用者替換預設關閉，新增選配元件管理核取方塊、命令列開關、健康／診斷提示、載入路徑與模組列舉反例。停用即恢復受管，啟用且缺檔會明確失敗。風險與 B3-9 重新核對項目記入[驗收證據](docs/development-records/runs/b3-3-geos-replacement-2026-11-21/README.md)。
 - 2026-11-21：B3-3 GEOS 使用者替換：Windows CPU worker 從使用者資料的獨立目錄預載指定 GEOS 配對，檢查絕對路徑、連結、檔案名稱、版本與實際載入來源。輸出和診斷記錄替換為未驗證及兩份 DLL 的 SHA-256。

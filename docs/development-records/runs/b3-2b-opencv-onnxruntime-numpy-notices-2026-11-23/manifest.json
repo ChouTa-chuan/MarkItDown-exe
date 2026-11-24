@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "id": "b3-2b-opencv-onnxruntime-numpy-notices",
+  "date": "2026-11-23",
+  "keywords": ["B3-2b", "OpenCV", "zlib", "libpng", "onnxruntime", "NumPy", "OpenBLAS", "ittnotify", "Windows CPU", "原文補件"],
+  "base_commit": "77f2d80",
+  "branch": "claude/b3-2b-opencv-onnxruntime-numpy-notices",
+  "fixed_candidate": {
+    "source_commit": "b17d51bc99f8402f16b99f98bbe3b3370530bc6c",
+    "refixed": false,
+    "status_changed": false,
+    "obligations_status_changed": false
+  },
+  "originals": {
+    "opencv-zlib": {
+      "owner": "opencv-python",
+      "owner_version": "5.0.0.93",
+      "component": "zlib 1.3.2（靜態編入 cv2/cv2.pyd，Windows）",
+      "url": "https://raw.githubusercontent.com/madler/zlib/da607da739fa6047df13e66a2af6b8bec7c2a498/LICENSE",
+      "upstream_tag": "v1.3.2",
+      "upstream_commit": "da607da739fa6047df13e66a2af6b8bec7c2a498",
+      "upstream_filename": "LICENSE",
+      "sha256": "e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2",
+      "bytes": 1002,
+      "license": "Zlib",
+      "path": "src/desktop_app/data/licenses/windows/supplemental/opencv-zlib.txt",
+      "cross_check": "与 opencv 5.0.0.93 固定 commit 40738fb1 的 3rdparty/zlib/LICENSE 位元组相同（sha256 相同）"
+    },
+    "opencv-libpng": {
+      "owner": "opencv-python",
+      "owner_version": "5.0.0.93",
+      "component": "libpng 1.6.57（靜態編入 cv2/cv2.pyd，Windows）",
+      "url": "https://raw.githubusercontent.com/pnggroup/libpng/95ab3fdca83ea294efd3b092e9a53c5a39886444/LICENSE",
+      "upstream_tag": "v1.6.57",
+      "upstream_commit": "95ab3fdca83ea294efd3b092e9a53c5a39886444",
+      "upstream_filename": "LICENSE",
+      "sha256": "bdb0a645ea18c60507d0368379b1ac5474b92255fcc2d115e07486a7672ba526",
+      "bytes": 5345,
+      "license": "PNG Reference Library License version 2",
+      "path": "src/desktop_app/data/licenses/windows/supplemental/opencv-libpng.txt",
+      "cross_check": "与 opencv 5.0.0.93 固定 commit 40738fb1 的 3rdparty/libpng/LICENSE 位元組相同（sha256 相同）"
+    }
+  },
+  "components": {
+    "opencv-zlib": {
+      "status": "included-windows-static",
+      "version": "1.3.2",
+      "version_basis": "runtime-observed (hosted Windows run 44755140396, cv2.getBuildInformation 'ZLib: build (ver 1.3.2)', 同一 cv2.pyd sha256 f1e76ab0) + upstream build config (opencv 40738fb1 CMakeLists.txt BUILD_ZLIB 於 WIN32 預設 ON；3rdparty/zlib/zlib.h ZLIB_VERSION 1.3.2) + binary strings ('deflate 1.3.2 Copyright 1995-2026')",
+      "wheel_text": "cv2/LICENSE-3RD-PARTY.txt 的 libz 段只寫 'redistributed within all opencv-python Linux packages'",
+      "action": "supplemented"
+    },
+    "opencv-libpng": {
+      "status": "included-windows-static",
+      "version": "1.6.57",
+      "version_basis": "runtime-observed (hosted Windows run 44755140396, cv2.getBuildInformation 'PNG: build (ver 1.6.57)', 同一 cv2.pyd sha256) + upstream build config (BUILD_PNG 於 WIN32 預設 ON；3rdparty/libpng/png.h PNG_LIBPNG_VER_STRING 1.6.57) + binary strings ('libpng version 1.6.57')",
+      "wheel_text": "cv2/LICENSE-3RD-PARTY.txt 的 libpng 段只寫 'redistributed within all opencv-python Linux and macOS packages'",
+      "action": "supplemented"
+    },
+    "opencv-protobuf-tiff-openjpeg-webp-libjpeg-turbo-flatbuffers": {
+      "status": "covered-by-wheel-text",
+      "note": "wheel 內對應段落寫 'within all opencv-python packages'，涵蓋 Windows；版本見 build declarations（Protobuf 3.19.1、TIFF 4.7.1、JPEG 2000 2.5.3、libjpeg-turbo 3.1.2-70）"
+    },
+    "intel-ipp-icv": {
+      "status": "covered-by-wheel-text-with-version-note",
+      "note": "wheel 的 'Intel(R) IPP ICV library statically linked within x86 and x86_64 opencv-python packages' 段（Intel Simplified Software License）涵蓋；但段落標題寫 IPP 2021 Update 10，Windows build 宣告 Intel IPP 2026.0.0，版本不一致需 B3-9 再核對"
+    },
+    "intel-itt-ittnotify": {
+      "status": "included-windows-static-no-wheel-text-needs-decision",
+      "evidence": "cv2.pyd 內 __itt_ 符號 178 次、'ittnotify' 2 次；build declaration 'Trace: YES (with Intel ITT(3.25.4))'",
+      "license_upstream": "3rdparty/ittnotify/src/ittnotify/ittnotify_static.c SPDX: GPL-2.0-only OR BSD-3-Clause；opencv 3rdparty/ittnotify/CMakeLists.txt 以 ocv_install_3rdparty_licenses 安裝 BSD-3-Clause.txt 與 GPL-2.0-only.txt",
+      "action": "not-supplemented: 雙授權的選擇屬使用者決定（GPL-2.0 選項），依規則停下回報"
+    },
+    "opencv-orbbec": {
+      "status": "unconfirmed",
+      "evidence": "build declaration 'Orbbec: YES'；cv2.pyd 內無 OrbbecSDK 字串；wheel 內無 Orbbec DLL；wheel 原文 Orbbec 段只寫 arm64 MacOS",
+      "action": "需 Windows 觀測（見 README 觀測清單）"
+    },
+    "opencv-clapack": {
+      "status": "covered-by-wheel-text",
+      "note": "wheel 段落 'CLapack library is redistributed within opencv-python packages for Windows'；build declaration 'Lapack: YES (Built-In libclapack)'"
+    },
+    "opencv-ffmpeg": {
+      "status": "excluded",
+      "note": "cv2/opencv_videoio_ffmpeg500_64.dll 依使用者 2026-11-13 決定排除（不在固定候選 cv2/cv2.pyd 範圍）"
+    },
+    "onnxruntime": {
+      "status": "unresolved-upstream-unreachable",
+      "note": "microsoft/onnxruntime 的 git 標籤與 raw 檔案（README、ThirdPartyNotices、cmake/deps.txt）於本環境 404 或需認證，無法取得固定上游依賴清單；只能以 wheel 內字串與 ThirdPartyNotices 名稱比對，逐成員版本與靜態併入範圍無法確認；未發現可確認的缺口，不補原文"
+    },
+    "numpy-openblas": {
+      "status": "covered-by-wheel-text",
+      "version": "0.3.34",
+      "version_basis": "wheel binary string (numpy.libs/libscipy_openblas64_-ed4f...dll 含 '0.3.34'，wheel-internal static inspection)",
+      "note": "LICENSE 的 OpenBLAS（BSD-3-Clause，2011-2014 版權段）與 LAPACK 段在 wheel 內全文"
+    },
+    "numpy-gcc-runtime": {
+      "status": "covered-by-wheel-text",
+      "note": "OpenBLAS DLL 內含 libgfortran 路徑字串（靜態併入，PE 匯入表無 MinGW／libgfortran DLL）；LICENSE 的 'GCC runtime library' 段（GPL-3.0-or-later WITH GCC-exception-3.1）與 GCC Runtime Library Exception 3.1 全文在 wheel 內。精確 GCC 版本無法由 wheel 確認（不影響原文涵蓋）"
+    }
+  },
+  "wheels": {
+    "opencv_python-5.0.0.93-cp37-abi3-win_amd64.whl": {"sha256": "f90ba04b8f73bc5c3814037699739f0156f597338a98f05956c684e7c3ca10d2", "locked_in": ["packaging/profiles/cpu-windows-build.txt"]},
+    "onnxruntime-1.31.1-cp312-cp312-win_amd64.whl": {"sha256": "ae8a9a351efda685cc59a66226cdefaa37a126c1d66872ca23a2de9425326130", "locked_in": ["packaging/profiles/base-windows-build.txt", "packaging/profiles/cpu-windows-build.txt"]},
+    "numpy-2.5.4-cp312-cp312-win_amd64.whl": {"sha256": "a7b1b6353e36a7e50de2973a38d705c88ee93adcf120673cee7f45a4a3fa223a", "locked_in": ["packaging/profiles/base-windows-build.txt", "packaging/profiles/cpu-windows-build.txt"]}
+  },
+  "observation_file": "wheel-observation.json",
+  "user_decisions": [],
+  "supplements": {
+    "files": [
+      "src/desktop_app/data/licenses/windows/supplemental/opencv-zlib.txt",
+      "src/desktop_app/data/licenses/windows/supplemental/opencv-libpng.txt",
+      "src/desktop_app/data/licenses/windows/supplemental/sources.json"
+    ],
+    "owner_binding": {"opencv-zlib": "opencv-python", "opencv-libpng": "opencv-python"}
+  },
+  "hash_sync": {
+    "inventory_sha256_old": "c479b78be51bdcd3b0cd00d6f945e15653c2d65fd12ee824dd78b03cafead50f",
+    "inventory_sha256_new": "40cfea354ed982dcb51833e789d0fec73e34dcc8648eced951114f26cbc4f5e6",
+    "sources_json_sha256_old": "f2eb3c4acfc42984f5f7ce674875c6687f34193a5ffa631aa5cb037e9be1c781",
+    "sources_json_sha256_new": "8ecf9740d3c81bdf4e7bf736bf1dbe3985f4c8310c875c19a163d8a503dddff0",
+    "base_windows_json_sha256_old": "ed8e42ab74169ac2363d3d038011e2ed33042051402bebcbcbe3505e5c89183d",
+    "base_windows_json_sha256_new": "f8c60552c05fb063420fca37d6aa26de72167c6fb03787c5cb5d0e1bccfa41e8",
+    "cpu_windows_json_sha256_old": "7c92f1c4ad769def10cb097c988ef54b12168985ebc4b232902ee8b83c00d6ac",
+    "cpu_windows_json_sha256_new": "5572b8ad47ef5149764c5bff0637c2706622875ea03217a8c0a8c76878e06273",
+    "obligations_refs": {"base_windows_json_sha256": 10, "cpu_windows_json_sha256": 2},
+    "obligations_status_changed": false
+  },
+  "to_b3_9_recheck": [
+    "固定候選 b17d51b 的 source-review（a12、a13b）與現在的 inventory、supplemental 內容不同，B3-9 重新固定候選後重產。",
+    "opencv 的 zlib、libpng 原文綁定依 hosted Windows 觀測 run 44755140396；候選重固定後要重新觀測 cv2.getBuildInformation 並確認 cv2.pyd sha256 未變。",
+    "ITT（ittnotify）雙授權的選擇與是否補 GPL-2.0 或 BSD-3 原文，需使用者決定後再由 B3-5 或 B3-9 處理。",
+    "IPP 原文段落版本（2021 Update 10）與 Windows build 宣告的 2026.0.0 不一致，需確認原文涵蓋。",
+    "onnxruntime 上游來源不可達；候選重固定時若可取得 microsoft/onnxruntime 的 deps 清單，重做逐成員比對。",
+    "obligations.json 的 base-wheels-pillow 與 known-gaps.json 仍列 raqm、libyuv 缺口（B3-2a 已記）。",
+    "cpu-windows.json 的 zlib 與 OpenCV 列仍為 version null 與舊的 Linux 段落註記，本階段只同步 inventory 雜湊，B3-5 或 B3-9 更新版本與註記。"
+  ],
+  "regression": {
+    "baseline_base_commit_77f2d80": {"expected_count": 999, "run": 999, "passed": 998, "expected_failures": 1, "failures": 0, "errors": 0, "accepted": true},
+    "mixed_after": {"expected_count": 1000, "run": 1000, "passed": 999, "expected_failures": 1, "failures": 0, "errors": 0, "accepted": true, "note": "第一次執行時 test_history_index 因新增證據目錄而過期（170 筆 vs 169 筆），重建索引後重跑"},
+    "isolated_after": {"expected_count": 1000, "modules": 62, "run": 1000, "passed": 999, "expected_failures": 1, "accepted": true},
+    "targeted_modules": {"tests.test_bundle_provenance": "全部通過", "tests.test_license_inventory": "全部通過", "tests": 52, "note": "新增 test_b3_2b_pins_match_the_recorded_evidence_manifest 一個測試函式，其餘為既有測試子案例"}
+  },
+  "gates": {
+    "base": {"exit": 0, "disclosed": true, "approved": true, "complete": false, "release_ready": false},
+    "cpu": {"exit": 0, "disclosed": false, "approved": false, "complete": false, "release_ready": false}
+  },
+  "mutations": [
+    {"id": "M1", "change": "移除 SUPPLEMENT_OWNERS 的 opencv-zlib 綁定", "result": "初版未被偵測（測試漏洞）；補 test_license_inventory 固定表斷言後失敗 1 項"},
+    {"id": "M2", "change": "略過原文 SHA-256 檢查（只剩大小）", "result": "失敗 34 項"},
+    {"id": "M3", "change": "移除 inventory 唯一擁有者（claims）檢查", "result": "失敗 3 項"},
+    {"id": "M4", "change": "移除 opencv-libpng 的 pin", "result": "錯誤 42 項"},
+    {"id": "M5", "change": "略過 sources.json 來源紀錄檢查", "result": "失敗 4 項"}
+  ],
+  "regeneration": {"command": "scripts/license_inventory.py --lock packaging/requirements-windows.txt --wheels <58 locked wheels> --supplements src/desktop_app/data/licenses/windows/supplemental", "result": "語意與 repo inventory.json 相同；supplemental 與 225 個 notice/metadata 檔位元組相同"}
+}
