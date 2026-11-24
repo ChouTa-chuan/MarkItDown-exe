@@ -4,6 +4,8 @@
 
 ## 更新中
 
+- 2026-11-24：B3-7 提交 CPU 測試通道[設計說明](docs/development-records/runs/b3-7-cpu-channel-design-2026-11-24/README.md)，含 Ed25519 金鑰教學草案、目錄簽署、版次門檻、離線匯入與驗收。待查驗與使用者設定 secret 後再實作。
+
 - 2026-11-23：同步線上進度與 STATUS 至 B3-3 已合併；新增「每次 reviewer 複查完同步線上進度頁」流程規則（CLAUDE.md），D 節補記 www.python.org、aomedia.googlesource.com、B3-2 分工、libyuv PATENTS 不補。只改文件。
 - 2026-11-22：B3-3 GEOS 使用者替換預設關閉，新增選配元件管理核取方塊、命令列開關、健康／診斷提示、載入路徑與模組列舉反例。停用即恢復受管，啟用且缺檔會明確失敗。風險與 B3-9 重新核對項目記入[驗收證據](docs/development-records/runs/b3-3-geos-replacement-2026-11-21/README.md)。
 - 2026-11-21：B3-3 GEOS 使用者替換：Windows CPU worker 從使用者資料的獨立目錄預載指定 GEOS 配對，檢查絕對路徑、連結、檔案名稱、版本與實際載入來源。輸出和診斷記錄替換為未驗證及兩份 DLL 的 SHA-256。

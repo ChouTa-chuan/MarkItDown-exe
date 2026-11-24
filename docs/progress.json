@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-23",
+  "updated": "2026-11-24",
   "environment": "Linux 混合／獨立模組完整回歸與 hosted Windows 的 GEOS 預載及凍結 worker 驗證。",
   "tests_passed": 998,
-  "headline": "B3-3（GEOS 替換）完成；下一步 B3-7 設計、B3-2b 查證，真實掃描測試包待使用者交回",
+  "headline": "B3-7 CPU 測試通道設計待查驗，真實掃描測試包待使用者交回",
   "blocker": "CPU 元件在實機無法安裝（程式沒有信任公鑰與正式目錄），B3-7 要建立測試通道，使用者需建立金鑰與 GitHub secret。換 v6 small 要先完成真實掃描複驗（等使用者列印掃描）。乾淨機與人工驗收使用 B3 後的新版本。",
-  "next": "Codex 提交 B3-7 設計說明；B3-2b（OpenCV、onnxruntime、NumPy）待指派 GPT；使用者列印並掃描測試 PDF；B3-5 揭露檔排在 B3-2b 之後。",
+  "next": "Claude reviewer 查驗 B3-7 設計，Claude 據此寫教學，使用者回報 secret 設定完成後再實作。B3-2b 與掃描複驗依 STATUS 處理。",
   "milestones": [
     {
       "id": "m0",
@@ -2928,7 +2928,7 @@
             "id": "B3-7",
             "title": "CPU 交付通道（測試通道簽章）",
             "status": "next",
-            "note": "B3-3 已合併；GPT 先提交設計說明（金鑰格式、secret 名稱、簽章目錄格式），Claude 據此提供逐步教學，使用者建立金鑰與 secret 後才實作"
+            "note": "設計稿已提交，等 Claude reviewer 查驗與教學。使用者完成金鑰與 secret 後才實作"
           },
           {
             "id": "B3-9",
