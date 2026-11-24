@@ -1,0 +1,21 @@
+{
+  "date_taipei": "2026-11-24",
+  "reviewed_source": "77f2d80d4b2702315b8940bb457955effc549a50",
+  "result": "design ready for review",
+  "keywords": [
+    "B3-7",
+    "CPU 測試通道",
+    "Ed25519",
+    "離線匯入",
+    "版次回滾",
+    "Actions secret"
+  ],
+  "validation": {
+    "linux_openssh_format_probe": "passed",
+    "windows_walkthrough": "not_run",
+    "hosted_windows_integration": "not_run"
+  },
+  "files": {
+    "README.md": "dd3a83044b9d89d41bac86f69bd59f4044104efcc81a9faa98940944569aed4f"
+  }
+}

@@ -1,6 +1,6 @@
 # 現況
 
-更新：2026-11-22（台北）｜程式 0.19.1／架構 0.4
+更新：2026-11-24（台北）｜程式 0.19.1／架構 0.4
 
 開工只需要讀 [AGENTS.md](AGENTS.md) 和這份檔案。測試數、里程碑等數字只記在 [docs/progress.json](docs/progress.json)（[進度頁](docs/progress.html)），這裡不重抄。要追溯過去的做法或失敗，查 [歷史索引](docs/history-index.md)。
 
@@ -10,12 +10,14 @@
 
 | 項目 | 狀態 |
 | --- | --- |
-| `main` | PR 1–59 已合併（B3-3，PR 58，`8b75589`）。B1b 公開開關已關。目前沒有開啟中的 PR。 |
-| 本輪分支 | `claude/progress-sync-b33`：同步進度與 STATUS，新增「每次查驗完同步線上進度」流程規則，只改文件與 Claude 專用說明 |
-| 下一棒 | **Codex（GPT）做 B3-7 設計說明**；B3-2b 待指派 GPT；B3-5（CPU 揭露檔）待 B3-2b；使用者列印掃描 B3b6 測試 PDF |
+| `main` | B3-3（PR 58，`8b75589`）與進度同步（PR 60，`77f2d80`）已合併。B1b 公開開關已關。 |
+| 本輪分支 | `codex/b3-7-cpu-channel-design`：B3-7 設計交 Claude reviewer 查驗。 |
+| 下一棒 | **Claude reviewer 查驗 B3-7 設計，Claude 依設計寫金鑰教學。等使用者回報 secret 設定完成再實作**；B3-2b 待指派 GPT；B3-5（CPU 揭露檔）待 B3-2b；使用者列印掃描 B3b6 測試 PDF |
 | 固定來源 | A13b `b17d51bc99f8402f16b99f98bbe3b3370530bc6c`（base run 44295039865、cpu run 44295044417、Microsoft 探測 run 44300296037） |
 
 ## B. 這個階段完成了什麼
+
+- **B3-7 設計稿**：定義 Ed25519 測試通道、受保護簽署、離線匯入及版次與撤銷政策，補 Windows 金鑰步驟及驗收計畫。[設計說明](docs/development-records/runs/b3-7-cpu-channel-design-2026-11-24/README.md)
 
 - **B3-3**：替換預設關閉。選配元件管理立即儲存同意設定，主程式只在明確啟用時傳入參數。hosted Windows 已證明相同檔名、不同 SHA-256 的 GEOS 可預載。凍結 worker 已通過受管改檔拒絕、替換 OCR、損壞拒絕與移除恢復。[驗收證據](docs/development-records/runs/b3-3-geos-replacement-2026-11-21/README.md)
 
@@ -85,7 +87,7 @@
 | | B3-4 CPU Microsoft 再散布依據（只做證據）：CPython 14.42 vcruntime 對 python.org 官方安裝檔、delvewheel 改名 msvcp140 的依據與 RECORD、兩份 MSVCP 與官方一致沿用；不換 DLL | 完成並合併（PR 55）；B3-4b（PR 56）：兩個根 `vcruntime` 與 python.org 官方 3.12.10 embeddable 包逐位元相同，仍非 Microsoft 直接授權，由使用者在 B3-10 決定 |
 | | B3-5 CPU 揭露檔與揭露規則補強：`known_gaps.py` 支援 cpu、`known-gaps.md` 加 CPU 一節；補一道檢查讓模型授權揭露（決定 A）被 gates 或測試核對（目前 gates 對 `cpu-rapidocr-models` 推導缺口為空，不強制）。排在 B3-1、B3-2 之後 | 待開始（Claude coder） |
 | | B3-6 識別模型更換為官方 PP-OCRv6 small ONNX＋外部字表（`rec_model_path`、`rec_keys_path`）；移除 ONNX 繁中預期失敗並改寫已知缺口與限制文字；Windows 驗收。**須 B3b6 通過並再確認簡中差異、模型卡授權（LICENSE 連結失效）、字表附檔方式、是否排除 v4 rec 後才開工** | 待 B3b6 結果與使用者確認 |
-| | B3-7 CPU 交付通道（B3-D2 方案 1）：程式內固定「測試通道」Ed25519 公鑰與離線匯入信任政策，私鑰由使用者建立並存為 GitHub Actions secret，CI 簽署 CPU 元件目錄；不內建私鑰、不讓使用者輸入金鑰；錯簽、過期、版次倒退、他鑰簽名皆拒絕；hosted Windows 安裝、辨識、移除；改寫 `docs/component-management.md`「未發布正式目錄」敘述。**使用者需依逐步教學建立金鑰與 secret（教學隨 B3-7 設計提供）** | 下一步（GPT）：B3-3 已合併；先提交設計說明（不寫實作），Claude 據此提供逐步教學，使用者建立金鑰與 GitHub secret 後才實作 |
+| | B3-7 CPU 交付通道（B3-D2 方案 1）：程式內固定「測試通道」Ed25519 公鑰與離線匯入信任政策，私鑰由使用者建立並存為 GitHub Actions secret，CI 簽署 CPU 元件目錄；不內建私鑰、不讓使用者輸入金鑰；錯簽、過期、版次倒退、他鑰簽名皆拒絕；hosted Windows 安裝、辨識、移除；改寫 `docs/component-management.md`「未發布正式目錄」敘述。**使用者需依逐步教學建立金鑰與 secret（教學隨 B3-7 設計提供）** | 設計已提交，待 Claude reviewer 查驗與逐步教學。使用者回報已完成金鑰與 GitHub secret 後，另開實作 PR |
 | | B3-9 以內容變更合併後的提交 X 重新固定候選（base 與 cpu 一起）：重綁目錄與登記表 `source_commit`、重新審閱；**必須附 evidence 逐條綁定稽核表**，核對每個非 open 條目與每份目錄引用的證據屬於 X（A13c 陷阱，gates 偵測不到）；揭露檔 hash 與 `known_gaps.py --check` 用 X 的審閱重驗；base 四旗標須維持 | 待開始 |
 | | B3-9b CPU 逐列來源對照（28 個 origin-known 列，比照 A12b／A13c）與 `cpu-archives` 改 evidence_complete | 待開始 |
 | | B3-10 CPU 門檻確認（比照 A13，不寫程式）：cpu-microsoft、cpu-geos、cpu-cpython（libffi）、cpu-wheels（unknown 清單）、cpu-rapidocr-models（含 v6 模型卡授權）、cpu-redistribution-decision 逐條請使用者決定，寫入 D 節並存固定檔；B3-11 依此接線 `decision_source`、`accepted_gaps`、`requires_user_decision` 與狀態（只改登記表與證據，加反例） | 待開始（B3-9 之後） |
@@ -206,4 +208,4 @@
 | 2026-11-22 | 使用者決定 | 開放 `aomedia.googlesource.com`（取得 libaom v3.14.1 的 LICENSE 與 PATENTS）；libyuv 的 PATENTS 不補 |
 | 2026-11-23 | 使用者決定 | Claude 協調者每次 reviewer 複查完成後，要同步更新線上視覺進度頁（`docs/progress.json` 與 `docs/progress.html`）；寫入 CLAUDE.md 流程 |
 
-接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。B3-3 已合併；下一步 Codex 做 B3-7 設計說明，B3-2b 待指派 GPT，B3b6 等使用者交回掃描檔。每次查驗完成要同步線上進度頁。不建 Release／tag。
+接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。B3-3 已合併；B3-7 設計交 Claude reviewer 查驗，使用者完成金鑰與 secret 後再實作，B3-2b 待指派 GPT，B3b6 等使用者交回掃描檔。每次查驗完成要同步線上進度頁。不建 Release／tag。

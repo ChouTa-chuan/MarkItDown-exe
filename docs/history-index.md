@@ -6,10 +6,12 @@
 出錯或需要追溯時：先用日期、主題或關鍵字在下表找到那一筆，再打開它的路徑。
 「來源」是當次受測的提交；「結果」只列該筆清單檔實際記錄的欄位，空白表示沒有記錄，不代表通過。
 
-共 169 筆。
+共 171 筆。
 
 | 日期 | 類型 | 主題 | 來源 | 結果 | 關鍵字 | 路徑 |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-24 | 證據 | B3-7 CPU 測試通道設計 |  |  | B3-7、CPU 測試通道、Ed25519、離線匯入、版次回滾、Actions secret | [development-records/runs/b3-7-cpu-channel-design-2026-11-24/README.md](development-records/runs/b3-7-cpu-channel-design-2026-11-24/README.md) |
+| 2026-11-24 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-24-before-b3-7-design.md](history/status/2026-11-24-before-b3-7-design.md) |
 | 2026-11-23 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-23-before-b33-merged.md](history/status/2026-11-23-before-b33-merged.md) |
 | 2026-11-22 | 現況存檔 | 現況 |  |  |  | [history/status/2026-11-22-before-geos-opt-in.md](history/status/2026-11-22-before-geos-opt-in.md) |
 | 2026-11-21 | 證據 | B3-1 原文補件 I：LibYAML 0.2.5 與 PaddleOCR 授權原文 |  |  |  | [development-records/runs/b3-1-libyaml-paddleocr-notices-2026-11-21/README.md](development-records/runs/b3-1-libyaml-paddleocr-notices-2026-11-21/README.md) |
