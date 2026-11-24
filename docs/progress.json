@@ -2928,7 +2928,7 @@
             "id": "B3-7",
             "title": "CPU 交付通道（測試通道簽章）",
             "status": "next",
-            "note": "B3-3 已合併；GPT 先提交設計說明（金鑰格式、secret 名稱、簽章目錄格式），Claude 據此提供逐步教學，使用者建立金鑰與 secret 後才實作"
+            "note": "GPT 設計已提交（PR 61），reviewer 查驗有 3 項必須修正（ZIP 實機交付路徑、簽署 job 與建置隔離、教學剪貼簿步驟）待 GPT 修正，之後 Claude 寫逐步教學，使用者建立金鑰與 secret 後才實作"
           },
           {
             "id": "B3-9",
