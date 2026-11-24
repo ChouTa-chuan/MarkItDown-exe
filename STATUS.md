@@ -76,7 +76,7 @@
 | | B3b5 CPU：以官方 ONNX 重跑評估（含不裁切畫布的旋轉條件） | 完成（PR 50）：官方與轉檔版逐字相同；v6 簡中整體不輸 v4、三條件多 6 個編輯；v5 排除；官方檔無內嵌字表，打包需外部字表 |
 | | B3c CPU：Shapely／GEOS（LGPL）與 CPU wheel 內含元件（沿用 A9 格式），CPU Microsoft 6 檔（沿用 A10）；LGPL 做法需使用者確認（原 A16） | 完成並合併（PR 47）。使用者決定：GEOS 設計受支援替換路徑（受管雜湊目前阻擋直接替換）；CPU Microsoft 維持現狀並另存 CPython 與 wheel 各自的再散布依據 |
 | | B3d CPU：查明 setuptools、pip、pyinstaller 等建置工具是否真的進了 worker；若要排除屬打包變更，需使用者同意（原 A17） | 完成並合併（PR 52）：只有授權與 metadata，沒有可匯入的建置工具模組；PyInstaller 啟動器必需；不排除（約 0.2%），B3-D5 決定不處理 |
-| | **B3b6 真實掃描複驗**（使用者 2026-11-21 決定換 v6 前先做）：Claude coder 產生可列印測試 PDF（沿用 B3b2 的 9 段虛構文字，繁中、簡中、英文各內文、表格、含小字標題），使用者列印並以掃描機或手機掃描後交回；以現行 v4 與官方 v6 各辨識一次比較，結論如實寫（真實掃描、小樣本）。通過並確認簡中差異後才做 B3-6 | 第一步完成並合併（PR 54）：列印 PDF 與使用者說明已交給使用者；**等使用者列印掃描後交回影像**，再以 v4 與官方 v6 評估，通過並確認簡中差異後才做 B3-6 |
+| | **B3b6 真實掃描複驗**（使用者 2026-11-21 決定換 v6 前先做）：Claude coder 產生可列印測試 PDF（沿用 B3b2 的 9 段虛構文字，繁中、簡中、英文各內文、表格、含小字標題），使用者列印並以掃描機或手機掃描後交回；以現行 v4 與官方 v6 各辨識一次比較，結論如實寫（真實掃描、小樣本）。通過並確認簡中差異後才做 B3-6 | 第一步完成並合併（PR 54）：列印 PDF 與使用者說明已交給使用者；**等使用者列印掃描後交回影像**，再以 v4 與官方 v6 評估，通過並確認簡中差異後才做 B3-6；2026-11-24 使用者另交一份真實掃描（繁中，答案檔不完整）初測 v6 較佳（LCS 召回 58.5% 對 51.3%，僅供參考、未入 repo），並決定直接採用 v6（見 D 節） |
 | | **B3 CPU 元件重新定版**（planner 2026-11-21 計畫，詳細驗收條件見該次回報；順序：決定 → 內容變更 → 一次重定 X → 逐列來源對照 → CPU 門檻確認 → 接線 → 產出 → 公開並關回）。**內容變更 PR 全部合併後才做 B3-9 重定，重定後不再改授權樹。** | 進行中 |
 | | B3-0 決定收集與存檔：D 節新增 2026-11-21 決定並存固定檔 [`2026-11-21-b3-decisions.md`](docs/history/status/2026-11-21-b3-decisions.md)；修正 A 節 | 完成（PR 53） |
 | | B3-1 原文補件 I：LibYAML 0.2.5 與 PaddleOCR 授權原文（比照 A9b：supplemental 原文、`sources.json` 固定上游來源、綁定 PyYAML；PaddleOCR 綁定方式由 coder 先提方案）；base 也會改到，使用者已同意（B3-D3）| 完成並合併（PR 57） |
@@ -84,7 +84,7 @@
 | | B3-3 GEOS 受支援替換路徑（B3-D4 選 (a)）：受管目錄之外放使用者替換目錄，worker 在匯入 shapely 前以完整路徑預先載入；不放寬受管完整性檢查；標示「使用者替換、未驗證」；hosted Windows 驗收（可辨識、覆蓋受管 DLL 被拒、放入不同 bytes 但相容的 GEOS 能運作、損壞時清楚失敗），標明非實體機；先做可行性實驗，失敗回報使用者 | 完成並合併（PR 58）：預設關閉，使用者在設定勾選才載入；hosted Windows 驗收通過（非實體機）；Claude reviewer 查驗無必須修正。風險與限制見 `geos-lgpl-notice.md` |
 | | B3-4 CPU Microsoft 再散布依據（只做證據）：CPython 14.42 vcruntime 對 python.org 官方安裝檔、delvewheel 改名 msvcp140 的依據與 RECORD、兩份 MSVCP 與官方一致沿用；不換 DLL | 完成並合併（PR 55）；B3-4b（PR 56）：兩個根 `vcruntime` 與 python.org 官方 3.12.10 embeddable 包逐位元相同，仍非 Microsoft 直接授權，由使用者在 B3-10 決定 |
 | | B3-5 CPU 揭露檔與揭露規則補強：`known_gaps.py` 支援 cpu、`known-gaps.md` 加 CPU 一節；補一道檢查讓模型授權揭露（決定 A）被 gates 或測試核對（目前 gates 對 `cpu-rapidocr-models` 推導缺口為空，不強制）。排在 B3-1、B3-2 之後 | 待開始（Claude coder） |
-| | B3-6 識別模型更換為官方 PP-OCRv6 small ONNX＋外部字表（`rec_model_path`、`rec_keys_path`）；移除 ONNX 繁中預期失敗並改寫已知缺口與限制文字；Windows 驗收。**須 B3b6 通過並再確認簡中差異、模型卡授權（LICENSE 連結失效）、字表附檔方式、是否排除 v4 rec 後才開工** | 待 B3b6 結果與使用者確認 |
+| | B3-6 識別模型更換為官方 PP-OCRv6 small ONNX＋外部字表（`rec_model_path`、`rec_keys_path`）；移除 ONNX 繁中預期失敗並改寫已知缺口與限制文字；Windows 驗收。**須 B3b6 通過並再確認簡中差異、模型卡授權（LICENSE 連結失效）、字表附檔方式、是否排除 v4 rec 後才開工** | 使用者 2026-11-24 已決定採用 v6；模型卡授權、字表附檔方式、是否排除 v4 rec 於開工前仍須確認 |
 | | B3-7 CPU 交付通道（B3-D2 方案 1）：程式內固定「測試通道」Ed25519 公鑰與離線匯入信任政策，私鑰由使用者建立並存為 GitHub Actions secret，CI 簽署 CPU 元件目錄；不內建私鑰、不讓使用者輸入金鑰；錯簽、過期、版次倒退、他鑰簽名皆拒絕；hosted Windows 安裝、辨識、移除；改寫 `docs/component-management.md`「未發布正式目錄」敘述。**使用者需依逐步教學建立金鑰與 secret（教學隨 B3-7 設計提供）** | 下一步（GPT）：B3-3 已合併；先提交設計說明（不寫實作），Claude 據此提供逐步教學，使用者建立金鑰與 GitHub secret 後才實作 |
 | | B3-9 以內容變更合併後的提交 X 重新固定候選（base 與 cpu 一起）：重綁目錄與登記表 `source_commit`、重新審閱；**必須附 evidence 逐條綁定稽核表**，核對每個非 open 條目與每份目錄引用的證據屬於 X（A13c 陷阱，gates 偵測不到）；揭露檔 hash 與 `known_gaps.py --check` 用 X 的審閱重驗；base 四旗標須維持 | 待開始 |
 | | B3-9b CPU 逐列來源對照（28 個 origin-known 列，比照 A12b／A13c）與 `cpu-archives` 改 evidence_complete | 待開始 |
@@ -205,5 +205,6 @@
 | 2026-11-21 | 使用者決定 | B3-2 拆開：B3-2a（Pillow、pyclipper 原文）交 Claude coder，B3-2b（OpenCV zlib／libpng、onnxruntime、NumPy 查證，需 Windows 觀測）交 Codex（GPT） |
 | 2026-11-22 | 使用者決定 | 開放 `aomedia.googlesource.com`（取得 libaom v3.14.1 的 LICENSE 與 PATENTS）；libyuv 的 PATENTS 不補 |
 | 2026-11-23 | 使用者決定 | Claude 協調者每次 reviewer 複查完成後，要同步更新線上視覺進度頁（`docs/progress.json` 與 `docs/progress.html`）；寫入 CLAUDE.md 流程 |
+| 2026-11-24 | 使用者決定 | 之後直接採用 v6（官方 small）（使用者初測一份真實繁中掃描後的指示；模型卡授權、字表附檔方式、是否排除 v4 rec 仍於 B3-6 開工前確認） |
 
 接手先列 PR，再讀最新分支的 AGENTS.md 與 STATUS.md。B3-3 已合併；下一步 Codex 做 B3-7 設計說明，B3-2b 待指派 GPT，B3b6 等使用者交回掃描檔。每次查驗完成要同步線上進度頁。不建 Release／tag。
