@@ -75,6 +75,16 @@ WORKER_NOTICE_PINS = {
         'pyclipper', '1.4.0', '2a2d7b4ef4dd2764ee10701dd84741876680af346570dd8fac922795eb9ddf91',
         'https://raw.githubusercontent.com/boostorg/boost/1bed2b0712b2119f20d66c5053def9173c8462a5/LICENSE_1_0.txt',
         'c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566', 1338),
+    # B3-2b：OpenCV 5.0.0.93 的 cv2.pyd 靜態編入 zlib 1.3.2 與 libpng 1.6.57（Windows）；wheel 原文只標示 Linux／macOS 段落。
+    # 版本依據：hosted Windows run 44755140396 以 cv2.getBuildInformation() 觀測（同一 cv2.pyd sha256）。
+    'opencv-zlib': WorkerNoticePin(
+        'opencv-python', '5.0.0.93', '20749df4e7500c53075dee344cd02f63d4df0dce93526e49e7e1c90fbc094e3e',
+        'https://raw.githubusercontent.com/madler/zlib/da607da739fa6047df13e66a2af6b8bec7c2a498/LICENSE',
+        'e32ff4e00d9d94930537635291da39e7e612703334bf6fde8c7f1686fe8a45a2', 1002),
+    'opencv-libpng': WorkerNoticePin(
+        'opencv-python', '5.0.0.93', '20749df4e7500c53075dee344cd02f63d4df0dce93526e49e7e1c90fbc094e3e',
+        'https://raw.githubusercontent.com/pnggroup/libpng/95ab3fdca83ea294efd3b092e9a53c5a39886444/LICENSE',
+        'bdb0a645ea18c60507d0368379b1ac5474b92255fcc2d115e07486a7672ba526', 5345),
 }
 
 

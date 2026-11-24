@@ -26,7 +26,7 @@ PROJECT = Path(__file__).resolve().parents[1]
 WINDOWS_LICENSES = PROJECT/'src/desktop_app/data/licenses/windows'
 # 安裝套件（擁有者）與版本；原文由 WORKER_NOTICE_PINS 的擁有者綁入，PaddleOCR、LibYAML 不是獨立安裝套件。
 NOTICE_PACKAGES = {'flatbuffers': '25.12.19', 'rapidocr-onnxruntime': '1.4.4', 'pyyaml': '6.0.3',
-                   'pillow': '13.0.0', 'pyclipper': '1.4.0'}
+                   'pillow': '13.0.0', 'pyclipper': '1.4.0', 'opencv-python': '5.0.0.93'}
 
 
 class ProvenanceTests(unittest.TestCase):
@@ -134,6 +134,18 @@ class ProvenanceTests(unittest.TestCase):
                                  (record['owner'], record['owner_version'], record['url'], record['sha256'], record['bytes']))
                 self.assertEqual(sha256(WINDOWS_LICENSES/'supplemental'/f'{key}.txt'), pin.sha256)
 
+    def test_b3_2b_pins_match_the_recorded_evidence_manifest(self):
+        # B3-2b 的 OpenCV（zlib 1.3.2、libpng 1.6.57）原文必須與證據清單的 owner、URL、雜湊與大小一致。
+        evidence = json.loads((PROJECT/'docs/development-records/runs/b3-2b-opencv-onnxruntime-numpy-notices-2026-11-23'
+                               /'manifest.json').read_text(encoding='utf-8'))
+        for key in ('opencv-zlib', 'opencv-libpng'):
+            with self.subTest(original=key):
+                pin = WORKER_NOTICE_PINS[key]
+                record = evidence['originals'][key]
+                self.assertEqual((pin.owner, pin.version, pin.url, pin.sha256, pin.size),
+                                 (record['owner'], record['owner_version'], record['url'], record['sha256'], record['bytes']))
+                self.assertEqual(sha256(WINDOWS_LICENSES/'supplemental'/f'{key}.txt'), pin.sha256)
+
     def test_prepared_worker_reuses_original_paths_and_records_package_owners(self):
         from importlib.metadata import PathDistribution
 
@@ -207,6 +219,11 @@ class ProvenanceTests(unittest.TestCase):
             # 續：libaom LICENSE／PATENTS 綁 Pillow；錯綁到 pyclipper、PATENTS 來源 URL 被改都必須拒絕。
             'libaom-on-pyclipper': ('Invalid worker notice binding: libaom', 'manifest-move-libaom'),
             'libaom-patents-source-url': ('Worker notice source mismatch: libaom-PATENTS', 'sources-libaom-patents'),
+            # B3-2b：OpenCV 的 zlib、libpng 原文綁 opencv-python；錯綁到 pillow、額外擁有者、來源 URL 被改都必須拒絕。
+            'opencv-zlib-on-pillow': ('Invalid worker notice binding: opencv-zlib', 'manifest-move-opencv-zlib'),
+            'opencv-libpng-extra-owner': ('Invalid worker notice binding: opencv-libpng', 'manifest-extra-opencv-libpng'),
+            'opencv-zlib-extra-inventory-owner': ('Worker notice source mismatch: opencv-zlib', 'inventory-extra-opencv-zlib'),
+            'opencv-libpng-source-url': ('Worker notice source mismatch: opencv-libpng', 'sources-opencv-libpng'),
         }
         for case, (message, kind) in cases.items():
             with self.subTest(case=case):
@@ -233,6 +250,23 @@ class ProvenanceTests(unittest.TestCase):
                 elif kind == 'manifest-move-libaom':
                     rows['pillow']['notice_files'].remove('licenses/windows/supplemental/libaom.txt')
                     rows['pyclipper']['notice_files'].append('licenses/windows/supplemental/libaom.txt')
+                elif kind == 'manifest-move-opencv-zlib':
+                    rows['opencv-python']['notice_files'].remove('licenses/windows/supplemental/opencv-zlib.txt')
+                    rows['pillow']['notice_files'].append('licenses/windows/supplemental/opencv-zlib.txt')
+                elif kind == 'manifest-extra-opencv-libpng':
+                    rows['pyclipper']['notice_files'].append('licenses/windows/supplemental/opencv-libpng.txt')
+                elif kind == 'inventory-extra-opencv-zlib':
+                    inventory = json.loads(pristine[inventory_path].decode('utf-8'))
+                    target = next(row for row in inventory['packages'] if row['name'] == 'pillow')
+                    target['supplemental_sources'].append(dict(next(
+                        row for row in inventory['packages'] if row['name'] == 'opencv-python')['supplemental_sources'][0]))
+                    self.save(inventory_path, inventory)
+                elif kind == 'sources-opencv-libpng':
+                    sources = json.loads(pristine[sources_path].decode('utf-8'))
+                    next(row for row in sources if row['name'] == 'opencv-libpng')['url'] = (
+                        'https://raw.githubusercontent.com/pnggroup/libpng/'
+                        '0000000000000000000000000000000000000000/LICENSE')
+                    self.save(sources_path, sources)
                 elif kind == 'sources-libaom-patents':
                     sources = json.loads(pristine[sources_path].decode('utf-8'))
                     next(row for row in sources if row['name'] == 'libaom-PATENTS')['url'] = (

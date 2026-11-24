@@ -16,10 +16,12 @@ LICENSES=PROJECT/'src/desktop_app/data/licenses'
 # 原文名稱不等於套件名時的固定綁定：LibYAML 內嵌於 PyYAML 的 .pyd，PaddleOCR 授權涵蓋 rapidocr 內的 PP-OCR 模型。
 # B3-2a：dav1d（靜態併入 Pillow 的 _avif，經 libavif LOCAL 建置）與 Raqm（Pillow 內附 src/thirdparty/raqm 編入 _imagingft）歸 pillow；
 # Clipper 標頭與 BSL-1.0 原文歸 pyclipper（Clipper 編入 _pyclipper）。
+# B3-2b：OpenCV 5.0.0.93 的 cv2.pyd 靜態編入 zlib 1.3.2 與 libpng 1.6.57，原文歸 opencv-python。
 # 每份原文只能掛在一個擁有者列；generate 與 verify 都依此表核對，避免只靠檔名推斷。
 SUPPLEMENT_OWNERS={'libyaml':'pyyaml','paddleocr':'rapidocr-onnxruntime',
                    'dav1d':'pillow','raqm':'pillow','libaom':'pillow','libaom-PATENTS':'pillow',
-                   'clipper-header':'pyclipper','bsl-1.0':'pyclipper'}
+                   'clipper-header':'pyclipper','bsl-1.0':'pyclipper',
+                   'opencv-zlib':'opencv-python','opencv-libpng':'opencv-python'}
 
 
 def sha(data):

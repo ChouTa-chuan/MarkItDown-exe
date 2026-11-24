@@ -1299,11 +1299,11 @@
   "full_regression": {
     "source_version": "0.19.1",
     "architecture_version": "0.4",
-    "source_commit": "298f3a8be4c08d740c9b1fac6ccb41cd2935456e",
-    "date_taipei": "2026-11-22",
+    "source_commit": "05cac08a377182b9abb1961594ec8231850006e9",
+    "date_taipei": "2026-11-23",
     "accepted": true,
-    "run": 999,
-    "passed": 998,
+    "run": 1000,
+    "passed": 999,
     "failed": 0,
     "errors": 0,
     "skipped": 0,
@@ -1322,8 +1322,8 @@
     "traditional_chinese_onnx_quality_passed": false,
     "clean_machine_accepted": false,
     "release_ready": false,
-    "evidence": "development-records/runs/b3-3-geos-replacement-2026-11-21/README.md",
-    "note": "與含 B3-2a 的 main 合併，再加入 GEOS 明確啟用與載入拒絕測試後的完整混合及逐模組回歸。"
+    "evidence": "development-records/runs/b3-2b-opencv-onnxruntime-numpy-notices-2026-11-23/README.md",
+    "note": "以 77f2d80（含 B3-3）為基底，加入 B3-2b 未提交變更（OpenCV zlib／libpng 原文、雜湊同步、新增 pin 測試）後的完整混合與逐模組回歸；提交後 source_commit 以實際提交為準。"
   },
   "tests_failed": 0,
   "tests_skipped": 0,
@@ -2895,7 +2895,7 @@
             "id": "B3-2",
             "title": "原文補件 II：Pillow、OpenCV、pyclipper",
             "status": "active",
-            "note": "B3-2a（Pillow、pyclipper）已合併：libaom、dav1d、Raqm、Clipper、BSL-1.0 原文補入，libyuv PATENTS 不補，FriBiDi 未編入。B3-2b（OpenCV、onnxruntime、NumPy 查證）待 GPT",
+            "note": "B3-2a（Pillow、pyclipper）已合併：libaom、dav1d、Raqm、Clipper、BSL-1.0 原文補入，libyuv PATENTS 不補，FriBiDi 未編入。B3-2b 完成（reviewer 無必須修正）：OpenCV zlib、libpng 原文補入；ITT 授權選擇、Orbbec、onnxruntime 逐成員比對待使用者決定或 Windows 觀測；NumPy 無缺口",
             "pr": 59
           },
           {

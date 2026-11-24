@@ -13,7 +13,7 @@
   },
   "inventory": {
     "path": "src/desktop_app/data/licenses/windows/inventory.json",
-    "sha256": "c479b78be51bdcd3b0cd00d6f945e15653c2d65fd12ee824dd78b03cafead50f"
+    "sha256": "40cfea354ed982dcb51833e789d0fec73e34dcc8648eced951114f26cbc4f5e6"
   },
   "wheels": [
     {
